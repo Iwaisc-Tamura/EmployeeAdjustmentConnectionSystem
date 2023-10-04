@@ -1,0 +1,184 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+using SkillDiscriminantSystem.COM.Util.Database;
+using SkillDiscriminantSystem.COM.Entity.Session;
+using SkillDiscriminantSystem.COM.Models;
+using SkillDiscriminantSystem.COM.Util.Convert;
+using SkillDiscriminantSystem.COM.Util.Encrypt;
+using SkillDiscriminantSystem.COM.Enum;
+
+namespace SkillDiscriminantSystem.BL.Login {
+
+    /// <summary>
+    /// ログイン用ビジネスロジック
+    /// </summary>
+    public class LoginBL {
+        #region メンバ変数
+        /// <summary>
+        /// ロガー
+        /// </summary>
+        private static NLog.Logger nlog = NLog.LogManager.GetCurrentClassLogger();
+
+        #endregion
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public LoginBL() {
+        }
+
+        /// <summary>
+        /// ログイン処理
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public bool Login(string uid, string password, LoginViewModelSd vm) {
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+                var sql = "select"
+                        + "  sms.社員番号"
+                        + " ,sms.システム管理アクセス権"
+                        + " ,svs.氏名"
+                        + " ,svs.DB区分"
+                        + " ,svs.資格番号"
+                        + " ,svs.所属番号"
+                        + " ,svs.役職番号"
+                        + " ,tms.所属名称"
+                        // 2017-03-31 sbc-sagara add str 支社管理機能の追加
+                        + " ,smk.SYS管理MENU,smk.SYS管理初期処理,smk.SYS管理確定処理"
+	                    + " ,smk.SYS管理USER追加,smk.SYS管理PASS確認,smk.SYS管理PASSRESET"
+                        + " ,smk.SYS管理連絡事項,smk.目標検索対象,smk.目標DATA出力"
+                        + " ,smk.職能検索対象,smk.職能DATA出力,smk.職能一括入力"
+                        + " ,smk.職能集計表MENU,smk.職能集計表検索対象,smk.職能判定除外"
+                        + " ,smk.決裁権限検索対象,smk.決裁権限登録制限"
+                        // 2017-03-31 sbc-sagara add end 支社管理機能の追加
+                        + "  from SD_Mシステムユーザー sms "
+                        + " inner join "
+                        //2016-05-26 iwai-tamura upd str -----
+                        + "    (select "
+                        + "        CASE "
+                        + "            WHEN 身分ｺｰﾄﾞ < '20' THEN 'H'"
+                        + "            ELSE 'S'"
+                        + "        END DB区分"
+                        + "      ,t1.氏名"
+                        + "      ,t1.社員番号"
+                        + "      ,t1.資格番号"
+                        + "      ,t1.所属番号"
+                        + "      ,t1.役職番号"
+                        + "    from SD_VT人事Data基本情報 t1"
+                        + "    ) svs"
+
+                        //    + "    (select "
+                        //    + "       t1.DB区分"
+                        //    + "      ,t1.年度"
+                        //    + "      ,t1.期区分"
+                        //    + "      ,t1.氏名"
+                        //    + "      ,t1.社員番号"
+                        //    + "      ,t1.資格番号"
+                        //    + "      ,t1.所属番号"
+                        //    + "      ,t1.役職番号"
+                        //    + "       from SD_VT901社員固定情報 t1"
+                        ////+ "       left join SD_M期間管理 t2"
+                        ////+ "         on t1.年度 = t2.年度"
+                        ////+ "      where t2.期区分 = '0'"
+                        ////+ "        and t1.期区分 = (select max(期区分)"
+                        ////+ "                          from SD_VT901社員固定情報 as t3"
+                        ////+ "                         where t3.年度 = t2.年度"
+                        ////+ "                           and t3.社員番号 = t1.社員番号)) svs"
+                        //    + "        where t1.TBL区分 ='G' ) svs"
+                        //2016-05-26 iwai-tamura upd end -----
+                        + "    on sms.社員番号 = svs.社員番号"
+                        + "  left join TM911所属Master tms"
+                        + "    on svs.所属番号 = tms.所属番号"
+                        // 2017-03-31 sbc-sagara add str 支社管理機能の追加
+                        + "  left join TM990入力担当者 tmn on sms.社員番号 = tmn.入力担当社員番号"
+                        + "  left join SD_M管理区分権限Master smk on tmn.管理区分 = smk.管理区分"
+                        // 2017-03-31 sbc-sagara add end 支社管理機能の追加
+                        + " where sms.社員番号 = @EmployeeNo and パスワード = @Password";
+                //sql += string.Format(" where sms.社員番号 ='{0}' and パスワード ='{1}'", uid, password);
+                using(DbManager dm = new DbManager())
+                using(IDbCommand cmd = dm.CreateCommand(sql))
+                using(DataSet ds = new DataSet()) {
+                    DbHelper.AddDbParameter(cmd, "@EmployeeNo", DbType.String);
+                    DbHelper.AddDbParameter(cmd, "@Password", DbType.String);
+                    ((IDbDataParameter)cmd.Parameters[0]).Value = uid;
+                    ((IDbDataParameter)cmd.Parameters[1]).Value = DataConv.IfNull(EncryptUtil.EncryptString(password));
+                    IDataAdapter da = dm.CreateSqlDataAdapter(cmd);
+
+                    // データセットに設定する
+                    da.Fill(ds);
+
+                    StringBuilder sb = new StringBuilder();
+                    foreach(DataRow row in ds.Tables[0].Rows) {
+                        LoginUser luser = new LoginUser {
+                            //2016-10-06 iwai-tamura upd str -----
+                            UserCode = KanaEx.ToHankaku(uid.ToUpper()),     //全角を半角、小文字を大文字に変換
+                            //UserCode = uid,
+                            //2016-10-06 iwai-tamura upd end -----
+                            UserName = row["氏名"].ToString(),
+                            DbArea = row["DB区分"].ToString(),
+                            IsRoot = row["システム管理アクセス権"].ToString() == "0" ? false : true,
+                            IsRootUser = row["システム管理アクセス権"].ToString() == "1" ? true : false,
+                            CompetencyNo = row["資格番号"].ToString(),
+                            Permission = (Permissions)Enum.Parse(typeof(Permissions), row["システム管理アクセス権"].ToString()),
+                            DepartmentNo = row["所属番号"].ToString(),
+                            DepartmentName = row["所属名称"].ToString(),
+                            PostNo = row["役職番号"].ToString(),
+                            //2016-01-21 iwai-tamura add str -----
+                            //役職番号600未満を管理職とする
+                            IsPost = DataConv.IntParse(row["役職番号"].ToString()) < 600 ? true : false,
+                            //2016-01-21 iwai-tamura add end -----
+
+                            // 2017-03-31 sbc-sagara add str 支社管理機能の追加
+                            SYS管理MENU = String.IsNullOrEmpty(row["SYS管理MENU"].ToString()) ? "0" : row["SYS管理MENU"].ToString(),
+                            SYS管理初期処理 = String.IsNullOrEmpty(row["SYS管理初期処理"].ToString()) ? "0" : row["SYS管理初期処理"].ToString(),
+                            SYS管理確定処理 = String.IsNullOrEmpty(row["SYS管理確定処理"].ToString()) ? "0" : row["SYS管理確定処理"].ToString(),
+                            SYS管理USER追加 = String.IsNullOrEmpty(row["SYS管理USER追加"].ToString()) ? "0" : row["SYS管理USER追加"].ToString(),
+                            SYS管理PASS確認 = String.IsNullOrEmpty(row["SYS管理PASS確認"].ToString()) ? "0" : row["SYS管理PASS確認"].ToString(),
+                            SYS管理PASSRESET = String.IsNullOrEmpty(row["SYS管理PASSRESET"].ToString()) ? "0" : row["SYS管理PASSRESET"].ToString(),
+                            SYS管理連絡事項 = String.IsNullOrEmpty(row["SYS管理連絡事項"].ToString()) ? "0" : row["SYS管理連絡事項"].ToString(),
+                            目標検索対象 = String.IsNullOrEmpty(row["目標検索対象"].ToString()) ? "0" : row["目標検索対象"].ToString(),
+                            目標DATA出力 = String.IsNullOrEmpty(row["目標DATA出力"].ToString()) ? "0" : row["目標DATA出力"].ToString(),
+                            職能検索対象 = String.IsNullOrEmpty(row["職能検索対象"].ToString()) ? "0" : row["職能検索対象"].ToString(),
+                            職能DATA出力 = String.IsNullOrEmpty(row["職能DATA出力"].ToString()) ? "0" : row["職能DATA出力"].ToString(),
+                            職能一括入力 = String.IsNullOrEmpty(row["職能一括入力"].ToString()) ? "0" : row["職能一括入力"].ToString(),
+                            職能集計表MENU = String.IsNullOrEmpty(row["職能集計表MENU"].ToString()) ? "0" : row["職能集計表MENU"].ToString(),
+                            職能集計表検索対象 = String.IsNullOrEmpty(row["職能集計表検索対象"].ToString()) ? "0" : row["職能集計表検索対象"].ToString(),
+                            職能判定除外 = String.IsNullOrEmpty(row["職能判定除外"].ToString()) ? "0" : row["職能判定除外"].ToString(),
+                            決裁権限検索対象 = String.IsNullOrEmpty(row["決裁権限検索対象"].ToString()) ? "0" : row["決裁権限検索対象"].ToString(),
+                            決裁権限登録制限 = String.IsNullOrEmpty(row["決裁権限登録制限"].ToString()) ? "0" : row["決裁権限登録制限"].ToString(),
+                            // 2017-03-31 sbc-sagara add end 支社管理機能の追加
+                        };
+                        //ログイン状態
+                        HttpContext.Current.Session["IsLogin"] = true;
+                        HttpContext.Current.Session["LoginUser"] = luser;
+                        return true;
+                    }
+                }
+                return false;
+            } catch(Exception ex) {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            } finally {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
+        /// ログイン状態か判定
+        /// </summary>
+        /// <returns>判定結果</returns>
+        public bool IsLogin() {
+            return HttpContext.Current.Session["LoginUser"] == null ? false : true;
+        }
+    }
+}

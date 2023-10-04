@@ -1,0 +1,104 @@
+﻿@using EmployeeAdjustmentConnectionSystem.COM.Entity.Session
+@using EmployeeAdjustmentConnectionSystem.COM.Models
+@model TopViewModel
+@{
+    ViewBag.Title = "社員等WEB年末調整申告システム";
+}
+
+<!--お知らせ-->
+<div class="col-xs-12 top10">
+  <div class="well-ex">
+    <div class="well-ex-header">
+      <h4>お知らせ</h4>
+    </div>
+    <div class="well-ex-content min-ht-200" style =" font-size: 12px;color:red;">@Html.Raw(Html.Encode(Html.DisplayFor(m => m.Announcement)).Replace("\n", "<br />"))</div>
+  </div>
+</div>
+
+
+<!--メニューボタン-->
+@using(Html.BeginForm("Link", "Top", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
+    <div class="col-xs-6" style="margin-left: 25%;margin-top:10pt">
+        @if (((LoginUser)Session["LoginUser"]).IsRoot) {
+            <div class="row form-inline">
+                <label style="font-size:14px;vertical-align: middle;">　[管理者用]　指定社員番号：</label><input class="form-control" type="text" name="specifyEmployeeNo" /><br /><br />
+            </div>
+        }
+
+	    <div class="well-ex-header"  style="background-color: #DEF5E5;">
+	        <h4 align="center">社員等WEB年末調整申告システム</h4>
+	    </div>
+        <div class="well-ex-content" style="border-color : #DEF5E5;">
+
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="HuyouDeclareRegister">扶養控除等申告書</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="HokenDeclareRegister">保険料控除申告書</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="HaiguuDeclareRegister">基礎控除申告書</button>
+                </div>
+            </div>
+            @*2023-99-99 iwai-tamura test-str ------*@
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10">
+                    <button class="btn-default btn-lg btn-block" name="Transition2" value="HaiguuDeclareReport">基礎控除申告書印刷</button>
+                </div>
+            </div>
+            @*2023-99-99 iwai-tamura test-end ------*@
+
+            @*2023-99-99 iwai-terao test-str ------*@
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10">
+                    <button class="btn-default btn-lg btn-block" name="Transition3" value="HuyouDeclareRegister">扶養控除申告書印刷</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10">
+                    <button class="btn-default btn-lg btn-block" name="Transition4" value="HokenDeclareRegister">保険料控除申告書印刷</button>
+                </div>
+            </div>
+            @*2023-99-99 iwai-tamura test-end ------*@
+        </div>
+    </div>
+
+    @*<div class="col-xs-6" style="margin-left: 25%;margin-top:10pt">
+        <div class="well-ex-content">
+        	<div style="margin-bottom: 15px;">
+		    	@if(((LoginUser)Session["LoginUser"]).SYS管理MENU == "1") {
+	              <div class="row">
+		        	<div class="col-xs-8 col-xs-offset-2 top10">
+	             	    <button class="btn-default btn-lg btn-block" name="Transition" value="SystemManagement">システム管理</button>
+	            	</div>
+	              </div>
+		        }
+		        	<div class="row">
+		                	<div class="col-xs-8 col-xs-offset-2 top10">
+		                 	<button class="btn-default btn-lg btn-block" name="Transition" value="ChangePassword">パスワード変更</button>
+		                	</div>
+		        	</div>
+	          <div class="row">
+	        	<div class="col-xs-8 col-xs-offset-2 top10">
+	         	    <button type="button" class="btn-default btn-lg btn-block" name="DmyTransition" value="Login" id="dmylogin">ログアウト</button>
+	        	</div>
+	          </div>
+	        </div>
+        </div>
+    </div>*@
+
+    <div style="height:0px;">
+        <button type="submit" name="Transition" id="loginbutton" value="Login" class="btn invisible">ログアウト</button>
+    </div>
+
+  @Scripts.Render("~/Scripts/js/top")
+
+}

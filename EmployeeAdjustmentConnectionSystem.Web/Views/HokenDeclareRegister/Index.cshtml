@@ -1,0 +1,1786 @@
+﻿@using EmployeeAdjustmentConnectionSystem.COM.Util.Convert
+@using EmployeeAdjustmentConnectionSystem.COM.Enum
+@using EmployeeAdjustmentConnectionSystem.COM.Models
+@model HokenDeclareRegisterViewModels
+@{
+    ViewBag.Title = "保険料控除申告書";
+}
+
+<!--ページ内リンク-->
+<style>
+    a.btn-link {
+        color: #000;
+        background: #DEF5E5;
+    }
+
+        a.btn-link:hover {
+            color: #ccc;
+            background: #DEF5E5;
+        }
+</style>
+
+<div id="title" style="height:0px;"></div>
+<div class="row" style="background: #DEF5E5;
+    top:51px;
+    position: fixed;
+    width: 100%;
+    height:20px;
+    z-index:9999;
+    margin-left: -50%;
+    ">
+</div>
+<div class="row no_print" style="background: #DEF5E5;
+    color:#000;
+    top:51px;
+    padding: 0px;
+    position: fixed;
+    width: 100%;
+    height:20px;
+    z-index:10000;
+    font-size:14px;">
+    【ページ内移動】 <a href="#" class="btn-link">Top</a>
+    <a href="#" class="btn-link">本人情報</a>
+    <span>　<a href="#linkHoken1" class="btn-link">一般の生命保険料</a>　<a href="#linkHoken2" class="btn-link">介護医療保険料</a>　<a href="#linkHoken3" class="btn-link">個人年金保険料</a>　<a href="#linkHoken4" class="btn-link">地震保険料控除</a>　<a href="#linkHoken5" class="btn-link">社会保険料控除</a>　<a href="#linkHoken6" class="btn-link">小規模企業共済等掛金控除</a></span>
+
+</div>
+
+@Styles.Render("~/Content/css/hoken")
+
+<!--タイトル-->
+@using (Html.BeginForm("Index", "HokenDeclareRegister", null, FormMethod.Post, new { @class = "form-horizontal" })) {
+    var strTitle = "";
+    if (Model.Head.InputMode == ajustMode.SelfConfim) {
+        strTitle = "  [本社受理済み]";
+    }
+    if (Model.Head.InputMode == ajustMode.adminConfim) {
+        if (Model.Head.DecisionType == "9") {
+            strTitle = "  [確定済]";
+        } else if (Model.Head.ApprovalType == "0") {
+            strTitle = "  [本人未提出]";
+        }
+    }
+    <br><br>
+    <h3 class="text-left">
+        @Html.DisplayFor(m => m.Head.SheetYear) 年度　保険料控除申告書 @strTitle
+    </h3>
+
+    @Html.HiddenFor(m => m.Head.ManageNo)
+    @Html.HiddenFor(m => m.Head.SheetYear)
+    @Html.HiddenFor(m => m.Head.EmployeeNo)
+    @Html.HiddenFor(m => m.Head.ApprovalType)
+    @Html.HiddenFor(m => m.Head.DecisionType)
+    @Html.HiddenFor(m => m.Head.InputMode)
+    @Html.HiddenFor(m => m.Head.AuthButton)
+    @Html.HiddenFor(m => m.Head.CancelButton)
+    @Html.HiddenFor(m => m.Head.AdminMode)
+
+    @*データ日時取得*@
+    <!--ボタンエリア-->
+    <div class="row">
+        <!--ボタン-->
+        <div class="col-xs-3">
+            <button type="submit" name="Back" value="戻る" class="pull-left  btn-submit" id="backbutton" style="margin:0 5px 10px 0;margin-left:5px;">戻る</button>
+            @*登録・キャンセル*@
+            @if (Model.Head.InputMode == ajustMode.SelfInput) {
+                <button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-submit" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
+                <button type="button" name="DmySave" value="保存" class="pull-left  btn-submit" style="margin:0 5px 10px 0;" id="dmysave">提出</button>
+            }
+            @if (Model.Head.InputMode == ajustMode.adminInput) {
+                <button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-submit" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
+                <button type="button" name="DmySave" value="保存" class="pull-left  btn-submit" style="margin:0 5px 10px 0;" id="dmysave">確定</button>
+            }
+            @if (Model.Head.InputMode == ajustMode.SelfRegist) {
+                <button type="button" name="DmySignCancel" value="保存取消" class="pull-left  btn-submit" style="margin:0 5px 10px 0;" id="dmySignCancel">提出取消</button>
+            }
+            @if (Model.Head.InputMode == ajustMode.adminRegist) {
+                <button type="button" name="DmySignCancel" value="保存取消" class="pull-left  btn-submit" style="margin:0 5px 10px 0;" id="dmySignCancel">確定取消</button>
+            }
+        </div>
+    </div>
+
+    <!--定義-->
+    //共通入力モード
+    var TextName = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "50" }, { "style", "width:100px;" } };
+    var TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana" }, { "maxlength", "50" }, { "style", "width:100px;" } };
+    var TextWord1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "10" }, { "style", "width:100px;" } };
+    var TextWord2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "30" }, { "style", "width:150px;" } };
+    var TextWord3 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "50" }, { "style", "width:200px;" } };
+    var TextWord9 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "50" }, { "style", "width:90%;" } };
+    var TextWordMax = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "80" }, { "style", "width:100%;" } };
+    var TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "20" }, { "type", "number" } };
+    var TextNumber1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "2" }, { "style", "width:30px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    var TextPost1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "3" }, { "style", "width:35px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    var TextPost2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "4" }, { "style", "width:50px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    var TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "50" }, { "style", "width:100%;" } };
+    var ymdRead1 = new Dictionary<string, object>() { { "class", "form-control ymd-control fm-ctr-rdonly" }, { "maxlength", "10" }, { "style", "width:90px;" }, { "readonly", "readonly" } };
+    var ymdBtn1 = "hidden";
+    ymdBtn1 = "";
+    var CalcMoney = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "10" }, { "type", "number" }, { "readonly", "readonly" } };
+    
+    
+    
+
+    //続柄リスト
+    var familyItems = new SelectListItem[] {
+                            new SelectListItem() { Value="10", Text="10:本人" },
+                            new SelectListItem() { Value="11", Text="11:夫" },
+                            new SelectListItem() { Value="12", Text="12:妻" },
+                            new SelectListItem() { Value="21", Text="21:長男" },
+                            new SelectListItem() { Value="22", Text="22:二男" },
+                            new SelectListItem() { Value="23", Text="23:三男" },
+                            new SelectListItem() { Value="24", Text="24:四男" },
+                            new SelectListItem() { Value="25", Text="25:五男" },
+                            new SelectListItem() { Value="26", Text="26:六男" },
+                            new SelectListItem() { Value="27", Text="27:七男" },
+                            new SelectListItem() { Value="28", Text="28:八男" },
+                            new SelectListItem() { Value="29", Text="29:九男" },
+                            new SelectListItem() { Value="31", Text="31:長女" },
+                            new SelectListItem() { Value="32", Text="32:二女" },
+                            new SelectListItem() { Value="33", Text="33:三女" },
+                            new SelectListItem() { Value="34", Text="34:四女" },
+                            new SelectListItem() { Value="35", Text="35:五女" },
+                            new SelectListItem() { Value="36", Text="36:六女" },
+                            new SelectListItem() { Value="37", Text="37:七女" },
+                            new SelectListItem() { Value="38", Text="38:八女" },
+                            new SelectListItem() { Value="39", Text="39:九女" },
+                            new SelectListItem() { Value="41", Text="41:父" },
+                            new SelectListItem() { Value="42", Text="42:母" },
+                            new SelectListItem() { Value="43", Text="43:義父" },
+                            new SelectListItem() { Value="44", Text="44:義母" },
+                            new SelectListItem() { Value="45", Text="45:祖父" },
+                            new SelectListItem() { Value="46", Text="46:祖母" },
+                            new SelectListItem() { Value="47", Text="47:義祖父" },
+                            new SelectListItem() { Value="48", Text="48:義祖母" },
+                            new SelectListItem() { Value="60", Text="60:孫" },
+                            new SelectListItem() { Value="61", Text="61:孫" },
+                            new SelectListItem() { Value="62", Text="62:孫" },
+                            new SelectListItem() { Value="63", Text="63:孫" },
+                            new SelectListItem() { Value="71", Text="71:兄" },
+                            new SelectListItem() { Value="72", Text="72:姉" },
+                            new SelectListItem() { Value="73", Text="73:弟" },
+                            new SelectListItem() { Value="74", Text="74:妹" },
+                            new SelectListItem() { Value="75", Text="75:義兄" },
+                            new SelectListItem() { Value="76", Text="76:義姉" },
+                            new SelectListItem() { Value="77", Text="77:義弟" },
+                            new SelectListItem() { Value="78", Text="78:義妹" },
+                            new SelectListItem() { Value="81", Text="81:叔父" },
+                            new SelectListItem() { Value="82", Text="82:叔母" },
+                            new SelectListItem() { Value="83", Text="83:甥" },
+                            new SelectListItem() { Value="84", Text="84:姪" },
+                            new SelectListItem() { Value="90", Text="90:*" },
+                            new SelectListItem() { Value="91", Text="91:*" },
+                            new SelectListItem() { Value="92", Text="92:*" },
+                            new SelectListItem() { Value="93", Text="93:*" }
+            };
+
+    //年月日
+    var yearItems = new SelectListItem[] {
+                            new SelectListItem() { Value="1900", Text="1900" },new SelectListItem() { Value="1901", Text="1901" },new SelectListItem() { Value="1902", Text="1902" },new SelectListItem() { Value="1903", Text="1903" },new SelectListItem() { Value="1904", Text="1904" },
+                            new SelectListItem() { Value="1905", Text="1905" },new SelectListItem() { Value="1906", Text="1906" },new SelectListItem() { Value="1907", Text="1907" },new SelectListItem() { Value="1908", Text="1908" },new SelectListItem() { Value="1909", Text="1909" },
+                            new SelectListItem() { Value="1910", Text="1910" },new SelectListItem() { Value="1911", Text="1911" },new SelectListItem() { Value="1912", Text="1912" },new SelectListItem() { Value="1913", Text="1913" },new SelectListItem() { Value="1914", Text="1914" },
+                            new SelectListItem() { Value="1915", Text="1915" },new SelectListItem() { Value="1916", Text="1916" },new SelectListItem() { Value="1917", Text="1917" },new SelectListItem() { Value="1918", Text="1918" },new SelectListItem() { Value="1919", Text="1919" },
+                            new SelectListItem() { Value="1920", Text="1920" },new SelectListItem() { Value="1921", Text="1921" },new SelectListItem() { Value="1922", Text="1922" },new SelectListItem() { Value="1923", Text="1923" },new SelectListItem() { Value="1924", Text="1924" },
+                            new SelectListItem() { Value="1925", Text="1925" },new SelectListItem() { Value="1926", Text="1926" },new SelectListItem() { Value="1927", Text="1927" },new SelectListItem() { Value="1928", Text="1928" },new SelectListItem() { Value="1929", Text="1929" },
+                            new SelectListItem() { Value="1930", Text="1930" },new SelectListItem() { Value="1931", Text="1931" },new SelectListItem() { Value="1932", Text="1932" },new SelectListItem() { Value="1933", Text="1933" },new SelectListItem() { Value="1934", Text="1934" },
+                            new SelectListItem() { Value="1935", Text="1935" },new SelectListItem() { Value="1936", Text="1936" },new SelectListItem() { Value="1937", Text="1937" },new SelectListItem() { Value="1938", Text="1938" },new SelectListItem() { Value="1939", Text="1939" },
+                            new SelectListItem() { Value="1940", Text="1940" },new SelectListItem() { Value="1941", Text="1941" },new SelectListItem() { Value="1942", Text="1942" },new SelectListItem() { Value="1943", Text="1943" },new SelectListItem() { Value="1944", Text="1944" },
+                            new SelectListItem() { Value="1945", Text="1945" },new SelectListItem() { Value="1946", Text="1946" },new SelectListItem() { Value="1947", Text="1947" },new SelectListItem() { Value="1948", Text="1948" },new SelectListItem() { Value="1949", Text="1949" },
+                            new SelectListItem() { Value="1950", Text="1950" },new SelectListItem() { Value="1951", Text="1951" },new SelectListItem() { Value="1952", Text="1952" },new SelectListItem() { Value="1953", Text="1953" },new SelectListItem() { Value="1954", Text="1954" },
+                            new SelectListItem() { Value="1955", Text="1955" },new SelectListItem() { Value="1956", Text="1956" },new SelectListItem() { Value="1957", Text="1957" },new SelectListItem() { Value="1958", Text="1958" },new SelectListItem() { Value="1959", Text="1959" },
+                            new SelectListItem() { Value="1960", Text="1960" },new SelectListItem() { Value="1961", Text="1961" },new SelectListItem() { Value="1962", Text="1962" },new SelectListItem() { Value="1963", Text="1963" },new SelectListItem() { Value="1964", Text="1964" },
+                            new SelectListItem() { Value="1965", Text="1965" },new SelectListItem() { Value="1966", Text="1966" },new SelectListItem() { Value="1967", Text="1967" },new SelectListItem() { Value="1968", Text="1968" },new SelectListItem() { Value="1969", Text="1969" },
+                            new SelectListItem() { Value="1970", Text="1970" },new SelectListItem() { Value="1971", Text="1971" },new SelectListItem() { Value="1972", Text="1972" },new SelectListItem() { Value="1973", Text="1973" },new SelectListItem() { Value="1974", Text="1974" },
+                            new SelectListItem() { Value="1975", Text="1975" },new SelectListItem() { Value="1976", Text="1976" },new SelectListItem() { Value="1977", Text="1977" },new SelectListItem() { Value="1978", Text="1978" },new SelectListItem() { Value="1979", Text="1979" },
+                            new SelectListItem() { Value="1980", Text="1980" },new SelectListItem() { Value="1981", Text="1981" },new SelectListItem() { Value="1982", Text="1982" },new SelectListItem() { Value="1983", Text="1983" },new SelectListItem() { Value="1984", Text="1984" },
+                            new SelectListItem() { Value="1985", Text="1985" },new SelectListItem() { Value="1986", Text="1986" },new SelectListItem() { Value="1987", Text="1987" },new SelectListItem() { Value="1988", Text="1988" },new SelectListItem() { Value="1989", Text="1989" },
+                            new SelectListItem() { Value="1990", Text="1990" },new SelectListItem() { Value="1991", Text="1991" },new SelectListItem() { Value="1992", Text="1992" },new SelectListItem() { Value="1993", Text="1993" },new SelectListItem() { Value="1994", Text="1994" },
+                            new SelectListItem() { Value="1995", Text="1995" },new SelectListItem() { Value="1996", Text="1996" },new SelectListItem() { Value="1997", Text="1997" },new SelectListItem() { Value="1998", Text="1998" },new SelectListItem() { Value="1999", Text="1999" },
+                            new SelectListItem() { Value="2000", Text="2000" },new SelectListItem() { Value="2001", Text="2001" },new SelectListItem() { Value="2002", Text="2002" },new SelectListItem() { Value="2003", Text="2003" },new SelectListItem() { Value="2004", Text="2004" },
+                            new SelectListItem() { Value="2005", Text="2005" },new SelectListItem() { Value="2006", Text="2006" },new SelectListItem() { Value="2007", Text="2007" },new SelectListItem() { Value="2008", Text="2008" },new SelectListItem() { Value="2009", Text="2009" },
+                            new SelectListItem() { Value="2010", Text="2010" },new SelectListItem() { Value="2011", Text="2011" },new SelectListItem() { Value="2012", Text="2012" },new SelectListItem() { Value="2013", Text="2013" },new SelectListItem() { Value="2014", Text="2014" },
+                            new SelectListItem() { Value="2015", Text="2015" },new SelectListItem() { Value="2016", Text="2016" },new SelectListItem() { Value="2017", Text="2017" },new SelectListItem() { Value="2018", Text="2018" },new SelectListItem() { Value="2019", Text="2019" },
+                            new SelectListItem() { Value="2020", Text="2020" },new SelectListItem() { Value="2021", Text="2021" },new SelectListItem() { Value="2022", Text="2022" },new SelectListItem() { Value="2023", Text="2023" },new SelectListItem() { Value="2024", Text="2024" },
+                            new SelectListItem() { Value="2025", Text="2025" },new SelectListItem() { Value="2026", Text="2026" },new SelectListItem() { Value="2027", Text="2027" },new SelectListItem() { Value="2028", Text="2028" },new SelectListItem() { Value="2029", Text="2029" },
+                            new SelectListItem() { Value="2030", Text="2030" },new SelectListItem() { Value="2031", Text="2031" },new SelectListItem() { Value="2032", Text="2032" },new SelectListItem() { Value="2033", Text="2033" },new SelectListItem() { Value="2034", Text="2034" },
+                            new SelectListItem() { Value="2035", Text="2035" },new SelectListItem() { Value="2036", Text="2036" },new SelectListItem() { Value="2037", Text="2037" },new SelectListItem() { Value="2038", Text="2038" },new SelectListItem() { Value="2039", Text="2039" },
+                            new SelectListItem() { Value="2040", Text="2040" },new SelectListItem() { Value="2041", Text="2041" },new SelectListItem() { Value="2042", Text="2042" },new SelectListItem() { Value="2043", Text="2043" },new SelectListItem() { Value="2044", Text="2044" },
+                            new SelectListItem() { Value="2045", Text="2045" },new SelectListItem() { Value="2046", Text="2046" },new SelectListItem() { Value="2047", Text="2047" },new SelectListItem() { Value="2048", Text="2048" },new SelectListItem() { Value="2049", Text="2049" },
+                            new SelectListItem() { Value="2050", Text="2050" },new SelectListItem() { Value="2051", Text="2051" },new SelectListItem() { Value="2052", Text="2052" },new SelectListItem() { Value="2053", Text="2053" },new SelectListItem() { Value="2054", Text="2054" },
+                            new SelectListItem() { Value="2055", Text="2055" },new SelectListItem() { Value="2056", Text="2056" },new SelectListItem() { Value="2057", Text="2057" },new SelectListItem() { Value="2058", Text="2058" },new SelectListItem() { Value="2059", Text="2059" },
+                            new SelectListItem() { Value="2060", Text="2060" },new SelectListItem() { Value="2061", Text="2061" },new SelectListItem() { Value="2062", Text="2062" },new SelectListItem() { Value="2063", Text="2063" },new SelectListItem() { Value="2064", Text="2064" },
+                            new SelectListItem() { Value="2065", Text="2065" },new SelectListItem() { Value="2066", Text="2066" },new SelectListItem() { Value="2067", Text="2067" },new SelectListItem() { Value="2068", Text="2068" },new SelectListItem() { Value="2069", Text="2069" },
+                            new SelectListItem() { Value="2070", Text="2070" },new SelectListItem() { Value="2071", Text="2071" },new SelectListItem() { Value="2072", Text="2072" },new SelectListItem() { Value="2073", Text="2073" },new SelectListItem() { Value="2074", Text="2074" },
+                            new SelectListItem() { Value="2075", Text="2075" },new SelectListItem() { Value="2076", Text="2076" },new SelectListItem() { Value="2077", Text="2077" },new SelectListItem() { Value="2078", Text="2078" },new SelectListItem() { Value="2079", Text="2079" },
+                            new SelectListItem() { Value="2080", Text="2080" },new SelectListItem() { Value="2081", Text="2081" },new SelectListItem() { Value="2082", Text="2082" },new SelectListItem() { Value="2083", Text="2083" },new SelectListItem() { Value="2084", Text="2084" },
+                            new SelectListItem() { Value="2085", Text="2085" },new SelectListItem() { Value="2086", Text="2086" },new SelectListItem() { Value="2087", Text="2087" },new SelectListItem() { Value="2088", Text="2088" },new SelectListItem() { Value="2089", Text="2089" },
+                            new SelectListItem() { Value="2090", Text="2090" },new SelectListItem() { Value="2091", Text="2091" },new SelectListItem() { Value="2092", Text="2092" },new SelectListItem() { Value="2093", Text="2093" },new SelectListItem() { Value="2094", Text="2094" },
+                            new SelectListItem() { Value="2095", Text="2095" },new SelectListItem() { Value="2096", Text="2096" },new SelectListItem() { Value="2097", Text="2097" },new SelectListItem() { Value="2098", Text="2098" },new SelectListItem() { Value="2099", Text="2099" }
+    };
+    var monthItems = new SelectListItem[] {
+                            new SelectListItem() { Value="1", Text="1" },new SelectListItem() { Value="2", Text="2" },new SelectListItem() { Value="3", Text="3" },new SelectListItem() { Value="4", Text="4" },new SelectListItem() { Value="5", Text="5" },
+                            new SelectListItem() { Value="6", Text="6" },new SelectListItem() { Value="7", Text="7" },new SelectListItem() { Value="8", Text="8" },new SelectListItem() { Value="9", Text="9" },new SelectListItem() { Value="10", Text="10" },
+                            new SelectListItem() { Value="11", Text="11" },new SelectListItem() { Value="12", Text="12" }
+    };
+
+    var dayItems = new SelectListItem[] {
+                            new SelectListItem() { Value="1", Text="1" },new SelectListItem() { Value="2", Text="2" },new SelectListItem() { Value="3", Text="3" },new SelectListItem() { Value="4", Text="4" },new SelectListItem() { Value="5", Text="5" },
+                            new SelectListItem() { Value="6", Text="6" },new SelectListItem() { Value="7", Text="7" },new SelectListItem() { Value="8", Text="8" },new SelectListItem() { Value="9", Text="9" },new SelectListItem() { Value="10", Text="10" },
+                            new SelectListItem() { Value="11", Text="11" },new SelectListItem() { Value="12", Text="12" },new SelectListItem() { Value="13", Text="13" },new SelectListItem() { Value="14", Text="14" },new SelectListItem() { Value="15", Text="15" },
+                            new SelectListItem() { Value="16", Text="16" },new SelectListItem() { Value="17", Text="17" },new SelectListItem() { Value="18", Text="18" },new SelectListItem() { Value="19", Text="19" },new SelectListItem() { Value="20", Text="20" },
+                            new SelectListItem() { Value="21", Text="21" },new SelectListItem() { Value="22", Text="22" },new SelectListItem() { Value="23", Text="23" },new SelectListItem() { Value="24", Text="24" },new SelectListItem() { Value="25", Text="25" },
+                            new SelectListItem() { Value="26", Text="26" },new SelectListItem() { Value="27", Text="27" },new SelectListItem() { Value="28", Text="28" },new SelectListItem() { Value="29", Text="29" },new SelectListItem() { Value="30", Text="30" },
+                            new SelectListItem() { Value="31", Text="31" },
+    };
+
+    //新旧制度リスト
+    var OldAndNewItems = new SelectListItem[] {
+            new SelectListItem() { Value="1", Text="新制度" },
+            new SelectListItem() { Value="2", Text="旧制度" }
+    };
+    
+    //寡婦、ひとり親_事由リスト
+    var widowReasonItems = new SelectListItem[] {
+            new SelectListItem() { Value="1:離婚", Text="離婚" },
+            new SelectListItem() { Value="2:死別", Text="死別" },
+            new SelectListItem() { Value="3:生死不明", Text="生死不明" }
+    };
+
+    //新旧制度リスト
+    var QuakeAndDamageItems = new SelectListItem[] {
+            new SelectListItem() { Value="1", Text="地震" },
+            new SelectListItem() { Value="2", Text="旧長期" }
+    };
+    
+    
+    @helper setFamilyDdl1(bool isRead, int cnt, string name, string value, SelectListItem[] selItems) {
+        <div class="form-inline">
+            @{
+                var id = string.Format("Body.{0}", name);
+                if (isRead) {
+                    @Html.TextBox(id, value, new { @class = "form-control", @style = "width:50px;height:16px;", @readonly = "readonly" })<label class="w30" style="font-weight:normal;">　名</label>
+                } else {
+                    @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { style = "width: 50px; vertical-align:top;" })<label class="w30" style="font-weight:normal;">　名</label>
+                }
+            }
+        </div>
+    }
+    @helper setFamilyDdl2(bool isRead, int cnt, string name, string value, SelectListItem[] selItems) {
+        <div class="h24 form-inline">
+            @{
+                var id = string.Format("Head.{0}", name);
+                if (isRead) {
+                    <label class="w10" style="font-weight:normal;">@cnt</label> @Html.TextBox(id, value, new { @class = "form-control", @style = "width:90px;height:16px;", @size = "2", @rows = "1", @readonly = "readonly" })
+                } else {
+                    <label class="w10" style="font-weight:normal;">@cnt</label> @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "familyItems-select" })
+                }
+            }
+        </div>
+    }
+    ///CheckBox出力ヘルパー
+    @helper setCheck(bool isRead, string name, string value) {
+        if (isRead) {
+            @Html.CheckBox(string.Format("Head.{0}", name), (value == "1" ? true : false), new { tabindex = 1, @class = "input-control", @style = "margin-top:0px;", @disabled = true })
+        } else {
+            @Html.CheckBox(string.Format("Head.{0}", name), (value == "1" ? true : false), new { tabindex = 1, @class = "input-control", @style = "margin-top:0px;" })
+        }
+    }
+    @helper setCheck2(bool isRead, string name, string value, string addClass) {
+        if (isRead) {
+            @Html.CheckBox(string.Format("Head.{0}", name), (value == "1" ? true : false), new { tabindex = 1, @class = "input-control", @style = "margin-top:0px;", @disabled = true })
+        } else {
+            @Html.CheckBox(string.Format("Head.{0}", name), (value == "1" ? true : false), new { @class = "input-control " + addClass, tabindex = 1, @style = "margin-top:0px;" })
+        }
+    }
+
+    ///ドロップダウンリスト設定
+    //リスト
+    @helper setDdl(bool isRead, string name, string value, SelectListItem[] selItems) {
+        {
+            var id = string.Format("Head.{0}", name);
+            if (isRead) {
+                @Html.TextBox(id, value, new { @class = "form-control", @style = "width:90px;height:16px;", @size = "2", @rows = "1", @readonly = "readonly" })
+            } else {
+                @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "form-control"})
+            }
+        }
+    }
+
+    //リスト(クラス制御付)
+    @helper setDdl2(bool isRead, string name, string value, SelectListItem[] selItems, string addClass) {
+        {
+            var id = string.Format("Head.{0}", name);
+            if (isRead) {
+                @Html.TextBox(id, value, new { @class = "form-control", @style = "width:90px;height:16px;", @size = "2", @rows = "1", @readonly = "readonly" })
+            } else {
+                @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "form-control " + addClass })
+            }
+        }
+    }
+    
+    //日付リスト
+    @helper setYearDdl(bool isRead, string name,string dateType, string value, SelectListItem[] selItems) {
+            {
+                var id = string.Format("Head.{0}{1}", name,dateType);
+                var checkEvent = string.Format("checkDate('#Head_{0}')", name);
+                if (isRead) {
+                    @Html.TextBox(id, value, new { @class = "form-control", @style = "width:90px;height:16px;", @size = "2", @rows = "1", @readonly = "readonly" })
+                } else {
+                    @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "form-control", @onchange = checkEvent })
+                }
+            }
+    }
+
+    //日付リスト(クラス制御付)
+    @helper setYearDdl2(bool isRead, string name, string dateType, string value, SelectListItem[] selItems, string addClass) {
+        {
+            var id = string.Format("Head.{0}{1}", name, dateType);
+            var checkEvent = string.Format("checkDate('#Head_{0}')", name);
+            if (isRead) {
+                @Html.TextBox(id, value, new { @class = "form-control", @style = "width:90px;height:16px;", @size = "2", @rows = "1", @readonly = "readonly" })
+            } else {
+                @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "form-control " + addClass, @onchange = checkEvent })
+            }
+        }
+    }
+
+    <!-- 本人情報 -->
+    @*定義*@
+    var EmployeeNo = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "5" }, { "style", "width:60px;" }, { "readonly", "readonly" } };
+    var DepartmentNo = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "5" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    var attrRadio1_1 = new Dictionary<string, object>() { { "name", "attrRadio1" }, { "id", "select_radio1" } };
+    var attrRadio1_2 = new Dictionary<string, object>() { { "name", "attrRadio1" }, { "id", "select_radio2" } };
+
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="content-label-h1">
+                        <td colspan="8">
+                            本人情報
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead></thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">社員番号</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.EmployeeNo, EmployeeNo)<span class="required">※必須</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">所属番号</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DepartmentNo, DepartmentNo)<span class="required"></span><span class="required">※必須</span><div id="Head_DepartmentNo_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.Name1, TextName)　名 @Html.TextBoxFor(m => m.Head.Name2, TextName)<span class="required">※必須</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">フリガナ</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.Kana2, TextKana)<span class="required">※必須</span><div id="Head_Kana_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">住所又は居所</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.TextBoxFor(m => m.Head.Address, TextWord9)<span class="required">※必須</span>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    <br />
+    <!-- 生命保険料控除 -->
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="content-label-h1">
+                        <td colspan="8">
+                            生命保険料控除
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div id="linkHoken1" style="display: block;height: 12rem;margin-top: -12rem;content: ' ';visibility:hidden;"></div>
+
+    
+    <!-- １ 一般の生命保険料 -->
+    @*定義*@
+    var LifeInsurance_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_LifeInsurance_1_InsuranceFee',99999999)" } };
+    var LifeInsurance_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_LifeInsurance_2_InsuranceFee',99999999)" } };
+    var LifeInsurance_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_LifeInsurance_3_InsuranceFee',99999999)" } };
+    var LifeInsurance_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_LifeInsurance_4_InsuranceFee',99999999)" } };
+
+    var TaxWithholding_TextName = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var TaxWithholding_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "20" } };
+    var TaxWithholding_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead TaxWithholdingAddress_isRead" }, { "maxlength", "100" }, { "style", "width:100%;" } };
+    var TaxWithholding_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_TaxWithholding_Income',950000)" } };
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            一般の生命保険料
+                        </td>
+                    </tr>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            １ 一般の生命保険料
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険会社等の名称</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_1_InsuranceCompanyName, TextWord2)<div id="Head_LifeInsurance_1_InsuranceCompanyName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の種類</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_1_InsuranceTypeName, TextWord2)<div id="Head_LifeInsurance_1_InsuranceTypeName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険期間又は年金支払期間</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_1_InsurancePeriod, TextWord1)<div id="Head_LifeInsurance_1_InsurancePeriod_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_1_ContractorName2, TextName)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">
+                            姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_1_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_1_ReceiverName2, TextName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">あなたとの続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "LifeInsurance_1_RelationshipType", Model.Head.LifeInsurance_1_RelationshipType, familyItems)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">新旧の区分</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "LifeInsurance_1_OldAndNewType", Model.Head.LifeInsurance_1_OldAndNewType, OldAndNewItems)<div id="Head_LifeInsurance_1_OldAndNewType_mes" class="check-comment"></div></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="content-label-b1">支払った保険料等の金額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_1_InsuranceFee, LifeInsurance_1_TextMoney1) 円<div id="Head_LifeInsurance_1_InsuranceFee_mes" class="check-comment"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ２ 一般の生命保険料 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            ２ 一般の生命保険料
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険会社等の名称</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_2_InsuranceCompanyName, TextWord2)<div id="Head_LifeInsurance_2_InsuranceCompanyName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の種類</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_2_InsuranceTypeName, TextWord2)<div id="Head_LifeInsurance_2_InsuranceTypeName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険期間又は年金支払期間</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_2_InsurancePeriod, TextWord1)<div id="Head_LifeInsurance_2_InsurancePeriod_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_2_ContractorName2, TextName)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">
+                            姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_2_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_2_ReceiverName2, TextName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">あなたとの続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "LifeInsurance_2_RelationshipType", Model.Head.LifeInsurance_2_RelationshipType, familyItems)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">新旧の区分</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "LifeInsurance_2_OldAndNewType", Model.Head.LifeInsurance_2_OldAndNewType, OldAndNewItems)<div id="Head_LifeInsurance_2_OldAndNewType_mes" class="check-comment"></div></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="content-label-b1">支払った保険料等の金額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_2_InsuranceFee, LifeInsurance_2_TextMoney1) 円<div id="Head_LifeInsurance_2_InsuranceFee_mes" class="check-comment"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ３ 一般の生命保険料 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            ３ 一般の生命保険料
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険会社等の名称</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_3_InsuranceCompanyName, TextWord2)<div id="Head_LifeInsurance_3_InsuranceCompanyName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の種類</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_3_InsuranceTypeName, TextWord2)<div id="Head_LifeInsurance_3_InsuranceTypeName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険期間又は年金支払期間</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_3_InsurancePeriod, TextWord1)<div id="Head_LifeInsurance_3_InsurancePeriod_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_3_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_3_ContractorName2, TextName)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">
+                            姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_3_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_3_ReceiverName2, TextName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">あなたとの続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "LifeInsurance_3_RelationshipType", Model.Head.LifeInsurance_3_RelationshipType, familyItems)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">新旧の区分</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "LifeInsurance_3_OldAndNewType", Model.Head.LifeInsurance_3_OldAndNewType, OldAndNewItems)<div id="Head_LifeInsurance_3_OldAndNewType_mes" class="check-comment"></div></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="content-label-b1">支払った保険料等の金額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_3_InsuranceFee, LifeInsurance_3_TextMoney1) 円<div id="Head_LifeInsurance_3_InsuranceFee_mes" class="check-comment"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ４ 一般の生命保険料 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            ４ 一般の生命保険料
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険会社等の名称</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_4_InsuranceCompanyName, TextWord2)<div id="Head_LifeInsurance_4_InsuranceCompanyName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の種類</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_4_InsuranceTypeName, TextWord2)<div id="Head_LifeInsurance_4_InsuranceTypeName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険期間又は年金支払期間</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_4_InsurancePeriod, TextWord1)<div id="Head_LifeInsurance_4_InsurancePeriod_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_4_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_4_ContractorName2, TextName)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">
+                            姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_4_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_4_ReceiverName2, TextName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">あなたとの続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "LifeInsurance_4_RelationshipType", Model.Head.LifeInsurance_4_RelationshipType, familyItems)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">新旧の区分</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "LifeInsurance_4_OldAndNewType", Model.Head.LifeInsurance_4_OldAndNewType, OldAndNewItems)<div id="Head_LifeInsurance_4_OldAndNewType_mes" class="check-comment"></div></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="content-label-b1">支払った保険料等の金額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.LifeInsurance_4_InsuranceFee, LifeInsurance_4_TextMoney1) 円<div id="Head_LifeInsurance_4_InsuranceFee_mes" class="check-comment"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <!-- 生命保険料控除額計算 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            <button type="button" name="LifeInsuranceCalc" value="計算" class="pull-left  btn-calc" id="btn-lifeInsurance-calc"> ≫　計算　≪</button>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">新保険料等の金額の合計</td>
+                        <td colspan="6" class="form-inline">Ａ @Html.TextBoxFor(m => m.Head.LifeInsurance_NewTotalAmount, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">旧保険料等の金額の合計</td>
+                        <td colspan="6" class="form-inline">Ｂ @Html.TextBoxFor(m => m.Head.LifeInsurance_OldTotalAmount, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">Aの金額を計算式に当てはめた額</td>
+                        <td colspan="6" class="form-inline">&#9312; @Html.TextBoxFor(m => m.Head.LifeInsurance_Calc1, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">Bの金額を計算式に当てはめた額</td>
+                        <td colspan="6" class="form-inline">&#9313; @Html.TextBoxFor(m => m.Head.LifeInsurance_Calc2, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">計（①+②）</td>
+                        <td colspan="6" class="form-inline">&#9314; @Html.TextBoxFor(m => m.Head.LifeInsurance_TotalAmount, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">②と③のいずれか大きい金額</td>
+                        <td colspan="6" class="form-inline">&#13009; @Html.TextBoxFor(m => m.Head.LifeInsurance_DeductionAmount, CalcMoney)</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+    <br />
+    <!-- 介護医療保険料 -->
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="content-label-h1">
+                        <td colspan="8">
+                            介護医療保険料
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div id="linkHoken2" style="display: block;height: 12rem;margin-top: -12rem;content: ' ';visibility:hidden;"></div>
+
+
+    <!-- １ 介護医療保険料 -->
+    @*定義*@
+    var MedicalInsurance_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_MedicalInsurance_1_InsuranceFee',99999999)" } };
+    var MedicalInsurance_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_MedicalInsurance_2_InsuranceFee',99999999)" } };
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            介護医療保険料
+                        </td>
+                    </tr>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            １ 介護医療保険料
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険会社等の名称</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.MedicalInsurance_1_InsuranceCompanyName, TextWord2)<div id="Head_MedicalInsurance_1_InsuranceCompanyName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の種類</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.MedicalInsurance_1_InsuranceTypeName, TextWord2)<div id="Head_MedicalInsurance_1_InsuranceTypeName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険期間又は年金支払期間</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.MedicalInsurance_1_InsurancePeriod, TextWord1)<div id="Head_MedicalInsurance_1_InsurancePeriod_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.MedicalInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.MedicalInsurance_1_ContractorName2, TextName)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">
+                            姓 @Html.TextBoxFor(m => m.Head.MedicalInsurance_1_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.MedicalInsurance_1_ReceiverName2, TextName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">あなたとの続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "MedicalInsurance_1_RelationshipType", Model.Head.MedicalInsurance_1_RelationshipType, familyItems)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">支払った保険料等の金額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.MedicalInsurance_1_InsuranceFee, MedicalInsurance_1_TextMoney1) 円<div id="Head_MedicalInsurance_1_InsuranceFee_mes" class="check-comment"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ２ 介護医療保険料 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            ２ 介護医療保険料
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険会社等の名称</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.MedicalInsurance_2_InsuranceCompanyName, TextWord2)<div id="Head_MedicalInsurance_2_InsuranceCompanyName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の種類</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.MedicalInsurance_2_InsuranceTypeName, TextWord2)<div id="Head_MedicalInsurance_2_InsuranceTypeName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険期間又は年金支払期間</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.MedicalInsurance_2_InsurancePeriod, TextWord1)<div id="Head_MedicalInsurance_2_InsurancePeriod_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.MedicalInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.MedicalInsurance_2_ContractorName2, TextName)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">
+                            姓 @Html.TextBoxFor(m => m.Head.MedicalInsurance_2_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.MedicalInsurance_2_ReceiverName2, TextName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">あなたとの続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "MedicalInsurance_2_RelationshipType", Model.Head.MedicalInsurance_2_RelationshipType, familyItems)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">支払った保険料等の金額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.MedicalInsurance_2_InsuranceFee, MedicalInsurance_2_TextMoney1) 円<div id="Head_MedicalInsurance_2_InsuranceFee_mes" class="check-comment"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 介護医療保険料控除額計算 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            <button type="button" name="MedicalInsuranceCalc" value="計算" class="pull-left  btn-calc" id="btn-medicalInsurance-calc"> ≫　計算　≪</button>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">金額の合計</td>
+                        <td colspan="6" class="form-inline">Ｃ @Html.TextBoxFor(m => m.Head.MedicalInsurance_TotalAmount, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">Cの金額を計算式に当てはめた額</td>
+                        <td colspan="6" class="form-inline">&#13050; @Html.TextBoxFor(m => m.Head.MedicalInsurance_DeductionAmount, CalcMoney)</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <br />
+    <!-- 個人年金保険料 -->
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="content-label-h1">
+                        <td colspan="8">
+                            個人年金保険料
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div id="linkHoken3" style="display: block;height: 12rem;margin-top: -12rem;content: ' ';visibility:hidden;"></div>
+
+
+    <!-- １ 個人年金保険料 -->
+    @*定義*@
+    var PensionInsurance_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_PensionInsurance_1_InsuranceFee',99999999)" } };
+    var PensionInsurance_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_PensionInsurance_2_InsuranceFee',99999999)" } };
+    var PensionInsurance_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_PensionInsurance_3_InsuranceFee',99999999)" } };
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            個人年金保険料
+                        </td>
+                    </tr>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            １ 個人年金保険料
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険会社等の名称</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.PensionInsurance_1_InsuranceCompanyName, TextWord2)<div id="Head_PensionInsurance_1_InsuranceCompanyName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の種類</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.PensionInsurance_1_InsuranceTypeName, TextWord2)<div id="Head_PensionInsurance_1_InsuranceTypeName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険期間又は年金支払期間</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.PensionInsurance_1_InsurancePeriod, TextWord1)<div id="Head_PensionInsurance_1_InsurancePeriod_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.PensionInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_1_ContractorName2, TextName)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" colspan="1" class="content-label-b1">保険金等の受取人</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">
+                            姓 @Html.TextBoxFor(m => m.Head.PensionInsurance_1_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_1_ReceiverName2, TextName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">あなたとの続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "PensionInsurance_1_RelationshipType", Model.Head.PensionInsurance_1_RelationshipType, familyItems)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">支払開始日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl(false, "PensionInsurance_1_StartPayment", "Year", Model.Head.PensionInsurance_1_StartPaymentYear, yearItems) 年
+                            @setYearDdl(false, "PensionInsurance_1_StartPayment", "Month", Model.Head.PensionInsurance_1_StartPaymentMonth, monthItems) 月
+                            @setYearDdl(false, "PensionInsurance_1_StartPayment", "Day", Model.Head.PensionInsurance_1_StartPaymentDay, dayItems) 日
+                            <div id="Head_PensionInsurance_1_StartPayment_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">新旧の区分</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "PensionInsurance_1_OldAndNewType", Model.Head.PensionInsurance_1_OldAndNewType, OldAndNewItems)<div id="Head_PensionInsurance_1_OldAndNewType_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">支払った保険料等の金額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.PensionInsurance_1_InsuranceFee, PensionInsurance_1_TextMoney1) 円<div id="Head_PensionInsurance_1_InsuranceFee_mes" class="check-comment"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ２ 個人年金保険料 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            ２ 個人年金保険料
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険会社等の名称</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.PensionInsurance_2_InsuranceCompanyName, TextWord2)<div id="Head_PensionInsurance_2_InsuranceCompanyName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の種類</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.PensionInsurance_2_InsuranceTypeName, TextWord2)<div id="Head_PensionInsurance_2_InsuranceTypeName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険期間又は年金支払期間</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.PensionInsurance_2_InsurancePeriod, TextWord1)<div id="Head_PensionInsurance_2_InsurancePeriod_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.PensionInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_2_ContractorName2, TextName)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" colspan="1" class="content-label-b1">保険金等の受取人</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">
+                            姓 @Html.TextBoxFor(m => m.Head.PensionInsurance_2_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_2_ReceiverName2, TextName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">あなたとの続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "PensionInsurance_2_RelationshipType", Model.Head.PensionInsurance_2_RelationshipType, familyItems)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">支払開始日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl(false, "PensionInsurance_2_StartPayment", "Year", Model.Head.PensionInsurance_2_StartPaymentYear, yearItems) 年
+                            @setYearDdl(false, "PensionInsurance_2_StartPayment", "Month", Model.Head.PensionInsurance_2_StartPaymentMonth, monthItems) 月
+                            @setYearDdl(false, "PensionInsurance_2_StartPayment", "Day", Model.Head.PensionInsurance_2_StartPaymentDay, dayItems) 日
+                            <div id="Head_PensionInsurance_2_StartPayment_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">新旧の区分</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "PensionInsurance_2_OldAndNewType", Model.Head.PensionInsurance_2_OldAndNewType, OldAndNewItems)<div id="Head_PensionInsurance_2_OldAndNewType_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">支払った保険料等の金額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.PensionInsurance_2_InsuranceFee, PensionInsurance_2_TextMoney1) 円<div id="Head_PensionInsurance_2_InsuranceFee_mes" class="check-comment"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ３ 個人年金保険料 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            ３ 個人年金保険料
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険会社等の名称</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.PensionInsurance_3_InsuranceCompanyName, TextWord2)<div id="Head_PensionInsurance_3_InsuranceCompanyName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の種類</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.PensionInsurance_3_InsuranceTypeName, TextWord2)<div id="Head_PensionInsurance_3_InsuranceTypeName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険期間又は年金支払期間</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.PensionInsurance_3_InsurancePeriod, TextWord1)<div id="Head_PensionInsurance_3_InsurancePeriod_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.PensionInsurance_3_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_3_ContractorName2, TextName)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" colspan="1" class="content-label-b1">保険金等の受取人</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">
+                            姓 @Html.TextBoxFor(m => m.Head.PensionInsurance_3_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_3_ReceiverName2, TextName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">あなたとの続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "PensionInsurance_3_RelationshipType", Model.Head.PensionInsurance_3_RelationshipType, familyItems)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">支払開始日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl(false, "PensionInsurance_3_StartPayment", "Year", Model.Head.PensionInsurance_3_StartPaymentYear, yearItems) 年
+                            @setYearDdl(false, "PensionInsurance_3_StartPayment", "Month", Model.Head.PensionInsurance_3_StartPaymentMonth, monthItems) 月
+                            @setYearDdl(false, "PensionInsurance_3_StartPayment", "Day", Model.Head.PensionInsurance_3_StartPaymentDay, dayItems) 日
+                            <div id="Head_PensionInsurance_3_StartPayment_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">新旧の区分</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "PensionInsurance_3_OldAndNewType", Model.Head.PensionInsurance_3_OldAndNewType, OldAndNewItems)<div id="Head_PensionInsurance_3_OldAndNewType_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">支払った保険料等の金額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.PensionInsurance_3_InsuranceFee, PensionInsurance_3_TextMoney1) 円<div id="Head_PensionInsurance_3_InsuranceFee_mes" class="check-comment"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 個人年金保険料控除額計算 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            <button type="button" name="PensionInsuranceCalc" value="計算" class="pull-left  btn-calc" id="btn-PensionInsurance-calc"> ≫　計算　≪</button>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">新保険料等の金額の合計</td>
+                        <td colspan="6" class="form-inline">Ｄ @Html.TextBoxFor(m => m.Head.PensionInsurance_NewTotalAmount, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">旧保険料等の金額の合計</td>
+                        <td colspan="6" class="form-inline">Ｅ @Html.TextBoxFor(m => m.Head.PensionInsurance_OldTotalAmount, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">Dの金額を計算式に当てはめた額</td>
+                        <td colspan="6" class="form-inline">&#9315; @Html.TextBoxFor(m => m.Head.PensionInsurance_Calc1, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">Eの金額を計算式に当てはめた額</td>
+                        <td colspan="6" class="form-inline">&#9316; @Html.TextBoxFor(m => m.Head.PensionInsurance_Calc2, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">計(④＋⑤)</td>
+                        <td colspan="6" class="form-inline">&#9317; @Html.TextBoxFor(m => m.Head.PensionInsurance_TotalAmount, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">⑤と⑥のいずれか大きい金額</td>
+                        <td colspan="6" class="form-inline">&#13033; @Html.TextBoxFor(m => m.Head.PensionInsurance_DeductionAmount, CalcMoney)</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+    <br />
+    <br />
+    <!-- 生命保険料控除額計算 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            <button type="button" name="AllLifeInsuranceCalc" value="計算" class="pull-left  btn-calc" id="btn-AllLifeInsurance-calc"> ≫　計算　≪</button>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">生命保険料控除額計(㋑＋㋺＋㋩)</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.AllLifeInsurance_DeductionAmount, CalcMoney) 円</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <br />
+    <!-- 地震保険料控除 -->
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="content-label-h1">
+                        <td colspan="8">
+                            地震保険料控除
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div id="linkHoken4" style="display: block;height: 12rem;margin-top: -12rem;content: ' ';visibility:hidden;"></div>
+
+
+    <!-- １ 地震保険料控除 -->
+    @*定義*@
+    var QuakeInsurance_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_QuakeInsurance_1_InsuranceFee',99999999)" } };
+    var QuakeInsurance_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_QuakeInsurance_2_InsuranceFee',99999999)" } };
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            地震保険料控除
+                        </td>
+                    </tr>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            １ 地震保険料控除
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険会社等の名称</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.QuakeInsurance_1_InsuranceCompanyName, TextWord2)<div id="Head_QuakeInsurance_1_InsuranceCompanyName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の種類</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.QuakeInsurance_1_InsuranceTypeName, TextWord2)<div id="Head_QuakeInsurance_1_InsuranceTypeName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険期間又は年金支払期間</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.QuakeInsurance_1_InsurancePeriod, TextWord1)<div id="Head_QuakeInsurance_1_InsurancePeriod_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.QuakeInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.QuakeInsurance_1_ContractorName2, TextName)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">
+                            姓 @Html.TextBoxFor(m => m.Head.QuakeInsurance_1_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.QuakeInsurance_1_ReceiverName2, TextName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">あなたとの続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "QuakeInsurance_1_RelationshipType", Model.Head.QuakeInsurance_1_RelationshipType, familyItems)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">地震保険料又は<br/>旧長期損害保険料区分</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "QuakeInsurance_1_QuakeAndDamageType", Model.Head.QuakeInsurance_1_QuakeAndDamageType, QuakeAndDamageItems)<div id="Head_QuakeInsurance_1_OldAndNewType_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">支払った保険料等の金額</td>
+                        <td colspan="6" class="form-inline">&#9398; @Html.TextBoxFor(m => m.Head.QuakeInsurance_1_InsuranceFee, QuakeInsurance_1_TextMoney1) 円<div id="Head_QuakeInsurance_1_InsuranceFee_mes" class="check-comment"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ２ 地震保険料控除 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            ２ 地震保険料控除
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険会社等の名称</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.QuakeInsurance_2_InsuranceCompanyName, TextWord2)<div id="Head_QuakeInsurance_2_InsuranceCompanyName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の種類</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.QuakeInsurance_2_InsuranceTypeName, TextWord2)<div id="Head_QuakeInsurance_2_InsuranceTypeName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険期間又は年金支払期間</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.QuakeInsurance_2_InsurancePeriod, TextWord1)<div id="Head_QuakeInsurance_2_InsurancePeriod_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.QuakeInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.QuakeInsurance_2_ContractorName2, TextName)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">
+                            姓 @Html.TextBoxFor(m => m.Head.QuakeInsurance_2_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.QuakeInsurance_2_ReceiverName2, TextName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">あなたとの続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "QuakeInsurance_2_RelationshipType", Model.Head.QuakeInsurance_2_RelationshipType, familyItems)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">地震保険料又は<br />旧長期損害保険料区分</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "QuakeInsurance_2_QuakeAndDamageType", Model.Head.QuakeInsurance_2_QuakeAndDamageType, QuakeAndDamageItems)<div id="Head_QuakeInsurance_2_OldAndNewType_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">支払った保険料等の金額</td>
+                        <td colspan="6" class="form-inline">&#9398; @Html.TextBoxFor(m => m.Head.QuakeInsurance_2_InsuranceFee, QuakeInsurance_2_TextMoney1) 円<div id="Head_QuakeInsurance_2_InsuranceFee_mes" class="check-comment"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- 地震保険料控除額計算 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            <button type="button" name="QuakeInsuranceCalc" value="計算" class="pull-left  btn-calc" id="btn-QuakeInsurance-calc"> ≫　計算　≪</button>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">Ⓐのうち地震保険料の金額の合計額</td>
+                        <td colspan="6" class="form-inline">&#9399; @Html.TextBoxFor(m => m.Head.QuakeInsurance_QuakeAmount, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">Ⓐのうち旧長期損害保険料の金額の合計額</td>
+                        <td colspan="6" class="form-inline">&#9400; @Html.TextBoxFor(m => m.Head.QuakeInsurance_DamageTotalAmount, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">Ⓑの金額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.QuakeInsurance_Calc1, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">Ⓒの金額(Ⓒの金額が10,000円を超える場合は、Ⓒ×1/2＋5,000円)</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.QuakeInsurance_Calc2, CalcMoney)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">上記2つの金額の合計</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.QuakeInsurance_DeductionAmount, CalcMoney)</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+    <br />
+    <!-- 社会保険料控除 -->
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="content-label-h1">
+                        <td colspan="8">
+                            社会保険料控除
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div id="linkHoken5" style="display: block;height: 12rem;margin-top: -12rem;content: ' ';visibility:hidden;"></div>
+
+
+    <!-- １ 社会保険料控除 -->
+    @*定義*@
+    var SocialInsurance_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_SocialInsurance_1_InsuranceFee',99999999)" } };
+    var SocialInsurance_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_SocialInsurance_2_InsuranceFee',99999999)" } };
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            社会保険料控除
+                        </td>
+                    </tr>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            １ 社会保険料控除
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">社会保険の種類</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SocialInsurance_1_InsuranceTypeName, TextWord2)<div id="Head_SocialInsurance_1_InsuranceTypeName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険料支払先の名称</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SocialInsurance_1_InsuranceCompanyName, TextWord2)<div id="Head_SocialInsurance_1_InsuranceCompanyName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" colspan="1" class="content-label-b1">保険料を負担することになっている人</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">
+                            姓 @Html.TextBoxFor(m => m.Head.SocialInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.SocialInsurance_1_ContractorName2, TextName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">あなたとの続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "SocialInsurance_1_RelationshipType", Model.Head.SocialInsurance_1_RelationshipType, familyItems)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">支払った保険料等の金額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SocialInsurance_1_InsuranceFee, SocialInsurance_1_TextMoney1) 円<div id="Head_SocialInsurance_1_InsuranceFee_mes" class="check-comment"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- ２ 社会保険料控除 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            ２ 社会保険料控除
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">社会保険の種類</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SocialInsurance_2_InsuranceTypeName, TextWord2)<div id="Head_SocialInsurance_2_InsuranceTypeName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">保険料支払先の名称</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SocialInsurance_2_InsuranceCompanyName, TextWord2)<div id="Head_SocialInsurance_2_InsuranceCompanyName_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" colspan="1" class="content-label-b1">保険料を負担することになっている人</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">
+                            姓 @Html.TextBoxFor(m => m.Head.SocialInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.SocialInsurance_2_ContractorName2, TextName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">あなたとの続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl(false, "SocialInsurance_2_RelationshipType", Model.Head.SocialInsurance_2_RelationshipType, familyItems)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">支払った保険料等の金額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SocialInsurance_2_InsuranceFee, SocialInsurance_2_TextMoney1) 円<div id="Head_SocialInsurance_2_InsuranceFee_mes" class="check-comment"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    
+    <!-- 社会保険料控除額計算 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            <button type="button" name="SocialInsuranceCalc" value="計算" class="pull-left  btn-calc" id="btn-SocialInsurance-calc"> ≫　計算　≪</button>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">合計(控除額)</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SocialInsurance_DeductionAmount, CalcMoney)</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <br />
+    <!-- 小規模企業共済等掛金控除 -->
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="content-label-h1">
+                        <td colspan="8">
+                            小規模企業共済等掛金控除
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div id="linkHoken6" style="display: block;height: 12rem;margin-top: -12rem;content: ' ';visibility:hidden;"></div>
+
+
+    @*定義*@
+    var SmallScaleMutualAid_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_SmallScaleMutualAid_MutualAidCost',99999999)" } };
+    var SmallScaleMutualAid_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_SmallScaleMutualAid_CorporatePensionCost',99999999)" } };
+    var SmallScaleMutualAid_TextMoney3 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_SmallScaleMutualAid_PersonalPensionCost',99999999)" } };
+    var SmallScaleMutualAid_TextMoney4 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_SmallScaleMutualAid_HandicappedMutualAidCost',99999999)" } };
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">独立行政法人中小企業基盤整備機構の共済契約の掛金</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SmallScaleMutualAid_MutualAidCost, SmallScaleMutualAid_TextMoney1) 円<div id="Head_SmallScaleMutualAid_MutualAidCost_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">確定拠出年金法に規定する企業型年金加入者掛金</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SmallScaleMutualAid_CorporatePensionCost, SmallScaleMutualAid_TextMoney2) 円<div id="Head_SmallScaleMutualAid_CorporatePensionCost_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">確定拠出年金法に規定する個人型年金加入者掛金</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SmallScaleMutualAid_PersonalPensionCost, SmallScaleMutualAid_TextMoney3) 円<div id="Head_SmallScaleMutualAid_PersonalPensionCost_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">心身障害者扶養共済制度に関する契約の掛金</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SmallScaleMutualAid_HandicappedMutualAidCost, SmallScaleMutualAid_TextMoney4) 円<div id="Head_SmallScaleMutualAid_HandicappedMutualAidCost_mes" class="check-comment"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 小規模企業共済等掛金控除 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:20%;" />
+                    <col style="width:20%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            <button type="button" name="SmallScaleMutualAidCalc" value="計算" class="pull-left  btn-calc" id="btn-SmallScaleMutualAid-calc"> ≫　計算　≪</button>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">合計(控除額)</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SmallScaleMutualAid_DeductionAmount, CalcMoney)</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    @*隠しボタンエリア*@
+    <div style="height:0px;">
+        <button type="submit" name="Save" id="savebutton" value="保存" class="btn invisible">保存</button>
+        <button type="submit" name="Keep" id="keepbutton" value="途中保存" class="btn invisible">途中保存</button>
+        <button type="submit" name="SignCancel" id="signcancel" class="btn invisible">保存取消</button>
+    </div>
+
+    @Scripts.Render("~/Scripts/js/hoken")
+
+}

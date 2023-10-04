@@ -1,0 +1,134 @@
+﻿@using EmployeeAdjustmentConnectionSystem.COM.Entity.Session
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+@*<!--レスポンシブ用-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">*@
+  <title>@ViewBag.Title - </title>
+  @Styles.Render("~/Content/css")
+  @Scripts.Render("~/bundles/modernizr")
+@*<!--IE9以降のJquery 今回は封印-->
+  @Scripts.Render("~/bundles/jquery")*@
+  @Scripts.Render("~/bundles/jqueryold")
+  @Scripts.Render("~/bundles/bootstrap")
+@*<!--IE8以下のレスポンシブ有効化 但し今回は封印-->
+  @Scripts.Render("~/bundles/respond")*@
+  @Scripts.Render("~/bundles/html5shiv")
+  @Scripts.Render("~/bundles/jqueryui")
+  @Scripts.Render("~/bundles/jqueryuidp")
+@*<!--コンボボックス装飾 IE8では封印-->
+  @Scripts.Render("~/bundles/bootstrapsel")*@
+  @Scripts.Render("~/Scripts/js/cmn")
+  @RenderSection("scripts", required: false)
+  <script type="text/javascript">
+    //オンロードイベント
+    $(window).on('load', function () {
+        //コンボボックス装飾
+        //IE8では封印
+        //  $('.selectpicker').selectpicker({
+        //    'selectedText': 'cat'
+        //  });
+        @*    表示判定*@
+        @if(TempData["Success"] != null) {
+            //アラート表示
+            @:showAlert('完了', '@TempData["Success"]');
+        }
+        //2016-04-14 iwai-tamura upd str -----
+        @*    表示判定*@
+        @if (TempData["Confirmation"] != null)
+        {
+            //確認表示
+            @*2017-03-31 sbc-sagara upd str alert内改行表示対応 *@
+            @*@:showAlert('確認', 'TempData["Confirmation"]');*@
+            @:showAlert('確認', '@Html.Raw(TempData["Confirmation"])');
+                            @*2017-03-31 sbc-sagara upd end *@
+            TempData["Confirmation"] = null;
+        }
+        //2016-04-14 iwai-tamura upd end -----
+        @* 2017-06-16 iwai-tamura add str アカウント作成参照追加用 *@
+        @if (TempData["ReferenceID"] != null) {
+            //確認表示
+            @:showMessage('アカウント追加', '@Html.Raw("以下のアカウント情報を参照しアカウント追加を行います。<br /><br />" + TempData["ReferenceID"] + "<br /><br />アカウント追加を実行しますか？")', 'AddAccount_Reference', true);
+                    TempData["ReferenceID"] = null;
+        }
+        @* 2017-06-16 iwai-tamura end アカウント作成参照追加用 *@
+        @* 2018-03-20 iwai-tamura add str 目標管理引継ぎ先更新確認用 *@
+        @if (TempData["TakeOverMoveReference"] != null) {
+            //確認表示
+            @:showMessage('確認', '@Html.Raw(TempData["TakeOverMoveReference"])', 'DoTakeOverMoveSingle_Reference', true);
+                    TempData["TakeOverMoveReference"] = null;
+        }
+        @if (TempData["TakeOverAmendmentCompanyReference"] != null) {
+            //確認表示
+            @:showMessage('確認', '@Html.Raw(TempData["TakeOverAmendmentCompanyReference"])', 'DoTakeOverAmendmentCompany_Reference', true);
+            TempData["TakeOverAmendmentCompanyReference"] = null;
+        }
+        @* 2018-03-20 iwai-tamura add end 目標管理引継ぎ先更新確認用 *@
+    });
+    //ログアウトメッセージボックス
+    function logoutMessage() {
+        //ボタンクリック
+        showLogout(true, '');
+    }
+  </script>
+
+</head>
+<!--2017-03-31 iwai-tamura upd str ------->
+<body style="zoom:98%;">
+@*<body>*@
+<!--2017-03-31 iwai-tamura upd end ------->
+    <div class="navbar navbar-inverse navbar-fixed-top main-menu" style="background: #DEF5E5;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand" style="color:#000;font-weight: bold; ">社員等WEB年末調整申告システム</div>
+
+            </div>
+            @*<!--IE9以降のnavi 今回は封印-->
+                <div class="navbar-collapse collapse">*@
+            <div>
+                @{
+                    //ログイン判断
+                    bool isLogin = null == HttpContext.Current.Session["IsLogin"] ? false : (bool)HttpContext.Current.Session["IsLogin"];
+                    if (isLogin)
+                    {
+                        var lu = (LoginUser)HttpContext.Current.Session["LoginUser"];
+                        //ログアウト処理
+                        using (Html.BeginForm("LogOff", "Login", FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <ul class="nav navbar-nav navbar-right">
+                                @*<li>@Html.ActionLink("パスワード変更", "ChangePassword", "ChangePassword")</li>*@
+                                <li><a href="javascript:logoutMessage();">ログアウト</a></li>
+                                <li class="nav navbar-text" style="color:#000; ">User：@lu.UserName (@lu.UserCode)</li>
+                            </ul>
+                            <ul class="nav navbar-text navbar-right">
+@*                                <li>User：@lu.DepartmentName @lu.UserName (@lu.UserCode)</li>*@
+                            </ul>
+                        }
+                    }
+            }
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer></footer>
+    </div>
+    @*ダイアログ用*@
+    <div id="show_dialog"></div>
+    @*ローディング用*@
+    <div align="center" id="loadingPanel" class="loading-panel-off" style=" background-image: url('../Content/img/bk.png'); background-repeat: repeat; overflow:hidden;">
+        <div id="innerLoadingPanel" class="inner-loading-panel"><img id="waitImage" src="../Content/img/726.GIF" /><br><span id="loadingMessage">In Processing・・・</span></div>
+    </div>
+</body>
+
+</html>

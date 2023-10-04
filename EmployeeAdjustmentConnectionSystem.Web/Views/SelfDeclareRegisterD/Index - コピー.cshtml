@@ -1,0 +1,1493 @@
+﻿﻿@using SkillDiscriminantSystem.COM.Util.Convert
+@using SkillDiscriminantSystem.COM.Enum
+@using SkillDiscriminantSystem.COM.Models
+@model SelfDeclareRegisterDViewModels
+@{
+    ViewBag.Title = "自己申告書　(Ｄ表)";
+}
+
+
+@Styles.Render("~/Content/css/obj")
+<!--タイトル-->
+@using (Html.BeginForm("Index", "SelfDeclareRegisterD", null, FormMethod.Post, new { @class = "form-horizontal", @style = "zoom:120%" })) {    @*</!--1.2倍の拡大表示-->>*@
+    <h4 class="text-center">@Html.DisplayFor(m => m.Head.JcalYear) 年度　自己申告書　(Ｄ表)</h4>
+    @Html.HiddenFor(m => m.Head.ManageNo)
+    @Html.HiddenFor(m => m.Head.JcalYear)
+    @Html.HiddenFor(m => m.Head.IsRireki)
+    @Html.HiddenFor(m => m.Head.DbArea)
+    @Html.HiddenFor(m => m.Head.CompetencyNo)
+    @Html.HiddenFor(m => m.Head.InputMode)
+    @Html.HiddenFor(m => m.Head.AuthButton)
+    @Html.HiddenFor(m => m.Head.CancelButton)
+
+    <!-- ヘッダ -->
+    <div class="row">
+        <div class="col-xs-8">
+            <br />
+            通常の「自己申告書」（A～C表）によらずに、会社や総務担当部に、直接伝えたい事項がある人のみ、<br />
+            この申告書に必要事項を記入のうえ、登録してください。<br />
+            <br />
+        </div>
+    </div>
+
+    <h4 style="margin-top:20px;">1 申告者</h4>
+    <div class="row">
+        <!--名前、社員番号等-->
+        <div class="col-xs-5">
+            <table class="table table-bordered ">
+                <thead>
+                    <tr class="h34">
+                        <td class="info w80">氏名</td>
+                        <td class="info w40">社員番号</td>
+                        <td class="info w160">所属</td>
+                        <td class="info w60">役職</td>
+                        <td class="info w30">資格</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="h34">
+                        <td>@Html.DisplayFor(m => m.Head.Name)</td>
+                        <td>@Html.DisplayFor(m => m.Head.EmployeeNo)</td>
+                        <td>@Html.DisplayFor(m => m.Head.Department)</td>
+                        <td>@Html.DisplayFor(m => m.Head.Post)</td>
+                        <td>@Html.DisplayFor(m => m.Head.Competency)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--面談の印鑑-->
+        <div class="col-xs-2">
+            <table class="table table-bordered">
+                <thead>
+                    @*承認ボタンヘルパー*@
+                    @helper setButton(ObjMode auth, ObjMode mode, string name, string value) {
+                        @Html.Raw("<td class=\"info\">")
+                        if (auth == mode) {
+                            var dmyId = "dmy" + value;
+                            <button type="button" name="Signature" id="@dmyId" value="@value" class="btn-default btn-xs">@name</button>
+                        } else {
+                            @name
+                        }
+                        @Html.Raw("</td>")
+}
+                    <tr class="h34">
+                        @setButton(Model.Head.AuthButton, ObjMode.ObjSelfSign, "本人", "111")
+                        @setButton(Model.Head.AuthButton, ObjMode.ObjInterviewSign, "上司", "112")
+                    </tr>
+                </thead>
+                <tbody>
+                    @*CancelButtonヘルパー*@
+                    @helper setCancelButton(string name, ObjMode cancel, ObjMode mode, string value) {
+                        @Html.Raw("<td>")
+                        @Html.Raw(name)
+                        if (cancel == mode) {
+                            var dmycId = "dmyc" + value;
+                            var dmycValue = "c" + value;
+                            <button type="button" class="btn btn-default btn-xs" name="SignCancel" id="@dmycId" value="@dmycValue"><i class="glyphicon glyphicon-remove"></i></button>
+                        }
+                        @Html.Raw("</td>")
+}
+                    <tr class="h34">
+                        @setCancelButton(Model.Head.ObjSelfSign, Model.Head.CancelButton, ObjMode.ObjSelfSign, "111")
+                        @setCancelButton(Model.Head.ObjInterviewSign, Model.Head.CancelButton, ObjMode.ObjInterviewSign, "112")
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--ボタンエリア-->
+    <div class="row">
+        <!--ボタン-->
+        <div class="col-xs-3">
+            <button type="button" name="DmySave" value="途中保存" class="btn-default pull-left" style="margin:0 5px 10px 0;" id="dmysave">途中保存</button>
+            <button type="submit" name="Back" value="戻る" class="btn-default pull-left" id="backbutton" style="margin:0 5px 10px 0;margin-left:5px;">戻る</button>
+            <button type="button" name="DmySave" value="途中保存" class="btn-default pull-left" style="margin-left:5px;" id="dmysave">前回データ取得</button>
+        </div>
+        <div class="col-xs-8">
+            &#9632;@Html.DisplayFor(m => m.Head.JcalYear)年3月31日現在のデータを使用しています。<br />
+            &#9632;入力を途中で中断する際は途中保存ボタンで保存して下さい。登録・承認については該当するボタンを押下して下さい。<br />
+            &#9632;戻るボタンを押下するとTOPへ戻ります。<br />
+            &#9632;前回データ取得ボタンを押下すると前回の自己申告書データで上書きします。(存在しない場合は何もしません。)
+        </div>
+    </div>
+
+    <h4 style="margin-top:20px;">2 異動（職務・配置換え）の希望について</h4>
+    <h6>（希望がある人のみ入力してください。）</h6>
+    <!-- 住所 -->
+    <div class="row">
+        @*定義*@
+        @{
+    //入力モード
+    var attr1 = new Dictionary<string, object>() { { "class", "form-control" }, { "rows", "1" }, { "maxlength", "500" }, { "readonly", "readonly" } };
+    //ラジオ
+    var attrRadio1 = new Dictionary<string, object>() { { "id", "in-radio" } };
+    var attrRadio2 = new Dictionary<string, object>() { { "id", "out-radio" } };
+    var radioRead = true;
+
+    switch (Model.Head.InputMode) {
+        case ObjMode.ObjSelfSign:
+        case ObjMode.ObjInterviewSign:
+            //設定本人・面談者時
+            //計画・方針入力化
+            attr1.Remove("readonly");
+            radioRead = false;
+            break;
+        default:
+            //上記以外 ReadOnly
+            break;
+    }
+
+    //担当職務希望リスト
+    var ShokumuKiboItems = new SelectListItem[] {
+                new SelectListItem() { Value="1", Text="1:是非引き続きやりたい" },
+                new SelectListItem() { Value="2", Text="2:できれば当分の間引き続きやりたい" },
+                new SelectListItem() { Value="3", Text="3:できれば替わりたい" },
+                new SelectListItem() { Value="4", Text="4:是非替わりたい" },
+                new SelectListItem() { Value="5", Text="5:特に希望はない" }
+            };
+    //勤務地希望リスト
+    var KinmuKiboItems = new SelectListItem[] {
+                new SelectListItem() { Value="1", Text="1:是非このままいたい" },
+                new SelectListItem() { Value="2", Text="2:できればこのままいたい" },
+                new SelectListItem() { Value="3", Text="3:できれば替わりたい" },
+                new SelectListItem() { Value="4", Text="4:是非替わりたい" },
+                new SelectListItem() { Value="5", Text="5:特に希望はない" }
+            };
+
+    //理由リスト1
+    var causeItems1 = new SelectListItem[] {
+                new SelectListItem() { Value="1", Text="1:期間が短い" },
+                new SelectListItem() { Value="2", Text="2:一連の仕事が終わっていない" },
+                new SelectListItem() { Value="3", Text="3:人間関係が良い" },
+                new SelectListItem() { Value="4", Text="4:仕事をマスターしていない" },
+                new SelectListItem() { Value="5", Text="5:経験・能力を活かすことができる" },
+                new SelectListItem() { Value="6", Text="6:性格的に合っている(適性である)" },
+                new SelectListItem() { Value="7", Text="7:専門的にやりたい" },
+                new SelectListItem() { Value="8", Text="8:適切な指導を受けている" },
+                new SelectListItem() { Value="9", Text="9:仕事に教務を感じている" },
+                new SelectListItem() { Value="10", Text="10:自分の健康管理上問題がある" },
+                new SelectListItem() { Value="11", Text="11:家族の健康管理上問題がある" },
+                new SelectListItem() { Value="12", Text="12:子供の教育上問題がある" },
+                new SelectListItem() { Value="13", Text="13:将来の生活設計上問題がある" },
+                new SelectListItem() { Value="14", Text="14:通勤に便利である" },
+                new SelectListItem() { Value="15", Text="15:その他" }
+            };
+
+    //理由リスト２
+    var causeItems2 = new SelectListItem[] {
+                new SelectListItem() { Value="1", Text="1:期間が長い" },
+                new SelectListItem() { Value="2", Text="2:仕事の区切りがよい" },
+                new SelectListItem() { Value="3", Text="3:人間関係上問題がある" },
+                new SelectListItem() { Value="4", Text="4:仕事をマスターした" },
+                new SelectListItem() { Value="5", Text="5:経験・能力を他で活かしたい" },
+                new SelectListItem() { Value="6", Text="6:他の職場で能力を伸ばしたい" },
+                new SelectListItem() { Value="7", Text="7:性格的に合わない" },
+                new SelectListItem() { Value="8", Text="8:他の業務経験をしたい" },
+                new SelectListItem() { Value="9", Text="9:指導が不適切である" },
+                new SelectListItem() { Value="10", Text="10:仕事に興味がわかない" },
+                new SelectListItem() { Value="11", Text="11:自分の健康管理上問題がある" },
+                new SelectListItem() { Value="12", Text="12:家族の健康管理上問題がある" },
+                new SelectListItem() { Value="13", Text="13:子供の教育上問題がある" },
+                new SelectListItem() { Value="14", Text="14:将来の生活設計上問題がある" },
+                new SelectListItem() { Value="15", Text="15:通勤に不便である" },
+                new SelectListItem() { Value="16", Text="16:その他" }
+            };
+
+    //時間：時　リスト
+    var hourItems = new SelectListItem[] {
+                new SelectListItem() { Value="0", Text=" 0" },
+                new SelectListItem() { Value="1", Text=" 1" },
+                new SelectListItem() { Value="2", Text=" 2" },
+                new SelectListItem() { Value="3", Text=" 3" },
+                new SelectListItem() { Value="4", Text=" 4" },
+                new SelectListItem() { Value="5", Text=" 5" },
+                new SelectListItem() { Value="6", Text=" 6" },
+                new SelectListItem() { Value="7", Text=" 7" },
+                new SelectListItem() { Value="8", Text=" 8" },
+                new SelectListItem() { Value="9", Text=" 9" },
+                new SelectListItem() { Value="10", Text="10" },
+                new SelectListItem() { Value="11", Text="11" },
+                new SelectListItem() { Value="12", Text="12" },
+                new SelectListItem() { Value="13", Text="13" },
+                new SelectListItem() { Value="14", Text="14" },
+                new SelectListItem() { Value="15", Text="15" },
+                new SelectListItem() { Value="16", Text="16" },
+                new SelectListItem() { Value="17", Text="17" },
+                new SelectListItem() { Value="18", Text="18" },
+                new SelectListItem() { Value="19", Text="19" },
+                new SelectListItem() { Value="20", Text="20" },
+                new SelectListItem() { Value="21", Text="21" },
+                new SelectListItem() { Value="22", Text="22" },
+                new SelectListItem() { Value="23", Text="23" },
+                new SelectListItem() { Value="24", Text="24" }
+            };
+
+    //時間：分　リスト
+    var minuteItems = new SelectListItem[] {
+                new SelectListItem() { Value="0", Text=" 0" },
+                new SelectListItem() { Value="1", Text=" 1" },
+                new SelectListItem() { Value="2", Text=" 2" },
+                new SelectListItem() { Value="3", Text=" 3" },
+                new SelectListItem() { Value="4", Text=" 4" },
+                new SelectListItem() { Value="5", Text=" 5" },
+                new SelectListItem() { Value="6", Text=" 6" },
+                new SelectListItem() { Value="7", Text=" 7" },
+                new SelectListItem() { Value="8", Text=" 8" },
+                new SelectListItem() { Value="9", Text=" 9" },
+                new SelectListItem() { Value="10", Text="10" },
+                new SelectListItem() { Value="11", Text="11" },
+                new SelectListItem() { Value="12", Text="12" },
+                new SelectListItem() { Value="13", Text="13" },
+                new SelectListItem() { Value="14", Text="14" },
+                new SelectListItem() { Value="15", Text="15" },
+                new SelectListItem() { Value="16", Text="16" },
+                new SelectListItem() { Value="17", Text="17" },
+                new SelectListItem() { Value="18", Text="18" },
+                new SelectListItem() { Value="19", Text="19" },
+                new SelectListItem() { Value="20", Text="20" },
+                new SelectListItem() { Value="21", Text="21" },
+                new SelectListItem() { Value="22", Text="22" },
+                new SelectListItem() { Value="23", Text="23" },
+                new SelectListItem() { Value="24", Text="24" },
+                new SelectListItem() { Value="25", Text="25" },
+                new SelectListItem() { Value="26", Text="26" },
+                new SelectListItem() { Value="27", Text="27" },
+                new SelectListItem() { Value="28", Text="28" },
+                new SelectListItem() { Value="29", Text="29" },
+                new SelectListItem() { Value="30", Text="30" },
+                new SelectListItem() { Value="31", Text="31" },
+                new SelectListItem() { Value="32", Text="32" },
+                new SelectListItem() { Value="33", Text="33" },
+                new SelectListItem() { Value="34", Text="34" },
+                new SelectListItem() { Value="35", Text="35" },
+                new SelectListItem() { Value="36", Text="36" },
+                new SelectListItem() { Value="37", Text="37" },
+                new SelectListItem() { Value="38", Text="38" },
+                new SelectListItem() { Value="39", Text="39" },
+                new SelectListItem() { Value="40", Text="40" },
+                new SelectListItem() { Value="41", Text="41" },
+                new SelectListItem() { Value="42", Text="42" },
+                new SelectListItem() { Value="43", Text="43" },
+                new SelectListItem() { Value="44", Text="44" },
+                new SelectListItem() { Value="45", Text="45" },
+                new SelectListItem() { Value="46", Text="46" },
+                new SelectListItem() { Value="47", Text="47" },
+                new SelectListItem() { Value="48", Text="48" },
+                new SelectListItem() { Value="49", Text="49" },
+                new SelectListItem() { Value="50", Text="50" },
+                new SelectListItem() { Value="51", Text="51" },
+                new SelectListItem() { Value="52", Text="52" },
+                new SelectListItem() { Value="53", Text="53" },
+                new SelectListItem() { Value="54", Text="54" },
+                new SelectListItem() { Value="55", Text="55" },
+                new SelectListItem() { Value="56", Text="56" },
+                new SelectListItem() { Value="57", Text="57" },
+                new SelectListItem() { Value="58", Text="58" },
+                new SelectListItem() { Value="59", Text="59" }
+            };
+
+            @helper setDdl1(bool isRead, int cnt, string name, string value, SelectListItem[] selItems) {
+                <div class="form-group-custom">
+                    @{
+                        var id = string.Format("ObjList[{0}].{1}", cnt, name);
+                        if (isRead) {
+                            @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly" })
+                        } else {
+                            @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", "")
+                        }
+                    }
+                </div>
+}
+
+            @helper setCauseDdl(bool isRead, int cnt, string name, string value, SelectListItem[] selItems) {
+                <div class="form-group-custom fome-inline h24">
+                    <label style="font-weight:normal;">@string.Format("理由{0}", cnt)</label>
+                    @{
+                        var id = string.Format("ObjList[{0}].{1}", cnt, name);
+                        if (isRead) {
+                            @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly" })
+                        } else {
+                            @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", "")
+                        }
+                    }
+                </div>
+}
+
+            @helper setTimeDdl(bool isRead, int cnt, string scale, string name, string value, SelectListItem[] selItems) {
+                <div class="form-group-custom fome-inline">
+                    @{
+                        var id = string.Format("ObjList[{0}].{1}", cnt, name);
+                        if (isRead) {
+                            @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly" })
+                        } else {
+                            @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", "")
+                        }
+                    }
+                    <label style="font-weight:normal;">@scale</label>
+                </div>
+}
+        }
+        <div class="col-xs-6">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:100px;" />
+                    <col style="width:50px;" />
+                    <col style="width:50px;" />
+                </colgroup>
+                <thead>
+                    <tr class="info">
+                        <td colspan="3">
+                            (1)次の異動（職務・配置換え）に関する設問について、該当する項目を選択してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border-style:none;">
+                            昨年の異動（職務・配置換え）に関する申告の有無
+                        </td>
+                        @if (radioRead) {
+                            @Html.HiddenFor(m => m.Head.MoveInOut)
+                            var intext = Model.Head.MoveInOut == Move.In ? "●" : "○";
+                            var outtext = Model.Head.MoveInOut == Move.Out ? "●" : "○";
+                            <td style="border-style:none;">@intext 申告した</td>
+                            <td style="border-style:none;">@outtext 申告していない</td>
+                        } else {
+                            <td style="border-style:none;">
+                                <label>
+                                    @Html.RadioButtonFor(m => m.Head.MoveInOut, Move.In, attrRadio1)
+                                    申告した
+                                </label>
+                            </td>
+                            <td style="border-style:none;">
+                                <label>
+                                    @Html.RadioButtonFor(m => m.Head.MoveInOut, Move.Out, attrRadio2)
+                                    申告していない
+                                </label>
+                            </td>
+                        }
+                    </tr>
+                    <tr>
+                        <td style="border-style:none;">
+                            異動（職務・配置換え）希望に対する上司との話し合いの有無
+                        </td>
+                        @if (radioRead) {
+                            @Html.HiddenFor(m => m.Head.MoveInOut)
+                            var intext = Model.Head.MoveInOut == Move.In ? "●" : "○";
+                            var outtext = Model.Head.MoveInOut == Move.Out ? "●" : "○";
+                            <td style="border-style:none;">@intext 話し合った</td>
+                            <td style="border-style:none;">@outtext 話し合っていない</td>
+                        } else {
+                            <td style="border-style:none;">
+                                <label>
+                                    @Html.RadioButtonFor(m => m.Head.MoveInOut, Move.In, attrRadio1)
+                                    話し合った
+                                </label>
+                            </td>
+                            <td style="border-style:none;">
+                                <label>
+                                    @Html.RadioButtonFor(m => m.Head.MoveInOut, Move.Out, attrRadio2)
+                                    話し合っていない
+                                </label>
+                            </td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:60px;" />
+                    <col style="width:20px;" />
+                    <col style="width:80px;" />
+                </colgroup>
+                <thead>
+                    <tr class="info">
+                        <td colspan="3">
+                            (2)次の各項目について、希望するものを選択してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border-style:none;" colspan="3">
+                            現在の担当職務について
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-style:none;">
+                            @setDdl1(false, 1, "FamilyType", Model.ObjList[1].BossWeight, ShokumuKiboItems)
+                        </td>
+                        <td style="border-style:none;" colspan="2">
+                            @setTimeDdl(false, 1, "年程度", "FamilyType", Model.ObjList[1].BossWeight, hourItems)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-style:none;" colspan="3">
+                            次の中からその理由を選んでください。(3つ以内で選択し、複数回答の場合は、比重の高い順に選択してください。)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-style:none;vertical-align:top;" rowspan="4">
+                            @setCauseDdl(false, 1, "FamilyType", Model.ObjList[1].BossWeight, causeItems2)
+                            @setCauseDdl(false, 2, "FamilyType", Model.ObjList[1].BossWeight, causeItems2)
+                            @setCauseDdl(false, 3, "FamilyType", Model.ObjList[1].BossWeight, causeItems2)
+                        </td>
+                        <td style="border-style:none;" colspan="2">
+                            通勤に関する理由を選択した場合に通勤時間を入力してください。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-style:none;">
+                            @setTimeDdl(false, 1, "時間", "FamilyType", Model.ObjList[1].BossWeight, hourItems)
+                        </td>
+                        <td style="border-style:none;">
+                            @setTimeDdl(false, 1, "分", "FamilyType", Model.ObjList[1].BossWeight, minuteItems)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-style:none;" colspan="2">
+                            その他を選んだ場合に入力してください。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-style:none;" colspan="2">
+                            @Html.TextAreaFor(m => m.Head.BusinessPlanning, attr1)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="border-style:solid none none none;" colspan="3">
+                            現在の勤務地について
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-style:none;">
+                            @setDdl1(false, 1, "FamilyType", Model.ObjList[1].BossWeight, ShokumuKiboItems)
+                        </td>
+                        <td style="border-style:none;" colspan="2">
+                            @setTimeDdl(false, 1, "年程度", "FamilyType", Model.ObjList[1].BossWeight, hourItems)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-style:none;" colspan="3">
+                            次の中からその理由を選んでください。(3つ以内で選択し、複数回答の場合は、比重の高い順に選択してください。)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-style:none;vertical-align:top;" rowspan="4">
+                            @setCauseDdl(false, 1, "FamilyType", Model.ObjList[1].BossWeight, causeItems2)
+                            @setCauseDdl(false, 2, "FamilyType", Model.ObjList[1].BossWeight, causeItems2)
+                            @setCauseDdl(false, 3, "FamilyType", Model.ObjList[1].BossWeight, causeItems2)
+                        </td>
+                        <td style="border-style:none;" colspan="2">
+                            通勤に関する理由を選択した場合に通勤時間を入力してください。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-style:none;">
+                            @setTimeDdl(false, 1, "時間", "FamilyType", Model.ObjList[1].BossWeight, hourItems)
+                        </td>
+                        <td style="border-style:none;">
+                            @setTimeDdl(false, 1, "分", "FamilyType", Model.ObjList[1].BossWeight, minuteItems)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-style:none;" colspan="2">
+                            その他を選んだ場合に入力してください。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-style:none;" colspan="2">
+                            @Html.TextAreaFor(m => m.Head.BusinessPlanning, attr1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 家族の状況 -->
+    <div class="row">
+        @*定義*@
+        <script type="text/javascript">
+            $(function () {
+                var selectarea = $("form select.familyItems-select");
+                var selectward = $("form input.family-other1");
+                $("form input.family-other1").attr("readonly", "readonly");
+                $("form input.family-other2").attr("readonly", "readonly");
+                $("form input.family-other3").attr("readonly", "readonly");
+                $("form input.family-other4").attr("readonly", "readonly");
+                $("form input.family-other5").attr("readonly", "readonly");
+                $("form input.family-other6").attr("readonly", "readonly");
+                $("form input.family-other7").attr("readonly", "readonly");
+                $("form input.family-other8").attr("readonly", "readonly");
+                $(selectarea).change(function () {
+                    switch ($(this).attr("id")) {
+                        case "ObjList_1__FamilyType":
+                            selectward = $("form input.family-other1");
+                            break;
+                        case "ObjList_2__FamilyType":
+                            selectward = $("form input.family-other2");
+                            break;
+                        case "ObjList_3__FamilyType":
+                            selectward = $("form input.family-other3");
+                            break;
+                        case "ObjList_4__FamilyType":
+                            selectward = $("form input.family-other4");
+                            break;
+                        case "ObjList_5__FamilyType":
+                            selectward = $("form input.family-other5");
+                            break;
+                        case "ObjList_6__FamilyType":
+                            selectward = $("form input.family-other6");
+                            break;
+                        case "ObjList_7__FamilyType":
+                            selectward = $("form input.family-other7");
+                            break;
+                        case "ObjList_8__FamilyType":
+                            selectward = $("form input.family-other8");
+                            break;
+                        default:
+                            selectward = "";
+                    }
+                    if ($(this).val() == "ZZ") {
+                        $(selectward).removeAttr("readonly");
+                    } else {
+                        $(selectward).attr("readonly", "readonly").val("");
+                    }
+                });
+            });
+        </script>
+
+        @{
+                        //入力モード
+                        attr1 = new Dictionary<string, object>() { { "class", "form-control" }, { "type", "number" }, { "rows", "1" }, { "maxlength", "2" }, { "readonly", "readonly" } };
+                        var attr2 = new Dictionary<string, object>() { { "class", "form-control w80" }, { "type", "number" }, { "rows", "1" }, { "maxlength", "2" }, { "readonly", "readonly" } };
+                        switch (Model.Head.InputMode) {
+                            case ObjMode.ObjSelfSign:
+                            case ObjMode.ObjInterviewSign:
+                                //設定本人・面談者時
+                                //計画・方針入力化
+                                //attr1.Remove("readonly");
+                                break;
+                            default:
+                                //上記以外 ReadOnly
+                                break;
+                        }
+
+                        var familyOtherattr1 = new Dictionary<string, object>() { { "class", " form-control family-other1 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+                        var familyOtherattr2 = new Dictionary<string, object>() { { "class", " form-control family-other2 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+                        var familyOtherattr3 = new Dictionary<string, object>() { { "class", " form-control family-other3 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+                        var familyOtherattr4 = new Dictionary<string, object>() { { "class", " form-control family-other4 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+                        var familyOtherattr5 = new Dictionary<string, object>() { { "class", " form-control family-other5 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+                        var familyOtherattr6 = new Dictionary<string, object>() { { "class", " form-control family-other6 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+                        var familyOtherattr7 = new Dictionary<string, object>() { { "class", " form-control family-other7 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+                        var familyOtherattr8 = new Dictionary<string, object>() { { "class", " form-control family-other8 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+                        switch (Model.Head.InputMode) {
+                            case ObjMode.ObjSelfSign:
+                            case ObjMode.ObjInterviewSign:
+                                //本人
+                                familyOtherattr1.Remove("readonly");
+                                familyOtherattr2.Remove("readonly");
+                                familyOtherattr3.Remove("readonly");
+                                familyOtherattr4.Remove("readonly");
+                                familyOtherattr5.Remove("readonly");
+                                familyOtherattr6.Remove("readonly");
+                                familyOtherattr7.Remove("readonly");
+                                familyOtherattr8.Remove("readonly");
+                                break;
+                            default:
+                                //上記以外 ReadOnly
+                                break;
+                        }
+
+                        //続柄リスト
+                        var familyItems = new SelectListItem[] {
+                    new SelectListItem() { Value="11", Text="11:配偶者(夫)" },
+                    new SelectListItem() { Value="12", Text="12:配偶者(妻)" },
+                    new SelectListItem() { Value="21", Text="21:長男" },
+                    new SelectListItem() { Value="22", Text="22:次男" },
+                    new SelectListItem() { Value="ZZ", Text="ZZ:その他" }
+            };
+
+                        //同居人数リスト
+                        var familyCountItems = new SelectListItem[] {
+                    new SelectListItem() { Value="0", Text="0" },
+                    new SelectListItem() { Value="1", Text="1" },
+                    new SelectListItem() { Value="2", Text="2" },
+                    new SelectListItem() { Value="3", Text="3" },
+                    new SelectListItem() { Value="4", Text="4" },
+                    new SelectListItem() { Value="5", Text="5" },
+                    new SelectListItem() { Value="6", Text="6" },
+                    new SelectListItem() { Value="7", Text="7" },
+                    new SelectListItem() { Value="8", Text="8" }
+            };
+            @helper setFamilyDdl1(bool isRead, int cnt, string name, string value, SelectListItem[] selItems) {
+                <div class="form-inline">
+                    @{
+                        var id = string.Format("ObjList[{0}].{1}", cnt, name);
+                        if (isRead) {
+                            @Html.TextBox(id, value, new { @class = "form-control", @style = "width:50px;height:16px;", @readonly = "readonly" })<label class="w30" style="font-weight:normal;">　名</label>
+                        } else {
+                            @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { style = "width: 50px; vertical-align:top;" })<label class="w30" style="font-weight:normal;">　名</label>
+                        }
+                    }
+                </div>
+}
+            @helper setFamilyDdl2(bool isRead, int cnt, string name, string value, SelectListItem[] selItems) {
+                <div class="h24 form-inline">
+                    @{
+                        var id = string.Format("ObjList[{0}].{1}", cnt, name);
+                        if (isRead) {
+                            <label class="w10" style="font-weight:normal;">@cnt</label> @Html.TextBox(id, value, new { @class = "form-control", @style = "width:90px;height:16px;", @size = "2", @rows = "1", @readonly = "readonly" })
+                        } else {
+                            <label class="w10" style="font-weight:normal;">@cnt</label> @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "familyItems-select" })
+                        }
+                    }
+                </div>
+}
+        }
+
+        <div class="col-xs-6">
+            <table class="table table-bordered" vertical-align="top">
+                <colgroup>
+                    <col style="width:50px;" />
+                    <col style="width:60px;" />
+                    <col style="width:80px;" />
+                    <col style="width:60px;" />
+                    <col style="width:80px;" />
+                </colgroup>
+                <thead>
+                    <tr class="info">
+                        <td colspan="5">
+                            家族の状況
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td>
+                            同居の家族構成<br>(本人を除く)
+                        </td>
+                        <td colspan="4">
+                            内訳
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-style:none;">
+                        <td style="vertical-align:top">
+                            @setFamilyDdl1(false, 1, "BossWeight", Model.ObjList[1].BossWeight, familyCountItems)
+                        </td>
+                        <td style="border-style:none; padding-right: 0px;">
+                            @setFamilyDdl2(false, 1, "FamilyType", Model.ObjList[1].BossWeight, familyItems)
+                            @setFamilyDdl2(false, 2, "FamilyType", Model.ObjList[1].BossWeight, familyItems)
+                            @setFamilyDdl2(false, 3, "FamilyType", Model.ObjList[1].BossWeight, familyItems)
+                            @setFamilyDdl2(false, 4, "FamilyType", Model.ObjList[1].BossWeight, familyItems)
+                        </td>
+                        <td style="border-style:none; padding-right: 0px;">
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.BusinessPlanning, familyOtherattr1)</div>
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.BusinessPlanning, familyOtherattr2)</div>
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.BusinessPlanning, familyOtherattr3)</div>
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.BusinessPlanning, familyOtherattr4)</div>
+                        </td>
+                        <td style="border-style:none none none solid; padding-right: 0px;">
+                            @setFamilyDdl2(false, 5, "FamilyType", Model.ObjList[1].BossWeight, familyItems)
+                            @setFamilyDdl2(false, 6, "FamilyType", Model.ObjList[1].BossWeight, familyItems)
+                            @setFamilyDdl2(false, 7, "FamilyType", Model.ObjList[1].BossWeight, familyItems)
+                            @setFamilyDdl2(false, 8, "FamilyType", Model.ObjList[1].BossWeight, familyItems)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;">
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.BusinessPlanning, familyOtherattr5)</div>
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.BusinessPlanning, familyOtherattr6)</div>
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.BusinessPlanning, familyOtherattr7)</div>
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.BusinessPlanning, familyOtherattr8)</div>
+                        </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 健康状態 -->
+    <div class="row">
+        @*定義*@
+        <script type="text/javascript">
+            $(function () {
+                var selectarea = $("form select.prefecture");
+                var selectward = $("form textarea.select-other");
+                $(selectward).attr("readonly", "readonly");
+                $(selectarea).change(function () {
+                    var area = $(this).val();
+                    if (area == "3") {
+                        $(selectward).removeAttr("readonly");
+                    } else {
+                        $(selectward).attr("readonly", "readonly").val("");
+                    }
+                });
+            });
+        </script>
+
+        @{
+                        //入力モード
+                        var Healthattr1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+                        switch (Model.Head.InputMode) {
+                            case ObjMode.ObjSelfSign:
+                            case ObjMode.ObjInterviewSign:
+                                //設定本人・面談者時
+                                //計画・方針入力化
+                                Healthattr1.Remove("readonly");
+                                break;
+                            default:
+                                //上記以外 ReadOnly
+                                break;
+                        }
+
+                        //健康状態リスト
+                        var HealthItems = new SelectListItem[] {
+                    new SelectListItem() { Value="1", Text="1:良好" },
+                    new SelectListItem() { Value="2", Text="2:普通" },
+                    new SelectListItem() { Value="3", Text="3:不順"}
+            };
+
+            @helper setHealthDdl1(bool isRead, int cnt, string name, string value, SelectListItem[] selItems) {
+                <div class="h24">
+                    @{
+                        var id = string.Format("ObjList[{0}].{1}", cnt, name);
+                        if (isRead) {
+                            @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly" })
+                        } else {
+                            @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "prefecture", style = "width: 60px; vertical-align:top;" })
+                        }
+                    }
+                </div>
+}
+            @helper setHealthDdl2(bool isRead, int cnt, string name, string value, SelectListItem[] selItems) {
+                <div class="h24">
+                    @{
+                        var id = string.Format("ObjList[{0}].{1}", cnt, name);
+                        if (isRead) {
+                            @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly" })
+                        } else {
+                            @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "ward", style = "width: 50px; vertical-align:top;" })
+                        }
+                    }
+                </div>
+}
+        }
+
+        <div class="col-xs-5">
+            <table class="table table-bordered" vertical-align="top">
+                <thead>
+                    <tr class="info">
+                        <td colspan="2">
+                            健康状態（心身両面）
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td>
+                            状態
+                        </td>
+                        <td>
+                            不順の状態
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="vertical-align:top">
+                            @setHealthDdl1(false, 1, "BossWeight", Model.ObjList[1].BossWeight, HealthItems)
+                        </td>
+                        <td>
+                            @Html.TextAreaFor(m => m.Head.BusinessPlanning, Healthattr1)
+                        </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h4 style="margin-top:20px;">2 担当職務について</h4>
+
+
+    <!-- 担当職務について -->
+    <div class="row">
+        @*定義*@
+        @{
+                        //入力モード
+                        var question1 = new Dictionary<string, object>() { { "class", "form-control" }, { "rows", "4" }, { "maxlength", "500" }, { "readonly", "readonly" } };
+                        switch (Model.Head.InputMode) {
+                            case ObjMode.ObjSelfSign:
+                            case ObjMode.ObjInterviewSign:
+                                //設定本人・面談者時
+                                //計画・方針入力化
+                                question1.Remove("readonly");
+                                break;
+                            default:
+                                //上記以外 ReadOnly
+                                break;
+                        }
+        }
+        <div class="col-xs-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td>
+                            (1) 現在の担当職務の内容について、主なものを具体的に記入してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.TextAreaFor(m => m.Head.BusinessPlanning, question1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td>
+                            (2) この１年間に担当した仕事に関する感想、プラスになったこと、身につけたこと、苦心したこと、改善すべき点等について<br>
+                            具体的に記入してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.TextAreaFor(m => m.Head.BusinessPlanning, question1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td>
+                            (3) 今後1年間どのような抱負(重点目標)を持って仕事を行っていくか、あるいは、実践していこうと思っている業務の効率化、<br>
+                            職場の活性化のための改善提案があれば記入してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.TextAreaFor(m => m.Head.BusinessPlanning, question1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td>
+                            (4) 前項実現、達成のために上司に考慮してほしいことがあれば記入してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.TextAreaFor(m => m.Head.BusinessPlanning, question1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 適性・能力開発について -->
+    <h4 style="margin-top:20px;">3 適性・能力開発について</h4>
+    <div class="row">
+        @*定義*@
+        <script type="text/javascript">
+            $(function () {
+                var selectarea = $("form select.tekisei-select1");
+                var selectward = $("form textarea.tekisei-other1");
+                $("form textarea.tekisei-other1").attr("readonly", "readonly");
+                $("form textarea.tekisei-other2").attr("readonly", "readonly");
+                $(selectarea).change(function () {
+                    if (document.getElementById("ObjList_1__Tekisei").value == "8" || document.getElementById("ObjList_2__Tekisei").value == "8") {
+                        $("form textarea.tekisei-other1").removeAttr("readonly");
+                    } else {
+                        $("form textarea.tekisei-other1").attr("readonly", "readonly").val("");
+                    }
+                });
+                $("form select.tekisei-select2").change(function () {
+                    if (document.getElementById("ObjList_3__Tekisei").value == "8" || document.getElementById("ObjList_4__Tekisei").value == "8") {
+                        $("form textarea.tekisei-other2").removeAttr("readonly");
+                    } else {
+                        $("form textarea.tekisei-other2").attr("readonly", "readonly").val("");
+                    }
+                });
+            });
+        </script>
+        @{
+                        //入力モード
+                        var question2 = new Dictionary<string, object>() { { "class", "form-control tekisei-other1" }, { "rows", "3" }, { "maxlength", "500" }, { "readonly", "readonly" } };
+                        var question3 = new Dictionary<string, object>() { { "class", "form-control tekisei-other2" }, { "rows", "3" }, { "maxlength", "500" }, { "readonly", "readonly" } };
+                        switch (Model.Head.InputMode) {
+                            case ObjMode.ObjSelfSign:
+                            case ObjMode.ObjInterviewSign:
+                                //設定本人・面談者時
+                                //計画・方針入力化
+                                question2.Remove("readonly");
+                                question3.Remove("readonly");
+                                break;
+                            default:
+                                //上記以外 ReadOnly
+                                break;
+                        }
+
+                        var Tekiseiattr1 = new Dictionary<string, object>() { { "class", "form-control select-other1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+                        var Tekiseiattr2 = new Dictionary<string, object>() { { "class", "form-control select-other1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+                        switch (Model.Head.InputMode) {
+                            case ObjMode.ObjSelfSign:
+                            case ObjMode.ObjInterviewSign:
+                                //設定本人・面談者時
+                                //計画・方針入力化
+                                Tekiseiattr1.Remove("readonly");
+                                Tekiseiattr2.Remove("readonly");
+                                break;
+                            default:
+                                //上記以外 ReadOnly
+                                break;
+                        }
+
+                        @helper setTekisei1(bool isRead, int cnt, string label, string name, string value, SelectListItem[] selItems) {
+                            <div class="h24">
+                                @{
+                                    var id = string.Format("ObjList[{0}].{1}", cnt, name);
+                                    if (isRead) {
+                                        <label class="w100" style="font-weight:normal;">@label</label> @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly" })
+                                    } else {
+                                        <label class="w100" style="font-weight:normal;">@label</label> @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "tekisei-select1", style = "width: 250px; vertical-align:top;" })
+                                    }
+                                }
+                            </div>
+}
+
+                        @helper setTekisei2(bool isRead, int cnt, string label, string name, string value, SelectListItem[] selItems) {
+                            <div class="h24">
+                                @{
+                                    var id = string.Format("ObjList[{0}].{1}", cnt, name);
+                                    if (isRead) {
+                                        <label class="w100" style="font-weight:normal;">@label</label> @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly" })
+                                    } else {
+                                        <label class="w100" style="font-weight:normal;">@label</label> @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "tekisei-select2", style = "width: 250px; vertical-align:top;" })
+                                    }
+                                }
+                            </div>
+}
+
+                        //職務リスト
+                        var TekiseiCountItems = new SelectListItem[] {
+                    new SelectListItem() { Value="1", Text="1:一定の仕事を根気よく続けるような仕事" },
+                    new SelectListItem() { Value="2", Text="2:新しい仕事を企画立案するような仕事" },
+                    new SelectListItem() { Value="3", Text="3:対人折衝により話をまとめるような仕事" },
+                    new SelectListItem() { Value="4", Text="4:数的な感覚を必要とするような仕事" },
+                    new SelectListItem() { Value="5", Text="5:文章力を必要とするような仕事" },
+                    new SelectListItem() { Value="6", Text="6:多くの人と共同して処理をするような仕事" },
+                    new SelectListItem() { Value="7", Text="7:人前で話すことの多い仕事" },
+                    new SelectListItem() { Value="8", Text="8:その他" }
+            };
+
+        }
+        <div class="col-xs-7">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td colspan="2">
+                            (1) 現在の担当職務の内容について、主なものを具体的に記入してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @setTekisei1(false, 1, "向いている職務1", "Tekisei", Model.ObjList[1].BossWeight, TekiseiCountItems)
+                            @setTekisei1(false, 2, "向いている職務2", "Tekisei", Model.ObjList[1].BossWeight, TekiseiCountItems)
+                        </td>
+                        <td style="border-style:solid solid solid hidden; vertical-align:top">
+                            その他を選んだ場合は内容を記入してください。
+                            @Html.TextAreaFor(m => m.Head.BusinessPlanning, question2)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @setTekisei2(false, 3, "向いていない職務1", "Tekisei", Model.ObjList[1].BossWeight, TekiseiCountItems)
+                            @setTekisei2(false, 4, "向いていない職務2", "Tekisei", Model.ObjList[1].BossWeight, TekiseiCountItems)
+                        </td>
+                        <td style="border-style:solid solid solid hidden; vertical-align:top">
+                            その他を選んだ場合は内容を記入してください。
+                            @Html.TextAreaFor(m => m.Head.BusinessPlanning, question3)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td>
+                            (2) 現在勉強していること(自己啓発)、この１年間に取得した資格・免許について具体的に記入してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.TextAreaFor(m => m.Head.BusinessPlanning, question1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <h4 style="margin-top:20px;">4 職務変更・配置換えについて</h4>
+    <!-- 職務変更・配置換えについて１ -->
+    <div class="row">
+        @*定義*@
+        <script type="text/javascript">
+            $(function () {
+                $("form input.Shokumu-other1").attr("readonly", "readonly");
+                $("form input.Shokumu-other2").attr("readonly", "readonly");
+                $("form select.Shokumu-select1").change(function () {
+                    if ($(this).val() == "ZZ") {
+                        $("form input.Shokumu-other1").removeAttr("readonly");
+                    } else {
+                        $("form input.Shokumu-other1").attr("readonly", "readonly").val("");
+                    }
+                });
+
+                $("form select.Shokumu-select2").change(function () {
+                    if ($(this).val() == "ZZ") {
+                        $("form input.Shokumu-other2").removeAttr("readonly");
+                    } else {
+                        $("form input.Shokumu-other2").attr("readonly", "readonly").val("");
+                    }
+                });
+
+                var selectarea2 = $("form select.GyoumuBunrui-select");
+                var selectward2 = $("form textarea.Kinmuchiattr1-other");
+                $(selectward2).attr("readonly", "readonly");
+                $(selectarea2).change(function () {
+                    if (document.getElementById("ObjList_1__Kinmuchi").value == "33" || document.getElementById("ObjList_2__Kinmuchi").value == "33" || document.getElementById("ObjList_3__Kinmuchi").value == "33") {
+                        $(selectward2).removeAttr("readonly");
+                    } else {
+                        $(selectward2).attr("readonly", "readonly").val("");
+                    }
+                });
+            });
+        </script>
+        @{
+                        //業務分類一覧表
+                        var GyoumuBunruiGroup1 = new SelectListGroup() { Name = "企画" };
+                        var GyoumuBunruiGroup2 = new SelectListGroup() { Name = "総務" };
+                        var GyoumuBunruiGroup3 = new SelectListGroup() { Name = "安全管理工事契約" };
+                        var GyoumuBunruiGroup4 = new SelectListGroup() { Name = "人事研修" };
+                        var GyoumuBunruiGroup5 = new SelectListGroup() { Name = "労務厚生" };
+                        var GyoumuBunruiGroup6 = new SelectListGroup() { Name = "経理" };
+                        var GyoumuBunruiGroup7 = new SelectListGroup() { Name = "CS" };
+                        var GyoumuBunruiGroup8 = new SelectListGroup() { Name = "監査" };
+                        var GyoumuBunruiGroup9 = new SelectListGroup() { Name = "生活ｻｰﾋﾞｽ施設" };
+                        var GyoumuBunruiGroup10 = new SelectListGroup() { Name = "生活環境サポート" };
+                        var GyoumuBunruiGroup11 = new SelectListGroup() { Name = "生活環境ｻﾎﾟｰﾄ 24時間緊急ｻｰﾋﾞｽ" };
+                        var GyoumuBunruiGroup12 = new SelectListGroup() { Name = "ライフライン管理" };
+                        var GyoumuBunruiGroup13 = new SelectListGroup() { Name = "予防保全緊急修繕" };
+                        var GyoumuBunruiGroup14 = new SelectListGroup() { Name = "室内リフォーム" };
+                        var GyoumuBunruiGroup15 = new SelectListGroup() { Name = "屋外環境整備" };
+                        var GyoumuBunruiGroup16 = new SelectListGroup() { Name = "技術開発" };
+                        var GyoumuBunruiGroup17 = new SelectListGroup() { Name = "営業企画" };
+                        var GyoumuBunruiGroup18 = new SelectListGroup() { Name = "分譲住宅管理" };
+                        var GyoumuBunruiGroup19 = new SelectListGroup() { Name = "研究開発" };
+                        var GyoumuBunruiGroup20 = new SelectListGroup() { Name = "事業企画・推進" };
+                        var GyoumuBunruiGroupZ = new SelectListGroup() { Name = "その他" };
+
+                        var GyoumuBunruiItems = new SelectListItem[] {
+                          new SelectListItem() { Value="1", Text="1 :企画・経営管理",Group = GyoumuBunruiGroup1 },
+                          new SelectListItem() { Value="2", Text="2 :システム開発",Group = GyoumuBunruiGroup1 },
+                          new SelectListItem() { Value="3", Text="3 :総務・文書管理",Group = GyoumuBunruiGroup2 },
+                          new SelectListItem() { Value="4", Text="4 :秘書",Group = GyoumuBunruiGroup2 },
+                          new SelectListItem() { Value="5", Text="5 :広報",Group = GyoumuBunruiGroup2 },
+                          new SelectListItem() { Value="6", Text="6 :法務・コンプライアンス",Group = GyoumuBunruiGroup2 },
+                          new SelectListItem() { Value="7", Text="7 :安全管理・品質管理・産業廃棄物管理",Group = GyoumuBunruiGroup3 },
+                          new SelectListItem() { Value="8", Text="8 :工事契約・材料管理",Group = GyoumuBunruiGroup3 },
+                          new SelectListItem() { Value="9", Text="9 :人事任用・採用",Group = GyoumuBunruiGroup4 },
+                          new SelectListItem() { Value="10", Text="10:給与管理",Group = GyoumuBunruiGroup4 },
+                          new SelectListItem() { Value="11", Text="11:社会保険・労働保険",Group = GyoumuBunruiGroup4 },
+                          new SelectListItem() { Value="12", Text="12:研修",Group = GyoumuBunruiGroup4 },
+                          new SelectListItem() { Value="13", Text="13:労務",Group = GyoumuBunruiGroup5 },
+                          new SelectListItem() { Value="14", Text="14:福利厚生・共済会",Group = GyoumuBunruiGroup5 },
+                          new SelectListItem() { Value="15", Text="15:経理(決算・税務)",Group = GyoumuBunruiGroup6 },
+                          new SelectListItem() { Value="16", Text="16:財務(出納・収納)",Group = GyoumuBunruiGroup6 },
+                          new SelectListItem() { Value="17", Text="17:工事経理",Group = GyoumuBunruiGroup6 },
+                          new SelectListItem() { Value="18", Text="18:お客様相談・CS管理",Group = GyoumuBunruiGroup7 },
+                          new SelectListItem() { Value="19", Text="19:監査業務",Group = GyoumuBunruiGroup8 },
+                          new SelectListItem() { Value="21", Text="21:団地内清掃点検",Group = GyoumuBunruiGroup10 },
+                          new SelectListItem() { Value="22", Text="22:団地管理･単身住宅管理･その他の受託等",Group = GyoumuBunruiGroup11 },
+                          new SelectListItem() { Value="23", Text="23:中央監視",Group = GyoumuBunruiGroup11 },
+                          new SelectListItem() { Value="24", Text="24:損害保険・生命保険・商品販売",Group = GyoumuBunruiGroup11 },
+                          new SelectListItem() { Value="25", Text="25:緊急事故受付管理",Group = GyoumuBunruiGroup11 },
+                          new SelectListItem() { Value="26", Text="26:給水施設管理・受水槽清掃等",Group = GyoumuBunruiGroup12 },
+                          new SelectListItem() { Value="27", Text="27:汚水施設管理",Group = GyoumuBunruiGroup12 },
+                          new SelectListItem() { Value="28", Text="28:雑排水管清掃等",Group = GyoumuBunruiGroup12 },
+                          new SelectListItem() { Value="29", Text="29:給水設備等修繕工事",Group = GyoumuBunruiGroup12 },
+                          new SelectListItem() { Value="30", Text="30:保守点検",Group = GyoumuBunruiGroup13 },
+                          new SelectListItem() { Value="31", Text="31:経常修繕工事",Group = GyoumuBunruiGroup13 },
+                          new SelectListItem() { Value="32", Text="32:空家補修工事",Group = GyoumuBunruiGroup14 },
+                          new SelectListItem() { Value="33", Text="33:ライフアップ工事",Group = GyoumuBunruiGroup14 },
+                          new SelectListItem() { Value="34", Text="34:リニューアル工事",Group = GyoumuBunruiGroup14 },
+                          new SelectListItem() { Value="35", Text="35:賃貸リフォーム・小修理",Group = GyoumuBunruiGroup14 },
+                          new SelectListItem() { Value="36", Text="36:居住環境修繕工事(建築・土木)",Group = GyoumuBunruiGroup15 },
+                          new SelectListItem() { Value="37", Text="37:植栽管理",Group = GyoumuBunruiGroup15 },
+                          new SelectListItem() { Value="38", Text="38:ストック改修技術開発(調査及び工事)",Group = GyoumuBunruiGroup16 },
+                          new SelectListItem() { Value="39", Text="39:マーケティング",Group = GyoumuBunruiGroup17 },
+                          new SelectListItem() { Value="40", Text="40:新規事業開発・商品開発",Group = GyoumuBunruiGroup17 },
+                          new SelectListItem() { Value="41", Text="41:新規受託営業",Group = GyoumuBunruiGroup18 },
+                          new SelectListItem() { Value="42", Text="42:大規模修繕工事等受託営業",Group = GyoumuBunruiGroup18 },
+                          new SelectListItem() { Value="43", Text="43:分譲等事務管理",Group = GyoumuBunruiGroup18 },
+                          new SelectListItem() { Value="44", Text="44:分譲等清掃",Group = GyoumuBunruiGroup18 },
+                          new SelectListItem() { Value="45", Text="45:分譲等施設管理",Group = GyoumuBunruiGroup18 },
+                          new SelectListItem() { Value="46", Text="46:分譲リフォーム",Group = GyoumuBunruiGroup18 },
+                          new SelectListItem() { Value="47", Text="47:分譲工事・特定工事・調査診断",Group = GyoumuBunruiGroup18 },
+                          new SelectListItem() { Value="48", Text="48:マンション相談",Group = GyoumuBunruiGroup18 },
+                          new SelectListItem() { Value="49", Text="49:技術開発研究",Group = GyoumuBunruiGroup19 },
+                          new SelectListItem() { Value="50", Text="50:環境分析測定",Group = GyoumuBunruiGroup19 },
+                          new SelectListItem() { Value="51", Text="51:新規事業開発",Group = GyoumuBunruiGroup20 },
+                          new SelectListItem() { Value="52", Text="52:コンビニ",Group = GyoumuBunruiGroup20 },
+                          new SelectListItem() { Value="53", Text="53:商業施設等",Group = GyoumuBunruiGroup20 },
+                          new SelectListItem() { Value="54", Text="54:ベーカリー",Group = GyoumuBunruiGroup20 },
+                          new SelectListItem() { Value="ZZ", Text="ZZ:その他",Group = GyoumuBunruiGroupZ }
+                        };
+                        //勤務地一覧表
+                        var KinmuchiGroup1 = new SelectListGroup() { Name = "本社" };
+                        var KinmuchiGroup2 = new SelectListGroup() { Name = "東京支社" };
+                        var KinmuchiGroup3 = new SelectListGroup() { Name = "関東支社" };
+                        var KinmuchiGroup4 = new SelectListGroup() { Name = "大阪支社" };
+                        var KinmuchiGroup5 = new SelectListGroup() { Name = "名古屋支社" };
+                        var KinmuchiGroup6 = new SelectListGroup() { Name = "福岡支社" };
+                        var KinmuchiGroup7 = new SelectListGroup() { Name = "出向" };
+                        var KinmuchiItems = new SelectListItem[] {
+                    new SelectListItem() { Value="1", Text="1 :本社",Group = KinmuchiGroup1 },
+                    new SelectListItem() { Value="34", Text="34:住生活事業本部",Group = KinmuchiGroup1 },
+                    new SelectListItem() { Value="2", Text="2 :技術開発研究所・技術訓練センター",Group = KinmuchiGroup1 },
+                    new SelectListItem() { Value="3", Text="3 :緊急自己受付センター",Group = KinmuchiGroup1 },
+                    new SelectListItem() { Value="4", Text="4 :東京支社",Group = KinmuchiGroup2 },
+                    new SelectListItem() { Value="5", Text="5 :東京東支店",Group = KinmuchiGroup2 },
+                    new SelectListItem() { Value="6", Text="6 :城北支店",Group = KinmuchiGroup2 },
+                    new SelectListItem() { Value="7", Text="7 :東京北支店",Group = KinmuchiGroup2 },
+                    new SelectListItem() { Value="8", Text="8 :東京南支店",Group = KinmuchiGroup2 },
+                    new SelectListItem() { Value="9", Text="9 :北多摩支店",Group = KinmuchiGroup2 },
+                    new SelectListItem() { Value="10", Text="10:南多摩支店",Group = KinmuchiGroup2 },
+                    new SelectListItem() { Value="11", Text="11:横浜支店",Group = KinmuchiGroup2 },
+                    new SelectListItem() { Value="12", Text="12:横浜南支店",Group = KinmuchiGroup2 },
+                    new SelectListItem() { Value="13", Text="13:神奈川西支店",Group = KinmuchiGroup2 },
+                    new SelectListItem() { Value="14", Text="14:関東支社",Group = KinmuchiGroup3 },
+                    new SelectListItem() { Value="15", Text="15:千葉支店",Group = KinmuchiGroup3 },
+                    new SelectListItem() { Value="16", Text="16:千葉西支店",Group = KinmuchiGroup3 },
+                    new SelectListItem() { Value="17", Text="17:千葉北支店",Group = KinmuchiGroup3 },
+                    new SelectListItem() { Value="18", Text="18:浦和支店",Group = KinmuchiGroup3 },
+                    new SelectListItem() { Value="19", Text="19:東埼玉支店",Group = KinmuchiGroup3 },
+                    new SelectListItem() { Value="20", Text="20:西埼玉支店",Group = KinmuchiGroup3 },
+                    new SelectListItem() { Value="21", Text="21:大阪支社",Group = KinmuchiGroup4 },
+                    new SelectListItem() { Value="22", Text="22:大阪中支店",Group = KinmuchiGroup4 },
+                    new SelectListItem() { Value="23", Text="23:大阪北支店",Group = KinmuchiGroup4 },
+                    new SelectListItem() { Value="24", Text="24:大阪南支店",Group = KinmuchiGroup4 },
+                    new SelectListItem() { Value="25", Text="25:兵庫支店",Group = KinmuchiGroup4 },
+                    new SelectListItem() { Value="26", Text="26:阪神支店",Group = KinmuchiGroup4 },
+                    new SelectListItem() { Value="27", Text="27:奈良支店",Group = KinmuchiGroup4 },
+                    new SelectListItem() { Value="28", Text="28:京都支店",Group = KinmuchiGroup4 },
+                    new SelectListItem() { Value="29", Text="29:名古屋支社",Group = KinmuchiGroup5 },
+                    new SelectListItem() { Value="30", Text="30:名北支店",Group = KinmuchiGroup5 },
+                    new SelectListItem() { Value="31", Text="31:福岡支社",Group = KinmuchiGroup6 },
+                    new SelectListItem() { Value="32", Text="32:北九州支店",Group = KinmuchiGroup6 },
+                    new SelectListItem() { Value="33", Text="33:出向",Group = KinmuchiGroup7 }
+            };
+
+                        var ShokumuOtherattr1 = new Dictionary<string, object>() { { "class", " form-control Shokumu-other1 " }, { "style", "width:300px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+                        var ShokumuOtherattr2 = new Dictionary<string, object>() { { "class", " form-control Shokumu-other2 " }, { "style", "width:300px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+                        var Kinmuchiattr1 = new Dictionary<string, object>() { { "class", "form-control Kinmuchiattr1-other" }, { "size", "10" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+                        switch (Model.Head.InputMode) {
+                            case ObjMode.ObjSelfSign:
+                            case ObjMode.ObjInterviewSign:
+                                //設定本人・面談者時
+                                //計画・方針入力化
+                                ShokumuOtherattr1.Remove("readonly");
+                                ShokumuOtherattr2.Remove("readonly");
+                                Kinmuchiattr1.Remove("readonly");
+                                break;
+                            default:
+                                //上記以外 ReadOnly
+                                break;
+                        }
+
+                        @helper setShokumu1(bool isRead, int cnt, string label, string name, string value, SelectListItem[] selItems) {
+                            <div class="h24">
+                                @{
+                                    var id = string.Format("ObjList[{0}].{1}", cnt, name);
+                                    if (isRead) {
+                                        <label class="w20" style="font-weight:normal;">@label</label> @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly" })
+                                    } else {
+                                        <label class="w20" style="font-weight:normal;">@label</label> @Html.DropDownList(id, selItems, "", new { @class = "Shokumu-select1", style = "width: 250px; vertical-align:top;" })
+                                    }
+                                }
+                            </div>
+}
+
+                        @helper setShokumu2(bool isRead, int cnt, string label, string name, string value, SelectListItem[] selItems) {
+                            <div class="h24">
+                                @{
+                                    var id = string.Format("ObjList[{0}].{1}", cnt, name);
+                                    if (isRead) {
+                                        <label class="w20" style="font-weight:normal;">@label</label> @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly" })
+                                    } else {
+                                        <label class="w20" style="font-weight:normal;">@label</label> @Html.DropDownList(id, selItems, "", new { @class = "Shokumu-select2", style = "width: 250px; vertical-align:top;" })
+                                    }
+                                }
+                            </div>
+}
+
+                        @helper setKinmuchi(bool isRead, int cnt, string label, string name, string value, SelectListItem[] selItems) {
+                            <div class="h24">
+                                @{
+                                    var id = string.Format("ObjList[{0}].{1}", cnt, name);
+                                    if (isRead) {
+                                        <label class="w100" style="font-weight:normal;">@label</label> @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly" })
+                                    } else {
+                                        <label class="w100" style="font-weight:normal;">@label</label> @Html.DropDownList(id, selItems, "", new { @class = "GyoumuBunrui-select", style = "width: 250px; vertical-align:top;" })
+                                    }
+                                }
+                            </div>
+}
+        }
+        <div class="col-xs-7">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td colspan="2">
+                            (1) 職務変更や配置換えについて、上司と共有化しておきたい意見、希望などがあれば具体的に記入してください。<br>
+                            特に、自分の健康上の問題、育児や家族の介護等、配置換えにおいて配慮してほしい事由がある場合は、考慮してほしい内容を含めて具体的に<br>
+                            記入してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border-style:none ;" colspan="2">
+                            @Html.TextAreaFor(m => m.Head.BusinessPlanning, question1)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="border-style:none ;">
+                            <label class="w20" style="vertical-align: top;font-weight:normal;">※職務変更についての具体的内容については、２つ以内で希望するものを選んでください。</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-style:none ;">
+                            @setShokumu1(false, 1, "希望職務1", "Shokumu", Model.ObjList[1].BossWeight, GyoumuBunruiItems)
+                        </td>
+                        <td style="border-style:none ;">
+                            <div class="h24 form-inline">
+                                <label class="w20" style="vertical-align: top;font-weight:normal;">その他</label>
+                                @Html.TextBoxFor(m => m.Head.BusinessPlanning, ShokumuOtherattr1)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-style:none ;">
+                            @setShokumu2(false, 2, "希望職務2", "Shokumu", Model.ObjList[1].BossWeight, GyoumuBunruiItems)
+                        </td>
+                        <td style="border-style:none ;">
+                            <div class="h24 form-inline">
+                                <label class="w20" style="vertical-align: top;font-weight:normal;">その他</label>
+                                @Html.TextBoxFor(m => m.Head.BusinessPlanning, ShokumuOtherattr2)
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td colspan="2">
+                            (2) 配置換え希望の有無に関わらず、次回の配置換えにおいて希望する勤務地３箇所を選択してください。<br>
+                            なお、本社、東京支社、関東支社所属の人については、同一支社２箇所以内で選んでください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border-style:none ;">
+                            @setKinmuchi(false, 1, "希望勤務地1", "Kinmuchi", Model.ObjList[1].BossWeight, KinmuchiItems)
+                            @setKinmuchi(false, 2, "希望勤務地2", "Kinmuchi", Model.ObjList[1].BossWeight, KinmuchiItems)
+                            @setKinmuchi(false, 3, "希望勤務地3", "Kinmuchi", Model.ObjList[1].BossWeight, KinmuchiItems)
+                        </td>
+                        <td style="border-style:none ;vertical-align:top">
+                            <label style="font-weight:normal;">出向を選んだ場合に記入してください。</label>
+                            <div style="margin-top:5px">
+                                <label style="font-weight:normal;">出向先&nbsp;</label>@Html.TextAreaFor(m => m.Head.BusinessPlanning, Kinmuchiattr1)
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <h4 style="margin-top:20px;">5 自由意見</h4>
+    <!-- 自由意見 -->
+    <div class="row">
+        @*定義*@
+        @{
+                        var Frreattr1 = new Dictionary<string, object>() { { "class", "form-control" }, { "rows", "8" }, { "maxlength", "1000" }, { "readonly", "readonly" } };
+                        switch (Model.Head.InputMode) {
+                            case ObjMode.ObjSelfSign:
+                            case ObjMode.ObjInterviewSign:
+                                //設定本人・面談者時
+                                //計画・方針入力化
+                                Frreattr1.Remove("readonly");
+                                break;
+                            default:
+                                //上記以外 ReadOnly
+                                break;
+                        }
+        }
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td>
+                            上記以外のことで、特に述べたいことがあれば記入してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.TextAreaFor(m => m.Head.BusinessPlanning, Frreattr1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-xs-10">
+        <hr style="margin: 0 -20px;margin-top:20px; border:none;border-top:dashed 1px #B0B0B0;height:1px;color:#FFFFFF;">
+    </div>
+
+    <div class="col-xs-10">
+        <h4>【上司記入欄】</h4>
+    </div>
+    <!-- 上司記入欄 -->
+    <div class="row">
+        @*定義*@
+        @{
+                        var Bossattr1 = new Dictionary<string, object>() { { "class", "form-control" }, { "rows", "8" }, { "maxlength", "1000" }, { "readonly", "readonly" } };
+                        switch (Model.Head.InputMode) {
+                            case ObjMode.ObjInterviewSign:
+                                //設定本人・面談者時
+                                //計画・方針入力化
+                                Bossattr1.Remove("readonly");
+                                break;
+                            default:
+                                //上記以外 ReadOnly
+                                break;
+                        }
+        }
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td>
+                            育成面談においてアドバイスしたこと、2-(4) に対する具体的な対応などについて記入してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.TextAreaFor(m => m.Head.BusinessPlanning, Bossattr1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*隠しボタンエリア*@
+    <div style="height:0px;">
+        <button type="submit" name="Save" id="savebutton" value="保存" class="btn invisible">保存</button>
+        <button type="submit" name="Save2Print" id="save2printbutton" value="保存PDF出力" class="btn invisible">保存PDF出力</button>
+
+        <button type="submit" name="Signature" id="111" value="1,1,1" class="btn invisible">本人</button>
+        <button type="submit" name="Signature" id="112" value="1,1,2" class="btn invisible">面談者</button>
+
+        <button type="submit" name="SignCancel" id="c111" value="1,1,1" class="btn invisible">本人</button>
+        <button type="submit" name="SignCancel" id="c112" value="1,1,2" class="btn invisible">面談者</button>
+    </div>
+
+    @Scripts.Render("~/Scripts/js/obj")
+
+}

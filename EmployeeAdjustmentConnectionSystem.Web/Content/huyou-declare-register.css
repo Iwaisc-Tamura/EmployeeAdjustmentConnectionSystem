@@ -1,0 +1,251 @@
+﻿/*ページ全体の基本設定*/
+.row {
+    font-size: 16px;
+}
+.form-control{
+    font-size: 16px;
+    line-height:1.6;
+}
+textarea {
+  resize: none;
+}
+textarea.form-control{
+    height: 28px;
+}
+
+input {
+    max-width: 100%;
+}
+span{
+    vertical-align: middle;
+}
+.required{
+    font-size: 14px;
+    color:#f00;
+    float: right;
+}
+
+
+
+/*=== チェックコメント ===*/
+.check-comment{
+    font-size: 12px;
+    color:#f00;
+}
+
+/* === 各項目の書式 === */
+/*ヘッダー項目*/
+.table > thead > tr.content-label-h1{
+  font-weight:bold; color:#fff;background-color: #0091c4;
+}
+.table > thead > tr.content-label-h2{
+  font-weight:bold; color:#fff;background-color: #2dc8ff;
+}
+.table > thead > tr.content-label-h3{
+  font-weight:bold; color:#fff;background-color: #71daff;
+}
+.table > thead > tr.content-label-h4{
+  font-weight:bold; color:#fff;background-color: #0091c4;
+}
+/*フッター項目*/
+.table > tbody > tr> td.content-label-b1{
+  font-weight:bold; color:#000;background-color: #e1f7ff;
+}
+.table > tbody > td.content-label-b2{
+  font-weight:bold; color:#000;background-color: #e1f7ff;
+}
+.table > tbody > td.content-label-b3{
+  font-weight:bold; color:#000;background-color: #e1f7ff;
+}
+.table > tbody > td.content-label-b4{
+  font-weight:bold; color:#000;background-color: #e1f7ff;
+}
+
+
+
+/* === ラジオボタン設定 === */
+input[type=radio] {
+  display: none; /* ラジオボタンを非表示にする */
+}
+
+.radio-label-1 {
+  margin: 0px; /* ラベル外側の余白を指定する */
+  border: 1px solid #006DD9;/* ラベルの境界線を実線で指定する */
+  font-weight:normal;
+  width:80px;
+  text-align:  center;
+}
+
+.radio-label-2 {
+  margin: 0px; /* ラベル外側の余白を指定する */
+  border: 1px solid #006DD9;/* ラベルの境界線を実線で指定する */
+  font-weight:normal;
+  width:120px;
+  text-align:  center;
+}
+.radio-label-3 {
+  margin: 0px; /* ラベル外側の余白を指定する */
+  border: 1px solid #006DD9;/* ラベルの境界線を実線で指定する */
+  font-weight:normal;
+  width:200px;
+  text-align:  center;
+}
+input[type="radio"]:checked + label {
+  background: #31A9EE;/* マウス選択時の背景色を指定する */
+  color: #ffffff; /* マウス選択時のフォント色を指定する */
+}
+
+input[type=radio] + label[disabled] {
+  border: 1px solid #000;/* ラベルの境界線を実線で指定する */
+  background: #fff;/* マウス選択時の背景色を指定する */
+  color: #555; /* マウス選択時のフォント色を指定する */
+  pointer-events:none;
+}
+input[type="radio"]:checked + label[disabled] {
+  border: 1px solid #000;/* ラベルの境界線を実線で指定する */
+  background: #bbb;/* マウス選択時の背景色を指定する */
+  color: #000; /* マウス選択時のフォント色を指定する */
+  pointer-events:none;
+}
+
+/* === 日付入力(カレンダー) === */
+.calendar-input{
+  width:80px;
+}
+
+
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  vertical-align: middle;
+}
+
+.table > thead > tr > th {
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+
+.skl-table > tbody > tr > td {
+  vertical-align: top;
+}
+
+.form-horizontal .form-group-ml-zero {
+  margin-left: 0px;
+}
+
+
+/*
+.pad-zero {
+  padding :0px;
+}
+.head-left{
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  float:left;
+}
+.head-end{
+  border: 1px solid #ddd;
+  float:left;
+}
+
+  */
+
+
+/*2020-10-12 iwai-tamura upd-str ------*/
+/*着眼点登録用モーダルウィンドウスタイル*/
+
+.modal-table-head{
+    display:table;
+    font-weight:bold;
+    background-color: #d9edf7;
+}
+.modal-table-body{
+    display:table;
+}
+.modal-table-cell0{
+    display:table-cell;
+    border: solid 1px #ddd;
+    padding-left: 2px;
+	width: 600px ;
+}
+.modal-table-cell1{
+    display:table-cell;
+    border: solid 1px #ddd;
+    padding-left: 4px;
+	width: 600px ;
+}
+
+.modal-table-cell2{
+    border: solid 1px #ddd;
+    display:table-cell;
+    padding-left: 16px;
+	width: 50px ;
+}
+
+.modal-table-hantei1{
+    display:table-cell;
+    font-weight:bold;
+    background-color: #d9edf7;
+    border: solid 1px #ddd;
+    padding-left: 16px;
+    padding-top: 2px;
+    height:20px;
+	width: 50px ;
+}
+.modal-table-hantei2{
+    display:table-cell;
+    border: solid 1px #ddd;
+    padding-left: 10px;
+    padding-top: 2px;
+    height:20px;
+	width: 50px ;
+}
+
+
+.modal-content {
+	width: 50% ;
+	margin: 0 ;
+	padding: 10px 20px ;
+	border: 2px solid #aaa ;
+	background: #fff ;
+	position: fixed ;
+	display: none ;
+	z-index: 2 ;
+
+    font-size: 12px; 
+}
+  
+#modal-overlay {
+	z-index: 1 ;
+	display: none ;
+	position: fixed ;
+	top: 0 ;
+	left: 0 ;
+	width: 100% ;
+	height: 120% ;
+	background-color: rgba( 0,0,0, 0.75 ) ;
+}
+
+.button-link {
+	/*color: #00f ;
+	text-decoration: underline ;*/
+}
+ 
+.button-link:hover {
+	cursor: pointer ;
+	color: #f00 ;
+}
+/*2020-10-12 iwai-tamura upd-end ------*/
+
+
+
+
+
+
+
+

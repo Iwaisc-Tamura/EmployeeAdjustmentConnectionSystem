@@ -1,0 +1,787 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Transactions;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+using System.Web;
+using System.Web.Mvc;
+using System.Text.RegularExpressions;
+using SkillDiscriminantSystem.COM.Util.Convert;
+using SkillDiscriminantSystem.COM.Util.Database;
+using SkillDiscriminantSystem.COM.Entity.Session;
+using SkillDiscriminantSystem.COM.Util.Config;
+using SkillDiscriminantSystem.COM.Util.File;
+using System.IO;
+
+namespace SkillDiscriminantSystem.BL.SystemManagement {
+    public class ApproverInsert {
+
+        /// <summary>
+        /// ロガー
+        /// </summary>
+        private static NLog.Logger nlog = NLog.LogManager.GetCurrentClassLogger();
+
+        /// <summary>
+        /// 決裁権限初期作成
+        /// </summary>
+        /// <param name="year">作成対象年</param>
+        /// <param name="empNo">作成対象社員</param>
+        /// <param name="durationParam">対象期区分</param>
+        /// <param name="actionType">Objective:目標管理 or Skill:職能</param>
+        /// <param name="durationParam">対象期区分</param>
+        public void DoInsertApprover(int year, string empNo, string actionType, LoginUser lu, string durationParam) {
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //更新元データと参照データを取得
+                DataTable UpdateSourceTable = GEtUpdateSourceTable(year, empNo, actionType, durationParam);
+
+                //自動設定項目をまとめて取得する(あとで抜き出し)
+                DataTable AutoPointTable = GetAutoPointTable(year);
+
+                //1000件ずつInsert版
+                List<string> SqlList = CreateInsSqlList(year, empNo, UpdateSourceTable, AutoPointTable);
+
+                foreach(string sql in SqlList) {
+                    using(DbManager dm = new DbManager())
+                    using(IDbCommand cmd = dm.CreateCommand(sql)) {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+            } catch(Exception ex) {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            } finally {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
+        /// 更新元データを全件取得
+        /// </summary>
+        /// <param name="year">対象年度</param>
+        /// <param name="empNo">対象社員(個別作成の場合)</param>
+        /// <param name="actionType">Objective:目標管理 or Skill:職能</param>
+        /// <param name="durationParam">対象期区分</param>
+        /// <returns></returns>
+        private DataTable GEtUpdateSourceTable(int year, string empNo, string actionType, string durationParam) {
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                DataSet ds = new DataSet();
+
+                //処理タイプによりテーブル名を設定
+                //string table1 = " SD_VT目標管理検索キー k1 ";
+                //string existswhere = "";
+                //string appendwhere1 = "";
+                //string appendwhere2 = "";
+
+                //if(!(pAT == "Objective")){
+                //    table1 = " SD_VT職能判定検索キー k1 ";
+                //    existswhere = " and k1.期区分 = d1.期区分 ";
+                //    if(!string.IsNullOrEmpty(durationP)) appendwhere1 = string.Format(" and d1.期区分 = {0} ", durationP);
+                //};
+
+                //if(!string.IsNullOrEmpty(pEN)) appendwhere2 = " and d1.社員番号 = @emp ";
+
+                
+                //2016-01-21 iwai-tamura upd str -----
+                //目標と職能判定で分ける
+                var sql = "";
+                if (actionType == "Objective") {
+                    bool isObj = actionType == "Objective";
+                    string table1 = " SD_VT目標管理検索キー k1 ";
+                    string existswhere = "";
+
+                    string Objappendwhere1 = "";
+
+                    string appendwhere1 = Objappendwhere1;
+                    string appendwhere2 = string.IsNullOrEmpty(empNo) ? "" : " and d1.社員番号 = @emp ";
+
+                    //社員番号の条件を設定
+                    string kEmp = DataConv.IfNull(empNo, "d1.社員番号").ToString();
+
+                    sql = " select "
+                        + "     @year as 年度 "
+                        + "     ,d1.所属番号 "
+                        + "     ,d1.社員番号 "
+                        + "     ,sk1.年度 as 過去年度 "
+                        + "     ,sk1.所属番号 as 過去所属 "
+                        + "     ,mt1.上司社員 "
+                        + "     ,mt1.目標面談者 "
+                        + "     ,mt1.目標面談上位者 "
+                        + "     ,mt1.目標面談部長支店長 "
+                        + "     ,mt1.達成評価者 "
+                        + "     ,mt1.達成評価上位者 "
+                        + "     ,mt1.達成評価部長支店長 "
+                        + "     ,mt1.人事担当課長 "
+                        + "     ,mt1.総務部長 "
+                        + "     ,mt1.支社長担当役員 "
+                        + "     ,mt2.一次判定 "
+                        + "     ,mt2.二次判定 "
+                        + "     ,mt2.部門調整 "
+                        + "     ,mt2.支社調整 "
+                        + " from  "
+                        + "     SD_VT人事Data基本情報 d1 "
+                        + "     left join ( "                               //決裁権限参照情報を結合 
+                        + "                 select "
+                        + "                     * "
+                        + "                 from "
+                        + "                     SD_VM決裁権限参照 sk2 "
+                        + "                 where "
+                        + "                     sk2.年度 < @year "
+                        + "                     and sk2.年期区分 = ( "
+                        + "                                             select "
+                        + "                                                 max(sk3.年期区分) "
+                        + "                                             from "
+                        + "                                                 SD_VM決裁権限参照 sk3 "
+                        + "                                             where "
+                        + "                                                 sk2.所属番号 = sk3.所属番号 "
+                        + "                                                 and sk2.社員番号 = sk3.社員番号 "
+                        + "                                         ) "
+                        + "               ) sk1 "
+                        + "     on d1.所属番号 = sk1.所属番号 "
+                        + "     and d1.役職番号 = sk1.役職番号 "
+                        + "     and d1.社員番号 = sk1.社員番号 "
+                        + "     left join SD_VM目標管理決裁権限 mt1 "
+                        + "     on sk1.年度 = mt1.年度 "
+                        + "     and sk1.所属番号 = mt1.所属番号 "
+                        + "     and d1.社員番号 = mt1.社員番号 "
+                        + "     left join SD_VM職能判定決裁権限 mt2 "
+                        + "     on sk1.年度 = mt2.年度 "
+                        + "     and sk1.所属番号 = mt2.所属番号 "
+                        + "     and d1.社員番号 = mt2.社員番号 "
+                        + " where "
+                        + "      EXISTS( "                                          //目標管理データもしくは職能判定データが作成済みであること
+                        + "         select *  "
+                        + "         from {0} "
+                        + "         where k1.社員番号 = d1.社員番号 "
+                        + "             and k1.所属番号 = d1.所属番号 "
+                        + "             {1} "
+                        + "             and k1.年度 = @year ) "
+                        + "     and  "
+                        + "     not exists( "                                       //決裁権限データが作成済みでないこと
+                        + "         select * "
+                        + "         from  SD_VM目標管理決裁権限 as k1 "
+                        + "               left join SD_VM職能判定決裁権限 as k2 "
+                        + "                   on k1.年度 = k2.年度 "
+                        + "                   and k1.所属番号 = k2.所属番号 "
+                        + "                   and k1.社員番号 = k2.社員番号 "
+                        + "         where k1.年度 = @year "
+                        + "               and k1.所属番号 = d1.所属番号 "
+                        + "               and k1.社員番号 = d1.社員番号  ) "
+                        + "     {2}  "                                              //同年、同社員、同所属番号の最大期区分と結びつくこと
+                        + "     {3} "
+                        + "     order by d1.所属番号,d1.社員番号 ";
+
+                    sql = string.Format(sql, table1, existswhere, appendwhere1, appendwhere2);
+
+                }else{
+                    bool isObj = actionType == "Objective";
+                    string table1 = isObj ? " SD_VT目標管理検索キー k1 " : " SD_VT職能判定検索キー k1 ";
+                    string existswhere = isObj ? "" : " and k1.期区分 = d1.期区分 ";
+
+                    string Objappendwhere1 = " and d1.期区分 =  (select max(期区分) "
+                                        + "    from SD_VT901社員固定情報 as d2 "
+                                        + "    where d2.年度 = d1.年度 "
+                                        + "    and d2.社員番号 = d1.社員番号 "
+                                        + "    and d2.所属番号 = d1.所属番号) ";
+
+                    string appendwhere1 = isObj ? Objappendwhere1 : string.IsNullOrEmpty(durationParam) ? "" : string.Format(" and d1.期区分 = {0} ", durationParam);
+                    string appendwhere2 = string.IsNullOrEmpty(empNo) ? "" : " and d1.社員番号 = @emp ";
+
+                    //社員番号の条件を設定
+                    string kEmp = DataConv.IfNull(empNo, "d1.社員番号").ToString();
+
+                    sql = " select "
+                        + "     d1.年度 "
+                        + "     ,d1.所属番号 "
+                        + "     ,d1.社員番号 "
+                        + "     ,sk1.年度 as 過去年度 "
+                        + "     ,sk1.所属番号 as 過去所属 "
+                        + "     ,mt1.上司社員 "
+                        + "     ,mt1.目標面談者 "
+                        + "     ,mt1.目標面談上位者 "
+                        + "     ,mt1.目標面談部長支店長 "
+                        + "     ,mt1.達成評価者 "
+                        + "     ,mt1.達成評価上位者 "
+                        + "     ,mt1.達成評価部長支店長 "
+                        + "     ,mt1.人事担当課長 "
+                        + "     ,mt1.総務部長 "
+                        + "     ,mt1.支社長担当役員 "
+                        + "     ,mt2.一次判定 "
+                        + "     ,mt2.二次判定 "
+                        + "     ,mt2.部門調整 "
+                        + "     ,mt2.支社調整 "
+                        + " from  "
+                        + "     SD_VT901社員固定情報 d1 "
+                        + "     left join ( "                               //決裁権限参照情報を結合 
+                        + "                 select "
+                        + "                     * "
+                        + "                 from "
+                        + "                     SD_VM決裁権限参照 sk2 "
+                        + "                 where "
+                        + "                     sk2.年度 < @year "
+                        + "                     and sk2.年期区分 = ( "
+                        + "                                             select "
+                        + "                                                 max(sk3.年期区分) "
+                        + "                                             from "
+                        + "                                                 SD_VM決裁権限参照 sk3 "
+                        + "                                             where "
+                        + "                                                 sk2.所属番号 = sk3.所属番号 "
+                        + "                                                 and sk2.社員番号 = sk3.社員番号 "
+                        + "                                         ) "
+                        + "               ) sk1 "
+                        + "     on d1.所属番号 = sk1.所属番号 "
+                        + "     and d1.役職番号 = sk1.役職番号 "
+                        + "     and d1.社員番号 = sk1.社員番号 "
+                        + "     left join SD_VM目標管理決裁権限 mt1 "
+                        + "     on sk1.年度 = mt1.年度 "
+                        + "     and sk1.所属番号 = mt1.所属番号 "
+                        + "     and d1.社員番号 = mt1.社員番号 "
+                        + "     left join SD_VM職能判定決裁権限 mt2 "
+                        + "     on sk1.年度 = mt2.年度 "
+                        + "     and sk1.所属番号 = mt2.所属番号 "
+                        + "     and d1.社員番号 = mt2.社員番号 "
+                        + " where "
+                        + "      EXISTS( "                                          //目標管理データもしくは職能判定データが作成済みであること
+                        + "         select *  "
+                        + "         from {0} "
+                        + "         where k1.社員番号 = d1.社員番号 "
+                        + "             and k1.所属番号 = d1.所属番号 "
+                        + "             {1} "
+                        + "             and k1.年度 = d1.年度 ) "
+                        + "     and  "
+                        + "     not exists( "                                       //決裁権限データが作成済みでないこと
+                        + "         select * "
+                        + "         from  SD_VM目標管理決裁権限 as k1 "
+                        + "               left join SD_VM職能判定決裁権限 as k2 "
+                        + "                   on k1.年度 = k2.年度 "
+                        + "                   and k1.所属番号 = k2.所属番号 "
+                        + "                   and k1.社員番号 = k2.社員番号 "
+                        + "         where k1.年度 = d1.年度 "
+                        + "               and k1.所属番号 = d1.所属番号 "
+                        + "               and k1.社員番号 = d1.社員番号  ) "
+                        + "     {2}  "                                              //同年、同社員、同所属番号の最大期区分と結びつくこと
+                        + "     and "
+                        + "     d1.年度 = @year "
+                        + "     {3} "
+                        + "     order by d1.年度,d1.所属番号,d1.社員番号 ";
+
+                    sql = string.Format(sql, table1, existswhere, appendwhere1, appendwhere2);
+                }
+
+                
+                ////目標か？
+                //bool isObj = actionType == "Objective";
+                //string table1 = isObj ? " SD_VT目標管理検索キー k1 " : " SD_VT職能判定検索キー k1 ";
+                //string existswhere = isObj ? "" : " and k1.期区分 = d1.期区分 ";
+
+                //string Objappendwhere1 = " and d1.期区分 =  (select max(期区分) "
+                //                    + "    from SD_VT901社員固定情報 as d2 "
+                //                    + "    where d2.年度 = d1.年度 "
+                //                    + "    and d2.社員番号 = d1.社員番号 "
+                //                    + "    and d2.所属番号 = d1.所属番号) ";
+
+                //string appendwhere1 = isObj ? Objappendwhere1 : string.IsNullOrEmpty(durationParam) ? "" : string.Format(" and d1.期区分 = {0} ", durationParam);                              
+                //string appendwhere2 = string.IsNullOrEmpty(empNo) ? "" : " and d1.社員番号 = @emp ";
+
+                ////社員番号の条件を設定
+                //string kEmp = DataConv.IfNull(empNo, "d1.社員番号").ToString();
+
+                //var sql = " select "
+                //        + "     d1.年度 "
+                //        + "     ,d1.所属番号 "
+                //        + "     ,d1.社員番号 "
+                //        + "     ,sk1.年度 as 過去年度 "
+                //        + "     ,sk1.所属番号 as 過去所属 "
+                //        + "     ,mt1.上司社員 "
+                //        + "     ,mt1.目標面談者 "
+                //        + "     ,mt1.目標面談上位者 "
+                //        + "     ,mt1.目標面談部長支店長 "
+                //        + "     ,mt1.達成評価者 "
+                //        + "     ,mt1.達成評価上位者 "
+                //        + "     ,mt1.達成評価部長支店長 "
+                //        + "     ,mt1.人事担当課長 "
+                //        + "     ,mt1.総務部長 "
+                //        + "     ,mt1.支社長担当役員 "
+                //        + "     ,mt2.一次判定 "
+                //        + "     ,mt2.二次判定 "
+                //        + "     ,mt2.部門調整 "
+                //        + "     ,mt2.支社調整 "
+                //        + " from  "
+                //        + "     SD_VT901社員固定情報 d1 "
+                //        + "     left join ( "                               //決裁権限参照情報を結合 
+                //        + "                 select "
+                //        + "                     * "
+                //        + "                 from "
+                //        + "                     SD_VM決裁権限参照 sk2 "
+                //        + "                 where "
+                //        + "                     sk2.年度 < @year "
+                //        + "                     and sk2.年期区分 = ( "
+                //        + "                                             select "
+                //        + "                                                 max(sk3.年期区分) "
+                //        + "                                             from "
+                //        + "                                                 SD_VM決裁権限参照 sk3 "
+                //        + "                                             where "
+                //        + "                                                 sk2.所属番号 = sk3.所属番号 "
+                //        + "                                                 and sk2.社員番号 = sk3.社員番号 "
+                //        + "                                         ) "
+                //        + "               ) sk1 "
+                //        + "     on d1.所属番号 = sk1.所属番号 "
+                //        + "     and d1.役職番号 = sk1.役職番号 "
+                //        + "     and d1.社員番号 = sk1.社員番号 "
+                //        + "     left join SD_VM目標管理決裁権限 mt1 "
+                //        + "     on sk1.年度 = mt1.年度 "
+                //        + "     and sk1.所属番号 = mt1.所属番号 "
+                //        + "     and d1.社員番号 = mt1.社員番号 "
+                //        + "     left join SD_VM職能判定決裁権限 mt2 "
+                //        + "     on sk1.年度 = mt2.年度 "
+                //        + "     and sk1.所属番号 = mt2.所属番号 "
+                //        + "     and d1.社員番号 = mt2.社員番号 "
+                //        + " where "
+                //        + "      EXISTS( "                                          //目標管理データもしくは職能判定データが作成済みであること
+                //        + "         select *  "
+                //        + "         from {0} "
+                //        + "         where k1.社員番号 = d1.社員番号 "
+                //        + "             and k1.所属番号 = d1.所属番号 "
+                //        + "             {1} "
+                //        + "             and k1.年度 = d1.年度 ) "
+                //        //+ "     {2} "
+                //        + "     and  "
+                //        + "     not exists( "                                       //決裁権限データが作成済みでないこと
+                //        + "         select * "
+                //        + "         from  SD_VM目標管理決裁権限 as k1 "
+                //        + "               left join SD_VM職能判定決裁権限 as k2 "
+                //        + "                   on k1.年度 = k2.年度 "
+                //        + "                   and k1.所属番号 = k2.所属番号 "
+                //        + "                   and k1.社員番号 = k2.社員番号 "
+                //        + "         where k1.年度 = d1.年度 "
+                //        + "               and k1.所属番号 = d1.所属番号 "
+                //        + "               and k1.社員番号 = d1.社員番号  ) "
+                //        + "     {2}  "                                              //同年、同社員、同所属番号の最大期区分と結びつくこと
+                //        //+ "     d1.期区分 = (select max(期区分) "
+                //        //+ "                 from SD_VT901社員固定情報 as d2 "
+                //        //+ "                 where d2.年度 = d1.年度 "
+                //        //+ "                 and d2.社員番号 = d1.社員番号 "
+                //        //+ "                 and d2.所属番号 = d1.所属番号) "
+                //        + "     and "
+                //        + "     d1.年度 = @year "
+                //        + "     {3} "
+                //        + "     order by d1.年度,d1.所属番号,d1.社員番号 ";
+                //sql = string.Format(sql, table1, existswhere, appendwhere1, appendwhere2);
+                //2016-01-21 iwai-tamura upd end -----
+
+                using(DbManager dm = new DbManager())
+                using(IDbCommand cmd = dm.CreateCommand(sql)) {
+                    //パラメータ設定
+                    DbHelper.AddDbParameter(cmd, "@year", DbType.Int32);
+                    if(!string.IsNullOrEmpty(empNo)) DbHelper.AddDbParameter(cmd, "@emp", DbType.String);
+                    var parameters = cmd.Parameters.Cast<IDbDataParameter>().ToArray<IDbDataParameter>();
+                    parameters[0].Value = year;
+                    if(!string.IsNullOrEmpty(empNo)) parameters[1].Value = empNo;
+                    IDataAdapter da = dm.CreateSqlDataAdapter(cmd);
+                    da.Fill(ds);                                                 // データセットに設定する
+                }
+
+                return ds.Tables[0];
+            } catch(Exception ex) {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            } finally {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
+        /// 人事担当課長,総務部長,支社長担当役員の候補者データを全員分取得
+        /// </summary>
+        /// <param name="year">対象年</param>
+        /// <returns></returns>
+        private DataTable GetAutoPointTable(int year) {
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                var sql = "select 所属番号,社員番号,役職番号 "
+                        + "from SD_VT901社員固定情報 where 年度 = @year "
+                        + "and 役職番号 in ('270','300','120','170','100','103') "
+                        //2016-10-06 iwai-tamura add str -----
+                        + "and DB区分 <> 'K' "
+                        //2016-10-06 iwai-tamura add end -----
+                        + "order by 役職番号 desc,社員番号 ";
+
+                DataSet ds = new DataSet();
+
+                //決裁権限詳細取得クエリを実行し、Tableをコピー
+                DataTable BaseTbl = new DataTable();
+                using(DbManager dm = new DbManager())
+                using(IDbCommand cmd = dm.CreateCommand(sql)) {
+                    //パラメータ設定
+                    DbHelper.AddDbParameter(cmd, "@year", DbType.Int32);
+                    var parameters = cmd.Parameters.Cast<IDbDataParameter>().ToArray<IDbDataParameter>();
+                    parameters[0].Value = year;
+
+                    IDataAdapter da = dm.CreateSqlDataAdapter(cmd);
+                    da.Fill(ds);                                                 // データセットに設定する
+                }
+
+                return ds.Tables[0];
+            } catch(Exception ex) {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            } finally {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
+        /// 権限情報をまとめてInsert
+        /// </summary>
+        /// <param name="year">作成対象年</param>
+        /// <param name="empNo">作成対象社員</param>
+        /// <param name="usTable">更新元データ</param>
+        /// <param name="apTable">自動設定対象データ</param>
+        /// <returns></returns>
+        private List<string> CreateInsSqlList(int year, string empNo, DataTable usTable, DataTable apTable) {
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //自動設定項目取得のための所属番号生成
+                //Func<string, string, string> ConvertDepart = (pDept, pattern) => {
+                //    string retVal = "";
+                //    switch(pattern) {
+                //        case "人事":
+                //            retVal = "10310";
+                //            if(pDept.Substring(0, 1) != "1") retVal = pDept.Substring(0, 1) + "0210";
+                //            break;
+                //        case "総務":
+                //            retVal = "10300";
+                //            if(pDept.Substring(0, 1) != "1") retVal = pDept.Substring(0, 1) + "0200";
+                //            break;
+                //        case "支社":
+                //            if(pDept.Substring(0, 1) != "1") retVal = pDept.Substring(0, 1) + "0000";
+                //            break;
+                //    }
+                //    return retVal;
+                //};
+
+                ///自動設定項目のデータを抜き出す
+                Func<DataTable, string, string, string, string, string, string> GetAutoData = (dtAP, kDepart, type, yakuA, yakuB, rowEmpVal) => {
+                    string retV = "";
+
+                    //string pDep = ConvertDepart(kDepart, type); //目的別に所属番号を変換
+                    string pDep = "";
+                    switch(type) {
+                        case "人事":
+                            pDep = kDepart.Substring(0, 1) != "1" ? kDepart.Substring(0, 1) + "0210" : "10310";
+                            break;
+                        case "総務":
+                            pDep = kDepart.Substring(0, 1) != "1" ? kDepart.Substring(0, 1) + "0200" : "10300";
+                            break;
+                        case "支社":
+                            pDep = kDepart.Substring(0, 1) != "1" ? kDepart.Substring(0, 1) + "0000" : "";
+                            break;
+                    }
+
+                    var query =
+                        from r in dtAP.AsEnumerable()
+                        where r.Field<int>("所属番号").ToString() == (pDep)
+                        && (r.Field<int>("役職番号").ToString() == (yakuA) || r.Field<int>("役職番号").ToString() == (yakuB))
+                        select r;
+
+                    foreach(DataRow r in query) {
+                        retV = r.Field<string>("社員番号");
+                        break;
+                    }
+
+                    //本人と同じ場合は空にする
+                    return retV == rowEmpVal ? "" : retV;
+                };
+
+                //目標管理Insert格納ストリングビルダーを用意
+                StringBuilder objInsertBuilder = new StringBuilder();
+                //ObjInsertBuilder.Append("insert into SD_M目標管理決裁権限 values ");
+
+                //職能判定Insert格納ストリングビルダーを用意
+                StringBuilder sklInsertBuilder = new StringBuilder();
+                //SklInsertBuilder.Append("insert into SD_M職能判定決裁権限 values ");
+
+                //返却クエリリストを用意
+                List<string> retSqlList = new List<string>();
+
+                //クエリ共通部分を用意
+                string objInsHead = "insert into SD_M目標管理決裁権限 values ";
+                string sklInsHead = "insert into SD_M職能判定決裁権限 values ";
+
+                int icount = 1;
+                //更新元データをループさせる
+                foreach(DataRow row in usTable.Rows) {
+                    //目標管理決裁権限Insertのvalueの一部を一時的に格納
+                    string objPartialSql = "(" + row["年度"].ToString() + ","      //年度、所属、社員番号をセット
+                                          + "'" + row["所属番号"].ToString() + "',"
+                                          + "'" + row["社員番号"].ToString() + "',";
+
+                    string sklPartialSql = objPartialSql;                    //職能判定決裁権限Insertのvalueの一部を一時的に格納
+
+                    if(string.IsNullOrEmpty(row["過去年度"].ToString())) {
+                        //参照データがない場合
+                        //目標管理決裁権限Insertを作成
+                        //人事、総務、支社長を取得
+                        string humanR = GetAutoData(apTable, row["所属番号"].ToString(), "人事", "270", "300", row["社員番号"].ToString());            //人事を取得
+                        string director = GetAutoData(apTable, row["所属番号"].ToString(), "総務", "120", "170", row["社員番号"].ToString());       //総務部長を取得
+                        string branchManager = GetAutoData(apTable, row["所属番号"].ToString(), "支社", "100", "103", row["社員番号"].ToString());  //支社長担当役員を取得
+
+                        objPartialSql += "NULL,"
+                                    + "NULL,"
+                                    + "NULL,"
+                                    + "NULL,"
+                                    + "NULL,"
+                                    + "NULL,"
+                                    + "NULL,";
+
+                        //人事担当課長セット
+                        //string setVal = "'" + humanR + "',";
+                        //if(string.IsNullOrEmpty(humanR)) setVal = "NULL,";
+                        //objPartialSql += setVal;
+                        objPartialSql += string.IsNullOrEmpty(humanR) ? "NULL," : "'" + humanR + "',";
+
+                        //総務部長セット
+                        //setVal = "'" + director + "',";
+                        //if(string.IsNullOrEmpty(director)) setVal = "NULL,";
+                        //objPartialSql += setVal;
+                        objPartialSql += string.IsNullOrEmpty(director) ? "NULL," : "'" + director + "',";
+
+                        //所属番号上一桁が1以外の場合は支社長をセット
+                        //setVal = "'" + branchManager + "',";
+                        //if(string.IsNullOrEmpty(branchManager)) setVal = "NULL,";
+                        //if(row["所属番号"].ToString().Substring(0, 1) == "1") setVal = "NULL,";
+                        //objPartialSql += setVal;
+                        objPartialSql += string.IsNullOrEmpty(branchManager) ? "NULL," : row["所属番号"].ToString().Substring(0, 1) == "1" ? "NULL," : "'" + branchManager + "',";
+
+
+                        //職能判定決裁権限Insertを作成
+                        sklPartialSql += "NULL,"
+                                       + "NULL,"
+                                       + "NULL,"
+                                       + "NULL,"
+                                       + "NULL,";
+
+                    } else {
+                        //参照データがある場合
+                        //目標管理決裁権限Insertを作成
+                        //決裁権限参照データのチェックとクエリ生成
+                        string[] parSql = CreateRefDataSql(row);
+                        objPartialSql += parSql[0];
+                        sklPartialSql += parSql[1];
+
+                    }
+                    //目標、職能ともにストアド項目をセット
+                    //2017-05-26 iwai-tamura add str -----
+                    objPartialSql += "'2014-01-01','2014-01-01',0,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL,"
+                                   + "NULL),";
+                    //objPartialSql += "'2014-01-01','2014-01-01',0),";
+                    //2017-05-26 iwai-tamura add end -----
+                    sklPartialSql += "'2014-01-01','2014-01-01',0),";
+
+                    //string builderに追加
+                    objInsertBuilder.Append(objPartialSql);
+                    sklInsertBuilder.Append(sklPartialSql);
+
+                    //icount=1000だったらリストにインサート文を追加
+                    if(icount == 1000) {
+                        retSqlList.Add(objInsHead + objInsertBuilder.ToString().Remove(objInsertBuilder.ToString().Length - 1, 1));
+                        retSqlList.Add(sklInsHead + sklInsertBuilder.ToString().Remove(sklInsertBuilder.ToString().Length - 1, 1));
+
+                        //ストリングビルダーのクリア
+                        objInsertBuilder.Clear();
+                        sklInsertBuilder.Clear();
+                        icount = 0;
+                    }
+                    icount++;
+                }
+
+                if(!string.IsNullOrEmpty(objInsertBuilder.ToString())) {
+                    retSqlList.Add(objInsHead + objInsertBuilder.ToString().Remove(objInsertBuilder.ToString().Length - 1, 1));
+                }
+
+                if(!string.IsNullOrEmpty(sklInsertBuilder.ToString())) {
+                    retSqlList.Add(sklInsHead + sklInsertBuilder.ToString().Remove(sklInsertBuilder.ToString().Length - 1, 1));
+                }
+
+                return retSqlList;
+            } catch(Exception ex) {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            } finally {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
+        /// 移動確認しつつクエリの一部生成
+        /// </summary>
+        /// <param name="baseRow">更新元データ</param>
+        /// <returns></returns>
+        private string[] CreateRefDataSql(DataRow baseRow) {
+            try {
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");        //開始
+
+                StringBuilder retSbObj = new StringBuilder();          //返却用ストリングビルダー(目標)
+                StringBuilder retSbSkl = new StringBuilder();          //返却用ストリングビルダー
+
+                int icount = 0;
+                string where = "";
+                string keyEmp = "";
+                string val = "";
+
+                foreach(DataColumn column in baseRow.Table.Columns) {
+                    icount++;
+
+                    //中身を取り出す
+                    keyEmp = baseRow[column].ToString();
+
+                    //年度～過去所属まではスキップ
+                    if(icount < 6) continue;
+
+                    val = "";
+                    if(!string.IsNullOrEmpty(keyEmp)) {
+
+                        var sql = "select "
+                                + "    社員番号,所属番号,役職番号 "
+                                + "from "
+                                + "    SD_VT901社員固定情報 ts1 "
+                                + "where "
+                                + "    ts1.年度 = @nowYear "                         //--参照年度
+                                + "    and ts1.社員番号 = @emp "
+                                + "    and ts1.期区分 = ( "
+                                + "                    select MAX(ts2.期区分) from SD_VT901社員固定情報 ts2 "
+                                + "                    where ts2.社員番号 = @emp and ts2.年度 = ts1.年度 "
+                                + "                ) ";
+
+                        DataSet ds = new DataSet();
+                        using(DbManager dm = new DbManager())
+                        using(IDbCommand cmd = dm.CreateCommand(sql)) {
+                            //パラメータ設定
+                            DbHelper.AddDbParameter(cmd, "@nowYear", DbType.Int32);
+                            DbHelper.AddDbParameter(cmd, "@emp", DbType.String);
+                            var parameters = cmd.Parameters.Cast<IDbDataParameter>().ToArray<IDbDataParameter>();
+                            parameters[0].Value = baseRow["年度"].ToString();
+                            parameters[1].Value = keyEmp;
+
+                            IDataAdapter da = dm.CreateSqlDataAdapter(cmd);
+                            da.Fill(ds);
+                        }
+
+                        if(ds.Tables[0].Rows.Count > 0) {
+
+                            //1行(最大期区分)だけ取得
+                            DataRow NowRow = ds.Tables[0].Rows[0];
+
+                            //権限者の作成対象年度内の最新の所属と役職を条件に、参照年度から情報を取得し移動確認
+                            sql = "select "
+                                + "    社員番号 "
+                                + "from "
+                                + "    SD_VT901社員固定情報 ts1 "
+                                + "where "
+                                + "    ts1.年度 = @pastYear "                         //--参照年度
+                                + "    and ts1.社員番号 = @emp "
+                                + "    and ts1.期区分 = ( "
+                                + "                    select MAX(ts2.期区分) from SD_VT901社員固定情報 ts2 "
+                                + "                    where ts2.社員番号 = @emp and ts2.年度 = ts1.年度 "
+                                + "                ) "
+                                + "    and ts1.所属番号 = @depart "                    //--最新
+                                + "    and ts1.役職番号 = @yaku ";                     //--最新
+
+                            using(DbManager dm = new DbManager())
+                            using(IDbCommand cmd = dm.CreateCommand(sql)) {
+                                //パラメータ設定
+                                DbHelper.AddDbParameter(cmd, "@pastYear", DbType.Int32);
+                                DbHelper.AddDbParameter(cmd, "@emp", DbType.String);
+                                DbHelper.AddDbParameter(cmd, "@depart", DbType.Int32);
+                                DbHelper.AddDbParameter(cmd, "@yaku", DbType.Int32);
+                                var parameters = cmd.Parameters.Cast<IDbDataParameter>().ToArray<IDbDataParameter>();
+                                parameters[0].Value = baseRow["過去年度"].ToString();
+                                parameters[1].Value = keyEmp;
+                                parameters[2].Value = NowRow.Field<int>("所属番号");
+                                parameters[3].Value = NowRow.Field<int>("役職番号");
+
+                                IDataAdapter da = dm.CreateSqlDataAdapter(cmd);
+                                object retObj = cmd.ExecuteScalar();
+                                val = Convert.ToString(retObj);
+                            }
+
+                        }
+                    }   //end if(!string.IsNullOrEmpty(keyEmp))
+
+                    where = string.IsNullOrEmpty(val)?"NULL,":"'" + val + "',";
+
+                    //上司の場合は目標管理決済と職能決済に設定
+                    if(icount == 6) {
+                        retSbObj.Append(where);
+                        retSbSkl.Append(where);
+                        continue;
+                    }
+
+                    //目標面談者～支社長担当役員の場合は目標管理決済に設定
+                    if(icount >= 7 && icount <= 15) {
+                        retSbObj.Append(where);
+                        continue;
+                    }
+
+                    //一次判定～支社調整の場合は目標管理決済に設定
+                    if(icount >= 16 && icount <= 19) {
+                        retSbSkl.Append(where);
+                        continue;
+                    }
+                }
+
+                return new string[] { retSbObj.ToString(), retSbSkl.ToString() };
+
+            } catch(Exception ex) {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            } finally {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+    }
+}

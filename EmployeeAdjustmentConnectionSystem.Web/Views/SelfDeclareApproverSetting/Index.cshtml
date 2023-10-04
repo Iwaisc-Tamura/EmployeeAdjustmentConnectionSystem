@@ -1,0 +1,156 @@
+﻿@using EmployeeAdjustmentConnectionSystem.COM.Entity.Session
+@using EmployeeAdjustmentConnectionSystem.COM.Models
+@model SelfDeclareApproverSettingViewModels
+@{
+    ViewBag.Title = "決裁権限設定 詳細";
+}
+@using(Html.BeginForm("Index", "SelfDeclareApproverSetting", null, FormMethod.Post, new { @class = "form-horizontal" })) {
+  @Html.HiddenFor(m => m.Search.DepartmentFrom)
+  @Html.HiddenFor(m => m.Search.DepartmentTo)
+  @Html.HiddenFor(m => m.Search.EmployeeNoFrom)
+  @Html.HiddenFor(m => m.Search.EmployeeNoTo)
+  @Html.HiddenFor(m => m.Search.DesignatedFlag)
+
+  <h4 class="text-center">決裁権限設定 詳細</h4>
+  <!-- 決裁権限入力 ヘッダー -->
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <table class="table table-bordered">
+        <colgroup>
+          <col style="width:154px" />
+        </colgroup><tbody>
+        <!--Head部-->
+        <tr>
+          <td class="bg-info">年度</td>
+          <td>@Html.TextBoxFor(m => m.Head.Year, new { @readonly = "readonly", @style = "width:80px" }) 年</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- 決裁権限入力 詳細 -->
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <table class="table table-bordered">
+        <colgroup>
+          <col style="width:140px" />
+          <col style="width:180px" />
+          <col style="width:50px;" />
+          <col style="width:50px;" />
+          <col style="width:290px" />
+          <col style="width:60px;" />
+        </colgroup>
+        <thead>
+          <tr class="bg-primary">
+            <th></th>
+            <th colspan="3">社員番号設定</th>
+            <th colspan="2">社員名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--Head部-->
+          <tr>
+            <td class="bg-info">対象者</td>
+            <td>@Html.TextBoxFor(m => m.Head.EmployeeNo, new { @readonly = "readonly", @style = "width:80px" })</td>
+            <td></td>
+            <td></td>
+            <td>@Html.DisplayTextFor(m => m.Head.TargetNameDepart)</td>
+            <td></td>
+          </tr>
+          <!--Result部(ここからforでループ)-->
+          @if (Model != null && Model.Detail != null){
+              <!-- for (int i = 0; i < Model.Detail.Count; i++) -->
+              for (int i = 0; i < 2; i++)
+              {
+              <tr>
+                @{
+                  string bg = "bg-success";
+                  if(Model.Detail[i].Area1 == "3") {
+                    bg = "bg-success";
+                  }
+                }
+
+                @switch(i){
+                    case 0:
+                        <td class=@bg>上司</td>
+                        break;
+                    case 1:
+                        <td class=@bg>人事担当部長</td>
+                        break;
+                    default:
+                        <td class=@bg></td>
+                        break;
+                }
+
+                <!-- @Html.DisplayFor(m => Model.Detail[i].RihtTitle) -->
+
+                <td>
+                  @*@if((Model.Detail[i].ListBoxFlag == true) && (Model.Detail[i].ItemList.Count > 0)) {*@
+                    @Html.DropDownListFor(
+                    model => Model.Detail[i].SetSearch.Select
+                         , (IEnumerable<SelectListItem>)Model.Detail[i].ItemList
+                         , ""
+                         , new { @class = "w160" }
+                  )
+                  @*}*@
+                </td>
+                <td>
+                  <!--権限者個別入力ボックス-->
+                  @*2017-03-31 sbc-sagara upd str 支社管理機能の追加*@
+                  @*if ((i == 0) || (Model.DirectInput != "0")) {*@
+                  @if (((LoginUser)Session["LoginUser"]).決裁権限登録制限 != "0") {
+                  @*2017-03-31 sbc-sagara upd end 支社管理機能の追加*@
+                    @Html.TextBoxFor(m => Model.Detail[i].SetSearch.DirectEmpNum, new { @class = "ime-disabled", size = 5, maxlength = "5" })
+                  }
+                </td>
+                <td>
+                  <!--設定ボタン-->
+                  <!--直接入力対象もしくはリストボックス表示の場合もしくは上司社員番号入力の場合に設定ボタンを表示-->
+                  @*2017-03-31 sbc-sagara upd str 支社管理機能の追加*@
+                  @*if((Model.DirectInput != "0") || (Model.Detail[i].ListBoxFlag == true) || (i == 0)) {*@
+                  @if(((LoginUser)Session["LoginUser"]).決裁権限登録制限 != "0" || (Model.Detail[i].ListBoxFlag == true) || (i == 0)) {
+                    <button type="button" name="View" value=@i class="btn-default btn-xs" id="@("view" + i)" style="margin-left:7px;">設定</button>
+                  }
+                </td>
+                <td>
+                  @Html.DisplayFor(m => Model.Detail[i].DispNameDepart)   <!--設定名-->
+                  @*@Html.HiddenFor(m => Model.Detail[i].RightEmpNo)*@
+                </td>
+                <td>
+                  <button type="button" name="Clear" value="@("clear" + i)" class="btn-default btn-xs" id="@("clear" + i)" style="margin-left:7px;">クリア</button>
+                </td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-7">
+      <!-- ※支社調整については、人事担当課長、総務部長、支社長担当役員が兼任します。 -->
+    </div>
+    <div class="col-xs-1">
+      <button type="submit" name="Back" value="戻る" class="btn-default pull-right" id="backbutton" style="margin-left:5px;">戻る</button>
+      <button type="button" name="DmySave" value="保存" class="btn-default pull-right" id="dmysave">保存</button>
+    </div>
+
+  </div>
+  @*隠しオブジェクトエリア*@
+  <div style="height:0px;">
+    <button type="submit" name="Save" id="savebutton" value="保存" class="btn invisible">保存</button>
+    @if(Model != null && Model.Detail != null) {
+      for(int i = 0; i < Model.Detail.Count; i++) {
+        <button type="submit" name="ViewEx" value=@i class="btn invisible" id="@("view" + i + "dmy")">設定</button>
+        @Html.HiddenFor(m => Model.Detail[i].Area1)       //大区分
+        @Html.HiddenFor(m => Model.Detail[i].Area2)       //中区分
+        @Html.HiddenFor(m => Model.Detail[i].Area3)       //小区分
+        @Html.HiddenFor(m => Model.Detail[i].RightEmpNo)  //権限者社員番号
+        @Html.HiddenFor(m => Model.Detail[i].CustomFlag)  //設定ボタン押下フラグ
+        @Html.HiddenFor(m => Model.Detail[i].DispNameDepart)  //画面表示権限者情報
+        <button type="submit" name="ClearEx" value=@i class="btn invisible" id="@("clear" + i + "dmy")">クリア</button>
+      }
+    }
+    @Html.HiddenFor(m => m.Head.DepartmentNo)
+  </div>
+  @Scripts.Render("~/Scripts/js/app")
+}

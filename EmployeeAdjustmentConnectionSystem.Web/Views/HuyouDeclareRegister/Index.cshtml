@@ -1,0 +1,1533 @@
+﻿@using EmployeeAdjustmentConnectionSystem.COM.Util.Convert
+@using EmployeeAdjustmentConnectionSystem.COM.Enum
+@using EmployeeAdjustmentConnectionSystem.COM.Models
+@model HuyouDeclareRegisterViewModels
+@{
+    ViewBag.Title = "扶養控除等申告書";
+}
+
+<!--ページ内リンク-->
+<style>
+    a.btn-link {
+        color: #000;
+        background: #DEF5E5;
+    }
+
+        a.btn-link:hover {
+            color: #ccc;
+            background: #DEF5E5;
+        }
+</style>
+
+<div id="title" style="height:0px;"></div>
+<div class="row" style="background: #DEF5E5;
+    top:51px;
+    position: fixed;
+    width: 100%;
+    height:20px;
+    z-index:9999;
+    margin-left: -50%;
+    ">
+</div>
+<div class="row no_print" style="background: #DEF5E5;
+    color:#000;
+    top:51px;
+    padding: 0px;
+    position: fixed;
+    width: 100%;
+    height:20px;
+    z-index:10000;
+    font-size:14px;">
+    【ページ内移動】 <a href="#" class="btn-link">Top</a>
+    <a href="#" class="btn-link">本人情報</a>
+    <span>　　<a href="#linkHuyou1" class="btn-link">A源泉控除対象配偶者</a>　<a href="#linkHuyou2" class="btn-link">B控除対象扶養親族(16歳以上)</a>　<a href="#linkHuyou3" class="btn-link">C障害者、寡婦、ひとり親又は勤労学生</a>　<a href="#linkHuyou4" class="btn-link">16歳未満の扶養親族
+</a></span>
+
+</div>
+
+@Styles.Render("~/Content/css/huyou")
+
+<!--タイトル-->
+@using (Html.BeginForm("Index", "HuyouDeclareRegister", null, FormMethod.Post, new { @class = "form-horizontal" })) {
+    var strTitle = "";
+    if (Model.Head.InputMode == ajustMode.SelfConfim) {
+        strTitle = "  [本社受理済み]";
+    }
+    if (Model.Head.InputMode == ajustMode.adminConfim) {
+        if (Model.Head.DecisionType == "9"){
+            strTitle = "  [確定済]";
+        } else if (Model.Head.ApprovalType == "0") {
+            strTitle = "  [本人未提出]";
+        }
+    }
+    <br><br>
+    <h3 class="text-left">
+        @Html.DisplayFor(m => m.Head.SheetYear) 年度　扶養控除等申告書 @strTitle
+    </h3>
+
+    @Html.HiddenFor(m => m.Head.SheetYear)
+    @Html.HiddenFor(m => m.Head.EmployeeNo)
+    @Html.HiddenFor(m => m.Head.ApprovalType)
+    @Html.HiddenFor(m => m.Head.DecisionType)
+    @Html.HiddenFor(m => m.Head.InputMode)
+    @Html.HiddenFor(m => m.Head.AuthButton)
+    @Html.HiddenFor(m => m.Head.CancelButton)
+    @Html.HiddenFor(m => m.Head.AdminMode)
+
+    @*データ日時取得*@
+    <!--ボタンエリア-->
+    <div class="row">
+        <!--ボタン-->
+        <div class="col-xs-3">
+            <button type="submit" name="Back" value="戻る" class="pull-left  btn-info" id="backbutton" style="margin:0 5px 10px 0;margin-left:5px;">戻る</button>
+            @*登録・キャンセル*@
+            @if (Model.Head.InputMode == ajustMode.SelfInput) {
+                <button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
+                <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">提出</button>
+            }
+            @if (Model.Head.InputMode == ajustMode.adminInput) {
+                <button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
+                <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">確定</button>
+            }
+            @if (Model.Head.InputMode == ajustMode.SelfRegist) {
+                <button type="button" name="DmySignCancel" value="保存取消" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmySignCancel">提出取消</button>
+            }
+            @if (Model.Head.InputMode == ajustMode.adminRegist) {
+                <button type="button" name="DmySignCancel" value="保存取消" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmySignCancel">確定取消</button>
+            }
+        </div>
+    </div>
+
+    <!--定義-->
+    //共通定数
+    //var DateOver16 = "20070101";
+    //var aaa = Model.Head.SheetYear + "0101";
+    //var DateUnder16 = "20070101";
+    int? calcSheetYear = Model.Head.SheetYear;
+    
+    
+    //共通入力モード
+    var TextName = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "50" }, { "style", "width:100px;" } };
+    var TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana" }, { "maxlength", "50" }, { "style", "width:100px;" } };
+    var TextWord1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "5" } };
+    var TextWordMax = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "50" }, { "style", "width:100%;" } };
+    var TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "20" }, { "type", "number" } };
+    var TextNumber1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "1" }, { "style", "width:30px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    var TextPost1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "3" }, { "style", "width:35px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    var TextPost2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "4" }, { "style", "width:50px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    var ymdRead1 = new Dictionary<string, object>() { { "class", "form-control ymd-control fm-ctr-rdonly" }, { "maxlength", "10" }, { "style", "width:90px;" }, { "readonly", "readonly" } };
+    var ymdBtn1 = "hidden";
+    ymdBtn1 = "";
+
+    
+    //続柄リスト
+    var familyItems = new SelectListItem[] {
+                            new SelectListItem() { Value="10", Text="10:本人" },
+                            new SelectListItem() { Value="11", Text="11:夫" },
+                            new SelectListItem() { Value="12", Text="12:妻" },
+                            new SelectListItem() { Value="21", Text="21:長男" },
+                            new SelectListItem() { Value="22", Text="22:二男" },
+                            new SelectListItem() { Value="23", Text="23:三男" },
+                            new SelectListItem() { Value="24", Text="24:四男" },
+                            new SelectListItem() { Value="25", Text="25:五男" },
+                            new SelectListItem() { Value="26", Text="26:六男" },
+                            new SelectListItem() { Value="27", Text="27:七男" },
+                            new SelectListItem() { Value="28", Text="28:八男" },
+                            new SelectListItem() { Value="29", Text="29:九男" },
+                            new SelectListItem() { Value="31", Text="31:長女" },
+                            new SelectListItem() { Value="32", Text="32:二女" },
+                            new SelectListItem() { Value="33", Text="33:三女" },
+                            new SelectListItem() { Value="34", Text="34:四女" },
+                            new SelectListItem() { Value="35", Text="35:五女" },
+                            new SelectListItem() { Value="36", Text="36:六女" },
+                            new SelectListItem() { Value="37", Text="37:七女" },
+                            new SelectListItem() { Value="38", Text="38:八女" },
+                            new SelectListItem() { Value="39", Text="39:九女" },
+                            new SelectListItem() { Value="41", Text="41:父" },
+                            new SelectListItem() { Value="42", Text="42:母" },
+                            new SelectListItem() { Value="43", Text="43:義父" },
+                            new SelectListItem() { Value="44", Text="44:義母" },
+                            new SelectListItem() { Value="45", Text="45:祖父" },
+                            new SelectListItem() { Value="46", Text="46:祖母" },
+                            new SelectListItem() { Value="47", Text="47:義祖父" },
+                            new SelectListItem() { Value="48", Text="48:義祖母" },
+                            new SelectListItem() { Value="60", Text="60:孫" },
+                            new SelectListItem() { Value="61", Text="61:孫" },
+                            new SelectListItem() { Value="62", Text="62:孫" },
+                            new SelectListItem() { Value="63", Text="63:孫" },
+                            new SelectListItem() { Value="71", Text="71:兄" },
+                            new SelectListItem() { Value="72", Text="72:姉" },
+                            new SelectListItem() { Value="73", Text="73:弟" },
+                            new SelectListItem() { Value="74", Text="74:妹" },
+                            new SelectListItem() { Value="75", Text="75:義兄" },
+                            new SelectListItem() { Value="76", Text="76:義姉" },
+                            new SelectListItem() { Value="77", Text="77:義弟" },
+                            new SelectListItem() { Value="78", Text="78:義妹" },
+                            new SelectListItem() { Value="81", Text="81:叔父" },
+                            new SelectListItem() { Value="82", Text="82:叔母" },
+                            new SelectListItem() { Value="83", Text="83:甥" },
+                            new SelectListItem() { Value="84", Text="84:姪" },
+                            new SelectListItem() { Value="90", Text="90:*" },
+                            new SelectListItem() { Value="91", Text="91:*" },
+                            new SelectListItem() { Value="92", Text="92:*" },
+                            new SelectListItem() { Value="93", Text="93:*" }
+            };
+
+    //年月日
+    var yearItems = new SelectListItem[] {
+                            new SelectListItem() { Value="1900", Text="1900" },new SelectListItem() { Value="1901", Text="1901" },new SelectListItem() { Value="1902", Text="1902" },new SelectListItem() { Value="1903", Text="1903" },new SelectListItem() { Value="1904", Text="1904" },
+                            new SelectListItem() { Value="1905", Text="1905" },new SelectListItem() { Value="1906", Text="1906" },new SelectListItem() { Value="1907", Text="1907" },new SelectListItem() { Value="1908", Text="1908" },new SelectListItem() { Value="1909", Text="1909" },
+                            new SelectListItem() { Value="1910", Text="1910" },new SelectListItem() { Value="1911", Text="1911" },new SelectListItem() { Value="1912", Text="1912" },new SelectListItem() { Value="1913", Text="1913" },new SelectListItem() { Value="1914", Text="1914" },
+                            new SelectListItem() { Value="1915", Text="1915" },new SelectListItem() { Value="1916", Text="1916" },new SelectListItem() { Value="1917", Text="1917" },new SelectListItem() { Value="1918", Text="1918" },new SelectListItem() { Value="1919", Text="1919" },
+                            new SelectListItem() { Value="1920", Text="1920" },new SelectListItem() { Value="1921", Text="1921" },new SelectListItem() { Value="1922", Text="1922" },new SelectListItem() { Value="1923", Text="1923" },new SelectListItem() { Value="1924", Text="1924" },
+                            new SelectListItem() { Value="1925", Text="1925" },new SelectListItem() { Value="1926", Text="1926" },new SelectListItem() { Value="1927", Text="1927" },new SelectListItem() { Value="1928", Text="1928" },new SelectListItem() { Value="1929", Text="1929" },
+                            new SelectListItem() { Value="1930", Text="1930" },new SelectListItem() { Value="1931", Text="1931" },new SelectListItem() { Value="1932", Text="1932" },new SelectListItem() { Value="1933", Text="1933" },new SelectListItem() { Value="1934", Text="1934" },
+                            new SelectListItem() { Value="1935", Text="1935" },new SelectListItem() { Value="1936", Text="1936" },new SelectListItem() { Value="1937", Text="1937" },new SelectListItem() { Value="1938", Text="1938" },new SelectListItem() { Value="1939", Text="1939" },
+                            new SelectListItem() { Value="1940", Text="1940" },new SelectListItem() { Value="1941", Text="1941" },new SelectListItem() { Value="1942", Text="1942" },new SelectListItem() { Value="1943", Text="1943" },new SelectListItem() { Value="1944", Text="1944" },
+                            new SelectListItem() { Value="1945", Text="1945" },new SelectListItem() { Value="1946", Text="1946" },new SelectListItem() { Value="1947", Text="1947" },new SelectListItem() { Value="1948", Text="1948" },new SelectListItem() { Value="1949", Text="1949" },
+                            new SelectListItem() { Value="1950", Text="1950" },new SelectListItem() { Value="1951", Text="1951" },new SelectListItem() { Value="1952", Text="1952" },new SelectListItem() { Value="1953", Text="1953" },new SelectListItem() { Value="1954", Text="1954" },
+                            new SelectListItem() { Value="1955", Text="1955" },new SelectListItem() { Value="1956", Text="1956" },new SelectListItem() { Value="1957", Text="1957" },new SelectListItem() { Value="1958", Text="1958" },new SelectListItem() { Value="1959", Text="1959" },
+                            new SelectListItem() { Value="1960", Text="1960" },new SelectListItem() { Value="1961", Text="1961" },new SelectListItem() { Value="1962", Text="1962" },new SelectListItem() { Value="1963", Text="1963" },new SelectListItem() { Value="1964", Text="1964" },
+                            new SelectListItem() { Value="1965", Text="1965" },new SelectListItem() { Value="1966", Text="1966" },new SelectListItem() { Value="1967", Text="1967" },new SelectListItem() { Value="1968", Text="1968" },new SelectListItem() { Value="1969", Text="1969" },
+                            new SelectListItem() { Value="1970", Text="1970" },new SelectListItem() { Value="1971", Text="1971" },new SelectListItem() { Value="1972", Text="1972" },new SelectListItem() { Value="1973", Text="1973" },new SelectListItem() { Value="1974", Text="1974" },
+                            new SelectListItem() { Value="1975", Text="1975" },new SelectListItem() { Value="1976", Text="1976" },new SelectListItem() { Value="1977", Text="1977" },new SelectListItem() { Value="1978", Text="1978" },new SelectListItem() { Value="1979", Text="1979" },
+                            new SelectListItem() { Value="1980", Text="1980" },new SelectListItem() { Value="1981", Text="1981" },new SelectListItem() { Value="1982", Text="1982" },new SelectListItem() { Value="1983", Text="1983" },new SelectListItem() { Value="1984", Text="1984" },
+                            new SelectListItem() { Value="1985", Text="1985" },new SelectListItem() { Value="1986", Text="1986" },new SelectListItem() { Value="1987", Text="1987" },new SelectListItem() { Value="1988", Text="1988" },new SelectListItem() { Value="1989", Text="1989" },
+                            new SelectListItem() { Value="1990", Text="1990" },new SelectListItem() { Value="1991", Text="1991" },new SelectListItem() { Value="1992", Text="1992" },new SelectListItem() { Value="1993", Text="1993" },new SelectListItem() { Value="1994", Text="1994" },
+                            new SelectListItem() { Value="1995", Text="1995" },new SelectListItem() { Value="1996", Text="1996" },new SelectListItem() { Value="1997", Text="1997" },new SelectListItem() { Value="1998", Text="1998" },new SelectListItem() { Value="1999", Text="1999" },
+                            new SelectListItem() { Value="2000", Text="2000" },new SelectListItem() { Value="2001", Text="2001" },new SelectListItem() { Value="2002", Text="2002" },new SelectListItem() { Value="2003", Text="2003" },new SelectListItem() { Value="2004", Text="2004" },
+                            new SelectListItem() { Value="2005", Text="2005" },new SelectListItem() { Value="2006", Text="2006" },new SelectListItem() { Value="2007", Text="2007" },new SelectListItem() { Value="2008", Text="2008" },new SelectListItem() { Value="2009", Text="2009" },
+                            new SelectListItem() { Value="2010", Text="2010" },new SelectListItem() { Value="2011", Text="2011" },new SelectListItem() { Value="2012", Text="2012" },new SelectListItem() { Value="2013", Text="2013" },new SelectListItem() { Value="2014", Text="2014" },
+                            new SelectListItem() { Value="2015", Text="2015" },new SelectListItem() { Value="2016", Text="2016" },new SelectListItem() { Value="2017", Text="2017" },new SelectListItem() { Value="2018", Text="2018" },new SelectListItem() { Value="2019", Text="2019" },
+                            new SelectListItem() { Value="2020", Text="2020" },new SelectListItem() { Value="2021", Text="2021" },new SelectListItem() { Value="2022", Text="2022" },new SelectListItem() { Value="2023", Text="2023" },new SelectListItem() { Value="2024", Text="2024" },
+                            new SelectListItem() { Value="2025", Text="2025" },new SelectListItem() { Value="2026", Text="2026" },new SelectListItem() { Value="2027", Text="2027" },new SelectListItem() { Value="2028", Text="2028" },new SelectListItem() { Value="2029", Text="2029" },
+                            new SelectListItem() { Value="2030", Text="2030" },new SelectListItem() { Value="2031", Text="2031" },new SelectListItem() { Value="2032", Text="2032" },new SelectListItem() { Value="2033", Text="2033" },new SelectListItem() { Value="2034", Text="2034" },
+                            new SelectListItem() { Value="2035", Text="2035" },new SelectListItem() { Value="2036", Text="2036" },new SelectListItem() { Value="2037", Text="2037" },new SelectListItem() { Value="2038", Text="2038" },new SelectListItem() { Value="2039", Text="2039" },
+                            new SelectListItem() { Value="2040", Text="2040" },new SelectListItem() { Value="2041", Text="2041" },new SelectListItem() { Value="2042", Text="2042" },new SelectListItem() { Value="2043", Text="2043" },new SelectListItem() { Value="2044", Text="2044" },
+                            new SelectListItem() { Value="2045", Text="2045" },new SelectListItem() { Value="2046", Text="2046" },new SelectListItem() { Value="2047", Text="2047" },new SelectListItem() { Value="2048", Text="2048" },new SelectListItem() { Value="2049", Text="2049" },
+                            new SelectListItem() { Value="2050", Text="2050" },new SelectListItem() { Value="2051", Text="2051" },new SelectListItem() { Value="2052", Text="2052" },new SelectListItem() { Value="2053", Text="2053" },new SelectListItem() { Value="2054", Text="2054" },
+                            new SelectListItem() { Value="2055", Text="2055" },new SelectListItem() { Value="2056", Text="2056" },new SelectListItem() { Value="2057", Text="2057" },new SelectListItem() { Value="2058", Text="2058" },new SelectListItem() { Value="2059", Text="2059" },
+                            new SelectListItem() { Value="2060", Text="2060" },new SelectListItem() { Value="2061", Text="2061" },new SelectListItem() { Value="2062", Text="2062" },new SelectListItem() { Value="2063", Text="2063" },new SelectListItem() { Value="2064", Text="2064" },
+                            new SelectListItem() { Value="2065", Text="2065" },new SelectListItem() { Value="2066", Text="2066" },new SelectListItem() { Value="2067", Text="2067" },new SelectListItem() { Value="2068", Text="2068" },new SelectListItem() { Value="2069", Text="2069" },
+                            new SelectListItem() { Value="2070", Text="2070" },new SelectListItem() { Value="2071", Text="2071" },new SelectListItem() { Value="2072", Text="2072" },new SelectListItem() { Value="2073", Text="2073" },new SelectListItem() { Value="2074", Text="2074" },
+                            new SelectListItem() { Value="2075", Text="2075" },new SelectListItem() { Value="2076", Text="2076" },new SelectListItem() { Value="2077", Text="2077" },new SelectListItem() { Value="2078", Text="2078" },new SelectListItem() { Value="2079", Text="2079" },
+                            new SelectListItem() { Value="2080", Text="2080" },new SelectListItem() { Value="2081", Text="2081" },new SelectListItem() { Value="2082", Text="2082" },new SelectListItem() { Value="2083", Text="2083" },new SelectListItem() { Value="2084", Text="2084" },
+                            new SelectListItem() { Value="2085", Text="2085" },new SelectListItem() { Value="2086", Text="2086" },new SelectListItem() { Value="2087", Text="2087" },new SelectListItem() { Value="2088", Text="2088" },new SelectListItem() { Value="2089", Text="2089" },
+                            new SelectListItem() { Value="2090", Text="2090" },new SelectListItem() { Value="2091", Text="2091" },new SelectListItem() { Value="2092", Text="2092" },new SelectListItem() { Value="2093", Text="2093" },new SelectListItem() { Value="2094", Text="2094" },
+                            new SelectListItem() { Value="2095", Text="2095" },new SelectListItem() { Value="2096", Text="2096" },new SelectListItem() { Value="2097", Text="2097" },new SelectListItem() { Value="2098", Text="2098" },new SelectListItem() { Value="2099", Text="2099" }
+
+    };
+    var monthItems = new SelectListItem[] {
+                            new SelectListItem() { Value="1", Text="1" },new SelectListItem() { Value="2", Text="2" },new SelectListItem() { Value="3", Text="3" },new SelectListItem() { Value="4", Text="4" },new SelectListItem() { Value="5", Text="5" },
+                            new SelectListItem() { Value="6", Text="6" },new SelectListItem() { Value="7", Text="7" },new SelectListItem() { Value="8", Text="8" },new SelectListItem() { Value="9", Text="9" },new SelectListItem() { Value="10", Text="10" },
+                            new SelectListItem() { Value="11", Text="11" },new SelectListItem() { Value="12", Text="12" }
+    };
+
+    var dayItems = new SelectListItem[] {
+                            new SelectListItem() { Value="1", Text="1" },new SelectListItem() { Value="2", Text="2" },new SelectListItem() { Value="3", Text="3" },new SelectListItem() { Value="4", Text="4" },new SelectListItem() { Value="5", Text="5" },
+                            new SelectListItem() { Value="6", Text="6" },new SelectListItem() { Value="7", Text="7" },new SelectListItem() { Value="8", Text="8" },new SelectListItem() { Value="9", Text="9" },new SelectListItem() { Value="10", Text="10" },
+                            new SelectListItem() { Value="11", Text="11" },new SelectListItem() { Value="12", Text="12" },new SelectListItem() { Value="13", Text="13" },new SelectListItem() { Value="14", Text="14" },new SelectListItem() { Value="15", Text="15" },
+                            new SelectListItem() { Value="16", Text="16" },new SelectListItem() { Value="17", Text="17" },new SelectListItem() { Value="18", Text="18" },new SelectListItem() { Value="19", Text="19" },new SelectListItem() { Value="20", Text="20" },
+                            new SelectListItem() { Value="21", Text="21" },new SelectListItem() { Value="22", Text="22" },new SelectListItem() { Value="23", Text="23" },new SelectListItem() { Value="24", Text="24" },new SelectListItem() { Value="25", Text="25" },
+                            new SelectListItem() { Value="26", Text="26" },new SelectListItem() { Value="27", Text="27" },new SelectListItem() { Value="28", Text="28" },new SelectListItem() { Value="29", Text="29" },new SelectListItem() { Value="30", Text="30" },
+                            new SelectListItem() { Value="31", Text="31" },
+    };
+    
+    //寡婦、ひとり親_事由リスト
+    var widowReasonItems = new SelectListItem[] {
+            new SelectListItem() { Value="1", Text="死別" },
+            new SelectListItem() { Value="2", Text="離婚" },
+            new SelectListItem() { Value="3", Text="生死不明" }
+    };
+
+    
+    @helper setFamilyDdl1(bool isRead, int cnt, string name, string value, SelectListItem[] selItems) {
+        <div class="form-inline">
+            @{
+                var id = string.Format("Body.{0}", name);
+                if (isRead) {
+                    @Html.TextBox(id, value, new { @class = "form-control", @style = "width:50px;height:16px;", @readonly = "readonly" })<label class="w30" style="font-weight:normal;">　名</label>
+                } else {
+                    @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { style = "width: 50px; vertical-align:top;" })<label class="w30" style="font-weight:normal;">　名</label>
+                }
+            }
+        </div>
+    }
+    @helper setFamilyDdl2(bool isRead, int cnt, string name, string value, SelectListItem[] selItems) {
+        <div class="h24 form-inline">
+            @{
+                var id = string.Format("Head.{0}", name);
+                if (isRead) {
+                    <label class="w10" style="font-weight:normal;">@cnt</label> @Html.TextBox(id, value, new { @class = "form-control", @style = "width:90px;height:16px;", @size = "2", @rows = "1", @readonly = "readonly" })
+                } else {
+                    <label class="w10" style="font-weight:normal;">@cnt</label> @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "familyItems-select" })
+                }
+            }
+        </div>
+    }
+    ///CheckBox出力ヘルパー
+    @helper setCheck(bool isRead, string name, string value) {
+        if (isRead) {
+            @Html.CheckBox(string.Format("Head.{0}", name), (value == "1" ? true : false), new { tabindex = 1, @class = "input-control", @style = "margin-top:0px;", @disabled = true })
+        } else {
+            @Html.CheckBox(string.Format("Head.{0}", name), (value == "1" ? true : false), new { tabindex = 1, @class = "input-control", @style = "margin-top:0px;" })
+        }
+    }
+    @helper setCheck2(bool isRead, string name, string value, string addClass) {
+        if (isRead) {
+            @Html.CheckBox(string.Format("Head.{0}", name), (value == "1" ? true : false), new { tabindex = 1, @class = "input-control", @style = "margin-top:0px;", @disabled = true })
+        } else {
+            @Html.CheckBox(string.Format("Head.{0}", name), (value == "1" ? true : false), new { @class = "input-control " + addClass, tabindex = 1, @style = "margin-top:0px;" })
+        }
+    }
+
+    ///ドロップダウンリスト設定
+    //リスト
+    @helper setDdl(bool isRead, string name, string value, SelectListItem[] selItems) {
+        {
+            var id = string.Format("Head.{0}", name);
+            if (isRead) {
+                @Html.TextBox(id, value, new { @class = "form-control", @style = "width:90px;height:16px;", @size = "2", @rows = "1", @readonly = "readonly" })
+            } else {
+                @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "form-control"})
+            }
+        }
+    }
+
+    //リスト(クラス制御付)
+    @helper setDdl2(bool isRead, string name, string value, SelectListItem[] selItems, string addClass) {
+        {
+            var id = string.Format("Head.{0}", name);
+            if (isRead) {
+                @Html.TextBox(id, value, new { @class = "form-control", @style = "width:90px;height:16px;", @size = "2", @rows = "1", @readonly = "readonly" })
+            } else {
+                @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "form-control " + addClass })
+            }
+        }
+    }
+    
+    //日付リスト
+    @helper setYearDdl(bool isRead, string name, string dateType, string value, SelectListItem[] selItems) {
+            {
+                var id = string.Format("Head.{0}{1}", name,dateType);
+                var checkEvent = string.Format("checkDate('#Head_{0}','0','')", name);
+                if (isRead) {
+                    @Html.TextBox(id, value, new { @class = "form-control", @style = "width:90px;height:16px;", @size = "2", @rows = "1", @readonly = "readonly" })
+                } else {
+                    @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "form-control", @onchange = checkEvent })
+                }
+            }
+    }
+
+    //日付リスト(クラス制御付)
+    @helper setYearDdl2(bool isRead, string name, string proc,int? cDate, string dateType, string value, SelectListItem[] selItems, string addClass) {
+        {
+            var id = string.Format("Head.{0}{1}", name, dateType);
+            var checkEvent = string.Format("checkDate('#Head_{0}','{1}','{2}')", name, proc, cDate);
+            if (isRead) {
+                @Html.TextBox(id, value, new { @class = "form-control", @style = "width:90px;height:16px;", @size = "2", @rows = "1", @readonly = "readonly" })
+            } else {
+                @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "form-control " + addClass, @onchange = checkEvent })
+            }
+        }
+    }
+
+    <!-- 本人情報 -->
+    @*定義*@
+    var EmployeeNo = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "5" }, { "style", "width:60px;" }, { "readonly", "readonly" } };
+    var DepartmentNo = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "5" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    var attrRadio1_1 = new Dictionary<string, object>() { { "name", "attrRadio1" }, { "id", "select_radio1" } };
+    var attrRadio1_2 = new Dictionary<string, object>() { { "name", "attrRadio1" }, { "id", "select_radio2" } };
+
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="content-label-h1">
+                        <td colspan="8">
+                            本人情報
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:8%;" />
+                    <col style="width:17%;" />
+                    <col style="width:25%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                </colgroup>
+
+                <thead></thead>
+                <tbody>
+                    <tr>
+                        <td colspan="8" class="form-inline">@setCheck(false, "MyNumberCheck", Model.Head.MyNumberCheck)　給与支払者に提出済みの個人番号と相違ありません。<span class="required">※必須</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">社員番号</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.EmployeeNo, EmployeeNo)<span class="required">※必須</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">所属番号</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DepartmentNo, DepartmentNo)<span class="required"></span><span class="required">※必須</span><div id="Head_DepartmentNo_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.Name1, TextName)　名 @Html.TextBoxFor(m => m.Head.Name2, TextName)<span class="required">※必須</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">フリガナ</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.Kana2, TextKana)<span class="required">※必須</span><div id="Head_Kana_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">生年月日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl(false, "Birthday", "Year", Model.Head.BirthdayYear, yearItems) 年
+                            @setYearDdl(false, "Birthday", "Month", Model.Head.BirthdayMonth, monthItems) 月
+                            @setYearDdl(false, "Birthday", "Day", Model.Head.BirthdayDay, dayItems) 日
+                            <span class="required">※必須</span><div id="Head_Birthday_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" colspan="1" class="content-label-b1">世帯主</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">
+                            @setCheck(false, "HouseholdSelfCheck", Model.Head.HouseholdSelfCheck)　本人<span class="required">※必須</span><br />
+                            姓 @Html.TextBoxFor(m => m.Head.HouseholdName1, TextName)　名 @Html.TextBoxFor(m => m.Head.HouseholdName2, TextName)
+                        </td>
+                    </tr>
+                        <tr>
+                            <td rowspan="1" colspan="1" class="content-label-b1">あなたとの続柄</td>
+                            <td colspan="6" class="form-inline">@setDdl(false, "RelationshipType", Model.Head.RelationshipType, familyItems)<span class="required">※必須</span></td>
+                        </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">住所又は居所</td>
+                        <td colspan="6" class="form-inline">
+                            郵便番号<span class="required">※必須</span><br/>
+                            @Html.TextBoxFor(m => m.Head.PostalCode_1, TextPost1)‐@Html.TextBoxFor(m => m.Head.PostalCode_2, TextPost2)<br/>
+                            住所又は居所<br />
+                            @Html.TextBoxFor(m => m.Head.Address, TextWordMax)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">配偶者の有無</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.RadioButtonFor(m => m.Head.SpouseCheck, "1", attrRadio1_1)
+                            <label class="radio-label-1 input-control" for="select_radio1">あり</label>
+                            @Html.RadioButtonFor(m => m.Head.SpouseCheck, "2", attrRadio1_2)
+                            <label class="radio-label-1 input-control" for="select_radio2">なし</label><span class="required">※必須</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    <br />
+    <!-- 主たる給与から控除を受ける -->
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="content-label-h1">
+                        <td colspan="8">
+                            主たる給与から控除を受ける
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div id="linkHuyou1" style="display: block;height: 12rem;margin-top: -12rem;content: ' ';visibility:hidden;"></div>
+
+    
+    <!-- Ａ 源泉控除対象配偶者 -->
+    @*定義*@
+    var TaxWithholding_TextName = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var TaxWithholding_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana TaxWithholding_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var TaxWithholding_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "20" } };
+    var TaxWithholding_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead TaxWithholdingAddress_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
+    var TaxWithholding_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_TaxWithholding_Income',950000)" } };
+    var attrRadioA_1_1 = new Dictionary<string, object>() { { "name", "attrRadioA_1" }, { "id", "select_radioA_1_1" } };
+    var attrRadioA_1_2 = new Dictionary<string, object>() { { "name", "attrRadioA_1" }, { "id", "select_radioA_1_2" } };
+    var attrRadioA_1_3 = new Dictionary<string, object>() { { "name", "attrRadioA_1" }, { "id", "select_radioA_1_3" } };
+    
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:10%;" />
+                    <col style="width:15%;" />
+                    <col style="width:15%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:20%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            Ａ 源泉控除対象配偶者
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="8">@setCheck(false, "TaxWithholding_notSubject", Model.Head.TaxWithholding_notSubject)　対象外区分</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.TaxWithholding_Name1, TaxWithholding_TextName)　名 @Html.TextBoxFor(m => m.Head.TaxWithholding_Name2, TaxWithholding_TextName)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">フリガナ</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.TaxWithholding_Kana1, TaxWithholding_TextKana)　名 @Html.TextBoxFor(m => m.Head.TaxWithholding_Kana2, TaxWithholding_TextKana)<div id="Head_TaxWithholding_Kana_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl2(false, "TaxWithholding_RelationshipType", Model.Head.TaxWithholding_RelationshipType, familyItems, "TaxWithholding_isRead")</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">生年月日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl2(false, "TaxWithholding_Birthday", "0", calcSheetYear, "Year", Model.Head.TaxWithholding_BirthdayYear, yearItems, "TaxWithholding_isRead") 年
+                            @setYearDdl2(false, "TaxWithholding_Birthday", "0", calcSheetYear, "Month", Model.Head.TaxWithholding_BirthdayMonth, monthItems, "TaxWithholding_isRead") 月
+                            @setYearDdl2(false, "TaxWithholding_Birthday", "0", calcSheetYear, "Day", Model.Head.TaxWithholding_BirthdayDay, dayItems, "TaxWithholding_isRead") 日
+                            <div id="Head_TaxWithholding_Birthday_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">所得の見積額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.TaxWithholding_Income, TaxWithholding_TextMoney1) 円<div id="Head_TaxWithholding_Income_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">(非)居住者区分</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.RadioButtonFor(m => m.Head.TaxWithholding_ResidentType, "0", attrRadioA_1_1)
+                            <label class="radio-label-3 input-control TaxWithholding_isRead" for="select_radioA_1_1">該当しない</label>
+                            @Html.RadioButtonFor(m => m.Head.TaxWithholding_ResidentType, "1", attrRadioA_1_2)
+                            <label class="radio-label-3 input-control TaxWithholding_isRead" for="select_radioA_1_2">非居住者(国外居住者)</label>
+                            @Html.RadioButtonFor(m => m.Head.TaxWithholding_ResidentType, "2", attrRadioA_1_3)
+                            <label class="radio-label-3 input-control TaxWithholding_isRead" for="select_radioA_1_3">別居者(国内居住者)</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">住所又は居所</td>
+                        <td colspan="6" class="form-inline">
+                            <p>*非居住者または別居者が選択されている時のみ入力可能</p>
+                            @Html.TextBoxFor(m => m.Head.TaxWithholding_Address, TaxWithholding_TextAddress)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">異動月日及び事由</td>
+                        <td colspan="1" class="form-inline">
+                            異動年月日<br/>
+                            @Html.TextBoxFor(m => m.Head.TaxWithholding_TransferDate, ymdRead1)<button type="button" class="input-control btn btn-default btn-xs @ymdBtn1" id="TaxWithholding_TransferDateCancel" value="Head_TaxWithholding_TransferDate"><i class="glyphicon glyphicon-remove"></i></button>
+                        </td>
+                        <td colspan="5" class="form-inline">
+                            事由<br />
+                            @Html.TextBoxFor(m => m.Head.TaxWithholding_TransferComment, TextWordMax)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    <br />
+    <!-- B1 控除対象扶養親族(16歳以上) -->
+    @*定義*@
+    var DependentsOver16_1_TextName = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsOver16_1_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana DependentsOver16_1_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsOver16_1_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "20" } };
+    var DependentsOver16_1_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead DependentsOver16_1Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
+    var DependentsOver16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_1_Income',480000)" } };
+
+
+    var attrRadioB1_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_1" } };
+    var attrRadioB1_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_2" } };
+    var attrRadioB1_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_3" } };
+    var attrRadioB1_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB1_2" }, { "id", "select_radioB1_2_1" } };
+    var attrRadioB1_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB1_2" }, { "id", "select_radioB1_2_2" } };
+    var attrRadioB1_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB1_3" }, { "id", "select_radioB1_3_1" } };
+    var attrRadioB1_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB1_3" }, { "id", "select_radioB1_3_2" } };
+    var attrRadioB1_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB1_3" }, { "id", "select_radioB1_3_3" } };
+    
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            Ｂ 控除対象扶養親族(16歳以上)
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div id="linkHuyou2" style="display: block;height: 12rem;margin-top: -12rem;content: ' ';visibility:hidden;"></div>
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:10%;" />
+                    <col style="width:15%;" />
+                    <col style="width:15%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:20%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            １ 控除対象扶養親族(16歳以上)
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="8">@setCheck(false, "DependentsOver16_1_notSubject", Model.Head.DependentsOver16_1_notSubject)　対象外区分</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Name1, DependentsOver16_1_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Name2, DependentsOver16_1_TextName)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">フリガナ</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Kana1, DependentsOver16_1_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Kana2, DependentsOver16_1_TextKana)<div id="Head_DependentsOver16_1_Kana_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl2(false, "DependentsOver16_1_RelationshipType", Model.Head.DependentsOver16_1_RelationshipType, familyItems, "DependentsOver16_1_isRead")</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">生年月日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl2(false, "DependentsOver16_1_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_1_BirthdayYear, yearItems, "DependentsOver16_1_isRead") 年
+                            @setYearDdl2(false, "DependentsOver16_1_Birthday", "1", calcSheetYear, "Month", Model.Head.DependentsOver16_1_BirthdayMonth, monthItems, "DependentsOver16_1_isRead") 月
+                            @setYearDdl2(false, "DependentsOver16_1_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_1_BirthdayDay, dayItems, "DependentsOver16_1_isRead") 日
+                            <div id="Head_DependentsOver16_1_Birthday_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="content-label-b1">老人扶養親族</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_OldmanType, "0", attrRadioB1_1_1)
+                            <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_1_1">該当しない</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_OldmanType, "1", attrRadioB1_1_2)
+                            <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_1_2">同居老親等</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_OldmanType, "2", attrRadioB1_1_3)
+                            <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_1_3">その他</label>
+                        </td>                    
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">特定扶養親族</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_SpecificType, "0", attrRadioB1_2_1)
+                            <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_2_1">該当しない</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_SpecificType, "1", attrRadioB1_2_2)
+                            <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_2_2">特定扶養親族</label>
+                        </td>                    
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">所得の見積額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsOver16_1_Income, DependentsOver16_1_TextMoney1)<span> 円</span><div id="Head_DependentsOver16_1_Income_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">(非)居住者区分</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_ResidentType, "0", attrRadioB1_3_1)
+                            <label class="radio-label-3 input-control DependentsOver16_1_isRead" for="select_radioB1_3_1">該当しない</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_ResidentType, "1", attrRadioB1_3_2)
+                            <label class="radio-label-3 input-control DependentsOver16_1_isRead" for="select_radioB1_3_2">非居住者(国外居住者)</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_ResidentType, "2", attrRadioB1_3_3)
+                            <label class="radio-label-3 input-control DependentsOver16_1_isRead" for="select_radioB1_3_3">別居者(国内居住者)</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">住所又は居所</td>
+                        <td colspan="6" class="form-inline">
+                            <p>*非居住者または別居者が選択されている時のみ入力可能</p>
+                            @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Address, DependentsOver16_1_TextAddress)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">異動月日及び事由</td>
+                        <td colspan="1" class="form-inline">
+                            異動年月日<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsOver16_1_TransferDate, ymdRead1)<button type="button" class="input-control btn btn-default btn-xs @ymdBtn1" id="DependentsOver16_1_TransferDateCancel" value="Head_DependentsOver16_1_TransferDate"><i class="glyphicon glyphicon-remove"></i></button>
+                        </td>
+                        <td colspan="5" class="form-inline">
+                            事由<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsOver16_1_TransferComment, TextWordMax)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- B2 控除対象扶養親族(16歳以上) -->
+    @*定義*@
+    var DependentsOver16_2_TextName = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsOver16_2_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana DependentsOver16_2_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsOver16_2_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "20" } };
+    var DependentsOver16_2_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead DependentsOver16_2Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
+    var DependentsOver16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_2_Income',480000)" } };
+
+
+    var attrRadioB2_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_1" } };
+    var attrRadioB2_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_2" } };
+    var attrRadioB2_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_3" } };
+    var attrRadioB2_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_RadioB2_2_1" } };
+    var attrRadioB2_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_RadioB2_2_2" } };
+    var attrRadioB2_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_1" } };
+    var attrRadioB2_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_2" } };
+    var attrRadioB2_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_3" } };
+
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:10%;" />
+                    <col style="width:15%;" />
+                    <col style="width:15%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:20%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            ２ 控除対象扶養親族(16歳以上)
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="8">@setCheck(false, "DependentsOver16_2_notSubject", Model.Head.DependentsOver16_2_notSubject)　対象外区分</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Name1, DependentsOver16_2_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Name2, DependentsOver16_2_TextName)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">フリガナ</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Kana1, DependentsOver16_2_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Kana2, DependentsOver16_2_TextKana)<div id="Head_DependentsOver16_2_Kana_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl2(false, "DependentsOver16_2_RelationshipType", Model.Head.DependentsOver16_2_RelationshipType, familyItems, "DependentsOver16_2_isRead")</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">生年月日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl2(false, "DependentsOver16_2_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_2_BirthdayYear, yearItems, "DependentsOver16_2_isRead") 年
+                            @setYearDdl2(false, "DependentsOver16_2_Birthday", "1", calcSheetYear, "Month", Model.Head.DependentsOver16_2_BirthdayMonth, monthItems, "DependentsOver16_2_isRead") 月
+                            @setYearDdl2(false, "DependentsOver16_2_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_2_BirthdayDay, dayItems, "DependentsOver16_2_isRead") 日
+                            <div id="Head_DependentsOver16_2_Birthday_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="content-label-b1">老人扶養親族</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_OldmanType, "0", attrRadioB2_1_1)
+                            <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_1_1">該当しない</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_OldmanType, "1", attrRadioB2_1_2)
+                            <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_1_2">同居老親等</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_OldmanType, "2", attrRadioB2_1_3)
+                            <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_1_3">その他</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">特定扶養親族</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_SpecificType, "0", attrRadioB2_2_1)
+                            <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_2_1">該当しない</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_SpecificType, "1", attrRadioB2_2_2)
+                            <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_2_2">特定扶養親族</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">所得の見積額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsOver16_2_Income, DependentsOver16_2_TextMoney1)<span> 円</span><div id="Head_DependentsOver16_2_Income_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">(非)居住者区分</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_ResidentType, "0", attrRadioB2_3_1)
+                            <label class="radio-label-3 input-control DependentsOver16_2_isRead" for="select_RadioB2_3_1">該当しない</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_ResidentType, "1", attrRadioB2_3_2)
+                            <label class="radio-label-3 input-control DependentsOver16_2_isRead" for="select_RadioB2_3_2">非居住者(国外居住者)</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_ResidentType, "2", attrRadioB2_3_3)
+                            <label class="radio-label-3 input-control DependentsOver16_2_isRead" for="select_RadioB2_3_3">別居者(国内居住者)</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">住所又は居所</td>
+                        <td colspan="6" class="form-inline">
+                            <p>*非居住者または別居者が選択されている時のみ入力可能</p>
+                            @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Address, DependentsOver16_2_TextAddress)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">異動月日及び事由</td>
+                        <td colspan="1" class="form-inline">
+                            異動年月日<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsOver16_2_TransferDate, ymdRead1)<button type="button" class="input-control btn btn-default btn-xs @ymdBtn1" id="DependentsOver16_2_TransferDateCancel" value="Head_DependentsOver16_2_TransferDate"><i class="glyphicon glyphicon-remove"></i></button>
+                        </td>
+                        <td colspan="5" class="form-inline">
+                            事由<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsOver16_2_TransferComment, TextWordMax)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- B3 控除対象扶養親族(16歳以上) -->
+    @*定義*@
+    var DependentsOver16_3_TextName = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsOver16_3_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana DependentsOver16_3_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsOver16_3_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "20" } };
+    var DependentsOver16_3_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead DependentsOver16_3Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
+    var DependentsOver16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_3_Income',480000)" } };
+
+
+    var attrRadioB3_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_1" } };
+    var attrRadioB3_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_2" } };
+    var attrRadioB3_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_3" } };
+    var attrRadioB3_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_RadioB3_2_1" } };
+    var attrRadioB3_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_RadioB3_2_2" } };
+    var attrRadioB3_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_1" } };
+    var attrRadioB3_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_2" } };
+    var attrRadioB3_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_3" } };
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:10%;" />
+                    <col style="width:15%;" />
+                    <col style="width:15%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:20%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            ３ 控除対象扶養親族(16歳以上)
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="8">@setCheck(false, "DependentsOver16_3_notSubject", Model.Head.DependentsOver16_3_notSubject)　対象外区分</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Name1, DependentsOver16_3_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Name2, DependentsOver16_3_TextName)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">フリガナ</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Kana1, DependentsOver16_3_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Kana2, DependentsOver16_3_TextKana)<div id="Head_DependentsOver16_3_Kana_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl2(false, "DependentsOver16_3_RelationshipType", Model.Head.DependentsOver16_3_RelationshipType, familyItems, "DependentsOver16_3_isRead")</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">生年月日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl2(false, "DependentsOver16_3_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_3_BirthdayYear, yearItems, "DependentsOver16_3_isRead") 年
+                            @setYearDdl2(false, "DependentsOver16_3_Birthday", "1", calcSheetYear, "Month", Model.Head.DependentsOver16_3_BirthdayMonth, monthItems, "DependentsOver16_3_isRead") 月
+                            @setYearDdl2(false, "DependentsOver16_3_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_3_BirthdayDay, dayItems, "DependentsOver16_3_isRead") 日
+                            <div id="Head_DependentsOver16_3_Birthday_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="content-label-b1">老人扶養親族</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_OldmanType, "0", attrRadioB3_1_1)
+                            <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_1_1">該当しない</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_OldmanType, "1", attrRadioB3_1_2)
+                            <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_1_2">同居老親等</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_OldmanType, "2", attrRadioB3_1_3)
+                            <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_1_3">その他</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">特定扶養親族</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_SpecificType, "0", attrRadioB3_2_1)
+                            <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_2_1">該当しない</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_SpecificType, "1", attrRadioB3_2_2)
+                            <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_2_2">特定扶養親族</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">所得の見積額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsOver16_3_Income, DependentsOver16_3_TextMoney1)<span> 円</span><div id="Head_DependentsOver16_3_Income_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">(非)居住者区分</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_ResidentType, "0", attrRadioB3_3_1)
+                            <label class="radio-label-3 input-control DependentsOver16_3_isRead" for="select_RadioB3_3_1">該当しない</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_ResidentType, "1", attrRadioB3_3_2)
+                            <label class="radio-label-3 input-control DependentsOver16_3_isRead" for="select_RadioB3_3_2">非居住者(国外居住者)</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_ResidentType, "2", attrRadioB3_3_3)
+                            <label class="radio-label-3 input-control DependentsOver16_3_isRead" for="select_RadioB3_3_3">別居者(国内居住者)</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">住所又は居所</td>
+                        <td colspan="6" class="form-inline">
+                            <p>*非居住者または別居者が選択されている時のみ入力可能</p>
+                            @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Address, DependentsOver16_3_TextAddress)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">異動月日及び事由</td>
+                        <td colspan="1" class="form-inline">
+                            異動年月日<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsOver16_3_TransferDate, ymdRead1)<button type="button" class="input-control btn btn-default btn-xs @ymdBtn1" id="DependentsOver16_3_TransferDateCancel" value="Head_DependentsOver16_3_TransferDate"><i class="glyphicon glyphicon-remove"></i></button>
+                        </td>
+                        <td colspan="5" class="form-inline">
+                            事由<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsOver16_3_TransferComment, TextWordMax)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- B4 控除対象扶養親族(16歳以上) -->
+    @*定義*@
+    var DependentsOver16_4_TextName = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsOver16_4_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana DependentsOver16_4_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsOver16_4_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "20" } };
+    var DependentsOver16_4_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead DependentsOver16_4Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
+    var DependentsOver16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_4_Income',480000)" } };
+
+
+    var attrRadioB4_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_1" } };
+    var attrRadioB4_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_2" } };
+    var attrRadioB4_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_3" } };
+    var attrRadioB4_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_RadioB4_2_1" } };
+    var attrRadioB4_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_RadioB4_2_2" } };
+    var attrRadioB4_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_1" } };
+    var attrRadioB4_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_2" } };
+    var attrRadioB4_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_3" } };
+
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:10%;" />
+                    <col style="width:15%;" />
+                    <col style="width:15%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:20%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            ４ 控除対象扶養親族(16歳以上)
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="8">@setCheck(false, "DependentsOver16_4_notSubject", Model.Head.DependentsOver16_4_notSubject)　対象外区分</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Name1, DependentsOver16_4_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Name2, DependentsOver16_4_TextName)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">フリガナ</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Kana1, DependentsOver16_4_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Kana2, DependentsOver16_4_TextKana)<div id="Head_DependentsOver16_4_Kana_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl2(false, "DependentsOver16_4_RelationshipType", Model.Head.DependentsOver16_4_RelationshipType, familyItems, "DependentsOver16_4_isRead")</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">生年月日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl2(false, "DependentsOver16_4_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_4_BirthdayYear, yearItems, "DependentsOver16_4_isRead") 年
+                            @setYearDdl2(false, "DependentsOver16_4_Birthday", "1", calcSheetYear, "Month", Model.Head.DependentsOver16_4_BirthdayMonth, monthItems, "DependentsOver16_4_isRead") 月
+                            @setYearDdl2(false, "DependentsOver16_4_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_4_BirthdayDay, dayItems, "DependentsOver16_4_isRead") 日
+                            <div id="Head_DependentsOver16_4_Birthday_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="content-label-b1">老人扶養親族</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_OldmanType, "0", attrRadioB4_1_1)
+                            <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_1_1">該当しない</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_OldmanType, "1", attrRadioB4_1_2)
+                            <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_1_2">同居老親等</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_OldmanType, "2", attrRadioB4_1_3)
+                            <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_1_3">その他</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">特定扶養親族</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_SpecificType, "0", attrRadioB4_2_1)
+                            <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_2_1">該当しない</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_SpecificType, "1", attrRadioB4_2_2)
+                            <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_2_2">特定扶養親族</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">所得の見積額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsOver16_4_Income, DependentsOver16_4_TextMoney1)<span> 円</span><div id="Head_DependentsOver16_4_Income_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">(非)居住者区分</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_ResidentType, "0", attrRadioB4_3_1)
+                            <label class="radio-label-3 input-control DependentsOver16_4_isRead" for="select_RadioB4_3_1">該当しない</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_ResidentType, "1", attrRadioB4_3_2)
+                            <label class="radio-label-3 input-control DependentsOver16_4_isRead" for="select_RadioB4_3_2">非居住者(国外居住者)</label>
+                            @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_ResidentType, "2", attrRadioB4_3_3)
+                            <label class="radio-label-3 input-control DependentsOver16_4_isRead" for="select_RadioB4_3_3">別居者(国内居住者)</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">住所又は居所</td>
+                        <td colspan="6" class="form-inline">
+                            <p>*非居住者または別居者が選択されている時のみ入力可能</p>
+                            @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Address, DependentsOver16_4_TextAddress)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">異動月日及び事由</td>
+                        <td colspan="1" class="form-inline">
+                            異動年月日<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsOver16_4_TransferDate, ymdRead1)<button type="button" class="input-control btn btn-default btn-xs @ymdBtn1" id="DependentsOver16_4_TransferDateCancel" value="Head_DependentsOver16_4_TransferDate"><i class="glyphicon glyphicon-remove"></i></button>
+                        </td>
+                        <td colspan="5" class="form-inline">
+                            事由<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsOver16_4_TransferComment, TextWordMax)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <br />
+    <!-- C 障害者、寡婦、ひとり親又は勤労学生 -->
+    @*定義*@
+    var attrRadioC_1_1 = new Dictionary<string, object>() { { "name", "attrRadioC_1" }, { "id", "select_radioC_1_1" } };
+    var attrRadioC_1_2 = new Dictionary<string, object>() { { "name", "attrRadioC_1" }, { "id", "select_radioC_1_2" } };
+    var attrRadioC_1_3 = new Dictionary<string, object>() { { "name", "attrRadioC_1" }, { "id", "select_radioC_1_3" } };
+    var ymdRead_DependentsOther = new Dictionary<string, object>() { { "class", "form-control ymd-control fm-ctr-rdonly Widow_isRead" }, { "maxlength", "10" }, { "style", "width:90px;" }, { "readonly", "readonly" } };
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:10%;" />
+                    <col style="width:15%;" />
+                    <col style="width:15%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:20%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            Ｃ 障害者、寡婦、ひとり親又は勤労学生
+                            <div id="linkHuyou3" style="display: block;height: 12rem;margin-top: -12rem;content: ' ';visibility:hidden;"></div>
+                        </td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">障害者</td>
+                        <td colspan="6" class="form-inline">@setCheck(false, "DependentsOther_Subject", Model.Head.DependentsOther_Subject)　障害者</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">一般の障害者</td>
+                        <td colspan="6" class="form-inline">
+                            @setCheck2(false, "DependentsOther_GeneralHandicappedSelfCheck", Model.Head.DependentsOther_GeneralHandicappedSelfCheck, "DependentsOther_isRead")　本人<br />
+                            @setCheck2(false, "DependentsOther_GeneralHandicappedSpouseCheck", Model.Head.DependentsOther_GeneralHandicappedSpouseCheck, "DependentsOther_isRead")　同一生計配偶者<br />
+                            @setCheck2(false, "DependentsOther_GeneralHandicappedDependentsCheck", Model.Head.DependentsOther_GeneralHandicappedDependentsCheck, "DependentsOther_isRead")　扶養親族
+                            @Html.TextBoxFor(m => m.Head.DependentsOther_GeneralHandicappedDependentsNumber, TextNumber1)<span> 人</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">特別障害者</td>
+                        <td colspan="6" class="form-inline">
+                            @setCheck2(false, "DependentsOther_SpecialHandicappedSelfCheck", Model.Head.DependentsOther_SpecialHandicappedSelfCheck, "DependentsOther_isRead")　本人<br />
+                            @setCheck2(false, "DependentsOther_SpecialHandicappedSpouseCheck", Model.Head.DependentsOther_SpecialHandicappedSpouseCheck, "DependentsOther_isRead")　同一生計配偶者<br />
+                            @setCheck2(false, "DependentsOther_SpecialHandicappedDependentsCheck", Model.Head.DependentsOther_SpecialHandicappedDependentsCheck, "DependentsOther_isRead")　扶養親族
+                            @Html.TextBoxFor(m => m.Head.DependentsOther_SpecialHandicappedDependentsNumber, TextNumber1)<span> 人</span>
+                                
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">同居特別障害者</td>
+                        <td colspan="6" class="form-inline">
+                            @setCheck2(false, "DependentsOther_LivingHandicappedSpouseCheck", Model.Head.DependentsOther_LivingHandicappedSpouseCheck, "DependentsOther_isRead")　同一生計配偶者<br />
+                            @setCheck2(false, "DependentsOther_LivingHandicappedDependentsCheck", Model.Head.DependentsOther_LivingHandicappedDependentsCheck, "DependentsOther_isRead")　扶養親族
+                            @Html.TextBoxFor(m => m.Head.DependentsOther_LivingHandicappedDependentsNumber, TextNumber1)<span> 人</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">寡婦、ひとり親</td>
+                        <td colspan="6" class="form-inline">
+                            <group class="inline-radio">
+                                @Html.RadioButtonFor(m => m.Head.DependentsOther_WidowType, "0", attrRadioC_1_1)
+                                <label class="radio-label-2 input-control" for="select_radioC_1_1">該当しない</label>
+                                @Html.RadioButtonFor(m => m.Head.DependentsOther_WidowType, "1", attrRadioC_1_2)
+                                <label class="radio-label-2 input-control" for="select_radioC_1_2">寡婦</label>
+                                @Html.RadioButtonFor(m => m.Head.DependentsOther_WidowType, "2", attrRadioC_1_3)
+                                <label class="radio-label-2 input-control" for="select_radioC_1_3">ひとり親</label>
+                            </group><br />
+                            @setDdl2(false, "DependentsOther_WidowReasonType", Model.Head.DependentsOther_WidowReasonType, widowReasonItems, "Widow_isRead")<br />
+                            <span>発生年月日</span>@Html.TextBoxFor(m => m.Head.DependentsOther_WidowOccurrenceDate, ymdRead_DependentsOther)<button type="button" class="input-control btn btn-default btn-xs @ymdBtn1" id="DependentsOther_WidowOccurrenceDateCancel" value="Head_DependentsOther_WidowOccurrenceDate"><i class="glyphicon glyphicon-remove"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">勤労学生</td>
+                        <td colspan="6" class="form-inline">@setCheck(true, "DependentsOther_Subject", Model.Head.DependentsOther_Subject)　勤労学生</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">異動月日及び事由</td>
+                        <td colspan="1" class="form-inline">
+                            異動年月日<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsOther_TransferDate, ymdRead1)<button type="button" class="input-control btn btn-default btn-xs @ymdBtn1" id="DependentsOther_TransferDateCancel" value="Head_DependentsOther_TransferDate"><i class="glyphicon glyphicon-remove"></i></button>
+                        </td>
+                        <td colspan="5" class="form-inline">
+                            事由<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsOther_TransferComment, TextWordMax)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <br />
+    <!-- 16歳未満の扶養親族 -->
+    @*定義*@
+    var DependentsUnder16_1_TextName = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsUnder16_1_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana DependentsUnder16_1_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsUnder16_1_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead" }, { "maxlength", "20" } };
+    var DependentsUnder16_1_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead DependentsUnder16_1Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
+    var DependentsUnder16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_1_Income',480000)" } };
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            16歳未満の扶養親族
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div id="linkHuyou4" style="display: block;height: 12rem;margin-top: -12rem;content: ' ';visibility:hidden;"></div>
+
+    <!-- 1 16歳未満の扶養親族 -->
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:10%;" />
+                    <col style="width:15%;" />
+                    <col style="width:15%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:20%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            １ 16歳未満の扶養親族
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="8">@setCheck(false, "DependentsUnder16_1_notSubject", Model.Head.DependentsUnder16_1_notSubject)　対象外区分</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Name1, DependentsUnder16_1_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Name2, DependentsUnder16_1_TextName)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">フリガナ</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Kana1, DependentsUnder16_1_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Kana2, DependentsUnder16_1_TextKana)<div id="Head_DependentsUnder16_1_Kana_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl2(false, "DependentsUnder16_1_RelationshipType", Model.Head.DependentsUnder16_1_RelationshipType, familyItems, "DependentsUnder16_1_isRead")</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">生年月日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl2(false, "DependentsUnder16_1_Birthday", "2", calcSheetYear, "Year", Model.Head.DependentsUnder16_1_BirthdayYear, yearItems, "DependentsUnder16_1_isRead") 年
+                            @setYearDdl2(false, "DependentsUnder16_1_Birthday", "2", calcSheetYear, "Month", Model.Head.DependentsUnder16_1_BirthdayMonth, monthItems, "DependentsUnder16_1_isRead") 月
+                            @setYearDdl2(false, "DependentsUnder16_1_Birthday", "2", calcSheetYear, "Day", Model.Head.DependentsUnder16_1_BirthdayDay, dayItems, "DependentsUnder16_1_isRead") 日
+                            <div id="Head_DependentsUnder16_1_Birthday_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">住所又は居所</td>
+                        <td colspan="6" class="form-inline">
+                            @setCheck2(false, "DependentsUnder16_1_AddressSameCheck", Model.Head.DependentsUnder16_1_AddressSameCheck, "DependentsUnder16_1_isRead") 本人の住所又は居所と異なる場合<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Address, DependentsUnder16_1_TextAddress)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">控除対象外国外扶養親族</td>
+                        <td colspan="6" class="form-inline">@setCheck2(false, "DependentsUnder16_1_AbroadCheck", Model.Head.DependentsUnder16_1_AbroadCheck, "DependentsUnder16_1_isRead")　国外扶養親族</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">所得の見積額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Income, DependentsUnder16_1_TextMoney1)<span> 円</span><div id="Head_DependentsUnder16_1_Income_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">異動月日及び事由</td>
+                        <td colspan="1" class="form-inline">
+                            異動年月日<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_TransferDate, ymdRead1)<button type="button" class="input-control btn btn-default btn-xs @ymdBtn1" id="DependentsUnder16_1_TransferDateCancel" value="Head_DependentsUnder16_1_TransferDate"><i class="glyphicon glyphicon-remove"></i></button>
+                        </td>
+                        <td colspan="5" class="form-inline">
+                            事由<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_TransferComment, TextWordMax)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 2 16歳未満の扶養親族 -->
+    @*定義*@
+    var DependentsUnder16_2_TextName = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsUnder16_2_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana DependentsUnder16_2_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsUnder16_2_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead" }, { "maxlength", "20" } };
+    var DependentsUnder16_2_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead DependentsUnder16_2Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
+    var DependentsUnder16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_2_Income',480000)" } };
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:10%;" />
+                    <col style="width:15%;" />
+                    <col style="width:15%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:20%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            ２ 16歳未満の扶養親族
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="8">@setCheck(false, "DependentsUnder16_2_notSubject", Model.Head.DependentsUnder16_2_notSubject)　対象外区分</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Name1, DependentsUnder16_2_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Name2, DependentsUnder16_2_TextName)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">フリガナ</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Kana1, DependentsUnder16_2_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Kana2, DependentsUnder16_2_TextKana)<div id="Head_DependentsUnder16_2_Kana_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl2(false, "DependentsUnder16_2_RelationshipType", Model.Head.DependentsUnder16_2_RelationshipType, familyItems, "DependentsUnder16_2_isRead")</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">生年月日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl2(false, "DependentsUnder16_2_Birthday", "2", calcSheetYear, "Year", Model.Head.DependentsUnder16_2_BirthdayYear, yearItems, "DependentsUnder16_2_isRead") 年
+                            @setYearDdl2(false, "DependentsUnder16_2_Birthday", "2", calcSheetYear, "Month", Model.Head.DependentsUnder16_2_BirthdayMonth, monthItems, "DependentsUnder16_2_isRead") 月
+                            @setYearDdl2(false, "DependentsUnder16_2_Birthday", "2", calcSheetYear, "Day", Model.Head.DependentsUnder16_2_BirthdayDay, dayItems, "DependentsUnder16_2_isRead") 日
+                            <div id="Head_DependentsUnder16_2_Birthday_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">住所又は居所</td>
+                        <td colspan="6" class="form-inline">
+                            @setCheck2(false, "DependentsUnder16_2_AddressSameCheck", Model.Head.DependentsUnder16_2_AddressSameCheck, "DependentsUnder16_2_isRead") 本人の住所又は居所と異なる場合<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Address, DependentsUnder16_2_TextAddress)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">控除対象外国外扶養親族</td>
+                        <td colspan="6" class="form-inline">@setCheck2(false, "DependentsUnder16_2_AbroadCheck", Model.Head.DependentsUnder16_2_AbroadCheck, "DependentsUnder16_2_isRead")　国外扶養親族</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">所得の見積額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Income, DependentsUnder16_2_TextMoney1)<span> 円</span><div id="Head_DependentsUnder16_2_Income_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">異動月日及び事由</td>
+                        <td colspan="1" class="form-inline">
+                            異動年月日<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_TransferDate, ymdRead1)<button type="button" class="input-control btn btn-default btn-xs @ymdBtn1" id="DependentsUnder16_2_TransferDateCancel" value="Head_DependentsUnder16_2_TransferDate"><i class="glyphicon glyphicon-remove"></i></button>
+                        </td>
+                        <td colspan="5" class="form-inline">
+                            事由<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_TransferComment, TextWordMax)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <!-- 3 16歳未満の扶養親族 -->
+    @*定義*@
+    var DependentsUnder16_3_TextName = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsUnder16_3_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana DependentsUnder16_3_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsUnder16_3_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead" }, { "maxlength", "20" } };
+    var DependentsUnder16_3_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead DependentsUnder16_3Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
+    var DependentsUnder16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_3_Income',480000)" } };
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:10%;" />
+                    <col style="width:15%;" />
+                    <col style="width:15%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:20%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            ３ 16歳未満の扶養親族
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="8">@setCheck(false, "DependentsUnder16_3_notSubject", Model.Head.DependentsUnder16_3_notSubject)　対象外区分</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Name1, DependentsUnder16_3_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Name2, DependentsUnder16_3_TextName)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">フリガナ</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Kana1, DependentsUnder16_3_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Kana2, DependentsUnder16_3_TextKana)<div id="Head_DependentsUnder16_3_Kana_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl2(false, "DependentsUnder16_3_RelationshipType", Model.Head.DependentsUnder16_3_RelationshipType, familyItems, "DependentsUnder16_3_isRead")</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">生年月日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl2(false, "DependentsUnder16_3_Birthday", "2", calcSheetYear, "Year", Model.Head.DependentsUnder16_3_BirthdayYear, yearItems, "DependentsUnder16_3_isRead") 年
+                            @setYearDdl2(false, "DependentsUnder16_3_Birthday", "2", calcSheetYear, "Month", Model.Head.DependentsUnder16_3_BirthdayMonth, monthItems, "DependentsUnder16_3_isRead") 月
+                            @setYearDdl2(false, "DependentsUnder16_3_Birthday", "2", calcSheetYear, "Day", Model.Head.DependentsUnder16_3_BirthdayDay, dayItems, "DependentsUnder16_3_isRead") 日
+                            <div id="Head_DependentsUnder16_3_Birthday_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">住所又は居所</td>
+                        <td colspan="6" class="form-inline">
+                            @setCheck2(false, "DependentsUnder16_3_AddressSameCheck", Model.Head.DependentsUnder16_3_AddressSameCheck, "DependentsUnder16_3_isRead") 本人の住所又は居所と異なる場合<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Address, DependentsUnder16_3_TextAddress)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">控除対象外国外扶養親族</td>
+                        <td colspan="6" class="form-inline">@setCheck2(false, "DependentsUnder16_3_AbroadCheck", Model.Head.DependentsUnder16_3_AbroadCheck, "DependentsUnder16_3_isRead")　国外扶養親族</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">所得の見積額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Income, DependentsUnder16_3_TextMoney1)<span> 円</span><div id="Head_DependentsUnder16_3_Income_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">異動月日及び事由</td>
+                        <td colspan="1" class="form-inline">
+                            異動年月日<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_TransferDate, ymdRead1)<button type="button" class="input-control btn btn-default btn-xs @ymdBtn1" id="DependentsUnder16_3_TransferDateCancel" value="Head_DependentsUnder16_3_TransferDate"><i class="glyphicon glyphicon-remove"></i></button>
+                        </td>
+                        <td colspan="5" class="form-inline">
+                            事由<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_TransferComment, TextWordMax)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+    <!-- 4 16歳未満の扶養親族 -->
+    @*定義*@
+    var DependentsUnder16_4_TextName = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsUnder16_4_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana DependentsUnder16_4_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
+    var DependentsUnder16_4_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead" }, { "maxlength", "20" } };
+    var DependentsUnder16_4_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead DependentsUnder16_4Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
+    var DependentsUnder16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_4_Income',480000)" } };
+
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <colgroup>
+                    <col style="width:10%;" />
+                    <col style="width:15%;" />
+                    <col style="width:15%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:20%;" />
+                </colgroup>
+
+                <thead>
+                    <tr class="content-label-h3">
+                        <td colspan="8">
+                            ４ 16歳未満の扶養親族
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="8">@setCheck(false, "DependentsUnder16_4_notSubject", Model.Head.DependentsUnder16_4_notSubject)　対象外区分</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">氏名</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Name1, DependentsUnder16_4_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Name2, DependentsUnder16_4_TextName)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">フリガナ</td>
+                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Kana1, DependentsUnder16_4_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Kana2, DependentsUnder16_4_TextKana)<div id="Head_DependentsUnder16_4_Kana_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl2(false, "DependentsUnder16_4_RelationshipType", Model.Head.DependentsUnder16_4_RelationshipType, familyItems, "DependentsUnder16_4_isRead")</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">生年月日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl2(false, "DependentsUnder16_4_Birthday", "2", calcSheetYear, "Year", Model.Head.DependentsUnder16_4_BirthdayYear, yearItems, "DependentsUnder16_4_isRead") 年
+                            @setYearDdl2(false, "DependentsUnder16_4_Birthday", "2", calcSheetYear, "Month", Model.Head.DependentsUnder16_4_BirthdayMonth, monthItems, "DependentsUnder16_4_isRead") 月
+                            @setYearDdl2(false, "DependentsUnder16_4_Birthday", "2", calcSheetYear, "Day", Model.Head.DependentsUnder16_4_BirthdayDay, dayItems, "DependentsUnder16_4_isRead") 日
+                            <div id="Head_DependentsUnder16_4_Birthday_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">住所又は居所</td>
+                        <td colspan="6" class="form-inline">
+                            @setCheck2(false, "DependentsUnder16_4_AddressSameCheck", Model.Head.DependentsUnder16_4_AddressSameCheck, "DependentsUnder16_4_isRead") 本人の住所又は居所と異なる場合<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Address, DependentsUnder16_4_TextAddress)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">控除対象外国外扶養親族</td>
+                        <td colspan="6" class="form-inline">@setCheck2(false, "DependentsUnder16_4_AbroadCheck", Model.Head.DependentsUnder16_4_AbroadCheck, "DependentsUnder16_4_isRead")　国外扶養親族</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">所得の見積額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Income, DependentsUnder16_4_TextMoney1)<span> 円</span><div id="Head_DependentsUnder16_4_Income_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">異動月日及び事由</td>
+                        <td colspan="1" class="form-inline">
+                            異動年月日<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_TransferDate, ymdRead1)<button type="button" class="input-control btn btn-default btn-xs @ymdBtn1" id="DependentsUnder16_4_TransferDateCancel" value="Head_DependentsUnder16_4_TransferDate"><i class="glyphicon glyphicon-remove"></i></button>
+                        </td>
+                        <td colspan="5" class="form-inline">
+                            事由<br />
+                            @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_TransferComment, TextWordMax)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    @*隠しボタンエリア*@
+    <div style="height:0px;">
+        <button type="submit" name="Save" id="savebutton" value="保存" class="btn invisible" onclick="removeDisabled()">保存</button>
+        <button type="submit" name="Keep" id="keepbutton" value="途中保存" class="btn invisible" onclick="removeDisabled()">途中保存</button>
+        <button type="submit" name="SignCancel" id="signcancel" class="btn invisible">保存取消</button>
+    </div>
+
+    @Scripts.Render("~/Scripts/js/huyou")
+
+}
