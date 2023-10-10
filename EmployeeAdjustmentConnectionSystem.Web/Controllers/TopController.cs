@@ -17,6 +17,7 @@ using EmployeeAdjustmentConnectionSystem.COM.Util.Config;
 using System.IO;
 using EmployeeAdjustmentConnectionSystem.COM.Util.File;
 using System.Configuration;
+using EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports;
 
 namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
@@ -150,7 +151,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
                 //帳票出力ロジックを実行
                 //帳票作成ディレクトリを取得
-                SelfDeclareSearchPrintBL bl = new SelfDeclareSearchPrintBL(Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile())));
+                YearEndAdjustmentPrintBL bl = new YearEndAdjustmentPrintBL(Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile())));
                 //結果
                 //model.Down.DownloadPath = bl.Print(new string[] { value });
                 //model.Down.DownloadFlag = string.IsNullOrEmpty(model.Down.DownloadPath) ? false : true;
@@ -158,7 +159,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 ////表示
                 //return View((new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                 //DL処理変更
-                var dlpath = bl.PrintTEST(new string[] { strInputNo });
+                var dlpath = bl.PrintHaiguuDeclare(new string[] { strInputNo });
                 string mappath = Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile()) + dlpath);
                 string fileName = Path.GetFileName(mappath);
                 return File(mappath, "application/zip", fileName);
@@ -242,7 +243,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
                 //帳票出力ロジックを実行
                 //帳票作成ディレクトリを取得
-                SelfDeclareSearchPrintBL bl = new SelfDeclareSearchPrintBL(Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile())));
+                YearEndAdjustmentPrintBL bl = new YearEndAdjustmentPrintBL(Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile())));
                 //結果
                 //model.Down.DownloadPath = bl.Print(new string[] { value });
                 //model.Down.DownloadFlag = string.IsNullOrEmpty(model.Down.DownloadPath) ? false : true;
@@ -250,7 +251,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 ////表示
                 //return View((new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                 //DL処理変更
-                var dlpath = bl.PrintTEST2(new string[] { strInputNo });
+                var dlpath = bl.PrintHuyouDeclare(new string[] { strInputNo });
                 string mappath = Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile()) + dlpath);
                 string fileName = Path.GetFileName(mappath);
                 return File(mappath, "application/zip", fileName);
@@ -310,7 +311,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
                 //帳票出力ロジックを実行
                 //帳票作成ディレクトリを取得
-                SelfDeclareSearchPrintBL bl = new SelfDeclareSearchPrintBL(Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile())));
+                YearEndAdjustmentPrintBL bl = new YearEndAdjustmentPrintBL(Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile())));
                 //結果
                 //model.Down.DownloadPath = bl.Print(new string[] { value });
                 //model.Down.DownloadFlag = string.IsNullOrEmpty(model.Down.DownloadPath) ? false : true;
@@ -318,7 +319,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 ////表示
                 //return View((new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                 //DL処理変更
-                var dlpath = bl.PrintTEST3(new string[] { strInputNo });
+                var dlpath = bl.PrintHokenDeclare(new string[] { strInputNo });
                 string mappath = Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile()) + dlpath);
                 string fileName = Path.GetFileName(mappath);
                 return File(mappath, "application/zip", fileName);
