@@ -312,6 +312,43 @@
     <Compile Include="SystemManagement\TakeOverMove.cs" />
     <Compile Include="SystemManagement\UploadBL.cs" />
     <Compile Include="Top\TopBL.cs" />
+    <Compile Include="YearEndAdjustmentReports\HaiguuDeclareDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HaiguuDeclareDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="YearEndAdjustmentReports\HaiguuDeclareReport.cs">
+      <DependentUpon>HaiguuDeclareReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="YearEndAdjustmentReports\HokenDeclareDataSet.cs">
+      <DependentUpon>HokenDeclareDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="YearEndAdjustmentReports\HokenDeclareDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HokenDeclareDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="YearEndAdjustmentReports\HokenDeclareReport.cs">
+      <DependentUpon>HokenDeclareReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="YearEndAdjustmentReports\HuyouDeclareDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HuyouDeclareDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="YearEndAdjustmentReports\HuyouDeclareReport.cs">
+      <DependentUpon>HuyouDeclareReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="YearEndAdjustmentReports\YearEndAdjustmentPrintBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
@@ -448,6 +485,39 @@
     <None Include="SelfDeclareSearch\Reports\SelfDeclareD.xss">
       <DependentUpon>SelfDeclareD.xsd</DependentUpon>
     </None>
+    <None Include="YearEndAdjustmentReports\HaiguuDeclareDataSet.xsc">
+      <DependentUpon>HaiguuDeclareDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="YearEndAdjustmentReports\HaiguuDeclareDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HaiguuDeclareDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="YearEndAdjustmentReports\HaiguuDeclareDataSet.xss">
+      <DependentUpon>HaiguuDeclareDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="YearEndAdjustmentReports\HokenDeclareDataSet.xsc">
+      <DependentUpon>HokenDeclareDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="YearEndAdjustmentReports\HokenDeclareDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HokenDeclareDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="YearEndAdjustmentReports\HokenDeclareDataSet.xss">
+      <DependentUpon>HokenDeclareDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="YearEndAdjustmentReports\HuyouDeclareDataSet.xsc">
+      <DependentUpon>HuyouDeclareDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="YearEndAdjustmentReports\HuyouDeclareDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HuyouDeclareDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="YearEndAdjustmentReports\HuyouDeclareDataSet.xss">
+      <DependentUpon>HuyouDeclareDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EmployeeAdjustmentConnectionSystem.Com\EmployeeAdjustmentConnectionSystem.COM.csproj">
@@ -534,6 +604,18 @@
     <EmbeddedResource Include="SelfDeclareSearch\Reports\SelfDeclareReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SelfDeclareReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YearEndAdjustmentReports\HaiguuDeclareReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>HaiguuDeclareReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YearEndAdjustmentReports\HokenDeclareReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>HokenDeclareReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YearEndAdjustmentReports\HuyouDeclareReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>HuyouDeclareReport.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
