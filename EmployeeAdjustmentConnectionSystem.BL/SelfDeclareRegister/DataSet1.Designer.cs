@@ -283,7 +283,99 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareRegister {
             
             private global::System.Data.DataColumn column社員番号;
             
+            private global::System.Data.DataColumn column本人確定区分;
+            
+            private global::System.Data.DataColumn column管理者確定区分;
+            
+            private global::System.Data.DataColumn column個人番号相違確認区分;
+            
+            private global::System.Data.DataColumn column所属番号;
+            
             private global::System.Data.DataColumn column氏名;
+            
+            private global::System.Data.DataColumn columnKana;
+            
+            private global::System.Data.DataColumn column住所01;
+            
+            private global::System.Data.DataColumn columnSequence番号;
+            
+            private global::System.Data.DataColumn column基礎控除申告書_給与所得_収入金額;
+            
+            private global::System.Data.DataColumn column基礎控除申告書_給与所得_所得金額;
+            
+            private global::System.Data.DataColumn column基礎控除申告書_他_所得金額;
+            
+            private global::System.Data.DataColumn column基礎控除申告書_合計所得金額見積額;
+            
+            private global::System.Data.DataColumn column基礎控除申告書_控除額計算判定;
+            
+            private global::System.Data.DataColumn column基礎控除申告書_控除額計算区分;
+            
+            private global::System.Data.DataColumn column基礎控除申告書_基礎控除額;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_氏名;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_Kana;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_続柄名称;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_生年月日;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_表示生年月日;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_生年月日年号名称;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_生年月日年;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_生年月日月;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_生年月日日;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_住所;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_非居住者;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_給与所得_収入金額;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_給与所得_所得金額;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_他_所得金額;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_合計所得金額見積額;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_控除額計算判定;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_控除額計算区分;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_配偶者控除額;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_配偶者特別控除額;
+            
+            private global::System.Data.DataColumn column所得金額調整控除申告書_要件区分;
+            
+            private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等氏名;
+            
+            private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等Kana;
+            
+            private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等生年月日;
+            
+            private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等表示生年月日;
+            
+            private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等表示生年月日年号名称;
+            
+            private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等表示生年月日年;
+            
+            private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等表示生年月日月;
+            
+            private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等表示生年月日日;
+            
+            private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等住所;
+            
+            private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等続柄名称;
+            
+            private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等所得金額;
+            
+            private global::System.Data.DataColumn column所得金額調整控除申告書_特別障害者該当事実;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -336,9 +428,377 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareRegister {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 本人確定区分Column {
+                get {
+                    return this.column本人確定区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 管理者確定区分Column {
+                get {
+                    return this.column管理者確定区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人番号相違確認区分Column {
+                get {
+                    return this.column個人番号相違確認区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所属番号Column {
+                get {
+                    return this.column所属番号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn 氏名Column {
                 get {
                     return this.column氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn KanaColumn {
+                get {
+                    return this.columnKana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 住所01Column {
+                get {
+                    return this.column住所01;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Sequence番号Column {
+                get {
+                    return this.columnSequence番号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 基礎控除申告書_給与所得_収入金額Column {
+                get {
+                    return this.column基礎控除申告書_給与所得_収入金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 基礎控除申告書_給与所得_所得金額Column {
+                get {
+                    return this.column基礎控除申告書_給与所得_所得金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 基礎控除申告書_他_所得金額Column {
+                get {
+                    return this.column基礎控除申告書_他_所得金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 基礎控除申告書_合計所得金額見積額Column {
+                get {
+                    return this.column基礎控除申告書_合計所得金額見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 基礎控除申告書_控除額計算判定Column {
+                get {
+                    return this.column基礎控除申告書_控除額計算判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 基礎控除申告書_控除額計算区分Column {
+                get {
+                    return this.column基礎控除申告書_控除額計算区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 基礎控除申告書_基礎控除額Column {
+                get {
+                    return this.column基礎控除申告書_基礎控除額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_氏名Column {
+                get {
+                    return this.column配偶者控除申告書_氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_KanaColumn {
+                get {
+                    return this.column配偶者控除申告書_Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_続柄名称Column {
+                get {
+                    return this.column配偶者控除申告書_続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_生年月日Column {
+                get {
+                    return this.column配偶者控除申告書_生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_表示生年月日Column {
+                get {
+                    return this.column配偶者控除申告書_表示生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_生年月日年号名称Column {
+                get {
+                    return this.column配偶者控除申告書_生年月日年号名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_生年月日年Column {
+                get {
+                    return this.column配偶者控除申告書_生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_生年月日月Column {
+                get {
+                    return this.column配偶者控除申告書_生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_生年月日日Column {
+                get {
+                    return this.column配偶者控除申告書_生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_住所Column {
+                get {
+                    return this.column配偶者控除申告書_住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_非居住者Column {
+                get {
+                    return this.column配偶者控除申告書_非居住者;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_給与所得_収入金額Column {
+                get {
+                    return this.column配偶者控除申告書_給与所得_収入金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_給与所得_所得金額Column {
+                get {
+                    return this.column配偶者控除申告書_給与所得_所得金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_他_所得金額Column {
+                get {
+                    return this.column配偶者控除申告書_他_所得金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_合計所得金額見積額Column {
+                get {
+                    return this.column配偶者控除申告書_合計所得金額見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_控除額計算判定Column {
+                get {
+                    return this.column配偶者控除申告書_控除額計算判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_控除額計算区分Column {
+                get {
+                    return this.column配偶者控除申告書_控除額計算区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_配偶者控除額Column {
+                get {
+                    return this.column配偶者控除申告書_配偶者控除額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_配偶者特別控除額Column {
+                get {
+                    return this.column配偶者控除申告書_配偶者特別控除額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所得金額調整控除申告書_要件区分Column {
+                get {
+                    return this.column所得金額調整控除申告書_要件区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所得金額調整控除申告書_扶養親族等氏名Column {
+                get {
+                    return this.column所得金額調整控除申告書_扶養親族等氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所得金額調整控除申告書_扶養親族等KanaColumn {
+                get {
+                    return this.column所得金額調整控除申告書_扶養親族等Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所得金額調整控除申告書_扶養親族等生年月日Column {
+                get {
+                    return this.column所得金額調整控除申告書_扶養親族等生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所得金額調整控除申告書_扶養親族等表示生年月日Column {
+                get {
+                    return this.column所得金額調整控除申告書_扶養親族等表示生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所得金額調整控除申告書_扶養親族等表示生年月日年号名称Column {
+                get {
+                    return this.column所得金額調整控除申告書_扶養親族等表示生年月日年号名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所得金額調整控除申告書_扶養親族等表示生年月日年Column {
+                get {
+                    return this.column所得金額調整控除申告書_扶養親族等表示生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所得金額調整控除申告書_扶養親族等表示生年月日月Column {
+                get {
+                    return this.column所得金額調整控除申告書_扶養親族等表示生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所得金額調整控除申告書_扶養親族等表示生年月日日Column {
+                get {
+                    return this.column所得金額調整控除申告書_扶養親族等表示生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所得金額調整控除申告書_扶養親族等住所Column {
+                get {
+                    return this.column所得金額調整控除申告書_扶養親族等住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所得金額調整控除申告書_扶養親族等続柄名称Column {
+                get {
+                    return this.column所得金額調整控除申告書_扶養親族等続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所得金額調整控除申告書_扶養親族等所得金額Column {
+                get {
+                    return this.column所得金額調整控除申告書_扶養親族等所得金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所得金額調整控除申告書_特別障害者該当事実Column {
+                get {
+                    return this.column所得金額調整控除申告書_特別障害者該当事実;
                 }
             }
             
@@ -379,12 +839,107 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareRegister {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string 対象年度, string 社員番号, string 氏名) {
+            public DataTable1Row AddDataTable1Row(
+                        string 対象年度, 
+                        string 社員番号, 
+                        string 本人確定区分, 
+                        string 管理者確定区分, 
+                        string 個人番号相違確認区分, 
+                        string 所属番号, 
+                        string 氏名, 
+                        string Kana, 
+                        string 住所01, 
+                        string Sequence番号, 
+                        string 基礎控除申告書_給与所得_収入金額, 
+                        string 基礎控除申告書_給与所得_所得金額, 
+                        string 基礎控除申告書_他_所得金額, 
+                        string 基礎控除申告書_合計所得金額見積額, 
+                        string 基礎控除申告書_控除額計算判定, 
+                        string 基礎控除申告書_控除額計算区分, 
+                        string 基礎控除申告書_基礎控除額, 
+                        string 配偶者控除申告書_氏名, 
+                        string 配偶者控除申告書_Kana, 
+                        string 配偶者控除申告書_続柄名称, 
+                        string 配偶者控除申告書_生年月日, 
+                        string 配偶者控除申告書_表示生年月日, 
+                        string 配偶者控除申告書_生年月日年号名称, 
+                        string 配偶者控除申告書_生年月日年, 
+                        string 配偶者控除申告書_生年月日月, 
+                        string 配偶者控除申告書_生年月日日, 
+                        string 配偶者控除申告書_住所, 
+                        string 配偶者控除申告書_非居住者, 
+                        string 配偶者控除申告書_給与所得_収入金額, 
+                        string 配偶者控除申告書_給与所得_所得金額, 
+                        string 配偶者控除申告書_他_所得金額, 
+                        string 配偶者控除申告書_合計所得金額見積額, 
+                        string 配偶者控除申告書_控除額計算判定, 
+                        string 配偶者控除申告書_控除額計算区分, 
+                        string 配偶者控除申告書_配偶者控除額, 
+                        string 配偶者控除申告書_配偶者特別控除額, 
+                        string 所得金額調整控除申告書_要件区分, 
+                        string 所得金額調整控除申告書_扶養親族等氏名, 
+                        string 所得金額調整控除申告書_扶養親族等Kana, 
+                        string 所得金額調整控除申告書_扶養親族等生年月日, 
+                        string 所得金額調整控除申告書_扶養親族等表示生年月日, 
+                        string 所得金額調整控除申告書_扶養親族等表示生年月日年号名称, 
+                        string 所得金額調整控除申告書_扶養親族等表示生年月日年, 
+                        string 所得金額調整控除申告書_扶養親族等表示生年月日月, 
+                        string 所得金額調整控除申告書_扶養親族等表示生年月日日, 
+                        string 所得金額調整控除申告書_扶養親族等住所, 
+                        string 所得金額調整控除申告書_扶養親族等続柄名称, 
+                        string 所得金額調整控除申告書_扶養親族等所得金額, 
+                        string 所得金額調整控除申告書_特別障害者該当事実) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         対象年度,
                         社員番号,
-                        氏名};
+                        本人確定区分,
+                        管理者確定区分,
+                        個人番号相違確認区分,
+                        所属番号,
+                        氏名,
+                        Kana,
+                        住所01,
+                        Sequence番号,
+                        基礎控除申告書_給与所得_収入金額,
+                        基礎控除申告書_給与所得_所得金額,
+                        基礎控除申告書_他_所得金額,
+                        基礎控除申告書_合計所得金額見積額,
+                        基礎控除申告書_控除額計算判定,
+                        基礎控除申告書_控除額計算区分,
+                        基礎控除申告書_基礎控除額,
+                        配偶者控除申告書_氏名,
+                        配偶者控除申告書_Kana,
+                        配偶者控除申告書_続柄名称,
+                        配偶者控除申告書_生年月日,
+                        配偶者控除申告書_表示生年月日,
+                        配偶者控除申告書_生年月日年号名称,
+                        配偶者控除申告書_生年月日年,
+                        配偶者控除申告書_生年月日月,
+                        配偶者控除申告書_生年月日日,
+                        配偶者控除申告書_住所,
+                        配偶者控除申告書_非居住者,
+                        配偶者控除申告書_給与所得_収入金額,
+                        配偶者控除申告書_給与所得_所得金額,
+                        配偶者控除申告書_他_所得金額,
+                        配偶者控除申告書_合計所得金額見積額,
+                        配偶者控除申告書_控除額計算判定,
+                        配偶者控除申告書_控除額計算区分,
+                        配偶者控除申告書_配偶者控除額,
+                        配偶者控除申告書_配偶者特別控除額,
+                        所得金額調整控除申告書_要件区分,
+                        所得金額調整控除申告書_扶養親族等氏名,
+                        所得金額調整控除申告書_扶養親族等Kana,
+                        所得金額調整控除申告書_扶養親族等生年月日,
+                        所得金額調整控除申告書_扶養親族等表示生年月日,
+                        所得金額調整控除申告書_扶養親族等表示生年月日年号名称,
+                        所得金額調整控除申告書_扶養親族等表示生年月日年,
+                        所得金額調整控除申告書_扶養親族等表示生年月日月,
+                        所得金額調整控除申告書_扶養親族等表示生年月日日,
+                        所得金額調整控除申告書_扶養親族等住所,
+                        所得金額調整控除申告書_扶養親族等続柄名称,
+                        所得金額調整控除申告書_扶養親族等所得金額,
+                        所得金額調整控除申告書_特別障害者該当事実};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -409,7 +964,53 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareRegister {
             internal void InitVars() {
                 this.column対象年度 = base.Columns["対象年度"];
                 this.column社員番号 = base.Columns["社員番号"];
+                this.column本人確定区分 = base.Columns["本人確定区分"];
+                this.column管理者確定区分 = base.Columns["管理者確定区分"];
+                this.column個人番号相違確認区分 = base.Columns["個人番号相違確認区分"];
+                this.column所属番号 = base.Columns["所属番号"];
                 this.column氏名 = base.Columns["氏名"];
+                this.columnKana = base.Columns["Kana"];
+                this.column住所01 = base.Columns["住所01"];
+                this.columnSequence番号 = base.Columns["Sequence番号"];
+                this.column基礎控除申告書_給与所得_収入金額 = base.Columns["基礎控除申告書_給与所得_収入金額"];
+                this.column基礎控除申告書_給与所得_所得金額 = base.Columns["基礎控除申告書_給与所得_所得金額"];
+                this.column基礎控除申告書_他_所得金額 = base.Columns["基礎控除申告書_他_所得金額"];
+                this.column基礎控除申告書_合計所得金額見積額 = base.Columns["基礎控除申告書_合計所得金額見積額"];
+                this.column基礎控除申告書_控除額計算判定 = base.Columns["基礎控除申告書_控除額計算判定"];
+                this.column基礎控除申告書_控除額計算区分 = base.Columns["基礎控除申告書_控除額計算区分"];
+                this.column基礎控除申告書_基礎控除額 = base.Columns["基礎控除申告書_基礎控除額"];
+                this.column配偶者控除申告書_氏名 = base.Columns["配偶者控除申告書_氏名"];
+                this.column配偶者控除申告書_Kana = base.Columns["配偶者控除申告書_Kana"];
+                this.column配偶者控除申告書_続柄名称 = base.Columns["配偶者控除申告書_続柄名称"];
+                this.column配偶者控除申告書_生年月日 = base.Columns["配偶者控除申告書_生年月日"];
+                this.column配偶者控除申告書_表示生年月日 = base.Columns["配偶者控除申告書_表示生年月日"];
+                this.column配偶者控除申告書_生年月日年号名称 = base.Columns["配偶者控除申告書_生年月日年号名称"];
+                this.column配偶者控除申告書_生年月日年 = base.Columns["配偶者控除申告書_生年月日年"];
+                this.column配偶者控除申告書_生年月日月 = base.Columns["配偶者控除申告書_生年月日月"];
+                this.column配偶者控除申告書_生年月日日 = base.Columns["配偶者控除申告書_生年月日日"];
+                this.column配偶者控除申告書_住所 = base.Columns["配偶者控除申告書_住所"];
+                this.column配偶者控除申告書_非居住者 = base.Columns["配偶者控除申告書_非居住者"];
+                this.column配偶者控除申告書_給与所得_収入金額 = base.Columns["配偶者控除申告書_給与所得_収入金額"];
+                this.column配偶者控除申告書_給与所得_所得金額 = base.Columns["配偶者控除申告書_給与所得_所得金額"];
+                this.column配偶者控除申告書_他_所得金額 = base.Columns["配偶者控除申告書_他_所得金額"];
+                this.column配偶者控除申告書_合計所得金額見積額 = base.Columns["配偶者控除申告書_合計所得金額見積額"];
+                this.column配偶者控除申告書_控除額計算判定 = base.Columns["配偶者控除申告書_控除額計算判定"];
+                this.column配偶者控除申告書_控除額計算区分 = base.Columns["配偶者控除申告書_控除額計算区分"];
+                this.column配偶者控除申告書_配偶者控除額 = base.Columns["配偶者控除申告書_配偶者控除額"];
+                this.column配偶者控除申告書_配偶者特別控除額 = base.Columns["配偶者控除申告書_配偶者特別控除額"];
+                this.column所得金額調整控除申告書_要件区分 = base.Columns["所得金額調整控除申告書_要件区分"];
+                this.column所得金額調整控除申告書_扶養親族等氏名 = base.Columns["所得金額調整控除申告書_扶養親族等氏名"];
+                this.column所得金額調整控除申告書_扶養親族等Kana = base.Columns["所得金額調整控除申告書_扶養親族等Kana"];
+                this.column所得金額調整控除申告書_扶養親族等生年月日 = base.Columns["所得金額調整控除申告書_扶養親族等生年月日"];
+                this.column所得金額調整控除申告書_扶養親族等表示生年月日 = base.Columns["所得金額調整控除申告書_扶養親族等表示生年月日"];
+                this.column所得金額調整控除申告書_扶養親族等表示生年月日年号名称 = base.Columns["所得金額調整控除申告書_扶養親族等表示生年月日年号名称"];
+                this.column所得金額調整控除申告書_扶養親族等表示生年月日年 = base.Columns["所得金額調整控除申告書_扶養親族等表示生年月日年"];
+                this.column所得金額調整控除申告書_扶養親族等表示生年月日月 = base.Columns["所得金額調整控除申告書_扶養親族等表示生年月日月"];
+                this.column所得金額調整控除申告書_扶養親族等表示生年月日日 = base.Columns["所得金額調整控除申告書_扶養親族等表示生年月日日"];
+                this.column所得金額調整控除申告書_扶養親族等住所 = base.Columns["所得金額調整控除申告書_扶養親族等住所"];
+                this.column所得金額調整控除申告書_扶養親族等続柄名称 = base.Columns["所得金額調整控除申告書_扶養親族等続柄名称"];
+                this.column所得金額調整控除申告書_扶養親族等所得金額 = base.Columns["所得金額調整控除申告書_扶養親族等所得金額"];
+                this.column所得金額調整控除申告書_特別障害者該当事実 = base.Columns["所得金額調整控除申告書_特別障害者該当事実"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -419,8 +1020,100 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareRegister {
                 base.Columns.Add(this.column対象年度);
                 this.column社員番号 = new global::System.Data.DataColumn("社員番号", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column社員番号);
+                this.column本人確定区分 = new global::System.Data.DataColumn("本人確定区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column本人確定区分);
+                this.column管理者確定区分 = new global::System.Data.DataColumn("管理者確定区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column管理者確定区分);
+                this.column個人番号相違確認区分 = new global::System.Data.DataColumn("個人番号相違確認区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人番号相違確認区分);
+                this.column所属番号 = new global::System.Data.DataColumn("所属番号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所属番号);
                 this.column氏名 = new global::System.Data.DataColumn("氏名", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column氏名);
+                this.columnKana = new global::System.Data.DataColumn("Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKana);
+                this.column住所01 = new global::System.Data.DataColumn("住所01", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column住所01);
+                this.columnSequence番号 = new global::System.Data.DataColumn("Sequence番号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSequence番号);
+                this.column基礎控除申告書_給与所得_収入金額 = new global::System.Data.DataColumn("基礎控除申告書_給与所得_収入金額", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column基礎控除申告書_給与所得_収入金額);
+                this.column基礎控除申告書_給与所得_所得金額 = new global::System.Data.DataColumn("基礎控除申告書_給与所得_所得金額", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column基礎控除申告書_給与所得_所得金額);
+                this.column基礎控除申告書_他_所得金額 = new global::System.Data.DataColumn("基礎控除申告書_他_所得金額", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column基礎控除申告書_他_所得金額);
+                this.column基礎控除申告書_合計所得金額見積額 = new global::System.Data.DataColumn("基礎控除申告書_合計所得金額見積額", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column基礎控除申告書_合計所得金額見積額);
+                this.column基礎控除申告書_控除額計算判定 = new global::System.Data.DataColumn("基礎控除申告書_控除額計算判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column基礎控除申告書_控除額計算判定);
+                this.column基礎控除申告書_控除額計算区分 = new global::System.Data.DataColumn("基礎控除申告書_控除額計算区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column基礎控除申告書_控除額計算区分);
+                this.column基礎控除申告書_基礎控除額 = new global::System.Data.DataColumn("基礎控除申告書_基礎控除額", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column基礎控除申告書_基礎控除額);
+                this.column配偶者控除申告書_氏名 = new global::System.Data.DataColumn("配偶者控除申告書_氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_氏名);
+                this.column配偶者控除申告書_Kana = new global::System.Data.DataColumn("配偶者控除申告書_Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_Kana);
+                this.column配偶者控除申告書_続柄名称 = new global::System.Data.DataColumn("配偶者控除申告書_続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_続柄名称);
+                this.column配偶者控除申告書_生年月日 = new global::System.Data.DataColumn("配偶者控除申告書_生年月日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_生年月日);
+                this.column配偶者控除申告書_表示生年月日 = new global::System.Data.DataColumn("配偶者控除申告書_表示生年月日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_表示生年月日);
+                this.column配偶者控除申告書_生年月日年号名称 = new global::System.Data.DataColumn("配偶者控除申告書_生年月日年号名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_生年月日年号名称);
+                this.column配偶者控除申告書_生年月日年 = new global::System.Data.DataColumn("配偶者控除申告書_生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_生年月日年);
+                this.column配偶者控除申告書_生年月日月 = new global::System.Data.DataColumn("配偶者控除申告書_生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_生年月日月);
+                this.column配偶者控除申告書_生年月日日 = new global::System.Data.DataColumn("配偶者控除申告書_生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_生年月日日);
+                this.column配偶者控除申告書_住所 = new global::System.Data.DataColumn("配偶者控除申告書_住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_住所);
+                this.column配偶者控除申告書_非居住者 = new global::System.Data.DataColumn("配偶者控除申告書_非居住者", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_非居住者);
+                this.column配偶者控除申告書_給与所得_収入金額 = new global::System.Data.DataColumn("配偶者控除申告書_給与所得_収入金額", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_給与所得_収入金額);
+                this.column配偶者控除申告書_給与所得_所得金額 = new global::System.Data.DataColumn("配偶者控除申告書_給与所得_所得金額", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_給与所得_所得金額);
+                this.column配偶者控除申告書_他_所得金額 = new global::System.Data.DataColumn("配偶者控除申告書_他_所得金額", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_他_所得金額);
+                this.column配偶者控除申告書_合計所得金額見積額 = new global::System.Data.DataColumn("配偶者控除申告書_合計所得金額見積額", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_合計所得金額見積額);
+                this.column配偶者控除申告書_控除額計算判定 = new global::System.Data.DataColumn("配偶者控除申告書_控除額計算判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_控除額計算判定);
+                this.column配偶者控除申告書_控除額計算区分 = new global::System.Data.DataColumn("配偶者控除申告書_控除額計算区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_控除額計算区分);
+                this.column配偶者控除申告書_配偶者控除額 = new global::System.Data.DataColumn("配偶者控除申告書_配偶者控除額", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_配偶者控除額);
+                this.column配偶者控除申告書_配偶者特別控除額 = new global::System.Data.DataColumn("配偶者控除申告書_配偶者特別控除額", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_配偶者特別控除額);
+                this.column所得金額調整控除申告書_要件区分 = new global::System.Data.DataColumn("所得金額調整控除申告書_要件区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所得金額調整控除申告書_要件区分);
+                this.column所得金額調整控除申告書_扶養親族等氏名 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等氏名);
+                this.column所得金額調整控除申告書_扶養親族等Kana = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等Kana);
+                this.column所得金額調整控除申告書_扶養親族等生年月日 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等生年月日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等生年月日);
+                this.column所得金額調整控除申告書_扶養親族等表示生年月日 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等表示生年月日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等表示生年月日);
+                this.column所得金額調整控除申告書_扶養親族等表示生年月日年号名称 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等表示生年月日年号名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等表示生年月日年号名称);
+                this.column所得金額調整控除申告書_扶養親族等表示生年月日年 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等表示生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等表示生年月日年);
+                this.column所得金額調整控除申告書_扶養親族等表示生年月日月 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等表示生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等表示生年月日月);
+                this.column所得金額調整控除申告書_扶養親族等表示生年月日日 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等表示生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等表示生年月日日);
+                this.column所得金額調整控除申告書_扶養親族等住所 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等住所);
+                this.column所得金額調整控除申告書_扶養親族等続柄名称 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等続柄名称);
+                this.column所得金額調整控除申告書_扶養親族等所得金額 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等所得金額", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等所得金額);
+                this.column所得金額調整控除申告書_特別障害者該当事実 = new global::System.Data.DataColumn("所得金額調整控除申告書_特別障害者該当事実", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所得金額調整控除申告書_特別障害者該当事実);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -595,6 +1288,70 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareRegister {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 本人確定区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.本人確定区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'本人確定区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.本人確定区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 管理者確定区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.管理者確定区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'管理者確定区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.管理者確定区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人番号相違確認区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.個人番号相違確認区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'個人番号相違確認区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.個人番号相違確認区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所属番号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.所属番号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'所属番号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.所属番号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string 氏名 {
                 get {
                     try {
@@ -606,6 +1363,678 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareRegister {
                 }
                 set {
                     this[this.tableDataTable1.氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 住所01 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.住所01Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'住所01\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.住所01Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Sequence番号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.Sequence番号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'Sequence番号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.Sequence番号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 基礎控除申告書_給与所得_収入金額 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.基礎控除申告書_給与所得_収入金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'基礎控除申告書_給与所得_収入金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.基礎控除申告書_給与所得_収入金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 基礎控除申告書_給与所得_所得金額 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.基礎控除申告書_給与所得_所得金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'基礎控除申告書_給与所得_所得金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.基礎控除申告書_給与所得_所得金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 基礎控除申告書_他_所得金額 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.基礎控除申告書_他_所得金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'基礎控除申告書_他_所得金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.基礎控除申告書_他_所得金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 基礎控除申告書_合計所得金額見積額 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.基礎控除申告書_合計所得金額見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'基礎控除申告書_合計所得金額見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.基礎控除申告書_合計所得金額見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 基礎控除申告書_控除額計算判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.基礎控除申告書_控除額計算判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'基礎控除申告書_控除額計算判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.基礎控除申告書_控除額計算判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 基礎控除申告書_控除額計算区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.基礎控除申告書_控除額計算区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'基礎控除申告書_控除額計算区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.基礎控除申告書_控除額計算区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 基礎控除申告書_基礎控除額 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.基礎控除申告書_基礎控除額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'基礎控除申告書_基礎控除額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.基礎控除申告書_基礎控除額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_生年月日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_表示生年月日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_表示生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_表示生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_表示生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_生年月日年号名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_生年月日年号名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_生年月日年号名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_生年月日年号名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_非居住者 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_非居住者Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_非居住者\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_非居住者Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_給与所得_収入金額 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_給与所得_収入金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_給与所得_収入金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_給与所得_収入金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_給与所得_所得金額 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_給与所得_所得金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_給与所得_所得金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_給与所得_所得金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_他_所得金額 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_他_所得金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_他_所得金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_他_所得金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_合計所得金額見積額 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_合計所得金額見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_合計所得金額見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_合計所得金額見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_控除額計算判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_控除額計算判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_控除額計算判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_控除額計算判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_控除額計算区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_控除額計算区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_控除額計算区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_控除額計算区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_配偶者控除額 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_配偶者控除額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_配偶者控除額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_配偶者控除額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_配偶者特別控除額 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.配偶者控除申告書_配偶者特別控除額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'配偶者控除申告書_配偶者特別控除額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.配偶者控除申告書_配偶者特別控除額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所得金額調整控除申告書_要件区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.所得金額調整控除申告書_要件区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'所得金額調整控除申告書_要件区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.所得金額調整控除申告書_要件区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所得金額調整控除申告書_扶養親族等氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'所得金額調整控除申告書_扶養親族等氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所得金額調整控除申告書_扶養親族等Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'所得金額調整控除申告書_扶養親族等Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所得金額調整控除申告書_扶養親族等生年月日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'所得金額調整控除申告書_扶養親族等生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所得金額調整控除申告書_扶養親族等表示生年月日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'所得金額調整控除申告書_扶養親族等表示生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所得金額調整控除申告書_扶養親族等表示生年月日年号名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日年号名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'所得金額調整控除申告書_扶養親族等表示生年月日年号名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日年号名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所得金額調整控除申告書_扶養親族等表示生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'所得金額調整控除申告書_扶養親族等表示生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所得金額調整控除申告書_扶養親族等表示生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'所得金額調整控除申告書_扶養親族等表示生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所得金額調整控除申告書_扶養親族等表示生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'所得金額調整控除申告書_扶養親族等表示生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所得金額調整控除申告書_扶養親族等住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'所得金額調整控除申告書_扶養親族等住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所得金額調整控除申告書_扶養親族等続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'所得金額調整控除申告書_扶養親族等続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所得金額調整控除申告書_扶養親族等所得金額 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等所得金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'所得金額調整控除申告書_扶養親族等所得金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等所得金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所得金額調整控除申告書_特別障害者該当事実 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.所得金額調整控除申告書_特別障害者該当事実Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'DataTable1\' にある列 \'所得金額調整控除申告書_特別障害者該当事実\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.所得金額調整控除申告書_特別障害者該当事実Column] = value;
                 }
             }
             
@@ -635,6 +2064,54 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareRegister {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is本人確定区分Null() {
+                return this.IsNull(this.tableDataTable1.本人確定区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set本人確定区分Null() {
+                this[this.tableDataTable1.本人確定区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is管理者確定区分Null() {
+                return this.IsNull(this.tableDataTable1.管理者確定区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set管理者確定区分Null() {
+                this[this.tableDataTable1.管理者確定区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人番号相違確認区分Null() {
+                return this.IsNull(this.tableDataTable1.個人番号相違確認区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人番号相違確認区分Null() {
+                this[this.tableDataTable1.個人番号相違確認区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所属番号Null() {
+                return this.IsNull(this.tableDataTable1.所属番号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所属番号Null() {
+                this[this.tableDataTable1.所属番号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Is氏名Null() {
                 return this.IsNull(this.tableDataTable1.氏名Column);
             }
@@ -643,6 +2120,510 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareRegister {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Set氏名Null() {
                 this[this.tableDataTable1.氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKanaNull() {
+                return this.IsNull(this.tableDataTable1.KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKanaNull() {
+                this[this.tableDataTable1.KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is住所01Null() {
+                return this.IsNull(this.tableDataTable1.住所01Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set住所01Null() {
+                this[this.tableDataTable1.住所01Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSequence番号Null() {
+                return this.IsNull(this.tableDataTable1.Sequence番号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSequence番号Null() {
+                this[this.tableDataTable1.Sequence番号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is基礎控除申告書_給与所得_収入金額Null() {
+                return this.IsNull(this.tableDataTable1.基礎控除申告書_給与所得_収入金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set基礎控除申告書_給与所得_収入金額Null() {
+                this[this.tableDataTable1.基礎控除申告書_給与所得_収入金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is基礎控除申告書_給与所得_所得金額Null() {
+                return this.IsNull(this.tableDataTable1.基礎控除申告書_給与所得_所得金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set基礎控除申告書_給与所得_所得金額Null() {
+                this[this.tableDataTable1.基礎控除申告書_給与所得_所得金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is基礎控除申告書_他_所得金額Null() {
+                return this.IsNull(this.tableDataTable1.基礎控除申告書_他_所得金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set基礎控除申告書_他_所得金額Null() {
+                this[this.tableDataTable1.基礎控除申告書_他_所得金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is基礎控除申告書_合計所得金額見積額Null() {
+                return this.IsNull(this.tableDataTable1.基礎控除申告書_合計所得金額見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set基礎控除申告書_合計所得金額見積額Null() {
+                this[this.tableDataTable1.基礎控除申告書_合計所得金額見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is基礎控除申告書_控除額計算判定Null() {
+                return this.IsNull(this.tableDataTable1.基礎控除申告書_控除額計算判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set基礎控除申告書_控除額計算判定Null() {
+                this[this.tableDataTable1.基礎控除申告書_控除額計算判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is基礎控除申告書_控除額計算区分Null() {
+                return this.IsNull(this.tableDataTable1.基礎控除申告書_控除額計算区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set基礎控除申告書_控除額計算区分Null() {
+                this[this.tableDataTable1.基礎控除申告書_控除額計算区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is基礎控除申告書_基礎控除額Null() {
+                return this.IsNull(this.tableDataTable1.基礎控除申告書_基礎控除額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set基礎控除申告書_基礎控除額Null() {
+                this[this.tableDataTable1.基礎控除申告書_基礎控除額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_氏名Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_氏名Null() {
+                this[this.tableDataTable1.配偶者控除申告書_氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_KanaNull() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_KanaNull() {
+                this[this.tableDataTable1.配偶者控除申告書_KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_続柄名称Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_続柄名称Null() {
+                this[this.tableDataTable1.配偶者控除申告書_続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_生年月日Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_生年月日Null() {
+                this[this.tableDataTable1.配偶者控除申告書_生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_表示生年月日Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_表示生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_表示生年月日Null() {
+                this[this.tableDataTable1.配偶者控除申告書_表示生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_生年月日年号名称Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_生年月日年号名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_生年月日年号名称Null() {
+                this[this.tableDataTable1.配偶者控除申告書_生年月日年号名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_生年月日年Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_生年月日年Null() {
+                this[this.tableDataTable1.配偶者控除申告書_生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_生年月日月Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_生年月日月Null() {
+                this[this.tableDataTable1.配偶者控除申告書_生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_生年月日日Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_生年月日日Null() {
+                this[this.tableDataTable1.配偶者控除申告書_生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_住所Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_住所Null() {
+                this[this.tableDataTable1.配偶者控除申告書_住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_非居住者Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_非居住者Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_非居住者Null() {
+                this[this.tableDataTable1.配偶者控除申告書_非居住者Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_給与所得_収入金額Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_給与所得_収入金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_給与所得_収入金額Null() {
+                this[this.tableDataTable1.配偶者控除申告書_給与所得_収入金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_給与所得_所得金額Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_給与所得_所得金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_給与所得_所得金額Null() {
+                this[this.tableDataTable1.配偶者控除申告書_給与所得_所得金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_他_所得金額Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_他_所得金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_他_所得金額Null() {
+                this[this.tableDataTable1.配偶者控除申告書_他_所得金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_合計所得金額見積額Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_合計所得金額見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_合計所得金額見積額Null() {
+                this[this.tableDataTable1.配偶者控除申告書_合計所得金額見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_控除額計算判定Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_控除額計算判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_控除額計算判定Null() {
+                this[this.tableDataTable1.配偶者控除申告書_控除額計算判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_控除額計算区分Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_控除額計算区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_控除額計算区分Null() {
+                this[this.tableDataTable1.配偶者控除申告書_控除額計算区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_配偶者控除額Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_配偶者控除額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_配偶者控除額Null() {
+                this[this.tableDataTable1.配偶者控除申告書_配偶者控除額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_配偶者特別控除額Null() {
+                return this.IsNull(this.tableDataTable1.配偶者控除申告書_配偶者特別控除額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_配偶者特別控除額Null() {
+                this[this.tableDataTable1.配偶者控除申告書_配偶者特別控除額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所得金額調整控除申告書_要件区分Null() {
+                return this.IsNull(this.tableDataTable1.所得金額調整控除申告書_要件区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所得金額調整控除申告書_要件区分Null() {
+                this[this.tableDataTable1.所得金額調整控除申告書_要件区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所得金額調整控除申告書_扶養親族等氏名Null() {
+                return this.IsNull(this.tableDataTable1.所得金額調整控除申告書_扶養親族等氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所得金額調整控除申告書_扶養親族等氏名Null() {
+                this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所得金額調整控除申告書_扶養親族等KanaNull() {
+                return this.IsNull(this.tableDataTable1.所得金額調整控除申告書_扶養親族等KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所得金額調整控除申告書_扶養親族等KanaNull() {
+                this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所得金額調整控除申告書_扶養親族等生年月日Null() {
+                return this.IsNull(this.tableDataTable1.所得金額調整控除申告書_扶養親族等生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所得金額調整控除申告書_扶養親族等生年月日Null() {
+                this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所得金額調整控除申告書_扶養親族等表示生年月日Null() {
+                return this.IsNull(this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所得金額調整控除申告書_扶養親族等表示生年月日Null() {
+                this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所得金額調整控除申告書_扶養親族等表示生年月日年号名称Null() {
+                return this.IsNull(this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日年号名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所得金額調整控除申告書_扶養親族等表示生年月日年号名称Null() {
+                this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日年号名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所得金額調整控除申告書_扶養親族等表示生年月日年Null() {
+                return this.IsNull(this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所得金額調整控除申告書_扶養親族等表示生年月日年Null() {
+                this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所得金額調整控除申告書_扶養親族等表示生年月日月Null() {
+                return this.IsNull(this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所得金額調整控除申告書_扶養親族等表示生年月日月Null() {
+                this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所得金額調整控除申告書_扶養親族等表示生年月日日Null() {
+                return this.IsNull(this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所得金額調整控除申告書_扶養親族等表示生年月日日Null() {
+                this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等表示生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所得金額調整控除申告書_扶養親族等住所Null() {
+                return this.IsNull(this.tableDataTable1.所得金額調整控除申告書_扶養親族等住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所得金額調整控除申告書_扶養親族等住所Null() {
+                this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所得金額調整控除申告書_扶養親族等続柄名称Null() {
+                return this.IsNull(this.tableDataTable1.所得金額調整控除申告書_扶養親族等続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所得金額調整控除申告書_扶養親族等続柄名称Null() {
+                this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所得金額調整控除申告書_扶養親族等所得金額Null() {
+                return this.IsNull(this.tableDataTable1.所得金額調整控除申告書_扶養親族等所得金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所得金額調整控除申告書_扶養親族等所得金額Null() {
+                this[this.tableDataTable1.所得金額調整控除申告書_扶養親族等所得金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所得金額調整控除申告書_特別障害者該当事実Null() {
+                return this.IsNull(this.tableDataTable1.所得金額調整控除申告書_特別障害者該当事実Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所得金額調整控除申告書_特別障害者該当事実Null() {
+                this[this.tableDataTable1.所得金額調整控除申告書_特別障害者該当事実Column] = global::System.Convert.DBNull;
             }
         }
         
