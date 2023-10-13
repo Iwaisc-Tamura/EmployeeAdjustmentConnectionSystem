@@ -377,38 +377,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             private global::System.Data.DataColumn column所得金額調整控除申告書_特別障害者該当事実;
             
-            private global::System.Data.DataColumn column法人個人番号01;
-            
-            private global::System.Data.DataColumn column法人個人番号02;
-            
-            private global::System.Data.DataColumn column法人個人番号03;
-            
-            private global::System.Data.DataColumn column法人個人番号04;
-            
-            private global::System.Data.DataColumn column法人個人番号05;
-            
-            private global::System.Data.DataColumn column法人個人番号06;
-            
-            private global::System.Data.DataColumn column法人個人番号07;
-            
-            private global::System.Data.DataColumn column法人個人番号08;
-            
-            private global::System.Data.DataColumn column法人個人番号09;
-            
-            private global::System.Data.DataColumn column法人個人番号10;
-            
-            private global::System.Data.DataColumn column法人個人番号11;
-            
-            private global::System.Data.DataColumn column法人個人番号12;
-            
-            private global::System.Data.DataColumn column法人個人番号13;
-            
-            private global::System.Data.DataColumn column税務署長;
-            
-            private global::System.Data.DataColumn column給与支払者名称;
-            
-            private global::System.Data.DataColumn column給与支払者所在地;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public HaiguuDeclareDataTableDataTable() {
@@ -836,134 +804,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 法人個人番号01Column {
-                get {
-                    return this.column法人個人番号01;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 法人個人番号02Column {
-                get {
-                    return this.column法人個人番号02;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 法人個人番号03Column {
-                get {
-                    return this.column法人個人番号03;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 法人個人番号04Column {
-                get {
-                    return this.column法人個人番号04;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 法人個人番号05Column {
-                get {
-                    return this.column法人個人番号05;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 法人個人番号06Column {
-                get {
-                    return this.column法人個人番号06;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 法人個人番号07Column {
-                get {
-                    return this.column法人個人番号07;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 法人個人番号08Column {
-                get {
-                    return this.column法人個人番号08;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 法人個人番号09Column {
-                get {
-                    return this.column法人個人番号09;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 法人個人番号10Column {
-                get {
-                    return this.column法人個人番号10;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 法人個人番号11Column {
-                get {
-                    return this.column法人個人番号11;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 法人個人番号12Column {
-                get {
-                    return this.column法人個人番号12;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 法人個人番号13Column {
-                get {
-                    return this.column法人個人番号13;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 税務署長Column {
-                get {
-                    return this.column税務署長;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 給与支払者名称Column {
-                get {
-                    return this.column給与支払者名称;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn 給与支払者所在地Column {
-                get {
-                    return this.column給与支払者所在地;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1005,18 +845,18 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 本人確定区分, 
                         string 管理者確定区分, 
                         string 個人番号相違確認区分, 
-                        short 所属番号, 
+                        string 所属番号, 
                         string 氏名, 
                         string Kana, 
                         string 住所01, 
                         string Sequence番号, 
-                        decimal 基礎控除申告書_給与所得_収入金額, 
-                        decimal 基礎控除申告書_給与所得_所得金額, 
-                        decimal 基礎控除申告書_他_所得金額, 
-                        decimal 基礎控除申告書_合計所得金額見積額, 
+                        string 基礎控除申告書_給与所得_収入金額, 
+                        string 基礎控除申告書_給与所得_所得金額, 
+                        string 基礎控除申告書_他_所得金額, 
+                        string 基礎控除申告書_合計所得金額見積額, 
                         string 基礎控除申告書_控除額計算判定, 
                         string 基礎控除申告書_控除額計算区分, 
-                        decimal 基礎控除申告書_基礎控除額, 
+                        string 基礎控除申告書_基礎控除額, 
                         string 配偶者控除申告書_氏名, 
                         string 配偶者控除申告書_Kana, 
                         string 配偶者控除申告書_続柄名称, 
@@ -1028,14 +868,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 配偶者控除申告書_生年月日日, 
                         string 配偶者控除申告書_住所, 
                         string 配偶者控除申告書_非居住者, 
-                        decimal 配偶者控除申告書_給与所得_収入金額, 
-                        decimal 配偶者控除申告書_給与所得_所得金額, 
-                        decimal 配偶者控除申告書_他_所得金額, 
-                        decimal 配偶者控除申告書_合計所得金額見積額, 
+                        string 配偶者控除申告書_給与所得_収入金額, 
+                        string 配偶者控除申告書_給与所得_所得金額, 
+                        string 配偶者控除申告書_他_所得金額, 
+                        string 配偶者控除申告書_合計所得金額見積額, 
                         string 配偶者控除申告書_控除額計算判定, 
                         string 配偶者控除申告書_控除額計算区分, 
-                        decimal 配偶者控除申告書_配偶者控除額, 
-                        decimal 配偶者控除申告書_配偶者特別控除額, 
+                        string 配偶者控除申告書_配偶者控除額, 
+                        string 配偶者控除申告書_配偶者特別控除額, 
                         string 所得金額調整控除申告書_要件区分, 
                         string 所得金額調整控除申告書_扶養親族等氏名, 
                         string 所得金額調整控除申告書_扶養親族等Kana, 
@@ -1047,24 +887,8 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 所得金額調整控除申告書_扶養親族等表示生年月日日, 
                         string 所得金額調整控除申告書_扶養親族等住所, 
                         string 所得金額調整控除申告書_扶養親族等続柄名称, 
-                        decimal 所得金額調整控除申告書_扶養親族等所得金額, 
-                        string 所得金額調整控除申告書_特別障害者該当事実, 
-                        string 法人個人番号01, 
-                        string 法人個人番号02, 
-                        string 法人個人番号03, 
-                        string 法人個人番号04, 
-                        string 法人個人番号05, 
-                        string 法人個人番号06, 
-                        string 法人個人番号07, 
-                        string 法人個人番号08, 
-                        string 法人個人番号09, 
-                        string 法人個人番号10, 
-                        string 法人個人番号11, 
-                        string 法人個人番号12, 
-                        string 法人個人番号13, 
-                        string 税務署長, 
-                        string 給与支払者名称, 
-                        string 給与支払者所在地) {
+                        string 所得金額調整控除申告書_扶養親族等所得金額, 
+                        string 所得金額調整控除申告書_特別障害者該当事実) {
                 HaiguuDeclareDataTableRow rowHaiguuDeclareDataTableRow = ((HaiguuDeclareDataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         対象年度,
@@ -1115,23 +939,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         所得金額調整控除申告書_扶養親族等住所,
                         所得金額調整控除申告書_扶養親族等続柄名称,
                         所得金額調整控除申告書_扶養親族等所得金額,
-                        所得金額調整控除申告書_特別障害者該当事実,
-                        法人個人番号01,
-                        法人個人番号02,
-                        法人個人番号03,
-                        法人個人番号04,
-                        法人個人番号05,
-                        法人個人番号06,
-                        法人個人番号07,
-                        法人個人番号08,
-                        法人個人番号09,
-                        法人個人番号10,
-                        法人個人番号11,
-                        法人個人番号12,
-                        法人個人番号13,
-                        税務署長,
-                        給与支払者名称,
-                        給与支払者所在地};
+                        所得金額調整控除申告書_特別障害者該当事実};
                 rowHaiguuDeclareDataTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHaiguuDeclareDataTableRow);
                 return rowHaiguuDeclareDataTableRow;
@@ -1203,22 +1011,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 this.column所得金額調整控除申告書_扶養親族等続柄名称 = base.Columns["所得金額調整控除申告書_扶養親族等続柄名称"];
                 this.column所得金額調整控除申告書_扶養親族等所得金額 = base.Columns["所得金額調整控除申告書_扶養親族等所得金額"];
                 this.column所得金額調整控除申告書_特別障害者該当事実 = base.Columns["所得金額調整控除申告書_特別障害者該当事実"];
-                this.column法人個人番号01 = base.Columns["法人個人番号01"];
-                this.column法人個人番号02 = base.Columns["法人個人番号02"];
-                this.column法人個人番号03 = base.Columns["法人個人番号03"];
-                this.column法人個人番号04 = base.Columns["法人個人番号04"];
-                this.column法人個人番号05 = base.Columns["法人個人番号05"];
-                this.column法人個人番号06 = base.Columns["法人個人番号06"];
-                this.column法人個人番号07 = base.Columns["法人個人番号07"];
-                this.column法人個人番号08 = base.Columns["法人個人番号08"];
-                this.column法人個人番号09 = base.Columns["法人個人番号09"];
-                this.column法人個人番号10 = base.Columns["法人個人番号10"];
-                this.column法人個人番号11 = base.Columns["法人個人番号11"];
-                this.column法人個人番号12 = base.Columns["法人個人番号12"];
-                this.column法人個人番号13 = base.Columns["法人個人番号13"];
-                this.column税務署長 = base.Columns["税務署長"];
-                this.column給与支払者名称 = base.Columns["給与支払者名称"];
-                this.column給与支払者所在地 = base.Columns["給与支払者所在地"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1234,7 +1026,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column管理者確定区分);
                 this.column個人番号相違確認区分 = new global::System.Data.DataColumn("個人番号相違確認区分", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column個人番号相違確認区分);
-                this.column所属番号 = new global::System.Data.DataColumn("所属番号", typeof(short), null, global::System.Data.MappingType.Element);
+                this.column所属番号 = new global::System.Data.DataColumn("所属番号", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column所属番号);
                 this.column氏名 = new global::System.Data.DataColumn("氏名", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column氏名);
@@ -1244,19 +1036,19 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column住所01);
                 this.columnSequence番号 = new global::System.Data.DataColumn("Sequence番号", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSequence番号);
-                this.column基礎控除申告書_給与所得_収入金額 = new global::System.Data.DataColumn("基礎控除申告書_給与所得_収入金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.column基礎控除申告書_給与所得_収入金額 = new global::System.Data.DataColumn("基礎控除申告書_給与所得_収入金額", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column基礎控除申告書_給与所得_収入金額);
-                this.column基礎控除申告書_給与所得_所得金額 = new global::System.Data.DataColumn("基礎控除申告書_給与所得_所得金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.column基礎控除申告書_給与所得_所得金額 = new global::System.Data.DataColumn("基礎控除申告書_給与所得_所得金額", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column基礎控除申告書_給与所得_所得金額);
-                this.column基礎控除申告書_他_所得金額 = new global::System.Data.DataColumn("基礎控除申告書_他_所得金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.column基礎控除申告書_他_所得金額 = new global::System.Data.DataColumn("基礎控除申告書_他_所得金額", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column基礎控除申告書_他_所得金額);
-                this.column基礎控除申告書_合計所得金額見積額 = new global::System.Data.DataColumn("基礎控除申告書_合計所得金額見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.column基礎控除申告書_合計所得金額見積額 = new global::System.Data.DataColumn("基礎控除申告書_合計所得金額見積額", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column基礎控除申告書_合計所得金額見積額);
                 this.column基礎控除申告書_控除額計算判定 = new global::System.Data.DataColumn("基礎控除申告書_控除額計算判定", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column基礎控除申告書_控除額計算判定);
                 this.column基礎控除申告書_控除額計算区分 = new global::System.Data.DataColumn("基礎控除申告書_控除額計算区分", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column基礎控除申告書_控除額計算区分);
-                this.column基礎控除申告書_基礎控除額 = new global::System.Data.DataColumn("基礎控除申告書_基礎控除額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.column基礎控除申告書_基礎控除額 = new global::System.Data.DataColumn("基礎控除申告書_基礎控除額", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column基礎控除申告書_基礎控除額);
                 this.column配偶者控除申告書_氏名 = new global::System.Data.DataColumn("配偶者控除申告書_氏名", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_氏名);
@@ -1280,21 +1072,21 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column配偶者控除申告書_住所);
                 this.column配偶者控除申告書_非居住者 = new global::System.Data.DataColumn("配偶者控除申告書_非居住者", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_非居住者);
-                this.column配偶者控除申告書_給与所得_収入金額 = new global::System.Data.DataColumn("配偶者控除申告書_給与所得_収入金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.column配偶者控除申告書_給与所得_収入金額 = new global::System.Data.DataColumn("配偶者控除申告書_給与所得_収入金額", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_給与所得_収入金額);
-                this.column配偶者控除申告書_給与所得_所得金額 = new global::System.Data.DataColumn("配偶者控除申告書_給与所得_所得金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.column配偶者控除申告書_給与所得_所得金額 = new global::System.Data.DataColumn("配偶者控除申告書_給与所得_所得金額", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_給与所得_所得金額);
-                this.column配偶者控除申告書_他_所得金額 = new global::System.Data.DataColumn("配偶者控除申告書_他_所得金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.column配偶者控除申告書_他_所得金額 = new global::System.Data.DataColumn("配偶者控除申告書_他_所得金額", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_他_所得金額);
-                this.column配偶者控除申告書_合計所得金額見積額 = new global::System.Data.DataColumn("配偶者控除申告書_合計所得金額見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.column配偶者控除申告書_合計所得金額見積額 = new global::System.Data.DataColumn("配偶者控除申告書_合計所得金額見積額", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_合計所得金額見積額);
                 this.column配偶者控除申告書_控除額計算判定 = new global::System.Data.DataColumn("配偶者控除申告書_控除額計算判定", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_控除額計算判定);
                 this.column配偶者控除申告書_控除額計算区分 = new global::System.Data.DataColumn("配偶者控除申告書_控除額計算区分", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_控除額計算区分);
-                this.column配偶者控除申告書_配偶者控除額 = new global::System.Data.DataColumn("配偶者控除申告書_配偶者控除額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.column配偶者控除申告書_配偶者控除額 = new global::System.Data.DataColumn("配偶者控除申告書_配偶者控除額", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_配偶者控除額);
-                this.column配偶者控除申告書_配偶者特別控除額 = new global::System.Data.DataColumn("配偶者控除申告書_配偶者特別控除額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.column配偶者控除申告書_配偶者特別控除額 = new global::System.Data.DataColumn("配偶者控除申告書_配偶者特別控除額", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_配偶者特別控除額);
                 this.column所得金額調整控除申告書_要件区分 = new global::System.Data.DataColumn("所得金額調整控除申告書_要件区分", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column所得金額調整控除申告書_要件区分);
@@ -1318,43 +1110,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等住所);
                 this.column所得金額調整控除申告書_扶養親族等続柄名称 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等続柄名称);
-                this.column所得金額調整控除申告書_扶養親族等所得金額 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等所得金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.column所得金額調整控除申告書_扶養親族等所得金額 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等所得金額", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等所得金額);
                 this.column所得金額調整控除申告書_特別障害者該当事実 = new global::System.Data.DataColumn("所得金額調整控除申告書_特別障害者該当事実", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column所得金額調整控除申告書_特別障害者該当事実);
-                this.column法人個人番号01 = new global::System.Data.DataColumn("法人個人番号01", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column法人個人番号01);
-                this.column法人個人番号02 = new global::System.Data.DataColumn("法人個人番号02", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column法人個人番号02);
-                this.column法人個人番号03 = new global::System.Data.DataColumn("法人個人番号03", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column法人個人番号03);
-                this.column法人個人番号04 = new global::System.Data.DataColumn("法人個人番号04", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column法人個人番号04);
-                this.column法人個人番号05 = new global::System.Data.DataColumn("法人個人番号05", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column法人個人番号05);
-                this.column法人個人番号06 = new global::System.Data.DataColumn("法人個人番号06", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column法人個人番号06);
-                this.column法人個人番号07 = new global::System.Data.DataColumn("法人個人番号07", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column法人個人番号07);
-                this.column法人個人番号08 = new global::System.Data.DataColumn("法人個人番号08", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column法人個人番号08);
-                this.column法人個人番号09 = new global::System.Data.DataColumn("法人個人番号09", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column法人個人番号09);
-                this.column法人個人番号10 = new global::System.Data.DataColumn("法人個人番号10", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column法人個人番号10);
-                this.column法人個人番号11 = new global::System.Data.DataColumn("法人個人番号11", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column法人個人番号11);
-                this.column法人個人番号12 = new global::System.Data.DataColumn("法人個人番号12", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column法人個人番号12);
-                this.column法人個人番号13 = new global::System.Data.DataColumn("法人個人番号13", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column法人個人番号13);
-                this.column税務署長 = new global::System.Data.DataColumn("税務署長", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column税務署長);
-                this.column給与支払者名称 = new global::System.Data.DataColumn("給与支払者名称", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column給与支払者名称);
-                this.column給与支払者所在地 = new global::System.Data.DataColumn("給与支払者所在地", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column給与支払者所在地);
-                this.column法人個人番号02.Caption = "法人個人番号01";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1577,10 +1336,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public short 所属番号 {
+            public string 所属番号 {
                 get {
                     try {
-                        return ((short)(this[this.tableHaiguuDeclareDataTable.所属番号Column]));
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.所属番号Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'所属番号\' の値は DBNull です。", e);
@@ -1657,10 +1416,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal 基礎控除申告書_給与所得_収入金額 {
+            public string 基礎控除申告書_給与所得_収入金額 {
                 get {
                     try {
-                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.基礎控除申告書_給与所得_収入金額Column]));
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.基礎控除申告書_給与所得_収入金額Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'基礎控除申告書_給与所得_収入金額\' の値は DBNull です。", e);
@@ -1673,10 +1432,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal 基礎控除申告書_給与所得_所得金額 {
+            public string 基礎控除申告書_給与所得_所得金額 {
                 get {
                     try {
-                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.基礎控除申告書_給与所得_所得金額Column]));
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.基礎控除申告書_給与所得_所得金額Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'基礎控除申告書_給与所得_所得金額\' の値は DBNull です。", e);
@@ -1689,10 +1448,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal 基礎控除申告書_他_所得金額 {
+            public string 基礎控除申告書_他_所得金額 {
                 get {
                     try {
-                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.基礎控除申告書_他_所得金額Column]));
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.基礎控除申告書_他_所得金額Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'基礎控除申告書_他_所得金額\' の値は DBNull です。", e);
@@ -1705,10 +1464,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal 基礎控除申告書_合計所得金額見積額 {
+            public string 基礎控除申告書_合計所得金額見積額 {
                 get {
                     try {
-                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.基礎控除申告書_合計所得金額見積額Column]));
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.基礎控除申告書_合計所得金額見積額Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'基礎控除申告書_合計所得金額見積額\' の値は DBNull です。", e);
@@ -1753,10 +1512,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal 基礎控除申告書_基礎控除額 {
+            public string 基礎控除申告書_基礎控除額 {
                 get {
                     try {
-                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.基礎控除申告書_基礎控除額Column]));
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.基礎控除申告書_基礎控除額Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'基礎控除申告書_基礎控除額\' の値は DBNull です。", e);
@@ -1945,10 +1704,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal 配偶者控除申告書_給与所得_収入金額 {
+            public string 配偶者控除申告書_給与所得_収入金額 {
                 get {
                     try {
-                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_給与所得_収入金額Column]));
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_給与所得_収入金額Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'配偶者控除申告書_給与所得_収入金額\' の値は DBNull です。", e);
@@ -1961,10 +1720,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal 配偶者控除申告書_給与所得_所得金額 {
+            public string 配偶者控除申告書_給与所得_所得金額 {
                 get {
                     try {
-                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_給与所得_所得金額Column]));
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_給与所得_所得金額Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'配偶者控除申告書_給与所得_所得金額\' の値は DBNull です。", e);
@@ -1977,10 +1736,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal 配偶者控除申告書_他_所得金額 {
+            public string 配偶者控除申告書_他_所得金額 {
                 get {
                     try {
-                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_他_所得金額Column]));
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_他_所得金額Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'配偶者控除申告書_他_所得金額\' の値は DBNull です。", e);
@@ -1993,10 +1752,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal 配偶者控除申告書_合計所得金額見積額 {
+            public string 配偶者控除申告書_合計所得金額見積額 {
                 get {
                     try {
-                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_合計所得金額見積額Column]));
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_合計所得金額見積額Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'配偶者控除申告書_合計所得金額見積額\' の値は DBNull です。", e);
@@ -2041,10 +1800,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal 配偶者控除申告書_配偶者控除額 {
+            public string 配偶者控除申告書_配偶者控除額 {
                 get {
                     try {
-                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_配偶者控除額Column]));
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_配偶者控除額Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'配偶者控除申告書_配偶者控除額\' の値は DBNull です。", e);
@@ -2057,10 +1816,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal 配偶者控除申告書_配偶者特別控除額 {
+            public string 配偶者控除申告書_配偶者特別控除額 {
                 get {
                     try {
-                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_配偶者特別控除額Column]));
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_配偶者特別控除額Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'配偶者控除申告書_配偶者特別控除額\' の値は DBNull です。", e);
@@ -2249,10 +2008,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal 所得金額調整控除申告書_扶養親族等所得金額 {
+            public string 所得金額調整控除申告書_扶養親族等所得金額 {
                 get {
                     try {
-                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.所得金額調整控除申告書_扶養親族等所得金額Column]));
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.所得金額調整控除申告書_扶養親族等所得金額Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'所得金額調整控除申告書_扶養親族等所得金額\' の値は DBNull です。", e);
@@ -2276,262 +2035,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 }
                 set {
                     this[this.tableHaiguuDeclareDataTable.所得金額調整控除申告書_特別障害者該当事実Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 法人個人番号01 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.法人個人番号01Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'法人個人番号01\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.法人個人番号01Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 法人個人番号02 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.法人個人番号02Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'法人個人番号02\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.法人個人番号02Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 法人個人番号03 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.法人個人番号03Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'法人個人番号03\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.法人個人番号03Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 法人個人番号04 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.法人個人番号04Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'法人個人番号04\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.法人個人番号04Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 法人個人番号05 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.法人個人番号05Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'法人個人番号05\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.法人個人番号05Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 法人個人番号06 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.法人個人番号06Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'法人個人番号06\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.法人個人番号06Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 法人個人番号07 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.法人個人番号07Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'法人個人番号07\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.法人個人番号07Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 法人個人番号08 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.法人個人番号08Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'法人個人番号08\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.法人個人番号08Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 法人個人番号09 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.法人個人番号09Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'法人個人番号09\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.法人個人番号09Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 法人個人番号10 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.法人個人番号10Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'法人個人番号10\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.法人個人番号10Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 法人個人番号11 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.法人個人番号11Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'法人個人番号11\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.法人個人番号11Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 法人個人番号12 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.法人個人番号12Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'法人個人番号12\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.法人個人番号12Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 法人個人番号13 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.法人個人番号13Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'法人個人番号13\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.法人個人番号13Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 税務署長 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.税務署長Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'税務署長\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.税務署長Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 給与支払者名称 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.給与支払者名称Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'給与支払者名称\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.給与支払者名称Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 給与支払者所在地 {
-                get {
-                    try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.給与支払者所在地Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'給与支払者所在地\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableHaiguuDeclareDataTable.給与支払者所在地Column] = value;
                 }
             }
             
@@ -3121,198 +2624,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Set所得金額調整控除申告書_特別障害者該当事実Null() {
                 this[this.tableHaiguuDeclareDataTable.所得金額調整控除申告書_特別障害者該当事実Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is法人個人番号01Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.法人個人番号01Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set法人個人番号01Null() {
-                this[this.tableHaiguuDeclareDataTable.法人個人番号01Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is法人個人番号02Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.法人個人番号02Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set法人個人番号02Null() {
-                this[this.tableHaiguuDeclareDataTable.法人個人番号02Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is法人個人番号03Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.法人個人番号03Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set法人個人番号03Null() {
-                this[this.tableHaiguuDeclareDataTable.法人個人番号03Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is法人個人番号04Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.法人個人番号04Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set法人個人番号04Null() {
-                this[this.tableHaiguuDeclareDataTable.法人個人番号04Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is法人個人番号05Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.法人個人番号05Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set法人個人番号05Null() {
-                this[this.tableHaiguuDeclareDataTable.法人個人番号05Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is法人個人番号06Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.法人個人番号06Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set法人個人番号06Null() {
-                this[this.tableHaiguuDeclareDataTable.法人個人番号06Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is法人個人番号07Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.法人個人番号07Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set法人個人番号07Null() {
-                this[this.tableHaiguuDeclareDataTable.法人個人番号07Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is法人個人番号08Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.法人個人番号08Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set法人個人番号08Null() {
-                this[this.tableHaiguuDeclareDataTable.法人個人番号08Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is法人個人番号09Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.法人個人番号09Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set法人個人番号09Null() {
-                this[this.tableHaiguuDeclareDataTable.法人個人番号09Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is法人個人番号10Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.法人個人番号10Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set法人個人番号10Null() {
-                this[this.tableHaiguuDeclareDataTable.法人個人番号10Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is法人個人番号11Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.法人個人番号11Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set法人個人番号11Null() {
-                this[this.tableHaiguuDeclareDataTable.法人個人番号11Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is法人個人番号12Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.法人個人番号12Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set法人個人番号12Null() {
-                this[this.tableHaiguuDeclareDataTable.法人個人番号12Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is法人個人番号13Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.法人個人番号13Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set法人個人番号13Null() {
-                this[this.tableHaiguuDeclareDataTable.法人個人番号13Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is税務署長Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.税務署長Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set税務署長Null() {
-                this[this.tableHaiguuDeclareDataTable.税務署長Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is給与支払者名称Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.給与支払者名称Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set給与支払者名称Null() {
-                this[this.tableHaiguuDeclareDataTable.給与支払者名称Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Is給与支払者所在地Null() {
-                return this.IsNull(this.tableHaiguuDeclareDataTable.給与支払者所在地Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Set給与支払者所在地Null() {
-                this[this.tableHaiguuDeclareDataTable.給与支払者所在地Column] = global::System.Convert.DBNull;
             }
         }
         
