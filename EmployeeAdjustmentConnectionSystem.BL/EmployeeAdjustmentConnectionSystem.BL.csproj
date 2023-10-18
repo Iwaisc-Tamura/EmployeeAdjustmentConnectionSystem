@@ -337,6 +337,9 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="YearEndAdjustmentReports\HuyouDeclareDataSet.cs">
+      <DependentUpon>HuyouDeclareDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="YearEndAdjustmentReports\HuyouDeclareDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
