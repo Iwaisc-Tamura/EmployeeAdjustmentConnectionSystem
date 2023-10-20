@@ -283,7 +283,301 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             private global::System.Data.DataColumn column社員番号;
             
+            private global::System.Data.DataColumn column本人確定区分;
+            
+            private global::System.Data.DataColumn column管理者確定区分;
+            
+            private global::System.Data.DataColumn column所属番号;
+            
             private global::System.Data.DataColumn column氏名;
+            
+            private global::System.Data.DataColumn columnKana;
+            
+            private global::System.Data.DataColumn column住所01;
+            
+            private global::System.Data.DataColumn columnSequence番号;
+            
+            private global::System.Data.DataColumn column税務署長;
+            
+            private global::System.Data.DataColumn column給与支払者名称;
+            
+            private global::System.Data.DataColumn column給与支払者所在地;
+            
+            private global::System.Data.DataColumn column法人個人番号01;
+            
+            private global::System.Data.DataColumn column法人個人番号02;
+            
+            private global::System.Data.DataColumn column法人個人番号03;
+            
+            private global::System.Data.DataColumn column法人個人番号04;
+            
+            private global::System.Data.DataColumn column法人個人番号05;
+            
+            private global::System.Data.DataColumn column法人個人番号06;
+            
+            private global::System.Data.DataColumn column法人個人番号07;
+            
+            private global::System.Data.DataColumn column法人個人番号08;
+            
+            private global::System.Data.DataColumn column法人個人番号09;
+            
+            private global::System.Data.DataColumn column法人個人番号10;
+            
+            private global::System.Data.DataColumn column法人個人番号11;
+            
+            private global::System.Data.DataColumn column法人個人番号12;
+            
+            private global::System.Data.DataColumn column法人個人番号13;
+            
+            private global::System.Data.DataColumn column一般生命保険料01_保険会社等名称;
+            
+            private global::System.Data.DataColumn column一般生命保険料01_保険等種類;
+            
+            private global::System.Data.DataColumn column一般生命保険料01_期間;
+            
+            private global::System.Data.DataColumn column一般生命保険料01_保険等契約者氏名;
+            
+            private global::System.Data.DataColumn column一般生命保険料01_保険金等受取人氏名;
+            
+            private global::System.Data.DataColumn column一般生命保険料01_保険金等受取人続柄名称;
+            
+            private global::System.Data.DataColumn column一般生命保険料01_新旧;
+            
+            private global::System.Data.DataColumn column一般生命保険料01_支払金額;
+            
+            private global::System.Data.DataColumn column一般生命保険料02_保険会社等名称;
+            
+            private global::System.Data.DataColumn column一般生命保険料02_保険等種類;
+            
+            private global::System.Data.DataColumn column一般生命保険料02_期間;
+            
+            private global::System.Data.DataColumn column一般生命保険料02_保険等契約者氏名;
+            
+            private global::System.Data.DataColumn column一般生命保険料02_保険金等受取人氏名;
+            
+            private global::System.Data.DataColumn column一般生命保険料02_保険金等受取人続柄名称;
+            
+            private global::System.Data.DataColumn column一般生命保険料02_新旧;
+            
+            private global::System.Data.DataColumn column一般生命保険料02_支払金額;
+            
+            private global::System.Data.DataColumn column一般生命保険料03_保険会社等名称;
+            
+            private global::System.Data.DataColumn column一般生命保険料03_保険等種類;
+            
+            private global::System.Data.DataColumn column一般生命保険料03_期間;
+            
+            private global::System.Data.DataColumn column一般生命保険料03_保険等契約者氏名;
+            
+            private global::System.Data.DataColumn column一般生命保険料03_保険金等受取人氏名;
+            
+            private global::System.Data.DataColumn column一般生命保険料03_保険金等受取人続柄名称;
+            
+            private global::System.Data.DataColumn column一般生命保険料03_新旧;
+            
+            private global::System.Data.DataColumn column一般生命保険料03_支払金額;
+            
+            private global::System.Data.DataColumn column一般生命保険料04_保険会社等名称;
+            
+            private global::System.Data.DataColumn column一般生命保険料04_保険等種類;
+            
+            private global::System.Data.DataColumn column一般生命保険料04_期間;
+            
+            private global::System.Data.DataColumn column一般生命保険料04_保険等契約者氏名;
+            
+            private global::System.Data.DataColumn column一般生命保険料04_保険金等受取人氏名;
+            
+            private global::System.Data.DataColumn column一般生命保険料04_保険金等受取人続柄名称;
+            
+            private global::System.Data.DataColumn column一般生命保険料04_新旧;
+            
+            private global::System.Data.DataColumn column一般生命保険料04_支払金額;
+            
+            private global::System.Data.DataColumn column一般生命保険料新保険料合計;
+            
+            private global::System.Data.DataColumn column一般生命保険料新保険料表計算;
+            
+            private global::System.Data.DataColumn column一般生命保険料旧保険料合計;
+            
+            private global::System.Data.DataColumn column一般生命保険料旧保険料表計算;
+            
+            private global::System.Data.DataColumn column一般生命保険料表合計;
+            
+            private global::System.Data.DataColumn column一般生命保険料比較;
+            
+            private global::System.Data.DataColumn column介護医療保険料01_会社等名称;
+            
+            private global::System.Data.DataColumn column介護医療保険料01_保険等種類;
+            
+            private global::System.Data.DataColumn column介護医療保険料01_期間;
+            
+            private global::System.Data.DataColumn column介護医療保険料01_保険等契約者氏名;
+            
+            private global::System.Data.DataColumn column介護医療保険料01_保険金等受取人氏名;
+            
+            private global::System.Data.DataColumn column介護医療保険料01_保険金等受取人続柄名称;
+            
+            private global::System.Data.DataColumn column介護医療保険料01_支払金額;
+            
+            private global::System.Data.DataColumn column介護医療保険料02_会社等名称;
+            
+            private global::System.Data.DataColumn column介護医療保険料02_保険等種類;
+            
+            private global::System.Data.DataColumn column介護医療保険料02_期間;
+            
+            private global::System.Data.DataColumn column介護医療保険料02_保険等契約者氏名;
+            
+            private global::System.Data.DataColumn column介護医療保険料02_保険金等受取人氏名;
+            
+            private global::System.Data.DataColumn column介護医療保険料02_保険金等受取人続柄名称;
+            
+            private global::System.Data.DataColumn column介護医療保険料02_支払金額;
+            
+            private global::System.Data.DataColumn column介護医療保険料合計;
+            
+            private global::System.Data.DataColumn column介護医療保険料表計算;
+            
+            private global::System.Data.DataColumn column個人年金保険料01_会社等名称;
+            
+            private global::System.Data.DataColumn column個人年金保険料01_保険等種類;
+            
+            private global::System.Data.DataColumn column個人年金保険料01_期間;
+            
+            private global::System.Data.DataColumn column個人年金保険料01_保険等契約者氏名;
+            
+            private global::System.Data.DataColumn column個人年金保険料01_保険金等受取人氏名;
+            
+            private global::System.Data.DataColumn column個人年金保険料01_支払開始日;
+            
+            private global::System.Data.DataColumn column個人年金保険料01_保険金等受取人続柄名称;
+            
+            private global::System.Data.DataColumn column個人年金保険料01_新旧;
+            
+            private global::System.Data.DataColumn column個人年金保険料01_支払金額;
+            
+            private global::System.Data.DataColumn column個人年金保険料02_会社等名称;
+            
+            private global::System.Data.DataColumn column個人年金保険料02_保険等種類;
+            
+            private global::System.Data.DataColumn column個人年金保険料02_期間;
+            
+            private global::System.Data.DataColumn column個人年金保険料02_保険等契約者氏名;
+            
+            private global::System.Data.DataColumn column個人年金保険料02_保険金等受取人氏名;
+            
+            private global::System.Data.DataColumn column個人年金保険料02_支払開始日;
+            
+            private global::System.Data.DataColumn column個人年金保険料02_保険金等受取人続柄名称;
+            
+            private global::System.Data.DataColumn column個人年金保険料02_新旧;
+            
+            private global::System.Data.DataColumn column個人年金保険料02_支払金額;
+            
+            private global::System.Data.DataColumn column個人年金保険料03_会社等名称;
+            
+            private global::System.Data.DataColumn column個人年金保険料03_保険等種類;
+            
+            private global::System.Data.DataColumn column個人年金保険料03_期間;
+            
+            private global::System.Data.DataColumn column個人年金保険料03_保険等契約者氏名;
+            
+            private global::System.Data.DataColumn column個人年金保険料03_保険金等受取人氏名;
+            
+            private global::System.Data.DataColumn column個人年金保険料03_支払開始日;
+            
+            private global::System.Data.DataColumn column個人年金保険料03_保険金等受取人続柄名称;
+            
+            private global::System.Data.DataColumn column個人年金保険料03_新旧;
+            
+            private global::System.Data.DataColumn column個人年金保険料03_支払金額;
+            
+            private global::System.Data.DataColumn column個人年金保険料新保険料合計;
+            
+            private global::System.Data.DataColumn column個人年金保険料新保険料表計算;
+            
+            private global::System.Data.DataColumn column個人年金保険料旧保険料合計;
+            
+            private global::System.Data.DataColumn column個人年金保険料旧保険料表計算;
+            
+            private global::System.Data.DataColumn column個人年金保険料表合計;
+            
+            private global::System.Data.DataColumn column個人年金保険料比較;
+            
+            private global::System.Data.DataColumn column生命保険料控除額計;
+            
+            private global::System.Data.DataColumn column地震保険料控除01_会社等名称;
+            
+            private global::System.Data.DataColumn column地震保険料控除01_保険等種類;
+            
+            private global::System.Data.DataColumn column地震保険料控除01_期間;
+            
+            private global::System.Data.DataColumn column地震保険料控除01_保険等契約者氏名;
+            
+            private global::System.Data.DataColumn column地震保険料控除01_保険等対象氏名;
+            
+            private global::System.Data.DataColumn column地震保険料控除01_保険等対象続柄名称;
+            
+            private global::System.Data.DataColumn column地震保険料控除01_地震旧長期;
+            
+            private global::System.Data.DataColumn column地震保険料控除01_支払保険料;
+            
+            private global::System.Data.DataColumn column地震保険料控除02_会社等名称;
+            
+            private global::System.Data.DataColumn column地震保険料控除02_保険等種類;
+            
+            private global::System.Data.DataColumn column地震保険料控除02_期間;
+            
+            private global::System.Data.DataColumn column地震保険料控除02_保険等契約者氏名;
+            
+            private global::System.Data.DataColumn column地震保険料控除02_保険等対象氏名;
+            
+            private global::System.Data.DataColumn column地震保険料控除02_保険等対象続柄名称;
+            
+            private global::System.Data.DataColumn column地震保険料控除02_地震旧長期;
+            
+            private global::System.Data.DataColumn column地震保険料控除02_支払保険料;
+            
+            private global::System.Data.DataColumn column地震保険料控除地震保険料合計;
+            
+            private global::System.Data.DataColumn column地震保険料控除旧長期損害保険料合計;
+            
+            private global::System.Data.DataColumn column地震保険料控除額金額01;
+            
+            private global::System.Data.DataColumn column地震保険料控除額金額02;
+            
+            private global::System.Data.DataColumn column地震保険料控除額金額合計;
+            
+            private global::System.Data.DataColumn column社会保険料控除01_社会保険種類;
+            
+            private global::System.Data.DataColumn column社会保険料控除01_支払先名称;
+            
+            private global::System.Data.DataColumn column社会保険料控除01_負担者氏名;
+            
+            private global::System.Data.DataColumn column社会保険料控除01_負担者続柄名称;
+            
+            private global::System.Data.DataColumn column社会保険料控除01_支払保険料;
+            
+            private global::System.Data.DataColumn column社会保険料控除02_社会保険種類;
+            
+            private global::System.Data.DataColumn column社会保険料控除02_支払先名称;
+            
+            private global::System.Data.DataColumn column社会保険料控除02_負担者氏名;
+            
+            private global::System.Data.DataColumn column社会保険料控除02_負担者続柄名称;
+            
+            private global::System.Data.DataColumn column社会保険料控除02_支払保険料;
+            
+            private global::System.Data.DataColumn column社会保険料控除合計;
+            
+            private global::System.Data.DataColumn column共済契約掛金;
+            
+            private global::System.Data.DataColumn column企業型年金加入者掛金;
+            
+            private global::System.Data.DataColumn column個人型年金加入者掛金;
+            
+            private global::System.Data.DataColumn column心身障害者扶養共済制度契約掛金;
+            
+            private global::System.Data.DataColumn column小規模企業共済等掛金控除合計;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -336,9 +630,1185 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 本人確定区分Column {
+                get {
+                    return this.column本人確定区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 管理者確定区分Column {
+                get {
+                    return this.column管理者確定区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所属番号Column {
+                get {
+                    return this.column所属番号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn 氏名Column {
                 get {
                     return this.column氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn KanaColumn {
+                get {
+                    return this.columnKana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 住所01Column {
+                get {
+                    return this.column住所01;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Sequence番号Column {
+                get {
+                    return this.columnSequence番号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 税務署長Column {
+                get {
+                    return this.column税務署長;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 給与支払者名称Column {
+                get {
+                    return this.column給与支払者名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 給与支払者所在地Column {
+                get {
+                    return this.column給与支払者所在地;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号01Column {
+                get {
+                    return this.column法人個人番号01;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号02Column {
+                get {
+                    return this.column法人個人番号02;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号03Column {
+                get {
+                    return this.column法人個人番号03;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号04Column {
+                get {
+                    return this.column法人個人番号04;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号05Column {
+                get {
+                    return this.column法人個人番号05;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号06Column {
+                get {
+                    return this.column法人個人番号06;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号07Column {
+                get {
+                    return this.column法人個人番号07;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号08Column {
+                get {
+                    return this.column法人個人番号08;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号09Column {
+                get {
+                    return this.column法人個人番号09;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号10Column {
+                get {
+                    return this.column法人個人番号10;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号11Column {
+                get {
+                    return this.column法人個人番号11;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号12Column {
+                get {
+                    return this.column法人個人番号12;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号13Column {
+                get {
+                    return this.column法人個人番号13;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料01_保険会社等名称Column {
+                get {
+                    return this.column一般生命保険料01_保険会社等名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料01_保険等種類Column {
+                get {
+                    return this.column一般生命保険料01_保険等種類;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料01_期間Column {
+                get {
+                    return this.column一般生命保険料01_期間;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料01_保険等契約者氏名Column {
+                get {
+                    return this.column一般生命保険料01_保険等契約者氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料01_保険金等受取人氏名Column {
+                get {
+                    return this.column一般生命保険料01_保険金等受取人氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料01_保険金等受取人続柄名称Column {
+                get {
+                    return this.column一般生命保険料01_保険金等受取人続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料01_新旧Column {
+                get {
+                    return this.column一般生命保険料01_新旧;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料01_支払金額Column {
+                get {
+                    return this.column一般生命保険料01_支払金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料02_保険会社等名称Column {
+                get {
+                    return this.column一般生命保険料02_保険会社等名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料02_保険等種類Column {
+                get {
+                    return this.column一般生命保険料02_保険等種類;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料02_期間Column {
+                get {
+                    return this.column一般生命保険料02_期間;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料02_保険等契約者氏名Column {
+                get {
+                    return this.column一般生命保険料02_保険等契約者氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料02_保険金等受取人氏名Column {
+                get {
+                    return this.column一般生命保険料02_保険金等受取人氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料02_保険金等受取人続柄名称Column {
+                get {
+                    return this.column一般生命保険料02_保険金等受取人続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料02_新旧Column {
+                get {
+                    return this.column一般生命保険料02_新旧;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料02_支払金額Column {
+                get {
+                    return this.column一般生命保険料02_支払金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料03_保険会社等名称Column {
+                get {
+                    return this.column一般生命保険料03_保険会社等名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料03_保険等種類Column {
+                get {
+                    return this.column一般生命保険料03_保険等種類;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料03_期間Column {
+                get {
+                    return this.column一般生命保険料03_期間;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料03_保険等契約者氏名Column {
+                get {
+                    return this.column一般生命保険料03_保険等契約者氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料03_保険金等受取人氏名Column {
+                get {
+                    return this.column一般生命保険料03_保険金等受取人氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料03_保険金等受取人続柄名称Column {
+                get {
+                    return this.column一般生命保険料03_保険金等受取人続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料03_新旧Column {
+                get {
+                    return this.column一般生命保険料03_新旧;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料03_支払金額Column {
+                get {
+                    return this.column一般生命保険料03_支払金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料04_保険会社等名称Column {
+                get {
+                    return this.column一般生命保険料04_保険会社等名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料04_保険等種類Column {
+                get {
+                    return this.column一般生命保険料04_保険等種類;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料04_期間Column {
+                get {
+                    return this.column一般生命保険料04_期間;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料04_保険等契約者氏名Column {
+                get {
+                    return this.column一般生命保険料04_保険等契約者氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料04_保険金等受取人氏名Column {
+                get {
+                    return this.column一般生命保険料04_保険金等受取人氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料04_保険金等受取人続柄名称Column {
+                get {
+                    return this.column一般生命保険料04_保険金等受取人続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料04_新旧Column {
+                get {
+                    return this.column一般生命保険料04_新旧;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料04_支払金額Column {
+                get {
+                    return this.column一般生命保険料04_支払金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料新保険料合計Column {
+                get {
+                    return this.column一般生命保険料新保険料合計;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料新保険料表計算Column {
+                get {
+                    return this.column一般生命保険料新保険料表計算;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料旧保険料合計Column {
+                get {
+                    return this.column一般生命保険料旧保険料合計;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料旧保険料表計算Column {
+                get {
+                    return this.column一般生命保険料旧保険料表計算;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料表合計Column {
+                get {
+                    return this.column一般生命保険料表合計;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料比較Column {
+                get {
+                    return this.column一般生命保険料比較;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料01_会社等名称Column {
+                get {
+                    return this.column介護医療保険料01_会社等名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料01_保険等種類Column {
+                get {
+                    return this.column介護医療保険料01_保険等種類;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料01_期間Column {
+                get {
+                    return this.column介護医療保険料01_期間;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料01_保険等契約者氏名Column {
+                get {
+                    return this.column介護医療保険料01_保険等契約者氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料01_保険金等受取人氏名Column {
+                get {
+                    return this.column介護医療保険料01_保険金等受取人氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料01_保険金等受取人続柄名称Column {
+                get {
+                    return this.column介護医療保険料01_保険金等受取人続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料01_支払金額Column {
+                get {
+                    return this.column介護医療保険料01_支払金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料02_会社等名称Column {
+                get {
+                    return this.column介護医療保険料02_会社等名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料02_保険等種類Column {
+                get {
+                    return this.column介護医療保険料02_保険等種類;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料02_期間Column {
+                get {
+                    return this.column介護医療保険料02_期間;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料02_保険等契約者氏名Column {
+                get {
+                    return this.column介護医療保険料02_保険等契約者氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料02_保険金等受取人氏名Column {
+                get {
+                    return this.column介護医療保険料02_保険金等受取人氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料02_保険金等受取人続柄名称Column {
+                get {
+                    return this.column介護医療保険料02_保険金等受取人続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料02_支払金額Column {
+                get {
+                    return this.column介護医療保険料02_支払金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料合計Column {
+                get {
+                    return this.column介護医療保険料合計;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料表計算Column {
+                get {
+                    return this.column介護医療保険料表計算;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料01_会社等名称Column {
+                get {
+                    return this.column個人年金保険料01_会社等名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料01_保険等種類Column {
+                get {
+                    return this.column個人年金保険料01_保険等種類;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料01_期間Column {
+                get {
+                    return this.column個人年金保険料01_期間;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料01_保険等契約者氏名Column {
+                get {
+                    return this.column個人年金保険料01_保険等契約者氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料01_保険金等受取人氏名Column {
+                get {
+                    return this.column個人年金保険料01_保険金等受取人氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料01_支払開始日Column {
+                get {
+                    return this.column個人年金保険料01_支払開始日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料01_保険金等受取人続柄名称Column {
+                get {
+                    return this.column個人年金保険料01_保険金等受取人続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料01_新旧Column {
+                get {
+                    return this.column個人年金保険料01_新旧;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料01_支払金額Column {
+                get {
+                    return this.column個人年金保険料01_支払金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料02_会社等名称Column {
+                get {
+                    return this.column個人年金保険料02_会社等名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料02_保険等種類Column {
+                get {
+                    return this.column個人年金保険料02_保険等種類;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料02_期間Column {
+                get {
+                    return this.column個人年金保険料02_期間;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料02_保険等契約者氏名Column {
+                get {
+                    return this.column個人年金保険料02_保険等契約者氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料02_保険金等受取人氏名Column {
+                get {
+                    return this.column個人年金保険料02_保険金等受取人氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料02_支払開始日Column {
+                get {
+                    return this.column個人年金保険料02_支払開始日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料02_保険金等受取人続柄名称Column {
+                get {
+                    return this.column個人年金保険料02_保険金等受取人続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料02_新旧Column {
+                get {
+                    return this.column個人年金保険料02_新旧;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料02_支払金額Column {
+                get {
+                    return this.column個人年金保険料02_支払金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料03_会社等名称Column {
+                get {
+                    return this.column個人年金保険料03_会社等名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料03_保険等種類Column {
+                get {
+                    return this.column個人年金保険料03_保険等種類;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料03_期間Column {
+                get {
+                    return this.column個人年金保険料03_期間;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料03_保険等契約者氏名Column {
+                get {
+                    return this.column個人年金保険料03_保険等契約者氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料03_保険金等受取人氏名Column {
+                get {
+                    return this.column個人年金保険料03_保険金等受取人氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料03_支払開始日Column {
+                get {
+                    return this.column個人年金保険料03_支払開始日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料03_保険金等受取人続柄名称Column {
+                get {
+                    return this.column個人年金保険料03_保険金等受取人続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料03_新旧Column {
+                get {
+                    return this.column個人年金保険料03_新旧;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料03_支払金額Column {
+                get {
+                    return this.column個人年金保険料03_支払金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料新保険料合計Column {
+                get {
+                    return this.column個人年金保険料新保険料合計;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料新保険料表計算Column {
+                get {
+                    return this.column個人年金保険料新保険料表計算;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料旧保険料合計Column {
+                get {
+                    return this.column個人年金保険料旧保険料合計;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料旧保険料表計算Column {
+                get {
+                    return this.column個人年金保険料旧保険料表計算;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料表合計Column {
+                get {
+                    return this.column個人年金保険料表合計;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料比較Column {
+                get {
+                    return this.column個人年金保険料比較;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 生命保険料控除額計Column {
+                get {
+                    return this.column生命保険料控除額計;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除01_会社等名称Column {
+                get {
+                    return this.column地震保険料控除01_会社等名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除01_保険等種類Column {
+                get {
+                    return this.column地震保険料控除01_保険等種類;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除01_期間Column {
+                get {
+                    return this.column地震保険料控除01_期間;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除01_保険等契約者氏名Column {
+                get {
+                    return this.column地震保険料控除01_保険等契約者氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除01_保険等対象氏名Column {
+                get {
+                    return this.column地震保険料控除01_保険等対象氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除01_保険等対象続柄名称Column {
+                get {
+                    return this.column地震保険料控除01_保険等対象続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除01_地震旧長期Column {
+                get {
+                    return this.column地震保険料控除01_地震旧長期;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除01_支払保険料Column {
+                get {
+                    return this.column地震保険料控除01_支払保険料;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除02_会社等名称Column {
+                get {
+                    return this.column地震保険料控除02_会社等名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除02_保険等種類Column {
+                get {
+                    return this.column地震保険料控除02_保険等種類;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除02_期間Column {
+                get {
+                    return this.column地震保険料控除02_期間;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除02_保険等契約者氏名Column {
+                get {
+                    return this.column地震保険料控除02_保険等契約者氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除02_保険等対象氏名Column {
+                get {
+                    return this.column地震保険料控除02_保険等対象氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除02_保険等対象続柄名称Column {
+                get {
+                    return this.column地震保険料控除02_保険等対象続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除02_地震旧長期Column {
+                get {
+                    return this.column地震保険料控除02_地震旧長期;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除02_支払保険料Column {
+                get {
+                    return this.column地震保険料控除02_支払保険料;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除地震保険料合計Column {
+                get {
+                    return this.column地震保険料控除地震保険料合計;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除旧長期損害保険料合計Column {
+                get {
+                    return this.column地震保険料控除旧長期損害保険料合計;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除額金額01Column {
+                get {
+                    return this.column地震保険料控除額金額01;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除額金額02Column {
+                get {
+                    return this.column地震保険料控除額金額02;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除額金額合計Column {
+                get {
+                    return this.column地震保険料控除額金額合計;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 社会保険料控除01_社会保険種類Column {
+                get {
+                    return this.column社会保険料控除01_社会保険種類;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 社会保険料控除01_支払先名称Column {
+                get {
+                    return this.column社会保険料控除01_支払先名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 社会保険料控除01_負担者氏名Column {
+                get {
+                    return this.column社会保険料控除01_負担者氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 社会保険料控除01_負担者続柄名称Column {
+                get {
+                    return this.column社会保険料控除01_負担者続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 社会保険料控除01_支払保険料Column {
+                get {
+                    return this.column社会保険料控除01_支払保険料;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 社会保険料控除02_社会保険種類Column {
+                get {
+                    return this.column社会保険料控除02_社会保険種類;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 社会保険料控除02_支払先名称Column {
+                get {
+                    return this.column社会保険料控除02_支払先名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 社会保険料控除02_負担者氏名Column {
+                get {
+                    return this.column社会保険料控除02_負担者氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 社会保険料控除02_負担者続柄名称Column {
+                get {
+                    return this.column社会保険料控除02_負担者続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 社会保険料控除02_支払保険料Column {
+                get {
+                    return this.column社会保険料控除02_支払保険料;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 社会保険料控除合計Column {
+                get {
+                    return this.column社会保険料控除合計;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 共済契約掛金Column {
+                get {
+                    return this.column共済契約掛金;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 企業型年金加入者掛金Column {
+                get {
+                    return this.column企業型年金加入者掛金;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人型年金加入者掛金Column {
+                get {
+                    return this.column個人型年金加入者掛金;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 心身障害者扶養共済制度契約掛金Column {
+                get {
+                    return this.column心身障害者扶養共済制度契約掛金;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 小規模企業共済等掛金控除合計Column {
+                get {
+                    return this.column小規模企業共済等掛金控除合計;
                 }
             }
             
@@ -379,12 +1849,309 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public HokenDeclareDataTableRow AddHokenDeclareDataTableRow(string 対象年度, string 社員番号, string 氏名) {
+            public HokenDeclareDataTableRow AddHokenDeclareDataTableRow(
+                        string 対象年度, 
+                        string 社員番号, 
+                        string 本人確定区分, 
+                        string 管理者確定区分, 
+                        string 所属番号, 
+                        string 氏名, 
+                        string Kana, 
+                        string 住所01, 
+                        string Sequence番号, 
+                        string 税務署長, 
+                        string 給与支払者名称, 
+                        string 給与支払者所在地, 
+                        string 法人個人番号01, 
+                        string 法人個人番号02, 
+                        string 法人個人番号03, 
+                        string 法人個人番号04, 
+                        string 法人個人番号05, 
+                        string 法人個人番号06, 
+                        string 法人個人番号07, 
+                        string 法人個人番号08, 
+                        string 法人個人番号09, 
+                        string 法人個人番号10, 
+                        string 法人個人番号11, 
+                        string 法人個人番号12, 
+                        string 法人個人番号13, 
+                        string 一般生命保険料01_保険会社等名称, 
+                        string 一般生命保険料01_保険等種類, 
+                        string 一般生命保険料01_期間, 
+                        string 一般生命保険料01_保険等契約者氏名, 
+                        string 一般生命保険料01_保険金等受取人氏名, 
+                        string 一般生命保険料01_保険金等受取人続柄名称, 
+                        string 一般生命保険料01_新旧, 
+                        decimal 一般生命保険料01_支払金額, 
+                        string 一般生命保険料02_保険会社等名称, 
+                        string 一般生命保険料02_保険等種類, 
+                        string 一般生命保険料02_期間, 
+                        string 一般生命保険料02_保険等契約者氏名, 
+                        string 一般生命保険料02_保険金等受取人氏名, 
+                        string 一般生命保険料02_保険金等受取人続柄名称, 
+                        string 一般生命保険料02_新旧, 
+                        decimal 一般生命保険料02_支払金額, 
+                        string 一般生命保険料03_保険会社等名称, 
+                        string 一般生命保険料03_保険等種類, 
+                        string 一般生命保険料03_期間, 
+                        string 一般生命保険料03_保険等契約者氏名, 
+                        string 一般生命保険料03_保険金等受取人氏名, 
+                        string 一般生命保険料03_保険金等受取人続柄名称, 
+                        string 一般生命保険料03_新旧, 
+                        decimal 一般生命保険料03_支払金額, 
+                        string 一般生命保険料04_保険会社等名称, 
+                        string 一般生命保険料04_保険等種類, 
+                        string 一般生命保険料04_期間, 
+                        string 一般生命保険料04_保険等契約者氏名, 
+                        string 一般生命保険料04_保険金等受取人氏名, 
+                        string 一般生命保険料04_保険金等受取人続柄名称, 
+                        string 一般生命保険料04_新旧, 
+                        decimal 一般生命保険料04_支払金額, 
+                        decimal 一般生命保険料新保険料合計, 
+                        decimal 一般生命保険料新保険料表計算, 
+                        decimal 一般生命保険料旧保険料合計, 
+                        decimal 一般生命保険料旧保険料表計算, 
+                        decimal 一般生命保険料表合計, 
+                        decimal 一般生命保険料比較, 
+                        string 介護医療保険料01_会社等名称, 
+                        string 介護医療保険料01_保険等種類, 
+                        string 介護医療保険料01_期間, 
+                        string 介護医療保険料01_保険等契約者氏名, 
+                        string 介護医療保険料01_保険金等受取人氏名, 
+                        string 介護医療保険料01_保険金等受取人続柄名称, 
+                        decimal 介護医療保険料01_支払金額, 
+                        string 介護医療保険料02_会社等名称, 
+                        string 介護医療保険料02_保険等種類, 
+                        string 介護医療保険料02_期間, 
+                        string 介護医療保険料02_保険等契約者氏名, 
+                        string 介護医療保険料02_保険金等受取人氏名, 
+                        string 介護医療保険料02_保険金等受取人続柄名称, 
+                        decimal 介護医療保険料02_支払金額, 
+                        decimal 介護医療保険料合計, 
+                        decimal 介護医療保険料表計算, 
+                        string 個人年金保険料01_会社等名称, 
+                        string 個人年金保険料01_保険等種類, 
+                        string 個人年金保険料01_期間, 
+                        string 個人年金保険料01_保険等契約者氏名, 
+                        string 個人年金保険料01_保険金等受取人氏名, 
+                        System.DateTime 個人年金保険料01_支払開始日, 
+                        string 個人年金保険料01_保険金等受取人続柄名称, 
+                        string 個人年金保険料01_新旧, 
+                        decimal 個人年金保険料01_支払金額, 
+                        string 個人年金保険料02_会社等名称, 
+                        string 個人年金保険料02_保険等種類, 
+                        string 個人年金保険料02_期間, 
+                        string 個人年金保険料02_保険等契約者氏名, 
+                        string 個人年金保険料02_保険金等受取人氏名, 
+                        System.DateTime 個人年金保険料02_支払開始日, 
+                        string 個人年金保険料02_保険金等受取人続柄名称, 
+                        string 個人年金保険料02_新旧, 
+                        decimal 個人年金保険料02_支払金額, 
+                        string 個人年金保険料03_会社等名称, 
+                        string 個人年金保険料03_保険等種類, 
+                        string 個人年金保険料03_期間, 
+                        string 個人年金保険料03_保険等契約者氏名, 
+                        string 個人年金保険料03_保険金等受取人氏名, 
+                        System.DateTime 個人年金保険料03_支払開始日, 
+                        string 個人年金保険料03_保険金等受取人続柄名称, 
+                        string 個人年金保険料03_新旧, 
+                        decimal 個人年金保険料03_支払金額, 
+                        decimal 個人年金保険料新保険料合計, 
+                        decimal 個人年金保険料新保険料表計算, 
+                        decimal 個人年金保険料旧保険料合計, 
+                        decimal 個人年金保険料旧保険料表計算, 
+                        decimal 個人年金保険料表合計, 
+                        decimal 個人年金保険料比較, 
+                        decimal 生命保険料控除額計, 
+                        string 地震保険料控除01_会社等名称, 
+                        string 地震保険料控除01_保険等種類, 
+                        string 地震保険料控除01_期間, 
+                        string 地震保険料控除01_保険等契約者氏名, 
+                        string 地震保険料控除01_保険等対象氏名, 
+                        string 地震保険料控除01_保険等対象続柄名称, 
+                        string 地震保険料控除01_地震旧長期, 
+                        decimal 地震保険料控除01_支払保険料, 
+                        string 地震保険料控除02_会社等名称, 
+                        string 地震保険料控除02_保険等種類, 
+                        string 地震保険料控除02_期間, 
+                        string 地震保険料控除02_保険等契約者氏名, 
+                        string 地震保険料控除02_保険等対象氏名, 
+                        string 地震保険料控除02_保険等対象続柄名称, 
+                        string 地震保険料控除02_地震旧長期, 
+                        decimal 地震保険料控除02_支払保険料, 
+                        decimal 地震保険料控除地震保険料合計, 
+                        decimal 地震保険料控除旧長期損害保険料合計, 
+                        decimal 地震保険料控除額金額01, 
+                        decimal 地震保険料控除額金額02, 
+                        decimal 地震保険料控除額金額合計, 
+                        string 社会保険料控除01_社会保険種類, 
+                        string 社会保険料控除01_支払先名称, 
+                        string 社会保険料控除01_負担者氏名, 
+                        string 社会保険料控除01_負担者続柄名称, 
+                        decimal 社会保険料控除01_支払保険料, 
+                        string 社会保険料控除02_社会保険種類, 
+                        string 社会保険料控除02_支払先名称, 
+                        string 社会保険料控除02_負担者氏名, 
+                        string 社会保険料控除02_負担者続柄名称, 
+                        decimal 社会保険料控除02_支払保険料, 
+                        decimal 社会保険料控除合計, 
+                        decimal 共済契約掛金, 
+                        decimal 企業型年金加入者掛金, 
+                        decimal 個人型年金加入者掛金, 
+                        decimal 心身障害者扶養共済制度契約掛金, 
+                        decimal 小規模企業共済等掛金控除合計) {
                 HokenDeclareDataTableRow rowHokenDeclareDataTableRow = ((HokenDeclareDataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         対象年度,
                         社員番号,
-                        氏名};
+                        本人確定区分,
+                        管理者確定区分,
+                        所属番号,
+                        氏名,
+                        Kana,
+                        住所01,
+                        Sequence番号,
+                        税務署長,
+                        給与支払者名称,
+                        給与支払者所在地,
+                        法人個人番号01,
+                        法人個人番号02,
+                        法人個人番号03,
+                        法人個人番号04,
+                        法人個人番号05,
+                        法人個人番号06,
+                        法人個人番号07,
+                        法人個人番号08,
+                        法人個人番号09,
+                        法人個人番号10,
+                        法人個人番号11,
+                        法人個人番号12,
+                        法人個人番号13,
+                        一般生命保険料01_保険会社等名称,
+                        一般生命保険料01_保険等種類,
+                        一般生命保険料01_期間,
+                        一般生命保険料01_保険等契約者氏名,
+                        一般生命保険料01_保険金等受取人氏名,
+                        一般生命保険料01_保険金等受取人続柄名称,
+                        一般生命保険料01_新旧,
+                        一般生命保険料01_支払金額,
+                        一般生命保険料02_保険会社等名称,
+                        一般生命保険料02_保険等種類,
+                        一般生命保険料02_期間,
+                        一般生命保険料02_保険等契約者氏名,
+                        一般生命保険料02_保険金等受取人氏名,
+                        一般生命保険料02_保険金等受取人続柄名称,
+                        一般生命保険料02_新旧,
+                        一般生命保険料02_支払金額,
+                        一般生命保険料03_保険会社等名称,
+                        一般生命保険料03_保険等種類,
+                        一般生命保険料03_期間,
+                        一般生命保険料03_保険等契約者氏名,
+                        一般生命保険料03_保険金等受取人氏名,
+                        一般生命保険料03_保険金等受取人続柄名称,
+                        一般生命保険料03_新旧,
+                        一般生命保険料03_支払金額,
+                        一般生命保険料04_保険会社等名称,
+                        一般生命保険料04_保険等種類,
+                        一般生命保険料04_期間,
+                        一般生命保険料04_保険等契約者氏名,
+                        一般生命保険料04_保険金等受取人氏名,
+                        一般生命保険料04_保険金等受取人続柄名称,
+                        一般生命保険料04_新旧,
+                        一般生命保険料04_支払金額,
+                        一般生命保険料新保険料合計,
+                        一般生命保険料新保険料表計算,
+                        一般生命保険料旧保険料合計,
+                        一般生命保険料旧保険料表計算,
+                        一般生命保険料表合計,
+                        一般生命保険料比較,
+                        介護医療保険料01_会社等名称,
+                        介護医療保険料01_保険等種類,
+                        介護医療保険料01_期間,
+                        介護医療保険料01_保険等契約者氏名,
+                        介護医療保険料01_保険金等受取人氏名,
+                        介護医療保険料01_保険金等受取人続柄名称,
+                        介護医療保険料01_支払金額,
+                        介護医療保険料02_会社等名称,
+                        介護医療保険料02_保険等種類,
+                        介護医療保険料02_期間,
+                        介護医療保険料02_保険等契約者氏名,
+                        介護医療保険料02_保険金等受取人氏名,
+                        介護医療保険料02_保険金等受取人続柄名称,
+                        介護医療保険料02_支払金額,
+                        介護医療保険料合計,
+                        介護医療保険料表計算,
+                        個人年金保険料01_会社等名称,
+                        個人年金保険料01_保険等種類,
+                        個人年金保険料01_期間,
+                        個人年金保険料01_保険等契約者氏名,
+                        個人年金保険料01_保険金等受取人氏名,
+                        個人年金保険料01_支払開始日,
+                        個人年金保険料01_保険金等受取人続柄名称,
+                        個人年金保険料01_新旧,
+                        個人年金保険料01_支払金額,
+                        個人年金保険料02_会社等名称,
+                        個人年金保険料02_保険等種類,
+                        個人年金保険料02_期間,
+                        個人年金保険料02_保険等契約者氏名,
+                        個人年金保険料02_保険金等受取人氏名,
+                        個人年金保険料02_支払開始日,
+                        個人年金保険料02_保険金等受取人続柄名称,
+                        個人年金保険料02_新旧,
+                        個人年金保険料02_支払金額,
+                        個人年金保険料03_会社等名称,
+                        個人年金保険料03_保険等種類,
+                        個人年金保険料03_期間,
+                        個人年金保険料03_保険等契約者氏名,
+                        個人年金保険料03_保険金等受取人氏名,
+                        個人年金保険料03_支払開始日,
+                        個人年金保険料03_保険金等受取人続柄名称,
+                        個人年金保険料03_新旧,
+                        個人年金保険料03_支払金額,
+                        個人年金保険料新保険料合計,
+                        個人年金保険料新保険料表計算,
+                        個人年金保険料旧保険料合計,
+                        個人年金保険料旧保険料表計算,
+                        個人年金保険料表合計,
+                        個人年金保険料比較,
+                        生命保険料控除額計,
+                        地震保険料控除01_会社等名称,
+                        地震保険料控除01_保険等種類,
+                        地震保険料控除01_期間,
+                        地震保険料控除01_保険等契約者氏名,
+                        地震保険料控除01_保険等対象氏名,
+                        地震保険料控除01_保険等対象続柄名称,
+                        地震保険料控除01_地震旧長期,
+                        地震保険料控除01_支払保険料,
+                        地震保険料控除02_会社等名称,
+                        地震保険料控除02_保険等種類,
+                        地震保険料控除02_期間,
+                        地震保険料控除02_保険等契約者氏名,
+                        地震保険料控除02_保険等対象氏名,
+                        地震保険料控除02_保険等対象続柄名称,
+                        地震保険料控除02_地震旧長期,
+                        地震保険料控除02_支払保険料,
+                        地震保険料控除地震保険料合計,
+                        地震保険料控除旧長期損害保険料合計,
+                        地震保険料控除額金額01,
+                        地震保険料控除額金額02,
+                        地震保険料控除額金額合計,
+                        社会保険料控除01_社会保険種類,
+                        社会保険料控除01_支払先名称,
+                        社会保険料控除01_負担者氏名,
+                        社会保険料控除01_負担者続柄名称,
+                        社会保険料控除01_支払保険料,
+                        社会保険料控除02_社会保険種類,
+                        社会保険料控除02_支払先名称,
+                        社会保険料控除02_負担者氏名,
+                        社会保険料控除02_負担者続柄名称,
+                        社会保険料控除02_支払保険料,
+                        社会保険料控除合計,
+                        共済契約掛金,
+                        企業型年金加入者掛金,
+                        個人型年金加入者掛金,
+                        心身障害者扶養共済制度契約掛金,
+                        小規模企業共済等掛金控除合計};
                 rowHokenDeclareDataTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHokenDeclareDataTableRow);
                 return rowHokenDeclareDataTableRow;
@@ -409,7 +2176,154 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             internal void InitVars() {
                 this.column対象年度 = base.Columns["対象年度"];
                 this.column社員番号 = base.Columns["社員番号"];
+                this.column本人確定区分 = base.Columns["本人確定区分"];
+                this.column管理者確定区分 = base.Columns["管理者確定区分"];
+                this.column所属番号 = base.Columns["所属番号"];
                 this.column氏名 = base.Columns["氏名"];
+                this.columnKana = base.Columns["Kana"];
+                this.column住所01 = base.Columns["住所01"];
+                this.columnSequence番号 = base.Columns["Sequence番号"];
+                this.column税務署長 = base.Columns["税務署長"];
+                this.column給与支払者名称 = base.Columns["給与支払者名称"];
+                this.column給与支払者所在地 = base.Columns["給与支払者所在地"];
+                this.column法人個人番号01 = base.Columns["法人個人番号01"];
+                this.column法人個人番号02 = base.Columns["法人個人番号02"];
+                this.column法人個人番号03 = base.Columns["法人個人番号03"];
+                this.column法人個人番号04 = base.Columns["法人個人番号04"];
+                this.column法人個人番号05 = base.Columns["法人個人番号05"];
+                this.column法人個人番号06 = base.Columns["法人個人番号06"];
+                this.column法人個人番号07 = base.Columns["法人個人番号07"];
+                this.column法人個人番号08 = base.Columns["法人個人番号08"];
+                this.column法人個人番号09 = base.Columns["法人個人番号09"];
+                this.column法人個人番号10 = base.Columns["法人個人番号10"];
+                this.column法人個人番号11 = base.Columns["法人個人番号11"];
+                this.column法人個人番号12 = base.Columns["法人個人番号12"];
+                this.column法人個人番号13 = base.Columns["法人個人番号13"];
+                this.column一般生命保険料01_保険会社等名称 = base.Columns["一般生命保険料01_保険会社等名称"];
+                this.column一般生命保険料01_保険等種類 = base.Columns["一般生命保険料01_保険等種類"];
+                this.column一般生命保険料01_期間 = base.Columns["一般生命保険料01_期間"];
+                this.column一般生命保険料01_保険等契約者氏名 = base.Columns["一般生命保険料01_保険等契約者氏名"];
+                this.column一般生命保険料01_保険金等受取人氏名 = base.Columns["一般生命保険料01_保険金等受取人氏名"];
+                this.column一般生命保険料01_保険金等受取人続柄名称 = base.Columns["一般生命保険料01_保険金等受取人続柄名称"];
+                this.column一般生命保険料01_新旧 = base.Columns["一般生命保険料01_新旧"];
+                this.column一般生命保険料01_支払金額 = base.Columns["一般生命保険料01_支払金額"];
+                this.column一般生命保険料02_保険会社等名称 = base.Columns["一般生命保険料02_保険会社等名称"];
+                this.column一般生命保険料02_保険等種類 = base.Columns["一般生命保険料02_保険等種類"];
+                this.column一般生命保険料02_期間 = base.Columns["一般生命保険料02_期間"];
+                this.column一般生命保険料02_保険等契約者氏名 = base.Columns["一般生命保険料02_保険等契約者氏名"];
+                this.column一般生命保険料02_保険金等受取人氏名 = base.Columns["一般生命保険料02_保険金等受取人氏名"];
+                this.column一般生命保険料02_保険金等受取人続柄名称 = base.Columns["一般生命保険料02_保険金等受取人続柄名称"];
+                this.column一般生命保険料02_新旧 = base.Columns["一般生命保険料02_新旧"];
+                this.column一般生命保険料02_支払金額 = base.Columns["一般生命保険料02_支払金額"];
+                this.column一般生命保険料03_保険会社等名称 = base.Columns["一般生命保険料03_保険会社等名称"];
+                this.column一般生命保険料03_保険等種類 = base.Columns["一般生命保険料03_保険等種類"];
+                this.column一般生命保険料03_期間 = base.Columns["一般生命保険料03_期間"];
+                this.column一般生命保険料03_保険等契約者氏名 = base.Columns["一般生命保険料03_保険等契約者氏名"];
+                this.column一般生命保険料03_保険金等受取人氏名 = base.Columns["一般生命保険料03_保険金等受取人氏名"];
+                this.column一般生命保険料03_保険金等受取人続柄名称 = base.Columns["一般生命保険料03_保険金等受取人続柄名称"];
+                this.column一般生命保険料03_新旧 = base.Columns["一般生命保険料03_新旧"];
+                this.column一般生命保険料03_支払金額 = base.Columns["一般生命保険料03_支払金額"];
+                this.column一般生命保険料04_保険会社等名称 = base.Columns["一般生命保険料04_保険会社等名称"];
+                this.column一般生命保険料04_保険等種類 = base.Columns["一般生命保険料04_保険等種類"];
+                this.column一般生命保険料04_期間 = base.Columns["一般生命保険料04_期間"];
+                this.column一般生命保険料04_保険等契約者氏名 = base.Columns["一般生命保険料04_保険等契約者氏名"];
+                this.column一般生命保険料04_保険金等受取人氏名 = base.Columns["一般生命保険料04_保険金等受取人氏名"];
+                this.column一般生命保険料04_保険金等受取人続柄名称 = base.Columns["一般生命保険料04_保険金等受取人続柄名称"];
+                this.column一般生命保険料04_新旧 = base.Columns["一般生命保険料04_新旧"];
+                this.column一般生命保険料04_支払金額 = base.Columns["一般生命保険料04_支払金額"];
+                this.column一般生命保険料新保険料合計 = base.Columns["一般生命保険料新保険料合計"];
+                this.column一般生命保険料新保険料表計算 = base.Columns["一般生命保険料新保険料表計算"];
+                this.column一般生命保険料旧保険料合計 = base.Columns["一般生命保険料旧保険料合計"];
+                this.column一般生命保険料旧保険料表計算 = base.Columns["一般生命保険料旧保険料表計算"];
+                this.column一般生命保険料表合計 = base.Columns["一般生命保険料表合計"];
+                this.column一般生命保険料比較 = base.Columns["一般生命保険料比較"];
+                this.column介護医療保険料01_会社等名称 = base.Columns["介護医療保険料01_会社等名称"];
+                this.column介護医療保険料01_保険等種類 = base.Columns["介護医療保険料01_保険等種類"];
+                this.column介護医療保険料01_期間 = base.Columns["介護医療保険料01_期間"];
+                this.column介護医療保険料01_保険等契約者氏名 = base.Columns["介護医療保険料01_保険等契約者氏名"];
+                this.column介護医療保険料01_保険金等受取人氏名 = base.Columns["介護医療保険料01_保険金等受取人氏名"];
+                this.column介護医療保険料01_保険金等受取人続柄名称 = base.Columns["介護医療保険料01_保険金等受取人続柄名称"];
+                this.column介護医療保険料01_支払金額 = base.Columns["介護医療保険料01_支払金額"];
+                this.column介護医療保険料02_会社等名称 = base.Columns["介護医療保険料02_会社等名称"];
+                this.column介護医療保険料02_保険等種類 = base.Columns["介護医療保険料02_保険等種類"];
+                this.column介護医療保険料02_期間 = base.Columns["介護医療保険料02_期間"];
+                this.column介護医療保険料02_保険等契約者氏名 = base.Columns["介護医療保険料02_保険等契約者氏名"];
+                this.column介護医療保険料02_保険金等受取人氏名 = base.Columns["介護医療保険料02_保険金等受取人氏名"];
+                this.column介護医療保険料02_保険金等受取人続柄名称 = base.Columns["介護医療保険料02_保険金等受取人続柄名称"];
+                this.column介護医療保険料02_支払金額 = base.Columns["介護医療保険料02_支払金額"];
+                this.column介護医療保険料合計 = base.Columns["介護医療保険料合計"];
+                this.column介護医療保険料表計算 = base.Columns["介護医療保険料表計算"];
+                this.column個人年金保険料01_会社等名称 = base.Columns["個人年金保険料01_会社等名称"];
+                this.column個人年金保険料01_保険等種類 = base.Columns["個人年金保険料01_保険等種類"];
+                this.column個人年金保険料01_期間 = base.Columns["個人年金保険料01_期間"];
+                this.column個人年金保険料01_保険等契約者氏名 = base.Columns["個人年金保険料01_保険等契約者氏名"];
+                this.column個人年金保険料01_保険金等受取人氏名 = base.Columns["個人年金保険料01_保険金等受取人氏名"];
+                this.column個人年金保険料01_支払開始日 = base.Columns["個人年金保険料01_支払開始日"];
+                this.column個人年金保険料01_保険金等受取人続柄名称 = base.Columns["個人年金保険料01_保険金等受取人続柄名称"];
+                this.column個人年金保険料01_新旧 = base.Columns["個人年金保険料01_新旧"];
+                this.column個人年金保険料01_支払金額 = base.Columns["個人年金保険料01_支払金額"];
+                this.column個人年金保険料02_会社等名称 = base.Columns["個人年金保険料02_会社等名称"];
+                this.column個人年金保険料02_保険等種類 = base.Columns["個人年金保険料02_保険等種類"];
+                this.column個人年金保険料02_期間 = base.Columns["個人年金保険料02_期間"];
+                this.column個人年金保険料02_保険等契約者氏名 = base.Columns["個人年金保険料02_保険等契約者氏名"];
+                this.column個人年金保険料02_保険金等受取人氏名 = base.Columns["個人年金保険料02_保険金等受取人氏名"];
+                this.column個人年金保険料02_支払開始日 = base.Columns["個人年金保険料02_支払開始日"];
+                this.column個人年金保険料02_保険金等受取人続柄名称 = base.Columns["個人年金保険料02_保険金等受取人続柄名称"];
+                this.column個人年金保険料02_新旧 = base.Columns["個人年金保険料02_新旧"];
+                this.column個人年金保険料02_支払金額 = base.Columns["個人年金保険料02_支払金額"];
+                this.column個人年金保険料03_会社等名称 = base.Columns["個人年金保険料03_会社等名称"];
+                this.column個人年金保険料03_保険等種類 = base.Columns["個人年金保険料03_保険等種類"];
+                this.column個人年金保険料03_期間 = base.Columns["個人年金保険料03_期間"];
+                this.column個人年金保険料03_保険等契約者氏名 = base.Columns["個人年金保険料03_保険等契約者氏名"];
+                this.column個人年金保険料03_保険金等受取人氏名 = base.Columns["個人年金保険料03_保険金等受取人氏名"];
+                this.column個人年金保険料03_支払開始日 = base.Columns["個人年金保険料03_支払開始日"];
+                this.column個人年金保険料03_保険金等受取人続柄名称 = base.Columns["個人年金保険料03_保険金等受取人続柄名称"];
+                this.column個人年金保険料03_新旧 = base.Columns["個人年金保険料03_新旧"];
+                this.column個人年金保険料03_支払金額 = base.Columns["個人年金保険料03_支払金額"];
+                this.column個人年金保険料新保険料合計 = base.Columns["個人年金保険料新保険料合計"];
+                this.column個人年金保険料新保険料表計算 = base.Columns["個人年金保険料新保険料表計算"];
+                this.column個人年金保険料旧保険料合計 = base.Columns["個人年金保険料旧保険料合計"];
+                this.column個人年金保険料旧保険料表計算 = base.Columns["個人年金保険料旧保険料表計算"];
+                this.column個人年金保険料表合計 = base.Columns["個人年金保険料表合計"];
+                this.column個人年金保険料比較 = base.Columns["個人年金保険料比較"];
+                this.column生命保険料控除額計 = base.Columns["生命保険料控除額計"];
+                this.column地震保険料控除01_会社等名称 = base.Columns["地震保険料控除01_会社等名称"];
+                this.column地震保険料控除01_保険等種類 = base.Columns["地震保険料控除01_保険等種類"];
+                this.column地震保険料控除01_期間 = base.Columns["地震保険料控除01_期間"];
+                this.column地震保険料控除01_保険等契約者氏名 = base.Columns["地震保険料控除01_保険等契約者氏名"];
+                this.column地震保険料控除01_保険等対象氏名 = base.Columns["地震保険料控除01_保険等対象氏名"];
+                this.column地震保険料控除01_保険等対象続柄名称 = base.Columns["地震保険料控除01_保険等対象続柄名称"];
+                this.column地震保険料控除01_地震旧長期 = base.Columns["地震保険料控除01_地震旧長期"];
+                this.column地震保険料控除01_支払保険料 = base.Columns["地震保険料控除01_支払保険料"];
+                this.column地震保険料控除02_会社等名称 = base.Columns["地震保険料控除02_会社等名称"];
+                this.column地震保険料控除02_保険等種類 = base.Columns["地震保険料控除02_保険等種類"];
+                this.column地震保険料控除02_期間 = base.Columns["地震保険料控除02_期間"];
+                this.column地震保険料控除02_保険等契約者氏名 = base.Columns["地震保険料控除02_保険等契約者氏名"];
+                this.column地震保険料控除02_保険等対象氏名 = base.Columns["地震保険料控除02_保険等対象氏名"];
+                this.column地震保険料控除02_保険等対象続柄名称 = base.Columns["地震保険料控除02_保険等対象続柄名称"];
+                this.column地震保険料控除02_地震旧長期 = base.Columns["地震保険料控除02_地震旧長期"];
+                this.column地震保険料控除02_支払保険料 = base.Columns["地震保険料控除02_支払保険料"];
+                this.column地震保険料控除地震保険料合計 = base.Columns["地震保険料控除地震保険料合計"];
+                this.column地震保険料控除旧長期損害保険料合計 = base.Columns["地震保険料控除旧長期損害保険料合計"];
+                this.column地震保険料控除額金額01 = base.Columns["地震保険料控除額金額01"];
+                this.column地震保険料控除額金額02 = base.Columns["地震保険料控除額金額02"];
+                this.column地震保険料控除額金額合計 = base.Columns["地震保険料控除額金額合計"];
+                this.column社会保険料控除01_社会保険種類 = base.Columns["社会保険料控除01_社会保険種類"];
+                this.column社会保険料控除01_支払先名称 = base.Columns["社会保険料控除01_支払先名称"];
+                this.column社会保険料控除01_負担者氏名 = base.Columns["社会保険料控除01_負担者氏名"];
+                this.column社会保険料控除01_負担者続柄名称 = base.Columns["社会保険料控除01_負担者続柄名称"];
+                this.column社会保険料控除01_支払保険料 = base.Columns["社会保険料控除01_支払保険料"];
+                this.column社会保険料控除02_社会保険種類 = base.Columns["社会保険料控除02_社会保険種類"];
+                this.column社会保険料控除02_支払先名称 = base.Columns["社会保険料控除02_支払先名称"];
+                this.column社会保険料控除02_負担者氏名 = base.Columns["社会保険料控除02_負担者氏名"];
+                this.column社会保険料控除02_負担者続柄名称 = base.Columns["社会保険料控除02_負担者続柄名称"];
+                this.column社会保険料控除02_支払保険料 = base.Columns["社会保険料控除02_支払保険料"];
+                this.column社会保険料控除合計 = base.Columns["社会保険料控除合計"];
+                this.column共済契約掛金 = base.Columns["共済契約掛金"];
+                this.column企業型年金加入者掛金 = base.Columns["企業型年金加入者掛金"];
+                this.column個人型年金加入者掛金 = base.Columns["個人型年金加入者掛金"];
+                this.column心身障害者扶養共済制度契約掛金 = base.Columns["心身障害者扶養共済制度契約掛金"];
+                this.column小規模企業共済等掛金控除合計 = base.Columns["小規模企業共済等掛金控除合計"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -419,9 +2333,302 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column対象年度);
                 this.column社員番号 = new global::System.Data.DataColumn("社員番号", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column社員番号);
+                this.column本人確定区分 = new global::System.Data.DataColumn("本人確定区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column本人確定区分);
+                this.column管理者確定区分 = new global::System.Data.DataColumn("管理者確定区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column管理者確定区分);
+                this.column所属番号 = new global::System.Data.DataColumn("所属番号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所属番号);
                 this.column氏名 = new global::System.Data.DataColumn("氏名", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column氏名);
-                this.column氏名.Caption = "社員番号";
+                this.columnKana = new global::System.Data.DataColumn("Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKana);
+                this.column住所01 = new global::System.Data.DataColumn("住所01", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column住所01);
+                this.columnSequence番号 = new global::System.Data.DataColumn("Sequence番号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSequence番号);
+                this.column税務署長 = new global::System.Data.DataColumn("税務署長", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column税務署長);
+                this.column給与支払者名称 = new global::System.Data.DataColumn("給与支払者名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column給与支払者名称);
+                this.column給与支払者所在地 = new global::System.Data.DataColumn("給与支払者所在地", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column給与支払者所在地);
+                this.column法人個人番号01 = new global::System.Data.DataColumn("法人個人番号01", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号01);
+                this.column法人個人番号02 = new global::System.Data.DataColumn("法人個人番号02", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号02);
+                this.column法人個人番号03 = new global::System.Data.DataColumn("法人個人番号03", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号03);
+                this.column法人個人番号04 = new global::System.Data.DataColumn("法人個人番号04", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号04);
+                this.column法人個人番号05 = new global::System.Data.DataColumn("法人個人番号05", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号05);
+                this.column法人個人番号06 = new global::System.Data.DataColumn("法人個人番号06", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号06);
+                this.column法人個人番号07 = new global::System.Data.DataColumn("法人個人番号07", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号07);
+                this.column法人個人番号08 = new global::System.Data.DataColumn("法人個人番号08", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号08);
+                this.column法人個人番号09 = new global::System.Data.DataColumn("法人個人番号09", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号09);
+                this.column法人個人番号10 = new global::System.Data.DataColumn("法人個人番号10", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号10);
+                this.column法人個人番号11 = new global::System.Data.DataColumn("法人個人番号11", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号11);
+                this.column法人個人番号12 = new global::System.Data.DataColumn("法人個人番号12", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号12);
+                this.column法人個人番号13 = new global::System.Data.DataColumn("法人個人番号13", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号13);
+                this.column一般生命保険料01_保険会社等名称 = new global::System.Data.DataColumn("一般生命保険料01_保険会社等名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料01_保険会社等名称);
+                this.column一般生命保険料01_保険等種類 = new global::System.Data.DataColumn("一般生命保険料01_保険等種類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料01_保険等種類);
+                this.column一般生命保険料01_期間 = new global::System.Data.DataColumn("一般生命保険料01_期間", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料01_期間);
+                this.column一般生命保険料01_保険等契約者氏名 = new global::System.Data.DataColumn("一般生命保険料01_保険等契約者氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料01_保険等契約者氏名);
+                this.column一般生命保険料01_保険金等受取人氏名 = new global::System.Data.DataColumn("一般生命保険料01_保険金等受取人氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料01_保険金等受取人氏名);
+                this.column一般生命保険料01_保険金等受取人続柄名称 = new global::System.Data.DataColumn("一般生命保険料01_保険金等受取人続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料01_保険金等受取人続柄名称);
+                this.column一般生命保険料01_新旧 = new global::System.Data.DataColumn("一般生命保険料01_新旧", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料01_新旧);
+                this.column一般生命保険料01_支払金額 = new global::System.Data.DataColumn("一般生命保険料01_支払金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料01_支払金額);
+                this.column一般生命保険料02_保険会社等名称 = new global::System.Data.DataColumn("一般生命保険料02_保険会社等名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料02_保険会社等名称);
+                this.column一般生命保険料02_保険等種類 = new global::System.Data.DataColumn("一般生命保険料02_保険等種類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料02_保険等種類);
+                this.column一般生命保険料02_期間 = new global::System.Data.DataColumn("一般生命保険料02_期間", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料02_期間);
+                this.column一般生命保険料02_保険等契約者氏名 = new global::System.Data.DataColumn("一般生命保険料02_保険等契約者氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料02_保険等契約者氏名);
+                this.column一般生命保険料02_保険金等受取人氏名 = new global::System.Data.DataColumn("一般生命保険料02_保険金等受取人氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料02_保険金等受取人氏名);
+                this.column一般生命保険料02_保険金等受取人続柄名称 = new global::System.Data.DataColumn("一般生命保険料02_保険金等受取人続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料02_保険金等受取人続柄名称);
+                this.column一般生命保険料02_新旧 = new global::System.Data.DataColumn("一般生命保険料02_新旧", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料02_新旧);
+                this.column一般生命保険料02_支払金額 = new global::System.Data.DataColumn("一般生命保険料02_支払金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料02_支払金額);
+                this.column一般生命保険料03_保険会社等名称 = new global::System.Data.DataColumn("一般生命保険料03_保険会社等名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料03_保険会社等名称);
+                this.column一般生命保険料03_保険等種類 = new global::System.Data.DataColumn("一般生命保険料03_保険等種類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料03_保険等種類);
+                this.column一般生命保険料03_期間 = new global::System.Data.DataColumn("一般生命保険料03_期間", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料03_期間);
+                this.column一般生命保険料03_保険等契約者氏名 = new global::System.Data.DataColumn("一般生命保険料03_保険等契約者氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料03_保険等契約者氏名);
+                this.column一般生命保険料03_保険金等受取人氏名 = new global::System.Data.DataColumn("一般生命保険料03_保険金等受取人氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料03_保険金等受取人氏名);
+                this.column一般生命保険料03_保険金等受取人続柄名称 = new global::System.Data.DataColumn("一般生命保険料03_保険金等受取人続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料03_保険金等受取人続柄名称);
+                this.column一般生命保険料03_新旧 = new global::System.Data.DataColumn("一般生命保険料03_新旧", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料03_新旧);
+                this.column一般生命保険料03_支払金額 = new global::System.Data.DataColumn("一般生命保険料03_支払金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料03_支払金額);
+                this.column一般生命保険料04_保険会社等名称 = new global::System.Data.DataColumn("一般生命保険料04_保険会社等名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料04_保険会社等名称);
+                this.column一般生命保険料04_保険等種類 = new global::System.Data.DataColumn("一般生命保険料04_保険等種類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料04_保険等種類);
+                this.column一般生命保険料04_期間 = new global::System.Data.DataColumn("一般生命保険料04_期間", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料04_期間);
+                this.column一般生命保険料04_保険等契約者氏名 = new global::System.Data.DataColumn("一般生命保険料04_保険等契約者氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料04_保険等契約者氏名);
+                this.column一般生命保険料04_保険金等受取人氏名 = new global::System.Data.DataColumn("一般生命保険料04_保険金等受取人氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料04_保険金等受取人氏名);
+                this.column一般生命保険料04_保険金等受取人続柄名称 = new global::System.Data.DataColumn("一般生命保険料04_保険金等受取人続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料04_保険金等受取人続柄名称);
+                this.column一般生命保険料04_新旧 = new global::System.Data.DataColumn("一般生命保険料04_新旧", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料04_新旧);
+                this.column一般生命保険料04_支払金額 = new global::System.Data.DataColumn("一般生命保険料04_支払金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料04_支払金額);
+                this.column一般生命保険料新保険料合計 = new global::System.Data.DataColumn("一般生命保険料新保険料合計", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料新保険料合計);
+                this.column一般生命保険料新保険料表計算 = new global::System.Data.DataColumn("一般生命保険料新保険料表計算", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料新保険料表計算);
+                this.column一般生命保険料旧保険料合計 = new global::System.Data.DataColumn("一般生命保険料旧保険料合計", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料旧保険料合計);
+                this.column一般生命保険料旧保険料表計算 = new global::System.Data.DataColumn("一般生命保険料旧保険料表計算", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料旧保険料表計算);
+                this.column一般生命保険料表合計 = new global::System.Data.DataColumn("一般生命保険料表合計", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料表合計);
+                this.column一般生命保険料比較 = new global::System.Data.DataColumn("一般生命保険料比較", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料比較);
+                this.column介護医療保険料01_会社等名称 = new global::System.Data.DataColumn("介護医療保険料01_会社等名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料01_会社等名称);
+                this.column介護医療保険料01_保険等種類 = new global::System.Data.DataColumn("介護医療保険料01_保険等種類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料01_保険等種類);
+                this.column介護医療保険料01_期間 = new global::System.Data.DataColumn("介護医療保険料01_期間", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料01_期間);
+                this.column介護医療保険料01_保険等契約者氏名 = new global::System.Data.DataColumn("介護医療保険料01_保険等契約者氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料01_保険等契約者氏名);
+                this.column介護医療保険料01_保険金等受取人氏名 = new global::System.Data.DataColumn("介護医療保険料01_保険金等受取人氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料01_保険金等受取人氏名);
+                this.column介護医療保険料01_保険金等受取人続柄名称 = new global::System.Data.DataColumn("介護医療保険料01_保険金等受取人続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料01_保険金等受取人続柄名称);
+                this.column介護医療保険料01_支払金額 = new global::System.Data.DataColumn("介護医療保険料01_支払金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料01_支払金額);
+                this.column介護医療保険料02_会社等名称 = new global::System.Data.DataColumn("介護医療保険料02_会社等名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料02_会社等名称);
+                this.column介護医療保険料02_保険等種類 = new global::System.Data.DataColumn("介護医療保険料02_保険等種類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料02_保険等種類);
+                this.column介護医療保険料02_期間 = new global::System.Data.DataColumn("介護医療保険料02_期間", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料02_期間);
+                this.column介護医療保険料02_保険等契約者氏名 = new global::System.Data.DataColumn("介護医療保険料02_保険等契約者氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料02_保険等契約者氏名);
+                this.column介護医療保険料02_保険金等受取人氏名 = new global::System.Data.DataColumn("介護医療保険料02_保険金等受取人氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料02_保険金等受取人氏名);
+                this.column介護医療保険料02_保険金等受取人続柄名称 = new global::System.Data.DataColumn("介護医療保険料02_保険金等受取人続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料02_保険金等受取人続柄名称);
+                this.column介護医療保険料02_支払金額 = new global::System.Data.DataColumn("介護医療保険料02_支払金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料02_支払金額);
+                this.column介護医療保険料合計 = new global::System.Data.DataColumn("介護医療保険料合計", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料合計);
+                this.column介護医療保険料表計算 = new global::System.Data.DataColumn("介護医療保険料表計算", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料表計算);
+                this.column個人年金保険料01_会社等名称 = new global::System.Data.DataColumn("個人年金保険料01_会社等名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料01_会社等名称);
+                this.column個人年金保険料01_保険等種類 = new global::System.Data.DataColumn("個人年金保険料01_保険等種類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料01_保険等種類);
+                this.column個人年金保険料01_期間 = new global::System.Data.DataColumn("個人年金保険料01_期間", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料01_期間);
+                this.column個人年金保険料01_保険等契約者氏名 = new global::System.Data.DataColumn("個人年金保険料01_保険等契約者氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料01_保険等契約者氏名);
+                this.column個人年金保険料01_保険金等受取人氏名 = new global::System.Data.DataColumn("個人年金保険料01_保険金等受取人氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料01_保険金等受取人氏名);
+                this.column個人年金保険料01_支払開始日 = new global::System.Data.DataColumn("個人年金保険料01_支払開始日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料01_支払開始日);
+                this.column個人年金保険料01_保険金等受取人続柄名称 = new global::System.Data.DataColumn("個人年金保険料01_保険金等受取人続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料01_保険金等受取人続柄名称);
+                this.column個人年金保険料01_新旧 = new global::System.Data.DataColumn("個人年金保険料01_新旧", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料01_新旧);
+                this.column個人年金保険料01_支払金額 = new global::System.Data.DataColumn("個人年金保険料01_支払金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料01_支払金額);
+                this.column個人年金保険料02_会社等名称 = new global::System.Data.DataColumn("個人年金保険料02_会社等名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料02_会社等名称);
+                this.column個人年金保険料02_保険等種類 = new global::System.Data.DataColumn("個人年金保険料02_保険等種類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料02_保険等種類);
+                this.column個人年金保険料02_期間 = new global::System.Data.DataColumn("個人年金保険料02_期間", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料02_期間);
+                this.column個人年金保険料02_保険等契約者氏名 = new global::System.Data.DataColumn("個人年金保険料02_保険等契約者氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料02_保険等契約者氏名);
+                this.column個人年金保険料02_保険金等受取人氏名 = new global::System.Data.DataColumn("個人年金保険料02_保険金等受取人氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料02_保険金等受取人氏名);
+                this.column個人年金保険料02_支払開始日 = new global::System.Data.DataColumn("個人年金保険料02_支払開始日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料02_支払開始日);
+                this.column個人年金保険料02_保険金等受取人続柄名称 = new global::System.Data.DataColumn("個人年金保険料02_保険金等受取人続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料02_保険金等受取人続柄名称);
+                this.column個人年金保険料02_新旧 = new global::System.Data.DataColumn("個人年金保険料02_新旧", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料02_新旧);
+                this.column個人年金保険料02_支払金額 = new global::System.Data.DataColumn("個人年金保険料02_支払金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料02_支払金額);
+                this.column個人年金保険料03_会社等名称 = new global::System.Data.DataColumn("個人年金保険料03_会社等名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料03_会社等名称);
+                this.column個人年金保険料03_保険等種類 = new global::System.Data.DataColumn("個人年金保険料03_保険等種類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料03_保険等種類);
+                this.column個人年金保険料03_期間 = new global::System.Data.DataColumn("個人年金保険料03_期間", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料03_期間);
+                this.column個人年金保険料03_保険等契約者氏名 = new global::System.Data.DataColumn("個人年金保険料03_保険等契約者氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料03_保険等契約者氏名);
+                this.column個人年金保険料03_保険金等受取人氏名 = new global::System.Data.DataColumn("個人年金保険料03_保険金等受取人氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料03_保険金等受取人氏名);
+                this.column個人年金保険料03_支払開始日 = new global::System.Data.DataColumn("個人年金保険料03_支払開始日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料03_支払開始日);
+                this.column個人年金保険料03_保険金等受取人続柄名称 = new global::System.Data.DataColumn("個人年金保険料03_保険金等受取人続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料03_保険金等受取人続柄名称);
+                this.column個人年金保険料03_新旧 = new global::System.Data.DataColumn("個人年金保険料03_新旧", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料03_新旧);
+                this.column個人年金保険料03_支払金額 = new global::System.Data.DataColumn("個人年金保険料03_支払金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料03_支払金額);
+                this.column個人年金保険料新保険料合計 = new global::System.Data.DataColumn("個人年金保険料新保険料合計", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料新保険料合計);
+                this.column個人年金保険料新保険料表計算 = new global::System.Data.DataColumn("個人年金保険料新保険料表計算", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料新保険料表計算);
+                this.column個人年金保険料旧保険料合計 = new global::System.Data.DataColumn("個人年金保険料旧保険料合計", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料旧保険料合計);
+                this.column個人年金保険料旧保険料表計算 = new global::System.Data.DataColumn("個人年金保険料旧保険料表計算", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料旧保険料表計算);
+                this.column個人年金保険料表合計 = new global::System.Data.DataColumn("個人年金保険料表合計", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料表合計);
+                this.column個人年金保険料比較 = new global::System.Data.DataColumn("個人年金保険料比較", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料比較);
+                this.column生命保険料控除額計 = new global::System.Data.DataColumn("生命保険料控除額計", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column生命保険料控除額計);
+                this.column地震保険料控除01_会社等名称 = new global::System.Data.DataColumn("地震保険料控除01_会社等名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除01_会社等名称);
+                this.column地震保険料控除01_保険等種類 = new global::System.Data.DataColumn("地震保険料控除01_保険等種類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除01_保険等種類);
+                this.column地震保険料控除01_期間 = new global::System.Data.DataColumn("地震保険料控除01_期間", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除01_期間);
+                this.column地震保険料控除01_保険等契約者氏名 = new global::System.Data.DataColumn("地震保険料控除01_保険等契約者氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除01_保険等契約者氏名);
+                this.column地震保険料控除01_保険等対象氏名 = new global::System.Data.DataColumn("地震保険料控除01_保険等対象氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除01_保険等対象氏名);
+                this.column地震保険料控除01_保険等対象続柄名称 = new global::System.Data.DataColumn("地震保険料控除01_保険等対象続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除01_保険等対象続柄名称);
+                this.column地震保険料控除01_地震旧長期 = new global::System.Data.DataColumn("地震保険料控除01_地震旧長期", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除01_地震旧長期);
+                this.column地震保険料控除01_支払保険料 = new global::System.Data.DataColumn("地震保険料控除01_支払保険料", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除01_支払保険料);
+                this.column地震保険料控除02_会社等名称 = new global::System.Data.DataColumn("地震保険料控除02_会社等名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除02_会社等名称);
+                this.column地震保険料控除02_保険等種類 = new global::System.Data.DataColumn("地震保険料控除02_保険等種類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除02_保険等種類);
+                this.column地震保険料控除02_期間 = new global::System.Data.DataColumn("地震保険料控除02_期間", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除02_期間);
+                this.column地震保険料控除02_保険等契約者氏名 = new global::System.Data.DataColumn("地震保険料控除02_保険等契約者氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除02_保険等契約者氏名);
+                this.column地震保険料控除02_保険等対象氏名 = new global::System.Data.DataColumn("地震保険料控除02_保険等対象氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除02_保険等対象氏名);
+                this.column地震保険料控除02_保険等対象続柄名称 = new global::System.Data.DataColumn("地震保険料控除02_保険等対象続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除02_保険等対象続柄名称);
+                this.column地震保険料控除02_地震旧長期 = new global::System.Data.DataColumn("地震保険料控除02_地震旧長期", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除02_地震旧長期);
+                this.column地震保険料控除02_支払保険料 = new global::System.Data.DataColumn("地震保険料控除02_支払保険料", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除02_支払保険料);
+                this.column地震保険料控除地震保険料合計 = new global::System.Data.DataColumn("地震保険料控除地震保険料合計", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除地震保険料合計);
+                this.column地震保険料控除旧長期損害保険料合計 = new global::System.Data.DataColumn("地震保険料控除旧長期損害保険料合計", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除旧長期損害保険料合計);
+                this.column地震保険料控除額金額01 = new global::System.Data.DataColumn("地震保険料控除額金額01", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除額金額01);
+                this.column地震保険料控除額金額02 = new global::System.Data.DataColumn("地震保険料控除額金額02", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除額金額02);
+                this.column地震保険料控除額金額合計 = new global::System.Data.DataColumn("地震保険料控除額金額合計", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除額金額合計);
+                this.column社会保険料控除01_社会保険種類 = new global::System.Data.DataColumn("社会保険料控除01_社会保険種類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column社会保険料控除01_社会保険種類);
+                this.column社会保険料控除01_支払先名称 = new global::System.Data.DataColumn("社会保険料控除01_支払先名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column社会保険料控除01_支払先名称);
+                this.column社会保険料控除01_負担者氏名 = new global::System.Data.DataColumn("社会保険料控除01_負担者氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column社会保険料控除01_負担者氏名);
+                this.column社会保険料控除01_負担者続柄名称 = new global::System.Data.DataColumn("社会保険料控除01_負担者続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column社会保険料控除01_負担者続柄名称);
+                this.column社会保険料控除01_支払保険料 = new global::System.Data.DataColumn("社会保険料控除01_支払保険料", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column社会保険料控除01_支払保険料);
+                this.column社会保険料控除02_社会保険種類 = new global::System.Data.DataColumn("社会保険料控除02_社会保険種類", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column社会保険料控除02_社会保険種類);
+                this.column社会保険料控除02_支払先名称 = new global::System.Data.DataColumn("社会保険料控除02_支払先名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column社会保険料控除02_支払先名称);
+                this.column社会保険料控除02_負担者氏名 = new global::System.Data.DataColumn("社会保険料控除02_負担者氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column社会保険料控除02_負担者氏名);
+                this.column社会保険料控除02_負担者続柄名称 = new global::System.Data.DataColumn("社会保険料控除02_負担者続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column社会保険料控除02_負担者続柄名称);
+                this.column社会保険料控除02_支払保険料 = new global::System.Data.DataColumn("社会保険料控除02_支払保険料", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column社会保険料控除02_支払保険料);
+                this.column社会保険料控除合計 = new global::System.Data.DataColumn("社会保険料控除合計", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column社会保険料控除合計);
+                this.column共済契約掛金 = new global::System.Data.DataColumn("共済契約掛金", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column共済契約掛金);
+                this.column企業型年金加入者掛金 = new global::System.Data.DataColumn("企業型年金加入者掛金", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column企業型年金加入者掛金);
+                this.column個人型年金加入者掛金 = new global::System.Data.DataColumn("個人型年金加入者掛金", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人型年金加入者掛金);
+                this.column心身障害者扶養共済制度契約掛金 = new global::System.Data.DataColumn("心身障害者扶養共済制度契約掛金", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column心身障害者扶養共済制度契約掛金);
+                this.column小規模企業共済等掛金控除合計 = new global::System.Data.DataColumn("小規模企業共済等掛金控除合計", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column小規模企業共済等掛金控除合計);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -596,6 +2803,54 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 本人確定区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.本人確定区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'本人確定区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.本人確定区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 管理者確定区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.管理者確定区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'管理者確定区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.管理者確定区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所属番号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.所属番号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'所属番号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.所属番号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string 氏名 {
                 get {
                     try {
@@ -607,6 +2862,2310 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 }
                 set {
                     this[this.tableHokenDeclareDataTable.氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 住所01 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.住所01Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'住所01\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.住所01Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Sequence番号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.Sequence番号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'Sequence番号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.Sequence番号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 税務署長 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.税務署長Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'税務署長\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.税務署長Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 給与支払者名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.給与支払者名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'給与支払者名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.給与支払者名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 給与支払者所在地 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.給与支払者所在地Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'給与支払者所在地\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.給与支払者所在地Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号01 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.法人個人番号01Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'法人個人番号01\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.法人個人番号01Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号02 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.法人個人番号02Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'法人個人番号02\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.法人個人番号02Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号03 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.法人個人番号03Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'法人個人番号03\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.法人個人番号03Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号04 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.法人個人番号04Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'法人個人番号04\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.法人個人番号04Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号05 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.法人個人番号05Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'法人個人番号05\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.法人個人番号05Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号06 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.法人個人番号06Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'法人個人番号06\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.法人個人番号06Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号07 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.法人個人番号07Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'法人個人番号07\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.法人個人番号07Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号08 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.法人個人番号08Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'法人個人番号08\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.法人個人番号08Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号09 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.法人個人番号09Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'法人個人番号09\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.法人個人番号09Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号10 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.法人個人番号10Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'法人個人番号10\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.法人個人番号10Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号11 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.法人個人番号11Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'法人個人番号11\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.法人個人番号11Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号12 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.法人個人番号12Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'法人個人番号12\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.法人個人番号12Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号13 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.法人個人番号13Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'法人個人番号13\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.法人個人番号13Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料01_保険会社等名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料01_保険会社等名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料01_保険会社等名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料01_保険会社等名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料01_保険等種類 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料01_保険等種類Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料01_保険等種類\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料01_保険等種類Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料01_期間 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料01_期間Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料01_期間\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料01_期間Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料01_保険等契約者氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料01_保険等契約者氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料01_保険等契約者氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料01_保険等契約者氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料01_保険金等受取人氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料01_保険金等受取人氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料01_保険金等受取人氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料01_保険金等受取人氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料01_保険金等受取人続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料01_保険金等受取人続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料01_保険金等受取人続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料01_保険金等受取人続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料01_新旧 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料01_新旧Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料01_新旧\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料01_新旧Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 一般生命保険料01_支払金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.一般生命保険料01_支払金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料01_支払金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料01_支払金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料02_保険会社等名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料02_保険会社等名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料02_保険会社等名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料02_保険会社等名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料02_保険等種類 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料02_保険等種類Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料02_保険等種類\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料02_保険等種類Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料02_期間 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料02_期間Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料02_期間\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料02_期間Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料02_保険等契約者氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料02_保険等契約者氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料02_保険等契約者氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料02_保険等契約者氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料02_保険金等受取人氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料02_保険金等受取人氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料02_保険金等受取人氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料02_保険金等受取人氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料02_保険金等受取人続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料02_保険金等受取人続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料02_保険金等受取人続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料02_保険金等受取人続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料02_新旧 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料02_新旧Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料02_新旧\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料02_新旧Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 一般生命保険料02_支払金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.一般生命保険料02_支払金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料02_支払金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料02_支払金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料03_保険会社等名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料03_保険会社等名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料03_保険会社等名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料03_保険会社等名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料03_保険等種類 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料03_保険等種類Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料03_保険等種類\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料03_保険等種類Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料03_期間 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料03_期間Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料03_期間\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料03_期間Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料03_保険等契約者氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料03_保険等契約者氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料03_保険等契約者氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料03_保険等契約者氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料03_保険金等受取人氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料03_保険金等受取人氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料03_保険金等受取人氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料03_保険金等受取人氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料03_保険金等受取人続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料03_保険金等受取人続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料03_保険金等受取人続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料03_保険金等受取人続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料03_新旧 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料03_新旧Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料03_新旧\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料03_新旧Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 一般生命保険料03_支払金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.一般生命保険料03_支払金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料03_支払金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料03_支払金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料04_保険会社等名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料04_保険会社等名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料04_保険会社等名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料04_保険会社等名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料04_保険等種類 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料04_保険等種類Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料04_保険等種類\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料04_保険等種類Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料04_期間 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料04_期間Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料04_期間\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料04_期間Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料04_保険等契約者氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料04_保険等契約者氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料04_保険等契約者氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料04_保険等契約者氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料04_保険金等受取人氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料04_保険金等受取人氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料04_保険金等受取人氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料04_保険金等受取人氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料04_保険金等受取人続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料04_保険金等受取人続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料04_保険金等受取人続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料04_保険金等受取人続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料04_新旧 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料04_新旧Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料04_新旧\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料04_新旧Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 一般生命保険料04_支払金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.一般生命保険料04_支払金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料04_支払金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料04_支払金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 一般生命保険料新保険料合計 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.一般生命保険料新保険料合計Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料新保険料合計\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料新保険料合計Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 一般生命保険料新保険料表計算 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.一般生命保険料新保険料表計算Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料新保険料表計算\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料新保険料表計算Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 一般生命保険料旧保険料合計 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.一般生命保険料旧保険料合計Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料旧保険料合計\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料旧保険料合計Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 一般生命保険料旧保険料表計算 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.一般生命保険料旧保険料表計算Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料旧保険料表計算\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料旧保険料表計算Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 一般生命保険料表合計 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.一般生命保険料表合計Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料表合計\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料表合計Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 一般生命保険料比較 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.一般生命保険料比較Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料比較\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料比較Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料01_会社等名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料01_会社等名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料01_会社等名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料01_会社等名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料01_保険等種類 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料01_保険等種類Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料01_保険等種類\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料01_保険等種類Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料01_期間 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料01_期間Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料01_期間\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料01_期間Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料01_保険等契約者氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料01_保険等契約者氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料01_保険等契約者氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料01_保険等契約者氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料01_保険金等受取人氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料01_保険金等受取人氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料01_保険金等受取人氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料01_保険金等受取人氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料01_保険金等受取人続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料01_保険金等受取人続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料01_保険金等受取人続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料01_保険金等受取人続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 介護医療保険料01_支払金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.介護医療保険料01_支払金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料01_支払金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料01_支払金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料02_会社等名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料02_会社等名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料02_会社等名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料02_会社等名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料02_保険等種類 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料02_保険等種類Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料02_保険等種類\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料02_保険等種類Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料02_期間 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料02_期間Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料02_期間\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料02_期間Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料02_保険等契約者氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料02_保険等契約者氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料02_保険等契約者氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料02_保険等契約者氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料02_保険金等受取人氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料02_保険金等受取人氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料02_保険金等受取人氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料02_保険金等受取人氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料02_保険金等受取人続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料02_保険金等受取人続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料02_保険金等受取人続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料02_保険金等受取人続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 介護医療保険料02_支払金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.介護医療保険料02_支払金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料02_支払金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料02_支払金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 介護医療保険料合計 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.介護医療保険料合計Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料合計\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料合計Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 介護医療保険料表計算 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.介護医療保険料表計算Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料表計算\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料表計算Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料01_会社等名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料01_会社等名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料01_会社等名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料01_会社等名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料01_保険等種類 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料01_保険等種類Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料01_保険等種類\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料01_保険等種類Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料01_期間 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料01_期間Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料01_期間\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料01_期間Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料01_保険等契約者氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料01_保険等契約者氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料01_保険等契約者氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料01_保険等契約者氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料01_保険金等受取人氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料01_保険金等受取人氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料01_保険金等受取人氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料01_保険金等受取人氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 個人年金保険料01_支払開始日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHokenDeclareDataTable.個人年金保険料01_支払開始日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料01_支払開始日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料01_支払開始日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料01_保険金等受取人続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料01_保険金等受取人続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料01_保険金等受取人続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料01_保険金等受取人続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料01_新旧 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料01_新旧Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料01_新旧\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料01_新旧Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 個人年金保険料01_支払金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.個人年金保険料01_支払金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料01_支払金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料01_支払金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料02_会社等名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料02_会社等名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料02_会社等名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料02_会社等名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料02_保険等種類 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料02_保険等種類Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料02_保険等種類\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料02_保険等種類Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料02_期間 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料02_期間Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料02_期間\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料02_期間Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料02_保険等契約者氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料02_保険等契約者氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料02_保険等契約者氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料02_保険等契約者氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料02_保険金等受取人氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料02_保険金等受取人氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料02_保険金等受取人氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料02_保険金等受取人氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 個人年金保険料02_支払開始日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHokenDeclareDataTable.個人年金保険料02_支払開始日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料02_支払開始日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料02_支払開始日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料02_保険金等受取人続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料02_保険金等受取人続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料02_保険金等受取人続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料02_保険金等受取人続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料02_新旧 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料02_新旧Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料02_新旧\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料02_新旧Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 個人年金保険料02_支払金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.個人年金保険料02_支払金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料02_支払金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料02_支払金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料03_会社等名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料03_会社等名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料03_会社等名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料03_会社等名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料03_保険等種類 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料03_保険等種類Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料03_保険等種類\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料03_保険等種類Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料03_期間 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料03_期間Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料03_期間\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料03_期間Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料03_保険等契約者氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料03_保険等契約者氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料03_保険等契約者氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料03_保険等契約者氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料03_保険金等受取人氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料03_保険金等受取人氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料03_保険金等受取人氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料03_保険金等受取人氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 個人年金保険料03_支払開始日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHokenDeclareDataTable.個人年金保険料03_支払開始日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料03_支払開始日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料03_支払開始日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料03_保険金等受取人続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料03_保険金等受取人続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料03_保険金等受取人続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料03_保険金等受取人続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料03_新旧 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料03_新旧Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料03_新旧\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料03_新旧Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 個人年金保険料03_支払金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.個人年金保険料03_支払金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料03_支払金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料03_支払金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 個人年金保険料新保険料合計 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.個人年金保険料新保険料合計Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料新保険料合計\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料新保険料合計Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 個人年金保険料新保険料表計算 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.個人年金保険料新保険料表計算Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料新保険料表計算\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料新保険料表計算Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 個人年金保険料旧保険料合計 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.個人年金保険料旧保険料合計Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料旧保険料合計\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料旧保険料合計Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 個人年金保険料旧保険料表計算 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.個人年金保険料旧保険料表計算Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料旧保険料表計算\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料旧保険料表計算Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 個人年金保険料表合計 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.個人年金保険料表合計Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料表合計\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料表合計Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 個人年金保険料比較 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.個人年金保険料比較Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料比較\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料比較Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 生命保険料控除額計 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.生命保険料控除額計Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'生命保険料控除額計\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.生命保険料控除額計Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除01_会社等名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除01_会社等名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除01_会社等名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除01_会社等名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除01_保険等種類 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除01_保険等種類Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除01_保険等種類\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除01_保険等種類Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除01_期間 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除01_期間Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除01_期間\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除01_期間Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除01_保険等契約者氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除01_保険等契約者氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除01_保険等契約者氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除01_保険等契約者氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除01_保険等対象氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除01_保険等対象氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除01_保険等対象氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除01_保険等対象氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除01_保険等対象続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除01_保険等対象続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除01_保険等対象続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除01_保険等対象続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除01_地震旧長期 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除01_地震旧長期Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除01_地震旧長期\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除01_地震旧長期Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 地震保険料控除01_支払保険料 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.地震保険料控除01_支払保険料Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除01_支払保険料\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除01_支払保険料Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除02_会社等名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除02_会社等名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除02_会社等名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除02_会社等名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除02_保険等種類 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除02_保険等種類Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除02_保険等種類\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除02_保険等種類Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除02_期間 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除02_期間Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除02_期間\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除02_期間Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除02_保険等契約者氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除02_保険等契約者氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除02_保険等契約者氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除02_保険等契約者氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除02_保険等対象氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除02_保険等対象氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除02_保険等対象氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除02_保険等対象氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除02_保険等対象続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除02_保険等対象続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除02_保険等対象続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除02_保険等対象続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除02_地震旧長期 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除02_地震旧長期Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除02_地震旧長期\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除02_地震旧長期Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 地震保険料控除02_支払保険料 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.地震保険料控除02_支払保険料Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除02_支払保険料\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除02_支払保険料Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 地震保険料控除地震保険料合計 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.地震保険料控除地震保険料合計Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除地震保険料合計\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除地震保険料合計Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 地震保険料控除旧長期損害保険料合計 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.地震保険料控除旧長期損害保険料合計Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除旧長期損害保険料合計\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除旧長期損害保険料合計Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 地震保険料控除額金額01 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.地震保険料控除額金額01Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除額金額01\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除額金額01Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 地震保険料控除額金額02 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.地震保険料控除額金額02Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除額金額02\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除額金額02Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 地震保険料控除額金額合計 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.地震保険料控除額金額合計Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除額金額合計\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除額金額合計Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 社会保険料控除01_社会保険種類 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.社会保険料控除01_社会保険種類Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'社会保険料控除01_社会保険種類\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.社会保険料控除01_社会保険種類Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 社会保険料控除01_支払先名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.社会保険料控除01_支払先名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'社会保険料控除01_支払先名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.社会保険料控除01_支払先名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 社会保険料控除01_負担者氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.社会保険料控除01_負担者氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'社会保険料控除01_負担者氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.社会保険料控除01_負担者氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 社会保険料控除01_負担者続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.社会保険料控除01_負担者続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'社会保険料控除01_負担者続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.社会保険料控除01_負担者続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 社会保険料控除01_支払保険料 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.社会保険料控除01_支払保険料Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'社会保険料控除01_支払保険料\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.社会保険料控除01_支払保険料Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 社会保険料控除02_社会保険種類 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.社会保険料控除02_社会保険種類Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'社会保険料控除02_社会保険種類\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.社会保険料控除02_社会保険種類Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 社会保険料控除02_支払先名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.社会保険料控除02_支払先名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'社会保険料控除02_支払先名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.社会保険料控除02_支払先名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 社会保険料控除02_負担者氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.社会保険料控除02_負担者氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'社会保険料控除02_負担者氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.社会保険料控除02_負担者氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 社会保険料控除02_負担者続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.社会保険料控除02_負担者続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'社会保険料控除02_負担者続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.社会保険料控除02_負担者続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 社会保険料控除02_支払保険料 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.社会保険料控除02_支払保険料Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'社会保険料控除02_支払保険料\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.社会保険料控除02_支払保険料Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 社会保険料控除合計 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.社会保険料控除合計Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'社会保険料控除合計\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.社会保険料控除合計Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 共済契約掛金 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.共済契約掛金Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'共済契約掛金\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.共済契約掛金Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 企業型年金加入者掛金 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.企業型年金加入者掛金Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'企業型年金加入者掛金\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.企業型年金加入者掛金Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 個人型年金加入者掛金 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.個人型年金加入者掛金Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人型年金加入者掛金\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人型年金加入者掛金Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 心身障害者扶養共済制度契約掛金 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.心身障害者扶養共済制度契約掛金Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'心身障害者扶養共済制度契約掛金\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.心身障害者扶養共済制度契約掛金Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 小規模企業共済等掛金控除合計 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.小規模企業共済等掛金控除合計Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'小規模企業共済等掛金控除合計\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.小規模企業共済等掛金控除合計Column] = value;
                 }
             }
             
@@ -636,6 +5195,42 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is本人確定区分Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.本人確定区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set本人確定区分Null() {
+                this[this.tableHokenDeclareDataTable.本人確定区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is管理者確定区分Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.管理者確定区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set管理者確定区分Null() {
+                this[this.tableHokenDeclareDataTable.管理者確定区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所属番号Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.所属番号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所属番号Null() {
+                this[this.tableHokenDeclareDataTable.所属番号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Is氏名Null() {
                 return this.IsNull(this.tableHokenDeclareDataTable.氏名Column);
             }
@@ -644,6 +5239,1734 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Set氏名Null() {
                 this[this.tableHokenDeclareDataTable.氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKanaNull() {
+                return this.IsNull(this.tableHokenDeclareDataTable.KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKanaNull() {
+                this[this.tableHokenDeclareDataTable.KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is住所01Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.住所01Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set住所01Null() {
+                this[this.tableHokenDeclareDataTable.住所01Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSequence番号Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.Sequence番号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSequence番号Null() {
+                this[this.tableHokenDeclareDataTable.Sequence番号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is税務署長Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.税務署長Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set税務署長Null() {
+                this[this.tableHokenDeclareDataTable.税務署長Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is給与支払者名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.給与支払者名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set給与支払者名称Null() {
+                this[this.tableHokenDeclareDataTable.給与支払者名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is給与支払者所在地Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.給与支払者所在地Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set給与支払者所在地Null() {
+                this[this.tableHokenDeclareDataTable.給与支払者所在地Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号01Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.法人個人番号01Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号01Null() {
+                this[this.tableHokenDeclareDataTable.法人個人番号01Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号02Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.法人個人番号02Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号02Null() {
+                this[this.tableHokenDeclareDataTable.法人個人番号02Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号03Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.法人個人番号03Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号03Null() {
+                this[this.tableHokenDeclareDataTable.法人個人番号03Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号04Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.法人個人番号04Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号04Null() {
+                this[this.tableHokenDeclareDataTable.法人個人番号04Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号05Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.法人個人番号05Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号05Null() {
+                this[this.tableHokenDeclareDataTable.法人個人番号05Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号06Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.法人個人番号06Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号06Null() {
+                this[this.tableHokenDeclareDataTable.法人個人番号06Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号07Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.法人個人番号07Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号07Null() {
+                this[this.tableHokenDeclareDataTable.法人個人番号07Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号08Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.法人個人番号08Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号08Null() {
+                this[this.tableHokenDeclareDataTable.法人個人番号08Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号09Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.法人個人番号09Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号09Null() {
+                this[this.tableHokenDeclareDataTable.法人個人番号09Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号10Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.法人個人番号10Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号10Null() {
+                this[this.tableHokenDeclareDataTable.法人個人番号10Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号11Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.法人個人番号11Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号11Null() {
+                this[this.tableHokenDeclareDataTable.法人個人番号11Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号12Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.法人個人番号12Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号12Null() {
+                this[this.tableHokenDeclareDataTable.法人個人番号12Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号13Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.法人個人番号13Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号13Null() {
+                this[this.tableHokenDeclareDataTable.法人個人番号13Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料01_保険会社等名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料01_保険会社等名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料01_保険会社等名称Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料01_保険会社等名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料01_保険等種類Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料01_保険等種類Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料01_保険等種類Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料01_保険等種類Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料01_期間Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料01_期間Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料01_期間Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料01_期間Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料01_保険等契約者氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料01_保険等契約者氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料01_保険等契約者氏名Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料01_保険等契約者氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料01_保険金等受取人氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料01_保険金等受取人氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料01_保険金等受取人氏名Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料01_保険金等受取人氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料01_保険金等受取人続柄名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料01_保険金等受取人続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料01_保険金等受取人続柄名称Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料01_保険金等受取人続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料01_新旧Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料01_新旧Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料01_新旧Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料01_新旧Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料01_支払金額Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料01_支払金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料01_支払金額Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料01_支払金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料02_保険会社等名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料02_保険会社等名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料02_保険会社等名称Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料02_保険会社等名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料02_保険等種類Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料02_保険等種類Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料02_保険等種類Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料02_保険等種類Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料02_期間Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料02_期間Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料02_期間Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料02_期間Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料02_保険等契約者氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料02_保険等契約者氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料02_保険等契約者氏名Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料02_保険等契約者氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料02_保険金等受取人氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料02_保険金等受取人氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料02_保険金等受取人氏名Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料02_保険金等受取人氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料02_保険金等受取人続柄名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料02_保険金等受取人続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料02_保険金等受取人続柄名称Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料02_保険金等受取人続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料02_新旧Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料02_新旧Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料02_新旧Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料02_新旧Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料02_支払金額Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料02_支払金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料02_支払金額Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料02_支払金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料03_保険会社等名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料03_保険会社等名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料03_保険会社等名称Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料03_保険会社等名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料03_保険等種類Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料03_保険等種類Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料03_保険等種類Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料03_保険等種類Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料03_期間Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料03_期間Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料03_期間Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料03_期間Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料03_保険等契約者氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料03_保険等契約者氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料03_保険等契約者氏名Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料03_保険等契約者氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料03_保険金等受取人氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料03_保険金等受取人氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料03_保険金等受取人氏名Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料03_保険金等受取人氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料03_保険金等受取人続柄名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料03_保険金等受取人続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料03_保険金等受取人続柄名称Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料03_保険金等受取人続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料03_新旧Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料03_新旧Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料03_新旧Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料03_新旧Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料03_支払金額Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料03_支払金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料03_支払金額Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料03_支払金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料04_保険会社等名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料04_保険会社等名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料04_保険会社等名称Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料04_保険会社等名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料04_保険等種類Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料04_保険等種類Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料04_保険等種類Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料04_保険等種類Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料04_期間Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料04_期間Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料04_期間Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料04_期間Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料04_保険等契約者氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料04_保険等契約者氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料04_保険等契約者氏名Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料04_保険等契約者氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料04_保険金等受取人氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料04_保険金等受取人氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料04_保険金等受取人氏名Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料04_保険金等受取人氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料04_保険金等受取人続柄名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料04_保険金等受取人続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料04_保険金等受取人続柄名称Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料04_保険金等受取人続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料04_新旧Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料04_新旧Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料04_新旧Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料04_新旧Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料04_支払金額Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料04_支払金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料04_支払金額Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料04_支払金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料新保険料合計Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料新保険料合計Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料新保険料合計Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料新保険料合計Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料新保険料表計算Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料新保険料表計算Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料新保険料表計算Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料新保険料表計算Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料旧保険料合計Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料旧保険料合計Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料旧保険料合計Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料旧保険料合計Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料旧保険料表計算Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料旧保険料表計算Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料旧保険料表計算Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料旧保険料表計算Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料表合計Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料表合計Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料表合計Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料表合計Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料比較Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料比較Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料比較Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料比較Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料01_会社等名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料01_会社等名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料01_会社等名称Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料01_会社等名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料01_保険等種類Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料01_保険等種類Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料01_保険等種類Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料01_保険等種類Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料01_期間Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料01_期間Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料01_期間Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料01_期間Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料01_保険等契約者氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料01_保険等契約者氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料01_保険等契約者氏名Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料01_保険等契約者氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料01_保険金等受取人氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料01_保険金等受取人氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料01_保険金等受取人氏名Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料01_保険金等受取人氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料01_保険金等受取人続柄名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料01_保険金等受取人続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料01_保険金等受取人続柄名称Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料01_保険金等受取人続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料01_支払金額Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料01_支払金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料01_支払金額Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料01_支払金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料02_会社等名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料02_会社等名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料02_会社等名称Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料02_会社等名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料02_保険等種類Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料02_保険等種類Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料02_保険等種類Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料02_保険等種類Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料02_期間Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料02_期間Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料02_期間Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料02_期間Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料02_保険等契約者氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料02_保険等契約者氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料02_保険等契約者氏名Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料02_保険等契約者氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料02_保険金等受取人氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料02_保険金等受取人氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料02_保険金等受取人氏名Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料02_保険金等受取人氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料02_保険金等受取人続柄名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料02_保険金等受取人続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料02_保険金等受取人続柄名称Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料02_保険金等受取人続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料02_支払金額Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料02_支払金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料02_支払金額Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料02_支払金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料合計Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料合計Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料合計Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料合計Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料表計算Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料表計算Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料表計算Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料表計算Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料01_会社等名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料01_会社等名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料01_会社等名称Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料01_会社等名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料01_保険等種類Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料01_保険等種類Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料01_保険等種類Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料01_保険等種類Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料01_期間Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料01_期間Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料01_期間Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料01_期間Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料01_保険等契約者氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料01_保険等契約者氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料01_保険等契約者氏名Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料01_保険等契約者氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料01_保険金等受取人氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料01_保険金等受取人氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料01_保険金等受取人氏名Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料01_保険金等受取人氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料01_支払開始日Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料01_支払開始日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料01_支払開始日Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料01_支払開始日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料01_保険金等受取人続柄名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料01_保険金等受取人続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料01_保険金等受取人続柄名称Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料01_保険金等受取人続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料01_新旧Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料01_新旧Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料01_新旧Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料01_新旧Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料01_支払金額Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料01_支払金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料01_支払金額Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料01_支払金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料02_会社等名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料02_会社等名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料02_会社等名称Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料02_会社等名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料02_保険等種類Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料02_保険等種類Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料02_保険等種類Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料02_保険等種類Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料02_期間Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料02_期間Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料02_期間Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料02_期間Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料02_保険等契約者氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料02_保険等契約者氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料02_保険等契約者氏名Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料02_保険等契約者氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料02_保険金等受取人氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料02_保険金等受取人氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料02_保険金等受取人氏名Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料02_保険金等受取人氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料02_支払開始日Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料02_支払開始日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料02_支払開始日Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料02_支払開始日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料02_保険金等受取人続柄名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料02_保険金等受取人続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料02_保険金等受取人続柄名称Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料02_保険金等受取人続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料02_新旧Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料02_新旧Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料02_新旧Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料02_新旧Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料02_支払金額Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料02_支払金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料02_支払金額Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料02_支払金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料03_会社等名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料03_会社等名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料03_会社等名称Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料03_会社等名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料03_保険等種類Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料03_保険等種類Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料03_保険等種類Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料03_保険等種類Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料03_期間Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料03_期間Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料03_期間Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料03_期間Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料03_保険等契約者氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料03_保険等契約者氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料03_保険等契約者氏名Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料03_保険等契約者氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料03_保険金等受取人氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料03_保険金等受取人氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料03_保険金等受取人氏名Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料03_保険金等受取人氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料03_支払開始日Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料03_支払開始日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料03_支払開始日Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料03_支払開始日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料03_保険金等受取人続柄名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料03_保険金等受取人続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料03_保険金等受取人続柄名称Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料03_保険金等受取人続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料03_新旧Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料03_新旧Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料03_新旧Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料03_新旧Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料03_支払金額Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料03_支払金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料03_支払金額Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料03_支払金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料新保険料合計Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料新保険料合計Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料新保険料合計Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料新保険料合計Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料新保険料表計算Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料新保険料表計算Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料新保険料表計算Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料新保険料表計算Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料旧保険料合計Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料旧保険料合計Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料旧保険料合計Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料旧保険料合計Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料旧保険料表計算Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料旧保険料表計算Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料旧保険料表計算Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料旧保険料表計算Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料表合計Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料表合計Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料表合計Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料表合計Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料比較Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料比較Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料比較Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料比較Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is生命保険料控除額計Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.生命保険料控除額計Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set生命保険料控除額計Null() {
+                this[this.tableHokenDeclareDataTable.生命保険料控除額計Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除01_会社等名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除01_会社等名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除01_会社等名称Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除01_会社等名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除01_保険等種類Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除01_保険等種類Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除01_保険等種類Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除01_保険等種類Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除01_期間Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除01_期間Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除01_期間Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除01_期間Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除01_保険等契約者氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除01_保険等契約者氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除01_保険等契約者氏名Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除01_保険等契約者氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除01_保険等対象氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除01_保険等対象氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除01_保険等対象氏名Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除01_保険等対象氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除01_保険等対象続柄名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除01_保険等対象続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除01_保険等対象続柄名称Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除01_保険等対象続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除01_地震旧長期Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除01_地震旧長期Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除01_地震旧長期Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除01_地震旧長期Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除01_支払保険料Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除01_支払保険料Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除01_支払保険料Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除01_支払保険料Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除02_会社等名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除02_会社等名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除02_会社等名称Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除02_会社等名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除02_保険等種類Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除02_保険等種類Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除02_保険等種類Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除02_保険等種類Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除02_期間Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除02_期間Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除02_期間Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除02_期間Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除02_保険等契約者氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除02_保険等契約者氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除02_保険等契約者氏名Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除02_保険等契約者氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除02_保険等対象氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除02_保険等対象氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除02_保険等対象氏名Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除02_保険等対象氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除02_保険等対象続柄名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除02_保険等対象続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除02_保険等対象続柄名称Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除02_保険等対象続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除02_地震旧長期Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除02_地震旧長期Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除02_地震旧長期Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除02_地震旧長期Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除02_支払保険料Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除02_支払保険料Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除02_支払保険料Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除02_支払保険料Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除地震保険料合計Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除地震保険料合計Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除地震保険料合計Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除地震保険料合計Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除旧長期損害保険料合計Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除旧長期損害保険料合計Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除旧長期損害保険料合計Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除旧長期損害保険料合計Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除額金額01Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除額金額01Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除額金額01Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除額金額01Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除額金額02Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除額金額02Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除額金額02Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除額金額02Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除額金額合計Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除額金額合計Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除額金額合計Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除額金額合計Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is社会保険料控除01_社会保険種類Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.社会保険料控除01_社会保険種類Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set社会保険料控除01_社会保険種類Null() {
+                this[this.tableHokenDeclareDataTable.社会保険料控除01_社会保険種類Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is社会保険料控除01_支払先名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.社会保険料控除01_支払先名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set社会保険料控除01_支払先名称Null() {
+                this[this.tableHokenDeclareDataTable.社会保険料控除01_支払先名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is社会保険料控除01_負担者氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.社会保険料控除01_負担者氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set社会保険料控除01_負担者氏名Null() {
+                this[this.tableHokenDeclareDataTable.社会保険料控除01_負担者氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is社会保険料控除01_負担者続柄名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.社会保険料控除01_負担者続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set社会保険料控除01_負担者続柄名称Null() {
+                this[this.tableHokenDeclareDataTable.社会保険料控除01_負担者続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is社会保険料控除01_支払保険料Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.社会保険料控除01_支払保険料Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set社会保険料控除01_支払保険料Null() {
+                this[this.tableHokenDeclareDataTable.社会保険料控除01_支払保険料Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is社会保険料控除02_社会保険種類Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.社会保険料控除02_社会保険種類Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set社会保険料控除02_社会保険種類Null() {
+                this[this.tableHokenDeclareDataTable.社会保険料控除02_社会保険種類Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is社会保険料控除02_支払先名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.社会保険料控除02_支払先名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set社会保険料控除02_支払先名称Null() {
+                this[this.tableHokenDeclareDataTable.社会保険料控除02_支払先名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is社会保険料控除02_負担者氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.社会保険料控除02_負担者氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set社会保険料控除02_負担者氏名Null() {
+                this[this.tableHokenDeclareDataTable.社会保険料控除02_負担者氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is社会保険料控除02_負担者続柄名称Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.社会保険料控除02_負担者続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set社会保険料控除02_負担者続柄名称Null() {
+                this[this.tableHokenDeclareDataTable.社会保険料控除02_負担者続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is社会保険料控除02_支払保険料Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.社会保険料控除02_支払保険料Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set社会保険料控除02_支払保険料Null() {
+                this[this.tableHokenDeclareDataTable.社会保険料控除02_支払保険料Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is社会保険料控除合計Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.社会保険料控除合計Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set社会保険料控除合計Null() {
+                this[this.tableHokenDeclareDataTable.社会保険料控除合計Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is共済契約掛金Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.共済契約掛金Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set共済契約掛金Null() {
+                this[this.tableHokenDeclareDataTable.共済契約掛金Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is企業型年金加入者掛金Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.企業型年金加入者掛金Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set企業型年金加入者掛金Null() {
+                this[this.tableHokenDeclareDataTable.企業型年金加入者掛金Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人型年金加入者掛金Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人型年金加入者掛金Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人型年金加入者掛金Null() {
+                this[this.tableHokenDeclareDataTable.個人型年金加入者掛金Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is心身障害者扶養共済制度契約掛金Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.心身障害者扶養共済制度契約掛金Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set心身障害者扶養共済制度契約掛金Null() {
+                this[this.tableHokenDeclareDataTable.心身障害者扶養共済制度契約掛金Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is小規模企業共済等掛金控除合計Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.小規模企業共済等掛金控除合計Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set小規模企業共済等掛金控除合計Null() {
+                this[this.tableHokenDeclareDataTable.小規模企業共済等掛金控除合計Column] = global::System.Convert.DBNull;
             }
         }
         
