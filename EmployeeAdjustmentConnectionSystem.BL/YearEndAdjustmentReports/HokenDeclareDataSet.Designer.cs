@@ -1934,7 +1934,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 個人年金保険料01_期間, 
                         string 個人年金保険料01_保険等契約者氏名, 
                         string 個人年金保険料01_保険金等受取人氏名, 
-                        System.DateTime 個人年金保険料01_支払開始日, 
+                        string 個人年金保険料01_支払開始日, 
                         string 個人年金保険料01_保険金等受取人続柄名称, 
                         string 個人年金保険料01_新旧, 
                         decimal 個人年金保険料01_支払金額, 
@@ -1943,7 +1943,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 個人年金保険料02_期間, 
                         string 個人年金保険料02_保険等契約者氏名, 
                         string 個人年金保険料02_保険金等受取人氏名, 
-                        System.DateTime 個人年金保険料02_支払開始日, 
+                        string 個人年金保険料02_支払開始日, 
                         string 個人年金保険料02_保険金等受取人続柄名称, 
                         string 個人年金保険料02_新旧, 
                         decimal 個人年金保険料02_支払金額, 
@@ -1952,7 +1952,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 個人年金保険料03_期間, 
                         string 個人年金保険料03_保険等契約者氏名, 
                         string 個人年金保険料03_保険金等受取人氏名, 
-                        System.DateTime 個人年金保険料03_支払開始日, 
+                        string 個人年金保険料03_支払開始日, 
                         string 個人年金保険料03_保険金等受取人続柄名称, 
                         string 個人年金保険料03_新旧, 
                         decimal 個人年金保険料03_支払金額, 
@@ -2497,7 +2497,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column個人年金保険料01_保険等契約者氏名);
                 this.column個人年金保険料01_保険金等受取人氏名 = new global::System.Data.DataColumn("個人年金保険料01_保険金等受取人氏名", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column個人年金保険料01_保険金等受取人氏名);
-                this.column個人年金保険料01_支払開始日 = new global::System.Data.DataColumn("個人年金保険料01_支払開始日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.column個人年金保険料01_支払開始日 = new global::System.Data.DataColumn("個人年金保険料01_支払開始日", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column個人年金保険料01_支払開始日);
                 this.column個人年金保険料01_保険金等受取人続柄名称 = new global::System.Data.DataColumn("個人年金保険料01_保険金等受取人続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column個人年金保険料01_保険金等受取人続柄名称);
@@ -2515,7 +2515,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column個人年金保険料02_保険等契約者氏名);
                 this.column個人年金保険料02_保険金等受取人氏名 = new global::System.Data.DataColumn("個人年金保険料02_保険金等受取人氏名", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column個人年金保険料02_保険金等受取人氏名);
-                this.column個人年金保険料02_支払開始日 = new global::System.Data.DataColumn("個人年金保険料02_支払開始日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.column個人年金保険料02_支払開始日 = new global::System.Data.DataColumn("個人年金保険料02_支払開始日", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column個人年金保険料02_支払開始日);
                 this.column個人年金保険料02_保険金等受取人続柄名称 = new global::System.Data.DataColumn("個人年金保険料02_保険金等受取人続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column個人年金保険料02_保険金等受取人続柄名称);
@@ -2533,7 +2533,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column個人年金保険料03_保険等契約者氏名);
                 this.column個人年金保険料03_保険金等受取人氏名 = new global::System.Data.DataColumn("個人年金保険料03_保険金等受取人氏名", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column個人年金保険料03_保険金等受取人氏名);
-                this.column個人年金保険料03_支払開始日 = new global::System.Data.DataColumn("個人年金保険料03_支払開始日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.column個人年金保険料03_支払開始日 = new global::System.Data.DataColumn("個人年金保険料03_支払開始日", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column個人年金保険料03_支払開始日);
                 this.column個人年金保険料03_保険金等受取人続柄名称 = new global::System.Data.DataColumn("個人年金保険料03_保険金等受取人続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column個人年金保険料03_保険金等受取人続柄名称);
@@ -4115,10 +4115,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime 個人年金保険料01_支払開始日 {
+            public string 個人年金保険料01_支払開始日 {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableHokenDeclareDataTable.個人年金保険料01_支払開始日Column]));
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料01_支払開始日Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料01_支払開始日\' の値は DBNull です。", e);
@@ -4259,10 +4259,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime 個人年金保険料02_支払開始日 {
+            public string 個人年金保険料02_支払開始日 {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableHokenDeclareDataTable.個人年金保険料02_支払開始日Column]));
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料02_支払開始日Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料02_支払開始日\' の値は DBNull です。", e);
@@ -4403,10 +4403,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime 個人年金保険料03_支払開始日 {
+            public string 個人年金保険料03_支払開始日 {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableHokenDeclareDataTable.個人年金保険料03_支払開始日Column]));
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料03_支払開始日Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料03_支払開始日\' の値は DBNull です。", e);

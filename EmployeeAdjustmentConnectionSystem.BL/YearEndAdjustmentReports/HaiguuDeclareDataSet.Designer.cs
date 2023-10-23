@@ -1020,7 +1020,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 配偶者控除申告書_氏名, 
                         string 配偶者控除申告書_Kana, 
                         string 配偶者控除申告書_続柄名称, 
-                        string 配偶者控除申告書_生年月日, 
+                        System.DateTime 配偶者控除申告書_生年月日, 
                         string 配偶者控除申告書_表示生年月日, 
                         string 配偶者控除申告書_生年月日年号名称, 
                         string 配偶者控除申告書_生年月日年, 
@@ -1039,7 +1039,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 所得金額調整控除申告書_要件区分, 
                         string 所得金額調整控除申告書_扶養親族等氏名, 
                         string 所得金額調整控除申告書_扶養親族等Kana, 
-                        string 所得金額調整控除申告書_扶養親族等生年月日, 
+                        System.DateTime 所得金額調整控除申告書_扶養親族等生年月日, 
                         string 所得金額調整控除申告書_扶養親族等表示生年月日, 
                         string 所得金額調整控除申告書_扶養親族等表示生年月日年号名称, 
                         string 所得金額調整控除申告書_扶養親族等表示生年月日年, 
@@ -1264,7 +1264,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column配偶者控除申告書_Kana);
                 this.column配偶者控除申告書_続柄名称 = new global::System.Data.DataColumn("配偶者控除申告書_続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_続柄名称);
-                this.column配偶者控除申告書_生年月日 = new global::System.Data.DataColumn("配偶者控除申告書_生年月日", typeof(string), null, global::System.Data.MappingType.Element);
+                this.column配偶者控除申告書_生年月日 = new global::System.Data.DataColumn("配偶者控除申告書_生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_生年月日);
                 this.column配偶者控除申告書_表示生年月日 = new global::System.Data.DataColumn("配偶者控除申告書_表示生年月日", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_表示生年月日);
@@ -1302,7 +1302,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等氏名);
                 this.column所得金額調整控除申告書_扶養親族等Kana = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等Kana", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等Kana);
-                this.column所得金額調整控除申告書_扶養親族等生年月日 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等生年月日", typeof(string), null, global::System.Data.MappingType.Element);
+                this.column所得金額調整控除申告書_扶養親族等生年月日 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等生年月日);
                 this.column所得金額調整控除申告書_扶養親族等表示生年月日 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等表示生年月日", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等表示生年月日);
@@ -1817,10 +1817,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 配偶者控除申告書_生年月日 {
+            public System.DateTime 配偶者控除申告書_生年月日 {
                 get {
                     try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_生年月日Column]));
+                        return ((global::System.DateTime)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_生年月日Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'配偶者控除申告書_生年月日\' の値は DBNull です。", e);
@@ -2121,10 +2121,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 所得金額調整控除申告書_扶養親族等生年月日 {
+            public System.DateTime 所得金額調整控除申告書_扶養親族等生年月日 {
                 get {
                     try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.所得金額調整控除申告書_扶養親族等生年月日Column]));
+                        return ((global::System.DateTime)(this[this.tableHaiguuDeclareDataTable.所得金額調整控除申告書_扶養親族等生年月日Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'所得金額調整控除申告書_扶養親族等生年月日\' の値は DBNull です。", e);
