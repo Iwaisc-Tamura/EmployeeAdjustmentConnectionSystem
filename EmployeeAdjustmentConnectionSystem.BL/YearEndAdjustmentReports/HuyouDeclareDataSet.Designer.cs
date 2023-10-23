@@ -281,9 +281,391 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             private global::System.Data.DataColumn column対象年度;
             
+            private global::System.Data.DataColumn column表示年;
+            
+            private global::System.Data.DataColumn column表示元号;
+            
             private global::System.Data.DataColumn column社員番号;
             
+            private global::System.Data.DataColumn column本人確定区分;
+            
+            private global::System.Data.DataColumn column管理者確定区分;
+            
+            private global::System.Data.DataColumn column個人番号相違確認区分;
+            
+            private global::System.Data.DataColumn column所属番号;
+            
             private global::System.Data.DataColumn column氏名;
+            
+            private global::System.Data.DataColumn columnKana;
+            
+            private global::System.Data.DataColumn column生年月日;
+            
+            private global::System.Data.DataColumn column生年月日年号;
+            
+            private global::System.Data.DataColumn column生年月日年;
+            
+            private global::System.Data.DataColumn column生年月日月;
+            
+            private global::System.Data.DataColumn column生年月日日;
+            
+            private global::System.Data.DataColumn column世帯主氏名;
+            
+            private global::System.Data.DataColumn column世帯主続柄名称;
+            
+            private global::System.Data.DataColumn column郵便番号_前;
+            
+            private global::System.Data.DataColumn column郵便番号_後;
+            
+            private global::System.Data.DataColumn column住所01;
+            
+            private global::System.Data.DataColumn column配偶者有無;
+            
+            private global::System.Data.DataColumn columnSequence番号;
+            
+            private global::System.Data.DataColumn column源泉控除対象配偶者対象外区分;
+            
+            private global::System.Data.DataColumn column源泉控除対象配偶者氏名;
+            
+            private global::System.Data.DataColumn column源泉控除対象配偶者Kana;
+            
+            private global::System.Data.DataColumn column源泉控除対象配偶者生年月日;
+            
+            private global::System.Data.DataColumn column源泉控除対象配偶者生年月日年号;
+            
+            private global::System.Data.DataColumn column源泉控除対象配偶者生年月日年;
+            
+            private global::System.Data.DataColumn column源泉控除対象配偶者生年月日月;
+            
+            private global::System.Data.DataColumn column源泉控除対象配偶者生年月日日;
+            
+            private global::System.Data.DataColumn column源泉控除対象配偶者所得見積額;
+            
+            private global::System.Data.DataColumn column源泉控除対象配偶者非居住者;
+            
+            private global::System.Data.DataColumn column源泉控除対象配偶者住所;
+            
+            private global::System.Data.DataColumn column源泉控除対象配偶者異動月日;
+            
+            private global::System.Data.DataColumn column源泉控除対象配偶者事由;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_対象外区分;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_氏名;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_Kana;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_続柄名称;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_生年月日;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_生年月日年号;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_生年月日年;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_生年月日月;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_生年月日日;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_老人扶養親族区分;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_特定扶養親族区分;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_所得見積額;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_非居住者;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_住所;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_異動月日;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族01_事由;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_対象外区分;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_氏名;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_Kana;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_続柄名称;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_生年月日;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_生年月日年号;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_生年月日年;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_生年月日月;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_生年月日日;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_老人扶養親族区分;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_特定扶養親族区分;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_所得見積額;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_非居住者;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_住所;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_異動月日;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族02_事由;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_対象外区分;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_氏名;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_Kana;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_続柄名称;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_生年月日;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_生年月日年号;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_生年月日年;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_生年月日月;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_生年月日日;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_老人扶養親族区分;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_特定扶養親族区分;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_所得見積額;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_非居住者;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_住所;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_異動月日;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族03_事由;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_対象外区分;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_氏名;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_Kana;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_続柄名称;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_生年月日;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_生年月日年号;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_生年月日年;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_生年月日月;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_生年月日日;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_老人扶養親族区分;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_特定扶養親族区分;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_所得見積額;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_非居住者;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_住所;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_異動月日;
+            
+            private global::System.Data.DataColumn column控除対象扶養親族04_事由;
+            
+            private global::System.Data.DataColumn column障害者;
+            
+            private global::System.Data.DataColumn column一般障害_本人;
+            
+            private global::System.Data.DataColumn column一般障害_同一生計配偶者;
+            
+            private global::System.Data.DataColumn column一般障害_扶養親族;
+            
+            private global::System.Data.DataColumn column一般障害_扶養親族人数;
+            
+            private global::System.Data.DataColumn column特別障害者_本人;
+            
+            private global::System.Data.DataColumn column特別障害者_同一生計配偶者;
+            
+            private global::System.Data.DataColumn column特別障害者_扶養親族;
+            
+            private global::System.Data.DataColumn column特別障害者_扶養親族人数;
+            
+            private global::System.Data.DataColumn column同居特別障害者_同一生計配偶者;
+            
+            private global::System.Data.DataColumn column同居特別障害者_扶養親族;
+            
+            private global::System.Data.DataColumn column同居特別障害者_扶養親族人数;
+            
+            private global::System.Data.DataColumn column寡婦一人親区分;
+            
+            private global::System.Data.DataColumn column理由区分;
+            
+            private global::System.Data.DataColumn column発生年月日;
+            
+            private global::System.Data.DataColumn column勤労学生;
+            
+            private global::System.Data.DataColumn column障害異動月日;
+            
+            private global::System.Data.DataColumn column障害事由;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_対象外区分;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_氏名;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_Kana;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_続柄名称;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_生年月日;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_生年月日年号;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_生年月日年;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_生年月日月;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_生年月日日;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_同上区分;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_住所;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_国外区分;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_所得見積額;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_異動月日;
+            
+            private global::System.Data.DataColumn column扶養親族16未満01_事由;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_対象外区分;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_氏名;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_Kana;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_続柄名称;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_生年月日;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_生年月日年号;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_生年月日年;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_生年月日月;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_生年月日日;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_同上区分;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_住所;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_国外区分;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_所得見積額;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_異動月日;
+            
+            private global::System.Data.DataColumn column扶養親族16未満02_事由;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_対象外区分;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_氏名;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_Kana;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_続柄名称;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_生年月日;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_生年月日年号;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_生年月日年;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_生年月日月;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_生年月日日;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_同上区分;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_住所;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_国外区分;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_所得見積額;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_異動月日;
+            
+            private global::System.Data.DataColumn column扶養親族16未満03_事由;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_対象外区分;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_氏名;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_Kana;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_続柄名称;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_生年月日;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_生年月日年号;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_生年月日年;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_生年月日月;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_生年月日日;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_同上区分;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_住所;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_国外区分;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_所得見積額;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_異動月日;
+            
+            private global::System.Data.DataColumn column扶養親族16未満04_事由;
+            
+            private global::System.Data.DataColumn column法人個人番号01;
+            
+            private global::System.Data.DataColumn column法人個人番号02;
+            
+            private global::System.Data.DataColumn column法人個人番号03;
+            
+            private global::System.Data.DataColumn column法人個人番号04;
+            
+            private global::System.Data.DataColumn column法人個人番号05;
+            
+            private global::System.Data.DataColumn column法人個人番号06;
+            
+            private global::System.Data.DataColumn column法人個人番号07;
+            
+            private global::System.Data.DataColumn column法人個人番号08;
+            
+            private global::System.Data.DataColumn column法人個人番号09;
+            
+            private global::System.Data.DataColumn column法人個人番号10;
+            
+            private global::System.Data.DataColumn column法人個人番号11;
+            
+            private global::System.Data.DataColumn column法人個人番号12;
+            
+            private global::System.Data.DataColumn column法人個人番号13;
+            
+            private global::System.Data.DataColumn column税務署長;
+            
+            private global::System.Data.DataColumn column市区町村長;
+            
+            private global::System.Data.DataColumn column給与支払者名称;
+            
+            private global::System.Data.DataColumn column給与支払者所在地;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -328,6 +710,22 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 表示年Column {
+                get {
+                    return this.column表示年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 表示元号Column {
+                get {
+                    return this.column表示元号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn 社員番号Column {
                 get {
                     return this.column社員番号;
@@ -336,9 +734,1521 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 本人確定区分Column {
+                get {
+                    return this.column本人確定区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 管理者確定区分Column {
+                get {
+                    return this.column管理者確定区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人番号相違確認区分Column {
+                get {
+                    return this.column個人番号相違確認区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所属番号Column {
+                get {
+                    return this.column所属番号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn 氏名Column {
                 get {
                     return this.column氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn KanaColumn {
+                get {
+                    return this.columnKana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 生年月日Column {
+                get {
+                    return this.column生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 生年月日年号Column {
+                get {
+                    return this.column生年月日年号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 生年月日年Column {
+                get {
+                    return this.column生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 生年月日月Column {
+                get {
+                    return this.column生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 生年月日日Column {
+                get {
+                    return this.column生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 世帯主氏名Column {
+                get {
+                    return this.column世帯主氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 世帯主続柄名称Column {
+                get {
+                    return this.column世帯主続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 郵便番号_前Column {
+                get {
+                    return this.column郵便番号_前;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 郵便番号_後Column {
+                get {
+                    return this.column郵便番号_後;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 住所01Column {
+                get {
+                    return this.column住所01;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者有無Column {
+                get {
+                    return this.column配偶者有無;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Sequence番号Column {
+                get {
+                    return this.columnSequence番号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 源泉控除対象配偶者対象外区分Column {
+                get {
+                    return this.column源泉控除対象配偶者対象外区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 源泉控除対象配偶者氏名Column {
+                get {
+                    return this.column源泉控除対象配偶者氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 源泉控除対象配偶者KanaColumn {
+                get {
+                    return this.column源泉控除対象配偶者Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 源泉控除対象配偶者生年月日Column {
+                get {
+                    return this.column源泉控除対象配偶者生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 源泉控除対象配偶者生年月日年号Column {
+                get {
+                    return this.column源泉控除対象配偶者生年月日年号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 源泉控除対象配偶者生年月日年Column {
+                get {
+                    return this.column源泉控除対象配偶者生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 源泉控除対象配偶者生年月日月Column {
+                get {
+                    return this.column源泉控除対象配偶者生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 源泉控除対象配偶者生年月日日Column {
+                get {
+                    return this.column源泉控除対象配偶者生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 源泉控除対象配偶者所得見積額Column {
+                get {
+                    return this.column源泉控除対象配偶者所得見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 源泉控除対象配偶者非居住者Column {
+                get {
+                    return this.column源泉控除対象配偶者非居住者;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 源泉控除対象配偶者住所Column {
+                get {
+                    return this.column源泉控除対象配偶者住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 源泉控除対象配偶者異動月日Column {
+                get {
+                    return this.column源泉控除対象配偶者異動月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 源泉控除対象配偶者事由Column {
+                get {
+                    return this.column源泉控除対象配偶者事由;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_対象外区分Column {
+                get {
+                    return this.column控除対象扶養親族01_対象外区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_氏名Column {
+                get {
+                    return this.column控除対象扶養親族01_氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_KanaColumn {
+                get {
+                    return this.column控除対象扶養親族01_Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_続柄名称Column {
+                get {
+                    return this.column控除対象扶養親族01_続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_生年月日Column {
+                get {
+                    return this.column控除対象扶養親族01_生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_生年月日年号Column {
+                get {
+                    return this.column控除対象扶養親族01_生年月日年号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_生年月日年Column {
+                get {
+                    return this.column控除対象扶養親族01_生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_生年月日月Column {
+                get {
+                    return this.column控除対象扶養親族01_生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_生年月日日Column {
+                get {
+                    return this.column控除対象扶養親族01_生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_老人扶養親族区分Column {
+                get {
+                    return this.column控除対象扶養親族01_老人扶養親族区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_特定扶養親族区分Column {
+                get {
+                    return this.column控除対象扶養親族01_特定扶養親族区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_所得見積額Column {
+                get {
+                    return this.column控除対象扶養親族01_所得見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_非居住者Column {
+                get {
+                    return this.column控除対象扶養親族01_非居住者;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_住所Column {
+                get {
+                    return this.column控除対象扶養親族01_住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_異動月日Column {
+                get {
+                    return this.column控除対象扶養親族01_異動月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族01_事由Column {
+                get {
+                    return this.column控除対象扶養親族01_事由;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_対象外区分Column {
+                get {
+                    return this.column控除対象扶養親族02_対象外区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_氏名Column {
+                get {
+                    return this.column控除対象扶養親族02_氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_KanaColumn {
+                get {
+                    return this.column控除対象扶養親族02_Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_続柄名称Column {
+                get {
+                    return this.column控除対象扶養親族02_続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_生年月日Column {
+                get {
+                    return this.column控除対象扶養親族02_生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_生年月日年号Column {
+                get {
+                    return this.column控除対象扶養親族02_生年月日年号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_生年月日年Column {
+                get {
+                    return this.column控除対象扶養親族02_生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_生年月日月Column {
+                get {
+                    return this.column控除対象扶養親族02_生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_生年月日日Column {
+                get {
+                    return this.column控除対象扶養親族02_生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_老人扶養親族区分Column {
+                get {
+                    return this.column控除対象扶養親族02_老人扶養親族区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_特定扶養親族区分Column {
+                get {
+                    return this.column控除対象扶養親族02_特定扶養親族区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_所得見積額Column {
+                get {
+                    return this.column控除対象扶養親族02_所得見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_非居住者Column {
+                get {
+                    return this.column控除対象扶養親族02_非居住者;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_住所Column {
+                get {
+                    return this.column控除対象扶養親族02_住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_異動月日Column {
+                get {
+                    return this.column控除対象扶養親族02_異動月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族02_事由Column {
+                get {
+                    return this.column控除対象扶養親族02_事由;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_対象外区分Column {
+                get {
+                    return this.column控除対象扶養親族03_対象外区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_氏名Column {
+                get {
+                    return this.column控除対象扶養親族03_氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_KanaColumn {
+                get {
+                    return this.column控除対象扶養親族03_Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_続柄名称Column {
+                get {
+                    return this.column控除対象扶養親族03_続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_生年月日Column {
+                get {
+                    return this.column控除対象扶養親族03_生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_生年月日年号Column {
+                get {
+                    return this.column控除対象扶養親族03_生年月日年号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_生年月日年Column {
+                get {
+                    return this.column控除対象扶養親族03_生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_生年月日月Column {
+                get {
+                    return this.column控除対象扶養親族03_生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_生年月日日Column {
+                get {
+                    return this.column控除対象扶養親族03_生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_老人扶養親族区分Column {
+                get {
+                    return this.column控除対象扶養親族03_老人扶養親族区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_特定扶養親族区分Column {
+                get {
+                    return this.column控除対象扶養親族03_特定扶養親族区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_所得見積額Column {
+                get {
+                    return this.column控除対象扶養親族03_所得見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_非居住者Column {
+                get {
+                    return this.column控除対象扶養親族03_非居住者;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_住所Column {
+                get {
+                    return this.column控除対象扶養親族03_住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_異動月日Column {
+                get {
+                    return this.column控除対象扶養親族03_異動月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族03_事由Column {
+                get {
+                    return this.column控除対象扶養親族03_事由;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_対象外区分Column {
+                get {
+                    return this.column控除対象扶養親族04_対象外区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_氏名Column {
+                get {
+                    return this.column控除対象扶養親族04_氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_KanaColumn {
+                get {
+                    return this.column控除対象扶養親族04_Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_続柄名称Column {
+                get {
+                    return this.column控除対象扶養親族04_続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_生年月日Column {
+                get {
+                    return this.column控除対象扶養親族04_生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_生年月日年号Column {
+                get {
+                    return this.column控除対象扶養親族04_生年月日年号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_生年月日年Column {
+                get {
+                    return this.column控除対象扶養親族04_生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_生年月日月Column {
+                get {
+                    return this.column控除対象扶養親族04_生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_生年月日日Column {
+                get {
+                    return this.column控除対象扶養親族04_生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_老人扶養親族区分Column {
+                get {
+                    return this.column控除対象扶養親族04_老人扶養親族区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_特定扶養親族区分Column {
+                get {
+                    return this.column控除対象扶養親族04_特定扶養親族区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_所得見積額Column {
+                get {
+                    return this.column控除対象扶養親族04_所得見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_非居住者Column {
+                get {
+                    return this.column控除対象扶養親族04_非居住者;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_住所Column {
+                get {
+                    return this.column控除対象扶養親族04_住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_異動月日Column {
+                get {
+                    return this.column控除対象扶養親族04_異動月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 控除対象扶養親族04_事由Column {
+                get {
+                    return this.column控除対象扶養親族04_事由;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 障害者Column {
+                get {
+                    return this.column障害者;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般障害_本人Column {
+                get {
+                    return this.column一般障害_本人;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般障害_同一生計配偶者Column {
+                get {
+                    return this.column一般障害_同一生計配偶者;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般障害_扶養親族Column {
+                get {
+                    return this.column一般障害_扶養親族;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般障害_扶養親族人数Column {
+                get {
+                    return this.column一般障害_扶養親族人数;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特別障害者_本人Column {
+                get {
+                    return this.column特別障害者_本人;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特別障害者_同一生計配偶者Column {
+                get {
+                    return this.column特別障害者_同一生計配偶者;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特別障害者_扶養親族Column {
+                get {
+                    return this.column特別障害者_扶養親族;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特別障害者_扶養親族人数Column {
+                get {
+                    return this.column特別障害者_扶養親族人数;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 同居特別障害者_同一生計配偶者Column {
+                get {
+                    return this.column同居特別障害者_同一生計配偶者;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 同居特別障害者_扶養親族Column {
+                get {
+                    return this.column同居特別障害者_扶養親族;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 同居特別障害者_扶養親族人数Column {
+                get {
+                    return this.column同居特別障害者_扶養親族人数;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 寡婦一人親区分Column {
+                get {
+                    return this.column寡婦一人親区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 理由区分Column {
+                get {
+                    return this.column理由区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 発生年月日Column {
+                get {
+                    return this.column発生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 勤労学生Column {
+                get {
+                    return this.column勤労学生;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 障害異動月日Column {
+                get {
+                    return this.column障害異動月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 障害事由Column {
+                get {
+                    return this.column障害事由;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_対象外区分Column {
+                get {
+                    return this.column扶養親族16未満01_対象外区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_氏名Column {
+                get {
+                    return this.column扶養親族16未満01_氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_KanaColumn {
+                get {
+                    return this.column扶養親族16未満01_Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_続柄名称Column {
+                get {
+                    return this.column扶養親族16未満01_続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_生年月日Column {
+                get {
+                    return this.column扶養親族16未満01_生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_生年月日年号Column {
+                get {
+                    return this.column扶養親族16未満01_生年月日年号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_生年月日年Column {
+                get {
+                    return this.column扶養親族16未満01_生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_生年月日月Column {
+                get {
+                    return this.column扶養親族16未満01_生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_生年月日日Column {
+                get {
+                    return this.column扶養親族16未満01_生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_同上区分Column {
+                get {
+                    return this.column扶養親族16未満01_同上区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_住所Column {
+                get {
+                    return this.column扶養親族16未満01_住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_国外区分Column {
+                get {
+                    return this.column扶養親族16未満01_国外区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_所得見積額Column {
+                get {
+                    return this.column扶養親族16未満01_所得見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_異動月日Column {
+                get {
+                    return this.column扶養親族16未満01_異動月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満01_事由Column {
+                get {
+                    return this.column扶養親族16未満01_事由;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_対象外区分Column {
+                get {
+                    return this.column扶養親族16未満02_対象外区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_氏名Column {
+                get {
+                    return this.column扶養親族16未満02_氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_KanaColumn {
+                get {
+                    return this.column扶養親族16未満02_Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_続柄名称Column {
+                get {
+                    return this.column扶養親族16未満02_続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_生年月日Column {
+                get {
+                    return this.column扶養親族16未満02_生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_生年月日年号Column {
+                get {
+                    return this.column扶養親族16未満02_生年月日年号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_生年月日年Column {
+                get {
+                    return this.column扶養親族16未満02_生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_生年月日月Column {
+                get {
+                    return this.column扶養親族16未満02_生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_生年月日日Column {
+                get {
+                    return this.column扶養親族16未満02_生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_同上区分Column {
+                get {
+                    return this.column扶養親族16未満02_同上区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_住所Column {
+                get {
+                    return this.column扶養親族16未満02_住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_国外区分Column {
+                get {
+                    return this.column扶養親族16未満02_国外区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_所得見積額Column {
+                get {
+                    return this.column扶養親族16未満02_所得見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_異動月日Column {
+                get {
+                    return this.column扶養親族16未満02_異動月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満02_事由Column {
+                get {
+                    return this.column扶養親族16未満02_事由;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_対象外区分Column {
+                get {
+                    return this.column扶養親族16未満03_対象外区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_氏名Column {
+                get {
+                    return this.column扶養親族16未満03_氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_KanaColumn {
+                get {
+                    return this.column扶養親族16未満03_Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_続柄名称Column {
+                get {
+                    return this.column扶養親族16未満03_続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_生年月日Column {
+                get {
+                    return this.column扶養親族16未満03_生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_生年月日年号Column {
+                get {
+                    return this.column扶養親族16未満03_生年月日年号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_生年月日年Column {
+                get {
+                    return this.column扶養親族16未満03_生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_生年月日月Column {
+                get {
+                    return this.column扶養親族16未満03_生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_生年月日日Column {
+                get {
+                    return this.column扶養親族16未満03_生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_同上区分Column {
+                get {
+                    return this.column扶養親族16未満03_同上区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_住所Column {
+                get {
+                    return this.column扶養親族16未満03_住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_国外区分Column {
+                get {
+                    return this.column扶養親族16未満03_国外区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_所得見積額Column {
+                get {
+                    return this.column扶養親族16未満03_所得見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_異動月日Column {
+                get {
+                    return this.column扶養親族16未満03_異動月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満03_事由Column {
+                get {
+                    return this.column扶養親族16未満03_事由;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_対象外区分Column {
+                get {
+                    return this.column扶養親族16未満04_対象外区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_氏名Column {
+                get {
+                    return this.column扶養親族16未満04_氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_KanaColumn {
+                get {
+                    return this.column扶養親族16未満04_Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_続柄名称Column {
+                get {
+                    return this.column扶養親族16未満04_続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_生年月日Column {
+                get {
+                    return this.column扶養親族16未満04_生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_生年月日年号Column {
+                get {
+                    return this.column扶養親族16未満04_生年月日年号;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_生年月日年Column {
+                get {
+                    return this.column扶養親族16未満04_生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_生年月日月Column {
+                get {
+                    return this.column扶養親族16未満04_生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_生年月日日Column {
+                get {
+                    return this.column扶養親族16未満04_生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_同上区分Column {
+                get {
+                    return this.column扶養親族16未満04_同上区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_住所Column {
+                get {
+                    return this.column扶養親族16未満04_住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_国外区分Column {
+                get {
+                    return this.column扶養親族16未満04_国外区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_所得見積額Column {
+                get {
+                    return this.column扶養親族16未満04_所得見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_異動月日Column {
+                get {
+                    return this.column扶養親族16未満04_異動月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族16未満04_事由Column {
+                get {
+                    return this.column扶養親族16未満04_事由;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号01Column {
+                get {
+                    return this.column法人個人番号01;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号02Column {
+                get {
+                    return this.column法人個人番号02;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号03Column {
+                get {
+                    return this.column法人個人番号03;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号04Column {
+                get {
+                    return this.column法人個人番号04;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号05Column {
+                get {
+                    return this.column法人個人番号05;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号06Column {
+                get {
+                    return this.column法人個人番号06;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号07Column {
+                get {
+                    return this.column法人個人番号07;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号08Column {
+                get {
+                    return this.column法人個人番号08;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号09Column {
+                get {
+                    return this.column法人個人番号09;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号10Column {
+                get {
+                    return this.column法人個人番号10;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号11Column {
+                get {
+                    return this.column法人個人番号11;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号12Column {
+                get {
+                    return this.column法人個人番号12;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 法人個人番号13Column {
+                get {
+                    return this.column法人個人番号13;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 税務署長Column {
+                get {
+                    return this.column税務署長;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 市区町村長Column {
+                get {
+                    return this.column市区町村長;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 給与支払者名称Column {
+                get {
+                    return this.column給与支払者名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 給与支払者所在地Column {
+                get {
+                    return this.column給与支払者所在地;
                 }
             }
             
@@ -379,12 +2289,397 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public HuyouDeclareDataTableRow AddHuyouDeclareDataTableRow(string 対象年度, string 社員番号, string 氏名) {
+            public HuyouDeclareDataTableRow AddHuyouDeclareDataTableRow(
+                        string 対象年度, 
+                        string 表示年, 
+                        string 表示元号, 
+                        string 社員番号, 
+                        string 本人確定区分, 
+                        string 管理者確定区分, 
+                        string 個人番号相違確認区分, 
+                        short 所属番号, 
+                        string 氏名, 
+                        string Kana, 
+                        System.DateTime 生年月日, 
+                        string 生年月日年号, 
+                        string 生年月日年, 
+                        string 生年月日月, 
+                        string 生年月日日, 
+                        string 世帯主氏名, 
+                        string 世帯主続柄名称, 
+                        string 郵便番号_前, 
+                        string 郵便番号_後, 
+                        string 住所01, 
+                        string 配偶者有無, 
+                        string Sequence番号, 
+                        string 源泉控除対象配偶者対象外区分, 
+                        string 源泉控除対象配偶者氏名, 
+                        string 源泉控除対象配偶者Kana, 
+                        System.DateTime 源泉控除対象配偶者生年月日, 
+                        string 源泉控除対象配偶者生年月日年号, 
+                        string 源泉控除対象配偶者生年月日年, 
+                        string 源泉控除対象配偶者生年月日月, 
+                        string 源泉控除対象配偶者生年月日日, 
+                        decimal 源泉控除対象配偶者所得見積額, 
+                        string 源泉控除対象配偶者非居住者, 
+                        string 源泉控除対象配偶者住所, 
+                        System.DateTime 源泉控除対象配偶者異動月日, 
+                        string 源泉控除対象配偶者事由, 
+                        string 控除対象扶養親族01_対象外区分, 
+                        string 控除対象扶養親族01_氏名, 
+                        string 控除対象扶養親族01_Kana, 
+                        string 控除対象扶養親族01_続柄名称, 
+                        System.DateTime 控除対象扶養親族01_生年月日, 
+                        string 控除対象扶養親族01_生年月日年号, 
+                        string 控除対象扶養親族01_生年月日年, 
+                        string 控除対象扶養親族01_生年月日月, 
+                        string 控除対象扶養親族01_生年月日日, 
+                        string 控除対象扶養親族01_老人扶養親族区分, 
+                        string 控除対象扶養親族01_特定扶養親族区分, 
+                        decimal 控除対象扶養親族01_所得見積額, 
+                        string 控除対象扶養親族01_非居住者, 
+                        string 控除対象扶養親族01_住所, 
+                        System.DateTime 控除対象扶養親族01_異動月日, 
+                        string 控除対象扶養親族01_事由, 
+                        string 控除対象扶養親族02_対象外区分, 
+                        string 控除対象扶養親族02_氏名, 
+                        string 控除対象扶養親族02_Kana, 
+                        string 控除対象扶養親族02_続柄名称, 
+                        System.DateTime 控除対象扶養親族02_生年月日, 
+                        string 控除対象扶養親族02_生年月日年号, 
+                        string 控除対象扶養親族02_生年月日年, 
+                        string 控除対象扶養親族02_生年月日月, 
+                        string 控除対象扶養親族02_生年月日日, 
+                        string 控除対象扶養親族02_老人扶養親族区分, 
+                        string 控除対象扶養親族02_特定扶養親族区分, 
+                        decimal 控除対象扶養親族02_所得見積額, 
+                        string 控除対象扶養親族02_非居住者, 
+                        string 控除対象扶養親族02_住所, 
+                        System.DateTime 控除対象扶養親族02_異動月日, 
+                        string 控除対象扶養親族02_事由, 
+                        string 控除対象扶養親族03_対象外区分, 
+                        string 控除対象扶養親族03_氏名, 
+                        string 控除対象扶養親族03_Kana, 
+                        string 控除対象扶養親族03_続柄名称, 
+                        System.DateTime 控除対象扶養親族03_生年月日, 
+                        string 控除対象扶養親族03_生年月日年号, 
+                        string 控除対象扶養親族03_生年月日年, 
+                        string 控除対象扶養親族03_生年月日月, 
+                        string 控除対象扶養親族03_生年月日日, 
+                        string 控除対象扶養親族03_老人扶養親族区分, 
+                        string 控除対象扶養親族03_特定扶養親族区分, 
+                        decimal 控除対象扶養親族03_所得見積額, 
+                        string 控除対象扶養親族03_非居住者, 
+                        string 控除対象扶養親族03_住所, 
+                        System.DateTime 控除対象扶養親族03_異動月日, 
+                        string 控除対象扶養親族03_事由, 
+                        string 控除対象扶養親族04_対象外区分, 
+                        string 控除対象扶養親族04_氏名, 
+                        string 控除対象扶養親族04_Kana, 
+                        string 控除対象扶養親族04_続柄名称, 
+                        System.DateTime 控除対象扶養親族04_生年月日, 
+                        string 控除対象扶養親族04_生年月日年号, 
+                        string 控除対象扶養親族04_生年月日年, 
+                        string 控除対象扶養親族04_生年月日月, 
+                        string 控除対象扶養親族04_生年月日日, 
+                        string 控除対象扶養親族04_老人扶養親族区分, 
+                        string 控除対象扶養親族04_特定扶養親族区分, 
+                        decimal 控除対象扶養親族04_所得見積額, 
+                        string 控除対象扶養親族04_非居住者, 
+                        string 控除対象扶養親族04_住所, 
+                        System.DateTime 控除対象扶養親族04_異動月日, 
+                        string 控除対象扶養親族04_事由, 
+                        string 障害者, 
+                        string 一般障害_本人, 
+                        string 一般障害_同一生計配偶者, 
+                        string 一般障害_扶養親族, 
+                        string 一般障害_扶養親族人数, 
+                        string 特別障害者_本人, 
+                        string 特別障害者_同一生計配偶者, 
+                        string 特別障害者_扶養親族, 
+                        string 特別障害者_扶養親族人数, 
+                        string 同居特別障害者_同一生計配偶者, 
+                        string 同居特別障害者_扶養親族, 
+                        string 同居特別障害者_扶養親族人数, 
+                        string 寡婦一人親区分, 
+                        string 理由区分, 
+                        System.DateTime 発生年月日, 
+                        string 勤労学生, 
+                        System.DateTime 障害異動月日, 
+                        string 障害事由, 
+                        string 扶養親族16未満01_対象外区分, 
+                        string 扶養親族16未満01_氏名, 
+                        string 扶養親族16未満01_Kana, 
+                        string 扶養親族16未満01_続柄名称, 
+                        System.DateTime 扶養親族16未満01_生年月日, 
+                        string 扶養親族16未満01_生年月日年号, 
+                        string 扶養親族16未満01_生年月日年, 
+                        string 扶養親族16未満01_生年月日月, 
+                        string 扶養親族16未満01_生年月日日, 
+                        string 扶養親族16未満01_同上区分, 
+                        string 扶養親族16未満01_住所, 
+                        string 扶養親族16未満01_国外区分, 
+                        decimal 扶養親族16未満01_所得見積額, 
+                        System.DateTime 扶養親族16未満01_異動月日, 
+                        string 扶養親族16未満01_事由, 
+                        string 扶養親族16未満02_対象外区分, 
+                        string 扶養親族16未満02_氏名, 
+                        string 扶養親族16未満02_Kana, 
+                        string 扶養親族16未満02_続柄名称, 
+                        System.DateTime 扶養親族16未満02_生年月日, 
+                        string 扶養親族16未満02_生年月日年号, 
+                        string 扶養親族16未満02_生年月日年, 
+                        string 扶養親族16未満02_生年月日月, 
+                        string 扶養親族16未満02_生年月日日, 
+                        string 扶養親族16未満02_同上区分, 
+                        string 扶養親族16未満02_住所, 
+                        string 扶養親族16未満02_国外区分, 
+                        decimal 扶養親族16未満02_所得見積額, 
+                        System.DateTime 扶養親族16未満02_異動月日, 
+                        string 扶養親族16未満02_事由, 
+                        string 扶養親族16未満03_対象外区分, 
+                        string 扶養親族16未満03_氏名, 
+                        string 扶養親族16未満03_Kana, 
+                        string 扶養親族16未満03_続柄名称, 
+                        System.DateTime 扶養親族16未満03_生年月日, 
+                        string 扶養親族16未満03_生年月日年号, 
+                        string 扶養親族16未満03_生年月日年, 
+                        string 扶養親族16未満03_生年月日月, 
+                        string 扶養親族16未満03_生年月日日, 
+                        string 扶養親族16未満03_同上区分, 
+                        string 扶養親族16未満03_住所, 
+                        string 扶養親族16未満03_国外区分, 
+                        decimal 扶養親族16未満03_所得見積額, 
+                        System.DateTime 扶養親族16未満03_異動月日, 
+                        string 扶養親族16未満03_事由, 
+                        string 扶養親族16未満04_対象外区分, 
+                        string 扶養親族16未満04_氏名, 
+                        string 扶養親族16未満04_Kana, 
+                        string 扶養親族16未満04_続柄名称, 
+                        System.DateTime 扶養親族16未満04_生年月日, 
+                        string 扶養親族16未満04_生年月日年号, 
+                        string 扶養親族16未満04_生年月日年, 
+                        string 扶養親族16未満04_生年月日月, 
+                        string 扶養親族16未満04_生年月日日, 
+                        string 扶養親族16未満04_同上区分, 
+                        string 扶養親族16未満04_住所, 
+                        string 扶養親族16未満04_国外区分, 
+                        decimal 扶養親族16未満04_所得見積額, 
+                        System.DateTime 扶養親族16未満04_異動月日, 
+                        string 扶養親族16未満04_事由, 
+                        string 法人個人番号01, 
+                        string 法人個人番号02, 
+                        string 法人個人番号03, 
+                        string 法人個人番号04, 
+                        string 法人個人番号05, 
+                        string 法人個人番号06, 
+                        string 法人個人番号07, 
+                        string 法人個人番号08, 
+                        string 法人個人番号09, 
+                        string 法人個人番号10, 
+                        string 法人個人番号11, 
+                        string 法人個人番号12, 
+                        string 法人個人番号13, 
+                        string 税務署長, 
+                        string 市区町村長, 
+                        string 給与支払者名称, 
+                        string 給与支払者所在地) {
                 HuyouDeclareDataTableRow rowHuyouDeclareDataTableRow = ((HuyouDeclareDataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         対象年度,
+                        表示年,
+                        表示元号,
                         社員番号,
-                        氏名};
+                        本人確定区分,
+                        管理者確定区分,
+                        個人番号相違確認区分,
+                        所属番号,
+                        氏名,
+                        Kana,
+                        生年月日,
+                        生年月日年号,
+                        生年月日年,
+                        生年月日月,
+                        生年月日日,
+                        世帯主氏名,
+                        世帯主続柄名称,
+                        郵便番号_前,
+                        郵便番号_後,
+                        住所01,
+                        配偶者有無,
+                        Sequence番号,
+                        源泉控除対象配偶者対象外区分,
+                        源泉控除対象配偶者氏名,
+                        源泉控除対象配偶者Kana,
+                        源泉控除対象配偶者生年月日,
+                        源泉控除対象配偶者生年月日年号,
+                        源泉控除対象配偶者生年月日年,
+                        源泉控除対象配偶者生年月日月,
+                        源泉控除対象配偶者生年月日日,
+                        源泉控除対象配偶者所得見積額,
+                        源泉控除対象配偶者非居住者,
+                        源泉控除対象配偶者住所,
+                        源泉控除対象配偶者異動月日,
+                        源泉控除対象配偶者事由,
+                        控除対象扶養親族01_対象外区分,
+                        控除対象扶養親族01_氏名,
+                        控除対象扶養親族01_Kana,
+                        控除対象扶養親族01_続柄名称,
+                        控除対象扶養親族01_生年月日,
+                        控除対象扶養親族01_生年月日年号,
+                        控除対象扶養親族01_生年月日年,
+                        控除対象扶養親族01_生年月日月,
+                        控除対象扶養親族01_生年月日日,
+                        控除対象扶養親族01_老人扶養親族区分,
+                        控除対象扶養親族01_特定扶養親族区分,
+                        控除対象扶養親族01_所得見積額,
+                        控除対象扶養親族01_非居住者,
+                        控除対象扶養親族01_住所,
+                        控除対象扶養親族01_異動月日,
+                        控除対象扶養親族01_事由,
+                        控除対象扶養親族02_対象外区分,
+                        控除対象扶養親族02_氏名,
+                        控除対象扶養親族02_Kana,
+                        控除対象扶養親族02_続柄名称,
+                        控除対象扶養親族02_生年月日,
+                        控除対象扶養親族02_生年月日年号,
+                        控除対象扶養親族02_生年月日年,
+                        控除対象扶養親族02_生年月日月,
+                        控除対象扶養親族02_生年月日日,
+                        控除対象扶養親族02_老人扶養親族区分,
+                        控除対象扶養親族02_特定扶養親族区分,
+                        控除対象扶養親族02_所得見積額,
+                        控除対象扶養親族02_非居住者,
+                        控除対象扶養親族02_住所,
+                        控除対象扶養親族02_異動月日,
+                        控除対象扶養親族02_事由,
+                        控除対象扶養親族03_対象外区分,
+                        控除対象扶養親族03_氏名,
+                        控除対象扶養親族03_Kana,
+                        控除対象扶養親族03_続柄名称,
+                        控除対象扶養親族03_生年月日,
+                        控除対象扶養親族03_生年月日年号,
+                        控除対象扶養親族03_生年月日年,
+                        控除対象扶養親族03_生年月日月,
+                        控除対象扶養親族03_生年月日日,
+                        控除対象扶養親族03_老人扶養親族区分,
+                        控除対象扶養親族03_特定扶養親族区分,
+                        控除対象扶養親族03_所得見積額,
+                        控除対象扶養親族03_非居住者,
+                        控除対象扶養親族03_住所,
+                        控除対象扶養親族03_異動月日,
+                        控除対象扶養親族03_事由,
+                        控除対象扶養親族04_対象外区分,
+                        控除対象扶養親族04_氏名,
+                        控除対象扶養親族04_Kana,
+                        控除対象扶養親族04_続柄名称,
+                        控除対象扶養親族04_生年月日,
+                        控除対象扶養親族04_生年月日年号,
+                        控除対象扶養親族04_生年月日年,
+                        控除対象扶養親族04_生年月日月,
+                        控除対象扶養親族04_生年月日日,
+                        控除対象扶養親族04_老人扶養親族区分,
+                        控除対象扶養親族04_特定扶養親族区分,
+                        控除対象扶養親族04_所得見積額,
+                        控除対象扶養親族04_非居住者,
+                        控除対象扶養親族04_住所,
+                        控除対象扶養親族04_異動月日,
+                        控除対象扶養親族04_事由,
+                        障害者,
+                        一般障害_本人,
+                        一般障害_同一生計配偶者,
+                        一般障害_扶養親族,
+                        一般障害_扶養親族人数,
+                        特別障害者_本人,
+                        特別障害者_同一生計配偶者,
+                        特別障害者_扶養親族,
+                        特別障害者_扶養親族人数,
+                        同居特別障害者_同一生計配偶者,
+                        同居特別障害者_扶養親族,
+                        同居特別障害者_扶養親族人数,
+                        寡婦一人親区分,
+                        理由区分,
+                        発生年月日,
+                        勤労学生,
+                        障害異動月日,
+                        障害事由,
+                        扶養親族16未満01_対象外区分,
+                        扶養親族16未満01_氏名,
+                        扶養親族16未満01_Kana,
+                        扶養親族16未満01_続柄名称,
+                        扶養親族16未満01_生年月日,
+                        扶養親族16未満01_生年月日年号,
+                        扶養親族16未満01_生年月日年,
+                        扶養親族16未満01_生年月日月,
+                        扶養親族16未満01_生年月日日,
+                        扶養親族16未満01_同上区分,
+                        扶養親族16未満01_住所,
+                        扶養親族16未満01_国外区分,
+                        扶養親族16未満01_所得見積額,
+                        扶養親族16未満01_異動月日,
+                        扶養親族16未満01_事由,
+                        扶養親族16未満02_対象外区分,
+                        扶養親族16未満02_氏名,
+                        扶養親族16未満02_Kana,
+                        扶養親族16未満02_続柄名称,
+                        扶養親族16未満02_生年月日,
+                        扶養親族16未満02_生年月日年号,
+                        扶養親族16未満02_生年月日年,
+                        扶養親族16未満02_生年月日月,
+                        扶養親族16未満02_生年月日日,
+                        扶養親族16未満02_同上区分,
+                        扶養親族16未満02_住所,
+                        扶養親族16未満02_国外区分,
+                        扶養親族16未満02_所得見積額,
+                        扶養親族16未満02_異動月日,
+                        扶養親族16未満02_事由,
+                        扶養親族16未満03_対象外区分,
+                        扶養親族16未満03_氏名,
+                        扶養親族16未満03_Kana,
+                        扶養親族16未満03_続柄名称,
+                        扶養親族16未満03_生年月日,
+                        扶養親族16未満03_生年月日年号,
+                        扶養親族16未満03_生年月日年,
+                        扶養親族16未満03_生年月日月,
+                        扶養親族16未満03_生年月日日,
+                        扶養親族16未満03_同上区分,
+                        扶養親族16未満03_住所,
+                        扶養親族16未満03_国外区分,
+                        扶養親族16未満03_所得見積額,
+                        扶養親族16未満03_異動月日,
+                        扶養親族16未満03_事由,
+                        扶養親族16未満04_対象外区分,
+                        扶養親族16未満04_氏名,
+                        扶養親族16未満04_Kana,
+                        扶養親族16未満04_続柄名称,
+                        扶養親族16未満04_生年月日,
+                        扶養親族16未満04_生年月日年号,
+                        扶養親族16未満04_生年月日年,
+                        扶養親族16未満04_生年月日月,
+                        扶養親族16未満04_生年月日日,
+                        扶養親族16未満04_同上区分,
+                        扶養親族16未満04_住所,
+                        扶養親族16未満04_国外区分,
+                        扶養親族16未満04_所得見積額,
+                        扶養親族16未満04_異動月日,
+                        扶養親族16未満04_事由,
+                        法人個人番号01,
+                        法人個人番号02,
+                        法人個人番号03,
+                        法人個人番号04,
+                        法人個人番号05,
+                        法人個人番号06,
+                        法人個人番号07,
+                        法人個人番号08,
+                        法人個人番号09,
+                        法人個人番号10,
+                        法人個人番号11,
+                        法人個人番号12,
+                        法人個人番号13,
+                        税務署長,
+                        市区町村長,
+                        給与支払者名称,
+                        給与支払者所在地};
                 rowHuyouDeclareDataTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHuyouDeclareDataTableRow);
                 return rowHuyouDeclareDataTableRow;
@@ -408,8 +2703,199 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.column対象年度 = base.Columns["対象年度"];
+                this.column表示年 = base.Columns["表示年"];
+                this.column表示元号 = base.Columns["表示元号"];
                 this.column社員番号 = base.Columns["社員番号"];
+                this.column本人確定区分 = base.Columns["本人確定区分"];
+                this.column管理者確定区分 = base.Columns["管理者確定区分"];
+                this.column個人番号相違確認区分 = base.Columns["個人番号相違確認区分"];
+                this.column所属番号 = base.Columns["所属番号"];
                 this.column氏名 = base.Columns["氏名"];
+                this.columnKana = base.Columns["Kana"];
+                this.column生年月日 = base.Columns["生年月日"];
+                this.column生年月日年号 = base.Columns["生年月日年号"];
+                this.column生年月日年 = base.Columns["生年月日年"];
+                this.column生年月日月 = base.Columns["生年月日月"];
+                this.column生年月日日 = base.Columns["生年月日日"];
+                this.column世帯主氏名 = base.Columns["世帯主氏名"];
+                this.column世帯主続柄名称 = base.Columns["世帯主続柄名称"];
+                this.column郵便番号_前 = base.Columns["郵便番号_前"];
+                this.column郵便番号_後 = base.Columns["郵便番号_後"];
+                this.column住所01 = base.Columns["住所01"];
+                this.column配偶者有無 = base.Columns["配偶者有無"];
+                this.columnSequence番号 = base.Columns["Sequence番号"];
+                this.column源泉控除対象配偶者対象外区分 = base.Columns["源泉控除対象配偶者対象外区分"];
+                this.column源泉控除対象配偶者氏名 = base.Columns["源泉控除対象配偶者氏名"];
+                this.column源泉控除対象配偶者Kana = base.Columns["源泉控除対象配偶者Kana"];
+                this.column源泉控除対象配偶者生年月日 = base.Columns["源泉控除対象配偶者生年月日"];
+                this.column源泉控除対象配偶者生年月日年号 = base.Columns["源泉控除対象配偶者生年月日年号"];
+                this.column源泉控除対象配偶者生年月日年 = base.Columns["源泉控除対象配偶者生年月日年"];
+                this.column源泉控除対象配偶者生年月日月 = base.Columns["源泉控除対象配偶者生年月日月"];
+                this.column源泉控除対象配偶者生年月日日 = base.Columns["源泉控除対象配偶者生年月日日"];
+                this.column源泉控除対象配偶者所得見積額 = base.Columns["源泉控除対象配偶者所得見積額"];
+                this.column源泉控除対象配偶者非居住者 = base.Columns["源泉控除対象配偶者非居住者"];
+                this.column源泉控除対象配偶者住所 = base.Columns["源泉控除対象配偶者住所"];
+                this.column源泉控除対象配偶者異動月日 = base.Columns["源泉控除対象配偶者異動月日"];
+                this.column源泉控除対象配偶者事由 = base.Columns["源泉控除対象配偶者事由"];
+                this.column控除対象扶養親族01_対象外区分 = base.Columns["控除対象扶養親族01_対象外区分"];
+                this.column控除対象扶養親族01_氏名 = base.Columns["控除対象扶養親族01_氏名"];
+                this.column控除対象扶養親族01_Kana = base.Columns["控除対象扶養親族01_Kana"];
+                this.column控除対象扶養親族01_続柄名称 = base.Columns["控除対象扶養親族01_続柄名称"];
+                this.column控除対象扶養親族01_生年月日 = base.Columns["控除対象扶養親族01_生年月日"];
+                this.column控除対象扶養親族01_生年月日年号 = base.Columns["控除対象扶養親族01_生年月日年号"];
+                this.column控除対象扶養親族01_生年月日年 = base.Columns["控除対象扶養親族01_生年月日年"];
+                this.column控除対象扶養親族01_生年月日月 = base.Columns["控除対象扶養親族01_生年月日月"];
+                this.column控除対象扶養親族01_生年月日日 = base.Columns["控除対象扶養親族01_生年月日日"];
+                this.column控除対象扶養親族01_老人扶養親族区分 = base.Columns["控除対象扶養親族01_老人扶養親族区分"];
+                this.column控除対象扶養親族01_特定扶養親族区分 = base.Columns["控除対象扶養親族01_特定扶養親族区分"];
+                this.column控除対象扶養親族01_所得見積額 = base.Columns["控除対象扶養親族01_所得見積額"];
+                this.column控除対象扶養親族01_非居住者 = base.Columns["控除対象扶養親族01_非居住者"];
+                this.column控除対象扶養親族01_住所 = base.Columns["控除対象扶養親族01_住所"];
+                this.column控除対象扶養親族01_異動月日 = base.Columns["控除対象扶養親族01_異動月日"];
+                this.column控除対象扶養親族01_事由 = base.Columns["控除対象扶養親族01_事由"];
+                this.column控除対象扶養親族02_対象外区分 = base.Columns["控除対象扶養親族02_対象外区分"];
+                this.column控除対象扶養親族02_氏名 = base.Columns["控除対象扶養親族02_氏名"];
+                this.column控除対象扶養親族02_Kana = base.Columns["控除対象扶養親族02_Kana"];
+                this.column控除対象扶養親族02_続柄名称 = base.Columns["控除対象扶養親族02_続柄名称"];
+                this.column控除対象扶養親族02_生年月日 = base.Columns["控除対象扶養親族02_生年月日"];
+                this.column控除対象扶養親族02_生年月日年号 = base.Columns["控除対象扶養親族02_生年月日年号"];
+                this.column控除対象扶養親族02_生年月日年 = base.Columns["控除対象扶養親族02_生年月日年"];
+                this.column控除対象扶養親族02_生年月日月 = base.Columns["控除対象扶養親族02_生年月日月"];
+                this.column控除対象扶養親族02_生年月日日 = base.Columns["控除対象扶養親族02_生年月日日"];
+                this.column控除対象扶養親族02_老人扶養親族区分 = base.Columns["控除対象扶養親族02_老人扶養親族区分"];
+                this.column控除対象扶養親族02_特定扶養親族区分 = base.Columns["控除対象扶養親族02_特定扶養親族区分"];
+                this.column控除対象扶養親族02_所得見積額 = base.Columns["控除対象扶養親族02_所得見積額"];
+                this.column控除対象扶養親族02_非居住者 = base.Columns["控除対象扶養親族02_非居住者"];
+                this.column控除対象扶養親族02_住所 = base.Columns["控除対象扶養親族02_住所"];
+                this.column控除対象扶養親族02_異動月日 = base.Columns["控除対象扶養親族02_異動月日"];
+                this.column控除対象扶養親族02_事由 = base.Columns["控除対象扶養親族02_事由"];
+                this.column控除対象扶養親族03_対象外区分 = base.Columns["控除対象扶養親族03_対象外区分"];
+                this.column控除対象扶養親族03_氏名 = base.Columns["控除対象扶養親族03_氏名"];
+                this.column控除対象扶養親族03_Kana = base.Columns["控除対象扶養親族03_Kana"];
+                this.column控除対象扶養親族03_続柄名称 = base.Columns["控除対象扶養親族03_続柄名称"];
+                this.column控除対象扶養親族03_生年月日 = base.Columns["控除対象扶養親族03_生年月日"];
+                this.column控除対象扶養親族03_生年月日年号 = base.Columns["控除対象扶養親族03_生年月日年号"];
+                this.column控除対象扶養親族03_生年月日年 = base.Columns["控除対象扶養親族03_生年月日年"];
+                this.column控除対象扶養親族03_生年月日月 = base.Columns["控除対象扶養親族03_生年月日月"];
+                this.column控除対象扶養親族03_生年月日日 = base.Columns["控除対象扶養親族03_生年月日日"];
+                this.column控除対象扶養親族03_老人扶養親族区分 = base.Columns["控除対象扶養親族03_老人扶養親族区分"];
+                this.column控除対象扶養親族03_特定扶養親族区分 = base.Columns["控除対象扶養親族03_特定扶養親族区分"];
+                this.column控除対象扶養親族03_所得見積額 = base.Columns["控除対象扶養親族03_所得見積額"];
+                this.column控除対象扶養親族03_非居住者 = base.Columns["控除対象扶養親族03_非居住者"];
+                this.column控除対象扶養親族03_住所 = base.Columns["控除対象扶養親族03_住所"];
+                this.column控除対象扶養親族03_異動月日 = base.Columns["控除対象扶養親族03_異動月日"];
+                this.column控除対象扶養親族03_事由 = base.Columns["控除対象扶養親族03_事由"];
+                this.column控除対象扶養親族04_対象外区分 = base.Columns["控除対象扶養親族04_対象外区分"];
+                this.column控除対象扶養親族04_氏名 = base.Columns["控除対象扶養親族04_氏名"];
+                this.column控除対象扶養親族04_Kana = base.Columns["控除対象扶養親族04_Kana"];
+                this.column控除対象扶養親族04_続柄名称 = base.Columns["控除対象扶養親族04_続柄名称"];
+                this.column控除対象扶養親族04_生年月日 = base.Columns["控除対象扶養親族04_生年月日"];
+                this.column控除対象扶養親族04_生年月日年号 = base.Columns["控除対象扶養親族04_生年月日年号"];
+                this.column控除対象扶養親族04_生年月日年 = base.Columns["控除対象扶養親族04_生年月日年"];
+                this.column控除対象扶養親族04_生年月日月 = base.Columns["控除対象扶養親族04_生年月日月"];
+                this.column控除対象扶養親族04_生年月日日 = base.Columns["控除対象扶養親族04_生年月日日"];
+                this.column控除対象扶養親族04_老人扶養親族区分 = base.Columns["控除対象扶養親族04_老人扶養親族区分"];
+                this.column控除対象扶養親族04_特定扶養親族区分 = base.Columns["控除対象扶養親族04_特定扶養親族区分"];
+                this.column控除対象扶養親族04_所得見積額 = base.Columns["控除対象扶養親族04_所得見積額"];
+                this.column控除対象扶養親族04_非居住者 = base.Columns["控除対象扶養親族04_非居住者"];
+                this.column控除対象扶養親族04_住所 = base.Columns["控除対象扶養親族04_住所"];
+                this.column控除対象扶養親族04_異動月日 = base.Columns["控除対象扶養親族04_異動月日"];
+                this.column控除対象扶養親族04_事由 = base.Columns["控除対象扶養親族04_事由"];
+                this.column障害者 = base.Columns["障害者"];
+                this.column一般障害_本人 = base.Columns["一般障害_本人"];
+                this.column一般障害_同一生計配偶者 = base.Columns["一般障害_同一生計配偶者"];
+                this.column一般障害_扶養親族 = base.Columns["一般障害_扶養親族"];
+                this.column一般障害_扶養親族人数 = base.Columns["一般障害_扶養親族人数"];
+                this.column特別障害者_本人 = base.Columns["特別障害者_本人"];
+                this.column特別障害者_同一生計配偶者 = base.Columns["特別障害者_同一生計配偶者"];
+                this.column特別障害者_扶養親族 = base.Columns["特別障害者_扶養親族"];
+                this.column特別障害者_扶養親族人数 = base.Columns["特別障害者_扶養親族人数"];
+                this.column同居特別障害者_同一生計配偶者 = base.Columns["同居特別障害者_同一生計配偶者"];
+                this.column同居特別障害者_扶養親族 = base.Columns["同居特別障害者_扶養親族"];
+                this.column同居特別障害者_扶養親族人数 = base.Columns["同居特別障害者_扶養親族人数"];
+                this.column寡婦一人親区分 = base.Columns["寡婦一人親区分"];
+                this.column理由区分 = base.Columns["理由区分"];
+                this.column発生年月日 = base.Columns["発生年月日"];
+                this.column勤労学生 = base.Columns["勤労学生"];
+                this.column障害異動月日 = base.Columns["障害異動月日"];
+                this.column障害事由 = base.Columns["障害事由"];
+                this.column扶養親族16未満01_対象外区分 = base.Columns["扶養親族16未満01_対象外区分"];
+                this.column扶養親族16未満01_氏名 = base.Columns["扶養親族16未満01_氏名"];
+                this.column扶養親族16未満01_Kana = base.Columns["扶養親族16未満01_Kana"];
+                this.column扶養親族16未満01_続柄名称 = base.Columns["扶養親族16未満01_続柄名称"];
+                this.column扶養親族16未満01_生年月日 = base.Columns["扶養親族16未満01_生年月日"];
+                this.column扶養親族16未満01_生年月日年号 = base.Columns["扶養親族16未満01_生年月日年号"];
+                this.column扶養親族16未満01_生年月日年 = base.Columns["扶養親族16未満01_生年月日年"];
+                this.column扶養親族16未満01_生年月日月 = base.Columns["扶養親族16未満01_生年月日月"];
+                this.column扶養親族16未満01_生年月日日 = base.Columns["扶養親族16未満01_生年月日日"];
+                this.column扶養親族16未満01_同上区分 = base.Columns["扶養親族16未満01_同上区分"];
+                this.column扶養親族16未満01_住所 = base.Columns["扶養親族16未満01_住所"];
+                this.column扶養親族16未満01_国外区分 = base.Columns["扶養親族16未満01_国外区分"];
+                this.column扶養親族16未満01_所得見積額 = base.Columns["扶養親族16未満01_所得見積額"];
+                this.column扶養親族16未満01_異動月日 = base.Columns["扶養親族16未満01_異動月日"];
+                this.column扶養親族16未満01_事由 = base.Columns["扶養親族16未満01_事由"];
+                this.column扶養親族16未満02_対象外区分 = base.Columns["扶養親族16未満02_対象外区分"];
+                this.column扶養親族16未満02_氏名 = base.Columns["扶養親族16未満02_氏名"];
+                this.column扶養親族16未満02_Kana = base.Columns["扶養親族16未満02_Kana"];
+                this.column扶養親族16未満02_続柄名称 = base.Columns["扶養親族16未満02_続柄名称"];
+                this.column扶養親族16未満02_生年月日 = base.Columns["扶養親族16未満02_生年月日"];
+                this.column扶養親族16未満02_生年月日年号 = base.Columns["扶養親族16未満02_生年月日年号"];
+                this.column扶養親族16未満02_生年月日年 = base.Columns["扶養親族16未満02_生年月日年"];
+                this.column扶養親族16未満02_生年月日月 = base.Columns["扶養親族16未満02_生年月日月"];
+                this.column扶養親族16未満02_生年月日日 = base.Columns["扶養親族16未満02_生年月日日"];
+                this.column扶養親族16未満02_同上区分 = base.Columns["扶養親族16未満02_同上区分"];
+                this.column扶養親族16未満02_住所 = base.Columns["扶養親族16未満02_住所"];
+                this.column扶養親族16未満02_国外区分 = base.Columns["扶養親族16未満02_国外区分"];
+                this.column扶養親族16未満02_所得見積額 = base.Columns["扶養親族16未満02_所得見積額"];
+                this.column扶養親族16未満02_異動月日 = base.Columns["扶養親族16未満02_異動月日"];
+                this.column扶養親族16未満02_事由 = base.Columns["扶養親族16未満02_事由"];
+                this.column扶養親族16未満03_対象外区分 = base.Columns["扶養親族16未満03_対象外区分"];
+                this.column扶養親族16未満03_氏名 = base.Columns["扶養親族16未満03_氏名"];
+                this.column扶養親族16未満03_Kana = base.Columns["扶養親族16未満03_Kana"];
+                this.column扶養親族16未満03_続柄名称 = base.Columns["扶養親族16未満03_続柄名称"];
+                this.column扶養親族16未満03_生年月日 = base.Columns["扶養親族16未満03_生年月日"];
+                this.column扶養親族16未満03_生年月日年号 = base.Columns["扶養親族16未満03_生年月日年号"];
+                this.column扶養親族16未満03_生年月日年 = base.Columns["扶養親族16未満03_生年月日年"];
+                this.column扶養親族16未満03_生年月日月 = base.Columns["扶養親族16未満03_生年月日月"];
+                this.column扶養親族16未満03_生年月日日 = base.Columns["扶養親族16未満03_生年月日日"];
+                this.column扶養親族16未満03_同上区分 = base.Columns["扶養親族16未満03_同上区分"];
+                this.column扶養親族16未満03_住所 = base.Columns["扶養親族16未満03_住所"];
+                this.column扶養親族16未満03_国外区分 = base.Columns["扶養親族16未満03_国外区分"];
+                this.column扶養親族16未満03_所得見積額 = base.Columns["扶養親族16未満03_所得見積額"];
+                this.column扶養親族16未満03_異動月日 = base.Columns["扶養親族16未満03_異動月日"];
+                this.column扶養親族16未満03_事由 = base.Columns["扶養親族16未満03_事由"];
+                this.column扶養親族16未満04_対象外区分 = base.Columns["扶養親族16未満04_対象外区分"];
+                this.column扶養親族16未満04_氏名 = base.Columns["扶養親族16未満04_氏名"];
+                this.column扶養親族16未満04_Kana = base.Columns["扶養親族16未満04_Kana"];
+                this.column扶養親族16未満04_続柄名称 = base.Columns["扶養親族16未満04_続柄名称"];
+                this.column扶養親族16未満04_生年月日 = base.Columns["扶養親族16未満04_生年月日"];
+                this.column扶養親族16未満04_生年月日年号 = base.Columns["扶養親族16未満04_生年月日年号"];
+                this.column扶養親族16未満04_生年月日年 = base.Columns["扶養親族16未満04_生年月日年"];
+                this.column扶養親族16未満04_生年月日月 = base.Columns["扶養親族16未満04_生年月日月"];
+                this.column扶養親族16未満04_生年月日日 = base.Columns["扶養親族16未満04_生年月日日"];
+                this.column扶養親族16未満04_同上区分 = base.Columns["扶養親族16未満04_同上区分"];
+                this.column扶養親族16未満04_住所 = base.Columns["扶養親族16未満04_住所"];
+                this.column扶養親族16未満04_国外区分 = base.Columns["扶養親族16未満04_国外区分"];
+                this.column扶養親族16未満04_所得見積額 = base.Columns["扶養親族16未満04_所得見積額"];
+                this.column扶養親族16未満04_異動月日 = base.Columns["扶養親族16未満04_異動月日"];
+                this.column扶養親族16未満04_事由 = base.Columns["扶養親族16未満04_事由"];
+                this.column法人個人番号01 = base.Columns["法人個人番号01"];
+                this.column法人個人番号02 = base.Columns["法人個人番号02"];
+                this.column法人個人番号03 = base.Columns["法人個人番号03"];
+                this.column法人個人番号04 = base.Columns["法人個人番号04"];
+                this.column法人個人番号05 = base.Columns["法人個人番号05"];
+                this.column法人個人番号06 = base.Columns["法人個人番号06"];
+                this.column法人個人番号07 = base.Columns["法人個人番号07"];
+                this.column法人個人番号08 = base.Columns["法人個人番号08"];
+                this.column法人個人番号09 = base.Columns["法人個人番号09"];
+                this.column法人個人番号10 = base.Columns["法人個人番号10"];
+                this.column法人個人番号11 = base.Columns["法人個人番号11"];
+                this.column法人個人番号12 = base.Columns["法人個人番号12"];
+                this.column法人個人番号13 = base.Columns["法人個人番号13"];
+                this.column税務署長 = base.Columns["税務署長"];
+                this.column市区町村長 = base.Columns["市区町村長"];
+                this.column給与支払者名称 = base.Columns["給与支払者名称"];
+                this.column給与支払者所在地 = base.Columns["給与支払者所在地"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -417,10 +2903,392 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             private void InitClass() {
                 this.column対象年度 = new global::System.Data.DataColumn("対象年度", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column対象年度);
+                this.column表示年 = new global::System.Data.DataColumn("表示年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column表示年);
+                this.column表示元号 = new global::System.Data.DataColumn("表示元号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column表示元号);
                 this.column社員番号 = new global::System.Data.DataColumn("社員番号", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column社員番号);
+                this.column本人確定区分 = new global::System.Data.DataColumn("本人確定区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column本人確定区分);
+                this.column管理者確定区分 = new global::System.Data.DataColumn("管理者確定区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column管理者確定区分);
+                this.column個人番号相違確認区分 = new global::System.Data.DataColumn("個人番号相違確認区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人番号相違確認区分);
+                this.column所属番号 = new global::System.Data.DataColumn("所属番号", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所属番号);
                 this.column氏名 = new global::System.Data.DataColumn("氏名", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column氏名);
+                this.columnKana = new global::System.Data.DataColumn("Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKana);
+                this.column生年月日 = new global::System.Data.DataColumn("生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column生年月日);
+                this.column生年月日年号 = new global::System.Data.DataColumn("生年月日年号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column生年月日年号);
+                this.column生年月日年 = new global::System.Data.DataColumn("生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column生年月日年);
+                this.column生年月日月 = new global::System.Data.DataColumn("生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column生年月日月);
+                this.column生年月日日 = new global::System.Data.DataColumn("生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column生年月日日);
+                this.column世帯主氏名 = new global::System.Data.DataColumn("世帯主氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column世帯主氏名);
+                this.column世帯主続柄名称 = new global::System.Data.DataColumn("世帯主続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column世帯主続柄名称);
+                this.column郵便番号_前 = new global::System.Data.DataColumn("郵便番号_前", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column郵便番号_前);
+                this.column郵便番号_後 = new global::System.Data.DataColumn("郵便番号_後", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column郵便番号_後);
+                this.column住所01 = new global::System.Data.DataColumn("住所01", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column住所01);
+                this.column配偶者有無 = new global::System.Data.DataColumn("配偶者有無", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者有無);
+                this.columnSequence番号 = new global::System.Data.DataColumn("Sequence番号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSequence番号);
+                this.column源泉控除対象配偶者対象外区分 = new global::System.Data.DataColumn("源泉控除対象配偶者対象外区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column源泉控除対象配偶者対象外区分);
+                this.column源泉控除対象配偶者氏名 = new global::System.Data.DataColumn("源泉控除対象配偶者氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column源泉控除対象配偶者氏名);
+                this.column源泉控除対象配偶者Kana = new global::System.Data.DataColumn("源泉控除対象配偶者Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column源泉控除対象配偶者Kana);
+                this.column源泉控除対象配偶者生年月日 = new global::System.Data.DataColumn("源泉控除対象配偶者生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column源泉控除対象配偶者生年月日);
+                this.column源泉控除対象配偶者生年月日年号 = new global::System.Data.DataColumn("源泉控除対象配偶者生年月日年号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column源泉控除対象配偶者生年月日年号);
+                this.column源泉控除対象配偶者生年月日年 = new global::System.Data.DataColumn("源泉控除対象配偶者生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column源泉控除対象配偶者生年月日年);
+                this.column源泉控除対象配偶者生年月日月 = new global::System.Data.DataColumn("源泉控除対象配偶者生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column源泉控除対象配偶者生年月日月);
+                this.column源泉控除対象配偶者生年月日日 = new global::System.Data.DataColumn("源泉控除対象配偶者生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column源泉控除対象配偶者生年月日日);
+                this.column源泉控除対象配偶者所得見積額 = new global::System.Data.DataColumn("源泉控除対象配偶者所得見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column源泉控除対象配偶者所得見積額);
+                this.column源泉控除対象配偶者非居住者 = new global::System.Data.DataColumn("源泉控除対象配偶者非居住者", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column源泉控除対象配偶者非居住者);
+                this.column源泉控除対象配偶者住所 = new global::System.Data.DataColumn("源泉控除対象配偶者住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column源泉控除対象配偶者住所);
+                this.column源泉控除対象配偶者異動月日 = new global::System.Data.DataColumn("源泉控除対象配偶者異動月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column源泉控除対象配偶者異動月日);
+                this.column源泉控除対象配偶者事由 = new global::System.Data.DataColumn("源泉控除対象配偶者事由", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column源泉控除対象配偶者事由);
+                this.column控除対象扶養親族01_対象外区分 = new global::System.Data.DataColumn("控除対象扶養親族01_対象外区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_対象外区分);
+                this.column控除対象扶養親族01_氏名 = new global::System.Data.DataColumn("控除対象扶養親族01_氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_氏名);
+                this.column控除対象扶養親族01_Kana = new global::System.Data.DataColumn("控除対象扶養親族01_Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_Kana);
+                this.column控除対象扶養親族01_続柄名称 = new global::System.Data.DataColumn("控除対象扶養親族01_続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_続柄名称);
+                this.column控除対象扶養親族01_生年月日 = new global::System.Data.DataColumn("控除対象扶養親族01_生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_生年月日);
+                this.column控除対象扶養親族01_生年月日年号 = new global::System.Data.DataColumn("控除対象扶養親族01_生年月日年号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_生年月日年号);
+                this.column控除対象扶養親族01_生年月日年 = new global::System.Data.DataColumn("控除対象扶養親族01_生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_生年月日年);
+                this.column控除対象扶養親族01_生年月日月 = new global::System.Data.DataColumn("控除対象扶養親族01_生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_生年月日月);
+                this.column控除対象扶養親族01_生年月日日 = new global::System.Data.DataColumn("控除対象扶養親族01_生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_生年月日日);
+                this.column控除対象扶養親族01_老人扶養親族区分 = new global::System.Data.DataColumn("控除対象扶養親族01_老人扶養親族区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_老人扶養親族区分);
+                this.column控除対象扶養親族01_特定扶養親族区分 = new global::System.Data.DataColumn("控除対象扶養親族01_特定扶養親族区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_特定扶養親族区分);
+                this.column控除対象扶養親族01_所得見積額 = new global::System.Data.DataColumn("控除対象扶養親族01_所得見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_所得見積額);
+                this.column控除対象扶養親族01_非居住者 = new global::System.Data.DataColumn("控除対象扶養親族01_非居住者", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_非居住者);
+                this.column控除対象扶養親族01_住所 = new global::System.Data.DataColumn("控除対象扶養親族01_住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_住所);
+                this.column控除対象扶養親族01_異動月日 = new global::System.Data.DataColumn("控除対象扶養親族01_異動月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_異動月日);
+                this.column控除対象扶養親族01_事由 = new global::System.Data.DataColumn("控除対象扶養親族01_事由", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族01_事由);
+                this.column控除対象扶養親族02_対象外区分 = new global::System.Data.DataColumn("控除対象扶養親族02_対象外区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_対象外区分);
+                this.column控除対象扶養親族02_氏名 = new global::System.Data.DataColumn("控除対象扶養親族02_氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_氏名);
+                this.column控除対象扶養親族02_Kana = new global::System.Data.DataColumn("控除対象扶養親族02_Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_Kana);
+                this.column控除対象扶養親族02_続柄名称 = new global::System.Data.DataColumn("控除対象扶養親族02_続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_続柄名称);
+                this.column控除対象扶養親族02_生年月日 = new global::System.Data.DataColumn("控除対象扶養親族02_生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_生年月日);
+                this.column控除対象扶養親族02_生年月日年号 = new global::System.Data.DataColumn("控除対象扶養親族02_生年月日年号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_生年月日年号);
+                this.column控除対象扶養親族02_生年月日年 = new global::System.Data.DataColumn("控除対象扶養親族02_生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_生年月日年);
+                this.column控除対象扶養親族02_生年月日月 = new global::System.Data.DataColumn("控除対象扶養親族02_生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_生年月日月);
+                this.column控除対象扶養親族02_生年月日日 = new global::System.Data.DataColumn("控除対象扶養親族02_生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_生年月日日);
+                this.column控除対象扶養親族02_老人扶養親族区分 = new global::System.Data.DataColumn("控除対象扶養親族02_老人扶養親族区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_老人扶養親族区分);
+                this.column控除対象扶養親族02_特定扶養親族区分 = new global::System.Data.DataColumn("控除対象扶養親族02_特定扶養親族区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_特定扶養親族区分);
+                this.column控除対象扶養親族02_所得見積額 = new global::System.Data.DataColumn("控除対象扶養親族02_所得見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_所得見積額);
+                this.column控除対象扶養親族02_非居住者 = new global::System.Data.DataColumn("控除対象扶養親族02_非居住者", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_非居住者);
+                this.column控除対象扶養親族02_住所 = new global::System.Data.DataColumn("控除対象扶養親族02_住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_住所);
+                this.column控除対象扶養親族02_異動月日 = new global::System.Data.DataColumn("控除対象扶養親族02_異動月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_異動月日);
+                this.column控除対象扶養親族02_事由 = new global::System.Data.DataColumn("控除対象扶養親族02_事由", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族02_事由);
+                this.column控除対象扶養親族03_対象外区分 = new global::System.Data.DataColumn("控除対象扶養親族03_対象外区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_対象外区分);
+                this.column控除対象扶養親族03_氏名 = new global::System.Data.DataColumn("控除対象扶養親族03_氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_氏名);
+                this.column控除対象扶養親族03_Kana = new global::System.Data.DataColumn("控除対象扶養親族03_Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_Kana);
+                this.column控除対象扶養親族03_続柄名称 = new global::System.Data.DataColumn("控除対象扶養親族03_続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_続柄名称);
+                this.column控除対象扶養親族03_生年月日 = new global::System.Data.DataColumn("控除対象扶養親族03_生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_生年月日);
+                this.column控除対象扶養親族03_生年月日年号 = new global::System.Data.DataColumn("控除対象扶養親族03_生年月日年号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_生年月日年号);
+                this.column控除対象扶養親族03_生年月日年 = new global::System.Data.DataColumn("控除対象扶養親族03_生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_生年月日年);
+                this.column控除対象扶養親族03_生年月日月 = new global::System.Data.DataColumn("控除対象扶養親族03_生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_生年月日月);
+                this.column控除対象扶養親族03_生年月日日 = new global::System.Data.DataColumn("控除対象扶養親族03_生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_生年月日日);
+                this.column控除対象扶養親族03_老人扶養親族区分 = new global::System.Data.DataColumn("控除対象扶養親族03_老人扶養親族区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_老人扶養親族区分);
+                this.column控除対象扶養親族03_特定扶養親族区分 = new global::System.Data.DataColumn("控除対象扶養親族03_特定扶養親族区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_特定扶養親族区分);
+                this.column控除対象扶養親族03_所得見積額 = new global::System.Data.DataColumn("控除対象扶養親族03_所得見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_所得見積額);
+                this.column控除対象扶養親族03_非居住者 = new global::System.Data.DataColumn("控除対象扶養親族03_非居住者", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_非居住者);
+                this.column控除対象扶養親族03_住所 = new global::System.Data.DataColumn("控除対象扶養親族03_住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_住所);
+                this.column控除対象扶養親族03_異動月日 = new global::System.Data.DataColumn("控除対象扶養親族03_異動月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_異動月日);
+                this.column控除対象扶養親族03_事由 = new global::System.Data.DataColumn("控除対象扶養親族03_事由", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族03_事由);
+                this.column控除対象扶養親族04_対象外区分 = new global::System.Data.DataColumn("控除対象扶養親族04_対象外区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_対象外区分);
+                this.column控除対象扶養親族04_氏名 = new global::System.Data.DataColumn("控除対象扶養親族04_氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_氏名);
+                this.column控除対象扶養親族04_Kana = new global::System.Data.DataColumn("控除対象扶養親族04_Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_Kana);
+                this.column控除対象扶養親族04_続柄名称 = new global::System.Data.DataColumn("控除対象扶養親族04_続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_続柄名称);
+                this.column控除対象扶養親族04_生年月日 = new global::System.Data.DataColumn("控除対象扶養親族04_生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_生年月日);
+                this.column控除対象扶養親族04_生年月日年号 = new global::System.Data.DataColumn("控除対象扶養親族04_生年月日年号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_生年月日年号);
+                this.column控除対象扶養親族04_生年月日年 = new global::System.Data.DataColumn("控除対象扶養親族04_生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_生年月日年);
+                this.column控除対象扶養親族04_生年月日月 = new global::System.Data.DataColumn("控除対象扶養親族04_生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_生年月日月);
+                this.column控除対象扶養親族04_生年月日日 = new global::System.Data.DataColumn("控除対象扶養親族04_生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_生年月日日);
+                this.column控除対象扶養親族04_老人扶養親族区分 = new global::System.Data.DataColumn("控除対象扶養親族04_老人扶養親族区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_老人扶養親族区分);
+                this.column控除対象扶養親族04_特定扶養親族区分 = new global::System.Data.DataColumn("控除対象扶養親族04_特定扶養親族区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_特定扶養親族区分);
+                this.column控除対象扶養親族04_所得見積額 = new global::System.Data.DataColumn("控除対象扶養親族04_所得見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_所得見積額);
+                this.column控除対象扶養親族04_非居住者 = new global::System.Data.DataColumn("控除対象扶養親族04_非居住者", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_非居住者);
+                this.column控除対象扶養親族04_住所 = new global::System.Data.DataColumn("控除対象扶養親族04_住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_住所);
+                this.column控除対象扶養親族04_異動月日 = new global::System.Data.DataColumn("控除対象扶養親族04_異動月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_異動月日);
+                this.column控除対象扶養親族04_事由 = new global::System.Data.DataColumn("控除対象扶養親族04_事由", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column控除対象扶養親族04_事由);
+                this.column障害者 = new global::System.Data.DataColumn("障害者", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column障害者);
+                this.column一般障害_本人 = new global::System.Data.DataColumn("一般障害_本人", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般障害_本人);
+                this.column一般障害_同一生計配偶者 = new global::System.Data.DataColumn("一般障害_同一生計配偶者", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般障害_同一生計配偶者);
+                this.column一般障害_扶養親族 = new global::System.Data.DataColumn("一般障害_扶養親族", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般障害_扶養親族);
+                this.column一般障害_扶養親族人数 = new global::System.Data.DataColumn("一般障害_扶養親族人数", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般障害_扶養親族人数);
+                this.column特別障害者_本人 = new global::System.Data.DataColumn("特別障害者_本人", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特別障害者_本人);
+                this.column特別障害者_同一生計配偶者 = new global::System.Data.DataColumn("特別障害者_同一生計配偶者", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特別障害者_同一生計配偶者);
+                this.column特別障害者_扶養親族 = new global::System.Data.DataColumn("特別障害者_扶養親族", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特別障害者_扶養親族);
+                this.column特別障害者_扶養親族人数 = new global::System.Data.DataColumn("特別障害者_扶養親族人数", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特別障害者_扶養親族人数);
+                this.column同居特別障害者_同一生計配偶者 = new global::System.Data.DataColumn("同居特別障害者_同一生計配偶者", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column同居特別障害者_同一生計配偶者);
+                this.column同居特別障害者_扶養親族 = new global::System.Data.DataColumn("同居特別障害者_扶養親族", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column同居特別障害者_扶養親族);
+                this.column同居特別障害者_扶養親族人数 = new global::System.Data.DataColumn("同居特別障害者_扶養親族人数", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column同居特別障害者_扶養親族人数);
+                this.column寡婦一人親区分 = new global::System.Data.DataColumn("寡婦一人親区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column寡婦一人親区分);
+                this.column理由区分 = new global::System.Data.DataColumn("理由区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column理由区分);
+                this.column発生年月日 = new global::System.Data.DataColumn("発生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column発生年月日);
+                this.column勤労学生 = new global::System.Data.DataColumn("勤労学生", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column勤労学生);
+                this.column障害異動月日 = new global::System.Data.DataColumn("障害異動月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column障害異動月日);
+                this.column障害事由 = new global::System.Data.DataColumn("障害事由", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column障害事由);
+                this.column扶養親族16未満01_対象外区分 = new global::System.Data.DataColumn("扶養親族16未満01_対象外区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_対象外区分);
+                this.column扶養親族16未満01_氏名 = new global::System.Data.DataColumn("扶養親族16未満01_氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_氏名);
+                this.column扶養親族16未満01_Kana = new global::System.Data.DataColumn("扶養親族16未満01_Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_Kana);
+                this.column扶養親族16未満01_続柄名称 = new global::System.Data.DataColumn("扶養親族16未満01_続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_続柄名称);
+                this.column扶養親族16未満01_生年月日 = new global::System.Data.DataColumn("扶養親族16未満01_生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_生年月日);
+                this.column扶養親族16未満01_生年月日年号 = new global::System.Data.DataColumn("扶養親族16未満01_生年月日年号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_生年月日年号);
+                this.column扶養親族16未満01_生年月日年 = new global::System.Data.DataColumn("扶養親族16未満01_生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_生年月日年);
+                this.column扶養親族16未満01_生年月日月 = new global::System.Data.DataColumn("扶養親族16未満01_生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_生年月日月);
+                this.column扶養親族16未満01_生年月日日 = new global::System.Data.DataColumn("扶養親族16未満01_生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_生年月日日);
+                this.column扶養親族16未満01_同上区分 = new global::System.Data.DataColumn("扶養親族16未満01_同上区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_同上区分);
+                this.column扶養親族16未満01_住所 = new global::System.Data.DataColumn("扶養親族16未満01_住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_住所);
+                this.column扶養親族16未満01_国外区分 = new global::System.Data.DataColumn("扶養親族16未満01_国外区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_国外区分);
+                this.column扶養親族16未満01_所得見積額 = new global::System.Data.DataColumn("扶養親族16未満01_所得見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_所得見積額);
+                this.column扶養親族16未満01_異動月日 = new global::System.Data.DataColumn("扶養親族16未満01_異動月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_異動月日);
+                this.column扶養親族16未満01_事由 = new global::System.Data.DataColumn("扶養親族16未満01_事由", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満01_事由);
+                this.column扶養親族16未満02_対象外区分 = new global::System.Data.DataColumn("扶養親族16未満02_対象外区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_対象外区分);
+                this.column扶養親族16未満02_氏名 = new global::System.Data.DataColumn("扶養親族16未満02_氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_氏名);
+                this.column扶養親族16未満02_Kana = new global::System.Data.DataColumn("扶養親族16未満02_Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_Kana);
+                this.column扶養親族16未満02_続柄名称 = new global::System.Data.DataColumn("扶養親族16未満02_続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_続柄名称);
+                this.column扶養親族16未満02_生年月日 = new global::System.Data.DataColumn("扶養親族16未満02_生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_生年月日);
+                this.column扶養親族16未満02_生年月日年号 = new global::System.Data.DataColumn("扶養親族16未満02_生年月日年号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_生年月日年号);
+                this.column扶養親族16未満02_生年月日年 = new global::System.Data.DataColumn("扶養親族16未満02_生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_生年月日年);
+                this.column扶養親族16未満02_生年月日月 = new global::System.Data.DataColumn("扶養親族16未満02_生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_生年月日月);
+                this.column扶養親族16未満02_生年月日日 = new global::System.Data.DataColumn("扶養親族16未満02_生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_生年月日日);
+                this.column扶養親族16未満02_同上区分 = new global::System.Data.DataColumn("扶養親族16未満02_同上区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_同上区分);
+                this.column扶養親族16未満02_住所 = new global::System.Data.DataColumn("扶養親族16未満02_住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_住所);
+                this.column扶養親族16未満02_国外区分 = new global::System.Data.DataColumn("扶養親族16未満02_国外区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_国外区分);
+                this.column扶養親族16未満02_所得見積額 = new global::System.Data.DataColumn("扶養親族16未満02_所得見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_所得見積額);
+                this.column扶養親族16未満02_異動月日 = new global::System.Data.DataColumn("扶養親族16未満02_異動月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_異動月日);
+                this.column扶養親族16未満02_事由 = new global::System.Data.DataColumn("扶養親族16未満02_事由", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満02_事由);
+                this.column扶養親族16未満03_対象外区分 = new global::System.Data.DataColumn("扶養親族16未満03_対象外区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_対象外区分);
+                this.column扶養親族16未満03_氏名 = new global::System.Data.DataColumn("扶養親族16未満03_氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_氏名);
+                this.column扶養親族16未満03_Kana = new global::System.Data.DataColumn("扶養親族16未満03_Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_Kana);
+                this.column扶養親族16未満03_続柄名称 = new global::System.Data.DataColumn("扶養親族16未満03_続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_続柄名称);
+                this.column扶養親族16未満03_生年月日 = new global::System.Data.DataColumn("扶養親族16未満03_生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_生年月日);
+                this.column扶養親族16未満03_生年月日年号 = new global::System.Data.DataColumn("扶養親族16未満03_生年月日年号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_生年月日年号);
+                this.column扶養親族16未満03_生年月日年 = new global::System.Data.DataColumn("扶養親族16未満03_生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_生年月日年);
+                this.column扶養親族16未満03_生年月日月 = new global::System.Data.DataColumn("扶養親族16未満03_生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_生年月日月);
+                this.column扶養親族16未満03_生年月日日 = new global::System.Data.DataColumn("扶養親族16未満03_生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_生年月日日);
+                this.column扶養親族16未満03_同上区分 = new global::System.Data.DataColumn("扶養親族16未満03_同上区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_同上区分);
+                this.column扶養親族16未満03_住所 = new global::System.Data.DataColumn("扶養親族16未満03_住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_住所);
+                this.column扶養親族16未満03_国外区分 = new global::System.Data.DataColumn("扶養親族16未満03_国外区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_国外区分);
+                this.column扶養親族16未満03_所得見積額 = new global::System.Data.DataColumn("扶養親族16未満03_所得見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_所得見積額);
+                this.column扶養親族16未満03_異動月日 = new global::System.Data.DataColumn("扶養親族16未満03_異動月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_異動月日);
+                this.column扶養親族16未満03_事由 = new global::System.Data.DataColumn("扶養親族16未満03_事由", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満03_事由);
+                this.column扶養親族16未満04_対象外区分 = new global::System.Data.DataColumn("扶養親族16未満04_対象外区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_対象外区分);
+                this.column扶養親族16未満04_氏名 = new global::System.Data.DataColumn("扶養親族16未満04_氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_氏名);
+                this.column扶養親族16未満04_Kana = new global::System.Data.DataColumn("扶養親族16未満04_Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_Kana);
+                this.column扶養親族16未満04_続柄名称 = new global::System.Data.DataColumn("扶養親族16未満04_続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_続柄名称);
+                this.column扶養親族16未満04_生年月日 = new global::System.Data.DataColumn("扶養親族16未満04_生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_生年月日);
+                this.column扶養親族16未満04_生年月日年号 = new global::System.Data.DataColumn("扶養親族16未満04_生年月日年号", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_生年月日年号);
+                this.column扶養親族16未満04_生年月日年 = new global::System.Data.DataColumn("扶養親族16未満04_生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_生年月日年);
+                this.column扶養親族16未満04_生年月日月 = new global::System.Data.DataColumn("扶養親族16未満04_生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_生年月日月);
+                this.column扶養親族16未満04_生年月日日 = new global::System.Data.DataColumn("扶養親族16未満04_生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_生年月日日);
+                this.column扶養親族16未満04_同上区分 = new global::System.Data.DataColumn("扶養親族16未満04_同上区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_同上区分);
+                this.column扶養親族16未満04_住所 = new global::System.Data.DataColumn("扶養親族16未満04_住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_住所);
+                this.column扶養親族16未満04_国外区分 = new global::System.Data.DataColumn("扶養親族16未満04_国外区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_国外区分);
+                this.column扶養親族16未満04_所得見積額 = new global::System.Data.DataColumn("扶養親族16未満04_所得見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_所得見積額);
+                this.column扶養親族16未満04_異動月日 = new global::System.Data.DataColumn("扶養親族16未満04_異動月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_異動月日);
+                this.column扶養親族16未満04_事由 = new global::System.Data.DataColumn("扶養親族16未満04_事由", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族16未満04_事由);
+                this.column法人個人番号01 = new global::System.Data.DataColumn("法人個人番号01", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号01);
+                this.column法人個人番号02 = new global::System.Data.DataColumn("法人個人番号02", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号02);
+                this.column法人個人番号03 = new global::System.Data.DataColumn("法人個人番号03", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号03);
+                this.column法人個人番号04 = new global::System.Data.DataColumn("法人個人番号04", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号04);
+                this.column法人個人番号05 = new global::System.Data.DataColumn("法人個人番号05", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号05);
+                this.column法人個人番号06 = new global::System.Data.DataColumn("法人個人番号06", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号06);
+                this.column法人個人番号07 = new global::System.Data.DataColumn("法人個人番号07", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号07);
+                this.column法人個人番号08 = new global::System.Data.DataColumn("法人個人番号08", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号08);
+                this.column法人個人番号09 = new global::System.Data.DataColumn("法人個人番号09", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号09);
+                this.column法人個人番号10 = new global::System.Data.DataColumn("法人個人番号10", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号10);
+                this.column法人個人番号11 = new global::System.Data.DataColumn("法人個人番号11", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号11);
+                this.column法人個人番号12 = new global::System.Data.DataColumn("法人個人番号12", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号12);
+                this.column法人個人番号13 = new global::System.Data.DataColumn("法人個人番号13", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column法人個人番号13);
+                this.column税務署長 = new global::System.Data.DataColumn("税務署長", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column税務署長);
+                this.column市区町村長 = new global::System.Data.DataColumn("市区町村長", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column市区町村長);
+                this.column給与支払者名称 = new global::System.Data.DataColumn("給与支払者名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column給与支払者名称);
+                this.column給与支払者所在地 = new global::System.Data.DataColumn("給与支払者所在地", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column給与支払者所在地);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -579,6 +3447,38 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 表示年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.表示年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'表示年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.表示年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 表示元号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.表示元号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'表示元号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.表示元号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string 社員番号 {
                 get {
                     try {
@@ -590,6 +3490,70 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 }
                 set {
                     this[this.tableHuyouDeclareDataTable.社員番号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 本人確定区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.本人確定区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'本人確定区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.本人確定区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 管理者確定区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.管理者確定区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'管理者確定区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.管理者確定区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人番号相違確認区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.個人番号相違確認区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'個人番号相違確認区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.個人番号相違確認区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public short 所属番号 {
+                get {
+                    try {
+                        return ((short)(this[this.tableHuyouDeclareDataTable.所属番号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'所属番号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.所属番号Column] = value;
                 }
             }
             
@@ -611,6 +3575,2966 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 生年月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 生年月日年号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.生年月日年号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'生年月日年号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.生年月日年号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 世帯主氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.世帯主氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'世帯主氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.世帯主氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 世帯主続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.世帯主続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'世帯主続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.世帯主続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 郵便番号_前 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.郵便番号_前Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'郵便番号_前\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.郵便番号_前Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 郵便番号_後 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.郵便番号_後Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'郵便番号_後\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.郵便番号_後Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 住所01 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.住所01Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'住所01\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.住所01Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者有無 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.配偶者有無Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'配偶者有無\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.配偶者有無Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Sequence番号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.Sequence番号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'Sequence番号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.Sequence番号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 源泉控除対象配偶者対象外区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者対象外区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'源泉控除対象配偶者対象外区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者対象外区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 源泉控除対象配偶者氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'源泉控除対象配偶者氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 源泉控除対象配偶者Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'源泉控除対象配偶者Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 源泉控除対象配偶者生年月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'源泉控除対象配偶者生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 源泉控除対象配偶者生年月日年号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日年号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'源泉控除対象配偶者生年月日年号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日年号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 源泉控除対象配偶者生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'源泉控除対象配偶者生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 源泉控除対象配偶者生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'源泉控除対象配偶者生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 源泉控除対象配偶者生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'源泉控除対象配偶者生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 源泉控除対象配偶者所得見積額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者所得見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'源泉控除対象配偶者所得見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者所得見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 源泉控除対象配偶者非居住者 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者非居住者Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'源泉控除対象配偶者非居住者\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者非居住者Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 源泉控除対象配偶者住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'源泉控除対象配偶者住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 源泉控除対象配偶者異動月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者異動月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'源泉控除対象配偶者異動月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者異動月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 源泉控除対象配偶者事由 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者事由Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'源泉控除対象配偶者事由\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者事由Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族01_対象外区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_対象外区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_対象外区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_対象外区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族01_氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族01_Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族01_続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 控除対象扶養親族01_生年月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族01_生年月日年号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日年号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_生年月日年号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日年号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族01_生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族01_生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族01_生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族01_老人扶養親族区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_老人扶養親族区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_老人扶養親族区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_老人扶養親族区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族01_特定扶養親族区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_特定扶養親族区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_特定扶養親族区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_特定扶養親族区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 控除対象扶養親族01_所得見積額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_所得見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_所得見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_所得見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族01_非居住者 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_非居住者Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_非居住者\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_非居住者Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族01_住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 控除対象扶養親族01_異動月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_異動月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_異動月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_異動月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族01_事由 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_事由Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族01_事由\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_事由Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族02_対象外区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_対象外区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_対象外区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_対象外区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族02_氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族02_Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族02_続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 控除対象扶養親族02_生年月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族02_生年月日年号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日年号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_生年月日年号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日年号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族02_生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族02_生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族02_生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族02_老人扶養親族区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_老人扶養親族区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_老人扶養親族区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_老人扶養親族区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族02_特定扶養親族区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_特定扶養親族区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_特定扶養親族区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_特定扶養親族区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 控除対象扶養親族02_所得見積額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_所得見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_所得見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_所得見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族02_非居住者 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_非居住者Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_非居住者\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_非居住者Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族02_住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 控除対象扶養親族02_異動月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_異動月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_異動月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_異動月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族02_事由 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_事由Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族02_事由\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_事由Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族03_対象外区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_対象外区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_対象外区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_対象外区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族03_氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族03_Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族03_続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 控除対象扶養親族03_生年月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族03_生年月日年号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日年号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_生年月日年号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日年号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族03_生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族03_生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族03_生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族03_老人扶養親族区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_老人扶養親族区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_老人扶養親族区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_老人扶養親族区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族03_特定扶養親族区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_特定扶養親族区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_特定扶養親族区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_特定扶養親族区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 控除対象扶養親族03_所得見積額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_所得見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_所得見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_所得見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族03_非居住者 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_非居住者Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_非居住者\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_非居住者Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族03_住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 控除対象扶養親族03_異動月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_異動月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_異動月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_異動月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族03_事由 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_事由Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族03_事由\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_事由Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族04_対象外区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_対象外区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_対象外区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_対象外区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族04_氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族04_Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族04_続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 控除対象扶養親族04_生年月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族04_生年月日年号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日年号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_生年月日年号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日年号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族04_生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族04_生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族04_生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族04_老人扶養親族区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_老人扶養親族区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_老人扶養親族区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_老人扶養親族区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族04_特定扶養親族区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_特定扶養親族区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_特定扶養親族区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_特定扶養親族区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 控除対象扶養親族04_所得見積額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_所得見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_所得見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_所得見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族04_非居住者 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_非居住者Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_非居住者\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_非居住者Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族04_住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 控除対象扶養親族04_異動月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_異動月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_異動月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_異動月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 控除対象扶養親族04_事由 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_事由Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'控除対象扶養親族04_事由\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_事由Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 障害者 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.障害者Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'障害者\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.障害者Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般障害_本人 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.一般障害_本人Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'一般障害_本人\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.一般障害_本人Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般障害_同一生計配偶者 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.一般障害_同一生計配偶者Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'一般障害_同一生計配偶者\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.一般障害_同一生計配偶者Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般障害_扶養親族 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.一般障害_扶養親族Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'一般障害_扶養親族\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.一般障害_扶養親族Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般障害_扶養親族人数 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.一般障害_扶養親族人数Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'一般障害_扶養親族人数\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.一般障害_扶養親族人数Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特別障害者_本人 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.特別障害者_本人Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'特別障害者_本人\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.特別障害者_本人Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特別障害者_同一生計配偶者 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.特別障害者_同一生計配偶者Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'特別障害者_同一生計配偶者\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.特別障害者_同一生計配偶者Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特別障害者_扶養親族 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.特別障害者_扶養親族Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'特別障害者_扶養親族\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.特別障害者_扶養親族Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特別障害者_扶養親族人数 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.特別障害者_扶養親族人数Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'特別障害者_扶養親族人数\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.特別障害者_扶養親族人数Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 同居特別障害者_同一生計配偶者 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.同居特別障害者_同一生計配偶者Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'同居特別障害者_同一生計配偶者\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.同居特別障害者_同一生計配偶者Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 同居特別障害者_扶養親族 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.同居特別障害者_扶養親族Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'同居特別障害者_扶養親族\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.同居特別障害者_扶養親族Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 同居特別障害者_扶養親族人数 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.同居特別障害者_扶養親族人数Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'同居特別障害者_扶養親族人数\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.同居特別障害者_扶養親族人数Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 寡婦一人親区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.寡婦一人親区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'寡婦一人親区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.寡婦一人親区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 理由区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.理由区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'理由区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.理由区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 発生年月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.発生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'発生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.発生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 勤労学生 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.勤労学生Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'勤労学生\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.勤労学生Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 障害異動月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.障害異動月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'障害異動月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.障害異動月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 障害事由 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.障害事由Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'障害事由\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.障害事由Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満01_対象外区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_対象外区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_対象外区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_対象外区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満01_氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満01_Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満01_続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 扶養親族16未満01_生年月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満01_生年月日年号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日年号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_生年月日年号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日年号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満01_生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満01_生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満01_生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満01_同上区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_同上区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_同上区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_同上区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満01_住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満01_国外区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_国外区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_国外区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_国外区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 扶養親族16未満01_所得見積額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_所得見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_所得見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_所得見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 扶養親族16未満01_異動月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_異動月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_異動月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_異動月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満01_事由 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満01_事由Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満01_事由\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満01_事由Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満02_対象外区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_対象外区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_対象外区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_対象外区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満02_氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満02_Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満02_続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 扶養親族16未満02_生年月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満02_生年月日年号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日年号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_生年月日年号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日年号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満02_生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満02_生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満02_生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満02_同上区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_同上区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_同上区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_同上区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満02_住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満02_国外区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_国外区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_国外区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_国外区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 扶養親族16未満02_所得見積額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_所得見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_所得見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_所得見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 扶養親族16未満02_異動月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_異動月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_異動月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_異動月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満02_事由 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満02_事由Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満02_事由\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満02_事由Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満03_対象外区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_対象外区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_対象外区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_対象外区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満03_氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満03_Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満03_続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 扶養親族16未満03_生年月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満03_生年月日年号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日年号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_生年月日年号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日年号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満03_生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満03_生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満03_生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満03_同上区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_同上区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_同上区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_同上区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満03_住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満03_国外区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_国外区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_国外区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_国外区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 扶養親族16未満03_所得見積額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_所得見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_所得見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_所得見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 扶養親族16未満03_異動月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_異動月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_異動月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_異動月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満03_事由 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満03_事由Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満03_事由\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満03_事由Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満04_対象外区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_対象外区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_対象外区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_対象外区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満04_氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満04_Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満04_続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 扶養親族16未満04_生年月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満04_生年月日年号 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日年号Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_生年月日年号\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日年号Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満04_生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満04_生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満04_生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満04_同上区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_同上区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_同上区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_同上区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満04_住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満04_国外区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_国外区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_国外区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_国外区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 扶養親族16未満04_所得見積額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_所得見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_所得見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_所得見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 扶養親族16未満04_異動月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_異動月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_異動月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_異動月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族16未満04_事由 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.扶養親族16未満04_事由Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'扶養親族16未満04_事由\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.扶養親族16未満04_事由Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号01 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.法人個人番号01Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'法人個人番号01\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.法人個人番号01Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号02 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.法人個人番号02Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'法人個人番号02\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.法人個人番号02Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号03 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.法人個人番号03Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'法人個人番号03\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.法人個人番号03Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号04 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.法人個人番号04Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'法人個人番号04\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.法人個人番号04Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号05 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.法人個人番号05Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'法人個人番号05\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.法人個人番号05Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号06 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.法人個人番号06Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'法人個人番号06\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.法人個人番号06Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号07 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.法人個人番号07Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'法人個人番号07\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.法人個人番号07Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号08 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.法人個人番号08Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'法人個人番号08\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.法人個人番号08Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号09 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.法人個人番号09Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'法人個人番号09\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.法人個人番号09Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号10 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.法人個人番号10Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'法人個人番号10\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.法人個人番号10Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号11 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.法人個人番号11Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'法人個人番号11\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.法人個人番号11Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号12 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.法人個人番号12Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'法人個人番号12\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.法人個人番号12Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 法人個人番号13 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.法人個人番号13Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'法人個人番号13\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.法人個人番号13Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 税務署長 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.税務署長Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'税務署長\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.税務署長Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 市区町村長 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.市区町村長Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'市区町村長\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.市区町村長Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 給与支払者名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.給与支払者名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'給与支払者名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.給与支払者名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 給与支払者所在地 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.給与支払者所在地Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'給与支払者所在地\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.給与支払者所在地Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Is対象年度Null() {
                 return this.IsNull(this.tableHuyouDeclareDataTable.対象年度Column);
             }
@@ -619,6 +6543,30 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Set対象年度Null() {
                 this[this.tableHuyouDeclareDataTable.対象年度Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is表示年Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.表示年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set表示年Null() {
+                this[this.tableHuyouDeclareDataTable.表示年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is表示元号Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.表示元号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set表示元号Null() {
+                this[this.tableHuyouDeclareDataTable.表示元号Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -635,6 +6583,54 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is本人確定区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.本人確定区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set本人確定区分Null() {
+                this[this.tableHuyouDeclareDataTable.本人確定区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is管理者確定区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.管理者確定区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set管理者確定区分Null() {
+                this[this.tableHuyouDeclareDataTable.管理者確定区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人番号相違確認区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.個人番号相違確認区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人番号相違確認区分Null() {
+                this[this.tableHuyouDeclareDataTable.個人番号相違確認区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所属番号Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.所属番号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所属番号Null() {
+                this[this.tableHuyouDeclareDataTable.所属番号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Is氏名Null() {
                 return this.IsNull(this.tableHuyouDeclareDataTable.氏名Column);
             }
@@ -643,6 +6639,2226 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Set氏名Null() {
                 this[this.tableHuyouDeclareDataTable.氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsKanaNull() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetKanaNull() {
+                this[this.tableHuyouDeclareDataTable.KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is生年月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set生年月日Null() {
+                this[this.tableHuyouDeclareDataTable.生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is生年月日年号Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.生年月日年号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set生年月日年号Null() {
+                this[this.tableHuyouDeclareDataTable.生年月日年号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is生年月日年Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set生年月日年Null() {
+                this[this.tableHuyouDeclareDataTable.生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is生年月日月Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set生年月日月Null() {
+                this[this.tableHuyouDeclareDataTable.生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is生年月日日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set生年月日日Null() {
+                this[this.tableHuyouDeclareDataTable.生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is世帯主氏名Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.世帯主氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set世帯主氏名Null() {
+                this[this.tableHuyouDeclareDataTable.世帯主氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is世帯主続柄名称Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.世帯主続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set世帯主続柄名称Null() {
+                this[this.tableHuyouDeclareDataTable.世帯主続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is郵便番号_前Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.郵便番号_前Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set郵便番号_前Null() {
+                this[this.tableHuyouDeclareDataTable.郵便番号_前Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is郵便番号_後Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.郵便番号_後Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set郵便番号_後Null() {
+                this[this.tableHuyouDeclareDataTable.郵便番号_後Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is住所01Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.住所01Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set住所01Null() {
+                this[this.tableHuyouDeclareDataTable.住所01Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者有無Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.配偶者有無Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者有無Null() {
+                this[this.tableHuyouDeclareDataTable.配偶者有無Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsSequence番号Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.Sequence番号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetSequence番号Null() {
+                this[this.tableHuyouDeclareDataTable.Sequence番号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is源泉控除対象配偶者対象外区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.源泉控除対象配偶者対象外区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set源泉控除対象配偶者対象外区分Null() {
+                this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者対象外区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is源泉控除対象配偶者氏名Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.源泉控除対象配偶者氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set源泉控除対象配偶者氏名Null() {
+                this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is源泉控除対象配偶者KanaNull() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.源泉控除対象配偶者KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set源泉控除対象配偶者KanaNull() {
+                this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is源泉控除対象配偶者生年月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set源泉控除対象配偶者生年月日Null() {
+                this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is源泉控除対象配偶者生年月日年号Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日年号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set源泉控除対象配偶者生年月日年号Null() {
+                this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日年号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is源泉控除対象配偶者生年月日年Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set源泉控除対象配偶者生年月日年Null() {
+                this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is源泉控除対象配偶者生年月日月Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set源泉控除対象配偶者生年月日月Null() {
+                this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is源泉控除対象配偶者生年月日日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set源泉控除対象配偶者生年月日日Null() {
+                this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is源泉控除対象配偶者所得見積額Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.源泉控除対象配偶者所得見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set源泉控除対象配偶者所得見積額Null() {
+                this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者所得見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is源泉控除対象配偶者非居住者Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.源泉控除対象配偶者非居住者Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set源泉控除対象配偶者非居住者Null() {
+                this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者非居住者Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is源泉控除対象配偶者住所Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.源泉控除対象配偶者住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set源泉控除対象配偶者住所Null() {
+                this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is源泉控除対象配偶者異動月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.源泉控除対象配偶者異動月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set源泉控除対象配偶者異動月日Null() {
+                this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者異動月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is源泉控除対象配偶者事由Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.源泉控除対象配偶者事由Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set源泉控除対象配偶者事由Null() {
+                this[this.tableHuyouDeclareDataTable.源泉控除対象配偶者事由Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_対象外区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_対象外区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_対象外区分Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_対象外区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_氏名Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_氏名Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_KanaNull() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_KanaNull() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_続柄名称Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_続柄名称Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_生年月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_生年月日Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_生年月日年号Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日年号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_生年月日年号Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日年号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_生年月日年Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_生年月日年Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_生年月日月Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_生年月日月Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_生年月日日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_生年月日日Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_老人扶養親族区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_老人扶養親族区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_老人扶養親族区分Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_老人扶養親族区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_特定扶養親族区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_特定扶養親族区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_特定扶養親族区分Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_特定扶養親族区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_所得見積額Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_所得見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_所得見積額Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_所得見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_非居住者Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_非居住者Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_非居住者Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_非居住者Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_住所Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_住所Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_異動月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_異動月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_異動月日Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_異動月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族01_事由Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族01_事由Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族01_事由Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族01_事由Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_対象外区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_対象外区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_対象外区分Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_対象外区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_氏名Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_氏名Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_KanaNull() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_KanaNull() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_続柄名称Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_続柄名称Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_生年月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_生年月日Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_生年月日年号Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日年号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_生年月日年号Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日年号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_生年月日年Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_生年月日年Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_生年月日月Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_生年月日月Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_生年月日日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_生年月日日Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_老人扶養親族区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_老人扶養親族区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_老人扶養親族区分Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_老人扶養親族区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_特定扶養親族区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_特定扶養親族区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_特定扶養親族区分Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_特定扶養親族区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_所得見積額Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_所得見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_所得見積額Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_所得見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_非居住者Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_非居住者Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_非居住者Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_非居住者Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_住所Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_住所Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_異動月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_異動月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_異動月日Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_異動月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族02_事由Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族02_事由Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族02_事由Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族02_事由Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_対象外区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_対象外区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_対象外区分Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_対象外区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_氏名Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_氏名Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_KanaNull() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_KanaNull() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_続柄名称Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_続柄名称Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_生年月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_生年月日Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_生年月日年号Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日年号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_生年月日年号Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日年号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_生年月日年Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_生年月日年Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_生年月日月Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_生年月日月Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_生年月日日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_生年月日日Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_老人扶養親族区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_老人扶養親族区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_老人扶養親族区分Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_老人扶養親族区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_特定扶養親族区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_特定扶養親族区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_特定扶養親族区分Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_特定扶養親族区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_所得見積額Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_所得見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_所得見積額Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_所得見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_非居住者Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_非居住者Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_非居住者Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_非居住者Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_住所Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_住所Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_異動月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_異動月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_異動月日Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_異動月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族03_事由Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族03_事由Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族03_事由Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族03_事由Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_対象外区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_対象外区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_対象外区分Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_対象外区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_氏名Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_氏名Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_KanaNull() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_KanaNull() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_続柄名称Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_続柄名称Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_生年月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_生年月日Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_生年月日年号Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日年号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_生年月日年号Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日年号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_生年月日年Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_生年月日年Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_生年月日月Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_生年月日月Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_生年月日日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_生年月日日Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_老人扶養親族区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_老人扶養親族区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_老人扶養親族区分Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_老人扶養親族区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_特定扶養親族区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_特定扶養親族区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_特定扶養親族区分Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_特定扶養親族区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_所得見積額Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_所得見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_所得見積額Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_所得見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_非居住者Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_非居住者Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_非居住者Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_非居住者Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_住所Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_住所Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_異動月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_異動月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_異動月日Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_異動月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is控除対象扶養親族04_事由Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.控除対象扶養親族04_事由Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set控除対象扶養親族04_事由Null() {
+                this[this.tableHuyouDeclareDataTable.控除対象扶養親族04_事由Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is障害者Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.障害者Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set障害者Null() {
+                this[this.tableHuyouDeclareDataTable.障害者Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般障害_本人Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.一般障害_本人Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般障害_本人Null() {
+                this[this.tableHuyouDeclareDataTable.一般障害_本人Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般障害_同一生計配偶者Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.一般障害_同一生計配偶者Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般障害_同一生計配偶者Null() {
+                this[this.tableHuyouDeclareDataTable.一般障害_同一生計配偶者Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般障害_扶養親族Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.一般障害_扶養親族Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般障害_扶養親族Null() {
+                this[this.tableHuyouDeclareDataTable.一般障害_扶養親族Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般障害_扶養親族人数Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.一般障害_扶養親族人数Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般障害_扶養親族人数Null() {
+                this[this.tableHuyouDeclareDataTable.一般障害_扶養親族人数Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特別障害者_本人Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.特別障害者_本人Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特別障害者_本人Null() {
+                this[this.tableHuyouDeclareDataTable.特別障害者_本人Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特別障害者_同一生計配偶者Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.特別障害者_同一生計配偶者Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特別障害者_同一生計配偶者Null() {
+                this[this.tableHuyouDeclareDataTable.特別障害者_同一生計配偶者Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特別障害者_扶養親族Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.特別障害者_扶養親族Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特別障害者_扶養親族Null() {
+                this[this.tableHuyouDeclareDataTable.特別障害者_扶養親族Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特別障害者_扶養親族人数Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.特別障害者_扶養親族人数Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特別障害者_扶養親族人数Null() {
+                this[this.tableHuyouDeclareDataTable.特別障害者_扶養親族人数Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is同居特別障害者_同一生計配偶者Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.同居特別障害者_同一生計配偶者Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set同居特別障害者_同一生計配偶者Null() {
+                this[this.tableHuyouDeclareDataTable.同居特別障害者_同一生計配偶者Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is同居特別障害者_扶養親族Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.同居特別障害者_扶養親族Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set同居特別障害者_扶養親族Null() {
+                this[this.tableHuyouDeclareDataTable.同居特別障害者_扶養親族Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is同居特別障害者_扶養親族人数Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.同居特別障害者_扶養親族人数Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set同居特別障害者_扶養親族人数Null() {
+                this[this.tableHuyouDeclareDataTable.同居特別障害者_扶養親族人数Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is寡婦一人親区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.寡婦一人親区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set寡婦一人親区分Null() {
+                this[this.tableHuyouDeclareDataTable.寡婦一人親区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is理由区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.理由区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set理由区分Null() {
+                this[this.tableHuyouDeclareDataTable.理由区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is発生年月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.発生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set発生年月日Null() {
+                this[this.tableHuyouDeclareDataTable.発生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is勤労学生Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.勤労学生Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set勤労学生Null() {
+                this[this.tableHuyouDeclareDataTable.勤労学生Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is障害異動月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.障害異動月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set障害異動月日Null() {
+                this[this.tableHuyouDeclareDataTable.障害異動月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is障害事由Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.障害事由Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set障害事由Null() {
+                this[this.tableHuyouDeclareDataTable.障害事由Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_対象外区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_対象外区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_対象外区分Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_対象外区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_氏名Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_氏名Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_KanaNull() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_KanaNull() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_続柄名称Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_続柄名称Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_生年月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_生年月日Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_生年月日年号Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日年号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_生年月日年号Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日年号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_生年月日年Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_生年月日年Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_生年月日月Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_生年月日月Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_生年月日日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_生年月日日Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_同上区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_同上区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_同上区分Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_同上区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_住所Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_住所Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_国外区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_国外区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_国外区分Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_国外区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_所得見積額Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_所得見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_所得見積額Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_所得見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_異動月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_異動月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_異動月日Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_異動月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満01_事由Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満01_事由Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満01_事由Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満01_事由Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_対象外区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_対象外区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_対象外区分Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_対象外区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_氏名Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_氏名Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_KanaNull() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_KanaNull() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_続柄名称Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_続柄名称Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_生年月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_生年月日Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_生年月日年号Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日年号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_生年月日年号Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日年号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_生年月日年Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_生年月日年Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_生年月日月Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_生年月日月Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_生年月日日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_生年月日日Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_同上区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_同上区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_同上区分Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_同上区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_住所Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_住所Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_国外区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_国外区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_国外区分Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_国外区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_所得見積額Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_所得見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_所得見積額Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_所得見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_異動月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_異動月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_異動月日Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_異動月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満02_事由Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満02_事由Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満02_事由Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満02_事由Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_対象外区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_対象外区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_対象外区分Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_対象外区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_氏名Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_氏名Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_KanaNull() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_KanaNull() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_続柄名称Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_続柄名称Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_生年月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_生年月日Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_生年月日年号Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日年号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_生年月日年号Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日年号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_生年月日年Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_生年月日年Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_生年月日月Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_生年月日月Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_生年月日日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_生年月日日Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_同上区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_同上区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_同上区分Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_同上区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_住所Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_住所Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_国外区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_国外区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_国外区分Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_国外区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_所得見積額Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_所得見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_所得見積額Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_所得見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_異動月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_異動月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_異動月日Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_異動月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満03_事由Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満03_事由Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満03_事由Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満03_事由Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_対象外区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_対象外区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_対象外区分Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_対象外区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_氏名Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_氏名Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_KanaNull() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_KanaNull() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_続柄名称Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_続柄名称Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_生年月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_生年月日Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_生年月日年号Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日年号Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_生年月日年号Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日年号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_生年月日年Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_生年月日年Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_生年月日月Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_生年月日月Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_生年月日日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_生年月日日Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_同上区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_同上区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_同上区分Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_同上区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_住所Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_住所Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_国外区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_国外区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_国外区分Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_国外区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_所得見積額Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_所得見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_所得見積額Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_所得見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_異動月日Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_異動月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_異動月日Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_異動月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族16未満04_事由Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.扶養親族16未満04_事由Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族16未満04_事由Null() {
+                this[this.tableHuyouDeclareDataTable.扶養親族16未満04_事由Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号01Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.法人個人番号01Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号01Null() {
+                this[this.tableHuyouDeclareDataTable.法人個人番号01Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号02Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.法人個人番号02Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号02Null() {
+                this[this.tableHuyouDeclareDataTable.法人個人番号02Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号03Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.法人個人番号03Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号03Null() {
+                this[this.tableHuyouDeclareDataTable.法人個人番号03Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号04Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.法人個人番号04Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号04Null() {
+                this[this.tableHuyouDeclareDataTable.法人個人番号04Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号05Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.法人個人番号05Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号05Null() {
+                this[this.tableHuyouDeclareDataTable.法人個人番号05Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号06Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.法人個人番号06Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号06Null() {
+                this[this.tableHuyouDeclareDataTable.法人個人番号06Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号07Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.法人個人番号07Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号07Null() {
+                this[this.tableHuyouDeclareDataTable.法人個人番号07Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号08Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.法人個人番号08Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号08Null() {
+                this[this.tableHuyouDeclareDataTable.法人個人番号08Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号09Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.法人個人番号09Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号09Null() {
+                this[this.tableHuyouDeclareDataTable.法人個人番号09Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号10Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.法人個人番号10Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号10Null() {
+                this[this.tableHuyouDeclareDataTable.法人個人番号10Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号11Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.法人個人番号11Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号11Null() {
+                this[this.tableHuyouDeclareDataTable.法人個人番号11Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号12Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.法人個人番号12Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号12Null() {
+                this[this.tableHuyouDeclareDataTable.法人個人番号12Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is法人個人番号13Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.法人個人番号13Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set法人個人番号13Null() {
+                this[this.tableHuyouDeclareDataTable.法人個人番号13Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is税務署長Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.税務署長Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set税務署長Null() {
+                this[this.tableHuyouDeclareDataTable.税務署長Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is市区町村長Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.市区町村長Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set市区町村長Null() {
+                this[this.tableHuyouDeclareDataTable.市区町村長Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is給与支払者名称Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.給与支払者名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set給与支払者名称Null() {
+                this[this.tableHuyouDeclareDataTable.給与支払者名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is給与支払者所在地Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.給与支払者所在地Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set給与支払者所在地Null() {
+                this[this.tableHuyouDeclareDataTable.給与支払者所在地Column] = global::System.Convert.DBNull;
             }
         }
         
