@@ -1,0 +1,275 @@
+﻿﻿@using EmployeeAdjustmentConnectionSystem.COM.Entity.Session
+
+@using EmployeeAdjustmentConnectionSystem.COM.Models
+@model YearEndAdjustmentSearchViewModels
+
+@{
+    ViewBag.Title = "一括処理関連";
+}
+@Styles.Render("~/Content/css/yearends")
+
+<!--タイトル-->
+<h4 class="text-center">一　括　処　理　関　連</h4>
+@using (Html.BeginForm("Search", "YearEndAdjustmentSearch", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" })) {
+  <!--検索項目-->
+    @Html.HiddenFor(m => m.Down.DownloadFlag)
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10">
+            <table class="table table-no-bordered mb-zero">
+                <tbody>
+                    <tr>
+                        <td class="w30">
+                            <label class="control-label ">西暦</label>
+                            <div>
+                                @Html.TextBoxFor(m => m.Search.Year, new { @class = "ime-disabled search-year", size = 4, maxlength = "4" })<label>年度</label>
+                            </div>
+                        </td>
+                        <td class="w50">
+                            <label class="control-label ">社員番号</label>
+                            <div class=" form-inline">
+                                @Html.TextBoxFor(m => m.Search.EmployeeNoFrom, new { @class = "ime-disabled search-range ", size = 5, maxlength = "5" })<label>　～　</label>
+                                @Html.TextBoxFor(m => m.Search.EmployeeNoTo, new { @class = "ime-disabled search-range ", size = 5, maxlength = "5" })
+                            </div>
+                        </td>
+                        <td class="w50">
+                            <label class="control-label ">所属番号</label>
+                            <div class=" form-inline">
+                                @Html.TextBoxFor(m => m.Search.DepartmentFrom, new { @class = "ime-disabled search-range ", size = 5, maxlength = "5" })<label>　～　</label>
+                                @Html.TextBoxFor(m => m.Search.DepartmentTo, new { @class = "ime-disabled search-range ", size = 5, maxlength = "5" })
+                            </div>
+                        </td>
+                        <td class="w150">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-7">
+            <table class="table table-no-bordered mb-zero">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <label class="control-label ">氏名</label>
+                                <div>
+                                    @Html.TextBoxFor(m => m.Search.EmployeeName, new { @class = "search-name", size = 20 })
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="control-label ">氏名ｶﾅ</label>
+                                <div>
+                                    @Html.TextBoxFor(m => m.Search.EmployeeNameKana, new { @class = "search-name checkKana", size = 20 })
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="control-label ">扶養控除ステータス</label>
+                                <div>
+                                  @Html.DropDownListFor(
+                                      model => model.Search.HuyouDeclareStatus,
+                                      new SelectListItem[] {
+                                          new SelectListItem() { Value="00", Text="本人未提出" },
+                                          new SelectListItem() { Value="90", Text="本人提出済み" },
+                                          new SelectListItem() { Value="91", Text="支社確定済み" },
+                                          new SelectListItem() { Value="95", Text="管理者確定済み" },
+                                          new SelectListItem() { Value="99", Text="システム連携済み" }
+                                      }, "", new Dictionary<string, object> {{ "class","search-status"}, { "data-width", "50px" }, { "title", "" } }
+)
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="control-label ">保険料控除ステータス</label>
+                                <div>
+                                  @Html.DropDownListFor(
+                                      model => model.Search.HokenDeclareStatus,
+                                      new SelectListItem[] {
+                                          new SelectListItem() { Value="00", Text="本人未提出" },
+                                          new SelectListItem() { Value="90", Text="本人提出済み" },
+                                          new SelectListItem() { Value="91", Text="支社確定済み" },
+                                          new SelectListItem() { Value="95", Text="管理者確定済み" },
+                                          new SelectListItem() { Value="99", Text="システム連携済み" }
+                                      }, "", new Dictionary<string, object> {{ "class","search-status"}, { "data-width", "50px" }, { "title", "" } }
+                                  )
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="control-label ">基礎控除ステータス</label>
+                                <div>
+                                  @Html.DropDownListFor(
+                                      model => model.Search.HaiguuDeclareStatus,
+                                      new SelectListItem[] {
+                                          new SelectListItem() { Value="00", Text="本人未提出" },
+                                          new SelectListItem() { Value="90", Text="本人提出済み" },
+                                          new SelectListItem() { Value="91", Text="支社確定済み" },
+                                          new SelectListItem() { Value="95", Text="管理者確定済み" },
+                                          new SelectListItem() { Value="99", Text="システム連携済み" }
+                                      }, "", new Dictionary<string, object> {{ "class","search-status"},{ "data-width", "50px" }, { "title", "" } }
+)
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-3 top10">
+            <button type="button" name="DmySearchEx" value="検索" class="btn-default pull-right btn-search" id="dmysearch" style="margin-left:5px;">検索</button>
+        </div>
+    </div>
+  <!--一覧-->
+    <div class="row top17">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+            <table class="table-bordered table-striped table-ecell-show mb-zero table-sch">
+                <colgroup>
+                    <col style="width:35px" />
+                    <col style="width:50px" />
+                    <col style="width:60px" />
+                    <col style="width:120px" />
+                    <col style="width:140px" />
+                    <col style="width:60px" />
+                    <col style="width:50px" />
+                    <col style="width:50px" />
+                    <col style="width:100px" />
+                    <col style="width:50px" />
+                    <col style="width:50px" />
+                    <col style="width:100px" />
+                    <col style="width:50px" />
+                    <col style="width:50px" />
+                    <col style="width:100px" />
+                </colgroup>
+                <thead>
+                    <tr style="background-color: #ebe2c5;" class="allCheck">
+                        <th class="sch-th-chk"><input type="checkbox" id="allCehck" name="allCehck01" /></th>
+                        <th class="sch-th">年度</th>
+                        <th class="sch-th">社員番号</th>
+                        <th class="sch-th">氏名</th>
+                        <th class="sch-th">氏名カナ</th>
+                        <th class="sch-th">所属番号</th>
+                        <th class="sch-th" colspan="3">扶養控除</th>
+                        <th class="sch-th" colspan="3">保険料控除</th>
+                        <th class="sch-th" colspan="3">基礎控除</th>
+
+                    </tr>
+                </thead>
+            </table>
+
+                <table class="table table-bordered table-striped table-ecell-show scrollTable">
+
+                    <tbody class="tblscroll" id="items">
+                        @if (Model != null && Model.SearchResult != null) {
+                            foreach (YearEndAdjustmentSearchListModel row in Model.SearchResult) {
+                                <tr>
+                                    <td style="width:32px;"><input type="checkbox" name="selPrint" value="@row.ManageNo,@row.SelfDecType,@row.DutyNo,@row.SelfDecAtoCButtonView,@row.SelfDecDButtonView,@row.CareerButtonView" /></td>
+                                    <td style="width:50px;">@Html.DisplayTextFor(m => row.Year)</td>
+                                    <td style="width:60px;">@Html.DisplayTextFor(m => row.EmployeeNumber)</td>
+                                    <td style="width:120px;">@Html.DisplayTextFor(m => row.EmployeeName)</td>
+                                    <td style="width:140px;">@Html.DisplayTextFor(m => row.EmployeeNameKana)</td>
+                                    <td style="width:60px;">@Html.DisplayTextFor(m => row.Department)</td>
+
+                                    <td style="width:50px;"><button type="submit" name="View" value="HuyouDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                    <td style="width:50px;"><button type="submit" name="Print" value="HuyouDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+                                    <td style="width:100px;">@Html.DisplayTextFor(m => row.HuyouDeclareStatus)</td>
+
+                                    <td style="width:50px;"><button type="submit" name="View" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                    <td style="width:50px;"><button type="submit" name="Print" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+                                    <td style="width:100px;">@Html.DisplayTextFor(m => row.HokenDeclareStatus)</td>
+
+                                    <td style="width:50px;"><button type="submit" name="View" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                    <td style="width:50px;"><button type="submit" name="Print" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+                                    <td style="width:100px;">@Html.DisplayTextFor(m => row.HaiguuDeclareStatus)</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row top17">
+            <div class="col-xs-offset-1 col-xs-10 ">
+                <div class="pull-right">
+                    <div>
+                        <label class="control-label">一括確定登録 ：</label>
+                        <button type="button" name="DmyPrintAtoC" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintatoc" style="margin-left:5px;">扶養控除</button>
+                        <button type="button" name="DmyPrintD" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintd" style="margin-left:5px;">保険料控除</button>
+                        <button type="button" name="DmyPrintD" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintd" style="margin-left:5px;">基礎控除</button>
+                    </div>
+                    <div>
+                        <label class="control-label">一括帳票出力 ：</label>
+                        <button type="button" name="DmyPrintA11Xls" value="帳票出力xls" class="btn-default btn-batch" id="dmyprinta20xls" style="margin-left:5px;">扶養控除</button>
+                        <button type="button" name="DmyPrintB11Xls" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintb20xls" style="margin-left:5px;">保険料控除</button>
+                        <button type="button" name="DmyPrintC11Xls" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintc20xls" style="margin-left:5px;">基礎控除</button>
+                    </div>
+                    <div>
+                        <button type="submit" name="Back" value="戻る" class="btn-default btn-batch pull-right" id="backbutton" style="margin-left:5px;">戻る</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    @*隠しボタンエリア*@
+    <div style="height:0px;">
+        <button type="submit" name="SearchEx" value="検索" class="btn invisible" id="searchbutton">検索</button>
+        <button type="submit" name="SearchD" value="検索" class="btn invisible" id="searchbuttonD">検索</button>
+        <button type="submit" name="SelfInput" value="本人入力" class="btn invisible" id="selfinputbutton">本人入力</button>
+        <button type="submit" name="SubView" value="部下表示" class="btn invisible" id="subviewbutton">部下表示</button>
+        <button type="submit" name="Sign" value="一括承認" class="btn invisible" id="signbutton">一括承認</button>
+        <button type="submit" name="Download" value="帳票保存" class="btn invisible" id="downloadbutton">帳票保存</button>
+
+        <button type="submit" name="PrintAtoC" value="帳票出力" class="btn invisible" id="printatocbutton">帳票出力</button>
+
+        @*2021-12-24 iwai-tamura upd str ------*@
+        <button type="submit" name="PrintA20Xls" value="帳票出力xls" class="btn invisible" id="printa20xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintB20Xls" value="帳票出力xls" class="btn invisible" id="printb20xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintC20Xls" value="帳票出力xls" class="btn invisible" id="printc20xlsbutton">Excel出力</button>
+        @*2021-12-24 iwai-tamura upd end ------*@
+
+        @*2020-04-10 iwai-tamura upd str ------*@
+        @*↓↓↓↓2020年度まで↓↓↓*@
+        @*<button type="submit" name="PrintA11Xls" value="帳票出力xls" class="btn invisible" id="printa11xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintA12Xls" value="帳票出力xls" class="btn invisible" id="printa12xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintA13Xls" value="帳票出力xls" class="btn invisible" id="printa13xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintB11Xls" value="帳票出力xls" class="btn invisible" id="printb11xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintB12Xls" value="帳票出力xls" class="btn invisible" id="printb12xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintC11Xls" value="帳票出力xls" class="btn invisible" id="printc11xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintC12Xls" value="帳票出力xls" class="btn invisible" id="printc12xlsbutton">Excel出力</button>*@
+
+
+        <button type="submit" name="PrintD" value="帳票出力" class="btn invisible" id="printdbutton">帳票出力</button>
+        <button type="submit" name="PrintDXls" value="帳票出力xls" class="btn invisible" id="printdxlsbutton">Excel出力</button>
+
+        @*<button type="submit" name="PrintAXls" value="帳票出力xls" class="btn invisible" id="printaxlsbutton">Excel出力</button>
+        <button type="submit" name="PrintBXls" value="帳票出力xls" class="btn invisible" id="printbxlsbutton">Excel出力</button>
+        <button type="submit" name="PrintCXls" value="帳票出力xls" class="btn invisible" id="printcxlsbutton">Excel出力</button>
+        <button type="submit" name="PrintD" value="帳票出力" class="btn invisible" id="printdbutton">帳票出力</button>
+        <button type="submit" name="PrintDXls" value="帳票出力xls" class="btn invisible" id="printdxlsbutton">Excel出力</button>
+        <button type="submit" name="PrintCareer" value="帳票出力" class="btn invisible" id="printcareerbutton">帳票出力</button>
+        <button type="submit" name="PrintCareerXls" value="帳票出力xls" class="btn invisible" id="printcareerxlsbutton">Excel出力</button>*@
+        @*2020-04-10 iwai-tamura upd end ------*@
+    </div>
+
+    <div>
+        @if (Model.Down.DownloadFlag) {
+            //jsファイルで読込む形にする;
+            @Scripts.Render("~/Scripts/js/objp")
+        }
+    </div>
+
+    @Scripts.Render("~/Scripts/js/yearends")
+
+}

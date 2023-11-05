@@ -60,18 +60,43 @@
         }
     }
     <br><br>
-    <h3 class="text-left">
+
+
+    @*2023-99-99 iwai-tamura add-str ------*@
+    <div class="row">
+        <div class="col-xs-4">
+            <h3 class="text-left">
+                @Html.DisplayFor(m => m.Head.SheetYear) 年度　基礎控除申告書
+            </h3>
+        </div>
+        <div class="col-xs-4">
+            <h3 class="text-right">
+                [@Model.Head.StatusName]
+            </h3>
+        </div>
+    </div>
+    @*<h3 class="text-left">
         @Html.DisplayFor(m => m.Head.SheetYear) 年度　基礎控除申告書 @strTitle
-    </h3>
+    </h3>*@
+    @*2023-99-99 iwai-tamura add-end ------*@
 
     @Html.HiddenFor(m => m.Head.SheetYear)
     @Html.HiddenFor(m => m.Head.EmployeeNo)
+    @Html.HiddenFor(m => m.Head.DepartmentNo)
     @Html.HiddenFor(m => m.Head.ApprovalType)
     @Html.HiddenFor(m => m.Head.DecisionType)
     @Html.HiddenFor(m => m.Head.InputMode)
     @Html.HiddenFor(m => m.Head.AuthButton)
     @Html.HiddenFor(m => m.Head.CancelButton)
     @Html.HiddenFor(m => m.Head.AdminMode)
+
+    @*2023-99-99 iwai-tamura add-str ------*@
+    //扶養控除データ
+    @Html.HiddenFor(m => m.Head.SpouseDeduction_Huyou_Earnings)
+    @Html.HiddenFor(m => m.Head.SpouseDeduction_Huyou_Income)
+    @Html.HiddenFor(m => m.Head.SpouseDeduction_Huyou_OtherIncome)
+    @*2023-99-99 iwai-tamura add-end ------*@
+
 
     @*データ日時取得*@
     <!--ボタンエリア-->
@@ -380,11 +405,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.Name1, TextName)　名 @Html.TextBoxFor(m => m.Head.Name2, TextName)<span class="required">※必須</span></td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.Name1, TextName)　名 @Html.TextBoxFor(m => m.Head.Name2, TextName)<span class="required">※必須</span></td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="content-label-b1">フリガナ</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.Kana2, TextKana)<span class="required">※必須</span><div id="Head_Kana_mes" class="check-comment"></div></td>
+                        <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.Kana2, TextKana)<span class="required">※必須</span><div id="Head_Kana_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">住所又は居所</td>
@@ -503,9 +528,17 @@
             <table class="table table-bordered">
                 <thead>
                     <tr class="content-label-h1">
-                        <td colspan="8">
+                        @*2023-99-99 iwai-tamura upd-str ------*@
+                        <td colspan="7" style="border-right: none !important;">
                             給与所得者の配偶者控除等申告書
                         </td>
+                        <td colspan="1" style="border-left: none !important;">
+                            <button type="button" name="SpouseDeductionClear" value="クリア" class="pull-right btn-clear" id="btn-spouseDeduction-clear">クリア</button>
+                        </td>
+                        @*<td colspan="8">
+                            給与所得者の配偶者控除等申告書
+                        </td>*@
+                        @*2023-99-99 iwai-tamura upd-end ------*@
                     </tr>
                 </thead>
             </table>
@@ -518,7 +551,10 @@
     @*定義*@
     <div class="row">
         <div class="col-xs-8">
-            <table class="table table-bordered">
+            @*2023-99-99 iwai-tamura upd-str ------*@
+            <table class="table table-bordered spouseDeductionTable">
+            @*<table class="table table-bordered">*@
+            @*2023-99-99 iwai-tamura upd-end ------*@
                 <colgroup>
                     <col style="width:10%;" />
                     <col style="width:20%;" />
@@ -535,11 +571,11 @@
                 <tbody>
                     <tr>
                         <td colspan="2" class="content-label-b1">配偶者の氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.SpouseDeduction_Name1, TextName)　名 @Html.TextBoxFor(m => m.Head.SpouseDeduction_Name2, TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.SpouseDeduction_Name1, TextName)　名 @Html.TextBoxFor(m => m.Head.SpouseDeduction_Name2, TextName)</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="content-label-b1">配偶者のフリガナ</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.SpouseDeduction_Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.SpouseDeduction_Kana2, TextKana)<div id="Head_SpouseDeduction_Kana_mes" class="check-comment"></div></td>
+                        <td colspan="2" class="content-label-b1">配偶者のﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.SpouseDeduction_Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.SpouseDeduction_Kana2, TextKana)<div id="Head_SpouseDeduction_Kana_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">配偶者の生年月日</td>
@@ -566,9 +602,19 @@
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">配偶者の給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
-                        <td colspan="6" class="form-inline">
+                        @*2023-99-99 iwai-tamura upd-str ------*@
+                        <td colspan="4" class="form-inline" style="border-right: none !important;">
                             @Html.TextBoxFor(m => m.Head.SpouseDeduction_Earnings, TextMoney1) 円<div id="Head_SpouseDeduction_TotalEarnings_mes" class="check-comment"></div>
                         </td>
+                        <td colspan="2" style="border-left: none !important;">
+                            <button type="button" name="SpouseDeductionGetHyou" value="GET" class="pull-right btn-get" id="btn-spouseDeduction-get">扶養控除申告書から取得</button>
+                        </td>
+                        @*<td colspan="6" class="form-inline">
+                            @Html.TextBoxFor(m => m.Head.SpouseDeduction_Earnings, TextMoney1) 円<div id="Head_SpouseDeduction_TotalEarnings_mes" class="check-comment"></div>
+                        </td>*@
+                        @*2023-99-99 iwai-tamura upd-end ------*@
+
+
                     </tr>
                     <tr>
                         <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
@@ -681,11 +727,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">同一生計配偶者又は<span class="pull-right">(&#9734;)</span><br />扶養親族の氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.AdjustmentDeduction_Name1, AdjustmentDeduction_TextName)　名 @Html.TextBoxFor(m => m.Head.AdjustmentDeduction_Name2, AdjustmentDeduction_TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.AdjustmentDeduction_Name1, AdjustmentDeduction_TextName)　名 @Html.TextBoxFor(m => m.Head.AdjustmentDeduction_Name2, AdjustmentDeduction_TextName)</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="content-label-b1">同一生計配偶者又は<span class="pull-right">(&#9734;)</span><br />扶養親族のフリガナ</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.AdjustmentDeduction_Kana1, AdjustmentDeduction_TextKana)　名 @Html.TextBoxFor(m => m.Head.AdjustmentDeduction_Kana2, AdjustmentDeduction_TextKana)<div id="Head_AdjustmentDeduction_Kana_mes" class="check-comment"></div></td>
+                        <td colspan="2" class="content-label-b1">同一生計配偶者又は<span class="pull-right">(&#9734;)</span><br />扶養親族のﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.AdjustmentDeduction_Kana1, AdjustmentDeduction_TextKana)　名 @Html.TextBoxFor(m => m.Head.AdjustmentDeduction_Kana2, AdjustmentDeduction_TextKana)<div id="Head_AdjustmentDeduction_Kana_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">生年月日<span class="pull-right">(&#9734;)</span></td>

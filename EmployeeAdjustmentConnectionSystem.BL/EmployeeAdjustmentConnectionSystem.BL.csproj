@@ -352,6 +352,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="YearEndAdjustmentReports\YearEndAdjustmentPrintBL.cs" />
+    <Compile Include="YearEndAdjustmentSearch\YearEndAdjustmentSearchBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

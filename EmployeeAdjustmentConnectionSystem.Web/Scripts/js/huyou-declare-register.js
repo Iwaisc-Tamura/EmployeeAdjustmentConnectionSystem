@@ -117,6 +117,179 @@ $('input:radio[name="Head.TaxWithholding_ResidentType"]').change(function () {
 
 
 
+
+//2023-99-99 iwai-tamura upd str -----
+// 収入金額の変更時に所得金額を自動計算
+// 共通フィールド更新
+function updateIncomeFields(earningsId, incomeId, otherIncomeId, estimateId) {
+
+    // 収入から所得金額を計算する
+    var earningsValue = parseFloat(document.getElementById(earningsId).value) || 0;
+    var incomeValue = updateEarnings2Income(earningsValue);
+    document.getElementById(incomeId).value = incomeValue;
+
+    // 所得とその他所得を合計し見積額を算出
+    var otherIncomeValue = parseFloat(document.getElementById(otherIncomeId).value) || 0;
+    var estimateValue = incomeValue + otherIncomeValue;
+    document.getElementById(estimateId).value = estimateValue;
+}
+
+// 収入から所得金額を計算するロジック
+function updateEarnings2Income(earnings) {
+    if (earnings <= 550999) {
+        return 0;
+    } else if (earnings <= 1618999) {
+        return Math.floor(earnings - 550000);
+    } else if (earnings <= 1619999) {
+        return 1069000;
+    } else if (earnings <= 1621999) {
+        return 1070000;
+    } else if (earnings <= 1623999) {
+        return 1072000;
+    } else if (earnings <= 1627999) {
+        return 1074000;
+    } else if (earnings <= 1799999) {
+        return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.4 + 100000);
+    } else if (earnings <= 3599999) {
+        return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.8 - 80000);
+    } else if (earnings <= 6599999) {
+        return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 3.2 - 440000);
+    } else if (earnings <= 8499999) {
+        return Math.floor(earnings * 0.9 - 1100000);
+    } else {
+        return earnings - 1950000;
+    }
+}
+
+
+//源泉控除対象配偶者給与
+//  所得
+document.getElementById('Head_TaxWithholding_Earnings').addEventListener('change', function () {
+    updateIncomeFields('Head_TaxWithholding_Earnings', 'Head_TaxWithholding_Earnings2Income', 'Head_TaxWithholding_OtherIncome', 'Head_TaxWithholding_Income');
+    checkMoney('#Head_TaxWithholding_Income', 950000)
+});
+//  その他所得
+document.getElementById('Head_TaxWithholding_OtherIncome').addEventListener('change', function () {
+    updateIncomeFields('Head_TaxWithholding_Earnings', 'Head_TaxWithholding_Earnings2Income', 'Head_TaxWithholding_OtherIncome', 'Head_TaxWithholding_Income');
+});
+
+//2023-99-99 iwai-tamura upd end -----
+
+
+
+
+
+
+
+
+
+
+
+
+
+//2023-99-99 iwai-tamura upd str -----
+//老人扶養チェック
+function checkDependentsOver16(id) {
+    var birthdayYearID = "#Head_" + id + "_BirthdayYear";
+    var birthdayMonthID = "#Head_" + id + "_BirthdayMonth";
+    var birthdayDayID = "#Head_" + id + "_BirthdayDay";
+    var birthdayMesID = "#Head_" + id + "_Birthday_mes";
+
+    var oldmanTypeName = "Head." + id + "_OldmanType";
+    var oldmanTypeMesID = "#Head_" + id + "_OldmanType_mes";
+
+    var specificTypeName = "Head." + id + "_SpecificType";
+    var specificTypeMesID = "#Head_" + id + "_SpecificType_mes";
+
+
+    var strYear = $(birthdayYearID).val();
+    var strMonth = $(birthdayMonthID).val();
+    var strDay = $(birthdayDayID).val();
+    var cYear = $("#Head_SheetYear").val(); 
+    var cDate16 = String(cYear - 15) + "0101";
+    var cDate19 = String(cYear - 18) + "0101";
+    var cDate23 = String(cYear - 22) + "0101";
+    var cDate70 = String(cYear - 69) + "0101";
+
+    var strMessage = "";
+    var bolReturn = false;
+
+    $(birthdayMesID).text("");
+    $(oldmanTypeMesID).text("");
+    $(specificTypeMesID).text("");
+
+    if (strYear == "" && strMonth == "" && strDay == "") return true;
+    if (!strYear || !strMonth || !strDay) {
+        strMessage = "年月日が正しく入力されていません。";
+        $(birthdayMesID).text(strMessage);
+        return false;
+    } else if (!String(strYear).match(/^[0-9]{4}$/) || !String(strMonth).match(/^[0-9]{1,2}$/) || !String(strDay).match(/^[0-9]{1,2}$/)) {
+        strMessage = "年月日が正しく入力されていません。";
+        $(birthdayMesID).text(strMessage);
+        return false;
+    } else {
+        var dateObj = new Date(strYear, strMonth - 1, strDay),
+            dateObjStr = dateObj.getFullYear() + '' + (dateObj.getMonth() + 1) + '' + dateObj.getDate(),
+            checkDateStr = strYear + '' + strMonth + '' + strDay;
+        if (dateObjStr != checkDateStr) {
+            strMessage = "年月日が正しく入力されていません。";
+            $(birthdayMesID).text(strMessage);
+            return false;
+        } else {
+            bolReturn = true;
+        }
+    }
+
+    //年齢チェック
+    if (strMonth.length < 2) {
+        strMonth = "0" + strMonth;
+    }
+    if (strDay.length < 2) {
+        strDay = "0" + strDay;
+    }
+
+    var strDate = strYear + strMonth + strDay;
+    if (strDate > cDate16) {
+        strMessage = "基準日の年齢が16歳未満です。";
+        $(birthdayMesID).text(strMessage);
+        return false;
+    }
+
+    //老人扶養区分チェック
+    strMessage = "";
+    //if (strDate <= cDate70) {
+    //    if ($('input:radio[name="' + oldmanTypeName + '"]:checked').val() == "0") {
+    //        strMessage = "70歳以上は選択該当する区分を選択してください。";
+    //    }
+    //}
+    if (strDate > cDate70) {
+        if ($('input:radio[name="' + oldmanTypeName + '"]:checked').val() != "0") {
+            strMessage = "70歳未満は選択できません。";
+        }
+    }
+    $(oldmanTypeMesID).text(strMessage);
+
+    //特定扶養親族区分チェック
+    strMessage = "";
+    if ((strDate <= cDate19) && (strDate > cDate23)) {
+    //    if ($('input:radio[name="' + specificTypeName + '"]:checked').val() == "0") {
+    //        strMessage = "19歳～23歳は特定扶養を選択してください。";
+    //    }
+    } else {
+        if ($('input:radio[name="' + specificTypeName + '"]:checked').val() != "0") {
+            strMessage = "19歳～23歳以外は選択できません。";
+        }
+    }
+    $(specificTypeMesID).text(strMessage);
+
+
+    return bolReturn;
+}
+//2023-99-99 iwai-tamura upd end -----
+
+
+
+
 /*B1 控除対象扶養親族(16歳以上) 対象者入力制御*/
 $('#Head_DependentsOver16_1_notSubject').change(function () {
     if (document.getElementById("Head_DependentsOver16_1_notSubject").checked == true) {
@@ -496,6 +669,11 @@ $('.checkKana').change(function () {
 
     var reg = new RegExp(/^[ｦ-ﾟ]*$/);   //使用可能文字指定(半角カナのみ)
 
+    //2023-99-99 iwai-tamura upd str -----
+    var convertedValue = zenkana2Hankana(hira2Kana($(this).val()));
+    $(this).val(convertedValue);
+    //2023-99-99 iwai-tamura upd end -----
+    
     //Kana_1とKana_2に半角カナ以外が入力されていないかチェック
     if (reg.test($(strId + "1").val()) && reg.test($(strId + "2").val())) {
         bolReturn = true;
@@ -648,7 +826,15 @@ $('#dmysave').click(function () {
     }
 
     //ボタンクリック
-    showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
+    //2023-99-99 iwai-tamura upd str -----
+    var isAdminMode = $('#Head_AdminMode').val().toLowerCase() === 'true';
+    if (isAdminMode) {
+        showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
+    } else {
+        showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
+    }
+    //showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
+    //2023-99-99 iwai-tamura upd end -----
 });
 
 /*
@@ -656,11 +842,16 @@ $('#dmysave').click(function () {
  */
 $('#dmySignCancel').click(function () {
     //ボタンクリック
-    showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
+    //2023-99-99 iwai-tamura upd str -----
+    var isAdminMode = $('#Head_AdminMode').val().toLowerCase() === 'true';
+    if (isAdminMode) {
+        showMessageEx('取消確認', '確定状態を取消しますか？', 'signcancel', true);
+    } else {
+        showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
+    }
+    //showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
+    //2023-99-99 iwai-tamura upd end -----
 });
-
-
-
 
 /*
  * ダイアログメッセージ表示(OkCancel)
