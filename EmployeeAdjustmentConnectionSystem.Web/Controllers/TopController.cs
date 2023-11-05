@@ -44,7 +44,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                                                       , { "Login", "Login" } 
                                                       , { "HuyouDeclareRegister", "Index"}
                                                       , { "HokenDeclareRegister", "Index"}
-                                                      , { "HaiguuDeclareRegister", "Index"}};
+                                                      , { "HaiguuDeclareRegister", "Index"}
+                                                    //2023-99-99 iwai-tamura add str -----
+                                                      , { "YearEndAdjustmentSearch", "Search"}
+                                                    //2023-99-99 iwai-tamura add end -----                                                        
+            };
         #endregion
 
         /// <summary>
@@ -62,6 +66,13 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 //ログイン情報取得
                 var lu = (LoginUser)Session["LoginUser"];
                 
+
+                //2023-99-99 iwai-tamura upd str -----
+                //初期化
+                TempData["YearEndAdjustmentSearch"] = null;
+                //2023-99-99 iwai-tamura upd end -----
+
+
                 //表示
                 return View((new TopBL()).Index());
             } catch(Exception ex) {
@@ -117,6 +128,41 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
         }
 
         //2023-99-99 iwai-tamura test-str ------
+        /// <summary>
+        /// 画面遷移アクション
+        /// </summary>
+        /// <param name="value">遷移先キー名</param>
+        /// <returns>画面遷移</returns>
+        [ActionName("Link")]
+        [ButtonHandler(ButtonName = "ManagementTransition")]
+        public ActionResult ManagementTransition(string value,string specifyEmployeeNo = "") {
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+                
+                //ログイン判定
+                if(!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
+
+                //セッション全削除判定 ログアウトボタンのみセッション削除
+                if("Login".Equals(value)) Session.RemoveAll();
+
+                //遷移
+                LoginUser lu = (LoginUser)Session["LoginUser"];
+
+                return RedirectToAction((string)linkTable[value], value);
+            } catch(Exception ex) {
+                //エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            } finally {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+
+
         /// <summary>
         /// TEST印刷
         /// </summary>

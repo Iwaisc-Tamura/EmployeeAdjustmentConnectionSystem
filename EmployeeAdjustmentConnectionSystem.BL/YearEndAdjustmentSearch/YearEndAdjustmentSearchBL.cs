@@ -13,7 +13,7 @@ using EmployeeAdjustmentConnectionSystem.COM.Util.Config;
 using EmployeeAdjustmentConnectionSystem.COM.Util.Convert;
 using EmployeeAdjustmentConnectionSystem.COM.Util.Database;
 
-namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch {
+namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
     /// <summary>
     /// 目標管理照会
     /// </summary>
@@ -29,9 +29,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch {
         /// <summary>
         /// 検索
         /// </summary>
-        /// <param name="model">自己申告書検索モデル</param>
+        /// <param name="model">年末調整検索モデル</param>
         /// <returns>検索モデル</returns>
-        public SelfDeclareSearchViewModels Search(SelfDeclareSearchViewModels model, LoginUser lu) {
+        public YearEndAdjustmentSearchViewModels Search(YearEndAdjustmentSearchViewModels model, LoginUser lu) {
             //開始
             nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
             try {
@@ -44,111 +44,137 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch {
                     return string.IsNullOrEmpty(value) ? "" :
                         value.Trim() == "" ? "" : string.Format(format, value.Trim());
                 };
-                var sql = "  SELECT 基本.*";
-
-                if (lu.目標検索対象 != "0"){
-                    sql += "    ,'1' AS AtoCButtonView";
-                    sql += string.Format("   ,CASE WHEN 基本.社員番号 = '{0}' ",lu.UserCode);
-                    sql += "      THEN '1' ";
-                    sql += "      ELSE ";
-                    sql += "        CASE WHEN D本人承認.承認社員番号 is null THEN '0' ELSE '1' END ";
-                    sql += "    END DButtonView";
-                    sql += "    ,CASE WHEN CareerSheet.社員番号 is null THEN '0' ELSE '1' END CareerButtonView ";
-                }else{
-                    sql += string.Format("   ,CASE WHEN 基本.社員番号 = '{0}' ",lu.UserCode);
-                    sql += "      THEN '1' ";
-                    sql += "      ELSE ";
-                    sql += "        CASE WHEN AtoC権限.社員番号 is Null THEN '0' ELSE '1' END ";  //本人以外は承認者のみ表示
-                    sql += "    END AtoCButtonView";
-
-                    sql += string.Format("   ,CASE WHEN 基本.社員番号 = '{0}' ",lu.UserCode);
-                    sql += "      THEN '1' ";
-                    sql += "      ELSE ";
-                    sql += "        CASE WHEN D権限.社員番号 is Null THEN '0' ";  //本人以外は承認者のみ表示
-                    sql += "          ELSE CASE WHEN D本人承認.承認社員番号 is null THEN '0' ELSE '1' END ";
-                    sql += "        END ";
-                    sql += "    END DButtonView";
-
-                    sql += "    ,CASE WHEN  CareerSheet.社員番号 is null ";
-                    sql += "      THEN '0' ";
-                    sql += "      ELSE ";
-                    sql += string.Format("     CASE WHEN 基本.社員番号 = '{0}' ",lu.UserCode);
-                    sql += "          THEN '1' ";
-                    sql += "          ELSE ";
-                    sql += "            CASE WHEN Career権限.社員番号 is Null THEN '0' ELSE '1' END ";  //本人以外は承認者のみ表示
-                    sql += "        END";
-                    sql += "    END CareerButtonView";
-                }                
-                sql += " FROM SD_T自己申告書共通基本Data as 基本 ";
-                sql += " LEFT JOIN SD_VM自己申告書決裁権限検索 as AtoC権限";
-                sql +=  string.Format(" 	ON 基本.社員番号 = AtoC権限.社員番号 And 基本.年度 = AtoC権限.年度 And AtoC権限.大区分 = '1' And AtoC権限.承認者 = '{0}'", lu.UserCode);
-                sql += " LEFT JOIN SD_VM自己申告書決裁権限検索 as D権限";
-                sql +=  string.Format(" 	ON 基本.社員番号 = D権限.社員番号 And 基本.年度 = D権限.年度 And D権限.大区分 = '2' And D権限.承認者 = '{0}'", lu.UserCode);
-                sql += " LEFT JOIN SD_T自己申告書承認情報 as D本人承認";
-                sql += " 	ON 基本.社員番号 = D本人承認.社員番号 And 基本.年度 = D本人承認.年度 And D本人承認.大区分 = '2'  And D本人承認.小区分 = '1' ";
-                sql += " LEFT JOIN SD_VMCareerSheet決裁権限検索 as Career権限";
-                sql +=  string.Format(" 	ON 基本.社員番号 = Career権限.社員番号 And 基本.年度 = Career権限.年度 And Career権限.承認者 = '{0}'", lu.UserCode);
-                sql += " LEFT JOIN SD_TCareerSheet01 as CareerSheet";
-                sql += " 	ON 基本.社員番号 = CareerSheet.社員番号 And 基本.年度 = CareerSheet.年度";
+                var sql = "  SELECT T基本.*";
+                
+                //確定区分取得
+                sql += ",T扶養控除.本人確定区分 As 扶養控除_本人確定区分 ";
+                sql += ",T扶養控除.管理者確定区分 As 扶養控除_管理者確定区分 ";
+                sql += ",T保険控除.本人確定区分 As 保険控除_本人確定区分 ";
+                sql += ",T保険控除.管理者確定区分 As 保険控除_管理者確定区分 ";
+                sql += ",T基礎控除.本人確定区分 As 基礎控除_本人確定区分 ";
+                sql += ",T基礎控除.管理者確定区分 As 基礎控除_管理者確定区分 ";
+                         
+                sql += " FROM TEM100社員基本情報Data as T基本 ";
+                sql += "    LEFT JOIN TE100扶養控除申告書Data as T扶養控除";
+                sql +=  string.Format(" 	ON T基本.社員番号 = T扶養控除.社員番号 And T扶養控除.対象年度 = {0}", model.Search.Year);
+                sql += "    LEFT JOIN TE110保険料控除申告書Data as T保険控除";
+                sql +=  string.Format(" 	ON T基本.社員番号 = T保険控除.社員番号 And T保険控除.対象年度 = {0}", model.Search.Year);
+                sql += "    LEFT JOIN TE120基礎控除申告書Data as T基礎控除";
+                sql +=  string.Format(" 	ON T基本.社員番号 = T基礎控除.社員番号 And T基礎控除.対象年度 = {0}", model.Search.Year);
                 sql += " {0} ";
 
                 var sqlc = "where 1=1";
 
-                //年度
-                sqlc += condition(" and 基本.年度 ='{0}'", model.Search.Year);
+                //年調データ
+                sqlc += (" and ((T扶養控除.社員番号 is not null) or (T保険控除.社員番号 is not null) or (T基礎控除.社員番号 is not null))");
+
 
                 //所属
-                // 2019-06-30 iwai-tamura upd str -----
-                sqlc += condition(" and left(基本.所属番号,4) >=left('{0}',4)", model.Search.DepartmentFrom);
-                sqlc += condition(" and left(基本.所属番号,4) <=left('{0}',4)", model.Search.DepartmentTo);
-                //sqlc += condition(" and 基本.所属番号 >='{0}'", model.Search.DepartmentFrom);
-                //sqlc += condition(" and 基本.所属番号 <='{0}'", model.Search.DepartmentTo);
-                // 2019-06-30 iwai-tamura upd end -----
+                sqlc += condition(" and left(T基本.所属番号,4) >=left('{0}',4)", model.Search.DepartmentFrom);
+                sqlc += condition(" and left(T基本.所属番号,4) <=left('{0}',4)", model.Search.DepartmentTo);
 
                 //社員番号
                 string empsql = "";
-                empsql += condition(" and 基本.社員番号 >='{0}'", model.Search.EmployeeNoFrom);
-                empsql += condition(" and 基本.社員番号 <='{0}'", model.Search.EmployeeNoTo);
-                empsql = !model.Search.DesignatedFlag ? empsql :
-                          condition(" and 基本.社員番号 ='{0}'", model.Search.EmployeeNoFrom);
+                empsql += condition(" and T基本.社員番号 >='{0}'", model.Search.EmployeeNoFrom);
+                empsql += condition(" and T基本.社員番号 <='{0}'", model.Search.EmployeeNoTo);
                 sqlc += empsql;
                 //氏名
-                sqlc += condition(" and 基本.氏名 like '%{0}%'", model.Search.EmployeeName);
+                sqlc += condition(" and (T基本.戸籍名字 + T基本.戸籍名前) like '%{0}%'", model.Search.EmployeeName);
 
                 //氏名カナ
-                sqlc += condition(" and 基本.Kana like '%{0}%'", KanaEx.ToHankakuKana(model.Search.EmployeeNameKana));
+                sqlc += condition(" and (T基本.戸籍名字Kana + T基本.戸籍名前Kana) like '%{0}%'", KanaEx.ToHankakuKana(model.Search.EmployeeNameKana));
 
-                //職掌
-                sqlc += condition(" and 基本.職掌番号 = {0}", KanaEx.ToHankakuKana(model.Search.DutyNo));
 
-                //資格
-                sqlc += condition(" and 基本.資格番号 = {0}", KanaEx.ToHankakuKana(model.Search.CompetencyNo));
+                //ステータス
+                //扶養控除
+                switch (model.Search.HuyouDeclareStatus) {
+                    case "00":  //本人未提出
+                        sqlc += " and (T扶養控除.本人確定区分 = '0' and T扶養控除.管理者確定区分 = '0') ";
+                        break;
 
-                //管理職以外の場合、自分自身のみ抽出
-                if (!lu.IsPost){
-                    //2021-10-01 iwai-tamura add str -----
-                    //一般職でシステム管理者の場合、自分自身以外も抽出可能とする。
-                    if (lu.自己申告書検索対象 != "K"){
-                        sqlc += condition(" and 基本.社員番号 = '{0}'", lu.UserCode);
-                    }
-                    //sqlc += condition(" and 基本.社員番号 = '{0}'", lu.UserCode);
-                    //2021-10-01 iwai-tamura add end -----
+                    case "90":  //本人提出済み
+                        sqlc += " and ((T扶養控除.本人確定区分 = '1' and T扶養控除.管理者確定区分 = '0') ";
+                        sqlc += "       or(T扶養控除.本人確定区分 = '9' and T扶養控除.管理者確定区分 = '0')) ";
+                        break;
+
+                    case "91":  //支社確定済み
+                        sqlc += " and (T扶養控除.本人確定区分 = '9' and T扶養控除.管理者確定区分 = '1') ";
+                        break;
+
+                    case "95":  //管理者確定済み
+                        sqlc += " and (T扶養控除.本人確定区分 = '9' and T扶養控除.管理者確定区分 = '5') ";
+                        break;
+
+                    case "99":  //システム連携済み
+                        sqlc += " and (T扶養控除.本人確定区分 = '9' and T扶養控除.管理者確定区分 = '9') ";
+                        break;
+
+                    default: break;
+                }
+                
+                //保険料控除
+                switch (model.Search.HokenDeclareStatus) {
+                    case "00":  //本人未提出
+                        sqlc += " and (T保険控除.本人確定区分 = '0' and T保険控除.管理者確定区分 = '0') ";
+                        break;
+
+                    case "90":  //本人提出済み
+                        sqlc += " and ((T保険控除.本人確定区分 = '1' and T保険控除.管理者確定区分 = '0') ";
+                        sqlc += "       or(T保険控除.本人確定区分 = '9' and T保険控除.管理者確定区分 = '0')) ";
+                        break;
+
+                    case "91":  //支社確定済み
+                        sqlc += " and (T保険控除.本人確定区分 = '9' and T保険控除.管理者確定区分 = '1') ";
+                        break;
+
+                    case "95":  //管理者確定済み
+                        sqlc += " and (T保険控除.本人確定区分 = '9' and T保険控除.管理者確定区分 = '5') ";
+                        break;
+
+                    case "99":  //システム連携済み
+                        sqlc += " and (T保険控除.本人確定区分 = '9' and T保険控除.管理者確定区分 = '9') ";
+                        break;
+
+                    default: break;
+                }
+
+                //基礎控除
+                switch (model.Search.HaiguuDeclareStatus) {
+                    case "00":  //本人未提出
+                        sqlc += " and (T基礎控除.本人確定区分 = '0' and T基礎控除.管理者確定区分 = '0') ";
+                        break;
+
+                    case "90":  //本人提出済み
+                        sqlc += " and ((T基礎控除.本人確定区分 = '1' and T基礎控除.管理者確定区分 = '0') ";
+                        sqlc += "       or(T基礎控除.本人確定区分 = '9' and T基礎控除.管理者確定区分 = '0')) ";
+                        break;
+
+                    case "91":  //支社確定済み
+                        sqlc += " and (T基礎控除.本人確定区分 = '9' and T基礎控除.管理者確定区分 = '1') ";
+                        break;
+
+                    case "95":  //管理者確定済み
+                        sqlc += " and (T基礎控除.本人確定区分 = '9' and T基礎控除.管理者確定区分 = '5') ";
+                        break;
+
+                    case "99":  //システム連携済み
+                        sqlc += " and (T基礎控除.本人確定区分 = '9' and T基礎控除.管理者確定区分 = '9') ";
+                        break;
+
+                    default: break;
                 }
 
                 //ログインユーザー抽出可能範囲
                 sqlc += " And (";
 
-                sqlc += "   (not(AtoC権限.承認者 is null and D権限.承認者 is null and Career権限.承認者 is null))";
-                sqlc += string.Format(" or (基本.社員番号 ='{0}')", lu.UserCode);
-                
                 //所属検索条件追加
-                if (lu.自己申告書検索対象 == "K")
+                if (lu.IsAdminNo == "K")
                 {
-                    sqlc += " or 基本.所属番号 BETWEEN 10000 AND 99999";
+                    sqlc += " T基本.所属番号 BETWEEN 10000 AND 99999";
                 }
-                else if (lu.自己申告書検索対象 != "0")
+                else if (lu.IsAdminNo != "0")
                 {
-                    sqlc += string.Format(" or LEFT(基本.所属番号,1) = '{0}'", lu.自己申告書検索対象);
+                    sqlc += string.Format(" LEFT(T基本.所属番号,1) = '{0}'", lu.IsAdminNo);
                 }                
 
                 sqlc += " )";
@@ -158,6 +184,25 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch {
 
                 sql = string.Format(sql, sqlc);
 
+
+                Func<string, string, string> StatusDecision = (value1, value2) => {
+                    if (value1 == "0" && value2 == "0") {
+                        return "本人未提出";
+                    } else if (value1 == "1" && value2 == "0") {
+                        return "本人提出済み";
+                    } else if (value1 == "9" && value2 == "0") {
+                        return "本人提出済み";
+                    } else if (value1 == "9" && value2 == "1") {
+                        return "支社確定済み";
+                    } else if (value1 == "9" && value2 == "5") {
+                        return "管理者確定済み";
+                    } else if (value1 == "9" && value2 == "9") {
+                        return "システム連携済み";
+                    } else {
+                        return "システムエラー";
+                    }
+                };
+
                 using(DbManager dm = new DbManager())
                 using(IDbCommand cmd = dm.CreateCommand(sql))
                 using(DataSet ds = new DataSet()) {
@@ -165,30 +210,19 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch {
                     // データセットに設定する
                     da.Fill(ds);
 
-                    List<SelfDeclareSearchListModel> resultList = new List<SelfDeclareSearchListModel>();
+                    List<YearEndAdjustmentSearchListModel> resultList = new List<YearEndAdjustmentSearchListModel>();
                     foreach(DataRow row in ds.Tables[0].Rows) {
-                        SelfDeclareSearchListModel result = new SelfDeclareSearchListModel {
+                        YearEndAdjustmentSearchListModel result = new YearEndAdjustmentSearchListModel {
                             Selected = false,
-                            ManageNo = row["管理番号"].ToString(),
-                            Year = row["年度"].ToString(),
-                            SelfDecType = row["自己申告書種別Code"].ToString(),
+                            Year = model.Search.Year,
                             EmployeeNumber = row["社員番号"].ToString(),
-                            EmployeeName = row["氏名"].ToString(),
-                            EmployeeNameKana = KanaEx.ToZenkakuKana(row["Kana"].ToString()),
+                            EmployeeName = row["戸籍名字"].ToString() +" "+ row["戸籍名前"].ToString(),
+                            EmployeeNameKana = KanaEx.ToZenkakuKana(row["戸籍名字Kana"].ToString() + " "+ row["戸籍名前Kana"].ToString()),
                             Department = row["所属番号"].ToString(),
-                            CompetencyNo = row["資格番号"].ToString(),
-                            Competency = row["資格名"].ToString(),
-                            DutyNo = row["職掌番号"].ToString(),
-                            Duty = row["職掌名"].ToString(),
-                            SelfDecAtoCButtonView = row["AtoCButtonView"].ToString(),
-                            SelfDecDButtonView = row["DButtonView"].ToString(),
-                            CareerButtonView = row["CareerButtonView"].ToString(),
-                            //ObjectivesAceept = row["設定"].ToString(),
-                            //AattainmentAccept = row["達成"].ToString(),
-                            //ViewLink = row["管理番号"].ToString(),
-                            //TableType = row["TBL区分"].ToString(),
-                            //AchvTotal = row["達成度"].ToString(),
-                            //ProcessTotal = row["プロセス"].ToString()
+                            HuyouDeclareStatus =StatusDecision(row["扶養控除_本人確定区分"].ToString(),row["扶養控除_管理者確定区分"].ToString()),
+                            HokenDeclareStatus =StatusDecision(row["保険控除_本人確定区分"].ToString(),row["保険控除_管理者確定区分"].ToString()),
+                            HaiguuDeclareStatus =StatusDecision(row["基礎控除_本人確定区分"].ToString(),row["基礎控除_管理者確定区分"].ToString()),
+
                         };
                         resultList.Add(result);
                     }
@@ -209,9 +243,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch {
         /// <summary>
         /// 検索
         /// </summary>
-        /// <param name="model">自己申告書検索モデル</param>
+        /// <param name="model">年末調整検索モデル</param>
         /// <returns>検索モデル</returns>
-        public SelfDeclareSearchViewModels SearchD(SelfDeclareSearchViewModels model, LoginUser lu) {
+        public YearEndAdjustmentSearchViewModels SearchD(YearEndAdjustmentSearchViewModels model, LoginUser lu) {
             //開始
             nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
             try {
@@ -303,14 +337,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch {
                 //氏名カナ
                 sqlc += condition(" and 基本.Kana like '%{0}%'", KanaEx.ToHankakuKana(model.Search.EmployeeNameKana));
 
-                //職掌
-                sqlc += condition(" and 基本.職掌番号 = {0}", KanaEx.ToHankakuKana(model.Search.DutyNo));
-
-                //資格
-                sqlc += condition(" and 基本.資格番号 = {0}", KanaEx.ToHankakuKana(model.Search.CompetencyNo));
-
-                //D表見れる方のみ抽出
-                //sqlc += " and DButtonView = '1' ";
 
                 //管理職以外の場合、自分自身のみ抽出
                 if (!lu.IsPost){
@@ -347,10 +373,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch {
                     // データセットに設定する
                     da.Fill(ds);
 
-                    List<SelfDeclareSearchListModel> resultList = new List<SelfDeclareSearchListModel>();
+                    List<YearEndAdjustmentSearchListModel> resultList = new List<YearEndAdjustmentSearchListModel>();
                     foreach(DataRow row in ds.Tables[0].Rows) {
                         if (row["DButtonView"].ToString() == "1") {
-                            SelfDeclareSearchListModel result = new SelfDeclareSearchListModel {
+                            YearEndAdjustmentSearchListModel result = new YearEndAdjustmentSearchListModel {
                                 Selected = false,
                                 ManageNo = row["管理番号"].ToString(),
                                 Year = row["年度"].ToString(),
@@ -397,7 +423,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch {
         /// </summary>
         /// <param name="model">目標管理検索モデル</param>
         /// <returns>検索モデル</returns>
-        public SelfDeclareSearchViewModels SubSearch(SelfDeclareSearchViewModels model, LoginUser lu) {
+        public YearEndAdjustmentSearchViewModels SubSearch(YearEndAdjustmentSearchViewModels model, LoginUser lu) {
             //開始
             nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
             try {
@@ -525,9 +551,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch {
                     // データセットに設定する
                     da.Fill(ds);
 
-                    List<SelfDeclareSearchListModel> resultList = new List<SelfDeclareSearchListModel>();
+                    List<YearEndAdjustmentSearchListModel> resultList = new List<YearEndAdjustmentSearchListModel>();
                     foreach(DataRow row in ds.Tables[0].Rows) {
-                        SelfDeclareSearchListModel result = new SelfDeclareSearchListModel {
+                        YearEndAdjustmentSearchListModel result = new YearEndAdjustmentSearchListModel {
                             Selected = false,
                             ManageNo = row["管理番号"].ToString(),
                             Year = row["年度"].ToString(),

@@ -60,9 +60,24 @@
         }
     }
     <br><br>
-    <h3 class="text-left">
+
+    @*2023-99-99 iwai-tamura add-str ------*@
+    <div class="row">
+        <div class="col-xs-4">
+            <h3 class="text-left">
+                @Html.DisplayFor(m => m.Head.SheetYear) 年度　保険料控除申告書
+            </h3>
+        </div>
+        <div class="col-xs-4">
+            <h3 class="text-right">
+                [@Model.Head.StatusName]
+            </h3>
+        </div>
+    </div>
+    @*<h3 class="text-left">
         @Html.DisplayFor(m => m.Head.SheetYear) 年度　保険料控除申告書 @strTitle
-    </h3>
+    </h3>*@
+    @*2023-99-99 iwai-tamura add-end ------*@
 
     @Html.HiddenFor(m => m.Head.ManageNo)
     @Html.HiddenFor(m => m.Head.SheetYear)
@@ -390,11 +405,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.Name1, TextName)　名 @Html.TextBoxFor(m => m.Head.Name2, TextName)<span class="required">※必須</span></td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.Name1, TextName)　名 @Html.TextBoxFor(m => m.Head.Name2, TextName)<span class="required">※必須</span></td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="content-label-b1">フリガナ</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.Kana2, TextKana)<span class="required">※必須</span><div id="Head_Kana_mes" class="check-comment"></div></td>
+                        <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.Kana2, TextKana)<span class="required">※必須</span><div id="Head_Kana_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">住所又は居所</td>
@@ -460,9 +475,17 @@
                         </td>
                     </tr>
                     <tr class="content-label-h3">
-                        <td colspan="8">
+                        @*2023-99-99 iwai-tamura add-str ------*@
+                        <td colspan="7" style="border-right: none !important;">
                             １ 一般の生命保険料
                         </td>
+                        <td colspan="1" style="border-left: none !important; text-align: right;">
+                            ※
+                        </td>
+                        @*<td colspan="8">
+                            １ 一般の生命保険料
+                        </td>*@
+                        @*2023-99-99 iwai-tamura add-end ------*@
                     </tr>
                 </thead>
                 <tbody>
@@ -480,13 +503,13 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_1_ContractorName2, TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.LifeInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_1_ContractorName2, TextName)</td>
                     </tr>
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
                         <td colspan="6" class="form-inline">
-                            姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_1_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_1_ReceiverName2, TextName)
+                            氏 @Html.TextBoxFor(m => m.Head.LifeInsurance_1_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_1_ReceiverName2, TextName)
                         </td>
                     </tr>
                     <tr>
@@ -545,13 +568,13 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_2_ContractorName2, TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.LifeInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_2_ContractorName2, TextName)</td>
                     </tr>
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
                         <td colspan="6" class="form-inline">
-                            姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_2_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_2_ReceiverName2, TextName)
+                            氏 @Html.TextBoxFor(m => m.Head.LifeInsurance_2_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_2_ReceiverName2, TextName)
                         </td>
                     </tr>
                     <tr>
@@ -610,13 +633,13 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_3_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_3_ContractorName2, TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.LifeInsurance_3_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_3_ContractorName2, TextName)</td>
                     </tr>
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
                         <td colspan="6" class="form-inline">
-                            姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_3_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_3_ReceiverName2, TextName)
+                            氏 @Html.TextBoxFor(m => m.Head.LifeInsurance_3_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_3_ReceiverName2, TextName)
                         </td>
                     </tr>
                     <tr>
@@ -675,13 +698,13 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_4_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_4_ContractorName2, TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.LifeInsurance_4_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_4_ContractorName2, TextName)</td>
                     </tr>
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
                         <td colspan="6" class="form-inline">
-                            姓 @Html.TextBoxFor(m => m.Head.LifeInsurance_4_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_4_ReceiverName2, TextName)
+                            氏 @Html.TextBoxFor(m => m.Head.LifeInsurance_4_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.LifeInsurance_4_ReceiverName2, TextName)
                         </td>
                     </tr>
                     <tr>
@@ -806,9 +829,17 @@
                         </td>
                     </tr>
                     <tr class="content-label-h3">
-                        <td colspan="8">
+                        @*2023-99-99 iwai-tamura add-str ------*@
+                        <td colspan="7" style="border-right: none !important;">
                             １ 介護医療保険料
                         </td>
+                        <td colspan="1" style="border-left: none !important; text-align: right;">
+                            ※
+                        </td>
+                        @*<td colspan="8">
+                            １ 介護医療保険料
+                        </td>*@
+                        @*2023-99-99 iwai-tamura add-end ------*@
                     </tr>
                 </thead>
                 <tbody>
@@ -826,13 +857,13 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.MedicalInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.MedicalInsurance_1_ContractorName2, TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.MedicalInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.MedicalInsurance_1_ContractorName2, TextName)</td>
                     </tr>
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
                         <td colspan="6" class="form-inline">
-                            姓 @Html.TextBoxFor(m => m.Head.MedicalInsurance_1_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.MedicalInsurance_1_ReceiverName2, TextName)
+                            氏 @Html.TextBoxFor(m => m.Head.MedicalInsurance_1_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.MedicalInsurance_1_ReceiverName2, TextName)
                         </td>
                     </tr>
                     <tr>
@@ -886,13 +917,13 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.MedicalInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.MedicalInsurance_2_ContractorName2, TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.MedicalInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.MedicalInsurance_2_ContractorName2, TextName)</td>
                     </tr>
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
                         <td colspan="6" class="form-inline">
-                            姓 @Html.TextBoxFor(m => m.Head.MedicalInsurance_2_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.MedicalInsurance_2_ReceiverName2, TextName)
+                            氏 @Html.TextBoxFor(m => m.Head.MedicalInsurance_2_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.MedicalInsurance_2_ReceiverName2, TextName)
                         </td>
                     </tr>
                     <tr>
@@ -992,9 +1023,17 @@
                         </td>
                     </tr>
                     <tr class="content-label-h3">
-                        <td colspan="8">
+                        @*2023-99-99 iwai-tamura add-str ------*@
+                        <td colspan="7" style="border-right: none !important;">
                             １ 個人年金保険料
                         </td>
+                        <td colspan="1" style="border-left: none !important; text-align: right;">
+                            ※
+                        </td>
+                        @*<td colspan="8">
+                            １ 個人年金保険料
+                        </td>*@
+                        @*2023-99-99 iwai-tamura add-end ------*@
                     </tr>
                 </thead>
                 <tbody>
@@ -1012,13 +1051,13 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.PensionInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_1_ContractorName2, TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.PensionInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_1_ContractorName2, TextName)</td>
                     </tr>
                     <tr>
                         <td rowspan="3" colspan="1" class="content-label-b1">保険金等の受取人</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
                         <td colspan="6" class="form-inline">
-                            姓 @Html.TextBoxFor(m => m.Head.PensionInsurance_1_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_1_ReceiverName2, TextName)
+                            氏 @Html.TextBoxFor(m => m.Head.PensionInsurance_1_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_1_ReceiverName2, TextName)
                         </td>
                     </tr>
                     <tr>
@@ -1085,13 +1124,13 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.PensionInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_2_ContractorName2, TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.PensionInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_2_ContractorName2, TextName)</td>
                     </tr>
                     <tr>
                         <td rowspan="3" colspan="1" class="content-label-b1">保険金等の受取人</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
                         <td colspan="6" class="form-inline">
-                            姓 @Html.TextBoxFor(m => m.Head.PensionInsurance_2_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_2_ReceiverName2, TextName)
+                            氏 @Html.TextBoxFor(m => m.Head.PensionInsurance_2_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_2_ReceiverName2, TextName)
                         </td>
                     </tr>
                     <tr>
@@ -1158,13 +1197,13 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.PensionInsurance_3_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_3_ContractorName2, TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.PensionInsurance_3_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_3_ContractorName2, TextName)</td>
                     </tr>
                     <tr>
                         <td rowspan="3" colspan="1" class="content-label-b1">保険金等の受取人</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
                         <td colspan="6" class="form-inline">
-                            姓 @Html.TextBoxFor(m => m.Head.PensionInsurance_3_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_3_ReceiverName2, TextName)
+                            氏 @Html.TextBoxFor(m => m.Head.PensionInsurance_3_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.PensionInsurance_3_ReceiverName2, TextName)
                         </td>
                     </tr>
                     <tr>
@@ -1336,9 +1375,17 @@
                         </td>
                     </tr>
                     <tr class="content-label-h3">
-                        <td colspan="8">
+                        @*2023-99-99 iwai-tamura add-str ------*@
+                        <td colspan="7" style="border-right: none !important;">
                             １ 地震保険料控除
                         </td>
+                        <td colspan="1" style="border-left: none !important; text-align: right;">
+                            ※
+                        </td>
+                        @*<td colspan="8">
+                            １ 地震保険料控除
+                        </td>*@
+                        @*2023-99-99 iwai-tamura add-end ------*@
                     </tr>
                 </thead>
                 <tbody>
@@ -1356,13 +1403,13 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.QuakeInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.QuakeInsurance_1_ContractorName2, TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.QuakeInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.QuakeInsurance_1_ContractorName2, TextName)</td>
                     </tr>
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
                         <td colspan="6" class="form-inline">
-                            姓 @Html.TextBoxFor(m => m.Head.QuakeInsurance_1_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.QuakeInsurance_1_ReceiverName2, TextName)
+                            氏 @Html.TextBoxFor(m => m.Head.QuakeInsurance_1_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.QuakeInsurance_1_ReceiverName2, TextName)
                         </td>
                     </tr>
                     <tr>
@@ -1420,13 +1467,13 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">保険等の契約者の氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.QuakeInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.QuakeInsurance_2_ContractorName2, TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.QuakeInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.QuakeInsurance_2_ContractorName2, TextName)</td>
                     </tr>
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">保険金等の受取人</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
                         <td colspan="6" class="form-inline">
-                            姓 @Html.TextBoxFor(m => m.Head.QuakeInsurance_2_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.QuakeInsurance_2_ReceiverName2, TextName)
+                            氏 @Html.TextBoxFor(m => m.Head.QuakeInsurance_2_ReceiverName1, TextName)　名 @Html.TextBoxFor(m => m.Head.QuakeInsurance_2_ReceiverName2, TextName)
                         </td>
                     </tr>
                     <tr>
@@ -1562,7 +1609,7 @@
                         <td rowspan="2" colspan="1" class="content-label-b1">保険料を負担することになっている人</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
                         <td colspan="6" class="form-inline">
-                            姓 @Html.TextBoxFor(m => m.Head.SocialInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.SocialInsurance_1_ContractorName2, TextName)
+                            氏 @Html.TextBoxFor(m => m.Head.SocialInsurance_1_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.SocialInsurance_1_ContractorName2, TextName)
                         </td>
                     </tr>
                     <tr>
@@ -1615,7 +1662,7 @@
                         <td rowspan="2" colspan="1" class="content-label-b1">保険料を負担することになっている人</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
                         <td colspan="6" class="form-inline">
-                            姓 @Html.TextBoxFor(m => m.Head.SocialInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.SocialInsurance_2_ContractorName2, TextName)
+                            氏 @Html.TextBoxFor(m => m.Head.SocialInsurance_2_ContractorName1, TextName)　名 @Html.TextBoxFor(m => m.Head.SocialInsurance_2_ContractorName2, TextName)
                         </td>
                     </tr>
                     <tr>

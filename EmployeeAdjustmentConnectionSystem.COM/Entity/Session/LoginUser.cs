@@ -49,6 +49,19 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Entity.Session {
         /// </summary>
         public bool IsRootUser { get; set; }
 
+        //2023-99-99 iwai-tamura add str -----
+        /// <summary>
+        /// 管理区分
+        /// </summary>
+        public string IsAdminNo { get; set; }
+
+        /// <summary>
+        /// システム管理年度
+        /// </summary>
+        public int IsYear { get; set; }
+        //2023-99-99 iwai-tamura add end -----
+
+
         //2016-01-21 iwai-tamura add str -----
         /// <summary>
         /// 管理職判断

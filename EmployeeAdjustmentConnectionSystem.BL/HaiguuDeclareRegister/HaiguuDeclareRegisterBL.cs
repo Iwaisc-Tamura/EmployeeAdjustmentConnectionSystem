@@ -14,6 +14,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using EmployeeAdjustmentConnectionSystem.COM.Util.Config;
 using EmployeeAdjustmentConnectionSystem.COM.Util.Convert;
+using System.Web.Mvc;
 
 namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
     /// <summary>
@@ -69,7 +70,38 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                         }
                         return null;
                     };
-                    var sql = "SELECT * FROM TE120基礎控除申告書Data WHERE 対象年度 = @SheetYear and 社員番号 = @EmployeeNo ";
+
+                    //2023-99-99 iwai-tamura upd str -----
+                    Func<string, string, string> StatusDecision = (value1, value2) => {
+                        if (value1 == "0" && value2 == "0") {
+                            return "本人未提出";
+                        } else if (value1 == "1" && value2 == "0") {
+                            return "本人提出済み";
+                        } else if (value1 == "9" && value2 == "0") {
+                            return "本人提出済み";
+                        } else if (value1 == "9" && value2 == "1") {
+                            return "支社確定済み";
+                        } else if (value1 == "9" && value2 == "5") {
+                            return "管理者確定済み";
+                        } else if (value1 == "9" && value2 == "9") {
+                            return "システム連携済み";
+                        } else {
+                            return "システムエラー";
+                        }
+                    };
+                    //2023-99-99 iwai-tamura upd end -----
+
+                    //2023-99-99 iwai-tamura upd str -----
+                    var sql = "SELECT T基礎.* ";
+                        sql += " ,T扶養.源泉控除対象配偶者給与所得収入金額 ";
+                        sql += " ,T扶養.源泉控除対象配偶者給与所得所得金額 ";
+                        sql += " ,T扶養.源泉控除対象配偶者他所得金額 ";
+                        sql += " FROM TE120基礎控除申告書Data As T基礎  ";
+                        sql += "   LEFT JOIN TE100扶養控除申告書Data As T扶養 ";
+                        sql += "     ON T基礎.対象年度 = T扶養.対象年度 AND T基礎.社員番号 = T扶養.社員番号 ";
+                        sql += " WHERE T基礎.対象年度 = @SheetYear and T基礎.社員番号 = @EmployeeNo ";
+                    //var sql = "SELECT * FROM TE120基礎控除申告書Data WHERE 対象年度 = @SheetYear and 社員番号 = @EmployeeNo ";
+                    //2023-99-99 iwai-tamura upd end -----
 
                     using(IDbCommand cmd = dm.CreateCommand(sql))
                     using(DataSet ds = new DataSet()) {
@@ -87,6 +119,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 								SheetYear = DataConv.IntParse(row["対象年度"].ToString()),
 								ApprovalType = row["本人確定区分"].ToString(),
 								DecisionType = row["管理者確定区分"].ToString(),
+                                //2023-99-99 iwai-tamura upd str -----
+                                StatusName = StatusDecision(row["本人確定区分"].ToString(),row["管理者確定区分"].ToString()),
+                                //2023-99-99 iwai-tamura upd end -----
 								MyNumberCheck = row["個人番号相違確認区分"].ToString(),
 								EmployeeNo = row["社員番号"].ToString(),
 								DepartmentNo = DataConv.IntParse(row["所属番号"].ToString()),
@@ -117,6 +152,13 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 								SpouseDeduction_Earnings = setMoney(row["配偶者控除申告書_給与所得_収入金額"].ToString()),
 								SpouseDeduction_Income = setMoney(row["配偶者控除申告書_給与所得_所得金額"].ToString()),
 								SpouseDeduction_OtherIncome = setMoney(row["配偶者控除申告書_他_所得金額"].ToString()),
+
+                                //2023-99-99 iwai-tamura upd str -----
+								SpouseDeduction_Huyou_Earnings = setMoney(row["源泉控除対象配偶者給与所得収入金額"].ToString()),
+								SpouseDeduction_Huyou_Income = setMoney(row["源泉控除対象配偶者給与所得所得金額"].ToString()),
+								SpouseDeduction_Huyou_OtherIncome = setMoney(row["源泉控除対象配偶者他所得金額"].ToString()),
+                                //2023-99-99 iwai-tamura upd end -----
+
 								SpouseDeduction_TotalEarnings = setMoney(row["配偶者控除申告書_合計所得金額見積額"].ToString()),
 								SpouseDeduction_EarningsType = row["配偶者控除申告書_控除額計算判定"].ToString(),
 								SpouseDeduction_CalcType = row["配偶者控除申告書_控除額計算区分"].ToString(),
@@ -137,8 +179,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 								AdjustmentDeduction_RelationshipType = row["所得金額調整控除申告書_扶養親族等続柄"].ToString(),
 								AdjustmentDeduction_TotalEarnings = setMoney(row["所得金額調整控除申告書_扶養親族等所得金額"].ToString()),
 								AdjustmentDeduction_ReportType = row["所得金額調整控除申告書_特別障害者該当事実"].ToString()
-
-
                             };
                             model.Head.InputMode = ajustMode.SelfInput;
                             model.Head.AdminMode = bolAdminMode;
@@ -189,11 +229,33 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                                 model.Head.InputMode = ajustMode.adminInput;
                                 break;
 
+                            //2023-99-99 iwai-tamura upd str -----
                             case "1":
-                                //管理者登録済み
-                                model.Head.InputMode = ajustMode.adminRegist;
+                                //支社登録済み
+                                if (lu.IsAdminNo =="2"||lu.IsAdminNo == "3"){
+                                    //支社取消可能(東京、関東のみ)
+                                    model.Head.InputMode = ajustMode.adminRegist;
+                                } else{
+                                    //管理者入力
+                                    model.Head.InputMode = ajustMode.adminInput;
+                                }
                                 break;
 
+                            case "5":
+                                if (lu.IsAdminNo =="2"||lu.IsAdminNo == "3"){
+                                    //管理者登録済みの場合は、支社変更不可(東京、関東のみ)
+                                    model.Head.InputMode = ajustMode.adminConfim;
+                                } else{
+                                    //管理者登録済み
+                                    model.Head.InputMode = ajustMode.adminRegist;
+                                }
+                                break;
+
+                            //case "1":
+                            //    //管理者登録済み
+                            //    model.Head.InputMode = ajustMode.adminRegist;
+                            //    break;
+                            //2023-99-99 iwai-tamura upd end -----
                             case "9":
                                 //管理者確定済み
                                 model.Head.InputMode = ajustMode.adminConfim;
@@ -225,42 +287,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                     }
                 }
 
-
-                //using(DbManager dm = new DbManager()) {
-                //    //承認情報現在地取得
-                //    //var mode = (SelfDeclareMode)Enum.Parse(typeof(SelfDeclareMode), (SelfDeclareCommonBL.GetSignStatus(dm, int.Parse(model.Head.ManageNo),"1", false)).ToString());
-                //    var mode =ajustMode.None;
-                //    //自データ時設定
-                //    if(model.Head.EmployeeNo == lu.UserCode) {
-                //        //モード設定
-                //        switch(mode) {
-                //            //本人入力前
-                //            case ajustMode.None:
-                //                model.Head.InputMode = ajustMode.AtoCSelfSign;
-                //                model.Head.AuthButton = ajustMode.AtoCSelfSign;
-                //                break;
-                //            //本人入力後
-                //            case ajustMode.AtoCSelfSign:
-                //                model.Head.CancelButton = ajustMode.AtoCSelfSign;
-                //                break;
-                //            //上記以外
-                //            default:
-                //                break;
-                //        }
-                //        return;
-                //    }
-                //    //他データ時設定
-                //    //承認者か？ //承認者以外
-                //    if(!SelfDeclareCommonBL.IsAuthorizer(dm, model.Head.ManageNo, lu.UserCode)) {
-                //        //一般社員
-                //        if(lu.IsRoot == false) return;
-                //        //管理者用キャンセル
-                //        this.SetRootCancel(dm, model, lu, mode);
-                //        return;
-                //    }
-                //    //承認者時の画面状態設定
-                //    this.SetInputSignMode(dm, model, lu, mode);
-                //}
                 return;
             } catch(Exception ex) {
                 // エラー
@@ -355,7 +381,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                                     break;
                                 case ajustMode.adminInput:
                                     strApproval = "9";
-                                    strDecision = "1";
+                                    //2023-99-99 iwai-tamura upd str -----
+                                    if (lu.IsAdminNo == "2"||lu.IsAdminNo == "3"){
+                                        strDecision = "1";  //支社確定
+                                    } else{
+                                        strDecision = "5";  //管理者確定
+                                    }
+                                    //strDecision = "1";
+                                    //2023-99-99 iwai-tamura upd end -----
                                     break;
                             }
                         }
@@ -548,7 +581,28 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                         if(strApproval == "1") strApproval = "0";
                         break;
                     case ajustMode.adminRegist:
-                        if(strDecision == "1") strDecision = "0";
+                        //2023-99-99 iwai-tamura upd str -----
+                        string firstDigit = null;
+                        firstDigit = model.Head.DepartmentNo.Value.ToString().Substring(0, 1);
+
+                        switch (strDecision) {
+                            case "1":   //支社確定→本人確定
+                                strDecision = "0";
+                                break;
+
+                            case "5":   //管理者確定　→　本人確定or支社確定(東京、関東のみ)
+                                if (firstDigit == "2" || firstDigit == "3") {
+                                    strDecision = "1";
+                                } else {
+                                    strDecision = "0";
+                                }
+                                break;
+
+                            default:
+                                break;
+                        }
+                        //if(strDecision == "1") strDecision = "0";
+                        //2023-99-99 iwai-tamura upd end -----
                         break;
                 }
 

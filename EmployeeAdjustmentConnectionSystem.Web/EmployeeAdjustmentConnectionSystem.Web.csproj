@@ -194,6 +194,7 @@
     <Compile Include="Controllers\SelfDeclareRegisterC11Controller.cs" />
     <Compile Include="Controllers\SelfDeclareRegisterCController.cs" />
     <Compile Include="Controllers\SelfDeclareRegisterDController.cs" />
+    <Compile Include="Controllers\YearEndAdjustmentSearchController.cs" />
     <Compile Include="Controllers\SelfDeclareSearchController.cs" />
     <Compile Include="Controllers\SystemManagementController.cs" />
     <Compile Include="Controllers\TopController.cs" />
@@ -211,6 +212,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\yearend-adjustment-search.css" />
+    <Content Include="Content\top.css" />
     <Content Include="Content\hoken-declare-register.css" />
     <Content Include="Content\haiguu-declare-register.css" />
     <Content Include="Content\img\000.gif" />
@@ -332,6 +335,7 @@
     <Content Include="Scripts\js\haiguu-declare-register.js" />
     <Content Include="Scripts\js\huyou-declare-register.js" />
     <Content Include="Scripts\js\selfdeclare-register.js" />
+    <Content Include="Scripts\js\yearend-adjustment-search.js" />
     <Content Include="Scripts\js\selfdeclare-search.js" />
     <Content Include="Scripts\js\skill-assessment-choice.js" />
     <Content Include="Scripts\js\skill-distribution.js" />
@@ -411,6 +415,7 @@
     <Content Include="Views\HaiguuDeclareRegister\Index - コピー.cshtml" />
     <Content Include="Views\HaiguuDeclareRegister\Index.cshtml" />
     <Content Include="Views\HaiguuDeclareRegister\Index.cshtml.bak" />
+    <Content Include="Views\YearEndAdjustmentSearch\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

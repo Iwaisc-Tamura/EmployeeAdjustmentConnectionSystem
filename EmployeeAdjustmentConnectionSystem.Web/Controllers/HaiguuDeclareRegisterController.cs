@@ -104,7 +104,14 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 bl = new HaiguuDeclareRegisterBL();
                 model = bl.Select(intSheetYear,strEmployeeNo,bolAdminMode);
                 bl.SetMode(model, lu);
-                TempData["Success"] = "提出をキャンセルしました";
+                //2023-99-99 iwai-tamura upd str -----
+                if (bolAdminMode){
+                    TempData["Success"] = "確定をキャンセルしました";
+                } else{
+                    TempData["Success"] = "提出をキャンセルしました";
+                }
+                //TempData["Success"] = "提出をキャンセルしました";
+                //2023-99-99 iwai-tamura upd end -----
                 return View(model);
             } catch(Exception ex) {
                 // エラー
@@ -156,7 +163,16 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 bl = new HaiguuDeclareRegisterBL();
                 model = bl.Select(intSheetYear,strEmployeeNo,bolAdminMode);
                 bl.SetMode(model, lu);
-                TempData["Success"] = "提出しました";
+
+                //2023-99-99 iwai-tamura upd str -----
+                if (bolAdminMode){
+                    TempData["Success"] = "確定しました";
+                } else{
+                    TempData["Success"] = "提出しました";
+                }
+                //TempData["Success"] = "提出しました";
+                //2023-99-99 iwai-tamura upd end -----
+
                 return View(model);
             } catch(Exception ex) {
                 // エラー
@@ -238,8 +254,16 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             try {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
                 //トップへ
-                return RedirectToAction("Index", "Top");
+                //2023-99-99 iwai-tamura upd str -----
+                if (model.Head.AdminMode){
+                    return RedirectToAction("Search", "YearEndAdjustmentSearch");
+                } else{
+                    return RedirectToAction("Index", "Top");
+                }
+                //return RedirectToAction("Index", "Top");
+                //2023-99-99 iwai-tamura upd end -----
             } catch(Exception ex) {
                 //エラー
                 nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());

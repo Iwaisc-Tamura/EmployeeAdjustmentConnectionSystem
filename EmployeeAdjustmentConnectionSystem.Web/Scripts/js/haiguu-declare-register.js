@@ -54,6 +54,9 @@ $(function () {
             $(".input-control").attr('disabled', true);
             $(".btn-calc").attr('disabled', true);
             $("button.input-control").remove();
+            //2023-99-99 iwai-tamura upd str -----
+            $(".btn-clear").attr('disabled', true);
+            //2023-99-99 iwai-tamura upd end -----
             break;
 
         default:
@@ -61,10 +64,27 @@ $(function () {
             $(".input-control").attr('disabled', true);
             $(".btn-calc").attr('disabled', true);
             $("button.input-control").remove();
+            //2023-99-99 iwai-tamura upd str -----
+            $(".btn-clear").attr('disabled', true);
+            //2023-99-99 iwai-tamura upd end -----
 
             break;
     }
 });
+
+//2023-99-99 iwai-tamura upd str -----
+//戻るボタン時の必須チェック回避
+document.addEventListener('DOMContentLoaded', function () {
+    const backButton = document.getElementById('backbutton');
+    backButton.addEventListener('click', function () {
+        const requiredInputs = document.querySelectorAll('[required]');
+        requiredInputs.forEach(input => {
+            input.removeAttribute('required');
+        });
+    });
+});
+//2023-99-99 iwai-tamura upd end -----
+
 
 //日付削除ボタン
 $('button.input-control').click(function () {
@@ -276,6 +296,81 @@ function calcSpouseDeduction(varArt) {
     return bolReturn;
 }
 
+//2023-99-99 iwai-tamura upd str -----
+document.getElementById('btn-spouseDeduction-clear').addEventListener('click', function () {
+    // 給与所得者の配偶者控除等申告書のテーブル内の全ての入力要素を取得
+    var inputs = document.querySelectorAll('.spouseDeductionTable input, .spouseDeductionTable select, .spouseDeductionTable textarea');
+
+    // それぞれの入力要素の値をクリアする
+    inputs.forEach(function (input) {
+        if (input.type == 'checkbox' || input.type == 'radio') {
+            input.checked = false;
+        } else {
+            input.value = '';
+        }
+    });
+    $('#Head_SpouseDeduction_ResidentCheck').change()
+    checkAllInputs();
+});
+
+
+//扶養控除申告書_配偶者データ取得ボタン
+document.getElementById('btn-spouseDeduction-get').addEventListener('click', function () {
+    var aaa = $('#Head_SpouseDeduction_Huyou_Income').val();
+    $('#Head_SpouseDeduction_Earnings').val($('#Head_SpouseDeduction_Huyou_Earnings').val());
+    $('#Head_SpouseDeduction_Income').val($('#Head_SpouseDeduction_Huyou_Income').val());
+    $('#Head_SpouseDeduction_OtherIncome').val($('#Head_SpouseDeduction_Huyou_OtherIncome').val());
+
+});
+
+
+
+// 給与所得者の配偶者控除等申告書のテーブル内の全ての入力要素を取得
+var spouseDeductionTable_inputs = document.querySelectorAll('.spouseDeductionTable input, .spouseDeductionTable select, .spouseDeductionTable textarea');
+
+// 全ての入力項目のチェック関数
+function checkAllInputs() {
+    var isAnyInputFilled = false;
+
+    // いずれかの入力項目に値があるかチェック
+    spouseDeductionTable_inputs.forEach(function (input) {
+        switch (input.name) {
+            //無視項目
+            case 'Head.SpouseDeduction_ResidentCheck':
+                if (input.type == 'checkbox' && input.checked) {
+                    isAnyInputFilled = true;
+                }
+                break;
+
+            default:
+                if ((input.type == 'checkbox' || input.type == 'radio') && input.checked) {
+                    isAnyInputFilled = true;
+                } else if (input.type != 'checkbox' && input.type != 'radio' && input.value && input.value != 0) {
+                    isAnyInputFilled = true;
+                }
+                break;
+        }
+    });
+
+    // 値が入力されている場合、全ての入力項目にrequired属性を設定
+    // 値が入力されていない場合、required属性を削除
+    spouseDeductionTable_inputs.forEach(function (input) {
+        if (input.id !== 'Head_SpouseDeduction_ResidentCheck') {
+            if (isAnyInputFilled) {
+                input.setAttribute('required', 'required');
+            } else {
+                input.removeAttribute('required');
+            }
+        }
+    });
+}
+
+// 全ての入力項目にイベントリスナーを設定
+spouseDeductionTable_inputs.forEach(function (input) {
+    input.addEventListener('change', checkAllInputs);
+});
+//2023-99-99 iwai-tamura upd end -----
+
 
 //所得金額調整控除 要件選択制御
 function ConditionTypeSelect(obj,type) {
@@ -451,6 +546,11 @@ $('.checkKana').change(function () {
 
     var reg = new RegExp(/^[ｦ-ﾟ]*$/);   //使用可能文字指定(半角カナのみ)
 
+    //2023-99-99 iwai-tamura upd str -----
+    var convertedValue = zenkana2Hankana(hira2Kana($(this).val()));
+    $(this).val(convertedValue);
+    //2023-99-99 iwai-tamura upd end -----
+
     //Kana_1とKana_2に半角カナ以外が入力されていないかチェック
     if (reg.test($(strId + "1").val()) && reg.test($(strId + "2").val())) {
         bolReturn = true;
@@ -573,9 +673,18 @@ $('#dmysave').click(function () {
         return;
     }
     if (!checkAllCalc()) { return; }
-
+    
     //ボタンクリック
-    showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
+    //2023-99-99 iwai-tamura upd str -----
+    var isAdminMode = $('#Head_AdminMode').val().toLowerCase() === 'true';
+    if (isAdminMode) {
+        showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
+    } else {
+        showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
+    }
+    //showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
+    //2023-99-99 iwai-tamura upd end -----
+
 });
 
 /*
@@ -583,7 +692,15 @@ $('#dmysave').click(function () {
  */
 $('#dmySignCancel').click(function () {
     //ボタンクリック
-    showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
+    //2023-99-99 iwai-tamura upd str -----
+    var isAdminMode = $('#Head_AdminMode').val().toLowerCase() === 'true';
+    if (isAdminMode) {
+        showMessageEx('取消確認', '確定状態を取消しますか？', 'signcancel', true);
+    } else {
+        showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
+    }
+    //showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
+    //2023-99-99 iwai-tamura upd end -----
 });
 
 
