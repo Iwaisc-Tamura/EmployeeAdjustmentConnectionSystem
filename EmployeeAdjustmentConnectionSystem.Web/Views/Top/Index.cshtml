@@ -5,6 +5,10 @@
     ViewBag.Title = "社員等WEB年末調整申告システム";
 }
 
+@*2023-99-99 iwai-tamura test-str ------*@
+@Styles.Render("~/Content/css/top")
+@*2023-99-99 iwai-tamura test-end ------*@
+
 <!--お知らせ-->
 <div class="col-xs-12 top10">
   <div class="well-ex">
@@ -19,18 +23,52 @@
 <!--メニューボタン-->
 @using(Html.BeginForm("Link", "Top", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
     <div class="col-xs-6" style="margin-left: 25%;margin-top:10pt">
-        @if (((LoginUser)Session["LoginUser"]).IsRoot) {
+        @*2023-99-99 iwai-tamura upd-str ------*@
+        @*@if (((LoginUser)Session["LoginUser"]).IsRoot) {
             <div class="row form-inline">
                 <label style="font-size:14px;vertical-align: middle;">　[管理者用]　指定社員番号：</label><input class="form-control" type="text" name="specifyEmployeeNo" /><br /><br />
             </div>
-        }
+        }*@
+        @*2023-99-99 iwai-tamura upd-end ------*@
 
 	    <div class="well-ex-header"  style="background-color: #DEF5E5;">
-	        <h4 align="center">社員等WEB年末調整申告システム</h4>
+            @*2023-99-99 iwai-tamura upd-str ------*@
+	        <h4 align="center" style="font-weight: bold;">社員等WEB年末調整申告システム</h4>
+	        @*<h4 align="center">社員等WEB年末調整申告システム</h4>*@
+            @*2023-99-99 iwai-tamura upd-end ------*@
 	    </div>
-        <div class="well-ex-content" style="border-color : #DEF5E5;">
-
+        <div class="well-ex-content" style="border-color: #DEF5E5; padding-bottom: 20px; ">
+            @*2023-99-99 iwai-tamura upd-str ------*@
+            @*扶養控除等申告書*@
             <div class="row">
+                <div class="col-xs-6 col-xs-offset-2 top10 col_btn_register">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="HuyouDeclareRegister">扶養控除等申告書</button>
+                </div>
+                <div class="col-xs-2 top10 col_btn_pdf">
+                    <button class="btn-default btn-lg btn-block btn_pdf" name="Transition3" value="HuyouDeclareRegister">PDF出力</button>
+                </div>
+            </div>
+
+            @*保険料控除申告書*@
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-2 top10 col_btn_register">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="HokenDeclareRegister">保険料控除申告書</button>
+                </div>
+                <div class="col-xs-2 top10 col_btn_pdf">
+                    <button class="btn-default btn-lg btn-block btn_pdf" name="Transition4" value="HokenDeclareRegister">PDF出力</button>
+                </div>
+            </div>
+
+            @*基礎控除申告書*@
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-2 top10 col_btn_register">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="HaiguuDeclareRegister">基礎控除申告書</button>
+                </div>
+                <div class="col-xs-2 top10 col_btn_pdf">
+                    <button class="btn-default btn-lg btn-block btn_pdf" name="Transition2" value="HaiguuDeclareReport">PDF出力</button>
+                </div>
+            </div>
+            @*<div class="row">
                 <div class="col-xs-8 col-xs-offset-2 top10">
                     <button class="btn-default btn-lg btn-block" name="Transition" value="HuyouDeclareRegister">扶養控除等申告書</button>
                 </div>
@@ -46,30 +84,24 @@
                 <div class="col-xs-8 col-xs-offset-2 top10">
                     <button class="btn-default btn-lg btn-block" name="Transition" value="HaiguuDeclareRegister">基礎控除申告書</button>
                 </div>
-            </div>
-            @*2023-99-99 iwai-tamura test-str ------*@
-            <div class="row">
-                <div class="col-xs-8 col-xs-offset-2 top10">
-                    <button class="btn-default btn-lg btn-block" name="Transition2" value="HaiguuDeclareReport">基礎控除申告書印刷</button>
-                </div>
-            </div>
-            @*2023-99-99 iwai-tamura test-end ------*@
-
-            @*2023-99-99 iwai-terao test-str ------*@
-            <div class="row">
-                <div class="col-xs-8 col-xs-offset-2 top10">
-                    <button class="btn-default btn-lg btn-block" name="Transition3" value="HuyouDeclareRegister">扶養控除申告書印刷</button>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-8 col-xs-offset-2 top10">
-                    <button class="btn-default btn-lg btn-block" name="Transition4" value="HokenDeclareRegister">保険料控除申告書印刷</button>
-                </div>
-            </div>
-            @*2023-99-99 iwai-tamura test-end ------*@
+            </div>*@
+            @*2023-99-99 iwai-tamura upd-end ------*@
         </div>
+
+        @*2023-99-99 iwai-tamura add-str ------*@
+	    <div class="well-ex-header"  style="background-color: #0094ffb6; margin-top: 10pt;">
+	        <h4 align="center" style="font-weight: bold;">管理者メニュー</h4>
+	    </div>
+        <div class="well-ex-content" style="border-color: #DEF5E5; padding-bottom: 20px; ">
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10">
+                    <button class="btn-default btn-lg btn-block" name="ManagementTransition" value="YearEndAdjustmentSearch">一括処理関連</button>
+                </div>
+            </div>
+        </div>
+        @*2023-99-99 iwai-tamura add-end ------*@
     </div>
+
 
     @*<div class="col-xs-6" style="margin-left: 25%;margin-top:10pt">
         <div class="well-ex-content">

@@ -70,6 +70,26 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                         return null;
                     };
 
+                    //2023-99-99 iwai-tamura upd str -----
+                    Func<string, string, string> StatusDecision = (value1, value2) => {
+                        if (value1 == "0" && value2 == "0") {
+                            return "本人未提出";
+                        } else if (value1 == "1" && value2 == "0") {
+                            return "本人提出済み";
+                        } else if (value1 == "9" && value2 == "0") {
+                            return "本人提出済み";
+                        } else if (value1 == "9" && value2 == "1") {
+                            return "支社確定済み";
+                        } else if (value1 == "9" && value2 == "5") {
+                            return "管理者確定済み";
+                        } else if (value1 == "9" && value2 == "9") {
+                            return "システム連携済み";
+                        } else {
+                            return "システムエラー";
+                        }
+                    };
+                    //2023-99-99 iwai-tamura upd end -----
+
                     var sql = "SELECT * FROM TE110保険料控除申告書Data WHERE 対象年度 = @SheetYear and 社員番号 = @EmployeeNo ";
 
                     using(IDbCommand cmd = dm.CreateCommand(sql))
@@ -88,6 +108,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								SheetYear = DataConv.IntParse(row["対象年度"].ToString()),
 								ApprovalType = row["本人確定区分"].ToString(),
 								DecisionType = row["管理者確定区分"].ToString(),
+                                //2023-99-99 iwai-tamura upd str -----
+                                StatusName = StatusDecision(row["本人確定区分"].ToString(),row["管理者確定区分"].ToString()),
+                                //2023-99-99 iwai-tamura upd end -----
 								EmployeeNo = row["社員番号"].ToString(),
 								DepartmentNo = DataConv.IntParse(row["所属番号"].ToString()),
 								Name1 = row["氏名_姓"].ToString(),

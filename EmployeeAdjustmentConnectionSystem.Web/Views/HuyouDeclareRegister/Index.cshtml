@@ -61,9 +61,25 @@
         }
     }
     <br><br>
-    <h3 class="text-left">
+    @*2023-99-99 iwai-tamura add-str ------*@
+    <div class="row">
+        <div class="col-xs-4">
+            <h3 class="text-left">
+                @Html.DisplayFor(m => m.Head.SheetYear) 年度　扶養控除等申告書
+            </h3>
+        </div>
+        <div class="col-xs-4">
+            <h3 class="text-right">
+                [@Model.Head.StatusName]
+            </h3>
+        </div>
+    </div>
+    @*<h3 class="text-left">
         @Html.DisplayFor(m => m.Head.SheetYear) 年度　扶養控除等申告書 @strTitle
-    </h3>
+    </h3>*@
+    @*2023-99-99 iwai-tamura add-end ------*@
+
+
 
     @Html.HiddenFor(m => m.Head.SheetYear)
     @Html.HiddenFor(m => m.Head.EmployeeNo)
@@ -332,6 +348,21 @@
         }
     }
 
+    //2023-99-99 iwai-tamura upd str -----
+    @helper setYearDdlDependentsOver16(bool isRead, string name, string dateType, string value, SelectListItem[] selItems, string addClass) {
+        {
+            var id = string.Format("Head.{0}_Birthday{1}", name, dateType);
+            var checkEvent = string.Format("checkDependentsOver16('{0}')", name);
+            if (isRead) {
+                @Html.TextBox(id, value, new { @class = "form-control", @style = "width:90px;height:16px;", @size = "2", @rows = "1", @readonly = "readonly" })
+            } else {
+                @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "form-control " + addClass, @onchange = checkEvent })
+            }
+        }
+    }
+    //2023-99-99 iwai-tamura upd end -----
+
+
     <!-- 本人情報 -->
     @*定義*@
     var EmployeeNo = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "5" }, { "style", "width:60px;" }, { "readonly", "readonly" } };
@@ -382,11 +413,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.Name1, TextName)　名 @Html.TextBoxFor(m => m.Head.Name2, TextName)<span class="required">※必須</span></td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.Name1, TextName)　名 @Html.TextBoxFor(m => m.Head.Name2, TextName)<span class="required">※必須</span></td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="content-label-b1">フリガナ</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.Kana2, TextKana)<span class="required">※必須</span><div id="Head_Kana_mes" class="check-comment"></div></td>
+                        <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.Kana2, TextKana)<span class="required">※必須</span><div id="Head_Kana_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">生年月日</td>
@@ -402,7 +433,7 @@
                         <td rowspan="1" colspan="1" class="content-label-b1">氏名</td>
                         <td colspan="6" class="form-inline">
                             @setCheck(false, "HouseholdSelfCheck", Model.Head.HouseholdSelfCheck)　本人<span class="required">※必須</span><br />
-                            姓 @Html.TextBoxFor(m => m.Head.HouseholdName1, TextName)　名 @Html.TextBoxFor(m => m.Head.HouseholdName2, TextName)
+                            氏 @Html.TextBoxFor(m => m.Head.HouseholdName1, TextName)　名 @Html.TextBoxFor(m => m.Head.HouseholdName2, TextName)
                         </td>
                     </tr>
                         <tr>
@@ -457,7 +488,11 @@
     var TaxWithholding_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana TaxWithholding_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
     var TaxWithholding_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "20" } };
     var TaxWithholding_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead TaxWithholdingAddress_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
-    var TaxWithholding_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_TaxWithholding_Income',950000)" } };
+    @*2023-99-99 iwai-tamura add-str ------*@
+    var TaxWithholding_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_TaxWithholding_Income',950000)" } };
+    var TaxWithholding_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    //var TaxWithholding_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_TaxWithholding_Income',950000)" } };
+    @*2023-99-99 iwai-tamura add-end ------*@
     var attrRadioA_1_1 = new Dictionary<string, object>() { { "name", "attrRadioA_1" }, { "id", "select_radioA_1_1" } };
     var attrRadioA_1_2 = new Dictionary<string, object>() { { "name", "attrRadioA_1" }, { "id", "select_radioA_1_2" } };
     var attrRadioA_1_3 = new Dictionary<string, object>() { { "name", "attrRadioA_1" }, { "id", "select_radioA_1_3" } };
@@ -489,11 +524,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.TaxWithholding_Name1, TaxWithholding_TextName)　名 @Html.TextBoxFor(m => m.Head.TaxWithholding_Name2, TaxWithholding_TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.TaxWithholding_Name1, TaxWithholding_TextName)　名 @Html.TextBoxFor(m => m.Head.TaxWithholding_Name2, TaxWithholding_TextName)</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="content-label-b1">フリガナ</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.TaxWithholding_Kana1, TaxWithholding_TextKana)　名 @Html.TextBoxFor(m => m.Head.TaxWithholding_Kana2, TaxWithholding_TextKana)<div id="Head_TaxWithholding_Kana_mes" class="check-comment"></div></td>
+                        <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.TaxWithholding_Kana1, TaxWithholding_TextKana)　名 @Html.TextBoxFor(m => m.Head.TaxWithholding_Kana2, TaxWithholding_TextKana)<div id="Head_TaxWithholding_Kana_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -508,10 +543,48 @@
                             <div id="Head_TaxWithholding_Birthday_mes" class="check-comment"></div>
                         </td>
                     </tr>
+
+                    @*2023-99-99 iwai-tamura add-str ------*@
                     <tr>
+                        <td rowspan="2" colspan="1" class="content-label-b1">給与所得</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.TextBoxFor(m => m.Head.TaxWithholding_Earnings, TaxWithholding_TextMoney2) 円
+                            <div id="Head_TaxWithholding_Earnings_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.TextBoxFor(m => m.Head.TaxWithholding_Earnings2Income, TaxWithholding_TextMoney1) 円
+                            <div id="Head_TaxWithholding_Earnings2Income_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.TextBoxFor(m => m.Head.TaxWithholding_OtherIncome, TaxWithholding_TextMoney2) 円
+                            <div id="Head_TaxWithholding_OtherIncome_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="content-label-b1">合計額所得金額の見積額</td>
+                        <td colspan="6" class="form-inline">
+                            @Html.TextBoxFor(m => m.Head.TaxWithholding_Income, TaxWithholding_TextMoney1) 円
+                            <div id="Head_TaxWithholding_Income_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+                    @*<tr>
                         <td colspan="2" class="content-label-b1">所得の見積額</td>
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.TaxWithholding_Income, TaxWithholding_TextMoney1) 円<div id="Head_TaxWithholding_Income_mes" class="check-comment"></div></td>
-                    </tr>
+                    </tr>*@
+                    @*2023-99-99 iwai-tamura add-end ------*@
+
+
+
+
+
                     <tr>
                         <td colspan="2" class="content-label-b1">(非)居住者区分</td>
                         <td colspan="6" class="form-inline">
@@ -556,16 +629,23 @@
     var DependentsOver16_1_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead DependentsOver16_1Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     var DependentsOver16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_1_Income',480000)" } };
 
+    //2023-99-99 iwai-tamura upd str -----
+    var attrRadioB1_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_1')" } };
+    var attrRadioB1_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_1')" } };
+    var attrRadioB1_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_1')" } };
+    var attrRadioB1_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB1_2" }, { "id", "select_radioB1_2_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_1')" } };
+    var attrRadioB1_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB1_2" }, { "id", "select_radioB1_2_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_1')" } };
+    //var attrRadioB1_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_1" } };
+    //var attrRadioB1_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_2" } };
+    //var attrRadioB1_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_3" } };
+    //var attrRadioB1_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB1_2" }, { "id", "select_radioB1_2_1" } };
+    //var attrRadioB1_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB1_2" }, { "id", "select_radioB1_2_2" } };
+    //2023-99-99 iwai-tamura upd end -----
 
-    var attrRadioB1_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_1" } };
-    var attrRadioB1_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_2" } };
-    var attrRadioB1_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_3" } };
-    var attrRadioB1_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB1_2" }, { "id", "select_radioB1_2_1" } };
-    var attrRadioB1_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB1_2" }, { "id", "select_radioB1_2_2" } };
     var attrRadioB1_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB1_3" }, { "id", "select_radioB1_3_1" } };
     var attrRadioB1_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB1_3" }, { "id", "select_radioB1_3_2" } };
     var attrRadioB1_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB1_3" }, { "id", "select_radioB1_3_3" } };
-    
+
     <div class="row">
         <div class="col-xs-8">
             <table class="table table-bordered">
@@ -608,11 +688,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Name1, DependentsOver16_1_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Name2, DependentsOver16_1_TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Name1, DependentsOver16_1_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Name2, DependentsOver16_1_TextName)</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="content-label-b1">フリガナ</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Kana1, DependentsOver16_1_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Kana2, DependentsOver16_1_TextKana)<div id="Head_DependentsOver16_1_Kana_mes" class="check-comment"></div></td>
+                        <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Kana1, DependentsOver16_1_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Kana2, DependentsOver16_1_TextKana)<div id="Head_DependentsOver16_1_Kana_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -621,9 +701,15 @@
                     <tr>
                         <td colspan="2" class="content-label-b1">生年月日</td>
                         <td colspan="6" class="form-inline">
-                            @setYearDdl2(false, "DependentsOver16_1_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_1_BirthdayYear, yearItems, "DependentsOver16_1_isRead") 年
+                            @*2023-99-99 iwai-tamura upd-str ------*@
+                            @setYearDdlDependentsOver16(false, "DependentsOver16_1", "Year", Model.Head.DependentsOver16_1_BirthdayYear, yearItems, "DependentsOver16_1_isRead") 年
+                            @setYearDdlDependentsOver16(false, "DependentsOver16_1", "Month", Model.Head.DependentsOver16_1_BirthdayMonth, monthItems, "DependentsOver16_1_isRead") 月
+                            @setYearDdlDependentsOver16(false, "DependentsOver16_1", "Day", Model.Head.DependentsOver16_1_BirthdayDay, dayItems, "DependentsOver16_1_isRead") 日
+
+                            @*@setYearDdl2(false, "DependentsOver16_1_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_1_BirthdayYear, yearItems, "DependentsOver16_1_isRead") 年
                             @setYearDdl2(false, "DependentsOver16_1_Birthday", "1", calcSheetYear, "Month", Model.Head.DependentsOver16_1_BirthdayMonth, monthItems, "DependentsOver16_1_isRead") 月
-                            @setYearDdl2(false, "DependentsOver16_1_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_1_BirthdayDay, dayItems, "DependentsOver16_1_isRead") 日
+                            @setYearDdl2(false, "DependentsOver16_1_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_1_BirthdayDay, dayItems, "DependentsOver16_1_isRead") 日*@
+                            @*2023-99-99 iwai-tamura upd-end ------*@
                             <div id="Head_DependentsOver16_1_Birthday_mes" class="check-comment"></div>
                         </td>
                     </tr>
@@ -637,6 +723,9 @@
                             <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_1_2">同居老親等</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_OldmanType, "2", attrRadioB1_1_3)
                             <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_1_3">その他</label>
+                            @*2023-99-99 iwai-tamura add-str ------*@
+                            <div id="Head_DependentsOver16_1_OldmanType_mes" class="check-comment"></div>
+                            @*2023-99-99 iwai-tamura add-end ------*@
                         </td>                    
                     </tr>
                     <tr>
@@ -646,6 +735,9 @@
                             <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_2_1">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_SpecificType, "1", attrRadioB1_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_2_2">特定扶養親族</label>
+                            @*2023-99-99 iwai-tamura add-str ------*@
+                            <div id="Head_DependentsOver16_1_SpecificType_mes" class="check-comment"></div>
+                            @*2023-99-99 iwai-tamura add-end ------*@
                         </td>                    
                     </tr>
                     <tr>
@@ -695,11 +787,18 @@
     var DependentsOver16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_2_Income',480000)" } };
 
 
-    var attrRadioB2_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_1" } };
-    var attrRadioB2_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_2" } };
-    var attrRadioB2_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_3" } };
-    var attrRadioB2_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_RadioB2_2_1" } };
-    var attrRadioB2_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_RadioB2_2_2" } };
+    //2023-99-99 iwai-tamura upd str -----
+    var attrRadioB2_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
+    var attrRadioB2_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
+    var attrRadioB2_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
+    var attrRadioB2_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_RadioB2_2_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
+    var attrRadioB2_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_RadioB2_2_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
+    //var attrRadioB2_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_1" } };
+    //var attrRadioB2_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_2" } };
+    //var attrRadioB2_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_3" } };
+    //var attrRadioB2_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_RadioB2_2_1" } };
+    //var attrRadioB2_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_RadioB2_2_2" } };
+    //2023-99-99 iwai-tamura upd end -----
     var attrRadioB2_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_1" } };
     var attrRadioB2_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_2" } };
     var attrRadioB2_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_3" } };
@@ -732,11 +831,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Name1, DependentsOver16_2_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Name2, DependentsOver16_2_TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Name1, DependentsOver16_2_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Name2, DependentsOver16_2_TextName)</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="content-label-b1">フリガナ</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Kana1, DependentsOver16_2_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Kana2, DependentsOver16_2_TextKana)<div id="Head_DependentsOver16_2_Kana_mes" class="check-comment"></div></td>
+                        <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Kana1, DependentsOver16_2_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Kana2, DependentsOver16_2_TextKana)<div id="Head_DependentsOver16_2_Kana_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -745,9 +844,15 @@
                     <tr>
                         <td colspan="2" class="content-label-b1">生年月日</td>
                         <td colspan="6" class="form-inline">
-                            @setYearDdl2(false, "DependentsOver16_2_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_2_BirthdayYear, yearItems, "DependentsOver16_2_isRead") 年
+                            @*2023-99-99 iwai-tamura upd-str ------*@
+                            @setYearDdlDependentsOver16(false, "DependentsOver16_2", "Year", Model.Head.DependentsOver16_2_BirthdayYear, yearItems, "DependentsOver16_2_isRead") 年
+                            @setYearDdlDependentsOver16(false, "DependentsOver16_2", "Month", Model.Head.DependentsOver16_2_BirthdayMonth, monthItems, "DependentsOver16_2_isRead") 月
+                            @setYearDdlDependentsOver16(false, "DependentsOver16_2", "Day", Model.Head.DependentsOver16_2_BirthdayDay, dayItems, "DependentsOver16_2_isRead") 日
+                            @*@setYearDdl2(false, "DependentsOver16_2_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_2_BirthdayYear, yearItems, "DependentsOver16_2_isRead") 年
                             @setYearDdl2(false, "DependentsOver16_2_Birthday", "1", calcSheetYear, "Month", Model.Head.DependentsOver16_2_BirthdayMonth, monthItems, "DependentsOver16_2_isRead") 月
-                            @setYearDdl2(false, "DependentsOver16_2_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_2_BirthdayDay, dayItems, "DependentsOver16_2_isRead") 日
+                            @setYearDdl2(false, "DependentsOver16_2_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_2_BirthdayDay, dayItems, "DependentsOver16_2_isRead") 日*@
+                            @*2023-99-99 iwai-tamura upd-end ------*@
+
                             <div id="Head_DependentsOver16_2_Birthday_mes" class="check-comment"></div>
                         </td>
                     </tr>
@@ -761,6 +866,9 @@
                             <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_1_2">同居老親等</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_OldmanType, "2", attrRadioB2_1_3)
                             <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_1_3">その他</label>
+                            @*2023-99-99 iwai-tamura add-str ------*@
+                            <div id="Head_DependentsOver16_2_OldmanType_mes" class="check-comment"></div>
+                            @*2023-99-99 iwai-tamura add-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -770,6 +878,9 @@
                             <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_2_1">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_SpecificType, "1", attrRadioB2_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_2_2">特定扶養親族</label>
+                            @*2023-99-99 iwai-tamura add-str ------*@
+                            <div id="Head_DependentsOver16_2_SpecificType_mes" class="check-comment"></div>
+                            @*2023-99-99 iwai-tamura add-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -819,11 +930,18 @@
     var DependentsOver16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_3_Income',480000)" } };
 
 
-    var attrRadioB3_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_1" } };
-    var attrRadioB3_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_2" } };
-    var attrRadioB3_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_3" } };
-    var attrRadioB3_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_RadioB3_2_1" } };
-    var attrRadioB3_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_RadioB3_2_2" } };
+    //2023-99-99 iwai-tamura upd str -----
+    var attrRadioB3_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
+    var attrRadioB3_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
+    var attrRadioB3_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
+    var attrRadioB3_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_RadioB3_2_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
+    var attrRadioB3_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_RadioB3_2_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
+    //var attrRadioB3_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_1" } };
+    //var attrRadioB3_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_2" } };
+    //var attrRadioB3_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_3" } };
+    //var attrRadioB3_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_RadioB3_2_1" } };
+    //var attrRadioB3_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_RadioB3_2_2" } };
+    //2023-99-99 iwai-tamura upd end -----
     var attrRadioB3_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_1" } };
     var attrRadioB3_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_2" } };
     var attrRadioB3_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_3" } };
@@ -855,11 +973,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Name1, DependentsOver16_3_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Name2, DependentsOver16_3_TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Name1, DependentsOver16_3_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Name2, DependentsOver16_3_TextName)</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="content-label-b1">フリガナ</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Kana1, DependentsOver16_3_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Kana2, DependentsOver16_3_TextKana)<div id="Head_DependentsOver16_3_Kana_mes" class="check-comment"></div></td>
+                        <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Kana1, DependentsOver16_3_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Kana2, DependentsOver16_3_TextKana)<div id="Head_DependentsOver16_3_Kana_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -868,9 +986,15 @@
                     <tr>
                         <td colspan="2" class="content-label-b1">生年月日</td>
                         <td colspan="6" class="form-inline">
-                            @setYearDdl2(false, "DependentsOver16_3_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_3_BirthdayYear, yearItems, "DependentsOver16_3_isRead") 年
+                            @*2023-99-99 iwai-tamura upd-str ------*@
+                            @setYearDdlDependentsOver16(false, "DependentsOver16_3", "Year", Model.Head.DependentsOver16_3_BirthdayYear, yearItems, "DependentsOver16_3_isRead") 年
+                            @setYearDdlDependentsOver16(false, "DependentsOver16_3", "Month", Model.Head.DependentsOver16_3_BirthdayMonth, monthItems, "DependentsOver16_3_isRead") 月
+                            @setYearDdlDependentsOver16(false, "DependentsOver16_3", "Day", Model.Head.DependentsOver16_3_BirthdayDay, dayItems, "DependentsOver16_3_isRead") 日
+                            @*@setYearDdl2(false, "DependentsOver16_3_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_3_BirthdayYear, yearItems, "DependentsOver16_3_isRead") 年
                             @setYearDdl2(false, "DependentsOver16_3_Birthday", "1", calcSheetYear, "Month", Model.Head.DependentsOver16_3_BirthdayMonth, monthItems, "DependentsOver16_3_isRead") 月
-                            @setYearDdl2(false, "DependentsOver16_3_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_3_BirthdayDay, dayItems, "DependentsOver16_3_isRead") 日
+                            @setYearDdl2(false, "DependentsOver16_3_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_3_BirthdayDay, dayItems, "DependentsOver16_3_isRead") 日*@
+                            @*2023-99-99 iwai-tamura upd-end ------*@
+
                             <div id="Head_DependentsOver16_3_Birthday_mes" class="check-comment"></div>
                         </td>
                     </tr>
@@ -884,6 +1008,9 @@
                             <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_1_2">同居老親等</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_OldmanType, "2", attrRadioB3_1_3)
                             <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_1_3">その他</label>
+                            @*2023-99-99 iwai-tamura add-str ------*@
+                            <div id="Head_DependentsOver16_3_OldmanType_mes" class="check-comment"></div>
+                            @*2023-99-99 iwai-tamura add-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -893,6 +1020,9 @@
                             <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_2_1">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_SpecificType, "1", attrRadioB3_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_2_2">特定扶養親族</label>
+                            @*2023-99-99 iwai-tamura add-str ------*@
+                            <div id="Head_DependentsOver16_3_SpecificType_mes" class="check-comment"></div>
+                            @*2023-99-99 iwai-tamura add-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -942,11 +1072,18 @@
     var DependentsOver16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_4_Income',480000)" } };
 
 
-    var attrRadioB4_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_1" } };
-    var attrRadioB4_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_2" } };
-    var attrRadioB4_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_3" } };
-    var attrRadioB4_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_RadioB4_2_1" } };
-    var attrRadioB4_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_RadioB4_2_2" } };
+    //2023-99-99 iwai-tamura upd str -----
+    var attrRadioB4_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
+    var attrRadioB4_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
+    var attrRadioB4_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
+    var attrRadioB4_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_RadioB4_2_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
+    var attrRadioB4_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_RadioB4_2_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
+    //var attrRadioB4_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_1" } };
+    //var attrRadioB4_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_2" } };
+    //var attrRadioB4_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_3" } };
+    //var attrRadioB4_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_RadioB4_2_1" } };
+    //var attrRadioB4_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_RadioB4_2_2" } };
+    //2023-99-99 iwai-tamura upd end -----
     var attrRadioB4_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_1" } };
     var attrRadioB4_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_2" } };
     var attrRadioB4_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_3" } };
@@ -979,11 +1116,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Name1, DependentsOver16_4_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Name2, DependentsOver16_4_TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Name1, DependentsOver16_4_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Name2, DependentsOver16_4_TextName)</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="content-label-b1">フリガナ</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Kana1, DependentsOver16_4_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Kana2, DependentsOver16_4_TextKana)<div id="Head_DependentsOver16_4_Kana_mes" class="check-comment"></div></td>
+                        <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Kana1, DependentsOver16_4_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Kana2, DependentsOver16_4_TextKana)<div id="Head_DependentsOver16_4_Kana_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -992,9 +1129,15 @@
                     <tr>
                         <td colspan="2" class="content-label-b1">生年月日</td>
                         <td colspan="6" class="form-inline">
-                            @setYearDdl2(false, "DependentsOver16_4_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_4_BirthdayYear, yearItems, "DependentsOver16_4_isRead") 年
+                            @*2023-99-99 iwai-tamura upd-str ------*@
+                            @setYearDdlDependentsOver16(false, "DependentsOver16_4", "Year", Model.Head.DependentsOver16_4_BirthdayYear, yearItems, "DependentsOver16_4_isRead") 年
+                            @setYearDdlDependentsOver16(false, "DependentsOver16_4", "Month", Model.Head.DependentsOver16_4_BirthdayMonth, monthItems, "DependentsOver16_4_isRead") 月
+                            @setYearDdlDependentsOver16(false, "DependentsOver16_4", "Day", Model.Head.DependentsOver16_4_BirthdayDay, dayItems, "DependentsOver16_4_isRead") 日
+                            @*@setYearDdl2(false, "DependentsOver16_4_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_4_BirthdayYear, yearItems, "DependentsOver16_4_isRead") 年
                             @setYearDdl2(false, "DependentsOver16_4_Birthday", "1", calcSheetYear, "Month", Model.Head.DependentsOver16_4_BirthdayMonth, monthItems, "DependentsOver16_4_isRead") 月
-                            @setYearDdl2(false, "DependentsOver16_4_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_4_BirthdayDay, dayItems, "DependentsOver16_4_isRead") 日
+                            @setYearDdl2(false, "DependentsOver16_4_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_4_BirthdayDay, dayItems, "DependentsOver16_4_isRead") 日*@
+                            @*2023-99-99 iwai-tamura upd-end ------*@
+
                             <div id="Head_DependentsOver16_4_Birthday_mes" class="check-comment"></div>
                         </td>
                     </tr>
@@ -1008,6 +1151,9 @@
                             <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_1_2">同居老親等</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_OldmanType, "2", attrRadioB4_1_3)
                             <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_1_3">その他</label>
+                            @*2023-99-99 iwai-tamura add-str ------*@
+                            <div id="Head_DependentsOver16_4_OldmanType_mes" class="check-comment"></div>
+                            @*2023-99-99 iwai-tamura add-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -1017,6 +1163,9 @@
                             <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_2_1">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_SpecificType, "1", attrRadioB4_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_2_2">特定扶養親族</label>
+                            @*2023-99-99 iwai-tamura add-str ------*@
+                            <div id="Head_DependentsOver16_4_SpecificType_mes" class="check-comment"></div>
+                            @*2023-99-99 iwai-tamura add-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -1209,11 +1358,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Name1, DependentsUnder16_1_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Name2, DependentsUnder16_1_TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Name1, DependentsUnder16_1_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Name2, DependentsUnder16_1_TextName)</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="content-label-b1">フリガナ</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Kana1, DependentsUnder16_1_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Kana2, DependentsUnder16_1_TextKana)<div id="Head_DependentsUnder16_1_Kana_mes" class="check-comment"></div></td>
+                        <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Kana1, DependentsUnder16_1_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Kana2, DependentsUnder16_1_TextKana)<div id="Head_DependentsUnder16_1_Kana_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -1294,11 +1443,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Name1, DependentsUnder16_2_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Name2, DependentsUnder16_2_TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Name1, DependentsUnder16_2_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Name2, DependentsUnder16_2_TextName)</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="content-label-b1">フリガナ</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Kana1, DependentsUnder16_2_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Kana2, DependentsUnder16_2_TextKana)<div id="Head_DependentsUnder16_2_Kana_mes" class="check-comment"></div></td>
+                        <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Kana1, DependentsUnder16_2_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Kana2, DependentsUnder16_2_TextKana)<div id="Head_DependentsUnder16_2_Kana_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -1381,11 +1530,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Name1, DependentsUnder16_3_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Name2, DependentsUnder16_3_TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Name1, DependentsUnder16_3_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Name2, DependentsUnder16_3_TextName)</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="content-label-b1">フリガナ</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Kana1, DependentsUnder16_3_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Kana2, DependentsUnder16_3_TextKana)<div id="Head_DependentsUnder16_3_Kana_mes" class="check-comment"></div></td>
+                        <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Kana1, DependentsUnder16_3_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Kana2, DependentsUnder16_3_TextKana)<div id="Head_DependentsUnder16_3_Kana_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -1469,11 +1618,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">氏名</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Name1, DependentsUnder16_4_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Name2, DependentsUnder16_4_TextName)</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Name1, DependentsUnder16_4_TextName)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Name2, DependentsUnder16_4_TextName)</td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="content-label-b1">フリガナ</td>
-                        <td colspan="6" class="form-inline">姓 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Kana1, DependentsUnder16_4_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Kana2, DependentsUnder16_4_TextKana)<div id="Head_DependentsUnder16_4_Kana_mes" class="check-comment"></div></td>
+                        <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Kana1, DependentsUnder16_4_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Kana2, DependentsUnder16_4_TextKana)<div id="Head_DependentsUnder16_4_Kana_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>

@@ -152,6 +152,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web {
             bundles.Add(new StyleBundle("~/Scripts/js/haiguu").Include(
                       "~/Scripts/js/haiguu-declare-register.js"));
 
+            // 2023-99-99 iwai-tamura add str 年調検索画面
+            bundles.Add(new ScriptBundle("~/Scripts/js/yearends").Include(
+                        "~/Scripts/js/yearend-adjustment-search.js"));
+            // 2023-99-99 iwai-tamura add end 年調検索画面
+
             //cssファイル追加
             //bootstrap、自作、レスポンシブOFF
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -164,6 +169,15 @@ namespace EmployeeAdjustmentConnectionSystem.Web {
                       ));
 
             //自作cssファイル追加
+            //2023-99-99 iwai-tamura add str -----
+            //扶養控除申告書登録
+            bundles.Add(new StyleBundle("~/Content/css/top").Include(
+                      "~/Content/top.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css/yearends").Include(
+                      "~/Content/yearend-adjustment-search.css"));
+            //2023-99-99 iwai-tamura add end -----
+
             //扶養控除申告書登録
             bundles.Add(new StyleBundle("~/Content/css/huyou").Include(
                       "~/Content/huyou-declare-register.css"));

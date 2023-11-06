@@ -79,94 +79,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.Login {
             try {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
-                //////////var sql = "select"
-                //////////        + "  sms.社員番号"
-                //////////        + " ,sms.システム管理アクセス権"
-                //////////        // 2017-06-16 iwai-tamura add str パスワード有効期限追加
-                //////////        + " ,sms.PS更新年月日"
-                //////////        + " ,tmk.PS有効日数"
-                //////////        // 2017-06-16 iwai-tamura add end パスワード有効期限追加
-                //////////        + " ,svs.氏名"
-                //////////        + " ,svs.DB区分"
-                //////////        + " ,svs.資格番号"
-                //////////        + " ,svs.所属番号"
-                //////////        + " ,svs.役職番号"
-                //////////        + " ,tms.所属名称"
-                //////////        // 2018-07-27 iwai-tamura add str ------
-                //////////        + " ,tmn.管理区分"
-                //////////        // 2018-07-27 iwai-tamura add end ------
-                //////////        // 2017-03-31 sbc-sagara add str 支社管理機能の追加
-                //////////        + " ,smk.SYS管理MENU,smk.SYS管理初期処理,smk.SYS管理確定処理"
-                //////////        + " ,smk.SYS管理USER追加,smk.SYS管理PASS確認,smk.SYS管理PASSRESET"
-                //////////        // 2017-09-15 iwai-tamura add str ------
-                //////////        + " ,smk.SYS管理決裁権限出力,smk.SYS管理決裁権限取込"
-                //////////        // 2017-09-15 iwai-tamura add end ------
-                //////////        // 2018-03-20 iwai-tamura upd str ------
-                //////////        + " ,smk.SYS管理異動DATA引継処理,smk.SYS管理組編DATA引継処理"
-                //////////        // 2018-03-20 iwai-tamura upd end ------
-                //////////        + " ,smk.SYS管理連絡事項,smk.目標検索対象,smk.目標DATA出力"
-                //////////        + " ,smk.職能検索対象,smk.職能DATA出力,smk.職能一括入力"
-                //////////        + " ,smk.職能集計表MENU,smk.職能集計表検索対象,smk.職能判定除外"
-                //////////        + " ,smk.決裁権限検索対象,smk.決裁権限登録制限"
-                //////////        // 2017-03-31 sbc-sagara add end 支社管理機能の追加
-
-                //////////        // 2018-99-99 iwai-tamura add str 自己申告書関連の管理機能追加
-                //////////        + " ,smk.自己申告書検索対象"
-                //////////        + " ,smk.自己申告書DATA出力"
-                //////////        + " ,smk.自己申告書決裁権限検索対象"
-                //////////        + " ,smk.自己申告書決裁権限登録制限"
-                //////////        // 2018-99-99 iwai-tamura add end 自己申告書関連の管理機能追加
-                        
-                //////////        + "  from SD_Mシステムユーザー sms "
-                //////////        + " inner join "
-                //////////        //2016-05-26 iwai-tamura upd str -----
-                //////////        + "    (select "
-                //////////        + "        CASE "
-                //////////        + "            WHEN 身分ｺｰﾄﾞ < '20' THEN 'H'"
-                //////////        + "            ELSE 'S'"
-                //////////        + "        END DB区分"
-                //////////        + "      ,t1.氏名"
-                //////////        + "      ,t1.社員番号"
-                //////////        + "      ,t1.資格番号"
-                //////////        + "      ,t1.所属番号"
-                //////////        + "      ,t1.役職番号"
-                //////////        + "    from SD_VT人事Data基本情報 t1"
-                //////////        + "    ) svs"
-
-                //////////        //    + "    (select "
-                //////////        //    + "       t1.DB区分"
-                //////////        //    + "      ,t1.年度"
-                //////////        //    + "      ,t1.期区分"
-                //////////        //    + "      ,t1.氏名"
-                //////////        //    + "      ,t1.社員番号"
-                //////////        //    + "      ,t1.資格番号"
-                //////////        //    + "      ,t1.所属番号"
-                //////////        //    + "      ,t1.役職番号"
-                //////////        //    + "       from SD_VT901社員固定情報 t1"
-                //////////        ////+ "       left join SD_M期間管理 t2"
-                //////////        ////+ "         on t1.年度 = t2.年度"
-                //////////        ////+ "      where t2.期区分 = '0'"
-                //////////        ////+ "        and t1.期区分 = (select max(期区分)"
-                //////////        ////+ "                          from SD_VT901社員固定情報 as t3"
-                //////////        ////+ "                         where t3.年度 = t2.年度"
-                //////////        ////+ "                           and t3.社員番号 = t1.社員番号)) svs"
-                //////////        //    + "        where t1.TBL区分 ='G' ) svs"
-                //////////        //2016-05-26 iwai-tamura upd end -----
-                //////////        + "    on sms.社員番号 = svs.社員番号"
-                //////////        //2017-09-15 iwai-tamura upd-str ------
-                //////////        + "  left join SD_M所属Master tms"
-                //////////        //+ "  left join TM911所属Master tms"
-                //////////        //2017-09-15 iwai-tamura upd-end ------
-                //////////        + "    on svs.所属番号 = tms.所属番号"
-                //////////        // 2017-03-31 sbc-sagara add str 支社管理機能の追加
-                //////////        + "  left join TM990入力担当者 tmn on sms.社員番号 = tmn.入力担当社員番号"
-                //////////        + "  left join SD_M管理区分権限Master smk on tmn.管理区分 = smk.管理区分"
-                //////////        // 2017-03-31 sbc-sagara add end 支社管理機能の追加
-                //////////        // 2017-06-16 iwai-tamura add str パスワード有効期限追加
-                //////////        + "  left join TM991管理情報 tmk on 1=1"
-                //////////        // 2017-06-16 iwai-tamura add end パスワード有効期限追加
-                //////////        + " where sms.社員番号 = @EmployeeNo and パスワード = @Password";
-                ////////////sql += string.Format(" where sms.社員番号 ='{0}' and パスワード ='{1}'", uid, password);
 
                 var sql = "select"
                         + "  TMLogin.社員番号"
@@ -176,8 +88,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.Login {
                         + " ,TM基本.戸籍名字 "
                         + " ,TM基本.戸籍名前 "
                         + " ,TM基本.所属番号 "
+                        //2023-99-99 iwai-tamura add str -----
+                        + " ,TM管理.対象年度 "
+                        //2023-99-99 iwai-tamura add end -----
                         + "  from TEM900LoginPassword as TMLogin "
                         + "     inner join TEM100社員基本情報Data as TM基本 on TMLogin.社員番号 = TM基本.社員番号"
+                        //2023-99-99 iwai-tamura add str -----
+                        + "     ,TEM991管理情報 as TM管理"
+                        //2023-99-99 iwai-tamura add end -----
                         + " where TMLogin.社員番号 = @EmployeeNo and TMLogin.Password = @Password";
                 
                 using(DbManager dm = new DbManager())
@@ -201,6 +119,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.Login {
                             IsRootUser = (String.IsNullOrEmpty(row["管理区分"].ToString()) ? "0" : row["管理区分"].ToString()) == "K" ? true : false,
                             Permission = (Permissions)Enum.Parse(typeof(Permissions), (String.IsNullOrEmpty(row["管理区分"].ToString()) ? "0" : row["管理区分"].ToString()) == "K" ? "1" :"0"),
                             DepartmentNo = row["所属番号"].ToString(),
+                            //2023-99-99 iwai-tamura add str -----
+                            IsAdminNo=row["管理区分"].ToString(),
+                            IsYear = Convert.ToInt32(row["対象年度"]),
+                            //2023-99-99 iwai-tamura add end -----
+
                             //DepartmentName = row["所属名称"].ToString(),
                             //PostNo = row["役職番号"].ToString(),
                             //IsPost = DataConv.IntParse(row["役職番号"].ToString()) < 600 ? true : false,

@@ -67,6 +67,7 @@
     <Compile Include="Models\SelfDeclareRegisterBViewModels.cs" />
     <Compile Include="Models\SelfDeclareRegisterCViewModels.cs" />
     <Compile Include="Models\SelfDeclareRegisterDViewModels.cs" />
+    <Compile Include="Models\YearEndAdjustmentSearchViewModels.cs" />
     <Compile Include="Models\SelfDeclareSearchViewModels.cs" />
     <Compile Include="Models\SearchBaseModels.cs" />
     <Compile Include="Models\SystemManagementViewModels.cs" />

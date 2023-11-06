@@ -86,6 +86,12 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public string DecisionType { get; set; }
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// ステータス名
+		/// </summary>
+		public string StatusName { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
 
 		/// <summary>
 		/// 社員番号

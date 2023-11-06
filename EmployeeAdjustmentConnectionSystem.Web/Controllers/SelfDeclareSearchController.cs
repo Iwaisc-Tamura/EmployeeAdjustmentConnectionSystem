@@ -79,7 +79,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     //2020-03-31 iwai-tamura upd str -----
                     if ((string)Session["SearchType"] == "D")
                     {
-                        return View((new SelfDeclareSearchBL()).SearchD(model, (LoginUser)Session["LoginUser"]));
+                        return View((new YearEndAdjustmentSearchBL()).SearchD(model, (LoginUser)Session["LoginUser"]));
                     //if ((string)Session["SearchType"] == "Sub")
                     //{
                     //    //「部下表示」ボタンにて検索した場合
@@ -88,7 +88,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
                     }else{
                         //「検索」ボタンにて検索した場合
-                        return View((new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View((new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     }
                 }
                 // 2017-03-31 sbc-sagara add str
@@ -135,7 +135,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 Session["SearchType"] = "Main";
                 
                 //表示
-                return View((new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                return View((new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                 
             } catch(Exception ex) {
                 //エラー
@@ -175,7 +175,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 Session["SearchType"] = "D";
                 
                 //表示
-                return View((new SelfDeclareSearchBL()).SearchD(model, (LoginUser)Session["LoginUser"]));
+                return View((new YearEndAdjustmentSearchBL()).SearchD(model, (LoginUser)Session["LoginUser"]));
                 
             } catch(Exception ex) {
                 //エラー
@@ -217,12 +217,12 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
 
                 //入力画面へ
-                int? id = (new SelfDeclareSearchBL()).GetManageNo((LoginUser)Session["LoginUser"]);
+                int? id = (new YearEndAdjustmentSearchBL()).GetManageNo((LoginUser)Session["LoginUser"]);
                 if(id != null) {
                     return RedirectToAction("Index", "SelfDeclareManagement", new { id = id, tableType = "G" });
                 }
                 //表示
-                return View((new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                return View((new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
             } catch(Exception ex) {
                 //エラー
                 nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
@@ -263,7 +263,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 //2016-01-21 iwai-tamura add end -----
 
                 //表示
-                return View((new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                return View((new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                 
             } catch(Exception ex) {
                 //エラー
@@ -670,9 +670,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     ModelState.AddModelError("", "出力対象を選択してください。");
                     // 2017-03-31 sbc-sagara add str 選択エラー時検索結果再表示対応
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     // 2017-03-31 sbc-sagara add end 選択エラー時検索結果再表示対応
                     return View("Search", model);
@@ -730,9 +730,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     ModelState.AddModelError("", "出力対象を選択してください。");
                     // 2017-03-31 sbc-sagara add str 選択エラー時検索結果再表示対応
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     // 2017-03-31 sbc-sagara add end 選択エラー時検索結果再表示対応
                     return View("Search", model);
@@ -790,9 +790,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     ModelState.AddModelError("", "出力対象を選択してください。");
                     // 2017-03-31 sbc-sagara add str 選択エラー時検索結果再表示対応
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     // 2017-03-31 sbc-sagara add end 選択エラー時検索結果再表示対応
                     return View("Search", model);
@@ -852,12 +852,12 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     if ((string)Session["SearchType"] == "Sub")
                     {
                         //「部下表示」ボタンにて検索した場合
-                        return View(new SelfDeclareSearchBL().SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View(new YearEndAdjustmentSearchBL().SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     else
                     {
                         //「検索」ボタンにて検索した場合
-                        return View(new SelfDeclareSearchBL().Search(model, (LoginUser)Session["LoginUser"]));
+                        return View(new YearEndAdjustmentSearchBL().Search(model, (LoginUser)Session["LoginUser"]));
                     }
                     // 2017-03-31 sbc-sagara add end
                     return View("Search", model);
@@ -869,7 +869,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
                 //帳票出力ロジックを実行
                 //帳票作成ディレクトリを取得
-                SelfDeclareSearchBL bl = new SelfDeclareSearchBL();
+                YearEndAdjustmentSearchBL bl = new YearEndAdjustmentSearchBL();
 
                 //2016-01-21 iwai-tamura upd end -----
                 int cntTaget = selPrint.Length;                                         //選択した件数
@@ -937,9 +937,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     ModelState.AddModelError("", "出力対象を選択してください。");
                     
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     return View("Search", model);
                 }
@@ -949,9 +949,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 {
                     TempData["Confirmation"] = string.Format("権限が無い為、この機能は使えません。");
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     return View("Search", model);                
                 }
@@ -1141,9 +1141,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     ModelState.AddModelError("", "出力対象を選択してください。");
                     
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     return View("Search", model);
                 }
@@ -1153,9 +1153,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 {
                     TempData["Confirmation"] = string.Format("権限が無い為、この機能は使えません。");
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     return View("Search", model);                
                 }
@@ -1215,9 +1215,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     ModelState.AddModelError("", "出力対象を選択してください。");
                     
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     return View("Search", model);
                 }
@@ -1227,9 +1227,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 {
                     TempData["Confirmation"] = string.Format("権限が無い為、この機能は使えません。");
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     return View("Search", model);                
                 }
@@ -1288,9 +1288,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     ModelState.AddModelError("", "出力対象を選択してください。");
                     
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     return View("Search", model);
                 }
@@ -1300,9 +1300,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 {
                     TempData["Confirmation"] = string.Format("権限が無い為、この機能は使えません。");
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     return View("Search", model);                
                 }
@@ -1362,9 +1362,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     ModelState.AddModelError("", "出力対象を選択してください。");
                     
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     return View("Search", model);
                 }
@@ -1374,9 +1374,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 {
                     TempData["Confirmation"] = string.Format("権限が無い為、この機能は使えません。");
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     return View("Search", model);                
                 }
@@ -1435,9 +1435,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     ModelState.AddModelError("", "出力対象を選択してください。");
                     
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     return View("Search", model);
                 }
@@ -1447,9 +1447,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 {
                     TempData["Confirmation"] = string.Format("権限が無い為、この機能は使えません。");
                     if ((string)Session["SearchType"] == "Main") {
-                        return View("Search", (new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                     } else if ((string)Session["SearchType"] == "Sub") {
-                        return View("Search", (new SelfDeclareSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
                     }
                     return View("Search", model);                
                 }

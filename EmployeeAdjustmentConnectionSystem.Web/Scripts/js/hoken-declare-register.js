@@ -542,6 +542,11 @@ $('.checkKana').change(function () {
 
     var reg = new RegExp(/^[ｦ-ﾟ]*$/);   //使用可能文字指定(半角カナのみ)
 
+    //2023-99-99 iwai-tamura upd str -----
+    var convertedValue = zenkana2Hankana(hira2Kana($(this).val()));
+    $(this).val(convertedValue);
+    //2023-99-99 iwai-tamura upd end -----
+
     //Kana_1とKana_2に半角カナ以外が入力されていないかチェック
     if (reg.test($(strId + "1").val()) && reg.test($(strId + "2").val())) {
         bolReturn = true;
@@ -675,7 +680,15 @@ $('#dmysave').click(function () {
     if (!checkAllCalc()){return;}
 
     //ボタンクリック
-    showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
+    //2023-99-99 iwai-tamura upd str -----
+    var isAdminMode = $('#Head_AdminMode').val().toLowerCase() === 'true';
+    if (isAdminMode) {
+        showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
+    } else {
+        showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
+    }
+    //showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
+    //2023-99-99 iwai-tamura upd end -----
 });
 
 /*
@@ -683,7 +696,15 @@ $('#dmysave').click(function () {
  */
 $('#dmySignCancel').click(function () {
     //ボタンクリック
-    showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
+    //2023-99-99 iwai-tamura upd str -----
+    var isAdminMode = $('#Head_AdminMode').val().toLowerCase() === 'true';
+    if (isAdminMode) {
+        showMessageEx('取消確認', '確定状態を取消しますか？', 'signcancel', true);
+    } else {
+        showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
+    }
+    //showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
+    //2023-99-99 iwai-tamura upd end -----
 });
 
 

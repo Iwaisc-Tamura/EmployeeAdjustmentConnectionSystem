@@ -70,6 +70,26 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                         return null;
                     };
 
+                    //2023-99-99 iwai-tamura upd str -----
+                    Func<string, string, string> StatusDecision = (value1, value2) => {
+                        if (value1 == "0" && value2 == "0") {
+                            return "本人未提出";
+                        } else if (value1 == "1" && value2 == "0") {
+                            return "本人提出済み";
+                        } else if (value1 == "9" && value2 == "0") {
+                            return "本人提出済み";
+                        } else if (value1 == "9" && value2 == "1") {
+                            return "支社確定済み";
+                        } else if (value1 == "9" && value2 == "5") {
+                            return "管理者確定済み";
+                        } else if (value1 == "9" && value2 == "9") {
+                            return "システム連携済み";
+                        } else {
+                            return "システムエラー";
+                        }
+                    };
+                    //2023-99-99 iwai-tamura upd end -----
+
                     var sql = "SELECT * FROM TE100扶養控除申告書Data WHERE 対象年度 = @SheetYear and 社員番号 = @EmployeeNo ";
 
                     using(IDbCommand cmd = dm.CreateCommand(sql))
@@ -88,6 +108,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 								SheetYear = DataConv.IntParse(row["対象年度"].ToString()),
 								ApprovalType = row["本人確定区分"].ToString(),
 								DecisionType = row["管理者確定区分"].ToString(),
+                                //2023-99-99 iwai-tamura upd str -----
+                                StatusName = StatusDecision(row["本人確定区分"].ToString(),row["管理者確定区分"].ToString()),
+                                //2023-99-99 iwai-tamura upd end -----
 								MyNumberCheck = row["個人番号相違確認区分"].ToString(),
 								EmployeeNo = row["社員番号"].ToString(),
 								DepartmentNo = DataConv.IntParse(row["所属番号"].ToString()),
@@ -117,7 +140,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                                 TaxWithholding_BirthdayYear = row["源泉控除対象配偶者生年月日"].ToString()=="" ? "":row["源泉控除対象配偶者生年月日"].ToString().Substring(0,4),
                                 TaxWithholding_BirthdayMonth = row["源泉控除対象配偶者生年月日"].ToString()=="" ? "":row["源泉控除対象配偶者生年月日"].ToString().Substring(4,2).TrimStart(new Char[] { '0' } ),
                                 TaxWithholding_BirthdayDay = row["源泉控除対象配偶者生年月日"].ToString()=="" ? "":row["源泉控除対象配偶者生年月日"].ToString().Substring(6,2).TrimStart(new Char[] { '0' } ),
+
+								//2023-99-99 iwai-tamura upd str -----
+								TaxWithholding_Earnings = setMoney(row["源泉控除対象配偶者給与所得収入金額"].ToString()),
+								TaxWithholding_Earnings2Income = setMoney(row["源泉控除対象配偶者給与所得所得金額"].ToString()),
+								TaxWithholding_OtherIncome = setMoney(row["源泉控除対象配偶者他所得金額"].ToString()),
+								//2023-99-99 iwai-tamura upd end -----
 								TaxWithholding_Income = setMoney(row["源泉控除対象配偶者所得見積額"].ToString()),
+
 								TaxWithholding_ResidentType = row["源泉控除対象配偶者非居住者"].ToString(),
 								TaxWithholding_Address = row["源泉控除対象配偶者住所"].ToString(),
 								TaxWithholding_TransferDate = changeDate(row["源泉控除対象配偶者異動月日"].ToString()),
@@ -272,6 +302,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 								DependentsUnder16_4_Income = setMoney(row["扶養親族16未満04_所得見積額"].ToString()),
 								DependentsUnder16_4_TransferDate = changeDate(row["扶養親族16未満04_異動月日"].ToString()),
 								DependentsUnder16_4_TransferComment = row["扶養親族16未満04_事由"].ToString(),
+
 
                             };
                             model.Head.InputMode = ajustMode.SelfInput;
