@@ -125,6 +125,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								LifeInsurance_Calc2 = setMoney(row["一般生命保険料旧保険料表計算"].ToString()),
 								LifeInsurance_TotalAmount = setMoney(row["一般生命保険料表合計"].ToString()),
 								LifeInsurance_DeductionAmount = setMoney(row["一般生命保険料比較"].ToString()),
+
+							    //2023-99-99 iwai-tamura upd str -----
+								LifeInsurance_1_HostDataFlg = row["一般生命保険料01_HostData判定"].ToString(),
+								LifeInsurance_2_HostDataFlg = row["一般生命保険料02_HostData判定"].ToString(),
+								LifeInsurance_3_HostDataFlg = row["一般生命保険料03_HostData判定"].ToString(),
+								LifeInsurance_4_HostDataFlg = row["一般生命保険料04_HostData判定"].ToString(),
+							    //2023-99-99 iwai-tamura upd end -----
+
 								LifeInsurance_1_InsuranceCompanyName = row["一般生命保険料01_保険会社等名称"].ToString(),
 								LifeInsurance_1_InsuranceTypeName = row["一般生命保険料01_保険等種類"].ToString(),
 								LifeInsurance_1_InsurancePeriod = row["一般生命保険料01_期間"].ToString(),
@@ -167,6 +175,12 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								LifeInsurance_4_InsuranceFee = setMoney(row["一般生命保険料04_支払金額"].ToString()),
 								MedicalInsurance_TotalAmount = setMoney(row["介護医療保険料合計"].ToString()),
 								MedicalInsurance_DeductionAmount = setMoney(row["介護医療保険料表計算"].ToString()),
+
+							    //2023-99-99 iwai-tamura upd str -----
+								MedicalInsurance_1_HostDataFlg = row["一介護医療保険料01_HostData判定"].ToString(),
+								MedicalInsurance_2_HostDataFlg = row["一介護医療保険料02_HostData判定"].ToString(),
+							    //2023-99-99 iwai-tamura upd end -----
+
 								MedicalInsurance_1_InsuranceCompanyName = row["介護医療保険料01_会社等名称"].ToString(),
 								MedicalInsurance_1_InsuranceTypeName = row["介護医療保険料01_保険等種類"].ToString(),
 								MedicalInsurance_1_InsurancePeriod = row["介護医療保険料01_期間"].ToString(),
@@ -191,6 +205,12 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								PensionInsurance_Calc2 = setMoney(row["個人年金保険料旧保険料表計算"].ToString()),
 								PensionInsurance_TotalAmount = setMoney(row["個人年金保険料表合計"].ToString()),
 								PensionInsurance_DeductionAmount = setMoney(row["個人年金保険料比較"].ToString()),
+
+							    //2023-99-99 iwai-tamura upd str -----
+								PensionInsurance_1_HostDataFlg = row["個人年金保険料01_HostData判定"].ToString(),
+								PensionInsurance_2_HostDataFlg = row["個人年金保険料02_HostData判定"].ToString(),
+							    //2023-99-99 iwai-tamura upd end -----
+
 								PensionInsurance_1_InsuranceCompanyName = row["個人年金保険料01_会社等名称"].ToString(),
 								PensionInsurance_1_InsuranceTypeName = row["個人年金保険料01_保険等種類"].ToString(),
 								PensionInsurance_1_InsurancePeriod = row["個人年金保険料01_期間"].ToString(),
@@ -203,7 +223,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                                 PensionInsurance_1_StartPaymentYear = row["個人年金保険料01_支払開始日"].ToString()=="" ? "":row["個人年金保険料01_支払開始日"].ToString().Substring(0,4),
                                 PensionInsurance_1_StartPaymentMonth = row["個人年金保険料01_支払開始日"].ToString()=="" ? "":row["個人年金保険料01_支払開始日"].ToString().Substring(4,2).TrimStart(new Char[] { '0' } ),
                                 PensionInsurance_1_StartPaymentDay = row["個人年金保険料01_支払開始日"].ToString()=="" ? "":row["個人年金保険料01_支払開始日"].ToString().Substring(6,2).TrimStart(new Char[] { '0' } ),
-
                                 PensionInsurance_1_OldAndNewType = row["個人年金保険料01_新旧"].ToString(),
 								PensionInsurance_1_InsuranceFee = setMoney(row["個人年金保険料01_支払金額"].ToString()),
 								PensionInsurance_2_InsuranceCompanyName = row["個人年金保険料02_会社等名称"].ToString(),
@@ -218,7 +237,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                                 PensionInsurance_2_StartPaymentYear = row["個人年金保険料02_支払開始日"].ToString()=="" ? "":row["個人年金保険料02_支払開始日"].ToString().Substring(0,4),
                                 PensionInsurance_2_StartPaymentMonth = row["個人年金保険料02_支払開始日"].ToString()=="" ? "":row["個人年金保険料02_支払開始日"].ToString().Substring(4,2).TrimStart(new Char[] { '0' } ),
                                 PensionInsurance_2_StartPaymentDay = row["個人年金保険料02_支払開始日"].ToString()=="" ? "":row["個人年金保険料02_支払開始日"].ToString().Substring(6,2).TrimStart(new Char[] { '0' } ),
-
 								PensionInsurance_2_OldAndNewType = row["個人年金保険料02_新旧"].ToString(),
 								PensionInsurance_2_InsuranceFee = setMoney(row["個人年金保険料02_支払金額"].ToString()),
 								PensionInsurance_3_InsuranceCompanyName = row["個人年金保険料03_会社等名称"].ToString(),
@@ -233,7 +251,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                                 PensionInsurance_3_StartPaymentYear = row["個人年金保険料03_支払開始日"].ToString()=="" ? "":row["個人年金保険料03_支払開始日"].ToString().Substring(0,4),
                                 PensionInsurance_3_StartPaymentMonth = row["個人年金保険料03_支払開始日"].ToString()=="" ? "":row["個人年金保険料03_支払開始日"].ToString().Substring(4,2).TrimStart(new Char[] { '0' } ),
                                 PensionInsurance_3_StartPaymentDay = row["個人年金保険料03_支払開始日"].ToString()=="" ? "":row["個人年金保険料03_支払開始日"].ToString().Substring(6,2).TrimStart(new Char[] { '0' } ),
-
 								PensionInsurance_3_OldAndNewType = row["個人年金保険料03_新旧"].ToString(),
 								PensionInsurance_3_InsuranceFee = setMoney(row["個人年金保険料03_支払金額"].ToString()),
 								QuakeInsurance_QuakeAmount = setMoney(row["地震保険料控除地震保険料合計"].ToString()),
@@ -241,6 +258,12 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								QuakeInsurance_Calc1 = setMoney(row["地震保険料控除額金額01"].ToString()),
 								QuakeInsurance_Calc2 = setMoney(row["地震保険料控除額金額02"].ToString()),
 								QuakeInsurance_DeductionAmount = setMoney(row["地震保険料控除額金額合計"].ToString()),
+
+							    //2023-99-99 iwai-tamura upd str -----
+								QuakeInsurance_1_HostDataFlg = row["地震保険料控除01_HostData判定"].ToString(),
+								QuakeInsurance_2_HostDataFlg = row["地震保険料控除02_HostData判定"].ToString(),
+							    //2023-99-99 iwai-tamura upd end -----
+
 								QuakeInsurance_1_InsuranceCompanyName = row["地震保険料控除01_会社等名称"].ToString(),
 								QuakeInsurance_1_InsuranceTypeName = row["地震保険料控除01_保険等種類"].ToString(),
 								QuakeInsurance_1_InsurancePeriod = row["地震保険料控除01_期間"].ToString(),

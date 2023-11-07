@@ -114,7 +114,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     strInputNo = specifyEmployeeNo;
                     bolAdminMode = true;
                 }
-                return RedirectToAction((string)linkTable[value], value, new { intSheetYear = 2022, strEmployeeNo = strInputNo ,bolAdminMode = bolAdminMode});
+
+                //2023-99-99 iwai-tamura upd str -----
+                return RedirectToAction((string)linkTable[value], value, new { intSheetYear = lu.IsYear, strEmployeeNo = strInputNo ,bolAdminMode = bolAdminMode});
+                //return RedirectToAction((string)linkTable[value], value, new { intSheetYear = 2022, strEmployeeNo = strInputNo ,bolAdminMode = bolAdminMode});
+                //2023-99-99 iwai-tamura upd end -----
                 //return RedirectToAction("Index", "HuyouDeclareRegister", new { intSheetYear = 2022, strEmployeeNo = "" });
             } catch(Exception ex) {
                 //エラー

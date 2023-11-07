@@ -8,7 +8,7 @@ using EmployeeAdjustmentConnectionSystem.COM.Enum;
 
 namespace EmployeeAdjustmentConnectionSystem.COM.Models {
     /// <summary>
-    /// 扶養控除申告書入力モデル
+    /// 保険料控除申告書入力モデル
     /// </summary>
     public class HokenDeclareRegisterViewModels {
         /// <summary>
@@ -182,6 +182,12 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public int? LifeInsurance_DeductionAmount { get; set; }
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 一般生命保険料01_HostData判定
+		/// </summary>
+		public string LifeInsurance_1_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
 
 		/// <summary>
 		/// 一般生命保険料01_保険会社等名称
@@ -243,6 +249,13 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? LifeInsurance_1_InsuranceFee { get; set; }
 
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 一般生命保険料02_HostData判定
+		/// </summary>
+		public string LifeInsurance_2_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
+
 		/// <summary>
 		/// 一般生命保険料02_保険会社等名称
 		/// </summary>
@@ -303,6 +316,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? LifeInsurance_2_InsuranceFee { get; set; }
 
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 一般生命保険料03_HostData判定
+		/// </summary>
+		public string LifeInsurance_3_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
+
+
 		/// <summary>
 		/// 一般生命保険料03_保険会社等名称
 		/// </summary>
@@ -361,6 +382,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 一般生命保険料03_支払金額
 		/// </summary>
 		public int? LifeInsurance_3_InsuranceFee { get; set; }
+
+
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 一般生命保険料04_HostData判定
+		/// </summary>
+		public string LifeInsurance_4_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -435,6 +464,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? MedicalInsurance_DeductionAmount { get; set; }
 
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 介護医療保険料01_HostData判定
+		/// </summary>
+		public string MedicalInsurance_1_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
+
+
 		/// <summary>
 		/// 介護医療保険料01_保険会社等名称
 		/// </summary>
@@ -487,6 +524,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 介護医療保険料01_支払金額
 		/// </summary>
 		public int? MedicalInsurance_1_InsuranceFee { get; set; }
+
+
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 介護医療保険料02_HostData判定
+		/// </summary>
+		public string MedicalInsurance_2_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -579,6 +624,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? PensionInsurance_DeductionAmount { get; set; }
 
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 個人年金保険料01_HostData判定
+		/// </summary>
+		public string PensionInsurance_1_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
+
+
 		/// <summary>
 		/// 個人年金保険料01_保険会社等名称
 		/// </summary>
@@ -663,6 +716,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? PensionInsurance_1_InsuranceFee { get; set; }
 
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 個人年金保険料02_HostData判定
+		/// </summary>
+		public string PensionInsurance_2_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
+
+
 		/// <summary>
 		/// 個人年金保険料02_保険会社等名称
 		/// </summary>
@@ -745,6 +806,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 個人年金保険料02_支払金額
 		/// </summary>
 		public int? PensionInsurance_2_InsuranceFee { get; set; }
+
+
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 個人年金保険料03_HostData判定
+		/// </summary>
+		public string PensionInsurance_3_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -861,6 +930,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? QuakeInsurance_DeductionAmount { get; set; }
 
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 地震保険料控除01_HostData判定
+		/// </summary>
+		public string QuakeInsurance_1_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
+
+
 		/// <summary>
 		/// 地震保険料控除01_保険会社等名称
 		/// </summary>
@@ -919,6 +996,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 地震保険料控除01_支払保険料
 		/// </summary>
 		public int? QuakeInsurance_1_InsuranceFee { get; set; }
+
+
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 地震保険料控除02_HostData判定
+		/// </summary>
+		public string QuakeInsurance_2_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
 
 
 		/// <summary>
