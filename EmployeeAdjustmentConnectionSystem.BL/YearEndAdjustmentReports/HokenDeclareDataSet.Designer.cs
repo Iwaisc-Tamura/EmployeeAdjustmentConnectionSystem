@@ -2754,7 +2754,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 社員番号, 
                         string 本人確定区分, 
                         string 管理者確定区分, 
-                        string 所属番号, 
+                        short 所属番号, 
                         string 氏名, 
                         string Kana, 
                         string 住所01, 
@@ -3507,7 +3507,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column本人確定区分);
                 this.column管理者確定区分 = new global::System.Data.DataColumn("管理者確定区分", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column管理者確定区分);
-                this.column所属番号 = new global::System.Data.DataColumn("所属番号", typeof(string), null, global::System.Data.MappingType.Element);
+                this.column所属番号 = new global::System.Data.DataColumn("所属番号", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column所属番号);
                 this.column氏名 = new global::System.Data.DataColumn("氏名", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column氏名);
@@ -4185,10 +4185,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string 所属番号 {
+            public short 所属番号 {
                 get {
                     try {
-                        return ((string)(this[this.tableHokenDeclareDataTable.所属番号Column]));
+                        return ((short)(this[this.tableHokenDeclareDataTable.所属番号Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'所属番号\' の値は DBNull です。", e);

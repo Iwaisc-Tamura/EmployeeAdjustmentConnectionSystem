@@ -1331,7 +1331,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "  LEFT JOIN TM911続柄名Master AS 介護医療保険料06続柄名 ON 保険料控除.介護医療保険料06_保険金等受取人続柄 = 介護医療保険料06続柄名.続柄番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 個人年金保険料04続柄名 ON 保険料控除.個人年金保険料04_保険金等受取人続柄 = 個人年金保険料04続柄名.続柄番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 地震保険料控除03続柄名 ON 保険料控除.地震保険料控除03_保険等対象続柄 = 地震保険料控除03続柄名.続柄番号 "
-                    + "  LEFT JOIN TM911続柄名Master AS 地震保険料控除04続柄名 ON 保険料控除.地震保険料控除04_保険等対象続柄 = 地震保険料控除024柄名.続柄番号 "
+                    + "  LEFT JOIN TM911続柄名Master AS 地震保険料控除04続柄名 ON 保険料控除.地震保険料控除04_保険等対象続柄 = 地震保険料控除04続柄名.続柄番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 社会保険料控除03続柄名 ON 保険料控除.社会保険料控除03_負担者続柄 = 社会保険料控除03続柄名.続柄番号 "
                     //2023-11-06 iwai-terao upd end ------
                     + " WHERE 保険料控除.社員番号 = @key ";
