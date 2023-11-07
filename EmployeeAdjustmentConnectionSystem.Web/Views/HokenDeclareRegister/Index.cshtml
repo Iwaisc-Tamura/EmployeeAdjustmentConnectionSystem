@@ -476,11 +476,11 @@
                     </tr>
                     <tr class="content-label-h3">
                         @*2023-99-99 iwai-tamura add-str ------*@
-                        <td colspan="7" style="border-right: none !important;">
+                        <td colspan="5" style="border-right: none !important;">
                             １ 一般の生命保険料
                         </td>
-                        <td colspan="1" style="border-left: none !important; text-align: right;">
-                            ※
+                        <td colspan="3" style="border-left: none !important; text-align: right;">
+                            @setCheck(false, "MyNumberCheck", Model.Head.LifeInsurance_1_HostDataFlg)　※給与天引き団体保険料
                         </td>
                         @*<td colspan="8">
                             １ 一般の生命保険料
