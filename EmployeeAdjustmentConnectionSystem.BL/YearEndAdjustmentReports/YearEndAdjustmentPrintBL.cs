@@ -311,13 +311,16 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,基礎控除.所得金額調整控除申告書_扶養親族等所得金額 "
                     + "     ,基礎控除.所得金額調整控除申告書_特別障害者該当事実 "
                     + "     ,事業所名.税務署名 AS 税務署長 "
-                    + "     ,事業所名.事業主名 AS 給与支払者名称 "
+                    + "     ,事業所名.会社名 AS 給与支払者名称 "
                     + "     ,事業所名.所在地 AS 給与支払者所在地 "
                     + " FROM TE120基礎控除申告書Data AS 基礎控除"
                     + "  LEFT JOIN TM911続柄名Master AS 配偶者続柄名 ON 基礎控除.配偶者控除申告書_続柄 = 配偶者続柄名.続柄番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 扶養親族等続柄名 ON 基礎控除.所得金額調整控除申告書_扶養親族等続柄 = 扶養親族等続柄名.続柄番号 "
-                    + "  LEFT JOIN TM912事業所名Master AS 事業所名 ON LEFT(基礎控除.所属番号,1) = 事業所名.事業所番号 "
-                    + " WHERE 基礎控除.社員番号 = @key ";
+                    + "  LEFT JOIN TM912事業所名Master AS 事業所名 ON CASE WHEN LEFT(基礎控除.所属番号, 1) IN ('2', '3') THEN '1' ELSE LEFT(基礎控除.所属番号, 1) END = 事業所名.事業所番号 "
+                    + " WHERE 基礎控除.社員番号 = @key "
+                    //###########################################################################
+                    + "   AND 基礎控除.対象年度 = 2023 ";
+                    //###########################################################################
 
                 DataTable dt = new DataTable();
                 DataSet dataSet = new DataSet();
@@ -774,7 +777,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,扶養控除.扶養親族16未満04_異動月日 "
                     + "     ,扶養控除.扶養親族16未満04_事由 "
                     + "     ,事業所名.税務署名 AS 税務署長 "
-                    + "     ,事業所名.事業主名 AS 給与支払者名称 "
+                    + "     ,事業所名.会社名 AS 給与支払者名称 "
                     + "     ,事業所名.所在地 AS 給与支払者所在地 "
                     + " FROM TE100扶養控除申告書Data AS 扶養控除 "
                     + "  LEFT JOIN TM911続柄名Master AS 世帯主続柄名 ON 扶養控除.世帯主続柄 = 世帯主続柄名.続柄番号 "
@@ -786,8 +789,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "  LEFT JOIN TM911続柄名Master AS 未満02続柄 ON 扶養控除.扶養親族16未満02_続柄 = 未満02続柄.続柄番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 未満03続柄 ON 扶養控除.扶養親族16未満03_続柄 = 未満03続柄.続柄番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 未満04続柄 ON 扶養控除.扶養親族16未満04_続柄 = 未満04続柄.続柄番号 "
-                    + "  LEFT JOIN TM912事業所名Master AS 事業所名 ON LEFT(扶養控除.所属番号,1) = 事業所名.事業所番号 "
-                    + " WHERE 扶養控除.社員番号 = @key ";
+                    + "  LEFT JOIN TM912事業所名Master AS 事業所名 ON CASE WHEN LEFT(扶養控除.所属番号, 1) IN ('2', '3') THEN '1' ELSE LEFT(扶養控除.所属番号, 1) END = 事業所名.事業所番号 "
+                    + " WHERE 扶養控除.社員番号 = @key "
+                    //###########################################################################
+                    + "   AND 扶養控除.対象年度 = 2023 ";
+                    //###########################################################################
 
                 DataTable dt = new DataTable();
                 DataSet dataSet = new DataSet();
@@ -1086,7 +1092,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,保険料控除.住所01 "
                     + "     ,保険料控除.Sequence番号 "
                     + "     ,事業所名.税務署名 AS 税務署長 "
-                    + "     ,事業所名.事業主名 AS 給与支払者名称 "
+                    + "     ,事業所名.会社名 AS 給与支払者名称 "
                     + "     ,事業所名.所在地 AS 給与支払者所在地 "
                     + "     ,保険料控除.一般生命保険料01_保険会社等名称 "
                     + "     ,保険料控除.一般生命保険料01_保険等種類 "
@@ -1306,7 +1312,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,保険料控除.社会保険料控除03_支払保険料 "
                     //2023-11-06 iwai-terao upd end ------
                     + " FROM TE110保険料控除申告書Data AS 保険料控除 "
-                    + "  LEFT JOIN TM912事業所名Master AS 事業所名 ON LEFT(保険料控除.所属番号,1) = 事業所名.事業所番号 "
+                    + "  LEFT JOIN TM912事業所名Master AS 事業所名 ON CASE WHEN LEFT(保険料控除.所属番号, 1) IN ('2', '3') THEN '1' ELSE LEFT(保険料控除.所属番号, 1) END = 事業所名.事業所番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 一般生命保険料01続柄名 ON 保険料控除.一般生命保険料01_保険金等受取人続柄 = 一般生命保険料01続柄名.続柄番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 一般生命保険料02続柄名 ON 保険料控除.一般生命保険料02_保険金等受取人続柄 = 一般生命保険料02続柄名.続柄番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 一般生命保険料03続柄名 ON 保険料控除.一般生命保険料03_保険金等受取人続柄 = 一般生命保険料03続柄名.続柄番号 "
@@ -1334,7 +1340,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "  LEFT JOIN TM911続柄名Master AS 地震保険料控除04続柄名 ON 保険料控除.地震保険料控除04_保険等対象続柄 = 地震保険料控除04続柄名.続柄番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 社会保険料控除03続柄名 ON 保険料控除.社会保険料控除03_負担者続柄 = 社会保険料控除03続柄名.続柄番号 "
                     //2023-11-06 iwai-terao upd end ------
-                    + " WHERE 保険料控除.社員番号 = @key ";
+                    + " WHERE 保険料控除.社員番号 = @key "
+                    //###########################################################################
+                    + "   AND 保険料控除.対象年度 = 2023 ";
+                    //###########################################################################
 
                 DataTable dt = new DataTable();
                 DataSet dataSet = new DataSet();

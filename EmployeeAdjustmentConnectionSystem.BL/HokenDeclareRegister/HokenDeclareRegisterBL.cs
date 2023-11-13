@@ -126,13 +126,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								LifeInsurance_TotalAmount = setMoney(row["一般生命保険料表合計"].ToString()),
 								LifeInsurance_DeductionAmount = setMoney(row["一般生命保険料比較"].ToString()),
 
-							    //2023-99-99 iwai-tamura upd str -----
-								LifeInsurance_1_HostDataFlg = row["一般生命保険料01_HostData判定"].ToString(),
-								LifeInsurance_2_HostDataFlg = row["一般生命保険料02_HostData判定"].ToString(),
-								LifeInsurance_3_HostDataFlg = row["一般生命保険料03_HostData判定"].ToString(),
-								LifeInsurance_4_HostDataFlg = row["一般生命保険料04_HostData判定"].ToString(),
-							    //2023-99-99 iwai-tamura upd end -----
-
 								LifeInsurance_1_InsuranceCompanyName = row["一般生命保険料01_保険会社等名称"].ToString(),
 								LifeInsurance_1_InsuranceTypeName = row["一般生命保険料01_保険等種類"].ToString(),
 								LifeInsurance_1_InsurancePeriod = row["一般生命保険料01_期間"].ToString(),
@@ -173,14 +166,60 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								LifeInsurance_4_RelationshipType = row["一般生命保険料04_保険金等受取人続柄"].ToString(),
 								LifeInsurance_4_OldAndNewType = row["一般生命保険料04_新旧"].ToString(),
 								LifeInsurance_4_InsuranceFee = setMoney(row["一般生命保険料04_支払金額"].ToString()),
-								MedicalInsurance_TotalAmount = setMoney(row["介護医療保険料合計"].ToString()),
-								MedicalInsurance_DeductionAmount = setMoney(row["介護医療保険料表計算"].ToString()),
 
 							    //2023-99-99 iwai-tamura upd str -----
-								MedicalInsurance_1_HostDataFlg = row["一介護医療保険料01_HostData判定"].ToString(),
-								MedicalInsurance_2_HostDataFlg = row["一介護医療保険料02_HostData判定"].ToString(),
+								LifeInsurance_1_HostDataFlg = row["一般生命保険料01_HostData判定"].ToString(),
+								LifeInsurance_2_HostDataFlg = row["一般生命保険料02_HostData判定"].ToString(),
+								LifeInsurance_3_HostDataFlg = row["一般生命保険料03_HostData判定"].ToString(),
+								LifeInsurance_4_HostDataFlg = row["一般生命保険料04_HostData判定"].ToString(),
+								LifeInsurance_5_HostDataFlg = row["一般生命保険料05_HostData判定"].ToString(),
+								LifeInsurance_5_InsuranceCompanyName = row["一般生命保険料05_保険会社等名称"].ToString(),
+								LifeInsurance_5_InsuranceTypeName = row["一般生命保険料05_保険等種類"].ToString(),
+								LifeInsurance_5_InsurancePeriod = row["一般生命保険料05_期間"].ToString(),
+								LifeInsurance_5_ContractorName1 = row["一般生命保険料05_保険等契約者氏名_姓"].ToString(),
+								LifeInsurance_5_ContractorName2 = row["一般生命保険料05_保険等契約者氏名_名"].ToString(),
+								LifeInsurance_5_ReceiverName1 = row["一般生命保険料05_保険金等受取人氏名_姓"].ToString(),
+								LifeInsurance_5_ReceiverName2 = row["一般生命保険料05_保険金等受取人氏名_名"].ToString(),
+								LifeInsurance_5_RelationshipType = row["一般生命保険料05_保険金等受取人続柄"].ToString(),
+								LifeInsurance_5_OldAndNewType = row["一般生命保険料05_新旧"].ToString(),
+								LifeInsurance_5_InsuranceFee = setMoney(row["一般生命保険料05_支払金額"].ToString()),
+								LifeInsurance_6_HostDataFlg = row["一般生命保険料06_HostData判定"].ToString(),
+								LifeInsurance_6_InsuranceCompanyName = row["一般生命保険料06_保険会社等名称"].ToString(),
+								LifeInsurance_6_InsuranceTypeName = row["一般生命保険料06_保険等種類"].ToString(),
+								LifeInsurance_6_InsurancePeriod = row["一般生命保険料06_期間"].ToString(),
+								LifeInsurance_6_ContractorName1 = row["一般生命保険料06_保険等契約者氏名_姓"].ToString(),
+								LifeInsurance_6_ContractorName2 = row["一般生命保険料06_保険等契約者氏名_名"].ToString(),
+								LifeInsurance_6_ReceiverName1 = row["一般生命保険料06_保険金等受取人氏名_姓"].ToString(),
+								LifeInsurance_6_ReceiverName2 = row["一般生命保険料06_保険金等受取人氏名_名"].ToString(),
+								LifeInsurance_6_RelationshipType = row["一般生命保険料06_保険金等受取人続柄"].ToString(),
+								LifeInsurance_6_OldAndNewType = row["一般生命保険料06_新旧"].ToString(),
+								LifeInsurance_6_InsuranceFee = setMoney(row["一般生命保険料06_支払金額"].ToString()),
+								LifeInsurance_7_HostDataFlg = row["一般生命保険料07_HostData判定"].ToString(),
+								LifeInsurance_7_InsuranceCompanyName = row["一般生命保険料07_保険会社等名称"].ToString(),
+								LifeInsurance_7_InsuranceTypeName = row["一般生命保険料07_保険等種類"].ToString(),
+								LifeInsurance_7_InsurancePeriod = row["一般生命保険料07_期間"].ToString(),
+								LifeInsurance_7_ContractorName1 = row["一般生命保険料07_保険等契約者氏名_姓"].ToString(),
+								LifeInsurance_7_ContractorName2 = row["一般生命保険料07_保険等契約者氏名_名"].ToString(),
+								LifeInsurance_7_ReceiverName1 = row["一般生命保険料07_保険金等受取人氏名_姓"].ToString(),
+								LifeInsurance_7_ReceiverName2 = row["一般生命保険料07_保険金等受取人氏名_名"].ToString(),
+								LifeInsurance_7_RelationshipType = row["一般生命保険料07_保険金等受取人続柄"].ToString(),
+								LifeInsurance_7_OldAndNewType = row["一般生命保険料07_新旧"].ToString(),
+								LifeInsurance_7_InsuranceFee = setMoney(row["一般生命保険料07_支払金額"].ToString()),
+								LifeInsurance_8_HostDataFlg = row["一般生命保険料08_HostData判定"].ToString(),
+								LifeInsurance_8_InsuranceCompanyName = row["一般生命保険料08_保険会社等名称"].ToString(),
+								LifeInsurance_8_InsuranceTypeName = row["一般生命保険料08_保険等種類"].ToString(),
+								LifeInsurance_8_InsurancePeriod = row["一般生命保険料08_期間"].ToString(),
+								LifeInsurance_8_ContractorName1 = row["一般生命保険料08_保険等契約者氏名_姓"].ToString(),
+								LifeInsurance_8_ContractorName2 = row["一般生命保険料08_保険等契約者氏名_名"].ToString(),
+								LifeInsurance_8_ReceiverName1 = row["一般生命保険料08_保険金等受取人氏名_姓"].ToString(),
+								LifeInsurance_8_ReceiverName2 = row["一般生命保険料08_保険金等受取人氏名_名"].ToString(),
+								LifeInsurance_8_RelationshipType = row["一般生命保険料08_保険金等受取人続柄"].ToString(),
+								LifeInsurance_8_OldAndNewType = row["一般生命保険料08_新旧"].ToString(),
+								LifeInsurance_8_InsuranceFee = setMoney(row["一般生命保険料08_支払金額"].ToString()),
 							    //2023-99-99 iwai-tamura upd end -----
 
+								MedicalInsurance_TotalAmount = setMoney(row["介護医療保険料合計"].ToString()),
+								MedicalInsurance_DeductionAmount = setMoney(row["介護医療保険料表計算"].ToString()),
 								MedicalInsurance_1_InsuranceCompanyName = row["介護医療保険料01_会社等名称"].ToString(),
 								MedicalInsurance_1_InsuranceTypeName = row["介護医療保険料01_保険等種類"].ToString(),
 								MedicalInsurance_1_InsurancePeriod = row["介護医療保険料01_期間"].ToString(),
@@ -199,18 +238,61 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								MedicalInsurance_2_ReceiverName2 = row["介護医療保険料02_保険金等受取人氏名_名"].ToString(),
 								MedicalInsurance_2_RelationshipType = row["介護医療保険料02_保険金等受取人続柄"].ToString(),
 								MedicalInsurance_2_InsuranceFee = setMoney(row["介護医療保険料02_支払金額"].ToString()),
+
+
+							    //2023-99-99 iwai-tamura upd str -----
+								MedicalInsurance_1_HostDataFlg = row["介護医療保険料01_HostData判定"].ToString(),
+								MedicalInsurance_2_HostDataFlg = row["介護医療保険料02_HostData判定"].ToString(),
+								MedicalInsurance_3_HostDataFlg = row["介護医療保険料03_HostData判定"].ToString(),
+								MedicalInsurance_3_InsuranceCompanyName = row["介護医療保険料03_会社等名称"].ToString(),
+								MedicalInsurance_3_InsuranceTypeName = row["介護医療保険料03_保険等種類"].ToString(),
+								MedicalInsurance_3_InsurancePeriod = row["介護医療保険料03_期間"].ToString(),
+								MedicalInsurance_3_ContractorName1 = row["介護医療保険料03_保険等契約者氏名_姓"].ToString(),
+								MedicalInsurance_3_ContractorName2 = row["介護医療保険料03_保険等契約者氏名_名"].ToString(),
+								MedicalInsurance_3_ReceiverName1 = row["介護医療保険料03_保険金等受取人氏名_姓"].ToString(),
+								MedicalInsurance_3_ReceiverName2 = row["介護医療保険料03_保険金等受取人氏名_名"].ToString(),
+								MedicalInsurance_3_RelationshipType = row["介護医療保険料03_保険金等受取人続柄"].ToString(),
+								MedicalInsurance_3_InsuranceFee = setMoney(row["介護医療保険料03_支払金額"].ToString()),
+								MedicalInsurance_4_HostDataFlg = row["介護医療保険料04_HostData判定"].ToString(),
+								MedicalInsurance_4_InsuranceCompanyName = row["介護医療保険料04_会社等名称"].ToString(),
+								MedicalInsurance_4_InsuranceTypeName = row["介護医療保険料04_保険等種類"].ToString(),
+								MedicalInsurance_4_InsurancePeriod = row["介護医療保険料04_期間"].ToString(),
+								MedicalInsurance_4_ContractorName1 = row["介護医療保険料04_保険等契約者氏名_姓"].ToString(),
+								MedicalInsurance_4_ContractorName2 = row["介護医療保険料04_保険等契約者氏名_名"].ToString(),
+								MedicalInsurance_4_ReceiverName1 = row["介護医療保険料04_保険金等受取人氏名_姓"].ToString(),
+								MedicalInsurance_4_ReceiverName2 = row["介護医療保険料04_保険金等受取人氏名_名"].ToString(),
+								MedicalInsurance_4_RelationshipType = row["介護医療保険料04_保険金等受取人続柄"].ToString(),
+								MedicalInsurance_4_InsuranceFee = setMoney(row["介護医療保険料04_支払金額"].ToString()),
+								MedicalInsurance_5_HostDataFlg = row["介護医療保険料05_HostData判定"].ToString(),
+								MedicalInsurance_5_InsuranceCompanyName = row["介護医療保険料05_会社等名称"].ToString(),
+								MedicalInsurance_5_InsuranceTypeName = row["介護医療保険料05_保険等種類"].ToString(),
+								MedicalInsurance_5_InsurancePeriod = row["介護医療保険料05_期間"].ToString(),
+								MedicalInsurance_5_ContractorName1 = row["介護医療保険料05_保険等契約者氏名_姓"].ToString(),
+								MedicalInsurance_5_ContractorName2 = row["介護医療保険料05_保険等契約者氏名_名"].ToString(),
+								MedicalInsurance_5_ReceiverName1 = row["介護医療保険料05_保険金等受取人氏名_姓"].ToString(),
+								MedicalInsurance_5_ReceiverName2 = row["介護医療保険料05_保険金等受取人氏名_名"].ToString(),
+								MedicalInsurance_5_RelationshipType = row["介護医療保険料05_保険金等受取人続柄"].ToString(),
+								MedicalInsurance_5_InsuranceFee = setMoney(row["介護医療保険料05_支払金額"].ToString()),
+								MedicalInsurance_6_HostDataFlg = row["介護医療保険料06_HostData判定"].ToString(),
+								MedicalInsurance_6_InsuranceCompanyName = row["介護医療保険料06_会社等名称"].ToString(),
+								MedicalInsurance_6_InsuranceTypeName = row["介護医療保険料06_保険等種類"].ToString(),
+								MedicalInsurance_6_InsurancePeriod = row["介護医療保険料06_期間"].ToString(),
+								MedicalInsurance_6_ContractorName1 = row["介護医療保険料06_保険等契約者氏名_姓"].ToString(),
+								MedicalInsurance_6_ContractorName2 = row["介護医療保険料06_保険等契約者氏名_名"].ToString(),
+								MedicalInsurance_6_ReceiverName1 = row["介護医療保険料06_保険金等受取人氏名_姓"].ToString(),
+								MedicalInsurance_6_ReceiverName2 = row["介護医療保険料06_保険金等受取人氏名_名"].ToString(),
+								MedicalInsurance_6_RelationshipType = row["介護医療保険料06_保険金等受取人続柄"].ToString(),
+								MedicalInsurance_6_InsuranceFee = setMoney(row["介護医療保険料06_支払金額"].ToString()),
+							    //2023-99-99 iwai-tamura upd end -----
+
+
+
 								PensionInsurance_NewTotalAmount = setMoney(row["個人年金保険料新保険料合計"].ToString()),
 								PensionInsurance_OldTotalAmount = setMoney(row["個人年金保険料旧保険料合計"].ToString()),
 								PensionInsurance_Calc1 = setMoney(row["個人年金保険料新保険料表計算"].ToString()),
 								PensionInsurance_Calc2 = setMoney(row["個人年金保険料旧保険料表計算"].ToString()),
 								PensionInsurance_TotalAmount = setMoney(row["個人年金保険料表合計"].ToString()),
 								PensionInsurance_DeductionAmount = setMoney(row["個人年金保険料比較"].ToString()),
-
-							    //2023-99-99 iwai-tamura upd str -----
-								PensionInsurance_1_HostDataFlg = row["個人年金保険料01_HostData判定"].ToString(),
-								PensionInsurance_2_HostDataFlg = row["個人年金保険料02_HostData判定"].ToString(),
-							    //2023-99-99 iwai-tamura upd end -----
-
 								PensionInsurance_1_InsuranceCompanyName = row["個人年金保険料01_会社等名称"].ToString(),
 								PensionInsurance_1_InsuranceTypeName = row["個人年金保険料01_保険等種類"].ToString(),
 								PensionInsurance_1_InsurancePeriod = row["個人年金保険料01_期間"].ToString(),
@@ -253,17 +335,33 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                                 PensionInsurance_3_StartPaymentDay = row["個人年金保険料03_支払開始日"].ToString()=="" ? "":row["個人年金保険料03_支払開始日"].ToString().Substring(6,2).TrimStart(new Char[] { '0' } ),
 								PensionInsurance_3_OldAndNewType = row["個人年金保険料03_新旧"].ToString(),
 								PensionInsurance_3_InsuranceFee = setMoney(row["個人年金保険料03_支払金額"].ToString()),
+
+							    //2023-99-99 iwai-tamura upd str -----
+								PensionInsurance_1_HostDataFlg = row["個人年金保険料01_HostData判定"].ToString(),
+								PensionInsurance_2_HostDataFlg = row["個人年金保険料02_HostData判定"].ToString(),
+								PensionInsurance_3_HostDataFlg = row["個人年金保険料03_HostData判定"].ToString(),
+								PensionInsurance_4_HostDataFlg = row["個人年金保険料04_HostData判定"].ToString(),
+								PensionInsurance_4_InsuranceCompanyName = row["個人年金保険料04_会社等名称"].ToString(),
+								PensionInsurance_4_InsuranceTypeName = row["個人年金保険料04_保険等種類"].ToString(),
+								PensionInsurance_4_InsurancePeriod = row["個人年金保険料04_期間"].ToString(),
+								PensionInsurance_4_ContractorName1 = row["個人年金保険料04_保険等契約者氏名_姓"].ToString(),
+								PensionInsurance_4_ContractorName2 = row["個人年金保険料04_保険等契約者氏名_名"].ToString(),
+								PensionInsurance_4_ReceiverName1 = row["個人年金保険料04_保険金等受取人氏名_姓"].ToString(),
+								PensionInsurance_4_ReceiverName2 = row["個人年金保険料04_保険金等受取人氏名_名"].ToString(),
+								PensionInsurance_4_RelationshipType = row["個人年金保険料04_保険金等受取人続柄"].ToString(),
+								PensionInsurance_4_StartPayment = row["個人年金保険料04_支払開始日"].ToString(),
+								PensionInsurance_4_StartPaymentYear = row["個人年金保険料04_支払開始日"].ToString()=="" ? "":row["個人年金保険料04_支払開始日"].ToString().Substring(0,4),
+								PensionInsurance_4_StartPaymentMonth = row["個人年金保険料04_支払開始日"].ToString()=="" ? "":row["個人年金保険料04_支払開始日"].ToString().Substring(4,2).TrimStart(new Char[] { '0' } ),
+								PensionInsurance_4_StartPaymentDay = row["個人年金保険料04_支払開始日"].ToString()=="" ? "":row["個人年金保険料04_支払開始日"].ToString().Substring(6,2).TrimStart(new Char[] { '0' } ),
+								PensionInsurance_4_OldAndNewType = row["個人年金保険料04_新旧"].ToString(),
+								PensionInsurance_4_InsuranceFee = setMoney(row["個人年金保険料04_支払金額"].ToString()),
+							    //2023-99-99 iwai-tamura upd end -----
+
 								QuakeInsurance_QuakeAmount = setMoney(row["地震保険料控除地震保険料合計"].ToString()),
 								QuakeInsurance_DamageTotalAmount = setMoney(row["地震保険料控除旧長期損害保険料合計"].ToString()),
 								QuakeInsurance_Calc1 = setMoney(row["地震保険料控除額金額01"].ToString()),
 								QuakeInsurance_Calc2 = setMoney(row["地震保険料控除額金額02"].ToString()),
 								QuakeInsurance_DeductionAmount = setMoney(row["地震保険料控除額金額合計"].ToString()),
-
-							    //2023-99-99 iwai-tamura upd str -----
-								QuakeInsurance_1_HostDataFlg = row["地震保険料控除01_HostData判定"].ToString(),
-								QuakeInsurance_2_HostDataFlg = row["地震保険料控除02_HostData判定"].ToString(),
-							    //2023-99-99 iwai-tamura upd end -----
-
 								QuakeInsurance_1_InsuranceCompanyName = row["地震保険料控除01_会社等名称"].ToString(),
 								QuakeInsurance_1_InsuranceTypeName = row["地震保険料控除01_保険等種類"].ToString(),
 								QuakeInsurance_1_InsurancePeriod = row["地震保険料控除01_期間"].ToString(),
@@ -284,6 +382,34 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								QuakeInsurance_2_RelationshipType = row["地震保険料控除02_保険等対象続柄"].ToString(),
 								QuakeInsurance_2_QuakeAndDamageType = row["地震保険料控除02_地震旧長期"].ToString(),
 								QuakeInsurance_2_InsuranceFee = setMoney(row["地震保険料控除02_支払保険料"].ToString()),
+
+							    //2023-99-99 iwai-tamura upd str -----
+								QuakeInsurance_1_HostDataFlg = row["地震保険料控除01_HostData判定"].ToString(),
+								QuakeInsurance_2_HostDataFlg = row["地震保険料控除02_HostData判定"].ToString(),
+								QuakeInsurance_3_HostDataFlg = row["地震保険料控除03_HostData判定"].ToString(),
+								QuakeInsurance_3_InsuranceCompanyName = row["地震保険料控除03_会社等名称"].ToString(),
+								QuakeInsurance_3_InsuranceTypeName = row["地震保険料控除03_保険等種類"].ToString(),
+								QuakeInsurance_3_InsurancePeriod = row["地震保険料控除03_期間"].ToString(),
+								QuakeInsurance_3_ContractorName1 = row["地震保険料控除03_保険等契約者氏名_姓"].ToString(),
+								QuakeInsurance_3_ContractorName2 = row["地震保険料控除03_保険等契約者氏名_名"].ToString(),
+								QuakeInsurance_3_ReceiverName1 = row["地震保険料控除03_保険等対象氏名_姓"].ToString(),
+								QuakeInsurance_3_ReceiverName2 = row["地震保険料控除03_保険等対象氏名_名"].ToString(),
+								QuakeInsurance_3_RelationshipType = row["地震保険料控除03_保険等対象続柄"].ToString(),
+								QuakeInsurance_3_QuakeAndDamageType = row["地震保険料控除03_地震旧長期"].ToString(),
+								QuakeInsurance_3_InsuranceFee = setMoney(row["地震保険料控除03_支払保険料"].ToString()),
+								QuakeInsurance_4_HostDataFlg = row["地震保険料控除04_HostData判定"].ToString(),
+								QuakeInsurance_4_InsuranceCompanyName = row["地震保険料控除04_会社等名称"].ToString(),
+								QuakeInsurance_4_InsuranceTypeName = row["地震保険料控除04_保険等種類"].ToString(),
+								QuakeInsurance_4_InsurancePeriod = row["地震保険料控除04_期間"].ToString(),
+								QuakeInsurance_4_ContractorName1 = row["地震保険料控除04_保険等契約者氏名_姓"].ToString(),
+								QuakeInsurance_4_ContractorName2 = row["地震保険料控除04_保険等契約者氏名_名"].ToString(),
+								QuakeInsurance_4_ReceiverName1 = row["地震保険料控除04_保険等対象氏名_姓"].ToString(),
+								QuakeInsurance_4_ReceiverName2 = row["地震保険料控除04_保険等対象氏名_名"].ToString(),
+								QuakeInsurance_4_RelationshipType = row["地震保険料控除04_保険等対象続柄"].ToString(),
+								QuakeInsurance_4_QuakeAndDamageType = row["地震保険料控除04_地震旧長期"].ToString(),
+								QuakeInsurance_4_InsuranceFee = setMoney(row["地震保険料控除04_支払保険料"].ToString()),
+							    //2023-99-99 iwai-tamura upd end -----
+
 								SocialInsurance_DeductionAmount = setMoney(row["社会保険料控除合計"].ToString()),
 								SocialInsurance_1_InsuranceTypeName = row["社会保険料控除01_社会保険種類"].ToString(),
 								SocialInsurance_1_InsuranceCompanyName = row["社会保険料控除01_支払先名称"].ToString(),
@@ -297,6 +423,16 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								SocialInsurance_2_ContractorName2 = row["社会保険料控除02_負担者氏名_名"].ToString(),
 								SocialInsurance_2_RelationshipType = row["社会保険料控除02_負担者続柄"].ToString(),
 								SocialInsurance_2_InsuranceFee = setMoney(row["社会保険料控除02_支払保険料"].ToString()),
+
+							    //2023-99-99 iwai-tamura upd str -----
+								SocialInsurance_3_InsuranceTypeName = row["社会保険料控除03_社会保険種類"].ToString(),
+								SocialInsurance_3_InsuranceCompanyName = row["社会保険料控除03_支払先名称"].ToString(),
+								SocialInsurance_3_ContractorName1 = row["社会保険料控除03_負担者氏名_姓"].ToString(),
+								SocialInsurance_3_ContractorName2 = row["社会保険料控除03_負担者氏名_名"].ToString(),
+								SocialInsurance_3_RelationshipType = row["社会保険料控除03_負担者続柄"].ToString(),
+								SocialInsurance_3_InsuranceFee = setMoney(row["社会保険料控除03_支払保険料"].ToString()),
+							    //2023-99-99 iwai-tamura upd end -----
+
 								SmallScaleMutualAid_MutualAidCost = setMoney(row["共済契約掛金"].ToString()),
 								SmallScaleMutualAid_CorporatePensionCost = setMoney(row["企業型年金加入者掛金"].ToString()),
 								SmallScaleMutualAid_PersonalPensionCost = setMoney(row["個人型年金加入者掛金"].ToString()),
@@ -569,6 +705,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 							+ " ,一般生命保険料04_保険金等受取人続柄 = @LifeInsurance_4_RelationshipType"
 							+ " ,一般生命保険料04_新旧 = @LifeInsurance_4_OldAndNewType"
 							+ " ,一般生命保険料04_支払金額 = @LifeInsurance_4_InsuranceFee"
+
 							+ " ,介護医療保険料合計 = @MedicalInsurance_TotalAmount"
 							+ " ,介護医療保険料表計算 = @MedicalInsurance_DeductionAmount"
 							+ " ,介護医療保険料01_会社等名称 = @MedicalInsurance_1_InsuranceCompanyName"
@@ -589,6 +726,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 							+ " ,介護医療保険料02_保険金等受取人氏名_名 = @MedicalInsurance_2_ReceiverName2"
 							+ " ,介護医療保険料02_保険金等受取人続柄 = @MedicalInsurance_2_RelationshipType"
 							+ " ,介護医療保険料02_支払金額 = @MedicalInsurance_2_InsuranceFee"
+
 							+ " ,個人年金保険料新保険料合計 = @PensionInsurance_NewTotalAmount"
 							+ " ,個人年金保険料旧保険料合計 = @PensionInsurance_OldTotalAmount"
 							+ " ,個人年金保険料新保険料表計算 = @PensionInsurance_Calc1"
@@ -628,6 +766,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 							+ " ,個人年金保険料03_支払開始日 = @PensionInsurance_3_StartPayment"
 							+ " ,個人年金保険料03_新旧 = @PensionInsurance_3_OldAndNewType"
 							+ " ,個人年金保険料03_支払金額 = @PensionInsurance_3_InsuranceFee"
+
 							+ " ,地震保険料控除地震保険料合計 = @QuakeInsurance_QuakeAmount"
 							+ " ,地震保険料控除旧長期損害保険料合計 = @QuakeInsurance_DamageTotalAmount"
 							+ " ,地震保険料控除額金額01 = @QuakeInsurance_Calc1"
@@ -653,6 +792,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 							+ " ,地震保険料控除02_保険等対象続柄 = @QuakeInsurance_2_RelationshipType"
 							+ " ,地震保険料控除02_地震旧長期 = @QuakeInsurance_2_QuakeAndDamageType"
 							+ " ,地震保険料控除02_支払保険料 = @QuakeInsurance_2_InsuranceFee"
+
 							+ " ,社会保険料控除合計 = @SocialInsurance_DeductionAmount"
 							+ " ,社会保険料控除01_社会保険種類 = @SocialInsurance_1_InsuranceTypeName"
 							+ " ,社会保険料控除01_支払先名称 = @SocialInsurance_1_InsuranceCompanyName"
@@ -671,6 +811,155 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 							+ " ,個人型年金加入者掛金 = @SmallScaleMutualAid_PersonalPensionCost"
 							+ " ,心身障害者扶養共済制度契約掛金 = @SmallScaleMutualAid_HandicappedMutualAidCost"
 							+ " ,小規模企業共済等掛金控除合計 = @SmallScaleMutualAid_DeductionAmount"
+
+							//2023-99-99 iwai-tamura upd str -----
+							+ " ,一般生命保険料01_HostData判定 = @LifeInsurance_1_HostDataFlg"
+							+ " ,一般生命保険料02_HostData判定 = @LifeInsurance_2_HostDataFlg"
+							+ " ,一般生命保険料03_HostData判定 = @LifeInsurance_3_HostDataFlg"
+							+ " ,一般生命保険料04_HostData判定 = @LifeInsurance_4_HostDataFlg"
+
+							+ " ,一般生命保険料05_HostData判定 = @LifeInsurance_5_HostDataFlg"
+							+ " ,一般生命保険料05_保険会社等名称 = @LifeInsurance_5_InsuranceCompanyName"
+							+ " ,一般生命保険料05_保険等種類 = @LifeInsurance_5_InsuranceTypeName"
+							+ " ,一般生命保険料05_期間 = @LifeInsurance_5_InsurancePeriod"
+							+ " ,一般生命保険料05_保険等契約者氏名_姓 = @LifeInsurance_5_ContractorName1"
+							+ " ,一般生命保険料05_保険等契約者氏名_名 = @LifeInsurance_5_ContractorName2"
+							+ " ,一般生命保険料05_保険金等受取人氏名_姓 = @LifeInsurance_5_ReceiverName1"
+							+ " ,一般生命保険料05_保険金等受取人氏名_名 = @LifeInsurance_5_ReceiverName2"
+							+ " ,一般生命保険料05_保険金等受取人続柄 = @LifeInsurance_5_RelationshipType"
+							+ " ,一般生命保険料05_新旧 = @LifeInsurance_5_OldAndNewType"
+							+ " ,一般生命保険料05_支払金額 = @LifeInsurance_5_InsuranceFee"
+
+							+ " ,一般生命保険料06_HostData判定 = @LifeInsurance_6_HostDataFlg"
+							+ " ,一般生命保険料06_保険会社等名称 = @LifeInsurance_6_InsuranceCompanyName"
+							+ " ,一般生命保険料06_保険等種類 = @LifeInsurance_6_InsuranceTypeName"
+							+ " ,一般生命保険料06_期間 = @LifeInsurance_6_InsurancePeriod"
+							+ " ,一般生命保険料06_保険等契約者氏名_姓 = @LifeInsurance_6_ContractorName1"
+							+ " ,一般生命保険料06_保険等契約者氏名_名 = @LifeInsurance_6_ContractorName2"
+							+ " ,一般生命保険料06_保険金等受取人氏名_姓 = @LifeInsurance_6_ReceiverName1"
+							+ " ,一般生命保険料06_保険金等受取人氏名_名 = @LifeInsurance_6_ReceiverName2"
+							+ " ,一般生命保険料06_保険金等受取人続柄 = @LifeInsurance_6_RelationshipType"
+							+ " ,一般生命保険料06_新旧 = @LifeInsurance_6_OldAndNewType"
+							+ " ,一般生命保険料06_支払金額 = @LifeInsurance_6_InsuranceFee"
+
+							+ " ,一般生命保険料07_HostData判定 = @LifeInsurance_7_HostDataFlg"
+							+ " ,一般生命保険料07_保険会社等名称 = @LifeInsurance_7_InsuranceCompanyName"
+							+ " ,一般生命保険料07_保険等種類 = @LifeInsurance_7_InsuranceTypeName"
+							+ " ,一般生命保険料07_期間 = @LifeInsurance_7_InsurancePeriod"
+							+ " ,一般生命保険料07_保険等契約者氏名_姓 = @LifeInsurance_7_ContractorName1"
+							+ " ,一般生命保険料07_保険等契約者氏名_名 = @LifeInsurance_7_ContractorName2"
+							+ " ,一般生命保険料07_保険金等受取人氏名_姓 = @LifeInsurance_7_ReceiverName1"
+							+ " ,一般生命保険料07_保険金等受取人氏名_名 = @LifeInsurance_7_ReceiverName2"
+							+ " ,一般生命保険料07_保険金等受取人続柄 = @LifeInsurance_7_RelationshipType"
+							+ " ,一般生命保険料07_新旧 = @LifeInsurance_7_OldAndNewType"
+							+ " ,一般生命保険料07_支払金額 = @LifeInsurance_7_InsuranceFee"
+
+							+ " ,一般生命保険料08_HostData判定 = @LifeInsurance_8_HostDataFlg"
+							+ " ,一般生命保険料08_保険会社等名称 = @LifeInsurance_8_InsuranceCompanyName"
+							+ " ,一般生命保険料08_保険等種類 = @LifeInsurance_8_InsuranceTypeName"
+							+ " ,一般生命保険料08_期間 = @LifeInsurance_8_InsurancePeriod"
+							+ " ,一般生命保険料08_保険等契約者氏名_姓 = @LifeInsurance_8_ContractorName1"
+							+ " ,一般生命保険料08_保険等契約者氏名_名 = @LifeInsurance_8_ContractorName2"
+							+ " ,一般生命保険料08_保険金等受取人氏名_姓 = @LifeInsurance_8_ReceiverName1"
+							+ " ,一般生命保険料08_保険金等受取人氏名_名 = @LifeInsurance_8_ReceiverName2"
+							+ " ,一般生命保険料08_保険金等受取人続柄 = @LifeInsurance_8_RelationshipType"
+							+ " ,一般生命保険料08_新旧 = @LifeInsurance_8_OldAndNewType"
+							+ " ,一般生命保険料08_支払金額 = @LifeInsurance_8_InsuranceFee"
+
+							+ " ,介護医療保険料01_HostData判定 = @MedicalInsurance_1_HostDataFlg"
+							+ " ,介護医療保険料02_HostData判定 = @MedicalInsurance_2_HostDataFlg"
+							+ " ,介護医療保険料03_HostData判定 = @MedicalInsurance_3_HostDataFlg"
+							+ " ,介護医療保険料03_会社等名称 = @MedicalInsurance_3_InsuranceCompanyName"
+							+ " ,介護医療保険料03_保険等種類 = @MedicalInsurance_3_InsuranceTypeName"
+							+ " ,介護医療保険料03_期間 = @MedicalInsurance_3_InsurancePeriod"
+							+ " ,介護医療保険料03_保険等契約者氏名_姓 = @MedicalInsurance_3_ContractorName1"
+							+ " ,介護医療保険料03_保険等契約者氏名_名 = @MedicalInsurance_3_ContractorName2"
+							+ " ,介護医療保険料03_保険金等受取人氏名_姓 = @MedicalInsurance_3_ReceiverName1"
+							+ " ,介護医療保険料03_保険金等受取人氏名_名 = @MedicalInsurance_3_ReceiverName2"
+							+ " ,介護医療保険料03_保険金等受取人続柄 = @MedicalInsurance_3_RelationshipType"
+							+ " ,介護医療保険料03_支払金額 = @MedicalInsurance_3_InsuranceFee"
+
+							+ " ,介護医療保険料04_HostData判定 = @MedicalInsurance_4_HostDataFlg"
+							+ " ,介護医療保険料04_会社等名称 = @MedicalInsurance_4_InsuranceCompanyName"
+							+ " ,介護医療保険料04_保険等種類 = @MedicalInsurance_4_InsuranceTypeName"
+							+ " ,介護医療保険料04_期間 = @MedicalInsurance_4_InsurancePeriod"
+							+ " ,介護医療保険料04_保険等契約者氏名_姓 = @MedicalInsurance_4_ContractorName1"
+							+ " ,介護医療保険料04_保険等契約者氏名_名 = @MedicalInsurance_4_ContractorName2"
+							+ " ,介護医療保険料04_保険金等受取人氏名_姓 = @MedicalInsurance_4_ReceiverName1"
+							+ " ,介護医療保険料04_保険金等受取人氏名_名 = @MedicalInsurance_4_ReceiverName2"
+							+ " ,介護医療保険料04_保険金等受取人続柄 = @MedicalInsurance_4_RelationshipType"
+							+ " ,介護医療保険料04_支払金額 = @MedicalInsurance_4_InsuranceFee"
+
+							+ " ,介護医療保険料05_HostData判定 = @MedicalInsurance_5_HostDataFlg"
+							+ " ,介護医療保険料05_会社等名称 = @MedicalInsurance_5_InsuranceCompanyName"
+							+ " ,介護医療保険料05_保険等種類 = @MedicalInsurance_5_InsuranceTypeName"
+							+ " ,介護医療保険料05_期間 = @MedicalInsurance_5_InsurancePeriod"
+							+ " ,介護医療保険料05_保険等契約者氏名_姓 = @MedicalInsurance_5_ContractorName1"
+							+ " ,介護医療保険料05_保険等契約者氏名_名 = @MedicalInsurance_5_ContractorName2"
+							+ " ,介護医療保険料05_保険金等受取人氏名_姓 = @MedicalInsurance_5_ReceiverName1"
+							+ " ,介護医療保険料05_保険金等受取人氏名_名 = @MedicalInsurance_5_ReceiverName2"
+							+ " ,介護医療保険料05_保険金等受取人続柄 = @MedicalInsurance_5_RelationshipType"
+							+ " ,介護医療保険料05_支払金額 = @MedicalInsurance_5_InsuranceFee"
+
+							+ " ,介護医療保険料06_HostData判定 = @MedicalInsurance_6_HostDataFlg"
+							+ " ,介護医療保険料06_会社等名称 = @MedicalInsurance_6_InsuranceCompanyName"
+							+ " ,介護医療保険料06_保険等種類 = @MedicalInsurance_6_InsuranceTypeName"
+							+ " ,介護医療保険料06_期間 = @MedicalInsurance_6_InsurancePeriod"
+							+ " ,介護医療保険料06_保険等契約者氏名_姓 = @MedicalInsurance_6_ContractorName1"
+							+ " ,介護医療保険料06_保険等契約者氏名_名 = @MedicalInsurance_6_ContractorName2"
+							+ " ,介護医療保険料06_保険金等受取人氏名_姓 = @MedicalInsurance_6_ReceiverName1"
+							+ " ,介護医療保険料06_保険金等受取人氏名_名 = @MedicalInsurance_6_ReceiverName2"
+							+ " ,介護医療保険料06_保険金等受取人続柄 = @MedicalInsurance_6_RelationshipType"
+							+ " ,介護医療保険料06_支払金額 = @MedicalInsurance_6_InsuranceFee"
+
+							+ " ,個人年金保険料01_HostData判定 = @PensionInsurance_1_HostDataFlg"
+							+ " ,個人年金保険料02_HostData判定 = @PensionInsurance_2_HostDataFlg"
+							+ " ,個人年金保険料03_HostData判定 = @PensionInsurance_3_HostDataFlg"
+							+ " ,個人年金保険料04_HostData判定 = @PensionInsurance_4_HostDataFlg"
+							+ " ,個人年金保険料04_会社等名称 = @PensionInsurance_4_InsuranceCompanyName"
+							+ " ,個人年金保険料04_保険等種類 = @PensionInsurance_4_InsuranceTypeName"
+							+ " ,個人年金保険料04_期間 = @PensionInsurance_4_InsurancePeriod"
+							+ " ,個人年金保険料04_保険等契約者氏名_姓 = @PensionInsurance_4_ContractorName1"
+							+ " ,個人年金保険料04_保険等契約者氏名_名 = @PensionInsurance_4_ContractorName2"
+							+ " ,個人年金保険料04_保険金等受取人氏名_姓 = @PensionInsurance_4_ReceiverName1"
+							+ " ,個人年金保険料04_保険金等受取人氏名_名 = @PensionInsurance_4_ReceiverName2"
+							+ " ,個人年金保険料04_保険金等受取人続柄 = @PensionInsurance_4_RelationshipType"
+							+ " ,個人年金保険料04_支払開始日 = @PensionInsurance_4_StartPayment"
+							+ " ,個人年金保険料04_新旧 = @PensionInsurance_4_OldAndNewType"
+							+ " ,個人年金保険料04_支払金額 = @PensionInsurance_4_InsuranceFee"
+
+							+ " ,地震保険料控除01_HostData判定 = @QuakeInsurance_1_HostDataFlg"
+							+ " ,地震保険料控除02_HostData判定 = @QuakeInsurance_2_HostDataFlg"
+							+ " ,地震保険料控除03_HostData判定 = @QuakeInsurance_3_HostDataFlg"
+							+ " ,地震保険料控除03_会社等名称 = @QuakeInsurance_3_InsuranceCompanyName"
+							+ " ,地震保険料控除03_保険等種類 = @QuakeInsurance_3_InsuranceTypeName"
+							+ " ,地震保険料控除03_期間 = @QuakeInsurance_3_InsurancePeriod"
+							+ " ,地震保険料控除03_保険等契約者氏名_姓 = @QuakeInsurance_3_ContractorName1"
+							+ " ,地震保険料控除03_保険等契約者氏名_名 = @QuakeInsurance_3_ContractorName2"
+							+ " ,地震保険料控除03_保険等対象氏名_姓 = @QuakeInsurance_3_ReceiverName1"
+							+ " ,地震保険料控除03_保険等対象氏名_名 = @QuakeInsurance_3_ReceiverName2"
+							+ " ,地震保険料控除03_保険等対象続柄 = @QuakeInsurance_3_RelationshipType"
+							+ " ,地震保険料控除03_地震旧長期 = @QuakeInsurance_3_QuakeAndDamageType"
+							+ " ,地震保険料控除03_支払保険料 = @QuakeInsurance_3_InsuranceFee"
+							+ " ,地震保険料控除04_HostData判定 = @QuakeInsurance_4_HostDataFlg"
+							+ " ,地震保険料控除04_会社等名称 = @QuakeInsurance_4_InsuranceCompanyName"
+							+ " ,地震保険料控除04_保険等種類 = @QuakeInsurance_4_InsuranceTypeName"
+							+ " ,地震保険料控除04_期間 = @QuakeInsurance_4_InsurancePeriod"
+							+ " ,地震保険料控除04_保険等契約者氏名_姓 = @QuakeInsurance_4_ContractorName1"
+							+ " ,地震保険料控除04_保険等契約者氏名_名 = @QuakeInsurance_4_ContractorName2"
+							+ " ,地震保険料控除04_保険等対象氏名_姓 = @QuakeInsurance_4_ReceiverName1"
+							+ " ,地震保険料控除04_保険等対象氏名_名 = @QuakeInsurance_4_ReceiverName2"
+							+ " ,地震保険料控除04_保険等対象続柄 = @QuakeInsurance_4_RelationshipType"
+							+ " ,地震保険料控除04_地震旧長期 = @QuakeInsurance_4_QuakeAndDamageType"
+							+ " ,地震保険料控除04_支払保険料 = @QuakeInsurance_4_InsuranceFee"
+
+							+ " ,社会保険料控除03_社会保険種類 = @SocialInsurance_3_InsuranceTypeName"
+							+ " ,社会保険料控除03_支払先名称 = @SocialInsurance_3_InsuranceCompanyName"
+							+ " ,社会保険料控除03_負担者氏名_姓 = @SocialInsurance_3_ContractorName1"
+							+ " ,社会保険料控除03_負担者氏名_名 = @SocialInsurance_3_ContractorName2"
+							+ " ,社会保険料控除03_負担者続柄 = @SocialInsurance_3_RelationshipType"
+							+ " ,社会保険料控除03_支払保険料 = @SocialInsurance_3_InsuranceFee"
+							//2023-99-99 iwai-tamura upd end -----
 
 							+ " ,最終更新者ID = '" + lu.UserCode + "'"
 							+ " ,更新年月日 = GETDATE()"
@@ -840,6 +1129,147 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 						DbHelper.AddDbParameter(cmd, "@SmallScaleMutualAid_PersonalPensionCost", DbType.Int32);
 						DbHelper.AddDbParameter(cmd, "@SmallScaleMutualAid_HandicappedMutualAidCost", DbType.Int32);
 						DbHelper.AddDbParameter(cmd, "@SmallScaleMutualAid_DeductionAmount", DbType.Int32);
+
+						//2023-99-99 iwai-tamura upd str -----
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_1_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_2_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_3_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_4_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_5_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_5_InsuranceCompanyName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_5_InsuranceTypeName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_5_InsurancePeriod", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_5_ContractorName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_5_ContractorName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_5_ReceiverName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_5_ReceiverName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_5_RelationshipType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_5_OldAndNewType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_5_InsuranceFee", DbType.Int32);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_6_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_6_InsuranceCompanyName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_6_InsuranceTypeName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_6_InsurancePeriod", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_6_ContractorName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_6_ContractorName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_6_ReceiverName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_6_ReceiverName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_6_RelationshipType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_6_OldAndNewType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_6_InsuranceFee", DbType.Int32);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_7_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_7_InsuranceCompanyName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_7_InsuranceTypeName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_7_InsurancePeriod", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_7_ContractorName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_7_ContractorName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_7_ReceiverName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_7_ReceiverName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_7_RelationshipType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_7_OldAndNewType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_7_InsuranceFee", DbType.Int32);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_8_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_8_InsuranceCompanyName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_8_InsuranceTypeName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_8_InsurancePeriod", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_8_ContractorName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_8_ContractorName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_8_ReceiverName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_8_ReceiverName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_8_RelationshipType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_8_OldAndNewType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@LifeInsurance_8_InsuranceFee", DbType.Int32);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_1_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_2_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_3_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_3_InsuranceCompanyName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_3_InsuranceTypeName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_3_InsurancePeriod", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_3_ContractorName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_3_ContractorName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_3_ReceiverName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_3_ReceiverName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_3_RelationshipType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_3_InsuranceFee", DbType.Int32);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_4_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_4_InsuranceCompanyName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_4_InsuranceTypeName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_4_InsurancePeriod", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_4_ContractorName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_4_ContractorName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_4_ReceiverName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_4_ReceiverName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_4_RelationshipType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_4_InsuranceFee", DbType.Int32);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_5_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_5_InsuranceCompanyName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_5_InsuranceTypeName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_5_InsurancePeriod", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_5_ContractorName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_5_ContractorName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_5_ReceiverName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_5_ReceiverName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_5_RelationshipType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_5_InsuranceFee", DbType.Int32);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_6_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_6_InsuranceCompanyName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_6_InsuranceTypeName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_6_InsurancePeriod", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_6_ContractorName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_6_ContractorName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_6_ReceiverName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_6_ReceiverName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_6_RelationshipType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@MedicalInsurance_6_InsuranceFee", DbType.Int32);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_1_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_2_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_3_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_4_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_4_InsuranceCompanyName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_4_InsuranceTypeName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_4_InsurancePeriod", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_4_ContractorName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_4_ContractorName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_4_ReceiverName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_4_ReceiverName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_4_RelationshipType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_4_StartPayment", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_4_OldAndNewType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@PensionInsurance_4_InsuranceFee", DbType.Int32);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_1_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_2_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_3_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_3_InsuranceCompanyName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_3_InsuranceTypeName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_3_InsurancePeriod", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_3_ContractorName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_3_ContractorName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_3_ReceiverName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_3_ReceiverName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_3_RelationshipType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_3_QuakeAndDamageType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_3_InsuranceFee", DbType.Int32);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_4_HostDataFlg", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_4_InsuranceCompanyName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_4_InsuranceTypeName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_4_InsurancePeriod", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_4_ContractorName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_4_ContractorName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_4_ReceiverName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_4_ReceiverName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_4_RelationshipType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_4_QuakeAndDamageType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@QuakeInsurance_4_InsuranceFee", DbType.Int32);
+						DbHelper.AddDbParameter(cmd, "@SocialInsurance_3_InsuranceTypeName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@SocialInsurance_3_InsuranceCompanyName", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@SocialInsurance_3_ContractorName1", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@SocialInsurance_3_ContractorName2", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@SocialInsurance_3_RelationshipType", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@SocialInsurance_3_InsuranceFee", DbType.Int32);
+						//2023-99-99 iwai-tamura upd end -----
+
+
+
                         DbHelper.AddDbParameter(cmd, "@SheetYear", DbType.Int32);
 						DbHelper.AddDbParameter(cmd, "@EmployeeNo", DbType.String);
 
@@ -1003,8 +1433,147 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 						parameters[154].Value = DataConv.IfNull(model.Head.SmallScaleMutualAid_PersonalPensionCost.ToString());
 						parameters[155].Value = DataConv.IfNull(model.Head.SmallScaleMutualAid_HandicappedMutualAidCost.ToString());
 						parameters[156].Value = DataConv.IfNull(model.Head.SmallScaleMutualAid_DeductionAmount.ToString());
-                        parameters[157].Value = DataConv.IfNull(model.Head.SheetYear.ToString());
-                        parameters[158].Value = DataConv.IfNull(model.Head.EmployeeNo);
+
+						//2023-99-99 iwai-tamura upd str -----
+						parameters[157].Value = DataConv.IfNull(checkValue(model.Head.LifeInsurance_1_HostDataFlg));
+						parameters[158].Value = DataConv.IfNull(checkValue(model.Head.LifeInsurance_2_HostDataFlg));
+						parameters[159].Value = DataConv.IfNull(checkValue(model.Head.LifeInsurance_3_HostDataFlg));
+						parameters[160].Value = DataConv.IfNull(checkValue(model.Head.LifeInsurance_4_HostDataFlg));
+						parameters[161].Value = DataConv.IfNull(checkValue(model.Head.LifeInsurance_5_HostDataFlg));
+						parameters[162].Value = DataConv.IfNull(model.Head.LifeInsurance_5_InsuranceCompanyName);
+						parameters[163].Value = DataConv.IfNull(model.Head.LifeInsurance_5_InsuranceTypeName);
+						parameters[164].Value = DataConv.IfNull(model.Head.LifeInsurance_5_InsurancePeriod);
+						parameters[165].Value = DataConv.IfNull(model.Head.LifeInsurance_5_ContractorName1);
+						parameters[166].Value = DataConv.IfNull(model.Head.LifeInsurance_5_ContractorName2);
+						parameters[167].Value = DataConv.IfNull(model.Head.LifeInsurance_5_ReceiverName1);
+						parameters[168].Value = DataConv.IfNull(model.Head.LifeInsurance_5_ReceiverName2);
+						parameters[169].Value = DataConv.IfNull(model.Head.LifeInsurance_5_RelationshipType);
+						parameters[170].Value = DataConv.IfNull(model.Head.LifeInsurance_5_OldAndNewType);
+						parameters[171].Value = DataConv.IfNull(model.Head.LifeInsurance_5_InsuranceFee.ToString());
+						parameters[172].Value = DataConv.IfNull(checkValue(model.Head.LifeInsurance_6_HostDataFlg));
+						parameters[173].Value = DataConv.IfNull(model.Head.LifeInsurance_6_InsuranceCompanyName);
+						parameters[174].Value = DataConv.IfNull(model.Head.LifeInsurance_6_InsuranceTypeName);
+						parameters[175].Value = DataConv.IfNull(model.Head.LifeInsurance_6_InsurancePeriod);
+						parameters[176].Value = DataConv.IfNull(model.Head.LifeInsurance_6_ContractorName1);
+						parameters[177].Value = DataConv.IfNull(model.Head.LifeInsurance_6_ContractorName2);
+						parameters[178].Value = DataConv.IfNull(model.Head.LifeInsurance_6_ReceiverName1);
+						parameters[179].Value = DataConv.IfNull(model.Head.LifeInsurance_6_ReceiverName2);
+						parameters[180].Value = DataConv.IfNull(model.Head.LifeInsurance_6_RelationshipType);
+						parameters[181].Value = DataConv.IfNull(model.Head.LifeInsurance_6_OldAndNewType);
+						parameters[182].Value = DataConv.IfNull(model.Head.LifeInsurance_6_InsuranceFee.ToString());
+						parameters[183].Value = DataConv.IfNull(checkValue(model.Head.LifeInsurance_7_HostDataFlg));
+						parameters[184].Value = DataConv.IfNull(model.Head.LifeInsurance_7_InsuranceCompanyName);
+						parameters[185].Value = DataConv.IfNull(model.Head.LifeInsurance_7_InsuranceTypeName);
+						parameters[186].Value = DataConv.IfNull(model.Head.LifeInsurance_7_InsurancePeriod);
+						parameters[187].Value = DataConv.IfNull(model.Head.LifeInsurance_7_ContractorName1);
+						parameters[188].Value = DataConv.IfNull(model.Head.LifeInsurance_7_ContractorName2);
+						parameters[189].Value = DataConv.IfNull(model.Head.LifeInsurance_7_ReceiverName1);
+						parameters[190].Value = DataConv.IfNull(model.Head.LifeInsurance_7_ReceiverName2);
+						parameters[191].Value = DataConv.IfNull(model.Head.LifeInsurance_7_RelationshipType);
+						parameters[192].Value = DataConv.IfNull(model.Head.LifeInsurance_7_OldAndNewType);
+						parameters[193].Value = DataConv.IfNull(model.Head.LifeInsurance_7_InsuranceFee.ToString());
+						parameters[194].Value = DataConv.IfNull(checkValue(model.Head.LifeInsurance_8_HostDataFlg));
+						parameters[195].Value = DataConv.IfNull(model.Head.LifeInsurance_8_InsuranceCompanyName);
+						parameters[196].Value = DataConv.IfNull(model.Head.LifeInsurance_8_InsuranceTypeName);
+						parameters[197].Value = DataConv.IfNull(model.Head.LifeInsurance_8_InsurancePeriod);
+						parameters[198].Value = DataConv.IfNull(model.Head.LifeInsurance_8_ContractorName1);
+						parameters[199].Value = DataConv.IfNull(model.Head.LifeInsurance_8_ContractorName2);
+						parameters[200].Value = DataConv.IfNull(model.Head.LifeInsurance_8_ReceiverName1);
+						parameters[201].Value = DataConv.IfNull(model.Head.LifeInsurance_8_ReceiverName2);
+						parameters[202].Value = DataConv.IfNull(model.Head.LifeInsurance_8_RelationshipType);
+						parameters[203].Value = DataConv.IfNull(model.Head.LifeInsurance_8_OldAndNewType);
+						parameters[204].Value = DataConv.IfNull(model.Head.LifeInsurance_8_InsuranceFee.ToString());
+						parameters[205].Value = DataConv.IfNull(checkValue(model.Head.MedicalInsurance_1_HostDataFlg));
+						parameters[206].Value = DataConv.IfNull(checkValue(model.Head.MedicalInsurance_2_HostDataFlg));
+						parameters[207].Value = DataConv.IfNull(checkValue(model.Head.MedicalInsurance_3_HostDataFlg));
+						parameters[208].Value = DataConv.IfNull(model.Head.MedicalInsurance_3_InsuranceCompanyName);
+						parameters[209].Value = DataConv.IfNull(model.Head.MedicalInsurance_3_InsuranceTypeName);
+						parameters[210].Value = DataConv.IfNull(model.Head.MedicalInsurance_3_InsurancePeriod);
+						parameters[211].Value = DataConv.IfNull(model.Head.MedicalInsurance_3_ContractorName1);
+						parameters[212].Value = DataConv.IfNull(model.Head.MedicalInsurance_3_ContractorName2);
+						parameters[213].Value = DataConv.IfNull(model.Head.MedicalInsurance_3_ReceiverName1);
+						parameters[214].Value = DataConv.IfNull(model.Head.MedicalInsurance_3_ReceiverName2);
+						parameters[215].Value = DataConv.IfNull(model.Head.MedicalInsurance_3_RelationshipType);
+						parameters[216].Value = DataConv.IfNull(model.Head.MedicalInsurance_3_InsuranceFee.ToString());
+						parameters[217].Value = DataConv.IfNull(checkValue(model.Head.MedicalInsurance_4_HostDataFlg));
+						parameters[218].Value = DataConv.IfNull(model.Head.MedicalInsurance_4_InsuranceCompanyName);
+						parameters[219].Value = DataConv.IfNull(model.Head.MedicalInsurance_4_InsuranceTypeName);
+						parameters[220].Value = DataConv.IfNull(model.Head.MedicalInsurance_4_InsurancePeriod);
+						parameters[221].Value = DataConv.IfNull(model.Head.MedicalInsurance_4_ContractorName1);
+						parameters[222].Value = DataConv.IfNull(model.Head.MedicalInsurance_4_ContractorName2);
+						parameters[223].Value = DataConv.IfNull(model.Head.MedicalInsurance_4_ReceiverName1);
+						parameters[224].Value = DataConv.IfNull(model.Head.MedicalInsurance_4_ReceiverName2);
+						parameters[225].Value = DataConv.IfNull(model.Head.MedicalInsurance_4_RelationshipType);
+						parameters[226].Value = DataConv.IfNull(model.Head.MedicalInsurance_4_InsuranceFee.ToString());
+						parameters[227].Value = DataConv.IfNull(checkValue(model.Head.MedicalInsurance_5_HostDataFlg));
+						parameters[228].Value = DataConv.IfNull(model.Head.MedicalInsurance_5_InsuranceCompanyName);
+						parameters[229].Value = DataConv.IfNull(model.Head.MedicalInsurance_5_InsuranceTypeName);
+						parameters[230].Value = DataConv.IfNull(model.Head.MedicalInsurance_5_InsurancePeriod);
+						parameters[231].Value = DataConv.IfNull(model.Head.MedicalInsurance_5_ContractorName1);
+						parameters[232].Value = DataConv.IfNull(model.Head.MedicalInsurance_5_ContractorName2);
+						parameters[233].Value = DataConv.IfNull(model.Head.MedicalInsurance_5_ReceiverName1);
+						parameters[234].Value = DataConv.IfNull(model.Head.MedicalInsurance_5_ReceiverName2);
+						parameters[235].Value = DataConv.IfNull(model.Head.MedicalInsurance_5_RelationshipType);
+						parameters[236].Value = DataConv.IfNull(model.Head.MedicalInsurance_5_InsuranceFee.ToString());
+						parameters[237].Value = DataConv.IfNull(checkValue(model.Head.MedicalInsurance_6_HostDataFlg));
+						parameters[238].Value = DataConv.IfNull(model.Head.MedicalInsurance_6_InsuranceCompanyName);
+						parameters[239].Value = DataConv.IfNull(model.Head.MedicalInsurance_6_InsuranceTypeName);
+						parameters[240].Value = DataConv.IfNull(model.Head.MedicalInsurance_6_InsurancePeriod);
+						parameters[241].Value = DataConv.IfNull(model.Head.MedicalInsurance_6_ContractorName1);
+						parameters[242].Value = DataConv.IfNull(model.Head.MedicalInsurance_6_ContractorName2);
+						parameters[243].Value = DataConv.IfNull(model.Head.MedicalInsurance_6_ReceiverName1);
+						parameters[244].Value = DataConv.IfNull(model.Head.MedicalInsurance_6_ReceiverName2);
+						parameters[245].Value = DataConv.IfNull(model.Head.MedicalInsurance_6_RelationshipType);
+						parameters[246].Value = DataConv.IfNull(model.Head.MedicalInsurance_6_InsuranceFee.ToString());
+						parameters[247].Value = DataConv.IfNull(checkValue(model.Head.PensionInsurance_1_HostDataFlg));
+						parameters[248].Value = DataConv.IfNull(checkValue(model.Head.PensionInsurance_2_HostDataFlg));
+						parameters[249].Value = DataConv.IfNull(checkValue(model.Head.PensionInsurance_3_HostDataFlg));
+						parameters[250].Value = DataConv.IfNull(checkValue(model.Head.PensionInsurance_4_HostDataFlg));
+						parameters[251].Value = DataConv.IfNull(model.Head.PensionInsurance_4_InsuranceCompanyName);
+						parameters[252].Value = DataConv.IfNull(model.Head.PensionInsurance_4_InsuranceTypeName);
+						parameters[253].Value = DataConv.IfNull(model.Head.PensionInsurance_4_InsurancePeriod);
+						parameters[254].Value = DataConv.IfNull(model.Head.PensionInsurance_4_ContractorName1);
+						parameters[255].Value = DataConv.IfNull(model.Head.PensionInsurance_4_ContractorName2);
+						parameters[256].Value = DataConv.IfNull(model.Head.PensionInsurance_4_ReceiverName1);
+						parameters[257].Value = DataConv.IfNull(model.Head.PensionInsurance_4_ReceiverName2);
+						parameters[258].Value = DataConv.IfNull(model.Head.PensionInsurance_4_RelationshipType);
+						parameters[259].Value = DataConv.IfNull(addYMD(model.Head.PensionInsurance_4_StartPaymentYear,model.Head.PensionInsurance_4_StartPaymentMonth,model.Head.PensionInsurance_4_StartPaymentDay));
+						parameters[260].Value = DataConv.IfNull(model.Head.PensionInsurance_4_OldAndNewType);
+						parameters[261].Value = DataConv.IfNull(model.Head.PensionInsurance_4_InsuranceFee.ToString());
+						parameters[262].Value = DataConv.IfNull(checkValue(model.Head.QuakeInsurance_1_HostDataFlg));
+						parameters[263].Value = DataConv.IfNull(checkValue(model.Head.QuakeInsurance_2_HostDataFlg));
+						parameters[264].Value = DataConv.IfNull(checkValue(model.Head.QuakeInsurance_3_HostDataFlg));
+						parameters[265].Value = DataConv.IfNull(model.Head.QuakeInsurance_3_InsuranceCompanyName);
+						parameters[266].Value = DataConv.IfNull(model.Head.QuakeInsurance_3_InsuranceTypeName);
+						parameters[267].Value = DataConv.IfNull(model.Head.QuakeInsurance_3_InsurancePeriod);
+						parameters[268].Value = DataConv.IfNull(model.Head.QuakeInsurance_3_ContractorName1);
+						parameters[269].Value = DataConv.IfNull(model.Head.QuakeInsurance_3_ContractorName2);
+						parameters[270].Value = DataConv.IfNull(model.Head.QuakeInsurance_3_ReceiverName1);
+						parameters[271].Value = DataConv.IfNull(model.Head.QuakeInsurance_3_ReceiverName2);
+						parameters[272].Value = DataConv.IfNull(model.Head.QuakeInsurance_3_RelationshipType);
+						parameters[273].Value = DataConv.IfNull(model.Head.QuakeInsurance_3_QuakeAndDamageType);
+						parameters[274].Value = DataConv.IfNull(model.Head.QuakeInsurance_3_InsuranceFee.ToString());
+						parameters[275].Value = DataConv.IfNull(checkValue(model.Head.QuakeInsurance_4_HostDataFlg));
+						parameters[276].Value = DataConv.IfNull(model.Head.QuakeInsurance_4_InsuranceCompanyName);
+						parameters[277].Value = DataConv.IfNull(model.Head.QuakeInsurance_4_InsuranceTypeName);
+						parameters[278].Value = DataConv.IfNull(model.Head.QuakeInsurance_4_InsurancePeriod);
+						parameters[279].Value = DataConv.IfNull(model.Head.QuakeInsurance_4_ContractorName1);
+						parameters[280].Value = DataConv.IfNull(model.Head.QuakeInsurance_4_ContractorName2);
+						parameters[281].Value = DataConv.IfNull(model.Head.QuakeInsurance_4_ReceiverName1);
+						parameters[282].Value = DataConv.IfNull(model.Head.QuakeInsurance_4_ReceiverName2);
+						parameters[283].Value = DataConv.IfNull(model.Head.QuakeInsurance_4_RelationshipType);
+						parameters[284].Value = DataConv.IfNull(model.Head.QuakeInsurance_4_QuakeAndDamageType);
+						parameters[285].Value = DataConv.IfNull(model.Head.QuakeInsurance_4_InsuranceFee.ToString());
+						parameters[286].Value = DataConv.IfNull(model.Head.SocialInsurance_3_InsuranceTypeName);
+						parameters[287].Value = DataConv.IfNull(model.Head.SocialInsurance_3_InsuranceCompanyName);
+						parameters[288].Value = DataConv.IfNull(model.Head.SocialInsurance_3_ContractorName1);
+						parameters[289].Value = DataConv.IfNull(model.Head.SocialInsurance_3_ContractorName2);
+						parameters[290].Value = DataConv.IfNull(model.Head.SocialInsurance_3_RelationshipType);
+						parameters[291].Value = DataConv.IfNull(model.Head.SocialInsurance_3_InsuranceFee.ToString());
+						//2023-99-99 iwai-tamura upd end -----
+
+                        parameters[292].Value = DataConv.IfNull(model.Head.SheetYear.ToString());
+                        parameters[293].Value = DataConv.IfNull(model.Head.EmployeeNo);
 
 
                         cmd.ExecuteNonQuery();

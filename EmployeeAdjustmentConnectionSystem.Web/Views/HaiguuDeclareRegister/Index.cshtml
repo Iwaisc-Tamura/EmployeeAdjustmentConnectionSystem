@@ -362,6 +362,13 @@
     var attrRadio1_1 = new Dictionary<string, object>() { { "name", "attrRadio1" }, { "id", "select_radio1" } };
     var attrRadio1_2 = new Dictionary<string, object>() { { "name", "attrRadio1" }, { "id", "select_radio2" } };
 
+    @*2023-99-99 iwai-tamura add-str ------*@
+    var BasicDeduction_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney(this,99999999)" } };
+    var BasicDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    var SpouseDeduction_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney(this,99999999)" } };
+    var SpouseDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2023-99-99 iwai-tamura add-end ------*@
+
 
     <div class="row">
         <div class="col-xs-8">
@@ -464,16 +471,16 @@
                         <td rowspan="2" colspan="1" class="content-label-b1">給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         <td colspan="6" class="form-inline">
-                            @Html.TextBoxFor(m => m.Head.BasicDeduction_Earnings, TextMoney1) 円<div id="Head_BasicDeduction_Earnings_mes" class="check-comment"></div>
+                            @Html.TextBoxFor(m => m.Head.BasicDeduction_Earnings, BasicDeduction_TextMoney2) 円<div id="Head_BasicDeduction_Earnings_mes" class="check-comment"></div>
                         </td>
                     </tr>
                     <tr>
                         <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
-                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_Income, TextMoney1) 円<div id="Head_BasicDeduction_Income_mes" class="check-comment"></div></td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_Income, BasicDeduction_TextMoney1) 円<div id="Head_BasicDeduction_Income_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
-                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_OtherIncome, TextMoney1) 円<div id="Head_BasicDeduction_OtherIncome_mes" class="check-comment"></div></td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_OtherIncome, BasicDeduction_TextMoney2) 円<div id="Head_BasicDeduction_OtherIncome_mes" class="check-comment"></div></td>
                     </tr>
                     <tr class="content-label-h2">
                         <td colspan="8">
@@ -604,7 +611,7 @@
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         @*2023-99-99 iwai-tamura upd-str ------*@
                         <td colspan="4" class="form-inline" style="border-right: none !important;">
-                            @Html.TextBoxFor(m => m.Head.SpouseDeduction_Earnings, TextMoney1) 円<div id="Head_SpouseDeduction_TotalEarnings_mes" class="check-comment"></div>
+                            @Html.TextBoxFor(m => m.Head.SpouseDeduction_Earnings, SpouseDeduction_TextMoney2) 円<div id="Head_SpouseDeduction_TotalEarnings_mes" class="check-comment"></div>
                         </td>
                         <td colspan="2" style="border-left: none !important;">
                             <button type="button" name="SpouseDeductionGetHyou" value="GET" class="pull-right btn-get" id="btn-spouseDeduction-get">扶養控除申告書から取得</button>
@@ -618,11 +625,11 @@
                     </tr>
                     <tr>
                         <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
-                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpouseDeduction_Income, TextMoney1) 円<div id="Head_SpouseDeduction_Income_mes" class="check-comment"></div></td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpouseDeduction_Income, SpouseDeduction_TextMoney1) 円<div id="Head_SpouseDeduction_Income_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
-                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpouseDeduction_OtherIncome, TextMoney1) 円<div id="Head_SpouseDeduction_OtherIncome_mes" class="check-comment"></div></td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpouseDeduction_OtherIncome, SpouseDeduction_TextMoney2) 円<div id="Head_SpouseDeduction_OtherIncome_mes" class="check-comment"></div></td>
                     </tr>
                     <tr class="content-label-h2">
                         <td colspan="8">
@@ -772,8 +779,8 @@
 
     @*隠しボタンエリア*@
     <div style="height:0px;">
-        <button type="submit" name="Save" id="savebutton" value="保存" class="btn invisible">保存</button>
-        <button type="submit" name="Keep" id="keepbutton" value="途中保存" class="btn invisible">途中保存</button>
+        <button type="submit" name="Save" id="savebutton" value="保存" class="btn invisible" onclick="removeDisabled()">保存</button>
+        <button type="submit" name="Keep" id="keepbutton" value="途中保存" class="btn invisible" onclick="removeDisabled()">途中保存</button>
         <button type="submit" name="SignCancel" id="signcancel" class="btn invisible">保存取消</button>
     </div>
 

@@ -1,4 +1,12 @@
 ﻿
+/*エンターキー無効化*/
+$(document).keypress(function (e) {
+    // エンターキーだったら無効にする
+    if (e.key === 'Enter') {
+        return false;
+    }
+});
+
 //半角カナチェック
 $('.checkKana').change(function () {
     var strId = "#" + this.id.slice(0, -1)  //共通利用するため一旦変換(Kana_1,Kana_2⇒"Kana_)"

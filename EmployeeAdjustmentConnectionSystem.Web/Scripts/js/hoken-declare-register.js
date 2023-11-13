@@ -18,13 +18,30 @@ $('input:radio').dblclick(function () {
 
 $(function () {
     //初回 入力制御
-    //$('#Head_HouseholdSelfCheck').change()
-    //$('#Head_TaxWithholding_notSubject').change();
-    //$('#Head_DependentsOver16_1_notSubject').change();
-    //$('#Head_DependentsOther_GeneralHandicappedDependentsCheck').change();
-    //$('#Head_DependentsOther_SpecialHandicappedDependentsCheck').change();
-    //$('#Head_DependentsOther_LivingHandicappedDependentsCheck').change();
-    //$('#Head_DependentsUnder16_1_notSubject').change();
+    //2023-99-99 iwai-tamura upd str -----
+    $('#Head_LifeInsurance_1_HostDataFlg').change();
+    $('#Head_LifeInsurance_2_HostDataFlg').change();
+    $('#Head_LifeInsurance_3_HostDataFlg').change();
+    $('#Head_LifeInsurance_4_HostDataFlg').change();
+    $('#Head_LifeInsurance_5_HostDataFlg').change();
+    $('#Head_LifeInsurance_6_HostDataFlg').change();
+    $('#Head_LifeInsurance_7_HostDataFlg').change();
+    $('#Head_LifeInsurance_8_HostDataFlg').change();
+    $('#Head_MedicalInsurance_1_HostDataFlg').change();
+    $('#Head_MedicalInsurance_2_HostDataFlg').change();
+    $('#Head_MedicalInsurance_3_HostDataFlg').change();
+    $('#Head_MedicalInsurance_4_HostDataFlg').change();
+    $('#Head_MedicalInsurance_5_HostDataFlg').change();
+    $('#Head_MedicalInsurance_6_HostDataFlg').change();
+    $('#Head_PensionInsurance_1_HostDataFlg').change();
+    $('#Head_PensionInsurance_2_HostDataFlg').change();
+    $('#Head_PensionInsurance_3_HostDataFlg').change();
+    $('#Head_PensionInsurance_4_HostDataFlg').change();
+    $('#Head_QuakeInsurance_1_HostDataFlg').change();
+    $('#Head_QuakeInsurance_2_HostDataFlg').change();
+    $('#Head_QuakeInsurance_3_HostDataFlg').change();
+    $('#Head_QuakeInsurance_4_HostDataFlg').change();
+    //2023-99-99 iwai-tamura upd end -----
 
     //datepicker設定
     $.datepicker.setDefaults($.datepicker.regional['ja']);
@@ -70,7 +87,409 @@ $('button.input-control').click(function () {
 
 
 
-//生命保険入力制御
+//2023-99-99 iwai-tamura upd str -----
+///*HostData判定 入力制御*///
+$('#Head_LifeInsurance_1_HostDataFlg').change(function () {
+    if (document.getElementById("Head_LifeInsurance_1_HostDataFlg").checked == true) {
+        $(".LifeInsurance_1_isRead").attr('disabled', true);
+    } else {
+        $(".LifeInsurance_1_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.LifeInsurance_1_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_LifeInsurance_1_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_LifeInsurance_2_HostDataFlg').change(function () {
+    if (document.getElementById("Head_LifeInsurance_2_HostDataFlg").checked == true) {
+        $(".LifeInsurance_2_isRead").attr('disabled', true);
+    } else {
+        $(".LifeInsurance_2_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.LifeInsurance_2_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_LifeInsurance_2_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_LifeInsurance_3_HostDataFlg').change(function () {
+    if (document.getElementById("Head_LifeInsurance_3_HostDataFlg").checked == true) {
+        $(".LifeInsurance_3_isRead").attr('disabled', true);
+    } else {
+        $(".LifeInsurance_3_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.LifeInsurance_3_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_LifeInsurance_3_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_LifeInsurance_4_HostDataFlg').change(function () {
+    if (document.getElementById("Head_LifeInsurance_4_HostDataFlg").checked == true) {
+        $(".LifeInsurance_4_isRead").attr('disabled', true);
+    } else {
+        $(".LifeInsurance_4_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.LifeInsurance_4_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_LifeInsurance_4_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_LifeInsurance_5_HostDataFlg').change(function () {
+    if (document.getElementById("Head_LifeInsurance_5_HostDataFlg").checked == true) {
+        $(".LifeInsurance_5_isRead").attr('disabled', true);
+    } else {
+        $(".LifeInsurance_5_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.LifeInsurance_5_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_LifeInsurance_5_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_LifeInsurance_6_HostDataFlg').change(function () {
+    if (document.getElementById("Head_LifeInsurance_6_HostDataFlg").checked == true) {
+        $(".LifeInsurance_6_isRead").attr('disabled', true);
+    } else {
+        $(".LifeInsurance_6_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.LifeInsurance_6_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_LifeInsurance_6_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_LifeInsurance_7_HostDataFlg').change(function () {
+    if (document.getElementById("Head_LifeInsurance_7_HostDataFlg").checked == true) {
+        $(".LifeInsurance_7_isRead").attr('disabled', true);
+    } else {
+        $(".LifeInsurance_7_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.LifeInsurance_7_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_LifeInsurance_7_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_LifeInsurance_8_HostDataFlg').change(function () {
+    if (document.getElementById("Head_LifeInsurance_8_HostDataFlg").checked == true) {
+        $(".LifeInsurance_8_isRead").attr('disabled', true);
+    } else {
+        $(".LifeInsurance_8_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.LifeInsurance_8_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_LifeInsurance_8_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_MedicalInsurance_1_HostDataFlg').change(function () {
+    if (document.getElementById("Head_MedicalInsurance_1_HostDataFlg").checked == true) {
+        $(".MedicalInsurance_1_isRead").attr('disabled', true);
+    } else {
+        $(".MedicalInsurance_1_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.MedicalInsurance_1_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_MedicalInsurance_1_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_MedicalInsurance_2_HostDataFlg').change(function () {
+    if (document.getElementById("Head_MedicalInsurance_2_HostDataFlg").checked == true) {
+        $(".MedicalInsurance_2_isRead").attr('disabled', true);
+    } else {
+        $(".MedicalInsurance_2_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.MedicalInsurance_2_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_MedicalInsurance_2_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_MedicalInsurance_3_HostDataFlg').change(function () {
+    if (document.getElementById("Head_MedicalInsurance_3_HostDataFlg").checked == true) {
+        $(".MedicalInsurance_3_isRead").attr('disabled', true);
+    } else {
+        $(".MedicalInsurance_3_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.MedicalInsurance_3_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_MedicalInsurance_3_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_MedicalInsurance_4_HostDataFlg').change(function () {
+    if (document.getElementById("Head_MedicalInsurance_4_HostDataFlg").checked == true) {
+        $(".MedicalInsurance_4_isRead").attr('disabled', true);
+    } else {
+        $(".MedicalInsurance_4_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.MedicalInsurance_4_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_MedicalInsurance_4_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_MedicalInsurance_5_HostDataFlg').change(function () {
+    if (document.getElementById("Head_MedicalInsurance_5_HostDataFlg").checked == true) {
+        $(".MedicalInsurance_5_isRead").attr('disabled', true);
+    } else {
+        $(".MedicalInsurance_5_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.MedicalInsurance_5_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_MedicalInsurance_5_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_MedicalInsurance_6_HostDataFlg').change(function () {
+    if (document.getElementById("Head_MedicalInsurance_6_HostDataFlg").checked == true) {
+        $(".MedicalInsurance_6_isRead").attr('disabled', true);
+    } else {
+        $(".MedicalInsurance_6_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.MedicalInsurance_6_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_MedicalInsurance_6_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+
+$('#Head_PensionInsurance_1_HostDataFlg').change(function () {
+    if (document.getElementById("Head_PensionInsurance_1_HostDataFlg").checked == true) {
+        $(".PensionInsurance_1_isRead").attr('disabled', true);
+    } else {
+        $(".PensionInsurance_1_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.PensionInsurance_1_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_PensionInsurance_1_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_PensionInsurance_2_HostDataFlg').change(function () {
+    if (document.getElementById("Head_PensionInsurance_2_HostDataFlg").checked == true) {
+        $(".PensionInsurance_2_isRead").attr('disabled', true);
+    } else {
+        $(".PensionInsurance_2_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.PensionInsurance_2_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_PensionInsurance_2_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_PensionInsurance_3_HostDataFlg').change(function () {
+    if (document.getElementById("Head_PensionInsurance_3_HostDataFlg").checked == true) {
+        $(".PensionInsurance_3_isRead").attr('disabled', true);
+    } else {
+        $(".PensionInsurance_3_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.PensionInsurance_3_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_PensionInsurance_3_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_PensionInsurance_4_HostDataFlg').change(function () {
+    if (document.getElementById("Head_PensionInsurance_4_HostDataFlg").checked == true) {
+        $(".PensionInsurance_4_isRead").attr('disabled', true);
+    } else {
+        $(".PensionInsurance_4_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.PensionInsurance_4_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_PensionInsurance_4_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_QuakeInsurance_1_HostDataFlg').change(function () {
+    if (document.getElementById("Head_QuakeInsurance_1_HostDataFlg").checked == true) {
+        $(".QuakeInsurance_1_isRead").attr('disabled', true);
+    } else {
+        $(".QuakeInsurance_1_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.QuakeInsurance_1_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_QuakeInsurance_1_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_QuakeInsurance_2_HostDataFlg').change(function () {
+    if (document.getElementById("Head_QuakeInsurance_2_HostDataFlg").checked == true) {
+        $(".QuakeInsurance_2_isRead").attr('disabled', true);
+    } else {
+        $(".QuakeInsurance_2_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.QuakeInsurance_2_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_QuakeInsurance_2_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_QuakeInsurance_3_HostDataFlg').change(function () {
+    if (document.getElementById("Head_QuakeInsurance_3_HostDataFlg").checked == true) {
+        $(".QuakeInsurance_3_isRead").attr('disabled', true);
+    } else {
+        $(".QuakeInsurance_3_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.QuakeInsurance_3_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_QuakeInsurance_3_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+
+$('#Head_QuakeInsurance_4_HostDataFlg').change(function () {
+    if (document.getElementById("Head_QuakeInsurance_4_HostDataFlg").checked == true) {
+        $(".QuakeInsurance_4_isRead").attr('disabled', true);
+    } else {
+        $(".QuakeInsurance_4_isRead").removeAttr("disabled");
+    }
+});
+
+// 各要素に対してイベントリスナーを追加します。
+document.querySelectorAll('.QuakeInsurance_4_isRead').forEach(function (input) {
+    input.addEventListener('change', function () {
+        var hostDataFlagElement = document.getElementById('Head_QuakeInsurance_4_HostDataFlg');
+        if (hostDataFlagElement) {
+            hostDataFlagElement.disabled = true;
+        }
+    });
+});
+//2023-99-99 iwai-tamura upd end -----
+
+
+
+
 //計算ボタン
 function calcLifeInsurance() {
     var strMessage = ""
@@ -86,7 +505,10 @@ function calcLifeInsurance() {
     $("#Head_LifeInsurance_DeductionAmount").val(null);
 
     //新旧区分チェック
-    for (var i = 1; i < 5; i++) {
+    //2023-99-99 iwai-tamura upd str -----
+    for (var i = 1; i < 9; i++) {
+    //for (var i = 1; i < 5; i++) {
+    //2023-99-99 iwai-tamura upd end -----
         id1 = "Head_LifeInsurance_" + i + "_OldAndNewType"
         id2 = "Head_LifeInsurance_" + i + "_InsuranceFee"
         if (document.getElementById(id2).value != "") {
@@ -108,7 +530,10 @@ function calcLifeInsurance() {
     var intTotalAmount = 0;
     var intDeductionAmount = 0;
 
-    for (var i = 1; i < 5; i++) {
+    //2023-99-99 iwai-tamura upd str -----
+    for (var i = 1; i < 9; i++) {
+    //for (var i = 1; i < 5; i++) {
+    //2023-99-99 iwai-tamura upd end -----
         id1 = "Head_LifeInsurance_" + i + "_OldAndNewType"
         id2 = "Head_LifeInsurance_" + i + "_InsuranceFee"
         if (document.getElementById(id1).value == "1") {
@@ -180,7 +605,10 @@ function calcMedicalInsurance() {
     var intTotalAmount = 0;
     var intDeductionAmount = 0;
 
-    for (var i = 1; i < 3; i++) {
+    //2023-99-99 iwai-tamura upd str -----
+    for (var i = 1; i < 7; i++) {
+    //for (var i = 1; i < 3; i++) {
+    //2023-99-99 iwai-tamura upd end -----
         id1 = "Head_MedicalInsurance_" + i + "_InsuranceFee"
         intTotalAmount += Number(document.getElementById(id1).value);
     }
@@ -229,7 +657,10 @@ function calcPensionInsurance() {
 
 
     //新旧区分チェック
-    for (var i = 1; i < 4; i++) {
+    //2023-99-99 iwai-tamura upd str -----
+    for (var i = 1; i < 5; i++) {
+    //for (var i = 1; i < 4; i++) {
+    //2023-99-99 iwai-tamura upd end -----
         id1 = "Head_PensionInsurance_" + i + "_OldAndNewType"
         id2 = "Head_PensionInsurance_" + i + "_InsuranceFee"
         if (document.getElementById(id2).value != "") {
@@ -251,7 +682,10 @@ function calcPensionInsurance() {
     var intTotalAmount = 0;
     var intDeductionAmount = 0;
 
-    for (var i = 1; i < 4; i++) {
+    //2023-99-99 iwai-tamura upd str -----
+    for (var i = 1; i < 5; i++) {
+    //for (var i = 1; i < 4; i++) {
+    //2023-99-99 iwai-tamura upd end -----
         id1 = "Head_PensionInsurance_" + i + "_OldAndNewType"
         id2 = "Head_PensionInsurance_" + i + "_InsuranceFee"
         if (document.getElementById(id1).value == "1") {
@@ -357,7 +791,10 @@ function calcQuakeInsurance() {
 
 
     //新旧区分チェック
-    for (var i = 1; i < 3; i++) {
+    //2023-99-99 iwai-tamura upd str -----
+    for (var i = 1; i < 5; i++) {
+    //for (var i = 1; i < 3; i++) {
+    //2023-99-99 iwai-tamura upd end -----
         id1 = "Head_QuakeInsurance_" + i + "_QuakeAndDamageType"
         id2 = "Head_QuakeInsurance_" + i + "_InsuranceFee"
         if (document.getElementById(id2).value != "") {
@@ -379,7 +816,10 @@ function calcQuakeInsurance() {
     var intTotalAmount = 0;
     var intDeductionAmount = 0;
 
-    for (var i = 1; i < 3; i++) {
+    //2023-99-99 iwai-tamura upd str -----
+    for (var i = 1; i < 5; i++) {
+    //for (var i = 1; i < 3; i++) {
+    //2023-99-99 iwai-tamura upd end -----
         id1 = "Head_QuakeInsurance_" + i + "_QuakeAndDamageType"
         id2 = "Head_QuakeInsurance_" + i + "_InsuranceFee"
         if (document.getElementById(id1).value == "1") {
@@ -434,7 +874,10 @@ function calcSocialInsurance() {
     var intTotalAmount = 0;
     var intDeductionAmount = 0;
 
-    for (var i = 1; i < 3; i++) {
+    //2023-99-99 iwai-tamura upd str -----
+    for (var i = 1; i < 4; i++) {
+    //for (var i = 1; i < 3; i++) {
+    //2023-99-99 iwai-tamura upd end -----
         id1 = "Head_SocialInsurance_" + i + "_InsuranceFee"
         intTotalAmount += Number(document.getElementById(id1).value);
     }
@@ -644,7 +1087,15 @@ function checkAllCalc() {
 }
 
 
-
+//保存直前にdisabled解除(値が送られないため)
+function removeDisabled() {
+    $('input').each(function (i, elem) {
+        elem.disabled = false;
+    });
+    $('select').each(function (i, elem) {
+        elem.disabled = false;
+    });
+}
 
 /*
  * 途中保存ボタンクリック時
