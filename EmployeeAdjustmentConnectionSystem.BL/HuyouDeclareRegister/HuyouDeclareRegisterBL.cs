@@ -397,8 +397,24 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                                 break;
 
                             case "1":
+		                        model.Head.InputMode = ajustMode.adminRegist;
+								break;
+
+                            case "5":
                                 //管理者登録済み
-                                model.Head.InputMode = ajustMode.adminRegist;
+								switch (lu.IsAdminNo) {
+									case "2":
+									case "3":
+		                                model.Head.InputMode = ajustMode.adminConfim;
+										break;
+									case "1":
+									case "7":
+									case "8":
+									case "9":
+									case "K":
+		                                model.Head.InputMode = ajustMode.adminRegist;
+										break;
+								}
                                 break;
 
                             case "9":
@@ -570,7 +586,21 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                                     break;
                                 case ajustMode.adminInput:
                                     strApproval = "9";
-                                    strDecision = "1";
+									switch (lu.IsAdminNo) {
+										case "2":
+										case "3":
+											strDecision = "1";
+											break;
+										case "1":
+										case "7":
+										case "8":
+										case "9":
+		                                    strDecision = "5";
+											break;
+										case "K":
+		                                    strDecision = "5";
+											break;
+									}
                                     break;
                             }
                         }

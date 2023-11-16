@@ -19,6 +19,7 @@ using EmployeeAdjustmentConnectionSystem.COM.Models;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.Drawing;
+using EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch.Reports;
 //using EmployeeAdjustmentConnectionSystem.BL.SelfDeclareRegister;
 
 namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
@@ -117,8 +118,8 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 {
                     //管理番号とTBL区分に分割
                     string[] arrayData = KeyValue.Split(',');
-                    string key = arrayData[0];                  //管理番号
-                    string tblType = "D01";              //TBL区分
+                    string year = arrayData[0];                  //対象年度
+                    string key = arrayData[1];                  //社員番号
 
                     DataRow row = new DataTable().NewRow();
                     DataSet dataSet = new DataSet();
@@ -126,11 +127,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     using (DbManager dm = new DbManager())
                     {
                         //目標管理基本データを取得
-                        row = GetBasicDataRow_Haiguu(key, dm, tblType);
+                        row = GetBasicDataRow_Haiguu(key, dm, year);
                         ////目標管理承認データを取得
                         //dataSet = SelfDeclareCommonBL.GetSignData(dm, int.Parse(key));
                         //目標管理詳細データを取得
-                        dt = GetDataTable_Haiguu(key, dm, tblType);
+                        dt = GetDataTable_Haiguu(key, dm, year);
                     }
 
                     //帳票を出力
@@ -204,7 +205,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         /// </summary>
         /// <param name="keyVal">社員番号</param>
         /// <returns>目標管理基本情報のDataRow</returns>
-        private DataRow GetBasicDataRow_Haiguu(string keyVal, DbManager dm, string tblType)
+        private DataRow GetBasicDataRow_Haiguu(string keyVal, DbManager dm, string year)
         {
             try
             {
@@ -214,7 +215,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 string sql = ""; //クエリ生成
 
                 sql = "SELECT * FROM TE120基礎控除申告書Data WHERE 社員番号 = @key ";
-
+                sql += " AND 対象年度 = " + year ;
                 DataTable dt = new DataTable();
                 DataSet dataSet = new DataSet();
                 using (IDbCommand cmd = dm.CreateCommand(sql))
@@ -255,7 +256,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         /// <param name="keyVal"></param>
         /// <param name="pattern"></param>
         /// <returns></returns>
-        private DataTable GetDataTable_Haiguu(string keyVal, DbManager dm, string tblType)
+        private DataTable GetDataTable_Haiguu(string keyVal, DbManager dm, string year)
         {
             try
             {
@@ -318,9 +319,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "  LEFT JOIN TM911続柄名Master AS 扶養親族等続柄名 ON 基礎控除.所得金額調整控除申告書_扶養親族等続柄 = 扶養親族等続柄名.続柄番号 "
                     + "  LEFT JOIN TM912事業所名Master AS 事業所名 ON CASE WHEN LEFT(基礎控除.所属番号, 1) IN ('2', '3') THEN '1' ELSE LEFT(基礎控除.所属番号, 1) END = 事業所名.事業所番号 "
                     + " WHERE 基礎控除.社員番号 = @key "
-                    //###########################################################################
-                    + "   AND 基礎控除.対象年度 = 2023 ";
-                    //###########################################################################
+                    + "   AND 基礎控除.対象年度 = " + year ;
 
                 DataTable dt = new DataTable();
                 DataSet dataSet = new DataSet();
@@ -470,20 +469,18 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 {
                     //管理番号とTBL区分に分割
                     string[] arrayData = KeyValue.Split(',');
-                    string key = arrayData[0];                  //管理番号
-                    string tblType = "D01";              //TBL区分
+                    string year = arrayData[0];                  //対象年度
+                    string key = arrayData[1];                  //社員番号
 
                     DataRow row = new DataTable().NewRow();
                     DataSet dataSet = new DataSet();
                     DataTable dt = new DataTable();
                     using (DbManager dm = new DbManager())
                     {
-                        //目標管理基本データを取得
-                        row = GetBasicDataRow_Huyou(key, dm, tblType);
-                        ////目標管理承認データを取得
-                        //dataSet = SelfDeclareCommonBL.GetSignData(dm, int.Parse(key));
-                        //目標管理詳細データを取得
-                        dt = GetDataTable_Huyou(key, dm, tblType);
+                        //扶養控除基本データを取得
+                        row = GetBasicDataRow_Huyou(key, dm, year);
+                        //扶養控除詳細データを取得
+                        dt = GetDataTable_Huyou(key, dm, year);
                     }
 
                     //帳票を出力
@@ -493,15 +490,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     try
                     {
                         //ファイル名作成
-                        //2017-05-18 iwai-tamura upd str -----
                         string fileName = row["対象年度"].ToString()
                             + "_" + row["所属番号"].ToString()
                             + "_" + row["社員番号"].ToString()
                             + "_" + nowDate.ToString("yyyyMMddHHmmss")
                             + ".pdf";
-                        //string fileName = row["社員番号"].ToString()
-                        //    + "_" + row["年度"].ToString() + "_"  + row["所属番号"].ToString() + "_" + nowDate.ToString("yyyyMMddHHmmss") + ".pdf";
-                        //2017-05-18 iwai-tamura upd end -----
 
                         HuyouDeclareReport.SetDataSource(dt);       //目標管理詳細をセット
                         HuyouDeclareReport.Refresh();
@@ -557,7 +550,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         /// </summary>
         /// <param name="keyVal">社員番号</param>
         /// <returns>目標管理基本情報のDataRow</returns>
-        private DataRow GetBasicDataRow_Huyou(string keyVal, DbManager dm, string tblType)
+        private DataRow GetBasicDataRow_Huyou(string keyVal, DbManager dm, string year)
         {
             try
             {
@@ -567,6 +560,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 string sql = ""; //クエリ生成
 
                 sql = "SELECT * FROM TE100扶養控除申告書Data WHERE 社員番号 = @key ";
+                sql += " AND 対象年度 = " + year ;
 
                 DataTable dt = new DataTable();
                 DataSet dataSet = new DataSet();
@@ -608,7 +602,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         /// <param name="keyVal"></param>
         /// <param name="pattern"></param>
         /// <returns></returns>
-        private DataTable GetDataTable_Huyou(string keyVal, DbManager dm, string tblType)
+        private DataTable GetDataTable_Huyou(string keyVal, DbManager dm, string year)
         {
             try
             {
@@ -791,9 +785,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "  LEFT JOIN TM911続柄名Master AS 未満04続柄 ON 扶養控除.扶養親族16未満04_続柄 = 未満04続柄.続柄番号 "
                     + "  LEFT JOIN TM912事業所名Master AS 事業所名 ON CASE WHEN LEFT(扶養控除.所属番号, 1) IN ('2', '3') THEN '1' ELSE LEFT(扶養控除.所属番号, 1) END = 事業所名.事業所番号 "
                     + " WHERE 扶養控除.社員番号 = @key "
-                    //###########################################################################
-                    + "   AND 扶養控除.対象年度 = 2023 ";
-                    //###########################################################################
+                    + "   AND 扶養控除.対象年度 = " + year ;
 
                 DataTable dt = new DataTable();
                 DataSet dataSet = new DataSet();
@@ -945,8 +937,8 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 {
                     //管理番号とTBL区分に分割
                     string[] arrayData = KeyValue.Split(',');
-                    string key = arrayData[0];                  //管理番号
-                    string tblType = "D01";              //TBL区分
+                    string year = arrayData[0];                  //対象年度
+                    string key = arrayData[1];                  //社員番号
 
                     DataRow row = new DataTable().NewRow();
                     DataSet dataSet = new DataSet();
@@ -954,9 +946,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     using (DbManager dm = new DbManager())
                     {
                         //基本データを取得
-                        row = GetBasicDataRow_Hoken(key, dm, tblType);
+                        row = GetBasicDataRow_Hoken(key, dm, year);
                         //データを取得
-                        dt = GetDataTable_Hoken(key, dm, tblType);
+                        dt = GetDataTable_Hoken(key, dm, year);
                     }
 
                     //帳票を出力
@@ -1022,7 +1014,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         /// </summary>
         /// <param name="keyVal">社員番号</param>
         /// <returns>目標管理基本情報のDataRow</returns>
-        private DataRow GetBasicDataRow_Hoken(string keyVal, DbManager dm, string tblType)
+        private DataRow GetBasicDataRow_Hoken(string keyVal, DbManager dm, string year)
         {
             try
             {
@@ -1032,6 +1024,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 string sql = ""; //クエリ生成
 
                 sql = "SELECT * FROM TE110保険料控除申告書Data WHERE 社員番号 = @key ";
+                sql += " AND 対象年度 = " + year ;
 
                 DataTable dt = new DataTable();
                 DataSet dataSet = new DataSet();
@@ -1073,7 +1066,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         /// <param name="keyVal"></param>
         /// <param name="pattern"></param>
         /// <returns></returns>
-        private DataTable GetDataTable_Hoken(string keyVal, DbManager dm, string tblType)
+        private DataTable GetDataTable_Hoken(string keyVal, DbManager dm, string year)
         {
             try
             {
@@ -1341,9 +1334,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "  LEFT JOIN TM911続柄名Master AS 社会保険料控除03続柄名 ON 保険料控除.社会保険料控除03_負担者続柄 = 社会保険料控除03続柄名.続柄番号 "
                     //2023-11-06 iwai-terao upd end ------
                     + " WHERE 保険料控除.社員番号 = @key "
-                    //###########################################################################
-                    + "   AND 保険料控除.対象年度 = 2023 ";
-                    //###########################################################################
+                    + "   AND 保険料控除.対象年度 = " + year ;
 
                 DataTable dt = new DataTable();
                 DataSet dataSet = new DataSet();
@@ -1447,7 +1438,297 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         }
         //2023-99-99 iwai-terao test-end ------
 
+
+
+        ///////////// <summary>
+        ///////////// メインの処理
+        ///////////// </summary>
+        ///////////// <param name="selPrint"></param>
+        ///////////// <returns></returns>
+        //////////public string PrintBatchHuyou(string[] selPrint) {
+        //////////    try {
+        //////////        //開始
+        //////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+        //////////        string workFolder = "";
+        //////////        DateTime nowDate = DateTime.Now;      //現在日時を取得
+        //////////        string userCode = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+        //////////            (HttpContext.Current.Session["LoginUser"])).UserCode.ToString();
+
+        //////////        //帳票作成フォルダを用意
+        //////////        workFolder = TempDir + nowDate.ToString("yyyyMMdd") + Path.DirectorySeparatorChar +
+        //////////            userCode + nowDate.ToString("yyyyMMddHHmmss") + Path.DirectorySeparatorChar;
+
+        //////////        //作成フォルダ内ファイル一覧を取得
+        //////////        System.IO.Directory.CreateDirectory(workFolder);
+        //////////        foreach(string file in System.IO.Directory.GetDirectories(TempDir, "*")) {
+        //////////            DateTime oldDirDate = new DateTime();
+        //////////            oldDirDate = System.IO.Directory.GetCreationTime(file); //作成日時を取得
+
+        //////////            //削除基準日より古いフォルダを削除
+        //////////            if (oldDirDate < nowDate.AddDays(-(R_P)))
+        //////////            {
+        //////////                //2017-03-31 sbc-sagara upd str 一括Excel出力で作成した読み取り専用属性を付けたファイルを削除するため
+        //////////                //System.IO.Directory.Delete(file, true);
+        //////////                DeleteDirectory(file);
+        //////////                //2017-03-31 sbc-sagara upd end 一括Excel出力で作成した読み取り専用属性を付けたファイルを削除するため
+        //////////            }
+        //////////        }
+
+        //////////        //zip作成フォルダとzipファイル名を用意を用意
+        //////////        string zipFolder = TempDir + nowDate.ToString("yyyyMMdd") + Path.DirectorySeparatorChar;
+        //////////        string zipName = userCode + nowDate.ToString("yyyyMMddHHmmss") + ".zip";
+        //////////        //return用path文字列を用意
+        //////////        string zipReturnPath = nowDate.ToString("yyyyMMdd") + Path.DirectorySeparatorChar + zipName;
+
+        //////////        //目標管理番号ごとにデータを取得
+        //////////        foreach(string KeyValue in selPrint) {
+        //////////            //管理番号とTBL区分に分割
+        //////////            string[] arrayData = KeyValue.Split(',');
+        //////////            string key = arrayData[0];                  //管理番号
+        //////////            string strSelfDeclareCode = arrayData[1];   //自己申告書種別Code
+        //////////            string DutyNo = arrayData[2];               //職掌番号
+        //////////            string tblType = "D1";
+
+        //////////            if (arrayData[3] != "1") {
+        //////////                continue;   //A～C表が許可されてない場合は飛ばす
+        //////////            }
+        //////////            DataRow row = new DataTable().NewRow();
+        //////////            DataSet dataSet = new DataSet();
+        //////////            DataTable dt = new DataTable();
+        //////////            using(DbManager dm = new DbManager()) {
+        //////////                //扶養控除基本データを取得
+        //////////                row = GetBasicDataRow_Huyou(key, dm, strSelfDeclareCode);
+        //////////                ////目標管理承認データを取得
+        //////////                //dataSet = SelfDeclareCommonBL.GetSignData(dm, int.Parse(key));
+        //////////                //扶養控除詳細データを取得
+        //////////                dt = GetDataTable_Huyou(key, dm, tblType);
+
+        //////////                //dt = GetSelfDeclareTable(key, dm, strSelfDeclareCode);
+        //////////            }
+
+        //////////            //帳票を出力
+        //////////            //職掌番号により自己申告書の分岐を行う
+        //////////            var HuyouDeclareReport = new HuyouDeclareReport();
+
+        //////////            try
+        //////////            {
+        //////////                //ファイル名作成
+        //////////                string fileName = row["対象年度"].ToString()
+        //////////                    + "_" + row["所属番号"].ToString()
+        //////////                    + "_" + row["社員番号"].ToString()
+        //////////                    + "_" + nowDate.ToString("yyyyMMddHHmmss")
+        //////////                    + ".pdf";
+
+        //////////                HuyouDeclareReport.SetDataSource(dt);       //目標管理詳細をセット
+        //////////                HuyouDeclareReport.Refresh();
+
+        //////////                //扶養控除基本パラメーターを設定
+        //////////                HuyouDeclareBaseSetting(ref HuyouDeclareReport, row);
+
+        //////////                ////扶養控除承認パラメーターを設定
+        //////////                //SelfDeclareDApprovalSetting(ref crystalReportD, dataSet.Tables[0]);
+
+        //////////                HuyouDeclareReport.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+        //////////                //pdf出力
+        //////////                HuyouDeclareReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+
+        //////////            }
+
+
+
+        //////////            //try {
+        //////////            //    //ファイル名作成
+        //////////            //    string fileName = row["年度"].ToString()
+        //////////            //        + "_" + row["所属番号"].ToString()
+        //////////            //        + "_" + row["社員番号"].ToString()
+        //////////            //        + "_" + nowDate.ToString("yyyyMMddHHmmss")
+        //////////            //        + ".pdf";
+
+        //////////            //    switch( strSelfDeclareCode ){
+        //////////            //        case  "A11":
+        //////////            //            //crystal report作成                    
+        //////////            //            crystalReportA11.SetDataSource(dt);       //自己申告書詳細をセット
+        //////////            //            crystalReportA11.Refresh();
+
+        //////////            //            //自己申告書基本パラメーターを設定
+        //////////            //            SelfDeclareA11BaseSetting(ref crystalReportA11, dt.Rows[0]);
+
+        //////////            //            crystalReportA11.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+        //////////            //            //pdf出力
+        //////////            //            crystalReportA11.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+        //////////            //            break;
+
+        //////////            //        case  "A12":
+        //////////            //            //crystal report作成                    
+        //////////            //            crystalReportA12.SetDataSource(dt);       //自己申告書詳細をセット
+        //////////            //            crystalReportA12.Refresh();
+
+        //////////            //            //自己申告書基本パラメーターを設定
+        //////////            //            SelfDeclareA12BaseSetting(ref crystalReportA12, dt.Rows[0]);
+
+        //////////            //            crystalReportA12.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+        //////////            //            //pdf出力
+        //////////            //            crystalReportA12.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+        //////////            //            break;
+
+        //////////            //        case  "A13":
+        //////////            //            //crystal report作成                    
+        //////////            //            crystalReportA13.SetDataSource(dt);       //自己申告書詳細をセット
+        //////////            //            crystalReportA13.Refresh();
+
+        //////////            //            //自己申告書基本パラメーターを設定
+        //////////            //            SelfDeclareA13BaseSetting(ref crystalReportA13, dt.Rows[0]);
+
+        //////////            //            crystalReportA13.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+        //////////            //            //pdf出力
+        //////////            //            crystalReportA13.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+        //////////            //            break;
+
+        //////////            //        case  "B11":
+        //////////            //            //crystal report作成                    
+        //////////            //            crystalReportB11.SetDataSource(dt);       //自己申告書詳細をセット
+        //////////            //            crystalReportB11.Refresh();
+
+        //////////            //            //自己申告書基本パラメーターを設定
+        //////////            //            SelfDeclareB11BaseSetting(ref crystalReportB11, dt.Rows[0]);
+
+        //////////            //            crystalReportB11.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+        //////////            //            //pdf出力
+        //////////            //            crystalReportB11.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+        //////////            //            break;
+
+        //////////            //        case  "B12":
+        //////////            //            //crystal report作成                    
+        //////////            //            crystalReportB12.SetDataSource(dt);       //自己申告書詳細をセット
+        //////////            //            crystalReportB12.Refresh();
+
+        //////////            //            //自己申告書基本パラメーターを設定
+        //////////            //            SelfDeclareB12BaseSetting(ref crystalReportB12, dt.Rows[0]);
+
+        //////////            //            crystalReportB12.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+        //////////            //            //pdf出力
+        //////////            //            crystalReportB12.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+        //////////            //            break;
+
+        //////////            //        case  "C11":
+        //////////            //            //crystal report作成                    
+        //////////            //            crystalReportC11.SetDataSource(dt);       //自己申告書詳細をセット
+        //////////            //            crystalReportC11.Refresh();
+
+        //////////            //            //自己申告書基本パラメーターを設定
+        //////////            //            SelfDeclareC11BaseSetting(ref crystalReportC11, dt.Rows[0]);
+
+        //////////            //            crystalReportC11.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+        //////////            //            //pdf出力
+        //////////            //            crystalReportC11.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+        //////////            //            break;
+
+        //////////            //        case  "C12":
+        //////////            //            //crystal report作成                    
+        //////////            //            crystalReportC12.SetDataSource(dt);       //自己申告書詳細をセット
+        //////////            //            crystalReportC12.Refresh();
+
+        //////////            //            //自己申告書基本パラメーターを設定
+        //////////            //            SelfDeclareC12BaseSetting(ref crystalReportC12, dt.Rows[0]);
+
+        //////////            //            crystalReportC12.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+        //////////            //            //pdf出力
+        //////////            //            crystalReportC12.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+        //////////            //            break;
+
+        //////////            //        case  "A20":
+        //////////            //            //crystal report作成                    
+        //////////            //            crystalReportA20.SetDataSource(dt);       //自己申告書詳細をセット
+        //////////            //            crystalReportA20.Refresh();
+
+        //////////            //            //自己申告書基本パラメーターを設定
+        //////////            //            SelfDeclareA20BaseSetting(ref crystalReportA20, dt.Rows[0]);
+
+        //////////            //            crystalReportA20.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+        //////////            //            //pdf出力
+        //////////            //            crystalReportA20.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+        //////////            //            break;
+
+        //////////            //        case  "B20":
+        //////////            //            //crystal report作成                    
+        //////////            //            crystalReportB20.SetDataSource(dt);       //自己申告書詳細をセット
+        //////////            //            crystalReportB20.Refresh();
+
+        //////////            //            //自己申告書基本パラメーターを設定
+        //////////            //            SelfDeclareB20BaseSetting(ref crystalReportB20, dt.Rows[0]);
+
+        //////////            //            crystalReportB20.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+        //////////            //            //pdf出力
+        //////////            //            crystalReportB20.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+        //////////            //            break;
+
+        //////////            //        case  "C20":
+        //////////            //            //crystal report作成                    
+        //////////            //            crystalReportC20.SetDataSource(dt);       //自己申告書詳細をセット
+        //////////            //            crystalReportC20.Refresh();
+
+        //////////            //            //自己申告書基本パラメーターを設定
+        //////////            //            SelfDeclareC20BaseSetting(ref crystalReportC20, dt.Rows[0]);
+
+        //////////            //            crystalReportC20.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+        //////////            //            //pdf出力
+        //////////            //            crystalReportC20.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+        //////////            //            break;
+
+
+        //////////            //    }
+                        
+        //////////            catch(Exception ex) {
+        //////////                //　TODO:エラー処理検討中
+        //////////                throw ex;
+        //////////                //throw;
+        //////////            } finally {
+        //////////                HuyouDeclareReport.Dispose();
+        //////////            };
+        //////////        }
+               
+        //////////        // TODO:pdf複数出力で、どれか１つにエラーがあってもダウンロードできる状況
+        //////////        //圧縮
+        //////////        var compress = new Compress();
+        //////////        string zipFullPath = compress.CreateZipFile(zipName, zipFolder, workFolder);
+
+        //////////        //return用zipファイルパスをセット
+        //////////        return zipReturnPath;
+
+        //////////    } catch(Exception ex) {
+        //////////        // エラー
+        //////////        nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+        //////////        throw;
+        //////////    } finally {
+        //////////        //終了
+        //////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+        //////////    }
+        //////////}
+
+
+
+
         
+
+
+
+
+
+
+
+
 
         
         /// <summary>

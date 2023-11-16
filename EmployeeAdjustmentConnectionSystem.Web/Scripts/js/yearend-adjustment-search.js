@@ -74,9 +74,35 @@ $('#dmyselfinput').click(function () {
   $('#selfinputbutton').trigger('click');
 });
 
+
 /*
- * 帳票出力ボタンクリック時
+ * 一括確定ボタンクリック時
  */
+$('#dmysignbatch_huyou').click(function () {
+    showMessage('一括確定', '確定しますか？', 'signbatch_huyou_button', false);
+});
+$('#dmysignbatch_hoken').click(function () {
+    showMessage('一括確定', '確定しますか？', 'signbatch_hoken_button', false);
+});
+$('#dmysignbatch_haiguu').click(function () {
+    showMessage('一括確定', '確定しますか？', 'signbatch_haiguu_button', false);
+});
+
+/*
+ * 一括帳票出力ボタンクリック時
+ */
+$('#dmyprintbatch_huyou').click(function () {
+    showMessage('帳票出力', '出力しますか？', 'printbatch_huyou_button', false);
+});
+$('#dmyprintbatch_hoken').click(function () {
+    showMessage('帳票出力', '出力しますか？', 'printbatch_hoken_button', false);
+});
+$('#dmyprintbatch_haiguu').click(function () {
+    showMessage('帳票出力', '出力しますか？', 'printbatch_haiguu_button', false);
+});
+
+
+
 $('#dmyprintatoc').click(function () {
     showMessage('帳票出力', '出力しますか？', 'printatocbutton', false);
 });
