@@ -174,7 +174,7 @@
                         @if (Model != null && Model.SearchResult != null) {
                             foreach (YearEndAdjustmentSearchListModel row in Model.SearchResult) {
                                 <tr>
-                                    <td style="width:32px;"><input type="checkbox" name="selPrint" value="@row.ManageNo,@row.SelfDecType,@row.DutyNo,@row.SelfDecAtoCButtonView,@row.SelfDecDButtonView,@row.CareerButtonView" /></td>
+                                    <td style="width:32px;"><input type="checkbox" name="selPrint" value="@row.Year,@row.EmployeeNumber" /></td>
                                     <td style="width:50px;">@Html.DisplayTextFor(m => row.Year)</td>
                                     <td style="width:60px;">@Html.DisplayTextFor(m => row.EmployeeNumber)</td>
                                     <td style="width:120px;">@Html.DisplayTextFor(m => row.EmployeeName)</td>
@@ -203,19 +203,18 @@
         <div class="row top17">
             <div class="col-xs-offset-1 col-xs-10 ">
                 <div class="pull-right">
-                    @*一旦非表示*@
-                    @*<div>
+                    <div>
                         <label class="control-label">一括確定登録 ：</label>
-                        <button type="button" name="DmyPrintAtoC" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintatoc" style="margin-left:5px;">扶養控除</button>
-                        <button type="button" name="DmyPrintD" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintd" style="margin-left:5px;">保険料控除</button>
-                        <button type="button" name="DmyPrintD" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintd" style="margin-left:5px;">基礎控除</button>
+                        <button type="button" name="DmySignBatchHuyou" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_huyou" style="margin-left:5px;">扶養控除</button>
+                        <button type="button" name="DmySignBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_hoken" style="margin-left:5px;">保険料控除</button>
+                        <button type="button" name="DmySignBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_haiguu" style="margin-left:5px;">基礎控除</button>
                     </div>
                     <div>
                         <label class="control-label">一括帳票出力 ：</label>
-                        <button type="button" name="DmyPrintA11Xls" value="帳票出力xls" class="btn-default btn-batch" id="dmyprinta20xls" style="margin-left:5px;">扶養控除</button>
-                        <button type="button" name="DmyPrintB11Xls" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintb20xls" style="margin-left:5px;">保険料控除</button>
-                        <button type="button" name="DmyPrintC11Xls" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintc20xls" style="margin-left:5px;">基礎控除</button>
-                    </div>*@
+                        <button type="button" name="DmyPrintBatchHuyou" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_huyou" style="margin-left:5px;">扶養控除</button>
+                        <button type="button" name="DmyPrintBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_hoken" style="margin-left:5px;">保険料控除</button>
+                        <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_haiguu" style="margin-left:5px;">基礎控除</button>
+                    </div>
                     <div>
                         <button type="submit" name="Back" value="戻る" class="btn-default btn-batch pull-right" id="backbutton" style="margin-left:5px;">戻る</button>
                     </div>
@@ -232,7 +231,16 @@
         <button type="submit" name="Sign" value="一括承認" class="btn invisible" id="signbutton">一括承認</button>
         <button type="submit" name="Download" value="帳票保存" class="btn invisible" id="downloadbutton">帳票保存</button>
 
-        <button type="submit" name="PrintAtoC" value="帳票出力" class="btn invisible" id="printatocbutton">帳票出力</button>
+        <button type="submit" name="SignBatchHuyou" value="帳票出力" class="btn invisible" id="signbatch_huyou_button">扶養一括承認</button>
+        <button type="submit" name="SignBatchHoken" value="帳票出力" class="btn invisible" id="signbatch_hoken_button">保険一括承認</button>
+        <button type="submit" name="SignBatchHaiguu" value="帳票出力" class="btn invisible" id="signbatch_haiguu_button">基礎一括承認</button>
+
+        <button type="submit" name="PrintBatchHuyou" value="帳票出力" class="btn invisible" id="printbatch_huyou_button">帳票出力</button>
+        <button type="submit" name="PrintBatchHoken" value="帳票出力" class="btn invisible" id="printbatch_hoken_button">帳票出力</button>
+        <button type="submit" name="PrintBatchHaiguu" value="帳票出力" class="btn invisible" id="printbatch_haiguu_button">帳票出力</button>
+
+
+
 
         @*2021-12-24 iwai-tamura upd str ------*@
         <button type="submit" name="PrintA20Xls" value="帳票出力xls" class="btn invisible" id="printa20xlsbutton">Excel出力</button>

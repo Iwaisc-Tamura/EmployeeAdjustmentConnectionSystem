@@ -6,12 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using System.Web.UI.WebControls;
 using EmployeeAdjustmentConnectionSystem.BL.Common;
 using EmployeeAdjustmentConnectionSystem.COM.Entity.Session;
 using EmployeeAdjustmentConnectionSystem.COM.Models;
 using EmployeeAdjustmentConnectionSystem.COM.Util.Config;
 using EmployeeAdjustmentConnectionSystem.COM.Util.Convert;
 using EmployeeAdjustmentConnectionSystem.COM.Util.Database;
+using Microsoft.Office.Interop.Excel;
 
 namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
     /// <summary>
@@ -589,93 +591,198 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
         /// <returns>承認件数</returns>
         //2016-01-21 iwai-tamura upd-str ------
         //承認した件数を戻すよう変更
-        public int Sign(string[] manageNos, LoginUser lu) {
+        public int Sign(string target,string[] selTarget, LoginUser lu) {
         //public void Sign(string[] manageNos, LoginUser lu) {
         //2016-01-21 iwai-tamura upd-end ------
             try {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
 
-                //管理番号抽出
-                IList<string> mnos = new List<string>();
-                foreach(string mno in manageNos) {
-                    var sp = mno.Split(',');
-                    mnos.Add(sp[0]);
-                }
+                //対象データ抽出
+                var targetData = selTarget.Select(mno => {
+                    var parts = mno.Split(',');
+                    return new {
+                        Year = parts[0],
+                        EmployeeNo = parts[1]
+                    };
+                }).ToList();
+                //IList<string> mnos = new List<string>();
+                //foreach(string mno in manageNos) {
+                //    var sp = mno.Split(',');
+                //    mnos.Add(sp[0]);
+                //}
 
                 DateTime dt = DateTime.Now;
                 string logDate = string.Format("{0:d} {1:g}", dt.Date, dt.TimeOfDay);
 
-                //2016-01-21 iwai-tamura add-str ------
                 int retCount = 0;   //承認した件数カウント用
-                //2016-01-21 iwai-tamura add-end ------
 
                 using(var scope = new TransactionScope()) {
                     //目標承認取得用
                     var sql = "select"
-                            + " 管理番号"
+                            + " 対象年度"
                             + ",社員番号"
-                            + ",達成部長"
-                            + ",達成支社"
-                            + ",人事"
-                            + "  from ("
-                            + "  select"
-                            + "   管理番号"
-                            + "  ,社員番号"
-                            + "  ,isnull((select 承認社員番号 as 達成部長"
-                            + "             from SD_T目標管理承認情報 msb"
-                            + "            where 大区分 = '2' and 中区分 ='1' and  小区分 ='3'"
-                            + "              and ms.管理番号 = msb.管理番号),'') as 達成部長"
-                            + "  ,isnull((select 承認社員番号 as 達成支社"
-                            + "             from SD_T目標管理承認情報 mss"
-                            + "            where 大区分 = '2' and 中区分 ='1' and  小区分 ='4'"
-                            + "              and ms.管理番号 = mss.管理番号),'') as 達成支社"
-                            + "  ,isnull((select 承認社員番号 as 人事"
-                            + "             from SD_T目標管理承認情報 mss"
-                            + "            where 大区分 = '2' and 中区分 ='2' and  小区分 ='1'"
-                            + "              and ms.管理番号 = mss.管理番号),'') as 人事"
-                            + "    from SD_T目標管理承認情報 ms"
-                            + "   group by  管理番号,社員番号) bluk"
-                            + "   where (達成部長 != '' or 達成支社 !='')"
-                            + "     and 人事 = ''";
-                    using(DbManager dm = new DbManager())
+                            + "  from ";
+                        switch (target) {
+                            case "Huyou":  //扶養控除
+                                sql += " TE100扶養控除申告書Data";
+                                break;
+
+                            case "Hoken":  //保険料控除
+                                sql += " TE110保険料控除申告書Data";
+                                break;
+
+                            case "Haiguu":  //基礎控除
+                                sql += " TE120基礎控除申告書Data";
+                                break;
+
+                            default:
+                                sql += " TE100扶養控除申告書Data";
+                                break;
+                        }                    
+
+                    switch (lu.IsAdminNo) {
+                        //東京支社、関東支社
+                        case "2":
+                        case "3":
+                            //本人提出済→支社確定済
+                            sql += "   where 本人確定区分 in('1','9') And 管理者確定区分 in('0')";
+                            break;
+
+                        //本社、大阪支社、名古屋支社、福岡支社
+                        case "1":
+                        case "7":
+                        case "8":
+                        case "9":
+                            //本人提出済or支社確定済→管理者確定済
+                            sql += "   where 本人確定区分 in('1','9') And 管理者確定区分 in('0','1')";
+                            break;
+
+                        case "K":  //管理者
+                            //本人提出済or支社確定済→管理者確定済
+                            sql += "   where 本人確定区分 in('1','9') And 管理者確定区分 in('0','1')";
+                            break;
+
+                        default:
+                            sql += "   where 1<>1 ";
+                            break;
+                    }
+
+                    sql += "   group by 対象年度,社員番号";
+
+                    using (DbManager dm = new DbManager())
                     using(IDbCommand cmd = dm.CreateCommand(sql))
                     using(DataSet ds = new DataSet()) {
                         IDataAdapter da = dm.CreateSqlDataAdapter(cmd);
                         // データセットに設定する
                         da.Fill(ds);
 
-                        //目標管理承認
-                        sql = "update SD_T目標管理承認情報"
-                                   + " set "
-                                   + " 承認社員番号 = @SignEmployeeNo"
-                                   + ",承認日付 = @SignDate"
-                                   + " where 管理番号 = @ManageNo"
-                                   + "   and 大区分 = '2'"
-                                   + "   and 中区分 = '2'"
-                                   + "   and 小区分 = '1'";
+                        //各承認
+                        switch (target) {
+                            case "Huyou":  //扶養控除
+                                sql = "update TE100扶養控除申告書Data";
+                                break;
+
+                            case "Hoken":  //保険料控除
+                                sql = "update TE110保険料控除申告書Data";
+                                break;
+
+                            case "Haiguu":  //基礎控除
+                                sql = "update TE120基礎控除申告書Data";
+                                break;
+
+                            default:
+                                sql = "update TE100扶養控除申告書Data";
+                                break;
+                        }                    
+
+                        //各管理区分ごとの更新内容
+                        switch (lu.IsAdminNo) {
+                            //東京支社、関東支社
+                            case "2":
+                            case "3":  
+                                sql += " set "
+                                    + "    本人確定区分 = '9'"
+                                    + "    ,管理者確定区分 = '1'";
+                                break;
+
+                            //本社、大阪支社、名古屋支社、福岡支社
+                            case "1":
+                            case "7":  
+                            case "8":
+                            case "9":  
+                                sql += " set "
+                                    + "    本人確定区分 = '9'"
+                                    + "    ,管理者確定区分 = '5'";
+                                break;
+
+                            case "K":  //管理者
+                                sql += " set "
+                                    + "    本人確定区分 = '9'"
+                                    + "    ,管理者確定区分 = '5'";
+                                break;
+
+                            default:
+                                sql += " set"
+                                    + "    本人確定区分 = 本人確定区分";
+                                break;
+                        }                    
+
+                        sql += " ,最終更新者ID = @SignEmployeeNo"
+                            + " ,更新年月日 = @SignDate"
+                            + " ,更新回数 = 更新回数 + 1 "
+                            + " where 対象年度 = @year"
+                            + "    and 社員番号 = @employeeNo" ;
+
+                        //各承認
+
                         //SQL文の型を指定
                         IDbCommand ucmd = dm.CreateCommand(sql);
                         DbHelper.AddDbParameter(ucmd, "@SignEmployeeNo", DbType.String);
                         DbHelper.AddDbParameter(ucmd, "@SignDate", DbType.DateTime);
-                        DbHelper.AddDbParameter(ucmd, "@ManageNo", DbType.String);
-                        //パラメータ設定
-                        var parameters = ucmd.Parameters.Cast<IDbDataParameter>().ToArray<IDbDataParameter>();
-                        parameters[0].Value = DataConv.IfNull(lu.UserCode);
-                        parameters[1].Value = DataConv.IfNull(DateTime.Now.ToString());
-                        
-                        //抽出した管理番号を更新
-                        var query = from row in ds.Tables[0].AsEnumerable()
-                                    where mnos.Contains(row.Field<Int32>("管理番号").ToString())
-                                    select row.Field<Int32>("管理番号").ToString();
-                        foreach(var manageNo in query) {
-                            parameters[2].Value = DataConv.IfNull(manageNo);
-                            ucmd.ExecuteNonQuery();
-                            //2016-01-21 iwai-tamura add-str ------
-                            //承認件数カウント
-                            retCount++;
-                            //2016-01-21 iwai-tamura add-upd ------
+                        DbHelper.AddDbParameter(ucmd, "@year", DbType.String);
+                        DbHelper.AddDbParameter(ucmd, "@employeeNo", DbType.String);
+
+
+                        //// SQL文の作成とパラメータの追加
+                        //IDbCommand ucmd = dm.CreateCommand(sql);
+                        //DbHelper.AddDbParameter(ucmd, "@SignEmployeeNo", DbType.String);
+                        //DbHelper.AddDbParameter(ucmd, "@SignDate", DbType.DateTime);
+                        //DbHelper.AddDbParameter(ucmd, "@year", DbType.String);
+                        //DbHelper.AddDbParameter(ucmd, "@employeeNo", DbType.String);
+
+                        foreach (var item in targetData) {
+                            // パラメータの値を設定
+                            var parameters = ucmd.Parameters.Cast<IDbDataParameter>().ToArray<IDbDataParameter>();
+                            parameters[0].Value = DataConv.IfNull(lu.UserCode);
+                            parameters[1].Value = DataConv.IfNull(DateTime.Now.ToString());
+                            parameters[2].Value = DataConv.IfNull(item.Year);
+                            parameters[3].Value = DataConv.IfNull(item.EmployeeNo);
+
+                            // SQL文の実行と影響を受けた行の数の確認
+                            int affectedRows = ucmd.ExecuteNonQuery();
+                            if (affectedRows > 0) {
+                                // 1行以上更新された場合、カウントを増やす
+                                retCount++;
+                            }
                         }
+                        ////パラメータ設定
+                        //var parameters = ucmd.Parameters.Cast<IDbDataParameter>().ToArray<IDbDataParameter>();
+                        //parameters[0].Value = DataConv.IfNull(lu.UserCode);
+                        //parameters[1].Value = DataConv.IfNull(DateTime.Now.ToString());
+                        
+                        ////抽出した管理番号を更新
+                        //var query = from row in ds.Tables[0].AsEnumerable()
+                        //            where mnos.Any(mno => mno.StartsWith(row.Field<Int32>("対象年度").ToString().Substring(0, 4))) &&
+                        //            mnos.Any(mno => mno.StartsWith(row.Field<Int32>("社員番号").ToString().Substring(5, 5))) 
+                        //            select (row.Field<Int32>("対象年度").ToString() + ;
+                        //foreach(var manageNo in query) {
+                        //    parameters[2].Value = DataConv.IfNull(year);
+                        //    parameters[3].Value = DataConv.IfNull(employeeNo);
+                        //    ucmd.ExecuteNonQuery();
+                        //    //承認件数カウント
+                        //    retCount++;
+                        //}
                     }
 
                     scope.Complete();

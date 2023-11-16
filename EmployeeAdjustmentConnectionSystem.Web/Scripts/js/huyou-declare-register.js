@@ -171,6 +171,103 @@ document.getElementById('Head_TaxWithholding_Earnings').addEventListener('change
 //  その他所得
 document.getElementById('Head_TaxWithholding_OtherIncome').addEventListener('change', function () {
     updateIncomeFields('Head_TaxWithholding_Earnings', 'Head_TaxWithholding_Earnings2Income', 'Head_TaxWithholding_OtherIncome', 'Head_TaxWithholding_Income');
+    checkMoney('#Head_TaxWithholding_Income', 950000)
+});
+
+//控除対象扶養親族給与1
+//  所得
+document.getElementById('Head_DependentsOver16_1_Earnings').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsOver16_1_Earnings', 'Head_DependentsOver16_1_Earnings2Income', 'Head_DependentsOver16_1_OtherIncome', 'Head_DependentsOver16_1_Income');
+    checkMoney('#Head_DependentsOver16_1_Income', 480000)
+});
+//  その他所得
+document.getElementById('Head_DependentsOver16_1_OtherIncome').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsOver16_1_Earnings', 'Head_DependentsOver16_1_Earnings2Income', 'Head_DependentsOver16_1_OtherIncome', 'Head_DependentsOver16_1_Income');
+    checkMoney('#Head_DependentsOver16_1_Income', 480000)
+});
+
+//控除対象扶養親族給与2
+//  所得
+document.getElementById('Head_DependentsOver16_2_Earnings').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsOver16_2_Earnings', 'Head_DependentsOver16_2_Earnings2Income', 'Head_DependentsOver16_2_OtherIncome', 'Head_DependentsOver16_2_Income');
+    checkMoney('#Head_DependentsOver16_2_Income', 480000)
+});
+//  その他所得
+document.getElementById('Head_DependentsOver16_2_OtherIncome').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsOver16_2_Earnings', 'Head_DependentsOver16_2_Earnings2Income', 'Head_DependentsOver16_2_OtherIncome', 'Head_DependentsOver16_2_Income');
+    checkMoney('#Head_DependentsOver16_2_Income', 480000)
+});
+
+//控除対象扶養親族給与3
+//  所得
+document.getElementById('Head_DependentsOver16_3_Earnings').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsOver16_3_Earnings', 'Head_DependentsOver16_3_Earnings2Income', 'Head_DependentsOver16_3_OtherIncome', 'Head_DependentsOver16_3_Income');
+    checkMoney('#Head_DependentsOver16_3_Income', 480000)
+});
+//  その他所得
+document.getElementById('Head_DependentsOver16_3_OtherIncome').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsOver16_3_Earnings', 'Head_DependentsOver16_3_Earnings2Income', 'Head_DependentsOver16_3_OtherIncome', 'Head_DependentsOver16_3_Income');
+    checkMoney('#Head_DependentsOver16_3_Income', 480000)
+});
+
+//控除対象扶養親族給与4
+//  所得
+document.getElementById('Head_DependentsOver16_4_Earnings').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsOver16_4_Earnings', 'Head_DependentsOver16_4_Earnings2Income', 'Head_DependentsOver16_4_OtherIncome', 'Head_DependentsOver16_4_Income');
+    checkMoney('#Head_DependentsOver16_4_Income', 480000)
+});
+//  その他所得
+document.getElementById('Head_DependentsOver16_4_OtherIncome').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsOver16_4_Earnings', 'Head_DependentsOver16_4_Earnings2Income', 'Head_DependentsOver16_4_OtherIncome', 'Head_DependentsOver16_4_Income');
+    checkMoney('#Head_DependentsOver16_4_Income', 480000)
+});
+
+//16歳未満の扶養親族給与1
+//  所得
+document.getElementById('Head_DependentsUnder16_1_Earnings').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsUnder16_1_Earnings', 'Head_DependentsUnder16_1_Earnings2Income', 'Head_DependentsUnder16_1_OtherIncome', 'Head_DependentsUnder16_1_Income');
+    checkMoney('#Head_DependentsUnder16_1_Income', 480000)
+});
+//  その他所得
+document.getElementById('Head_DependentsUnder16_1_OtherIncome').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsUnder16_1_Earnings', 'Head_DependentsUnder16_1_Earnings2Income', 'Head_DependentsUnder16_1_OtherIncome', 'Head_DependentsUnder16_1_Income');
+    checkMoney('#Head_DependentsUnder16_1_Income', 480000)
+});
+
+//16歳未満の扶養親族給与2
+//  所得
+document.getElementById('Head_DependentsUnder16_2_Earnings').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsUnder16_2_Earnings', 'Head_DependentsUnder16_2_Earnings2Income', 'Head_DependentsUnder16_2_OtherIncome', 'Head_DependentsUnder16_2_Income');
+    checkMoney('#Head_DependentsUnder16_2_Income', 480000)
+});
+//  その他所得
+document.getElementById('Head_DependentsUnder16_2_OtherIncome').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsUnder16_2_Earnings', 'Head_DependentsUnder16_2_Earnings2Income', 'Head_DependentsUnder16_2_OtherIncome', 'Head_DependentsUnder16_2_Income');
+    checkMoney('#Head_DependentsUnder16_2_Income', 480000)
+});
+
+//16歳未満の扶養親族給与3
+//  所得
+document.getElementById('Head_DependentsUnder16_3_Earnings').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsUnder16_3_Earnings', 'Head_DependentsUnder16_3_Earnings2Income', 'Head_DependentsUnder16_3_OtherIncome', 'Head_DependentsUnder16_3_Income');
+    checkMoney('#Head_DependentsUnder16_3_Income', 480000)
+});
+//  その他所得
+document.getElementById('Head_DependentsUnder16_3_OtherIncome').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsUnder16_3_Earnings', 'Head_DependentsUnder16_3_Earnings2Income', 'Head_DependentsUnder16_3_OtherIncome', 'Head_DependentsUnder16_3_Income');
+    checkMoney('#Head_DependentsUnder16_3_Income', 480000)
+});
+
+//16歳未満の扶養親族給与4
+//  所得
+document.getElementById('Head_DependentsUnder16_4_Earnings').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsUnder16_4_Earnings', 'Head_DependentsUnder16_4_Earnings2Income', 'Head_DependentsUnder16_4_OtherIncome', 'Head_DependentsUnder16_4_Income');
+    checkMoney('#Head_DependentsUnder16_4_Income', 480000)
+});
+//  その他所得
+document.getElementById('Head_DependentsUnder16_4_OtherIncome').addEventListener('change', function () {
+    updateIncomeFields('Head_DependentsUnder16_4_Earnings', 'Head_DependentsUnder16_4_Earnings2Income', 'Head_DependentsUnder16_4_OtherIncome', 'Head_DependentsUnder16_4_Income');
+    checkMoney('#Head_DependentsUnder16_4_Income', 480000)
 });
 
 //2023-99-99 iwai-tamura upd end -----
@@ -197,9 +294,10 @@ function checkDependentsOver16(id) {
 
     var oldmanTypeName = "Head." + id + "_OldmanType";
     var oldmanTypeMesID = "#Head_" + id + "_OldmanType_mes";
-
     var specificTypeName = "Head." + id + "_SpecificType";
     var specificTypeMesID = "#Head_" + id + "_SpecificType_mes";
+    var residentTypeName = "Head." + id + "_ResidentType";
+    var residentTypeMesID = "#Head_" + id + "_ResidentType_mes";
 
 
     var strYear = $(birthdayYearID).val();
@@ -257,11 +355,11 @@ function checkDependentsOver16(id) {
 
     //老人扶養区分チェック
     strMessage = "";
-    //if (strDate <= cDate70) {
-    //    if ($('input:radio[name="' + oldmanTypeName + '"]:checked').val() == "0") {
-    //        strMessage = "70歳以上は選択該当する区分を選択してください。";
-    //    }
-    //}
+    if (strDate <= cDate70) {
+        if ($('input:radio[name="' + oldmanTypeName + '"]:checked').val() == "0") {
+            strMessage = "70歳以上は該当する区分を選択してください。";
+        }
+    }
     if (strDate > cDate70) {
         if ($('input:radio[name="' + oldmanTypeName + '"]:checked').val() != "0") {
             strMessage = "70歳未満は選択できません。";
@@ -272,9 +370,9 @@ function checkDependentsOver16(id) {
     //特定扶養親族区分チェック
     strMessage = "";
     if ((strDate <= cDate19) && (strDate > cDate23)) {
-    //    if ($('input:radio[name="' + specificTypeName + '"]:checked').val() == "0") {
-    //        strMessage = "19歳～23歳は特定扶養を選択してください。";
-    //    }
+        if ($('input:radio[name="' + specificTypeName + '"]:checked').val() == "0") {
+            strMessage = "19歳～23歳は特定扶養親族を選択してください。";
+        }
     } else {
         if ($('input:radio[name="' + specificTypeName + '"]:checked').val() != "0") {
             strMessage = "19歳～23歳以外は選択できません。";
@@ -282,6 +380,23 @@ function checkDependentsOver16(id) {
     }
     $(specificTypeMesID).text(strMessage);
 
+    strMessage = "";
+    if ($('input:radio[name="' + oldmanTypeName + '"]:checked').val() == "1") {
+        if ($('input:radio[name="' + residentTypeName + '"]:checked').val() != "0") {
+            strMessage = "同居老親等の場合は、該当しないを選択してください。";
+        }
+    } else if ($('input:radio[name="' + oldmanTypeName + '"]:checked').val() == "2") {
+        if (($('input:radio[name="' + residentTypeName + '"]:checked').val() != "1") && ($('input:radio[name="' + residentTypeName + '"]:checked').val() != "2")) {
+            strMessage = "老人扶養親族でその他を選択している場合は、該当する区分を選択してください。";
+        }
+    } else {
+        if ($('input:radio[name="' + residentTypeName + '"]:checked').val() != "0") {
+            strMessage = "老人扶養親族に該当しない場合は、該当しないを選択してください。";
+        }
+    }
+
+
+    $(residentTypeMesID).text(strMessage);
 
     return bolReturn;
 }
@@ -699,7 +814,7 @@ function checkMoney(id, maxMoney) {
     } else if ($.isNumeric(strVal) == false) {
         strMessage = "数値で入力してください。";
     } else if ((strVal) > maxMoney) {
-        strMessage = maxMoney + "円以上は入力できません。";
+        strMessage = maxMoney/10000 + "万円以上は対象外です。";
     } else {
         bolReturn = true;
     }
