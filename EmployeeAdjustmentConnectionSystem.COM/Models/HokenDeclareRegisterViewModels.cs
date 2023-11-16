@@ -8,7 +8,7 @@ using EmployeeAdjustmentConnectionSystem.COM.Enum;
 
 namespace EmployeeAdjustmentConnectionSystem.COM.Models {
     /// <summary>
-    /// 扶養控除申告書入力モデル
+    /// 保険料控除申告書入力モデル
     /// </summary>
     public class HokenDeclareRegisterViewModels {
         /// <summary>
@@ -182,6 +182,12 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public int? LifeInsurance_DeductionAmount { get; set; }
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 一般生命保険料01_HostData判定
+		/// </summary>
+		public string LifeInsurance_1_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
 
 		/// <summary>
 		/// 一般生命保険料01_保険会社等名称
@@ -243,6 +249,13 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? LifeInsurance_1_InsuranceFee { get; set; }
 
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 一般生命保険料02_HostData判定
+		/// </summary>
+		public string LifeInsurance_2_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
+
 		/// <summary>
 		/// 一般生命保険料02_保険会社等名称
 		/// </summary>
@@ -301,6 +314,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 一般生命保険料02_支払金額
 		/// </summary>
 		public int? LifeInsurance_2_InsuranceFee { get; set; }
+
+
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 一般生命保険料03_HostData判定
+		/// </summary>
+		public string LifeInsurance_3_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -363,6 +384,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? LifeInsurance_3_InsuranceFee { get; set; }
 
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 一般生命保険料04_HostData判定
+		/// </summary>
+		public string LifeInsurance_4_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
+
+
 		/// <summary>
 		/// 一般生命保険料04_保険会社等名称
 		/// </summary>
@@ -423,6 +452,273 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? LifeInsurance_4_InsuranceFee { get; set; }
 
 
+
+
+		//2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 一般生命保険料05_HostData判定
+		/// </summary>
+		public string LifeInsurance_5_HostDataFlg { get; set; }
+
+		/// <summary>
+		/// 一般生命保険料05_保険会社等名称
+		/// </summary>
+		public string LifeInsurance_5_InsuranceCompanyName { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料05_保険等種類
+		/// </summary>
+		public string LifeInsurance_5_InsuranceTypeName { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料05_期間
+		/// </summary>
+		public string LifeInsurance_5_InsurancePeriod { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料05_保険等契約者氏名_姓
+		/// </summary>
+		public string LifeInsurance_5_ContractorName1 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料05_保険等契約者氏名_名
+		/// </summary>
+		public string LifeInsurance_5_ContractorName2 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料05_保険金等受取人氏名_姓
+		/// </summary>
+		public string LifeInsurance_5_ReceiverName1 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料05_保険金等受取人氏名_名
+		/// </summary>
+		public string LifeInsurance_5_ReceiverName2 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料05_保険金等受取人続柄
+		/// </summary>
+		public string LifeInsurance_5_RelationshipType { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料05_新旧
+		/// </summary>
+		public string LifeInsurance_5_OldAndNewType { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料05_支払金額
+		/// </summary>
+		public int? LifeInsurance_5_InsuranceFee { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料06_HostData判定
+		/// </summary>
+		public string LifeInsurance_6_HostDataFlg { get; set; }
+
+		/// <summary>
+		/// 一般生命保険料06_保険会社等名称
+		/// </summary>
+		public string LifeInsurance_6_InsuranceCompanyName { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料06_保険等種類
+		/// </summary>
+		public string LifeInsurance_6_InsuranceTypeName { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料06_期間
+		/// </summary>
+		public string LifeInsurance_6_InsurancePeriod { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料06_保険等契約者氏名_姓
+		/// </summary>
+		public string LifeInsurance_6_ContractorName1 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料06_保険等契約者氏名_名
+		/// </summary>
+		public string LifeInsurance_6_ContractorName2 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料06_保険金等受取人氏名_姓
+		/// </summary>
+		public string LifeInsurance_6_ReceiverName1 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料06_保険金等受取人氏名_名
+		/// </summary>
+		public string LifeInsurance_6_ReceiverName2 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料06_保険金等受取人続柄
+		/// </summary>
+		public string LifeInsurance_6_RelationshipType { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料06_新旧
+		/// </summary>
+		public string LifeInsurance_6_OldAndNewType { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料06_支払金額
+		/// </summary>
+		public int? LifeInsurance_6_InsuranceFee { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料07_HostData判定
+		/// </summary>
+		public string LifeInsurance_7_HostDataFlg { get; set; }
+
+		/// <summary>
+		/// 一般生命保険料07_保険会社等名称
+		/// </summary>
+		public string LifeInsurance_7_InsuranceCompanyName { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料07_保険等種類
+		/// </summary>
+		public string LifeInsurance_7_InsuranceTypeName { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料07_期間
+		/// </summary>
+		public string LifeInsurance_7_InsurancePeriod { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料07_保険等契約者氏名_姓
+		/// </summary>
+		public string LifeInsurance_7_ContractorName1 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料07_保険等契約者氏名_名
+		/// </summary>
+		public string LifeInsurance_7_ContractorName2 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料07_保険金等受取人氏名_姓
+		/// </summary>
+		public string LifeInsurance_7_ReceiverName1 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料07_保険金等受取人氏名_名
+		/// </summary>
+		public string LifeInsurance_7_ReceiverName2 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料07_保険金等受取人続柄
+		/// </summary>
+		public string LifeInsurance_7_RelationshipType { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料07_新旧
+		/// </summary>
+		public string LifeInsurance_7_OldAndNewType { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料07_支払金額
+		/// </summary>
+		public int? LifeInsurance_7_InsuranceFee { get; set; }
+
+
+
+		/// <summary>
+		/// 一般生命保険料08_HostData判定
+		/// </summary>
+		public string LifeInsurance_8_HostDataFlg { get; set; }
+
+		/// <summary>
+		/// 一般生命保険料08_保険会社等名称
+		/// </summary>
+		public string LifeInsurance_8_InsuranceCompanyName { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料08_保険等種類
+		/// </summary>
+		public string LifeInsurance_8_InsuranceTypeName { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料08_期間
+		/// </summary>
+		public string LifeInsurance_8_InsurancePeriod { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料08_保険等契約者氏名_姓
+		/// </summary>
+		public string LifeInsurance_8_ContractorName1 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料08_保険等契約者氏名_名
+		/// </summary>
+		public string LifeInsurance_8_ContractorName2 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料08_保険金等受取人氏名_姓
+		/// </summary>
+		public string LifeInsurance_8_ReceiverName1 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料08_保険金等受取人氏名_名
+		/// </summary>
+		public string LifeInsurance_8_ReceiverName2 { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料08_保険金等受取人続柄
+		/// </summary>
+		public string LifeInsurance_8_RelationshipType { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料08_新旧
+		/// </summary>
+		public string LifeInsurance_8_OldAndNewType { get; set; }
+
+
+		/// <summary>
+		/// 一般生命保険料08_支払金額
+		/// </summary>
+		public int? LifeInsurance_8_InsuranceFee { get; set; }
+
+		//2023-99-99 iwai-tamura upd end -----
+
+
+
 		/// <summary>
 		/// 介護医療保険料合計
 		/// </summary>
@@ -433,6 +729,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 介護医療保険料表計算
 		/// </summary>
 		public int? MedicalInsurance_DeductionAmount { get; set; }
+
+
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 介護医療保険料01_HostData判定
+		/// </summary>
+		public string MedicalInsurance_1_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -489,6 +793,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? MedicalInsurance_1_InsuranceFee { get; set; }
 
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 介護医療保険料02_HostData判定
+		/// </summary>
+		public string MedicalInsurance_2_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
+
+
 		/// <summary>
 		/// 介護医療保険料02_保険会社等名称
 		/// </summary>
@@ -543,6 +855,248 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? MedicalInsurance_2_InsuranceFee { get; set; }
 
 
+		//2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 介護医療保険料03_HostData判定
+		/// </summary>
+		public string MedicalInsurance_3_HostDataFlg { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料03_保険会社等名称
+		/// </summary>
+		public string MedicalInsurance_3_InsuranceCompanyName { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料03_保険等種類
+		/// </summary>
+		public string MedicalInsurance_3_InsuranceTypeName { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料03_期間
+		/// </summary>
+		public string MedicalInsurance_3_InsurancePeriod { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料03_保険等契約者氏名_姓
+		/// </summary>
+		public string MedicalInsurance_3_ContractorName1 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料03_保険等契約者氏名_名
+		/// </summary>
+		public string MedicalInsurance_3_ContractorName2 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料03_保険金等受取人氏名_姓
+		/// </summary>
+		public string MedicalInsurance_3_ReceiverName1 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料03_保険金等受取人氏名_名
+		/// </summary>
+		public string MedicalInsurance_3_ReceiverName2 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料03_保険金等受取人続柄
+		/// </summary>
+		public string MedicalInsurance_3_RelationshipType { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料03_支払金額
+		/// </summary>
+		public int? MedicalInsurance_3_InsuranceFee { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料04_HostData判定
+		/// </summary>
+		public string MedicalInsurance_4_HostDataFlg { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料04_保険会社等名称
+		/// </summary>
+		public string MedicalInsurance_4_InsuranceCompanyName { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料04_保険等種類
+		/// </summary>
+		public string MedicalInsurance_4_InsuranceTypeName { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料04_期間
+		/// </summary>
+		public string MedicalInsurance_4_InsurancePeriod { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料04_保険等契約者氏名_姓
+		/// </summary>
+		public string MedicalInsurance_4_ContractorName1 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料04_保険等契約者氏名_名
+		/// </summary>
+		public string MedicalInsurance_4_ContractorName2 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料04_保険金等受取人氏名_姓
+		/// </summary>
+		public string MedicalInsurance_4_ReceiverName1 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料04_保険金等受取人氏名_名
+		/// </summary>
+		public string MedicalInsurance_4_ReceiverName2 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料04_保険金等受取人続柄
+		/// </summary>
+		public string MedicalInsurance_4_RelationshipType { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料04_支払金額
+		/// </summary>
+		public int? MedicalInsurance_4_InsuranceFee { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料05_HostData判定
+		/// </summary>
+		public string MedicalInsurance_5_HostDataFlg { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料05_保険会社等名称
+		/// </summary>
+		public string MedicalInsurance_5_InsuranceCompanyName { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料05_保険等種類
+		/// </summary>
+		public string MedicalInsurance_5_InsuranceTypeName { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料05_期間
+		/// </summary>
+		public string MedicalInsurance_5_InsurancePeriod { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料05_保険等契約者氏名_姓
+		/// </summary>
+		public string MedicalInsurance_5_ContractorName1 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料05_保険等契約者氏名_名
+		/// </summary>
+		public string MedicalInsurance_5_ContractorName2 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料05_保険金等受取人氏名_姓
+		/// </summary>
+		public string MedicalInsurance_5_ReceiverName1 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料05_保険金等受取人氏名_名
+		/// </summary>
+		public string MedicalInsurance_5_ReceiverName2 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料05_保険金等受取人続柄
+		/// </summary>
+		public string MedicalInsurance_5_RelationshipType { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料05_支払金額
+		/// </summary>
+		public int? MedicalInsurance_5_InsuranceFee { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料06_HostData判定
+		/// </summary>
+		public string MedicalInsurance_6_HostDataFlg { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料06_保険会社等名称
+		/// </summary>
+		public string MedicalInsurance_6_InsuranceCompanyName { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料06_保険等種類
+		/// </summary>
+		public string MedicalInsurance_6_InsuranceTypeName { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料06_期間
+		/// </summary>
+		public string MedicalInsurance_6_InsurancePeriod { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料06_保険等契約者氏名_姓
+		/// </summary>
+		public string MedicalInsurance_6_ContractorName1 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料06_保険等契約者氏名_名
+		/// </summary>
+		public string MedicalInsurance_6_ContractorName2 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料06_保険金等受取人氏名_姓
+		/// </summary>
+		public string MedicalInsurance_6_ReceiverName1 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料06_保険金等受取人氏名_名
+		/// </summary>
+		public string MedicalInsurance_6_ReceiverName2 { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料06_保険金等受取人続柄
+		/// </summary>
+		public string MedicalInsurance_6_RelationshipType { get; set; }
+
+
+		/// <summary>
+		/// 介護医療保険料06_支払金額
+		/// </summary>
+		public int? MedicalInsurance_6_InsuranceFee { get; set; }
+		//2023-99-99 iwai-tamura upd end -----
+
+
 		/// <summary>
 		/// 個人年金保険料新保険料合計
 		/// </summary>
@@ -577,6 +1131,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 個人年金保険料比較
 		/// </summary>
 		public int? PensionInsurance_DeductionAmount { get; set; }
+
+
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 個人年金保険料01_HostData判定
+		/// </summary>
+		public string PensionInsurance_1_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -663,6 +1225,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? PensionInsurance_1_InsuranceFee { get; set; }
 
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 個人年金保険料02_HostData判定
+		/// </summary>
+		public string PensionInsurance_2_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
+
+
 		/// <summary>
 		/// 個人年金保険料02_保険会社等名称
 		/// </summary>
@@ -745,6 +1315,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 個人年金保険料02_支払金額
 		/// </summary>
 		public int? PensionInsurance_2_InsuranceFee { get; set; }
+
+
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 個人年金保険料03_HostData判定
+		/// </summary>
+		public string PensionInsurance_3_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -831,6 +1409,98 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? PensionInsurance_3_InsuranceFee { get; set; }
 
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 個人年金保険料04_HostData判定
+		/// </summary>
+		public string PensionInsurance_4_HostDataFlg { get; set; }
+
+
+		/// <summary>
+		/// 個人年金保険料04_保険会社等名称
+		/// </summary>
+		public string PensionInsurance_4_InsuranceCompanyName { get; set; }
+
+
+		/// <summary>
+		/// 個人年金保険料04_保険等種類
+		/// </summary>
+		public string PensionInsurance_4_InsuranceTypeName { get; set; }
+
+
+		/// <summary>
+		/// 個人年金保険料04_期間
+		/// </summary>
+		public string PensionInsurance_4_InsurancePeriod { get; set; }
+
+
+		/// <summary>
+		/// 個人年金保険料04_保険等契約者氏名_姓
+		/// </summary>
+		public string PensionInsurance_4_ContractorName1 { get; set; }
+
+
+		/// <summary>
+		/// 個人年金保険料04_保険等契約者氏名_名
+		/// </summary>
+		public string PensionInsurance_4_ContractorName2 { get; set; }
+
+
+		/// <summary>
+		/// 個人年金保険料04_保険金等受取人氏名_姓
+		/// </summary>
+		public string PensionInsurance_4_ReceiverName1 { get; set; }
+
+
+		/// <summary>
+		/// 個人年金保険料04_保険金等受取人氏名_名
+		/// </summary>
+		public string PensionInsurance_4_ReceiverName2 { get; set; }
+
+
+		/// <summary>
+		/// 個人年金保険料04_保険金等受取人続柄
+		/// </summary>
+		public string PensionInsurance_4_RelationshipType { get; set; }
+
+
+		/// <summary>
+		/// 個人年金保険料04_支払開始日
+		/// </summary>
+		public string PensionInsurance_4_StartPayment { get; set; }
+
+
+		/// <summary>
+		/// 個人年金保険料04_支払開始日_年
+		/// </summary>
+		public string PensionInsurance_4_StartPaymentYear { get; set; }
+
+
+		/// <summary>
+		/// 個人年金保険料04_支払開始日_月
+		/// </summary>
+		public string PensionInsurance_4_StartPaymentMonth { get; set; }
+
+
+		/// <summary>
+		/// 個人年金保険料04_支払開始日_日
+		/// </summary>
+		public string PensionInsurance_4_StartPaymentDay { get; set; }
+
+
+		/// <summary>
+		/// 個人年金保険料04_新旧
+		/// </summary>
+		public string PensionInsurance_4_OldAndNewType { get; set; }
+
+
+		/// <summary>
+		/// 個人年金保険料04_支払金額
+		/// </summary>
+		public int? PensionInsurance_4_InsuranceFee { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
+
+
 		/// <summary>
 		/// 地震保険料控除地震保険料合計
 		/// </summary>
@@ -859,6 +1529,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 地震保険料控除額金額合計
 		/// </summary>
 		public int? QuakeInsurance_DeductionAmount { get; set; }
+
+
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 地震保険料控除01_HostData判定
+		/// </summary>
+		public string QuakeInsurance_1_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -921,6 +1599,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? QuakeInsurance_1_InsuranceFee { get; set; }
 
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 地震保険料控除02_HostData判定
+		/// </summary>
+		public string QuakeInsurance_2_HostDataFlg { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
+
+
 		/// <summary>
 		/// 地震保険料控除02_保険会社等名称
 		/// </summary>
@@ -979,6 +1665,141 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 地震保険料控除02_支払保険料
 		/// </summary>
 		public int? QuakeInsurance_2_InsuranceFee { get; set; }
+
+
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 地震保険料控除03_HostData判定
+		/// </summary>
+		public string QuakeInsurance_3_HostDataFlg { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除03_保険会社等名称
+		/// </summary>
+		public string QuakeInsurance_3_InsuranceCompanyName { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除03_保険等種類
+		/// </summary>
+		public string QuakeInsurance_3_InsuranceTypeName { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除03_期間
+		/// </summary>
+		public string QuakeInsurance_3_InsurancePeriod { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除03_保険等契約者氏名_姓
+		/// </summary>
+		public string QuakeInsurance_3_ContractorName1 { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除03_保険等契約者氏名_名
+		/// </summary>
+		public string QuakeInsurance_3_ContractorName2 { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除03_保険等対象氏名_姓
+		/// </summary>
+		public string QuakeInsurance_3_ReceiverName1 { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除03_保険等対象氏名_名
+		/// </summary>
+		public string QuakeInsurance_3_ReceiverName2 { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除03_保険等対象続柄
+		/// </summary>
+		public string QuakeInsurance_3_RelationshipType { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除03_地震旧長期
+		/// </summary>
+		public string QuakeInsurance_3_QuakeAndDamageType { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除03_支払保険料
+		/// </summary>
+		public int? QuakeInsurance_3_InsuranceFee { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除04_HostData判定
+		/// </summary>
+		public string QuakeInsurance_4_HostDataFlg { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除04_保険会社等名称
+		/// </summary>
+		public string QuakeInsurance_4_InsuranceCompanyName { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除04_保険等種類
+		/// </summary>
+		public string QuakeInsurance_4_InsuranceTypeName { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除04_期間
+		/// </summary>
+		public string QuakeInsurance_4_InsurancePeriod { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除04_保険等契約者氏名_姓
+		/// </summary>
+		public string QuakeInsurance_4_ContractorName1 { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除04_保険等契約者氏名_名
+		/// </summary>
+		public string QuakeInsurance_4_ContractorName2 { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除04_保険等対象氏名_姓
+		/// </summary>
+		public string QuakeInsurance_4_ReceiverName1 { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除04_保険等対象氏名_名
+		/// </summary>
+		public string QuakeInsurance_4_ReceiverName2 { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除04_保険等対象続柄
+		/// </summary>
+		public string QuakeInsurance_4_RelationshipType { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除04_地震旧長期
+		/// </summary>
+		public string QuakeInsurance_4_QuakeAndDamageType { get; set; }
+
+
+		/// <summary>
+		/// 地震保険料控除04_支払保険料
+		/// </summary>
+		public int? QuakeInsurance_4_InsuranceFee { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
+
 
 
 		/// <summary>
@@ -1058,6 +1879,42 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public int? SocialInsurance_2_InsuranceFee { get; set; }
 
+        //2023-99-99 iwai-tamura upd str -----
+		/// <summary>
+		/// 社会保険料控除03_社会保険種類
+		/// </summary>
+		public string SocialInsurance_3_InsuranceTypeName { get; set; }
+
+
+		/// <summary>
+		/// 社会保険料控除03_支払先名称
+		/// </summary>
+		public string SocialInsurance_3_InsuranceCompanyName { get; set; }
+
+
+		/// <summary>
+		/// 社会保険料控除03_負担者氏名_姓
+		/// </summary>
+		public string SocialInsurance_3_ContractorName1 { get; set; }
+
+
+		/// <summary>
+		/// 社会保険料控除03_負担者氏名_名
+		/// </summary>
+		public string SocialInsurance_3_ContractorName2 { get; set; }
+
+
+		/// <summary>
+		/// 社会保険料控除03_負担者続柄
+		/// </summary>
+		public string SocialInsurance_3_RelationshipType { get; set; }
+
+
+		/// <summary>
+		/// 社会保険料控除03_支払保険料
+		/// </summary>
+		public int? SocialInsurance_3_InsuranceFee { get; set; }
+        //2023-99-99 iwai-tamura upd end -----
 
 		/// <summary>
 		/// 共済契約掛金

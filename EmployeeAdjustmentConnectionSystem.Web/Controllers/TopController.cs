@@ -114,7 +114,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     strInputNo = specifyEmployeeNo;
                     bolAdminMode = true;
                 }
-                return RedirectToAction((string)linkTable[value], value, new { intSheetYear = 2022, strEmployeeNo = strInputNo ,bolAdminMode = bolAdminMode});
+
+                //2023-99-99 iwai-tamura upd str -----
+                return RedirectToAction((string)linkTable[value], value, new { intSheetYear = lu.IsYear, strEmployeeNo = strInputNo ,bolAdminMode = bolAdminMode});
+                //return RedirectToAction((string)linkTable[value], value, new { intSheetYear = 2022, strEmployeeNo = strInputNo ,bolAdminMode = bolAdminMode});
+                //2023-99-99 iwai-tamura upd end -----
                 //return RedirectToAction("Index", "HuyouDeclareRegister", new { intSheetYear = 2022, strEmployeeNo = "" });
             } catch(Exception ex) {
                 //エラー
@@ -205,7 +209,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 ////表示
                 //return View((new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                 //DL処理変更
-                var dlpath = bl.PrintHaiguuDeclare(new string[] { strInputNo });
+                var dlpath = bl.PrintHaiguuDeclare(new string[] { String.Join(",",lu.IsYear, strInputNo ) });
                 string mappath = Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile()) + dlpath);
                 string fileName = Path.GetFileName(mappath);
                 return File(mappath, "application/zip", fileName);
@@ -297,7 +301,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 ////表示
                 //return View((new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                 //DL処理変更
-                var dlpath = bl.PrintHuyouDeclare(new string[] { strInputNo });
+                var dlpath = bl.PrintHuyouDeclare(new string[] { String.Join(",",lu.IsYear, strInputNo ) });
                 string mappath = Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile()) + dlpath);
                 string fileName = Path.GetFileName(mappath);
                 return File(mappath, "application/zip", fileName);
@@ -365,7 +369,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 ////表示
                 //return View((new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
                 //DL処理変更
-                var dlpath = bl.PrintHokenDeclare(new string[] { strInputNo });
+                var dlpath = bl.PrintHokenDeclare(new string[] { String.Join(",",lu.IsYear, strInputNo ) });
                 string mappath = Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile()) + dlpath);
                 string fileName = Path.GetFileName(mappath);
                 return File(mappath, "application/zip", fileName);
