@@ -269,7 +269,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,基礎控除.社員番号 "
                     + "     ,基礎控除.本人確定区分 "
                     + "	    ,基礎控除.管理者確定区分 "
-                    + "	    ,基礎控除.個人番号相違確認区分 "
+                    //2023-11-16 iwai-terao upd str ------
+                    //+ "	    ,基礎控除.個人番号相違確認区分 "
+                    + "     ,Isnull(基礎控除.個人番号相違確認区分,'0') AS 個人番号相違確認区分 "
+                    //2023-11-16 iwai-terao upd end ------
                     + "	    ,基礎控除.所属番号 "
                     + "     ,基礎控除.氏名_姓 + ' ' + 基礎控除.氏名_名 AS 氏名 "
                     + "     ,基礎控除.Kana_姓 + ' ' + 基礎控除.Kana_名 AS Kana "
@@ -314,6 +317,22 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,事業所名.税務署名 AS 税務署長 "
                     + "     ,事業所名.会社名 AS 給与支払者名称 "
                     + "     ,事業所名.所在地 AS 給与支払者所在地 "
+
+                    //2023-11-16 iwai-terao upd str ------
+                    + "     ,'3' AS 法人個人番号01 "
+                    + "     ,'0' AS 法人個人番号02 "
+                    + "     ,'1' AS 法人個人番号03 "
+                    + "     ,'0' AS 法人個人番号04 "
+                    + "     ,'0' AS 法人個人番号05 "
+                    + "     ,'0' AS 法人個人番号06 "
+                    + "     ,'1' AS 法人個人番号07 "
+                    + "     ,'0' AS 法人個人番号08 "
+                    + "     ,'3' AS 法人個人番号09 "
+                    + "     ,'3' AS 法人個人番号10 "
+                    + "     ,'3' AS 法人個人番号11 "
+                    + "     ,'7' AS 法人個人番号12 "
+                    + "     ,'5' AS 法人個人番号13 "
+                    //2023-11-16 iwai-terao upd end ------
                     + " FROM TE120基礎控除申告書Data AS 基礎控除"
                     + "  LEFT JOIN TM911続柄名Master AS 配偶者続柄名 ON 基礎控除.配偶者控除申告書_続柄 = 配偶者続柄名.続柄番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 扶養親族等続柄名 ON 基礎控除.所得金額調整控除申告書_扶養親族等続柄 = 扶養親族等続柄名.続柄番号 "
@@ -773,6 +792,22 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,事業所名.税務署名 AS 税務署長 "
                     + "     ,事業所名.会社名 AS 給与支払者名称 "
                     + "     ,事業所名.所在地 AS 給与支払者所在地 "
+
+                    //2023-11-16 iwai-terao upd str ------
+                    + "     ,'3' AS 法人個人番号01 "
+                    + "     ,'0' AS 法人個人番号02 "
+                    + "     ,'1' AS 法人個人番号03 "
+                    + "     ,'0' AS 法人個人番号04 "
+                    + "     ,'0' AS 法人個人番号05 "
+                    + "     ,'0' AS 法人個人番号06 "
+                    + "     ,'1' AS 法人個人番号07 "
+                    + "     ,'0' AS 法人個人番号08 "
+                    + "     ,'3' AS 法人個人番号09 "
+                    + "     ,'3' AS 法人個人番号10 "
+                    + "     ,'3' AS 法人個人番号11 "
+                    + "     ,'7' AS 法人個人番号12 "
+                    + "     ,'5' AS 法人個人番号13 "
+                    //2023-11-16 iwai-terao upd end ------
                     + " FROM TE100扶養控除申告書Data AS 扶養控除 "
                     + "  LEFT JOIN TM911続柄名Master AS 世帯主続柄名 ON 扶養控除.世帯主続柄 = 世帯主続柄名.続柄番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 扶養親族01続柄 ON 扶養控除.控除対象扶養親族01_続柄 = 扶養親族01続柄.続柄番号 "
@@ -1304,6 +1339,22 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,社会保険料控除03続柄名.続柄名称 AS 社会保険料控除03_負担者続柄名称 "
                     + "     ,保険料控除.社会保険料控除03_支払保険料 "
                     //2023-11-06 iwai-terao upd end ------
+
+                    //2023-11-16 iwai-terao upd str ------
+                    + "     ,'3' AS 法人個人番号01 "
+                    + "     ,'0' AS 法人個人番号02 "
+                    + "     ,'1' AS 法人個人番号03 "
+                    + "     ,'0' AS 法人個人番号04 "
+                    + "     ,'0' AS 法人個人番号05 "
+                    + "     ,'0' AS 法人個人番号06 "
+                    + "     ,'1' AS 法人個人番号07 "
+                    + "     ,'0' AS 法人個人番号08 "
+                    + "     ,'3' AS 法人個人番号09 "
+                    + "     ,'3' AS 法人個人番号10 "
+                    + "     ,'3' AS 法人個人番号11 "
+                    + "     ,'7' AS 法人個人番号12 "
+                    + "     ,'5' AS 法人個人番号13 "
+                    //2023-11-16 iwai-terao upd end ------
                     + " FROM TE110保険料控除申告書Data AS 保険料控除 "
                     + "  LEFT JOIN TM912事業所名Master AS 事業所名 ON CASE WHEN LEFT(保険料控除.所属番号, 1) IN ('2', '3') THEN '1' ELSE LEFT(保険料控除.所属番号, 1) END = 事業所名.事業所番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 一般生命保険料01続柄名 ON 保険料控除.一般生命保険料01_保険金等受取人続柄 = 一般生命保険料01続柄名.続柄番号 "
