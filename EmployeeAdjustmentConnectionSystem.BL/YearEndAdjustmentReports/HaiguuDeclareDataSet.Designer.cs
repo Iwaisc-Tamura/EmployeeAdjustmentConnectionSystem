@@ -369,6 +369,8 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等表示生年月日日;
             
+            private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等同上区分;
+            
             private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等住所;
             
             private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等続柄名称;
@@ -804,6 +806,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 所得金額調整控除申告書_扶養親族等同上区分Column {
+                get {
+                    return this.column所得金額調整控除申告書_扶養親族等同上区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn 所得金額調整控除申告書_扶養親族等住所Column {
                 get {
                     return this.column所得金額調整控除申告書_扶養親族等住所;
@@ -1045,6 +1055,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 所得金額調整控除申告書_扶養親族等表示生年月日年, 
                         string 所得金額調整控除申告書_扶養親族等表示生年月日月, 
                         string 所得金額調整控除申告書_扶養親族等表示生年月日日, 
+                        string 所得金額調整控除申告書_扶養親族等同上区分, 
                         string 所得金額調整控除申告書_扶養親族等住所, 
                         string 所得金額調整控除申告書_扶養親族等続柄名称, 
                         decimal 所得金額調整控除申告書_扶養親族等所得金額, 
@@ -1112,6 +1123,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         所得金額調整控除申告書_扶養親族等表示生年月日年,
                         所得金額調整控除申告書_扶養親族等表示生年月日月,
                         所得金額調整控除申告書_扶養親族等表示生年月日日,
+                        所得金額調整控除申告書_扶養親族等同上区分,
                         所得金額調整控除申告書_扶養親族等住所,
                         所得金額調整控除申告書_扶養親族等続柄名称,
                         所得金額調整控除申告書_扶養親族等所得金額,
@@ -1199,6 +1211,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 this.column所得金額調整控除申告書_扶養親族等表示生年月日年 = base.Columns["所得金額調整控除申告書_扶養親族等表示生年月日年"];
                 this.column所得金額調整控除申告書_扶養親族等表示生年月日月 = base.Columns["所得金額調整控除申告書_扶養親族等表示生年月日月"];
                 this.column所得金額調整控除申告書_扶養親族等表示生年月日日 = base.Columns["所得金額調整控除申告書_扶養親族等表示生年月日日"];
+                this.column所得金額調整控除申告書_扶養親族等同上区分 = base.Columns["所得金額調整控除申告書_扶養親族等同上区分"];
                 this.column所得金額調整控除申告書_扶養親族等住所 = base.Columns["所得金額調整控除申告書_扶養親族等住所"];
                 this.column所得金額調整控除申告書_扶養親族等続柄名称 = base.Columns["所得金額調整控除申告書_扶養親族等続柄名称"];
                 this.column所得金額調整控除申告書_扶養親族等所得金額 = base.Columns["所得金額調整控除申告書_扶養親族等所得金額"];
@@ -1314,6 +1327,8 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等表示生年月日月);
                 this.column所得金額調整控除申告書_扶養親族等表示生年月日日 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等表示生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等表示生年月日日);
+                this.column所得金額調整控除申告書_扶養親族等同上区分 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等同上区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等同上区分);
                 this.column所得金額調整控除申告書_扶養親族等住所 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等住所", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column所得金額調整控除申告書_扶養親族等住所);
                 this.column所得金額調整控除申告書_扶養親族等続柄名称 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2217,6 +2232,22 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 所得金額調整控除申告書_扶養親族等同上区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.所得金額調整控除申告書_扶養親族等同上区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'所得金額調整控除申告書_扶養親族等同上区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.所得金額調整控除申告書_扶養親族等同上区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string 所得金額調整控除申告書_扶養親族等住所 {
                 get {
                     try {
@@ -3073,6 +3104,18 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Set所得金額調整控除申告書_扶養親族等表示生年月日日Null() {
                 this[this.tableHaiguuDeclareDataTable.所得金額調整控除申告書_扶養親族等表示生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is所得金額調整控除申告書_扶養親族等同上区分Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.所得金額調整控除申告書_扶養親族等同上区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set所得金額調整控除申告書_扶養親族等同上区分Null() {
+                this[this.tableHaiguuDeclareDataTable.所得金額調整控除申告書_扶養親族等同上区分Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
