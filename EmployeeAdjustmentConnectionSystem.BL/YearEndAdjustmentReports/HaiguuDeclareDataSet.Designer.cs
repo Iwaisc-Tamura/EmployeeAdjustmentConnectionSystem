@@ -1009,7 +1009,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 氏名, 
                         string Kana, 
                         string 住所01, 
-                        string Sequence番号, 
+                        short Sequence番号, 
                         decimal 基礎控除申告書_給与所得_収入金額, 
                         decimal 基礎控除申告書_給与所得_所得金額, 
                         decimal 基礎控除申告書_他_所得金額, 
@@ -1242,7 +1242,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.columnKana);
                 this.column住所01 = new global::System.Data.DataColumn("住所01", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column住所01);
-                this.columnSequence番号 = new global::System.Data.DataColumn("Sequence番号", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnSequence番号 = new global::System.Data.DataColumn("Sequence番号", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSequence番号);
                 this.column基礎控除申告書_給与所得_収入金額 = new global::System.Data.DataColumn("基礎控除申告書_給与所得_収入金額", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column基礎控除申告書_給与所得_収入金額);
@@ -1641,10 +1641,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Sequence番号 {
+            public short Sequence番号 {
                 get {
                     try {
-                        return ((string)(this[this.tableHaiguuDeclareDataTable.Sequence番号Column]));
+                        return ((short)(this[this.tableHaiguuDeclareDataTable.Sequence番号Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'Sequence番号\' の値は DBNull です。", e);
