@@ -231,24 +231,36 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 
                             //2023-99-99 iwai-tamura upd str -----
                             case "1":
-                                //支社登録済み
-                                if (lu.IsAdminNo =="2"||lu.IsAdminNo == "3"){
-                                    //支社取消可能(東京、関東のみ)
-                                    model.Head.InputMode = ajustMode.adminRegist;
-                                } else{
-                                    //管理者入力
-                                    model.Head.InputMode = ajustMode.adminInput;
-                                }
+								switch (lu.IsAdminNo) {
+									case "2":
+									case "3":
+				                        model.Head.InputMode = ajustMode.adminRegist;
+										break;
+									case "1":
+									case "7":
+									case "8":
+									case "9":
+									case "K":
+		                                model.Head.InputMode = ajustMode.adminInput;
+										break;
+								}
                                 break;
 
                             case "5":
-                                if (lu.IsAdminNo =="2"||lu.IsAdminNo == "3"){
-                                    //管理者登録済みの場合は、支社変更不可(東京、関東のみ)
-                                    model.Head.InputMode = ajustMode.adminConfim;
-                                } else{
-                                    //管理者登録済み
-                                    model.Head.InputMode = ajustMode.adminRegist;
-                                }
+                                //管理者登録済み
+								switch (lu.IsAdminNo) {
+									case "2":
+									case "3":
+		                                model.Head.InputMode = ajustMode.adminConfim;
+										break;
+									case "1":
+									case "7":
+									case "8":
+									case "9":
+									case "K":
+		                                model.Head.InputMode = ajustMode.adminRegist;
+										break;
+								}
                                 break;
 
                             //case "1":
@@ -382,11 +394,21 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                                 case ajustMode.adminInput:
                                     strApproval = "9";
                                     //2023-99-99 iwai-tamura upd str -----
-                                    if (lu.IsAdminNo == "2"||lu.IsAdminNo == "3"){
-                                        strDecision = "1";  //支社確定
-                                    } else{
-                                        strDecision = "5";  //管理者確定
-                                    }
+									switch (lu.IsAdminNo) {
+										case "2":
+										case "3":
+											strDecision = "1";
+											break;
+										case "1":
+										case "7":
+										case "8":
+										case "9":
+		                                    strDecision = "5";
+											break;
+										case "K":
+		                                    strDecision = "5";
+											break;
+									}
                                     //strDecision = "1";
                                     //2023-99-99 iwai-tamura upd end -----
                                     break;
@@ -565,12 +587,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
         /// </summary>
         /// <param name="model">扶養控除申告書入力モデル</param>
         /// <param name="value">ボタンのValue</param>
-        public void Sign(HaiguuDeclareRegisterViewModels model, string value, LoginUser lu, bool isSign = true) {
+        public void Sign(HaiguuDeclareRegisterViewModels model, string strDepartmentNo, LoginUser lu, bool isSign = true) {
             try {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
 
-                string[] segments = value.Split(',');
                 DateTime dt = DateTime.Now;
                 string logDate = string.Format("{0:d} {1:g}", dt.Date, dt.TimeOfDay);
 
@@ -582,20 +603,18 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                         break;
                     case ajustMode.adminRegist:
                         //2023-99-99 iwai-tamura upd str -----
-                        string firstDigit = null;
-                        firstDigit = model.Head.DepartmentNo.Value.ToString().Substring(0, 1);
-
                         switch (strDecision) {
                             case "1":   //支社確定→本人確定
                                 strDecision = "0";
                                 break;
 
                             case "5":   //管理者確定　→　本人確定or支社確定(東京、関東のみ)
-                                if (firstDigit == "2" || firstDigit == "3") {
-                                    strDecision = "1";
-                                } else {
-                                    strDecision = "0";
-                                }
+								if (strDepartmentNo.Substring(0,1) == "2"||strDepartmentNo.Substring(0,1) == "3") {
+		                            strDecision = "1";
+
+								} else {
+	                                strDecision = "0";
+								}
                                 break;
 
                             default:

@@ -2076,7 +2076,7 @@
     <div style="height:0px;">
         <button type="submit" name="Save" id="savebutton" value="保存" class="btn invisible" onclick="removeDisabled()">保存</button>
         <button type="submit" name="Keep" id="keepbutton" value="途中保存" class="btn invisible" onclick="removeDisabled()">途中保存</button>
-        <button type="submit" name="SignCancel" id="signcancel" class="btn invisible">保存取消</button>
+        <button type="submit" name="SignCancel" id="signcancel" value =@Model.Head.DepartmentNo class="btn invisible">保存取消</button>
     </div>
 
     @Scripts.Render("~/Scripts/js/huyou")
