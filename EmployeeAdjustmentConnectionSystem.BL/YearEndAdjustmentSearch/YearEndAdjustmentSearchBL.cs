@@ -734,6 +734,34 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                             + " where 対象年度 = @year"
                             + "    and 社員番号 = @employeeNo" ;
 
+                        switch (lu.IsAdminNo) {
+                            //東京支社、関東支社
+                            case "2":
+                            case "3":
+                                //本人提出済→支社確定済
+                                sql += "   and 本人確定区分 in('1','9') And 管理者確定区分 in('0')";
+                                break;
+
+                            //本社、大阪支社、名古屋支社、福岡支社
+                            case "1":
+                            case "7":
+                            case "8":
+                            case "9":
+                                //本人提出済or支社確定済→管理者確定済
+                                sql += "   and 本人確定区分 in('1','9') And 管理者確定区分 in('0','1')";
+                                break;
+
+                            case "K":  //管理者
+                                //本人提出済or支社確定済→管理者確定済
+                                sql += "   and 本人確定区分 in('1','9') And 管理者確定区分 in('0','1')";
+                                break;
+
+                            default:
+                                sql += "   and 1<>1 ";
+                                break;
+                        }
+
+
                         //各承認
 
                         //SQL文の型を指定
