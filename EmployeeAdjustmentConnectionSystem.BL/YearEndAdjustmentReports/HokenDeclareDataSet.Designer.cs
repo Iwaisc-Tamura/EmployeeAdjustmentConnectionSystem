@@ -759,6 +759,50 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             private global::System.Data.DataColumn column社会保険料控除03_支払保険料;
             
+            private global::System.Data.DataColumn column一般生命保険料01_HostData判定;
+            
+            private global::System.Data.DataColumn column一般生命保険料02_HostData判定;
+            
+            private global::System.Data.DataColumn column一般生命保険料03_HostData判定;
+            
+            private global::System.Data.DataColumn column一般生命保険料04_HostData判定;
+            
+            private global::System.Data.DataColumn column一般生命保険料05_HostData判定;
+            
+            private global::System.Data.DataColumn column一般生命保険料06_HostData判定;
+            
+            private global::System.Data.DataColumn column一般生命保険料07_HostData判定;
+            
+            private global::System.Data.DataColumn column一般生命保険料08_HostData判定;
+            
+            private global::System.Data.DataColumn column介護医療保険料01_HostData判定;
+            
+            private global::System.Data.DataColumn column介護医療保険料02_HostData判定;
+            
+            private global::System.Data.DataColumn column介護医療保険料03_HostData判定;
+            
+            private global::System.Data.DataColumn column介護医療保険料04_HostData判定;
+            
+            private global::System.Data.DataColumn column介護医療保険料05_HostData判定;
+            
+            private global::System.Data.DataColumn column介護医療保険料06_HostData判定;
+            
+            private global::System.Data.DataColumn column個人年金保険料01_HostData判定;
+            
+            private global::System.Data.DataColumn column個人年金保険料02_HostData判定;
+            
+            private global::System.Data.DataColumn column個人年金保険料03_HostData判定;
+            
+            private global::System.Data.DataColumn column個人年金保険料04_HostData判定;
+            
+            private global::System.Data.DataColumn column地震保険料控除01_HostData判定;
+            
+            private global::System.Data.DataColumn column地震保険料控除02_HostData判定;
+            
+            private global::System.Data.DataColumn column地震保険料控除03_HostData判定;
+            
+            private global::System.Data.DataColumn column地震保険料控除04_HostData判定;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public HokenDeclareDataTableDataTable() {
@@ -2714,6 +2758,182 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料01_HostData判定Column {
+                get {
+                    return this.column一般生命保険料01_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料02_HostData判定Column {
+                get {
+                    return this.column一般生命保険料02_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料03_HostData判定Column {
+                get {
+                    return this.column一般生命保険料03_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料04_HostData判定Column {
+                get {
+                    return this.column一般生命保険料04_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料05_HostData判定Column {
+                get {
+                    return this.column一般生命保険料05_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料06_HostData判定Column {
+                get {
+                    return this.column一般生命保険料06_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料07_HostData判定Column {
+                get {
+                    return this.column一般生命保険料07_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料08_HostData判定Column {
+                get {
+                    return this.column一般生命保険料08_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料01_HostData判定Column {
+                get {
+                    return this.column介護医療保険料01_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料02_HostData判定Column {
+                get {
+                    return this.column介護医療保険料02_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料03_HostData判定Column {
+                get {
+                    return this.column介護医療保険料03_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料04_HostData判定Column {
+                get {
+                    return this.column介護医療保険料04_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料05_HostData判定Column {
+                get {
+                    return this.column介護医療保険料05_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 介護医療保険料06_HostData判定Column {
+                get {
+                    return this.column介護医療保険料06_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料01_HostData判定Column {
+                get {
+                    return this.column個人年金保険料01_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料02_HostData判定Column {
+                get {
+                    return this.column個人年金保険料02_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料03_HostData判定Column {
+                get {
+                    return this.column個人年金保険料03_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 個人年金保険料04_HostData判定Column {
+                get {
+                    return this.column個人年金保険料04_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除01_HostData判定Column {
+                get {
+                    return this.column地震保険料控除01_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除02_HostData判定Column {
+                get {
+                    return this.column地震保険料控除02_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除03_HostData判定Column {
+                get {
+                    return this.column地震保険料控除03_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 地震保険料控除04_HostData判定Column {
+                get {
+                    return this.column地震保険料控除04_HostData判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2758,7 +2978,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 氏名, 
                         string Kana, 
                         string 住所01, 
-                        string Sequence番号, 
+                        short Sequence番号, 
                         string 税務署長, 
                         string 給与支払者名称, 
                         string 給与支払者所在地, 
@@ -2989,7 +3209,29 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 社会保険料控除03_支払先名称, 
                         string 社会保険料控除03_負担者氏名, 
                         string 社会保険料控除03_負担者続柄名称, 
-                        decimal 社会保険料控除03_支払保険料) {
+                        decimal 社会保険料控除03_支払保険料, 
+                        string 一般生命保険料01_HostData判定, 
+                        string 一般生命保険料02_HostData判定, 
+                        string 一般生命保険料03_HostData判定, 
+                        string 一般生命保険料04_HostData判定, 
+                        string 一般生命保険料05_HostData判定, 
+                        string 一般生命保険料06_HostData判定, 
+                        string 一般生命保険料07_HostData判定, 
+                        string 一般生命保険料08_HostData判定, 
+                        string 介護医療保険料01_HostData判定, 
+                        string 介護医療保険料02_HostData判定, 
+                        string 介護医療保険料03_HostData判定, 
+                        string 介護医療保険料04_HostData判定, 
+                        string 介護医療保険料05_HostData判定, 
+                        string 介護医療保険料06_HostData判定, 
+                        string 個人年金保険料01_HostData判定, 
+                        string 個人年金保険料02_HostData判定, 
+                        string 個人年金保険料03_HostData判定, 
+                        string 個人年金保険料04_HostData判定, 
+                        string 地震保険料控除01_HostData判定, 
+                        string 地震保険料控除02_HostData判定, 
+                        string 地震保険料控除03_HostData判定, 
+                        string 地震保険料控除04_HostData判定) {
                 HokenDeclareDataTableRow rowHokenDeclareDataTableRow = ((HokenDeclareDataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         対象年度,
@@ -3231,7 +3473,29 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         社会保険料控除03_支払先名称,
                         社会保険料控除03_負担者氏名,
                         社会保険料控除03_負担者続柄名称,
-                        社会保険料控除03_支払保険料};
+                        社会保険料控除03_支払保険料,
+                        一般生命保険料01_HostData判定,
+                        一般生命保険料02_HostData判定,
+                        一般生命保険料03_HostData判定,
+                        一般生命保険料04_HostData判定,
+                        一般生命保険料05_HostData判定,
+                        一般生命保険料06_HostData判定,
+                        一般生命保険料07_HostData判定,
+                        一般生命保険料08_HostData判定,
+                        介護医療保険料01_HostData判定,
+                        介護医療保険料02_HostData判定,
+                        介護医療保険料03_HostData判定,
+                        介護医療保険料04_HostData判定,
+                        介護医療保険料05_HostData判定,
+                        介護医療保険料06_HostData判定,
+                        個人年金保険料01_HostData判定,
+                        個人年金保険料02_HostData判定,
+                        個人年金保険料03_HostData判定,
+                        個人年金保険料04_HostData判定,
+                        地震保険料控除01_HostData判定,
+                        地震保険料控除02_HostData判定,
+                        地震保険料控除03_HostData判定,
+                        地震保険料控除04_HostData判定};
                 rowHokenDeclareDataTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHokenDeclareDataTableRow);
                 return rowHokenDeclareDataTableRow;
@@ -3494,6 +3758,28 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 this.column社会保険料控除03_負担者氏名 = base.Columns["社会保険料控除03_負担者氏名"];
                 this.column社会保険料控除03_負担者続柄名称 = base.Columns["社会保険料控除03_負担者続柄名称"];
                 this.column社会保険料控除03_支払保険料 = base.Columns["社会保険料控除03_支払保険料"];
+                this.column一般生命保険料01_HostData判定 = base.Columns["一般生命保険料01_HostData判定"];
+                this.column一般生命保険料02_HostData判定 = base.Columns["一般生命保険料02_HostData判定"];
+                this.column一般生命保険料03_HostData判定 = base.Columns["一般生命保険料03_HostData判定"];
+                this.column一般生命保険料04_HostData判定 = base.Columns["一般生命保険料04_HostData判定"];
+                this.column一般生命保険料05_HostData判定 = base.Columns["一般生命保険料05_HostData判定"];
+                this.column一般生命保険料06_HostData判定 = base.Columns["一般生命保険料06_HostData判定"];
+                this.column一般生命保険料07_HostData判定 = base.Columns["一般生命保険料07_HostData判定"];
+                this.column一般生命保険料08_HostData判定 = base.Columns["一般生命保険料08_HostData判定"];
+                this.column介護医療保険料01_HostData判定 = base.Columns["介護医療保険料01_HostData判定"];
+                this.column介護医療保険料02_HostData判定 = base.Columns["介護医療保険料02_HostData判定"];
+                this.column介護医療保険料03_HostData判定 = base.Columns["介護医療保険料03_HostData判定"];
+                this.column介護医療保険料04_HostData判定 = base.Columns["介護医療保険料04_HostData判定"];
+                this.column介護医療保険料05_HostData判定 = base.Columns["介護医療保険料05_HostData判定"];
+                this.column介護医療保険料06_HostData判定 = base.Columns["介護医療保険料06_HostData判定"];
+                this.column個人年金保険料01_HostData判定 = base.Columns["個人年金保険料01_HostData判定"];
+                this.column個人年金保険料02_HostData判定 = base.Columns["個人年金保険料02_HostData判定"];
+                this.column個人年金保険料03_HostData判定 = base.Columns["個人年金保険料03_HostData判定"];
+                this.column個人年金保険料04_HostData判定 = base.Columns["個人年金保険料04_HostData判定"];
+                this.column地震保険料控除01_HostData判定 = base.Columns["地震保険料控除01_HostData判定"];
+                this.column地震保険料控除02_HostData判定 = base.Columns["地震保険料控除02_HostData判定"];
+                this.column地震保険料控除03_HostData判定 = base.Columns["地震保険料控除03_HostData判定"];
+                this.column地震保険料控除04_HostData判定 = base.Columns["地震保険料控除04_HostData判定"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3515,7 +3801,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.columnKana);
                 this.column住所01 = new global::System.Data.DataColumn("住所01", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column住所01);
-                this.columnSequence番号 = new global::System.Data.DataColumn("Sequence番号", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnSequence番号 = new global::System.Data.DataColumn("Sequence番号", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSequence番号);
                 this.column税務署長 = new global::System.Data.DataColumn("税務署長", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column税務署長);
@@ -3979,6 +4265,50 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column社会保険料控除03_負担者続柄名称);
                 this.column社会保険料控除03_支払保険料 = new global::System.Data.DataColumn("社会保険料控除03_支払保険料", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column社会保険料控除03_支払保険料);
+                this.column一般生命保険料01_HostData判定 = new global::System.Data.DataColumn("一般生命保険料01_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料01_HostData判定);
+                this.column一般生命保険料02_HostData判定 = new global::System.Data.DataColumn("一般生命保険料02_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料02_HostData判定);
+                this.column一般生命保険料03_HostData判定 = new global::System.Data.DataColumn("一般生命保険料03_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料03_HostData判定);
+                this.column一般生命保険料04_HostData判定 = new global::System.Data.DataColumn("一般生命保険料04_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料04_HostData判定);
+                this.column一般生命保険料05_HostData判定 = new global::System.Data.DataColumn("一般生命保険料05_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料05_HostData判定);
+                this.column一般生命保険料06_HostData判定 = new global::System.Data.DataColumn("一般生命保険料06_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料06_HostData判定);
+                this.column一般生命保険料07_HostData判定 = new global::System.Data.DataColumn("一般生命保険料07_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料07_HostData判定);
+                this.column一般生命保険料08_HostData判定 = new global::System.Data.DataColumn("一般生命保険料08_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料08_HostData判定);
+                this.column介護医療保険料01_HostData判定 = new global::System.Data.DataColumn("介護医療保険料01_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料01_HostData判定);
+                this.column介護医療保険料02_HostData判定 = new global::System.Data.DataColumn("介護医療保険料02_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料02_HostData判定);
+                this.column介護医療保険料03_HostData判定 = new global::System.Data.DataColumn("介護医療保険料03_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料03_HostData判定);
+                this.column介護医療保険料04_HostData判定 = new global::System.Data.DataColumn("介護医療保険料04_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料04_HostData判定);
+                this.column介護医療保険料05_HostData判定 = new global::System.Data.DataColumn("介護医療保険料05_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料05_HostData判定);
+                this.column介護医療保険料06_HostData判定 = new global::System.Data.DataColumn("介護医療保険料06_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column介護医療保険料06_HostData判定);
+                this.column個人年金保険料01_HostData判定 = new global::System.Data.DataColumn("個人年金保険料01_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料01_HostData判定);
+                this.column個人年金保険料02_HostData判定 = new global::System.Data.DataColumn("個人年金保険料02_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料02_HostData判定);
+                this.column個人年金保険料03_HostData判定 = new global::System.Data.DataColumn("個人年金保険料03_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料03_HostData判定);
+                this.column個人年金保険料04_HostData判定 = new global::System.Data.DataColumn("個人年金保険料04_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column個人年金保険料04_HostData判定);
+                this.column地震保険料控除01_HostData判定 = new global::System.Data.DataColumn("地震保険料控除01_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除01_HostData判定);
+                this.column地震保険料控除02_HostData判定 = new global::System.Data.DataColumn("地震保険料控除02_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除02_HostData判定);
+                this.column地震保険料控除03_HostData判定 = new global::System.Data.DataColumn("地震保険料控除03_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除03_HostData判定);
+                this.column地震保険料控除04_HostData判定 = new global::System.Data.DataColumn("地震保険料控除04_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column地震保険料控除04_HostData判定);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4249,10 +4579,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Sequence番号 {
+            public short Sequence番号 {
                 get {
                     try {
-                        return ((string)(this[this.tableHokenDeclareDataTable.Sequence番号Column]));
+                        return ((short)(this[this.tableHokenDeclareDataTable.Sequence番号Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'Sequence番号\' の値は DBNull です。", e);
@@ -7961,6 +8291,358 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料01_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料01_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料01_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料01_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料02_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料02_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料02_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料02_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料03_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料03_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料03_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料03_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料04_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料04_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料04_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料04_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料05_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料05_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料05_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料05_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料06_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料06_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料06_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料06_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料07_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料07_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料07_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料07_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 一般生命保険料08_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.一般生命保険料08_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料08_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料08_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料01_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料01_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料01_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料01_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料02_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料02_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料02_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料02_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料03_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料03_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料03_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料03_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料04_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料04_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料04_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料04_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料05_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料05_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料05_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料05_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 介護医療保険料06_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.介護医療保険料06_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'介護医療保険料06_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.介護医療保険料06_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料01_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料01_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料01_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料01_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料02_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料02_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料02_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料02_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料03_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料03_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料03_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料03_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 個人年金保険料04_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.個人年金保険料04_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'個人年金保険料04_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.個人年金保険料04_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除01_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除01_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除01_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除01_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除02_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除02_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除02_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除02_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除03_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除03_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除03_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除03_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 地震保険料控除04_HostData判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.地震保険料控除04_HostData判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'地震保険料控除04_HostData判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.地震保険料控除04_HostData判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Is対象年度Null() {
                 return this.IsNull(this.tableHokenDeclareDataTable.対象年度Column);
             }
@@ -10837,6 +11519,270 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Set社会保険料控除03_支払保険料Null() {
                 this[this.tableHokenDeclareDataTable.社会保険料控除03_支払保険料Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料01_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料01_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料01_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料01_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料02_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料02_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料02_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料02_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料03_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料03_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料03_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料03_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料04_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料04_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料04_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料04_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料05_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料05_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料05_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料05_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料06_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料06_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料06_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料06_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料07_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料07_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料07_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料07_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料08_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料08_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料08_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料08_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料01_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料01_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料01_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料01_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料02_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料02_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料02_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料02_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料03_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料03_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料03_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料03_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料04_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料04_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料04_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料04_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料05_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料05_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料05_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料05_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is介護医療保険料06_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.介護医療保険料06_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set介護医療保険料06_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.介護医療保険料06_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料01_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料01_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料01_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料01_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料02_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料02_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料02_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料02_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料03_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料03_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料03_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料03_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is個人年金保険料04_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.個人年金保険料04_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set個人年金保険料04_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.個人年金保険料04_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除01_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除01_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除01_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除01_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除02_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除02_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除02_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除02_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除03_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除03_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除03_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除03_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is地震保険料控除04_HostData判定Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.地震保険料控除04_HostData判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set地震保険料控除04_HostData判定Null() {
+                this[this.tableHokenDeclareDataTable.地震保険料控除04_HostData判定Column] = global::System.Convert.DBNull;
             }
         }
         

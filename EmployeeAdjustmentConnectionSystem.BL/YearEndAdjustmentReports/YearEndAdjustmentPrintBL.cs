@@ -794,6 +794,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,事業所名.所在地 AS 給与支払者所在地 "
 
                     //2023-11-16 iwai-terao upd str ------
+                    + "     ,扶養控除.源泉控除対象配偶者対象外区分 "
                     + "     ,'3' AS 法人個人番号01 "
                     + "     ,'0' AS 法人個人番号02 "
                     + "     ,'1' AS 法人個人番号03 "
@@ -1341,6 +1342,28 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     //2023-11-06 iwai-terao upd end ------
 
                     //2023-11-16 iwai-terao upd str ------
+                    + "     ,ISNULL(一般生命保険料01_HostData判定,'0') AS  一般生命保険料01_HostData判定 "
+                    + "     ,ISNULL(一般生命保険料02_HostData判定,'0') AS  一般生命保険料02_HostData判定 "
+                    + "     ,ISNULL(一般生命保険料03_HostData判定,'0') AS  一般生命保険料03_HostData判定 "
+                    + "     ,ISNULL(一般生命保険料04_HostData判定,'0') AS  一般生命保険料04_HostData判定 "
+                    + "     ,ISNULL(一般生命保険料05_HostData判定,'0') AS  一般生命保険料05_HostData判定 "
+                    + "     ,ISNULL(一般生命保険料06_HostData判定,'0') AS  一般生命保険料06_HostData判定 "
+                    + "     ,ISNULL(一般生命保険料07_HostData判定,'0') AS  一般生命保険料07_HostData判定 "
+                    + "     ,ISNULL(一般生命保険料08_HostData判定,'0') AS  一般生命保険料08_HostData判定 "
+                    + "     ,ISNULL(介護医療保険料01_HostData判定,'0') AS  介護医療保険料01_HostData判定 "
+                    + "     ,ISNULL(介護医療保険料02_HostData判定,'0') AS  介護医療保険料02_HostData判定 "
+                    + "     ,ISNULL(介護医療保険料03_HostData判定,'0') AS  介護医療保険料03_HostData判定 "
+                    + "     ,ISNULL(介護医療保険料04_HostData判定,'0') AS  介護医療保険料04_HostData判定 "
+                    + "     ,ISNULL(介護医療保険料05_HostData判定,'0') AS  介護医療保険料05_HostData判定 "
+                    + "     ,ISNULL(介護医療保険料06_HostData判定,'0') AS  介護医療保険料06_HostData判定 "
+                    + "     ,ISNULL(個人年金保険料01_HostData判定,'0') AS  個人年金保険料01_HostData判定 "
+                    + "     ,ISNULL(個人年金保険料02_HostData判定,'0') AS  個人年金保険料02_HostData判定 "
+                    + "     ,ISNULL(個人年金保険料03_HostData判定,'0') AS  個人年金保険料03_HostData判定 "
+                    + "     ,ISNULL(個人年金保険料04_HostData判定,'0') AS  個人年金保険料04_HostData判定 "
+                    + "     ,ISNULL(地震保険料控除01_HostData判定,'0') AS  地震保険料控除01_HostData判定 "
+                    + "     ,ISNULL(地震保険料控除02_HostData判定,'0') AS  地震保険料控除02_HostData判定 "
+                    + "     ,ISNULL(地震保険料控除03_HostData判定,'0') AS  地震保険料控除03_HostData判定 "
+                    + "     ,ISNULL(地震保険料控除04_HostData判定,'0') AS  地震保険料控除04_HostData判定 "
                     + "     ,'3' AS 法人個人番号01 "
                     + "     ,'0' AS 法人個人番号02 "
                     + "     ,'1' AS 法人個人番号03 "
