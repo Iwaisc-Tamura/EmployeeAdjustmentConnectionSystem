@@ -32,6 +32,19 @@ $('.checkKana').change(function () {
 });
 
 
+//社員番号FromTo入力補助
+$('#Search_EmployeeNoFrom').change(function () {
+    document.getElementById('Search_EmployeeNoTo').value = this.value;
+});
+
+//所属番号FromTo入力補助
+$('#Search_DepartmentFrom').change(function () {
+    document.getElementById('Search_DepartmentTo').value = this.value;
+});
+
+
+
+
 /*
  * 全選択・全解除をクリック時
  */

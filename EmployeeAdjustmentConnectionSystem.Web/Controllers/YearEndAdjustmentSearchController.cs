@@ -678,7 +678,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
         [HttpPost]
         [ActionName("Search")]
         //[ButtonHandler(ButtonName = "Print")]
-        [AcceptButton(ButtonName = "PrintBatchHuyou")]
+        [AcceptButton(ButtonName = "PrintBatchHoken")]
         public ActionResult PrintBatchHoken(YearEndAdjustmentSearchViewModels model, string[] selPrint) {
             try {
                 //開始
@@ -810,15 +810,10 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 int cntUpdate = bl.Sign("Huyou",selPrint, (LoginUser)Session["LoginUser"]);     //承認処理：承認した件数を取得
 
                 //結果
-                //model.Down.DownloadFlag = true;
-                //2016-01-21 iwai-tamura upd str -----
                 //承認結果を表示するよう変更
                 TempData["Success"] = string.Format("{0}名中{1}名承認しました", cntTaget, cntUpdate);
-                //TempData["Success"] = "承認しました";
-                //2016-01-21 iwai-tamura upd end -----                
 
                 //表示
-                //2016-01-21 iwai-tamura upd str -----
                 if ((string)Session["SearchType"] == "Sub") {
                     //「部下表示」ボタンにて検索した場合
                     return View(bl.SubSearch(model, (LoginUser)Session["LoginUser"]));
@@ -826,8 +821,6 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     //「検索」ボタンにて検索した場合
                     return View(bl.Search(model, (LoginUser)Session["LoginUser"]));
                 }
-                //return View(bl.Search(model, (LoginUser)Session["LoginUser"]));
-                //2016-01-21 iwai-tamura upd end -----                
             }
             catch (Exception ex) {
                 // エラー
@@ -837,15 +830,132 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             }
             finally {
                 //終了
-                //2019-10-02 iwai-tamura add-str ------
                 CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode), "一括承認終了", "");
-                //2019-10-02 iwai-tamura add-end ------
-
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
 
 
+        /// <summary>
+        /// 一括承認
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [ActionName("Search")]
+        //[ButtonHandler(ButtonName = "Print")]
+        [AcceptButton(ButtonName = "SignBatchHoken")]
+        public ActionResult SignBatchHoken(YearEndAdjustmentSearchViewModels model, string[] selPrint) {
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //対象選択エラーチェック
+                if (selPrint == null) {
+                    //エラー判定
+                    ModelState.AddModelError("", "確定対象を選択してください。");
+                    if ((string)Session["SearchType"] == "Main") {
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                    } else if ((string)Session["SearchType"] == "Sub") {
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                    }
+                    return View("Search", model);
+                }
+
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode), "一括承認開始", "");
+
+                //帳票出力ロジックを実行
+                //帳票作成ディレクトリを取得
+                YearEndAdjustmentSearchBL bl = new YearEndAdjustmentSearchBL();
+
+                int cntTaget = selPrint.Length;                                         //選択した件数
+                int cntUpdate = bl.Sign("Hoken",selPrint, (LoginUser)Session["LoginUser"]);     //承認処理：承認した件数を取得
+
+                //結果
+                //承認結果を表示するよう変更
+                TempData["Success"] = string.Format("{0}名中{1}名承認しました", cntTaget, cntUpdate);
+
+                //表示
+                if ((string)Session["SearchType"] == "Sub") {
+                    //「部下表示」ボタンにて検索した場合
+                    return View(bl.SubSearch(model, (LoginUser)Session["LoginUser"]));
+                } else {
+                    //「検索」ボタンにて検索した場合
+                    return View(bl.Search(model, (LoginUser)Session["LoginUser"]));
+                }
+            }
+            catch (Exception ex) {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            }
+            finally {
+                //終了
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode), "一括承認終了", "");
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+
+        /// <summary>
+        /// 一括承認
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [ActionName("Search")]
+        //[ButtonHandler(ButtonName = "Print")]
+        [AcceptButton(ButtonName = "SignBatchHaiguu")]
+        public ActionResult SignBatchHaiguu(YearEndAdjustmentSearchViewModels model, string[] selPrint) {
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //対象選択エラーチェック
+                if (selPrint == null) {
+                    //エラー判定
+                    ModelState.AddModelError("", "確定対象を選択してください。");
+                    if ((string)Session["SearchType"] == "Main") {
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                    } else if ((string)Session["SearchType"] == "Sub") {
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                    }
+                    return View("Search", model);
+                }
+
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode), "一括承認開始", "");
+
+                //帳票出力ロジックを実行
+                //帳票作成ディレクトリを取得
+                YearEndAdjustmentSearchBL bl = new YearEndAdjustmentSearchBL();
+
+                int cntTaget = selPrint.Length;                                         //選択した件数
+                int cntUpdate = bl.Sign("Haiguu",selPrint, (LoginUser)Session["LoginUser"]);     //承認処理：承認した件数を取得
+
+                //結果
+                //承認結果を表示するよう変更
+                TempData["Success"] = string.Format("{0}名中{1}名承認しました", cntTaget, cntUpdate);
+
+                //表示
+                if ((string)Session["SearchType"] == "Sub") {
+                    //「部下表示」ボタンにて検索した場合
+                    return View(bl.SubSearch(model, (LoginUser)Session["LoginUser"]));
+                } else {
+                    //「検索」ボタンにて検索した場合
+                    return View(bl.Search(model, (LoginUser)Session["LoginUser"]));
+                }
+            }
+            catch (Exception ex) {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            }
+            finally {
+                //終了
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode), "一括承認終了", "");
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
 
 
 
