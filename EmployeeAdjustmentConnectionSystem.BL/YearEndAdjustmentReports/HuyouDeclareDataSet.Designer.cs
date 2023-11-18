@@ -2311,7 +2311,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 郵便番号_後, 
                         string 住所01, 
                         string 配偶者有無, 
-                        string Sequence番号, 
+                        short Sequence番号, 
                         string 源泉控除対象配偶者対象外区分, 
                         string 源泉控除対象配偶者氏名, 
                         string 源泉控除対象配偶者Kana, 
@@ -2943,7 +2943,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column住所01);
                 this.column配偶者有無 = new global::System.Data.DataColumn("配偶者有無", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者有無);
-                this.columnSequence番号 = new global::System.Data.DataColumn("Sequence番号", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnSequence番号 = new global::System.Data.DataColumn("Sequence番号", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSequence番号);
                 this.column源泉控除対象配偶者対象外区分 = new global::System.Data.DataColumn("源泉控除対象配偶者対象外区分", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column源泉控除対象配偶者対象外区分);
@@ -3767,10 +3767,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Sequence番号 {
+            public short Sequence番号 {
                 get {
                     try {
-                        return ((string)(this[this.tableHuyouDeclareDataTable.Sequence番号Column]));
+                        return ((short)(this[this.tableHuyouDeclareDataTable.Sequence番号Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'Sequence番号\' の値は DBNull です。", e);
