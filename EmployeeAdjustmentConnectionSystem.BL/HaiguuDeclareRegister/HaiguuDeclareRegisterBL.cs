@@ -71,7 +71,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                         return null;
                     };
 
-                    //2023-99-99 iwai-tamura upd str -----
+                    //2023-11-20 iwai-tamura upd str -----
                     Func<string, string, string> StatusDecision = (value1, value2) => {
                         if (value1 == "0" && value2 == "0") {
                             return "本人未提出";
@@ -89,9 +89,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                             return "システムエラー";
                         }
                     };
-                    //2023-99-99 iwai-tamura upd end -----
+                    //2023-11-20 iwai-tamura upd end -----
 
-                    //2023-99-99 iwai-tamura upd str -----
+                    //2023-11-20 iwai-tamura upd str -----
                     var sql = "SELECT T基礎.* ";
                         sql += " ,T扶養.源泉控除対象配偶者給与所得収入金額 ";
                         sql += " ,T扶養.源泉控除対象配偶者給与所得所得金額 ";
@@ -101,7 +101,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                         sql += "     ON T基礎.対象年度 = T扶養.対象年度 AND T基礎.社員番号 = T扶養.社員番号 ";
                         sql += " WHERE T基礎.対象年度 = @SheetYear and T基礎.社員番号 = @EmployeeNo ";
                     //var sql = "SELECT * FROM TE120基礎控除申告書Data WHERE 対象年度 = @SheetYear and 社員番号 = @EmployeeNo ";
-                    //2023-99-99 iwai-tamura upd end -----
+                    //2023-11-20 iwai-tamura upd end -----
 
                     using(IDbCommand cmd = dm.CreateCommand(sql))
                     using(DataSet ds = new DataSet()) {
@@ -119,9 +119,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 								SheetYear = DataConv.IntParse(row["対象年度"].ToString()),
 								ApprovalType = row["本人確定区分"].ToString(),
 								DecisionType = row["管理者確定区分"].ToString(),
-                                //2023-99-99 iwai-tamura upd str -----
+                                //2023-11-20 iwai-tamura upd str -----
                                 StatusName = StatusDecision(row["本人確定区分"].ToString(),row["管理者確定区分"].ToString()),
-                                //2023-99-99 iwai-tamura upd end -----
+                                //2023-11-20 iwai-tamura upd end -----
 								MyNumberCheck = row["個人番号相違確認区分"].ToString(),
 								EmployeeNo = row["社員番号"].ToString(),
 								DepartmentNo = DataConv.IntParse(row["所属番号"].ToString()),
@@ -153,11 +153,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 								SpouseDeduction_Income = setMoney(row["配偶者控除申告書_給与所得_所得金額"].ToString()),
 								SpouseDeduction_OtherIncome = setMoney(row["配偶者控除申告書_他_所得金額"].ToString()),
 
-                                //2023-99-99 iwai-tamura upd str -----
+                                //2023-11-20 iwai-tamura upd str -----
 								SpouseDeduction_Huyou_Earnings = setMoney(row["源泉控除対象配偶者給与所得収入金額"].ToString()),
 								SpouseDeduction_Huyou_Income = setMoney(row["源泉控除対象配偶者給与所得所得金額"].ToString()),
 								SpouseDeduction_Huyou_OtherIncome = setMoney(row["源泉控除対象配偶者他所得金額"].ToString()),
-                                //2023-99-99 iwai-tamura upd end -----
+                                //2023-11-20 iwai-tamura upd end -----
 
 								SpouseDeduction_TotalEarnings = setMoney(row["配偶者控除申告書_合計所得金額見積額"].ToString()),
 								SpouseDeduction_EarningsType = row["配偶者控除申告書_控除額計算判定"].ToString(),
@@ -229,7 +229,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                                 model.Head.InputMode = ajustMode.adminInput;
                                 break;
 
-                            //2023-99-99 iwai-tamura upd str -----
+                            //2023-11-20 iwai-tamura upd str -----
                             case "1":
 								switch (lu.IsAdminNo) {
 									case "2":
@@ -267,7 +267,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                             //    //管理者登録済み
                             //    model.Head.InputMode = ajustMode.adminRegist;
                             //    break;
-                            //2023-99-99 iwai-tamura upd end -----
+                            //2023-11-20 iwai-tamura upd end -----
                             case "9":
                                 //管理者確定済み
                                 model.Head.InputMode = ajustMode.adminConfim;
@@ -393,7 +393,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                                     break;
                                 case ajustMode.adminInput:
                                     strApproval = "9";
-                                    //2023-99-99 iwai-tamura upd str -----
+                                    //2023-11-20 iwai-tamura upd str -----
 									switch (lu.IsAdminNo) {
 										case "2":
 										case "3":
@@ -410,7 +410,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 											break;
 									}
                                     //strDecision = "1";
-                                    //2023-99-99 iwai-tamura upd end -----
+                                    //2023-11-20 iwai-tamura upd end -----
                                     break;
                             }
                         }
@@ -602,7 +602,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                         if(strApproval == "1") strApproval = "0";
                         break;
                     case ajustMode.adminRegist:
-                        //2023-99-99 iwai-tamura upd str -----
+                        //2023-11-20 iwai-tamura upd str -----
                         switch (strDecision) {
                             case "1":   //支社確定→本人確定
                                 strDecision = "0";
@@ -621,7 +621,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                                 break;
                         }
                         //if(strDecision == "1") strDecision = "0";
-                        //2023-99-99 iwai-tamura upd end -----
+                        //2023-11-20 iwai-tamura upd end -----
                         break;
                 }
 

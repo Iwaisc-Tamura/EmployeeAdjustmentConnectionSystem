@@ -88,14 +88,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.Login {
                         + " ,TM基本.戸籍名字 "
                         + " ,TM基本.戸籍名前 "
                         + " ,TM基本.所属番号 "
-                        //2023-99-99 iwai-tamura add str -----
+                        //2023-11-20 iwai-tamura add str -----
                         + " ,TM管理.対象年度 "
-                        //2023-99-99 iwai-tamura add end -----
+                        //2023-11-20 iwai-tamura add end -----
                         + "  from TEM900LoginPassword as TMLogin "
                         + "     inner join TEM100社員基本情報Data as TM基本 on TMLogin.社員番号 = TM基本.社員番号"
-                        //2023-99-99 iwai-tamura add str -----
+                        //2023-11-20 iwai-tamura add str -----
                         + "     ,TEM991管理情報 as TM管理"
-                        //2023-99-99 iwai-tamura add end -----
+                        //2023-11-20 iwai-tamura add end -----
                         + " where TMLogin.社員番号 = @EmployeeNo and TMLogin.Password = @Password";
                 
                 using(DbManager dm = new DbManager())
@@ -119,10 +119,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.Login {
                             IsRootUser = (String.IsNullOrEmpty(row["管理区分"].ToString()) ? "0" : row["管理区分"].ToString()) == "K" ? true : false,
                             Permission = (Permissions)Enum.Parse(typeof(Permissions), (String.IsNullOrEmpty(row["管理区分"].ToString()) ? "0" : row["管理区分"].ToString()) == "K" ? "1" :"0"),
                             DepartmentNo = row["所属番号"].ToString(),
-                            //2023-99-99 iwai-tamura add str -----
+                            //2023-11-20 iwai-tamura add str -----
                             IsAdminNo=row["管理区分"].ToString(),
                             IsYear = Convert.ToInt32(row["対象年度"]),
-                            //2023-99-99 iwai-tamura add end -----
+                            //2023-11-20 iwai-tamura add end -----
 
                             //DepartmentName = row["所属名称"].ToString(),
                             //PostNo = row["役職番号"].ToString(),
