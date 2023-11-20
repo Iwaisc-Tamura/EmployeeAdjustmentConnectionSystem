@@ -70,7 +70,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                         return null;
                     };
 
-                    //2023-99-99 iwai-tamura upd str -----
+                    //2023-11-20 iwai-tamura upd str -----
                     Func<string, string, string> StatusDecision = (value1, value2) => {
                         if (value1 == "0" && value2 == "0") {
                             return "本人未提出";
@@ -88,7 +88,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                             return "システムエラー";
                         }
                     };
-                    //2023-99-99 iwai-tamura upd end -----
+                    //2023-11-20 iwai-tamura upd end -----
 
                     var sql = "SELECT * FROM TE100扶養控除申告書Data WHERE 対象年度 = @SheetYear and 社員番号 = @EmployeeNo ";
 
@@ -108,9 +108,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 								SheetYear = DataConv.IntParse(row["対象年度"].ToString()),
 								ApprovalType = row["本人確定区分"].ToString(),
 								DecisionType = row["管理者確定区分"].ToString(),
-                                //2023-99-99 iwai-tamura upd str -----
+                                //2023-11-20 iwai-tamura upd str -----
                                 StatusName = StatusDecision(row["本人確定区分"].ToString(),row["管理者確定区分"].ToString()),
-                                //2023-99-99 iwai-tamura upd end -----
+                                //2023-11-20 iwai-tamura upd end -----
 								MyNumberCheck = row["個人番号相違確認区分"].ToString(),
 								EmployeeNo = row["社員番号"].ToString(),
 								DepartmentNo = DataConv.IntParse(row["所属番号"].ToString()),
@@ -141,11 +141,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                                 TaxWithholding_BirthdayMonth = row["源泉控除対象配偶者生年月日"].ToString()=="" ? "":row["源泉控除対象配偶者生年月日"].ToString().Substring(4,2).TrimStart(new Char[] { '0' } ),
                                 TaxWithholding_BirthdayDay = row["源泉控除対象配偶者生年月日"].ToString()=="" ? "":row["源泉控除対象配偶者生年月日"].ToString().Substring(6,2).TrimStart(new Char[] { '0' } ),
 
-								//2023-99-99 iwai-tamura upd str -----
+								//2023-11-20 iwai-tamura upd str -----
 								TaxWithholding_Earnings = setMoney(row["源泉控除対象配偶者給与所得収入金額"].ToString()),
 								TaxWithholding_Earnings2Income = setMoney(row["源泉控除対象配偶者給与所得所得金額"].ToString()),
 								TaxWithholding_OtherIncome = setMoney(row["源泉控除対象配偶者他所得金額"].ToString()),
-								//2023-99-99 iwai-tamura upd end -----
+								//2023-11-20 iwai-tamura upd end -----
 
 								TaxWithholding_Income = setMoney(row["源泉控除対象配偶者所得見積額"].ToString()),
 
@@ -165,11 +165,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                                 DependentsOver16_1_BirthdayDay = row["控除対象扶養親族01_生年月日"].ToString()=="" ? "":row["控除対象扶養親族01_生年月日"].ToString().Substring(6,2).TrimStart(new Char[] { '0' } ),
 								DependentsOver16_1_OldmanType = row["控除対象扶養親族01_老人扶養親族区分"].ToString(),
 								DependentsOver16_1_SpecificType = row["控除対象扶養親族01_特定扶養親族区分"].ToString(),
-								//2023-99-99 iwai-tamura upd str -----
+								//2023-11-20 iwai-tamura upd str -----
 								DependentsOver16_1_Earnings = setMoney(row["控除対象扶養親族01_給与所得_収入金額"].ToString()),
 								DependentsOver16_1_Earnings2Income = setMoney(row["控除対象扶養親族01_給与所得_所得金額"].ToString()),
 								DependentsOver16_1_OtherIncome = setMoney(row["控除対象扶養親族01_他_所得金額"].ToString()),
-								//2023-99-99 iwai-tamura upd end -----
+								//2023-11-20 iwai-tamura upd end -----
 								DependentsOver16_1_Income = setMoney(row["控除対象扶養親族01_所得見積額"].ToString()),
 								DependentsOver16_1_ResidentType = row["控除対象扶養親族01_非居住者"].ToString(),
 								DependentsOver16_1_Address = row["控除対象扶養親族01_住所"].ToString(),
@@ -187,11 +187,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                                 DependentsOver16_2_BirthdayDay = row["控除対象扶養親族02_生年月日"].ToString()=="" ? "":row["控除対象扶養親族02_生年月日"].ToString().Substring(6,2).TrimStart(new Char[] { '0' } ),
 								DependentsOver16_2_OldmanType = row["控除対象扶養親族02_老人扶養親族区分"].ToString(),
 								DependentsOver16_2_SpecificType = row["控除対象扶養親族02_特定扶養親族区分"].ToString(),
-								//2023-99-99 iwai-tamura upd str -----
+								//2023-11-20 iwai-tamura upd str -----
 								DependentsOver16_2_Earnings = setMoney(row["控除対象扶養親族02_給与所得_収入金額"].ToString()),
 								DependentsOver16_2_Earnings2Income = setMoney(row["控除対象扶養親族02_給与所得_所得金額"].ToString()),
 								DependentsOver16_2_OtherIncome = setMoney(row["控除対象扶養親族02_他_所得金額"].ToString()),
-								//2023-99-99 iwai-tamura upd end -----
+								//2023-11-20 iwai-tamura upd end -----
 								DependentsOver16_2_Income = setMoney(row["控除対象扶養親族02_所得見積額"].ToString()),
 								DependentsOver16_2_ResidentType = row["控除対象扶養親族02_非居住者"].ToString(),
 								DependentsOver16_2_Address = row["控除対象扶養親族02_住所"].ToString(),
@@ -209,11 +209,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                                 DependentsOver16_3_BirthdayDay = row["控除対象扶養親族03_生年月日"].ToString()=="" ? "":row["控除対象扶養親族03_生年月日"].ToString().Substring(6,2).TrimStart(new Char[] { '0' } ),
 								DependentsOver16_3_OldmanType = row["控除対象扶養親族03_老人扶養親族区分"].ToString(),
 								DependentsOver16_3_SpecificType = row["控除対象扶養親族03_特定扶養親族区分"].ToString(),
-								//2023-99-99 iwai-tamura upd str -----
+								//2023-11-20 iwai-tamura upd str -----
 								DependentsOver16_3_Earnings = setMoney(row["控除対象扶養親族03_給与所得_収入金額"].ToString()),
 								DependentsOver16_3_Earnings2Income = setMoney(row["控除対象扶養親族03_給与所得_所得金額"].ToString()),
 								DependentsOver16_3_OtherIncome = setMoney(row["控除対象扶養親族03_他_所得金額"].ToString()),
-								//2023-99-99 iwai-tamura upd end -----
+								//2023-11-20 iwai-tamura upd end -----
 								DependentsOver16_3_Income = setMoney(row["控除対象扶養親族03_所得見積額"].ToString()),
 								DependentsOver16_3_ResidentType = row["控除対象扶養親族03_非居住者"].ToString(),
 								DependentsOver16_3_Address = row["控除対象扶養親族03_住所"].ToString(),
@@ -231,11 +231,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                                 DependentsOver16_4_BirthdayDay = row["控除対象扶養親族04_生年月日"].ToString()=="" ? "":row["控除対象扶養親族04_生年月日"].ToString().Substring(6,2).TrimStart(new Char[] { '0' } ),
 								DependentsOver16_4_OldmanType = row["控除対象扶養親族04_老人扶養親族区分"].ToString(),
 								DependentsOver16_4_SpecificType = row["控除対象扶養親族04_特定扶養親族区分"].ToString(),
-								//2023-99-99 iwai-tamura upd str -----
+								//2023-11-20 iwai-tamura upd str -----
 								DependentsOver16_4_Earnings = setMoney(row["控除対象扶養親族04_給与所得_収入金額"].ToString()),
 								DependentsOver16_4_Earnings2Income = setMoney(row["控除対象扶養親族04_給与所得_所得金額"].ToString()),
 								DependentsOver16_4_OtherIncome = setMoney(row["控除対象扶養親族04_他_所得金額"].ToString()),
-								//2023-99-99 iwai-tamura upd end -----
+								//2023-11-20 iwai-tamura upd end -----
 								DependentsOver16_4_Income = setMoney(row["控除対象扶養親族04_所得見積額"].ToString()),
 								DependentsOver16_4_ResidentType = row["控除対象扶養親族04_非居住者"].ToString(),
 								DependentsOver16_4_Address = row["控除対象扶養親族04_住所"].ToString(),
@@ -272,11 +272,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 								DependentsUnder16_1_AddressSameCheck = row["扶養親族16未満01_同上区分"].ToString(),
 								DependentsUnder16_1_Address = row["扶養親族16未満01_住所"].ToString(),
 								DependentsUnder16_1_AbroadCheck = row["扶養親族16未満01_国外区分"].ToString(),
-								//2023-99-99 iwai-tamura upd str -----
+								//2023-11-20 iwai-tamura upd str -----
 								DependentsUnder16_1_Earnings = setMoney(row["扶養親族16未満01_給与所得_収入金額"].ToString()),
 								DependentsUnder16_1_Earnings2Income = setMoney(row["扶養親族16未満01_給与所得_所得金額"].ToString()),
 								DependentsUnder16_1_OtherIncome = setMoney(row["扶養親族16未満01_他_所得金額"].ToString()),
-								//2023-99-99 iwai-tamura upd end -----
+								//2023-11-20 iwai-tamura upd end -----
 								DependentsUnder16_1_Income = setMoney(row["扶養親族16未満01_所得見積額"].ToString()),
 								DependentsUnder16_1_TransferDate = changeDate(row["扶養親族16未満01_異動月日"].ToString()),
 								DependentsUnder16_1_TransferComment = row["扶養親族16未満01_事由"].ToString(),
@@ -293,11 +293,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 								DependentsUnder16_2_AddressSameCheck = row["扶養親族16未満02_同上区分"].ToString(),
 								DependentsUnder16_2_Address = row["扶養親族16未満02_住所"].ToString(),
 								DependentsUnder16_2_AbroadCheck = row["扶養親族16未満02_国外区分"].ToString(),
-								//2023-99-99 iwai-tamura upd str -----
+								//2023-11-20 iwai-tamura upd str -----
 								DependentsUnder16_2_Earnings = setMoney(row["扶養親族16未満02_給与所得_収入金額"].ToString()),
 								DependentsUnder16_2_Earnings2Income = setMoney(row["扶養親族16未満02_給与所得_所得金額"].ToString()),
 								DependentsUnder16_2_OtherIncome = setMoney(row["扶養親族16未満02_他_所得金額"].ToString()),
-								//2023-99-99 iwai-tamura upd end -----
+								//2023-11-20 iwai-tamura upd end -----
 								DependentsUnder16_2_Income = setMoney(row["扶養親族16未満02_所得見積額"].ToString()),
 								DependentsUnder16_2_TransferDate = changeDate(row["扶養親族16未満02_異動月日"].ToString()),
 								DependentsUnder16_2_TransferComment = row["扶養親族16未満02_事由"].ToString(),
@@ -314,11 +314,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 								DependentsUnder16_3_AddressSameCheck = row["扶養親族16未満03_同上区分"].ToString(),
 								DependentsUnder16_3_Address = row["扶養親族16未満03_住所"].ToString(),
 								DependentsUnder16_3_AbroadCheck = row["扶養親族16未満03_国外区分"].ToString(),
-								//2023-99-99 iwai-tamura upd str -----
+								//2023-11-20 iwai-tamura upd str -----
 								DependentsUnder16_3_Earnings = setMoney(row["扶養親族16未満03_給与所得_収入金額"].ToString()),
 								DependentsUnder16_3_Earnings2Income = setMoney(row["扶養親族16未満03_給与所得_所得金額"].ToString()),
 								DependentsUnder16_3_OtherIncome = setMoney(row["扶養親族16未満03_他_所得金額"].ToString()),
-								//2023-99-99 iwai-tamura upd end -----
+								//2023-11-20 iwai-tamura upd end -----
 								DependentsUnder16_3_Income = setMoney(row["扶養親族16未満03_所得見積額"].ToString()),
 								DependentsUnder16_3_TransferDate = changeDate(row["扶養親族16未満03_異動月日"].ToString()),
 								DependentsUnder16_3_TransferComment = row["扶養親族16未満03_事由"].ToString(),
@@ -335,11 +335,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 								DependentsUnder16_4_AddressSameCheck = row["扶養親族16未満04_同上区分"].ToString(),
 								DependentsUnder16_4_Address = row["扶養親族16未満04_住所"].ToString(),
 								DependentsUnder16_4_AbroadCheck = row["扶養親族16未満04_国外区分"].ToString(),
-								//2023-99-99 iwai-tamura upd str -----
+								//2023-11-20 iwai-tamura upd str -----
 								DependentsUnder16_4_Earnings = setMoney(row["扶養親族16未満04_給与所得_収入金額"].ToString()),
 								DependentsUnder16_4_Earnings2Income = setMoney(row["扶養親族16未満04_給与所得_所得金額"].ToString()),
 								DependentsUnder16_4_OtherIncome = setMoney(row["扶養親族16未満04_他_所得金額"].ToString()),
-								//2023-99-99 iwai-tamura upd end -----
+								//2023-11-20 iwai-tamura upd end -----
 								DependentsUnder16_4_Income = setMoney(row["扶養親族16未満04_所得見積額"].ToString()),
 								DependentsUnder16_4_TransferDate = changeDate(row["扶養親族16未満04_異動月日"].ToString()),
 								DependentsUnder16_4_TransferComment = row["扶養親族16未満04_事由"].ToString(),
@@ -587,6 +587,17 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                             return null;
                         };
 
+						//勤労学生用
+                        Func<string, string> checkValueKin = (val1) => {
+                            if(!string.IsNullOrEmpty(val1)) {
+                                if(val1=="0" || val1=="1"){
+                                    return val1;
+                                }
+                                return (val1 == "true")? "1": "0";
+                            }
+                            return "0";
+                        };
+
 
                         //承認状況 更新内容
                         var strApproval = model.Head.ApprovalType;
@@ -598,7 +609,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                                     break;
                                 case ajustMode.adminInput:
                                     strApproval = "9";
-                                    //2023-99-99 iwai-tamura upd str -----
+                                    //2023-11-20 iwai-tamura upd str -----
 									switch (lu.IsAdminNo) {
 										case "2":
 										case "3":
@@ -615,7 +626,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 											break;
 									}
                                     //strDecision = "1";
-                                    //2023-99-99 iwai-tamura upd end -----
+                                    //2023-11-20 iwai-tamura upd end -----
                                     break;
                             }
                         }
@@ -780,7 +791,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 							+ " ,扶養親族16未満04_事由 = @DependentsUnder16_4_TransferComment"
 							+ " ,源泉控除対象配偶者続柄 = @TaxWithholding_RelationshipType"
 
-							//2023-99-99 iwai-tamura upd str -----
+							//2023-11-20 iwai-tamura upd str -----
 							+ " ,源泉控除対象配偶者給与所得収入金額 = @TaxWithholding_Earnings"
 							+ " ,源泉控除対象配偶者給与所得所得金額 = @TaxWithholding_Earnings2Income"
 							+ " ,源泉控除対象配偶者他所得金額 = @TaxWithholding_OtherIncome"
@@ -808,7 +819,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 							+ " ,扶養親族16未満04_給与所得_収入金額 = @DependentsUnder16_4_Earnings"
 							+ " ,扶養親族16未満04_給与所得_所得金額 = @DependentsUnder16_4_Earnings2Income"
 							+ " ,扶養親族16未満04_他_所得金額 = @DependentsUnder16_4_OtherIncome"
-							//2023-99-99 iwai-tamura upd end -----
+							//2023-11-20 iwai-tamura upd end -----
 
 
 							+ " ,最終更新者ID = '" + lu.UserCode + "'"
@@ -977,7 +988,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 						DbHelper.AddDbParameter(cmd, "@DependentsUnder16_4_TransferDate", DbType.String);
 						DbHelper.AddDbParameter(cmd, "@DependentsUnder16_4_TransferComment", DbType.String);
 
-						//2023-99-99 iwai-tamura upd str -----
+						//2023-11-20 iwai-tamura upd str -----
 						DbHelper.AddDbParameter(cmd, "@TaxWithholding_Earnings", DbType.Int32);
 						DbHelper.AddDbParameter(cmd, "@TaxWithholding_Earnings2Income", DbType.Int32);
 						DbHelper.AddDbParameter(cmd, "@TaxWithholding_OtherIncome", DbType.Int32);
@@ -1005,7 +1016,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 						DbHelper.AddDbParameter(cmd, "@DependentsUnder16_4_Earnings", DbType.Int32);
 						DbHelper.AddDbParameter(cmd, "@DependentsUnder16_4_Earnings2Income", DbType.Int32);
 						DbHelper.AddDbParameter(cmd, "@DependentsUnder16_4_OtherIncome", DbType.Int32);
-						//2023-99-99 iwai-tamura upd end -----
+						//2023-11-20 iwai-tamura upd end -----
                         DbHelper.AddDbParameter(cmd, "@SheetYear", DbType.Int32);
 						DbHelper.AddDbParameter(cmd, "@EmployeeNo", DbType.String);
 						DbHelper.AddDbParameter(cmd, "@TaxWithholding_RelationshipType", DbType.String);
@@ -1112,7 +1123,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 						parameters[96].Value = DataConv.IfNull(model.Head.DependentsOther_WidowType);
 						parameters[97].Value = DataConv.IfNull(model.Head.DependentsOther_WidowReasonType);
 						parameters[98].Value = DataConv.IfNull(changeDate(model.Head.DependentsOther_WidowOccurrenceDate));
-						parameters[99].Value = DataConv.IfNull(checkValue(model.Head.DependentsOther_StudentCheck));
+						parameters[99].Value = DataConv.IfNull(checkValueKin(model.Head.DependentsOther_StudentCheck));
 						parameters[100].Value = DataConv.IfNull(changeDate(model.Head.DependentsOther_TransferDate));
 						parameters[101].Value = DataConv.IfNull(model.Head.DependentsOther_TransferComment);
 						parameters[102].Value = DataConv.IfNull(checkValue(model.Head.DependentsUnder16_1_notSubject));
@@ -1168,7 +1179,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 						parameters[152].Value = DataConv.IfNull(changeDate(model.Head.DependentsUnder16_4_TransferDate));
 						parameters[153].Value = DataConv.IfNull(model.Head.DependentsUnder16_4_TransferComment);
 
-						//2023-99-99 iwai-tamura upd str -----
+						//2023-11-20 iwai-tamura upd str -----
 						parameters[154].Value = DataConv.IfNull(model.Head.TaxWithholding_Earnings.ToString());
 						parameters[155].Value = DataConv.IfNull(model.Head.TaxWithholding_Earnings2Income.ToString());
 						parameters[156].Value = DataConv.IfNull(model.Head.TaxWithholding_OtherIncome.ToString());
@@ -1196,7 +1207,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 						parameters[178].Value = DataConv.IfNull(model.Head.DependentsUnder16_4_Earnings.ToString());
 						parameters[179].Value = DataConv.IfNull(model.Head.DependentsUnder16_4_Earnings2Income.ToString());
 						parameters[180].Value = DataConv.IfNull(model.Head.DependentsUnder16_4_OtherIncome.ToString());
-						//2023-99-99 iwai-tamura upd end -----
+						//2023-11-20 iwai-tamura upd end -----
 
                         parameters[181].Value = DataConv.IfNull(model.Head.SheetYear.ToString());
                         parameters[182].Value = DataConv.IfNull(model.Head.EmployeeNo);
@@ -1239,7 +1250,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                         if(strApproval == "1") strApproval = "0";
                         break;
                     case ajustMode.adminRegist:
-                        //2023-99-99 iwai-tamura upd str -----
+                        //2023-11-20 iwai-tamura upd str -----
                         switch (strDecision) {
                             case "1":   //支社確定→本人確定
                                 strDecision = "0";
@@ -1258,7 +1269,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                                 break;
                         }
                         //if(strDecision == "1") strDecision = "0";
-                        //2023-99-99 iwai-tamura upd end -----
+                        //2023-11-20 iwai-tamura upd end -----
                         break;
                 }
 

@@ -47,7 +47,7 @@ button.btn-calc:hover {
     background: #FAFAFA;
 }
 
-/*2023-99-99 iwai-tamura add-str ------*/
+/*2023-11-20 iwai-tamura add-str ------*/
 button.btn-clear {
     border-radius: 20px;
     padding: 3px 3px;
@@ -80,7 +80,7 @@ button.btn-get {
 button.btn-get:hover {
     background: #E0E0E0;
 }
-/*2023-99-99 iwai-tamura add-end ------*/
+/*2023-11-20 iwai-tamura add-end ------*/
 
 /*=== チェックコメント ===*/
 .check-comment {

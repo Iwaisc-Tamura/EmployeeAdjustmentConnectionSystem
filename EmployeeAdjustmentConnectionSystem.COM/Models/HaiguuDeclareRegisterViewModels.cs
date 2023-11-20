@@ -81,12 +81,12 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public string DecisionType { get; set; }
 
-        //2023-99-99 iwai-tamura upd str -----
+        //2023-11-20 iwai-tamura upd str -----
 		/// <summary>
 		/// ステータス名
 		/// </summary>
 		public string StatusName { get; set; }
-        //2023-99-99 iwai-tamura upd end -----
+        //2023-11-20 iwai-tamura upd end -----
 
 		/// <summary>
 		/// 個人番号相違確認区分
@@ -262,7 +262,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? SpouseDeduction_OtherIncome { get; set; }
 
 
-        //2023-99-99 iwai-tamura upd str -----
+        //2023-11-20 iwai-tamura upd str -----
 		/// <summary>
 		/// 参照項：扶養控除申告書_配偶者_給与所得収入金額
 		/// </summary>
@@ -279,7 +279,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 参照項：扶養控除申告書_配偶者_他所得金額
 		/// </summary>
 		public int? SpouseDeduction_Huyou_OtherIncome { get; set; }
-        //2023-99-99 iwai-tamura upd end -----
+        //2023-11-20 iwai-tamura upd end -----
 
 
 

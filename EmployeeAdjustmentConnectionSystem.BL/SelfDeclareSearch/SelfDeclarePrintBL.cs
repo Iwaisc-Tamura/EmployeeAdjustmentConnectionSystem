@@ -423,7 +423,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch {
         }
 
 
-        //2023-99-99 iwai-tamura test-str ------
+        //2023-11-20 iwai-tamura test-str ------
         /// <summary>
         /// メインの処理
         /// </summary>
@@ -761,9 +761,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2023-99-99 iwai-tamura test-end ------
+        //2023-11-20 iwai-tamura test-end ------
 
-        //2023-99-99 iwai-terao test-str 扶養控除ボタン------
+        //2023-11-20 iwai-terao test-str 扶養控除ボタン------
         /// <summary>
         /// メインの処理
         /// </summary>
@@ -1065,10 +1065,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2023-99-99 iwai-terao test-end ------
+        //2023-11-20 iwai-terao test-end ------
 
 
-        //2023-99-99 iwai-terao test-str 保険料控除ボタン------
+        //2023-11-20 iwai-terao test-str 保険料控除ボタン------
         /// <summary>
         /// メインの処理
         /// </summary>
@@ -1370,7 +1370,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2023-99-99 iwai-terao test-end ------
+        //2023-11-20 iwai-terao test-end ------
 
         /// <summary>
         /// メインの処理

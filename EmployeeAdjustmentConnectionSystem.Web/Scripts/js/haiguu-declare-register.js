@@ -54,9 +54,9 @@ $(function () {
             $(".input-control").attr('disabled', true);
             $(".btn-calc").attr('disabled', true);
             $("button.input-control").remove();
-            //2023-99-99 iwai-tamura upd str -----
+            //2023-11-20 iwai-tamura upd str -----
             $(".btn-clear").attr('disabled', true);
-            //2023-99-99 iwai-tamura upd end -----
+            //2023-11-20 iwai-tamura upd end -----
             break;
 
         default:
@@ -64,15 +64,15 @@ $(function () {
             $(".input-control").attr('disabled', true);
             $(".btn-calc").attr('disabled', true);
             $("button.input-control").remove();
-            //2023-99-99 iwai-tamura upd str -----
+            //2023-11-20 iwai-tamura upd str -----
             $(".btn-clear").attr('disabled', true);
-            //2023-99-99 iwai-tamura upd end -----
+            //2023-11-20 iwai-tamura upd end -----
 
             break;
     }
 });
 
-//2023-99-99 iwai-tamura upd str -----
+//2023-11-20 iwai-tamura upd str -----
 //戻るボタン時の必須チェック回避
 document.addEventListener('DOMContentLoaded', function () {
     const backButton = document.getElementById('backbutton');
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-//2023-99-99 iwai-tamura upd end -----
+//2023-11-20 iwai-tamura upd end -----
 
 
 //日付削除ボタン
@@ -96,7 +96,7 @@ $('button.input-control').click(function () {
 
 
 
-//2023-99-99 iwai-tamura upd str -----
+//2023-11-20 iwai-tamura upd str -----
 // 収入金額の変更時に所得金額を自動計算
 // 共通フィールド更新
 function updateIncomeFields(earningsId, incomeId, otherIncomeId, estimateId) {
@@ -154,7 +154,7 @@ function removeDisabled() {
         elem.disabled = false;
     });
 }
-//2023-99-99 iwai-tamura upd end -----
+//2023-11-20 iwai-tamura upd end -----
 
 
 
@@ -362,7 +362,7 @@ function calcSpouseDeduction(varArt) {
     return bolReturn;
 }
 
-//2023-99-99 iwai-tamura upd str -----
+//2023-11-20 iwai-tamura upd str -----
 document.getElementById('btn-spouseDeduction-clear').addEventListener('click', function () {
     // 給与所得者の配偶者控除等申告書のテーブル内の全ての入力要素を取得
     var inputs = document.querySelectorAll('.spouseDeductionTable input, .spouseDeductionTable select, .spouseDeductionTable textarea');
@@ -461,7 +461,7 @@ document.getElementById('btn-spouseDeduction-get').addEventListener('click', fun
 //////////spouseDeductionTable_inputs.forEach(function (input) {
 //////////    input.addEventListener('change', checkAllInputs);
 //////////});
-//2023-99-99 iwai-tamura upd end -----
+//2023-11-20 iwai-tamura upd end -----
 
 
 //所得金額調整控除 要件選択制御
@@ -638,10 +638,10 @@ $('.checkKana').change(function () {
 
     var reg = new RegExp(/^[ｦ-ﾟ]*$/);   //使用可能文字指定(半角カナのみ)
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     var convertedValue = zenkana2Hankana(hira2Kana($(this).val()));
     $(this).val(convertedValue);
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
 
     //Kana_1とKana_2に半角カナ以外が入力されていないかチェック
     if (reg.test($(strId + "1").val()) && reg.test($(strId + "2").val())) {
@@ -767,7 +767,7 @@ $('#dmysave').click(function () {
     if (!checkAllCalc()) { return; }
     
     //ボタンクリック
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     var isAdminMode = $('#Head_AdminMode').val().toLowerCase() === 'true';
     if (isAdminMode) {
         showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
@@ -775,7 +775,7 @@ $('#dmysave').click(function () {
         showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
     }
     //showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
 
 });
 
@@ -784,7 +784,7 @@ $('#dmysave').click(function () {
  */
 $('#dmySignCancel').click(function () {
     //ボタンクリック
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     var isAdminMode = $('#Head_AdminMode').val().toLowerCase() === 'true';
     if (isAdminMode) {
         showMessageEx('取消確認', '確定状態を取消しますか？', 'signcancel', true);
@@ -792,7 +792,7 @@ $('#dmySignCancel').click(function () {
         showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
     }
     //showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
 });
 
 

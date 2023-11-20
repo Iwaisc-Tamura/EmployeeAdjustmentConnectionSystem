@@ -68,7 +68,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             if(!int.TryParse(config.AppSettings.Settings["RETENTIO_PERIOD"].Value, out R_P)) { R_P = 3; };
         }
 
-        //2023-99-99 iwai-tamura test-str ------
+        //2023-11-20 iwai-tamura test-str ------
         /// <summary>
         /// メインの処理
         /// </summary>
@@ -439,9 +439,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2023-99-99 iwai-tamura test-end ------
+        //2023-11-20 iwai-tamura test-end ------
 
-        //2023-99-99 iwai-terao test-str 扶養控除ボタン------
+        //2023-11-20 iwai-terao test-str 扶養控除ボタン------
         /// <summary>
         /// メインの処理
         /// </summary>
@@ -980,10 +980,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2023-99-99 iwai-terao test-end ------
+        //2023-11-20 iwai-terao test-end ------
 
 
-        //2023-99-99 iwai-terao test-str 保険料控除ボタン------
+        //2023-11-20 iwai-terao test-str 保険料控除ボタン------
         /// <summary>
         /// 保険料控除申告書 出力
         /// </summary>
@@ -1567,7 +1567,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2023-99-99 iwai-terao test-end ------
+        //2023-11-20 iwai-terao test-end ------
 
 
 

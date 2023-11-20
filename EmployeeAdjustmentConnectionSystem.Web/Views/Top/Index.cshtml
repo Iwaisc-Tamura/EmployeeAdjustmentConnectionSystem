@@ -5,9 +5,9 @@
     ViewBag.Title = "社員等WEB年末調整申告システム";
 }
 
-@*2023-99-99 iwai-tamura test-str ------*@
+@*2023-11-20 iwai-tamura test-str ------*@
 @Styles.Render("~/Content/css/top")
-@*2023-99-99 iwai-tamura test-end ------*@
+@*2023-11-20 iwai-tamura test-end ------*@
 
 <!--お知らせ-->
 <div class="col-xs-12 top10">
@@ -23,22 +23,22 @@
 <!--メニューボタン-->
 @using(Html.BeginForm("Link", "Top", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
     <div class="col-xs-6" style="margin-left: 25%;margin-top:10pt">
-        @*2023-99-99 iwai-tamura upd-str ------*@
+        @*2023-11-20 iwai-tamura upd-str ------*@
         @*@if (((LoginUser)Session["LoginUser"]).IsRoot) {
             <div class="row form-inline">
                 <label style="font-size:14px;vertical-align: middle;">　[管理者用]　指定社員番号：</label><input class="form-control" type="text" name="specifyEmployeeNo" /><br /><br />
             </div>
         }*@
-        @*2023-99-99 iwai-tamura upd-end ------*@
+        @*2023-11-20 iwai-tamura upd-end ------*@
 
 	    <div class="well-ex-header"  style="background-color: #DEF5E5;">
-            @*2023-99-99 iwai-tamura upd-str ------*@
+            @*2023-11-20 iwai-tamura upd-str ------*@
 	        <h4 align="center" style="font-weight: bold;">社員等WEB年末調整申告システム</h4>
 	        @*<h4 align="center">社員等WEB年末調整申告システム</h4>*@
-            @*2023-99-99 iwai-tamura upd-end ------*@
+            @*2023-11-20 iwai-tamura upd-end ------*@
 	    </div>
         <div class="well-ex-content" style="border-color: #DEF5E5; padding-bottom: 20px; ">
-            @*2023-99-99 iwai-tamura upd-str ------*@
+            @*2023-11-20 iwai-tamura upd-str ------*@
             @*扶養控除等申告書*@
             <div class="row">
                 <div class="col-xs-6 col-xs-offset-2 top10 col_btn_register">
@@ -85,10 +85,10 @@
                     <button class="btn-default btn-lg btn-block" name="Transition" value="HaiguuDeclareRegister">基礎控除申告書</button>
                 </div>
             </div>*@
-            @*2023-99-99 iwai-tamura upd-end ------*@
+            @*2023-11-20 iwai-tamura upd-end ------*@
         </div>
 
-        @*2023-99-99 iwai-tamura add-str ------*@
+        @*2023-11-20 iwai-tamura add-str ------*@
 
 		@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0") {
 	        <div class="well-ex-header"  style="background-color: #0094ffb6; margin-top: 10pt;">
@@ -102,7 +102,7 @@
                 </div>
             </div>
 		}
-        @*2023-99-99 iwai-tamura add-end ------*@
+        @*2023-11-20 iwai-tamura add-end ------*@
     </div>
 
 

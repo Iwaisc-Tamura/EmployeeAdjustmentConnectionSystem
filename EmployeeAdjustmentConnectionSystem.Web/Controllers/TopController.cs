@@ -45,9 +45,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                                                       , { "HuyouDeclareRegister", "Index"}
                                                       , { "HokenDeclareRegister", "Index"}
                                                       , { "HaiguuDeclareRegister", "Index"}
-                                                    //2023-99-99 iwai-tamura add str -----
+                                                    //2023-11-20 iwai-tamura add str -----
                                                       , { "YearEndAdjustmentSearch", "Search"}
-                                                    //2023-99-99 iwai-tamura add end -----                                                        
+                                                    //2023-11-20 iwai-tamura add end -----                                                        
             };
         #endregion
 
@@ -67,10 +67,10 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 var lu = (LoginUser)Session["LoginUser"];
                 
 
-                //2023-99-99 iwai-tamura upd str -----
+                //2023-11-20 iwai-tamura upd str -----
                 //初期化
                 TempData["YearEndAdjustmentSearch"] = null;
-                //2023-99-99 iwai-tamura upd end -----
+                //2023-11-20 iwai-tamura upd end -----
 
 
                 //表示
@@ -115,10 +115,10 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     bolAdminMode = true;
                 }
 
-                //2023-99-99 iwai-tamura upd str -----
+                //2023-11-20 iwai-tamura upd str -----
                 return RedirectToAction((string)linkTable[value], value, new { intSheetYear = lu.IsYear, strEmployeeNo = strInputNo ,bolAdminMode = bolAdminMode});
                 //return RedirectToAction((string)linkTable[value], value, new { intSheetYear = 2022, strEmployeeNo = strInputNo ,bolAdminMode = bolAdminMode});
-                //2023-99-99 iwai-tamura upd end -----
+                //2023-11-20 iwai-tamura upd end -----
                 //return RedirectToAction("Index", "HuyouDeclareRegister", new { intSheetYear = 2022, strEmployeeNo = "" });
             } catch(Exception ex) {
                 //エラー
@@ -131,7 +131,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             }
         }
 
-        //2023-99-99 iwai-tamura test-str ------
+        //2023-11-20 iwai-tamura test-str ------
         /// <summary>
         /// 画面遷移アクション
         /// </summary>
@@ -255,9 +255,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             }
         }
 
-        //2023-99-99 iwai-tamura test-end ------
+        //2023-11-20 iwai-tamura test-end ------
 
-        //2023-99-99 iwai-terao test-str ------
+        //2023-11-20 iwai-terao test-str ------
         /// <summary>
         /// TEST印刷 扶養控除申告書印刷
         /// </summary>
@@ -322,10 +322,10 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
         }
 
 
-        //2023-99-99 iwai-terao test-end ------
+        //2023-11-20 iwai-terao test-end ------
 
 
-        //2023-99-99 iwai-terao test-str ------
+        //2023-11-20 iwai-terao test-str ------
         /// <summary>
         /// TEST印刷 保険料控除申告書印刷
         /// </summary>
@@ -390,6 +390,6 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
         }
 
 
-        //2023-99-99 iwai-terao test-end ------
+        //2023-11-20 iwai-terao test-end ------
     }
 }
