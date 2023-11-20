@@ -703,6 +703,24 @@ function checkAll() {
 
     })
 
+
+    //2023-11-20 iwai-tamura upd-str ------
+    //配偶者控除等申告書
+    //入力項目チェック
+    if (document.getElementById("Head_SpouseDeduction_Name1").value != "" || document.getElementById("Head_SpouseDeduction_Name2").value != "") {
+        if (document.getElementById("Head_SpouseDeduction_Name1").value == ""
+            || document.getElementById("Head_SpouseDeduction_Name2").value == ""
+            || document.getElementById("Head_SpouseDeduction_Kana1").value == ""
+            || document.getElementById("Head_SpouseDeduction_Kana2").value == ""
+            || document.getElementById("Head_SpouseDeduction_BirthdayYear").value == ""
+            || document.getElementById("Head_SpouseDeduction_Earnings").value == ""
+        ) {
+            message = '配偶者控除等申告書を入力する際の必須項目が入力されていません。<br/>確認してください。';
+        }
+    }
+    //2023-11-20 iwai-tamura upd-end ------
+
+
     ////選択項目チェック
     //aryCheckSelect = ["Head.SpouseCheck"
     //                , "Head.SpouseCheck"
