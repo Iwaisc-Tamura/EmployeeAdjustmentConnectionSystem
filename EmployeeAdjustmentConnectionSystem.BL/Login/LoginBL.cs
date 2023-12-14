@@ -91,6 +91,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.Login {
                         //2023-11-20 iwai-tamura add str -----
                         + " ,TM管理.対象年度 "
                         //2023-11-20 iwai-tamura add end -----
+	                    //2023-12-15 iwai-tamura add str -----
+                        + " ,TM管理.ServerStatus "
+	                    //2023-12-15 iwai-tamura add end -----
                         + "  from TEM900LoginPassword as TMLogin "
                         + "     inner join TEM100社員基本情報Data as TM基本 on TMLogin.社員番号 = TM基本.社員番号"
                         //2023-11-20 iwai-tamura add str -----
@@ -123,6 +126,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.Login {
                             IsAdminNo=row["管理区分"].ToString(),
                             IsYear = Convert.ToInt32(row["対象年度"]),
                             //2023-11-20 iwai-tamura add end -----
+	                        //2023-12-15 iwai-tamura add str -----
+                            IsServerStatus = row["ServerStatus"].ToString(),
+	                        //2023-12-15 iwai-tamura add end -----
 
                             //DepartmentName = row["所属名称"].ToString(),
                             //PostNo = row["役職番号"].ToString(),

@@ -34,6 +34,16 @@ span{
     background: #B3FFAE;
 }
 
+.btn-info {
+    background: #54B435;
+    border-color: #54B435;
+}
+
+    .btn-info:hover {
+        background: #B3FFAE;
+    }
+
+
 button.btn-calc{
     border-radius: 20px;
     padding: 7px 7px;

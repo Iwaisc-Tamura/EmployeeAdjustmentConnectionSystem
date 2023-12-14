@@ -82,8 +82,16 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                             return "支社確定済み";
                         } else if (value1 == "9" && value2 == "5") {
                             return "管理者確定済み";
-                        } else if (value1 == "9" && value2 == "9") {
+						//2023-12-15 iwai-tamura upd str -----
+                        } else if (value1 == "9" && value2 == "7") {
                             return "システム連携済み";
+                        } else if (value1 == "9" && value2 == "8") {
+                            return "システム連携後修正";
+                        } else if (value1 == "9" && value2 == "9") {
+                            return "確定済み";
+                        //} else if (value1 == "9" && value2 == "9") {
+                        //    return "システム連携済み";
+						//2023-12-15 iwai-tamura upd end -----
                         } else {
                             return "システムエラー";
                         }
@@ -428,6 +436,25 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 										break;
 								}
                                 break;
+							//2023-12-15 iwai-tamura add str -----
+                            case "7":
+                            case "8":
+                                //システム連携済み・システム連携後修正
+								switch (lu.IsAdminNo) {
+									case "2":
+									case "3":
+		                                model.Head.InputMode = ajustMode.adminConfim;
+										break;
+									case "1":
+									case "7":
+									case "8":
+									case "9":
+									case "K":
+		                                model.Head.InputMode = ajustMode.adminInput;
+										break;
+								}
+                                break;
+							//2023-12-15 iwai-tamura add end -----
 
                             case "9":
                                 //管理者確定済み
@@ -613,16 +640,37 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 									switch (lu.IsAdminNo) {
 										case "2":
 										case "3":
-											strDecision = "1";
+											//2023-12-15 iwai-tamura upd str -----
+											if (strDecision == "7"|| strDecision == "8") {
+												strDecision = "8";
+											} else {
+												strDecision = "1";
+											}
+											//strDecision = "1";
+											//2023-12-15 iwai-tamura upd end -----
 											break;
 										case "1":
 										case "7":
 										case "8":
 										case "9":
-		                                    strDecision = "5";
+											//2023-12-15 iwai-tamura upd str -----
+											if (strDecision == "7"|| strDecision == "8") {
+												strDecision = "8";
+											} else {
+			                                    strDecision = "5";
+											}
+		                                    //strDecision = "5";
+											//2023-12-15 iwai-tamura upd end -----
 											break;
 										case "K":
-		                                    strDecision = "5";
+											//2023-12-15 iwai-tamura upd str -----
+											if (strDecision == "7"|| strDecision == "8") {
+												strDecision = "8";
+											} else {
+			                                    strDecision = "5";
+											}
+		                                    //strDecision = "5";
+											//2023-12-15 iwai-tamura upd end -----
 											break;
 									}
                                     //strDecision = "1";
