@@ -107,9 +107,20 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                         sqlc += " and (T扶養控除.本人確定区分 = '9' and T扶養控除.管理者確定区分 = '5') ";
                         break;
 
-                    case "99":  //システム連携済み
+	                //2023-12-15 iwai-tamura upd str -----
+                    case "97":  //システム連携済み
+                        sqlc += " and (T扶養控除.本人確定区分 = '9' and T扶養控除.管理者確定区分 = '7') ";
+                        break;
+                    case "98":  //システム連携後修正
+                        sqlc += " and (T扶養控除.本人確定区分 = '9' and T扶養控除.管理者確定区分 = '8') ";
+                        break;
+                    case "99":  //確定済み
                         sqlc += " and (T扶養控除.本人確定区分 = '9' and T扶養控除.管理者確定区分 = '9') ";
                         break;
+                    //case "99":  //システム連携済み
+                    //    sqlc += " and (T扶養控除.本人確定区分 = '9' and T扶養控除.管理者確定区分 = '9') ";
+                    //    break;
+	                //2023-12-15 iwai-tamura upd end -----
 
                     default: break;
                 }
@@ -133,9 +144,20 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                         sqlc += " and (T保険控除.本人確定区分 = '9' and T保険控除.管理者確定区分 = '5') ";
                         break;
 
-                    case "99":  //システム連携済み
+	                //2023-12-15 iwai-tamura upd str -----
+                    case "97":  //システム連携済み
+                        sqlc += " and (T保険控除.本人確定区分 = '9' and T保険控除.管理者確定区分 = '7') ";
+                        break;
+                    case "98":  //システム連携後修正
+                        sqlc += " and (T保険控除.本人確定区分 = '9' and T保険控除.管理者確定区分 = '8') ";
+                        break;
+                    case "99":  //確定済み
                         sqlc += " and (T保険控除.本人確定区分 = '9' and T保険控除.管理者確定区分 = '9') ";
                         break;
+                    //case "99":  //システム連携済み
+                    //    sqlc += " and (T保険控除.本人確定区分 = '9' and T保険控除.管理者確定区分 = '9') ";
+                    //    break;
+	                //2023-12-15 iwai-tamura upd end -----
 
                     default: break;
                 }
@@ -159,15 +181,27 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                         sqlc += " and (T基礎控除.本人確定区分 = '9' and T基礎控除.管理者確定区分 = '5') ";
                         break;
 
-                    case "99":  //システム連携済み
+	                //2023-12-15 iwai-tamura upd str -----
+                    case "97":  //システム連携済み
+                        sqlc += " and (T基礎控除.本人確定区分 = '9' and T基礎控除.管理者確定区分 = '7') ";
+                        break;
+                    case "98":  //システム連携後修正
+                        sqlc += " and (T基礎控除.本人確定区分 = '9' and T基礎控除.管理者確定区分 = '8') ";
+                        break;
+                    case "99":  //確定済み
                         sqlc += " and (T基礎控除.本人確定区分 = '9' and T基礎控除.管理者確定区分 = '9') ";
                         break;
+                    //case "99":  //システム連携済み
+                    //    sqlc += " and (T基礎控除.本人確定区分 = '9' and T基礎控除.管理者確定区分 = '9') ";
+                    //    break;
+	                //2023-12-15 iwai-tamura upd end -----
 
                     default: break;
                 }
 
                 //ログインユーザー抽出可能範囲
                 sqlc += " And (";
+
 
                 //所属検索条件追加
                 if (lu.IsAdminNo == "K")
@@ -180,6 +214,36 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                 }                
 
                 sqlc += " )";
+
+	            //2023-12-15 iwai-tamura add str -----
+                //管理者確定区分による各支社管理者の取得条件
+                switch (lu.IsAdminNo) {
+                    case "K":  //管理者
+                        //ALLOK
+                        break;
+
+                    case "1":  //本社管理者
+                    case "7":  //大阪支社管理者
+                    case "8":  //名古屋支社管理者
+                    case "9":  //福岡支社管理者
+                        sqlc += " and ( ";
+                        sqlc += "     (T扶養控除.管理者確定区分 < '9' ) ";
+                        sqlc += "     or (T保険控除.管理者確定区分 < '9' ) ";
+                        sqlc += "     or (T基礎控除.管理者確定区分 < '9' ) ";
+                        sqlc += " ) ";
+                        break;
+
+                    case "2":  //東京支社管理者
+                    case "3":  //関東支社管理者
+                        sqlc += " and ( ";
+                        sqlc += "     (T扶養控除.管理者確定区分 < '5' ) ";
+                        sqlc += "     or (T保険控除.管理者確定区分 < '5' ) ";
+                        sqlc += "     or (T基礎控除.管理者確定区分 < '5' ) ";
+                        sqlc += " ) ";
+                        break;
+                    default: break;
+                }
+	            //2023-12-15 iwai-tamura add end -----
 
                 ////1000件まで
                 //sqlc += string.Format(" and レコード番号 between 1 and {0}", string.IsNullOrEmpty(limit) ? "1000" : limit);
@@ -198,8 +262,17 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                         return "支社確定済み";
                     } else if (value1 == "9" && value2 == "5") {
                         return "管理者確定済み";
+					//2023-12-15 iwai-tamura upd str -----
+                    } else if (value1 == "9" && value2 == "7") {
+                        return "ｼｽﾃﾑ連携済み";
+                    } else if (value1 == "9" && value2 == "8") {
+                        return "ｼｽﾃﾑ連携後修正";
                     } else if (value1 == "9" && value2 == "9") {
-                        return "システム連携済み";
+                        return "確定済み";
+                    //} else if (value1 == "9" && value2 == "9") {
+                    //    return "システム連携済み";
+					//2023-12-15 iwai-tamura upd end -----
+
                     } else {
                         return "システムエラー";
                     }

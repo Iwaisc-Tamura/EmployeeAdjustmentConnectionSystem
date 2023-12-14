@@ -110,8 +110,17 @@
                 <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">提出</button>
             }
             @if (Model.Head.InputMode == ajustMode.adminInput) {
-                <button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
-                <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">確定</button>
+                //2023-12-15 iwai-tamura add str -----
+                if (Model.Head.DecisionType == "7" || Model.Head.DecisionType == "8") {
+                    //システム連携後は修正のみ
+                    <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">修正</button>
+                } else {
+                    <button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
+                    <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">確定</button>
+                }    
+                @*<button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
+                <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">確定</button>*@
+	            //2023-12-15 iwai-tamura add end -----
             }
             @if (Model.Head.InputMode == ajustMode.SelfRegist) {
                 <button type="button" name="DmySignCancel" value="保存取消" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmySignCancel">提出取消</button>

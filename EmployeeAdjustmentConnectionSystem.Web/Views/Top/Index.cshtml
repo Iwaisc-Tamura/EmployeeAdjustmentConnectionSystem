@@ -9,6 +9,11 @@
 @Styles.Render("~/Content/css/top")
 @*2023-11-20 iwai-tamura test-end ------*@
 
+@*2023-12-15 iwai-tamura add str -----*@
+<input data-val="true" data-val-required="" id="ServerStatus" name="ServerStatus" type="hidden" value="@(ViewBag.ServerStatus)" />
+@*2023-12-15 iwai-tamura add end -----*@
+
+
 <!--お知らせ-->
 <div class="col-xs-12 top10">
   <div class="well-ex">
@@ -18,7 +23,6 @@
     <div class="well-ex-content min-ht-200" style =" font-size: 12px;color:red;">@Html.Raw(Html.Encode(Html.DisplayFor(m => m.Announcement)).Replace("\n", "<br />"))</div>
   </div>
 </div>
-
 
 <!--メニューボタン-->
 @using(Html.BeginForm("Link", "Top", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
@@ -45,7 +49,7 @@
                     <button class="btn-default btn-lg btn-block" name="Transition" value="HuyouDeclareRegister">扶養控除等申告書</button>
                 </div>
                 <div class="col-xs-2 top10 col_btn_pdf">
-                    <button class="btn-default btn-lg btn-block btn_pdf" name="Transition3" value="HuyouDeclareRegister">PDF出力</button>
+                    <button class="btn-default btn-lg btn-block btn_pdf" name="PrintHuyou" value="HuyouDeclareReport">PDF出力</button>
                 </div>
             </div>
 
@@ -55,7 +59,7 @@
                     <button class="btn-default btn-lg btn-block" name="Transition" value="HokenDeclareRegister">保険料控除申告書</button>
                 </div>
                 <div class="col-xs-2 top10 col_btn_pdf">
-                    <button class="btn-default btn-lg btn-block btn_pdf" name="Transition4" value="HokenDeclareRegister">PDF出力</button>
+                    <button class="btn-default btn-lg btn-block btn_pdf" name="PrintHoken" value="HokenDeclareReport">PDF出力</button>
                 </div>
             </div>
 
@@ -65,7 +69,7 @@
                     <button class="btn-default btn-lg btn-block" name="Transition" value="HaiguuDeclareRegister">基礎控除申告書</button>
                 </div>
                 <div class="col-xs-2 top10 col_btn_pdf">
-                    <button class="btn-default btn-lg btn-block btn_pdf" name="Transition2" value="HaiguuDeclareReport">PDF出力</button>
+                    <button class="btn-default btn-lg btn-block btn_pdf" name="PrintHaiguu" value="HaiguuDeclareReport">PDF出力</button>
                 </div>
             </div>
             @*<div class="row">
@@ -89,8 +93,10 @@
         </div>
 
         @*2023-11-20 iwai-tamura add-str ------*@
-
-		@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0") {
+        @*2023-12-15 iwai-tamura upd-str ------*@
+		@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0" && ViewBag.ServerStatus != "3") {
+		@*@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0") {*@
+        @*2023-12-15 iwai-tamura upd-end ------*@
 	        <div class="well-ex-header"  style="background-color: #0094ffb6; margin-top: 10pt;">
 	            <h4 align="center" style="font-weight: bold;">管理者メニュー</h4>
 	        </div>

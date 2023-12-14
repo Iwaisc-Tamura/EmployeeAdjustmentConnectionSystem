@@ -1134,7 +1134,14 @@ $('#dmysave').click(function () {
     //2023-11-20 iwai-tamura upd str -----
     var isAdminMode = $('#Head_AdminMode').val().toLowerCase() === 'true';
     if (isAdminMode) {
-        showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
+        //2023-12-15 iwai-tamura upd str -----
+        if ($('#Head_DecisionType').val() <= '5') {
+            showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
+        } else {
+            showMessageEx('修正確認', '修正しますか？ <br><br> ※既に連携済みデータの為、連携先システムの修正も同様に行ってください。', 'savebutton', true);
+        }
+        //showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
+	    //2023-12-15 iwai-tamura upd end -----
     } else {
         showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
     }

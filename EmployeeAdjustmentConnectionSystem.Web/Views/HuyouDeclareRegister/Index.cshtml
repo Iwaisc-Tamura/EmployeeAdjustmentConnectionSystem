@@ -102,8 +102,17 @@
                 <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">提出</button>
             }
             @if (Model.Head.InputMode == ajustMode.adminInput) {
-                <button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
-                <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">確定</button>
+                //2023-12-15 iwai-tamura add str -----
+                if (Model.Head.DecisionType == "7" || Model.Head.DecisionType == "8") {
+                    //システム連携後は修正のみ
+                    <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">修正</button>
+                } else {
+                    <button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
+                    <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">確定</button>
+                }    
+                @*<button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
+                <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">確定</button>*@
+	            //2023-12-15 iwai-tamura add end -----
             }
             @if (Model.Head.InputMode == ajustMode.SelfRegist) {
                 <button type="button" name="DmySignCancel" value="保存取消" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmySignCancel">提出取消</button>
@@ -937,9 +946,15 @@
     //var attrRadioB2_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_RadioB2_2_1" } };
     //var attrRadioB2_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_RadioB2_2_2" } };
     //2023-11-20 iwai-tamura upd end -----
-    var attrRadioB2_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_1" } };
-    var attrRadioB2_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_2" } };
-    var attrRadioB2_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_3" } };
+
+    //2023-12-15 iwai-tamura upd str -----
+    var attrRadioB2_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
+    var attrRadioB2_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
+    var attrRadioB2_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
+    //var attrRadioB2_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_1" } };
+    //var attrRadioB2_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_2" } };
+    //var attrRadioB2_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_3" } };
+    //2023-12-15 iwai-tamura upd end -----
 
 
     <div class="row">
@@ -1066,6 +1081,10 @@
                             <label class="radio-label-3 input-control DependentsOver16_2_isRead" for="select_RadioB2_3_2">非居住者(国外居住者)</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_ResidentType, "2", attrRadioB2_3_3)
                             <label class="radio-label-3 input-control DependentsOver16_2_isRead" for="select_RadioB2_3_3">別居者(国内居住者)</label>
+                            @*2023-12-15 iwai-tamura add-str ------*@
+                            <div id="Head_DependentsOver16_2_ResidentType_mes" class="check-comment"></div>
+                            @*2023-12-15 iwai-tamura add-end ------*@
+
                         </td>
                     </tr>
                     <tr>
@@ -1116,9 +1135,15 @@
     //var attrRadioB3_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_RadioB3_2_1" } };
     //var attrRadioB3_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_RadioB3_2_2" } };
     //2023-11-20 iwai-tamura upd end -----
-    var attrRadioB3_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_1" } };
-    var attrRadioB3_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_2" } };
-    var attrRadioB3_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_3" } };
+
+    //2023-12-15 iwai-tamura upd str -----
+    var attrRadioB3_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
+    var attrRadioB3_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
+    var attrRadioB3_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
+    //var attrRadioB3_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_1" } };
+    //var attrRadioB3_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_2" } };
+    //var attrRadioB3_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_3" } };
+    //2023-12-15 iwai-tamura upd end -----
 
     <div class="row">
         <div class="col-xs-8">
@@ -1245,6 +1270,9 @@
                             <label class="radio-label-3 input-control DependentsOver16_3_isRead" for="select_RadioB3_3_2">非居住者(国外居住者)</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_ResidentType, "2", attrRadioB3_3_3)
                             <label class="radio-label-3 input-control DependentsOver16_3_isRead" for="select_RadioB3_3_3">別居者(国内居住者)</label>
+                            @*2023-12-15 iwai-tamura add-str ------*@
+                            <div id="Head_DependentsOver16_3_ResidentType_mes" class="check-comment"></div>
+                            @*2023-12-15 iwai-tamura add-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -1296,9 +1324,16 @@
     //var attrRadioB4_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_RadioB4_2_1" } };
     //var attrRadioB4_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_RadioB4_2_2" } };
     //2023-11-20 iwai-tamura upd end -----
-    var attrRadioB4_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_1" } };
-    var attrRadioB4_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_2" } };
-    var attrRadioB4_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_3" } };
+
+
+    //2023-12-15 iwai-tamura upd str -----
+    var attrRadioB4_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
+    var attrRadioB4_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
+    var attrRadioB4_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
+    //var attrRadioB4_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_1" } };
+    //var attrRadioB4_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_2" } };
+    //var attrRadioB4_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_3" } };
+    //2023-12-15 iwai-tamura upd end -----
 
 
     <div class="row">
@@ -1426,6 +1461,9 @@
                             <label class="radio-label-3 input-control DependentsOver16_4_isRead" for="select_RadioB4_3_2">非居住者(国外居住者)</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_ResidentType, "2", attrRadioB4_3_3)
                             <label class="radio-label-3 input-control DependentsOver16_4_isRead" for="select_RadioB4_3_3">別居者(国内居住者)</label>
+                            @*2023-12-15 iwai-tamura add-str ------*@
+                            <div id="Head_DependentsOver16_4_ResidentType_mes" class="check-comment"></div>
+                            @*2023-12-15 iwai-tamura add-end ------*@
                         </td>
                     </tr>
                     <tr>

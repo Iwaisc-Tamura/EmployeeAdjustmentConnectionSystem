@@ -72,6 +72,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 TempData["YearEndAdjustmentSearch"] = null;
                 //2023-11-20 iwai-tamura upd end -----
 
+                //2023-12-15 iwai-tamura upd str -----
+                ViewBag.ServerStatus = lu.IsServerStatus;
+                //2023-12-15 iwai-tamura upd end -----
 
                 //表示
                 return View((new TopBL()).Index());
@@ -168,13 +171,12 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
 
         /// <summary>
-        /// TEST印刷
+        /// 基礎控除印刷
         /// </summary>
         /// <param name="value">印刷キー名</param>
-        /// <returns>テスト印刷</returns>
         [ActionName("Link")]
-        [ButtonHandler(ButtonName = "Transition2")]
-        public ActionResult TransitionReport(string value, string specifyEmployeeNo = "")
+        [ButtonHandler(ButtonName = "PrintHaiguu")]
+        public ActionResult PrintHaiguuReport(string value, string specifyEmployeeNo = "")
         {
             try
             {
@@ -259,13 +261,12 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
         //2023-11-20 iwai-terao test-str ------
         /// <summary>
-        /// TEST印刷 扶養控除申告書印刷
+        /// 扶養控除申告書印刷
         /// </summary>
         /// <param name="value">印刷キー名</param>
-        /// <returns>テスト印刷</returns>
         [ActionName("Link")]
-        [ButtonHandler(ButtonName = "Transition3")]
-        public ActionResult TransitionReport2(string value, string specifyEmployeeNo = "")
+        [ButtonHandler(ButtonName = "PrintHuyou")]
+        public ActionResult PrintHuyouReport(string value, string specifyEmployeeNo = "")
         {
             try
             {
@@ -327,13 +328,12 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
         //2023-11-20 iwai-terao test-str ------
         /// <summary>
-        /// TEST印刷 保険料控除申告書印刷
+        /// 保険料控除申告書印刷
         /// </summary>
         /// <param name="value">印刷キー名</param>
-        /// <returns>テスト印刷</returns>
         [ActionName("Link")]
-        [ButtonHandler(ButtonName = "Transition4")]
-        public ActionResult TransitionReport3(string value, string specifyEmployeeNo = "")
+        [ButtonHandler(ButtonName = "PrintHoken")]
+        public ActionResult PrintHokenReport(string value, string specifyEmployeeNo = "")
         {
             try
             {

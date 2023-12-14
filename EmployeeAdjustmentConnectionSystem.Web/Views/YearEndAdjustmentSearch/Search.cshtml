@@ -8,6 +8,10 @@
 }
 @Styles.Render("~/Content/css/yearends")
 
+@*2023-12-15 iwai-tamura add str -----*@
+<input data-val="true" data-val-required="" id="ServerStatus" name="ServerStatus" type="hidden" value="@(ViewBag.ServerStatus)" />
+@*2023-12-15 iwai-tamura add end -----*@
+
 <!--タイトル-->
 <h4 class="text-center">一　括　処　理　関　連</h4>
 @using (Html.BeginForm("Search", "YearEndAdjustmentSearch", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" })) {
@@ -26,7 +30,10 @@
                         <td class="w30">
                             <label class="control-label ">西暦</label>
                             <div>
-                                @Html.TextBoxFor(m => m.Search.Year, new { @class = "ime-disabled search-year", size = 4, maxlength = "4" })<label>年度</label>
+                                @*2023-12-15 iwai-tamura upd str -----*@
+                                @Html.TextBoxFor(m => m.Search.Year, new { @class = "ime-disabled search-year", size = 4, maxlength = "4", @readonly = "readonly" })<label>年度</label>
+                                @*@Html.TextBoxFor(m => m.Search.Year, new { @class = "ime-disabled search-year", size = 4, maxlength = "4" })<label>年度</label>*@
+                                @*2023-12-15 iwai-tamura upd end -----*@
                             </div>
                         </td>
                         <td class="w50">
@@ -82,13 +89,66 @@
                                           new SelectListItem() { Value="90", Text="本人提出済み" },
                                           new SelectListItem() { Value="91", Text="支社確定済み" },
                                           new SelectListItem() { Value="95", Text="管理者確定済み" },
-                                          new SelectListItem() { Value="99", Text="システム連携済み" }
+	                                      //2023-12-15 iwai-tamura upd str -----
+                                          new SelectListItem() { Value="97", Text="システム連携済み" },
+                                          new SelectListItem() { Value="98", Text="システム連携後修正" },
+                                          new SelectListItem() { Value="99", Text="確定済み" }
+                                          //new SelectListItem() { Value="99", Text="システム連携済み" }
+	                                      //2023-12-15 iwai-tamura upd end -----
                                       }, "", new Dictionary<string, object> {{ "class","search-status"}, { "data-width", "50px" }, { "title", "" } }
 )
                                 </div>
                             </div>
                         </td>
-                        <td>
+
+                        @*2023-12-15 iwai-tamura upd-str ------*@
+                        @if(((LoginUser)Session["LoginUser"]).IsServerStatus == "1") {
+                            <td>
+                                <div>
+                                    <label class="control-label ">保険料控除ステータス</label>
+                                    <div>
+                                      @Html.DropDownListFor(
+                                          model => model.Search.HokenDeclareStatus,
+                                          new SelectListItem[] {
+                                              new SelectListItem() { Value="00", Text="本人未提出" },
+                                              new SelectListItem() { Value="90", Text="本人提出済み" },
+                                              new SelectListItem() { Value="91", Text="支社確定済み" },
+                                              new SelectListItem() { Value="95", Text="管理者確定済み" },
+	                                          //2023-12-15 iwai-tamura upd str -----
+                                              new SelectListItem() { Value="97", Text="システム連携済み" },
+                                              new SelectListItem() { Value="98", Text="システム連携後修正" },
+                                              new SelectListItem() { Value="99", Text="確定済み" }
+                                              //new SelectListItem() { Value="99", Text="システム連携済み" }
+	                                          //2023-12-15 iwai-tamura upd end -----
+                                          }, "", new Dictionary<string, object> {{ "class","search-status"}, { "data-width", "50px" }, { "title", "" } }
+                                      )
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <label class="control-label ">基礎控除ステータス</label>
+                                    <div>
+                                      @Html.DropDownListFor(
+                                          model => model.Search.HaiguuDeclareStatus,
+                                          new SelectListItem[] {
+                                              new SelectListItem() { Value="00", Text="本人未提出" },
+                                              new SelectListItem() { Value="90", Text="本人提出済み" },
+                                              new SelectListItem() { Value="91", Text="支社確定済み" },
+                                              new SelectListItem() { Value="95", Text="管理者確定済み" },
+	                                          //2023-12-15 iwai-tamura upd str -----
+                                              new SelectListItem() { Value="97", Text="システム連携済み" },
+                                              new SelectListItem() { Value="98", Text="システム連携後修正" },
+                                              new SelectListItem() { Value="99", Text="確定済み" }
+                                              //new SelectListItem() { Value="99", Text="システム連携済み" }
+	                                          //2023-12-15 iwai-tamura upd end -----
+                                          }, "", new Dictionary<string, object> {{ "class","search-status"},{ "data-width", "50px" }, { "title", "" } }
+    )
+                                    </div>
+                                </div>
+                            </td>
+                        }
+                        @*<td>
                             <div>
                                 <label class="control-label ">保険料控除ステータス</label>
                                 <div>
@@ -99,7 +159,12 @@
                                           new SelectListItem() { Value="90", Text="本人提出済み" },
                                           new SelectListItem() { Value="91", Text="支社確定済み" },
                                           new SelectListItem() { Value="95", Text="管理者確定済み" },
-                                          new SelectListItem() { Value="99", Text="システム連携済み" }
+	                                      //2023-12-15 iwai-tamura upd str -----
+                                          new SelectListItem() { Value="97", Text="システム連携済み" },
+                                          new SelectListItem() { Value="98", Text="システム連携後修正" },
+                                          new SelectListItem() { Value="99", Text="確定済み" }
+                                          //new SelectListItem() { Value="99", Text="システム連携済み" }
+	                                      //2023-12-15 iwai-tamura upd end -----
                                       }, "", new Dictionary<string, object> {{ "class","search-status"}, { "data-width", "50px" }, { "title", "" } }
                                   )
                                 </div>
@@ -116,12 +181,18 @@
                                           new SelectListItem() { Value="90", Text="本人提出済み" },
                                           new SelectListItem() { Value="91", Text="支社確定済み" },
                                           new SelectListItem() { Value="95", Text="管理者確定済み" },
-                                          new SelectListItem() { Value="99", Text="システム連携済み" }
+	                                      //2023-12-15 iwai-tamura upd str -----
+                                          new SelectListItem() { Value="97", Text="システム連携済み" },
+                                          new SelectListItem() { Value="98", Text="システム連携後修正" },
+                                          new SelectListItem() { Value="99", Text="確定済み" }
+                                          //new SelectListItem() { Value="99", Text="システム連携済み" }
+	                                      //2023-12-15 iwai-tamura upd end -----
                                       }, "", new Dictionary<string, object> {{ "class","search-status"},{ "data-width", "50px" }, { "title", "" } }
 )
                                 </div>
                             </div>
-                        </td>
+                        </td>*@
+                        @*2023-12-15 iwai-tamura upd-end ------*@
                     </tr>
                 </tbody>
             </table>
@@ -185,13 +256,32 @@
                                     <td style="width:50px;"><button type="submit" name="Print" value="HuyouDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
                                     <td style="width:100px;">@Html.DisplayTextFor(m => row.HuyouDeclareStatus)</td>
 
-                                    <td style="width:50px;"><button type="submit" name="View" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                    @*2023-12-15 iwai-tamura upd-str ------*@
+                                    @if(((LoginUser)Session["LoginUser"]).IsServerStatus == "1") {
+                                        <td style="width:50px;"><button type="submit" name="View" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                        <td style="width:50px;"><button type="submit" name="Print" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+                                        <td style="width:100px;">@Html.DisplayTextFor(m => row.HokenDeclareStatus)</td>
+
+                                        <td style="width:50px;"><button type="submit" name="View" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                        <td style="width:50px;"><button type="submit" name="Print" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+                                        <td style="width:100px;">@Html.DisplayTextFor(m => row.HaiguuDeclareStatus)</td>
+                                    }else{
+                                        <td style="width:50px;"></td>
+                                        <td style="width:50px;"></td>
+                                        <td style="width:100px;"></td>
+
+                                        <td style="width:50px;"></td>
+                                        <td style="width:50px;"></td>
+                                        <td style="width:100px;"></td>
+                                    }
+                                    @*<td style="width:50px;"><button type="submit" name="View" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
                                     <td style="width:50px;"><button type="submit" name="Print" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
                                     <td style="width:100px;">@Html.DisplayTextFor(m => row.HokenDeclareStatus)</td>
 
                                     <td style="width:50px;"><button type="submit" name="View" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
                                     <td style="width:50px;"><button type="submit" name="Print" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
-                                    <td style="width:100px;">@Html.DisplayTextFor(m => row.HaiguuDeclareStatus)</td>
+                                    <td style="width:100px;">@Html.DisplayTextFor(m => row.HaiguuDeclareStatus)</td>*@
+                                    @*2023-12-15 iwai-tamura upd-end ------*@
                                 </tr>
                             }
                         }
@@ -206,14 +296,26 @@
                     <div>
                         <label class="control-label">一括確定登録 ：</label>
                         <button type="button" name="DmySignBatchHuyou" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_huyou" style="margin-left:5px;">扶養控除</button>
-                        <button type="button" name="DmySignBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_hoken" style="margin-left:5px;">保険料控除</button>
-                        <button type="button" name="DmySignBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_haiguu" style="margin-left:5px;">基礎控除</button>
+                        @*2023-12-15 iwai-tamura upd-str ------*@
+                        @if(((LoginUser)Session["LoginUser"]).IsServerStatus == "1") {
+                            <button type="button" name="DmySignBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_hoken" style="margin-left:5px;">保険料控除</button>
+                            <button type="button" name="DmySignBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_haiguu" style="margin-left:5px;">基礎控除</button>
+                        }
+                        @*<button type="button" name="DmySignBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_hoken" style="margin-left:5px;">保険料控除</button>
+                        <button type="button" name="DmySignBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_haiguu" style="margin-left:5px;">基礎控除</button>*@
+                        @*2023-12-15 iwai-tamura upd-end ------*@
                     </div>
                     <div>
                         <label class="control-label">一括帳票出力 ：</label>
                         <button type="button" name="DmyPrintBatchHuyou" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_huyou" style="margin-left:5px;">扶養控除</button>
-                        <button type="button" name="DmyPrintBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_hoken" style="margin-left:5px;">保険料控除</button>
-                        <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_haiguu" style="margin-left:5px;">基礎控除</button>
+                        @*2023-12-15 iwai-tamura upd-str ------*@
+                        @if(((LoginUser)Session["LoginUser"]).IsServerStatus == "1") {
+                            <button type="button" name="DmyPrintBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_hoken" style="margin-left:5px;">保険料控除</button>
+                            <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_haiguu" style="margin-left:5px;">基礎控除</button>
+                        }
+                        @*<button type="button" name="DmyPrintBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_hoken" style="margin-left:5px;">保険料控除</button>
+                        <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_haiguu" style="margin-left:5px;">基礎控除</button>*@
+                        @*2023-12-15 iwai-tamura upd-str ------*@
                     </div>
                     <div>
                         <button type="submit" name="Back" value="戻る" class="btn-default btn-batch pull-right" id="backbutton" style="margin-left:5px;">戻る</button>
