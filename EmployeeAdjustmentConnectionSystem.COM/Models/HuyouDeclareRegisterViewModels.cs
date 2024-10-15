@@ -81,12 +81,12 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public string DecisionType { get; set; }
 
-        //2023-99-99 iwai-tamura upd str -----
+        //2023-11-20 iwai-tamura upd str -----
 		/// <summary>
 		/// ステータス名
 		/// </summary>
 		public string StatusName { get; set; }
-        //2023-99-99 iwai-tamura upd end -----
+        //2023-11-20 iwai-tamura upd end -----
 
 		/// <summary>
 		/// 個人番号相違確認区分
@@ -273,7 +273,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public string TaxWithholding_BirthdayDay { get; set; }
 
 
-		//2023-99-99 iwai-tamura upd str -----
+		//2023-11-20 iwai-tamura upd str -----
 		/// <summary>
 		/// 源泉控除対象配偶者_給与所得_収入金額
 		/// </summary>
@@ -296,7 +296,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 源泉控除対象配偶者_合計所得金額見積額
 		/// </summary>
 		public int? TaxWithholding_Income { get; set; }
-		//2023-99-99 iwai-tamura upd end -----
+		//2023-11-20 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -395,7 +395,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public string DependentsOver16_1_SpecificType { get; set; }
 
 
-		//2023-99-99 iwai-tamura upd str -----
+		//2023-11-20 iwai-tamura upd str -----
 		/// <summary>
 		/// 控除対象扶養親族01_給与所得_収入金額
 		/// </summary>
@@ -418,7 +418,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 控除対象扶養親族01_給与所得_所得金額
 		/// </summary>
 		public int? DependentsOver16_1_Earnings2Income { get; set; }
-		//2023-99-99 iwai-tamura upd end -----
+		//2023-11-20 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -517,7 +517,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public string DependentsOver16_2_SpecificType { get; set; }
 
 
-		//2023-99-99 iwai-tamura upd str -----
+		//2023-11-20 iwai-tamura upd str -----
 		/// <summary>
 		/// 控除対象扶養親族02_給与所得_収入金額
 		/// </summary>
@@ -540,7 +540,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 控除対象扶養親族02_給与所得_所得金額
 		/// </summary>
 		public int? DependentsOver16_2_Earnings2Income { get; set; }
-		//2023-99-99 iwai-tamura upd end -----
+		//2023-11-20 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -639,7 +639,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public string DependentsOver16_3_SpecificType { get; set; }
 
 
-		//2023-99-99 iwai-tamura upd str -----
+		//2023-11-20 iwai-tamura upd str -----
 		/// <summary>
 		/// 控除対象扶養親族03_給与所得_収入金額
 		/// </summary>
@@ -662,7 +662,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 控除対象扶養親族03_給与所得_所得金額
 		/// </summary>
 		public int? DependentsOver16_3_Earnings2Income { get; set; }
-		//2023-99-99 iwai-tamura upd end -----
+		//2023-11-20 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -761,7 +761,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public string DependentsOver16_4_SpecificType { get; set; }
 
 
-		//2023-99-99 iwai-tamura upd str -----
+		//2023-11-20 iwai-tamura upd str -----
 		/// <summary>
 		/// 控除対象扶養親族04_給与所得_収入金額
 		/// </summary>
@@ -784,7 +784,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 控除対象扶養親族04_給与所得_所得金額
 		/// </summary>
 		public int? DependentsOver16_4_Earnings2Income { get; set; }
-		//2023-99-99 iwai-tamura upd end -----
+		//2023-11-20 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -997,7 +997,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public string DependentsUnder16_1_AbroadCheck { get; set; }
 
 
-		//2023-99-99 iwai-tamura upd str -----
+		//2023-11-20 iwai-tamura upd str -----
 		/// <summary>
 		/// 扶養親族16未満01_給与所得_収入金額
 		/// </summary>
@@ -1020,7 +1020,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 扶養親族16未満01_給与所得_所得金額
 		/// </summary>
 		public int? DependentsUnder16_1_Earnings2Income { get; set; }
-		//2023-99-99 iwai-tamura upd end -----
+		//2023-11-20 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -1113,7 +1113,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public string DependentsUnder16_2_AbroadCheck { get; set; }
 
 
-		//2023-99-99 iwai-tamura upd str -----
+		//2023-11-20 iwai-tamura upd str -----
 		/// <summary>
 		/// 扶養親族16未満02_給与所得_収入金額
 		/// </summary>
@@ -1136,7 +1136,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 扶養親族16未満02_給与所得_所得金額
 		/// </summary>
 		public int? DependentsUnder16_2_Earnings2Income { get; set; }
-		//2023-99-99 iwai-tamura upd end -----
+		//2023-11-20 iwai-tamura upd end -----
 
 		/// <summary>
 		/// 扶養親族16未満02_異動月日
@@ -1228,7 +1228,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public string DependentsUnder16_3_AbroadCheck { get; set; }
 
 
-		//2023-99-99 iwai-tamura upd str -----
+		//2023-11-20 iwai-tamura upd str -----
 		/// <summary>
 		/// 扶養親族16未満03_給与所得_収入金額
 		/// </summary>
@@ -1251,7 +1251,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 扶養親族16未満03_給与所得_所得金額
 		/// </summary>
 		public int? DependentsUnder16_3_Earnings2Income { get; set; }
-		//2023-99-99 iwai-tamura upd end -----
+		//2023-11-20 iwai-tamura upd end -----
 
 
 		/// <summary>
@@ -1344,7 +1344,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public string DependentsUnder16_4_AbroadCheck { get; set; }
 
 
-		//2023-99-99 iwai-tamura upd str -----
+		//2023-11-20 iwai-tamura upd str -----
 		/// <summary>
 		/// 扶養親族16未満04_給与所得_収入金額
 		/// </summary>
@@ -1367,7 +1367,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 扶養親族16未満04_給与所得_所得金額
 		/// </summary>
 		public int? DependentsUnder16_4_Earnings2Income { get; set; }
-		//2023-99-99 iwai-tamura upd end -----
+		//2023-11-20 iwai-tamura upd end -----
 
 
 		/// <summary>

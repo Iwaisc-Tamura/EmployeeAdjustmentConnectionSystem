@@ -68,7 +68,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             if(!int.TryParse(config.AppSettings.Settings["RETENTIO_PERIOD"].Value, out R_P)) { R_P = 3; };
         }
 
-        //2023-99-99 iwai-tamura test-str ------
+        //2023-11-20 iwai-tamura test-str ------
         /// <summary>
         /// メインの処理
         /// </summary>
@@ -298,8 +298,12 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,基礎控除.配偶者控除申告書_給与所得_所得金額 "
                     + "     ,基礎控除.配偶者控除申告書_他_所得金額 "
                     + "     ,基礎控除.配偶者控除申告書_合計所得金額見積額 "
-                    + "     ,Isnull(基礎控除.配偶者控除申告書_控除額計算判定,'0') AS 配偶者控除申告書_控除額計算判定 "
-                    + "     ,基礎控除.配偶者控除申告書_控除額計算区分 "
+                    //2023-11-28 iwai-tamura upd str ------
+                    + "     ,CASE WHEN Isnull(基礎控除.配偶者控除申告書_控除額計算判定,'0') = '0' THEN '' ELSE 基礎控除.配偶者控除申告書_控除額計算判定 END AS 配偶者控除申告書_控除額計算判定 "
+                    + "     ,CASE WHEN Isnull(基礎控除.配偶者控除申告書_控除額計算区分,'0') = '0' THEN '' ELSE 基礎控除.配偶者控除申告書_控除額計算区分 END AS 配偶者控除申告書_控除額計算区分 "
+                    //+ "     ,Isnull(基礎控除.配偶者控除申告書_控除額計算判定,'0') AS 配偶者控除申告書_控除額計算判定 "
+                    //+ "     ,基礎控除.配偶者控除申告書_控除額計算区分 "
+                    //2023-11-28 iwai-tamura upd end ------
                     + "     ,基礎控除.配偶者控除申告書_配偶者控除額 "
                     + "     ,基礎控除.配偶者控除申告書_配偶者特別控除額 "
                     + "     ,Isnull(基礎控除.所得金額調整控除申告書_要件区分,'0') AS 所得金額調整控除申告書_要件区分 "
@@ -439,9 +443,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2023-99-99 iwai-tamura test-end ------
+        //2023-11-20 iwai-tamura test-end ------
 
-        //2023-99-99 iwai-terao test-str 扶養控除ボタン------
+        //2023-11-20 iwai-terao test-str 扶養控除ボタン------
         /// <summary>
         /// メインの処理
         /// </summary>
@@ -980,10 +984,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2023-99-99 iwai-terao test-end ------
+        //2023-11-20 iwai-terao test-end ------
 
 
-        //2023-99-99 iwai-terao test-str 保険料控除ボタン------
+        //2023-11-20 iwai-terao test-str 保険料控除ボタン------
         /// <summary>
         /// 保険料控除申告書 出力
         /// </summary>
@@ -1567,7 +1571,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2023-99-99 iwai-terao test-end ------
+        //2023-11-20 iwai-terao test-end ------
 
 
 

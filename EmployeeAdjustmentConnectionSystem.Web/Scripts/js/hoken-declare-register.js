@@ -18,7 +18,7 @@ $('input:radio').dblclick(function () {
 
 $(function () {
     //初回 入力制御
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     $('#Head_LifeInsurance_1_HostDataFlg').change();
     $('#Head_LifeInsurance_2_HostDataFlg').change();
     $('#Head_LifeInsurance_3_HostDataFlg').change();
@@ -41,7 +41,7 @@ $(function () {
     $('#Head_QuakeInsurance_2_HostDataFlg').change();
     $('#Head_QuakeInsurance_3_HostDataFlg').change();
     $('#Head_QuakeInsurance_4_HostDataFlg').change();
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
 
     //datepicker設定
     $.datepicker.setDefaults($.datepicker.regional['ja']);
@@ -87,7 +87,7 @@ $('button.input-control').click(function () {
 
 
 
-//2023-99-99 iwai-tamura upd str -----
+//2023-11-20 iwai-tamura upd str -----
 ///*HostData判定 入力制御*///
 $('#Head_LifeInsurance_1_HostDataFlg').change(function () {
     if (document.getElementById("Head_LifeInsurance_1_HostDataFlg").checked == true) {
@@ -485,7 +485,7 @@ document.querySelectorAll('.QuakeInsurance_4_isRead').forEach(function (input) {
         }
     });
 });
-//2023-99-99 iwai-tamura upd end -----
+//2023-11-20 iwai-tamura upd end -----
 
 
 
@@ -505,10 +505,10 @@ function calcLifeInsurance() {
     $("#Head_LifeInsurance_DeductionAmount").val(null);
 
     //新旧区分チェック
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     for (var i = 1; i < 9; i++) {
     //for (var i = 1; i < 5; i++) {
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
         id1 = "Head_LifeInsurance_" + i + "_OldAndNewType"
         id2 = "Head_LifeInsurance_" + i + "_InsuranceFee"
         if (document.getElementById(id2).value != "") {
@@ -530,10 +530,10 @@ function calcLifeInsurance() {
     var intTotalAmount = 0;
     var intDeductionAmount = 0;
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     for (var i = 1; i < 9; i++) {
     //for (var i = 1; i < 5; i++) {
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
         id1 = "Head_LifeInsurance_" + i + "_OldAndNewType"
         id2 = "Head_LifeInsurance_" + i + "_InsuranceFee"
         if (document.getElementById(id1).value == "1") {
@@ -605,10 +605,10 @@ function calcMedicalInsurance() {
     var intTotalAmount = 0;
     var intDeductionAmount = 0;
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     for (var i = 1; i < 7; i++) {
     //for (var i = 1; i < 3; i++) {
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
         id1 = "Head_MedicalInsurance_" + i + "_InsuranceFee"
         intTotalAmount += Number(document.getElementById(id1).value);
     }
@@ -657,10 +657,10 @@ function calcPensionInsurance() {
 
 
     //新旧区分チェック
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     for (var i = 1; i < 5; i++) {
     //for (var i = 1; i < 4; i++) {
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
         id1 = "Head_PensionInsurance_" + i + "_OldAndNewType"
         id2 = "Head_PensionInsurance_" + i + "_InsuranceFee"
         if (document.getElementById(id2).value != "") {
@@ -682,10 +682,10 @@ function calcPensionInsurance() {
     var intTotalAmount = 0;
     var intDeductionAmount = 0;
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     for (var i = 1; i < 5; i++) {
     //for (var i = 1; i < 4; i++) {
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
         id1 = "Head_PensionInsurance_" + i + "_OldAndNewType"
         id2 = "Head_PensionInsurance_" + i + "_InsuranceFee"
         if (document.getElementById(id1).value == "1") {
@@ -791,10 +791,10 @@ function calcQuakeInsurance() {
 
 
     //新旧区分チェック
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     for (var i = 1; i < 5; i++) {
     //for (var i = 1; i < 3; i++) {
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
         id1 = "Head_QuakeInsurance_" + i + "_QuakeAndDamageType"
         id2 = "Head_QuakeInsurance_" + i + "_InsuranceFee"
         if (document.getElementById(id2).value != "") {
@@ -816,10 +816,10 @@ function calcQuakeInsurance() {
     var intTotalAmount = 0;
     var intDeductionAmount = 0;
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     for (var i = 1; i < 5; i++) {
     //for (var i = 1; i < 3; i++) {
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
         id1 = "Head_QuakeInsurance_" + i + "_QuakeAndDamageType"
         id2 = "Head_QuakeInsurance_" + i + "_InsuranceFee"
         if (document.getElementById(id1).value == "1") {
@@ -874,10 +874,10 @@ function calcSocialInsurance() {
     var intTotalAmount = 0;
     var intDeductionAmount = 0;
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     for (var i = 1; i < 4; i++) {
     //for (var i = 1; i < 3; i++) {
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
         id1 = "Head_SocialInsurance_" + i + "_InsuranceFee"
         intTotalAmount += Number(document.getElementById(id1).value);
     }
@@ -985,10 +985,10 @@ $('.checkKana').change(function () {
 
     var reg = new RegExp(/^[ｦ-ﾟ]*$/);   //使用可能文字指定(半角カナのみ)
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     var convertedValue = zenkana2Hankana(hira2Kana($(this).val()));
     $(this).val(convertedValue);
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
 
     //Kana_1とKana_2に半角カナ以外が入力されていないかチェック
     if (reg.test($(strId + "1").val()) && reg.test($(strId + "2").val())) {
@@ -1131,15 +1131,22 @@ $('#dmysave').click(function () {
     if (!checkAllCalc()){return;}
 
     //ボタンクリック
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     var isAdminMode = $('#Head_AdminMode').val().toLowerCase() === 'true';
     if (isAdminMode) {
-        showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
+        //2023-12-15 iwai-tamura upd str -----
+        if ($('#Head_DecisionType').val() <= '5') {
+            showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
+        } else {
+            showMessageEx('修正確認', '修正しますか？ <br><br> ※既に連携済みデータの為、連携先システムの修正も同様に行ってください。', 'savebutton', true);
+        }
+        //showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
+	    //2023-12-15 iwai-tamura upd end -----
     } else {
         showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
     }
     //showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
 });
 
 /*
@@ -1147,7 +1154,7 @@ $('#dmysave').click(function () {
  */
 $('#dmySignCancel').click(function () {
     //ボタンクリック
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     var isAdminMode = $('#Head_AdminMode').val().toLowerCase() === 'true';
     if (isAdminMode) {
         showMessageEx('取消確認', '確定状態を取消しますか？', 'signcancel', true);
@@ -1155,7 +1162,7 @@ $('#dmySignCancel').click(function () {
         showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
     }
     //showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
 });
 
 

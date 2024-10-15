@@ -70,7 +70,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                         return null;
                     };
 
-                    //2023-99-99 iwai-tamura upd str -----
+                    //2023-11-20 iwai-tamura upd str -----
                     Func<string, string, string> StatusDecision = (value1, value2) => {
                         if (value1 == "0" && value2 == "0") {
                             return "本人未提出";
@@ -82,13 +82,21 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                             return "支社確定済み";
                         } else if (value1 == "9" && value2 == "5") {
                             return "管理者確定済み";
-                        } else if (value1 == "9" && value2 == "9") {
+						//2023-12-15 iwai-tamura upd str -----
+                        } else if (value1 == "9" && value2 == "7") {
                             return "システム連携済み";
+                        } else if (value1 == "9" && value2 == "8") {
+                            return "システム連携後修正";
+                        } else if (value1 == "9" && value2 == "9") {
+                            return "確定済み";
+                        //} else if (value1 == "9" && value2 == "9") {
+                        //    return "システム連携済み";
+						//2023-12-15 iwai-tamura upd end -----
                         } else {
                             return "システムエラー";
                         }
                     };
-                    //2023-99-99 iwai-tamura upd end -----
+                    //2023-11-20 iwai-tamura upd end -----
 
                     var sql = "SELECT * FROM TE110保険料控除申告書Data WHERE 対象年度 = @SheetYear and 社員番号 = @EmployeeNo ";
 
@@ -108,9 +116,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								SheetYear = DataConv.IntParse(row["対象年度"].ToString()),
 								ApprovalType = row["本人確定区分"].ToString(),
 								DecisionType = row["管理者確定区分"].ToString(),
-                                //2023-99-99 iwai-tamura upd str -----
+                                //2023-11-20 iwai-tamura upd str -----
                                 StatusName = StatusDecision(row["本人確定区分"].ToString(),row["管理者確定区分"].ToString()),
-                                //2023-99-99 iwai-tamura upd end -----
+                                //2023-11-20 iwai-tamura upd end -----
 								EmployeeNo = row["社員番号"].ToString(),
 								DepartmentNo = DataConv.IntParse(row["所属番号"].ToString()),
 								Name1 = row["氏名_姓"].ToString(),
@@ -167,7 +175,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								LifeInsurance_4_OldAndNewType = row["一般生命保険料04_新旧"].ToString(),
 								LifeInsurance_4_InsuranceFee = setMoney(row["一般生命保険料04_支払金額"].ToString()),
 
-							    //2023-99-99 iwai-tamura upd str -----
+							    //2023-11-20 iwai-tamura upd str -----
 								LifeInsurance_1_HostDataFlg = row["一般生命保険料01_HostData判定"].ToString(),
 								LifeInsurance_2_HostDataFlg = row["一般生命保険料02_HostData判定"].ToString(),
 								LifeInsurance_3_HostDataFlg = row["一般生命保険料03_HostData判定"].ToString(),
@@ -216,7 +224,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								LifeInsurance_8_RelationshipType = row["一般生命保険料08_保険金等受取人続柄"].ToString(),
 								LifeInsurance_8_OldAndNewType = row["一般生命保険料08_新旧"].ToString(),
 								LifeInsurance_8_InsuranceFee = setMoney(row["一般生命保険料08_支払金額"].ToString()),
-							    //2023-99-99 iwai-tamura upd end -----
+							    //2023-11-20 iwai-tamura upd end -----
 
 								MedicalInsurance_TotalAmount = setMoney(row["介護医療保険料合計"].ToString()),
 								MedicalInsurance_DeductionAmount = setMoney(row["介護医療保険料表計算"].ToString()),
@@ -240,7 +248,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								MedicalInsurance_2_InsuranceFee = setMoney(row["介護医療保険料02_支払金額"].ToString()),
 
 
-							    //2023-99-99 iwai-tamura upd str -----
+							    //2023-11-20 iwai-tamura upd str -----
 								MedicalInsurance_1_HostDataFlg = row["介護医療保険料01_HostData判定"].ToString(),
 								MedicalInsurance_2_HostDataFlg = row["介護医療保険料02_HostData判定"].ToString(),
 								MedicalInsurance_3_HostDataFlg = row["介護医療保険料03_HostData判定"].ToString(),
@@ -283,7 +291,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								MedicalInsurance_6_ReceiverName2 = row["介護医療保険料06_保険金等受取人氏名_名"].ToString(),
 								MedicalInsurance_6_RelationshipType = row["介護医療保険料06_保険金等受取人続柄"].ToString(),
 								MedicalInsurance_6_InsuranceFee = setMoney(row["介護医療保険料06_支払金額"].ToString()),
-							    //2023-99-99 iwai-tamura upd end -----
+							    //2023-11-20 iwai-tamura upd end -----
 
 
 
@@ -336,7 +344,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								PensionInsurance_3_OldAndNewType = row["個人年金保険料03_新旧"].ToString(),
 								PensionInsurance_3_InsuranceFee = setMoney(row["個人年金保険料03_支払金額"].ToString()),
 
-							    //2023-99-99 iwai-tamura upd str -----
+							    //2023-11-20 iwai-tamura upd str -----
 								PensionInsurance_1_HostDataFlg = row["個人年金保険料01_HostData判定"].ToString(),
 								PensionInsurance_2_HostDataFlg = row["個人年金保険料02_HostData判定"].ToString(),
 								PensionInsurance_3_HostDataFlg = row["個人年金保険料03_HostData判定"].ToString(),
@@ -355,7 +363,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								PensionInsurance_4_StartPaymentDay = row["個人年金保険料04_支払開始日"].ToString()=="" ? "":row["個人年金保険料04_支払開始日"].ToString().Substring(6,2).TrimStart(new Char[] { '0' } ),
 								PensionInsurance_4_OldAndNewType = row["個人年金保険料04_新旧"].ToString(),
 								PensionInsurance_4_InsuranceFee = setMoney(row["個人年金保険料04_支払金額"].ToString()),
-							    //2023-99-99 iwai-tamura upd end -----
+							    //2023-11-20 iwai-tamura upd end -----
 
 								QuakeInsurance_QuakeAmount = setMoney(row["地震保険料控除地震保険料合計"].ToString()),
 								QuakeInsurance_DamageTotalAmount = setMoney(row["地震保険料控除旧長期損害保険料合計"].ToString()),
@@ -383,7 +391,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								QuakeInsurance_2_QuakeAndDamageType = row["地震保険料控除02_地震旧長期"].ToString(),
 								QuakeInsurance_2_InsuranceFee = setMoney(row["地震保険料控除02_支払保険料"].ToString()),
 
-							    //2023-99-99 iwai-tamura upd str -----
+							    //2023-11-20 iwai-tamura upd str -----
 								QuakeInsurance_1_HostDataFlg = row["地震保険料控除01_HostData判定"].ToString(),
 								QuakeInsurance_2_HostDataFlg = row["地震保険料控除02_HostData判定"].ToString(),
 								QuakeInsurance_3_HostDataFlg = row["地震保険料控除03_HostData判定"].ToString(),
@@ -408,7 +416,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								QuakeInsurance_4_RelationshipType = row["地震保険料控除04_保険等対象続柄"].ToString(),
 								QuakeInsurance_4_QuakeAndDamageType = row["地震保険料控除04_地震旧長期"].ToString(),
 								QuakeInsurance_4_InsuranceFee = setMoney(row["地震保険料控除04_支払保険料"].ToString()),
-							    //2023-99-99 iwai-tamura upd end -----
+							    //2023-11-20 iwai-tamura upd end -----
 
 								SocialInsurance_DeductionAmount = setMoney(row["社会保険料控除合計"].ToString()),
 								SocialInsurance_1_InsuranceTypeName = row["社会保険料控除01_社会保険種類"].ToString(),
@@ -424,14 +432,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								SocialInsurance_2_RelationshipType = row["社会保険料控除02_負担者続柄"].ToString(),
 								SocialInsurance_2_InsuranceFee = setMoney(row["社会保険料控除02_支払保険料"].ToString()),
 
-							    //2023-99-99 iwai-tamura upd str -----
+							    //2023-11-20 iwai-tamura upd str -----
 								SocialInsurance_3_InsuranceTypeName = row["社会保険料控除03_社会保険種類"].ToString(),
 								SocialInsurance_3_InsuranceCompanyName = row["社会保険料控除03_支払先名称"].ToString(),
 								SocialInsurance_3_ContractorName1 = row["社会保険料控除03_負担者氏名_姓"].ToString(),
 								SocialInsurance_3_ContractorName2 = row["社会保険料控除03_負担者氏名_名"].ToString(),
 								SocialInsurance_3_RelationshipType = row["社会保険料控除03_負担者続柄"].ToString(),
 								SocialInsurance_3_InsuranceFee = setMoney(row["社会保険料控除03_支払保険料"].ToString()),
-							    //2023-99-99 iwai-tamura upd end -----
+							    //2023-11-20 iwai-tamura upd end -----
 
 								SmallScaleMutualAid_MutualAidCost = setMoney(row["共済契約掛金"].ToString()),
 								SmallScaleMutualAid_CorporatePensionCost = setMoney(row["企業型年金加入者掛金"].ToString()),
@@ -545,7 +553,25 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 										break;
 								}
                                 break;
-
+							//2023-12-15 iwai-tamura add str -----
+                            case "7":
+                            case "8":
+                                //システム連携済み・システム連携後修正
+								switch (lu.IsAdminNo) {
+									case "2":
+									case "3":
+		                                model.Head.InputMode = ajustMode.adminConfim;
+										break;
+									case "1":
+									case "7":
+									case "8":
+									case "9":
+									case "K":
+		                                model.Head.InputMode = ajustMode.adminInput;
+										break;
+								}
+                                break;
+							//2023-12-15 iwai-tamura add end -----
                             case "9":
                                 //管理者確定済み
                                 model.Head.InputMode = ajustMode.adminConfim;
@@ -672,24 +698,45 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                                     break;
                                 case ajustMode.adminInput:
                                     strApproval = "9";
-                                    //2023-99-99 iwai-tamura upd str -----
+                                    //2023-11-20 iwai-tamura upd str -----
 									switch (lu.IsAdminNo) {
 										case "2":
 										case "3":
-											strDecision = "1";
+											//2023-12-15 iwai-tamura upd str -----
+											if (strDecision == "7"|| strDecision == "8") {
+												strDecision = "8";
+											} else {
+												strDecision = "1";
+											}
+											//strDecision = "1";
+											//2023-12-15 iwai-tamura upd end -----
 											break;
 										case "1":
 										case "7":
 										case "8":
 										case "9":
-		                                    strDecision = "5";
+											//2023-12-15 iwai-tamura upd str -----
+											if (strDecision == "7"|| strDecision == "8") {
+												strDecision = "8";
+											} else {
+			                                    strDecision = "5";
+											}
+		                                    //strDecision = "5";
+											//2023-12-15 iwai-tamura upd end -----
 											break;
 										case "K":
-		                                    strDecision = "5";
+											//2023-12-15 iwai-tamura upd str -----
+											if (strDecision == "7"|| strDecision == "8") {
+												strDecision = "8";
+											} else {
+			                                    strDecision = "5";
+											}
+		                                    //strDecision = "5";
+											//2023-12-15 iwai-tamura upd end -----
 											break;
 									}
                                     //strDecision = "1";
-                                    //2023-99-99 iwai-tamura upd end -----
+                                    //2023-11-20 iwai-tamura upd end -----
                                     break;
                             }
                         }
@@ -859,7 +906,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 							+ " ,心身障害者扶養共済制度契約掛金 = @SmallScaleMutualAid_HandicappedMutualAidCost"
 							+ " ,小規模企業共済等掛金控除合計 = @SmallScaleMutualAid_DeductionAmount"
 
-							//2023-99-99 iwai-tamura upd str -----
+							//2023-11-20 iwai-tamura upd str -----
 							+ " ,一般生命保険料01_HostData判定 = @LifeInsurance_1_HostDataFlg"
 							+ " ,一般生命保険料02_HostData判定 = @LifeInsurance_2_HostDataFlg"
 							+ " ,一般生命保険料03_HostData判定 = @LifeInsurance_3_HostDataFlg"
@@ -1006,7 +1053,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 							+ " ,社会保険料控除03_負担者氏名_名 = @SocialInsurance_3_ContractorName2"
 							+ " ,社会保険料控除03_負担者続柄 = @SocialInsurance_3_RelationshipType"
 							+ " ,社会保険料控除03_支払保険料 = @SocialInsurance_3_InsuranceFee"
-							//2023-99-99 iwai-tamura upd end -----
+							//2023-11-20 iwai-tamura upd end -----
 
 							+ " ,最終更新者ID = '" + lu.UserCode + "'"
 							+ " ,更新年月日 = GETDATE()"
@@ -1177,7 +1224,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 						DbHelper.AddDbParameter(cmd, "@SmallScaleMutualAid_HandicappedMutualAidCost", DbType.Int32);
 						DbHelper.AddDbParameter(cmd, "@SmallScaleMutualAid_DeductionAmount", DbType.Int32);
 
-						//2023-99-99 iwai-tamura upd str -----
+						//2023-11-20 iwai-tamura upd str -----
 						DbHelper.AddDbParameter(cmd, "@LifeInsurance_1_HostDataFlg", DbType.String);
 						DbHelper.AddDbParameter(cmd, "@LifeInsurance_2_HostDataFlg", DbType.String);
 						DbHelper.AddDbParameter(cmd, "@LifeInsurance_3_HostDataFlg", DbType.String);
@@ -1313,7 +1360,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 						DbHelper.AddDbParameter(cmd, "@SocialInsurance_3_ContractorName2", DbType.String);
 						DbHelper.AddDbParameter(cmd, "@SocialInsurance_3_RelationshipType", DbType.String);
 						DbHelper.AddDbParameter(cmd, "@SocialInsurance_3_InsuranceFee", DbType.Int32);
-						//2023-99-99 iwai-tamura upd end -----
+						//2023-11-20 iwai-tamura upd end -----
 
 
 
@@ -1481,7 +1528,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 						parameters[155].Value = DataConv.IfNull(model.Head.SmallScaleMutualAid_HandicappedMutualAidCost.ToString());
 						parameters[156].Value = DataConv.IfNull(model.Head.SmallScaleMutualAid_DeductionAmount.ToString());
 
-						//2023-99-99 iwai-tamura upd str -----
+						//2023-11-20 iwai-tamura upd str -----
 						parameters[157].Value = DataConv.IfNull(checkValue(model.Head.LifeInsurance_1_HostDataFlg));
 						parameters[158].Value = DataConv.IfNull(checkValue(model.Head.LifeInsurance_2_HostDataFlg));
 						parameters[159].Value = DataConv.IfNull(checkValue(model.Head.LifeInsurance_3_HostDataFlg));
@@ -1617,7 +1664,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 						parameters[289].Value = DataConv.IfNull(model.Head.SocialInsurance_3_ContractorName2);
 						parameters[290].Value = DataConv.IfNull(model.Head.SocialInsurance_3_RelationshipType);
 						parameters[291].Value = DataConv.IfNull(model.Head.SocialInsurance_3_InsuranceFee.ToString());
-						//2023-99-99 iwai-tamura upd end -----
+						//2023-11-20 iwai-tamura upd end -----
 
                         parameters[292].Value = DataConv.IfNull(model.Head.SheetYear.ToString());
                         parameters[293].Value = DataConv.IfNull(model.Head.EmployeeNo);
@@ -1658,7 +1705,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                         if(strApproval == "1") strApproval = "0";
                         break;
                     case ajustMode.adminRegist:
-                        //2023-99-99 iwai-tamura upd str -----
+                        //2023-11-20 iwai-tamura upd str -----
                         switch (strDecision) {
                             case "1":   //支社確定→本人確定
                                 strDecision = "0";
@@ -1677,7 +1724,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                                 break;
                         }
                         //if(strDecision == "1") strDecision = "0";
-                        //2023-99-99 iwai-tamura upd end -----
+                        //2023-11-20 iwai-tamura upd end -----
                         break;
                 }
 

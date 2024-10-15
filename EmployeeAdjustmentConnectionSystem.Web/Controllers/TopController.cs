@@ -45,9 +45,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                                                       , { "HuyouDeclareRegister", "Index"}
                                                       , { "HokenDeclareRegister", "Index"}
                                                       , { "HaiguuDeclareRegister", "Index"}
-                                                    //2023-99-99 iwai-tamura add str -----
+                                                    //2023-11-20 iwai-tamura add str -----
                                                       , { "YearEndAdjustmentSearch", "Search"}
-                                                    //2023-99-99 iwai-tamura add end -----                                                        
+                                                    //2023-11-20 iwai-tamura add end -----                                                        
             };
         #endregion
 
@@ -67,11 +67,14 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 var lu = (LoginUser)Session["LoginUser"];
                 
 
-                //2023-99-99 iwai-tamura upd str -----
+                //2023-11-20 iwai-tamura upd str -----
                 //初期化
                 TempData["YearEndAdjustmentSearch"] = null;
-                //2023-99-99 iwai-tamura upd end -----
+                //2023-11-20 iwai-tamura upd end -----
 
+                //2023-12-15 iwai-tamura upd str -----
+                ViewBag.ServerStatus = lu.IsServerStatus;
+                //2023-12-15 iwai-tamura upd end -----
 
                 //表示
                 return View((new TopBL()).Index());
@@ -115,10 +118,10 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     bolAdminMode = true;
                 }
 
-                //2023-99-99 iwai-tamura upd str -----
+                //2023-11-20 iwai-tamura upd str -----
                 return RedirectToAction((string)linkTable[value], value, new { intSheetYear = lu.IsYear, strEmployeeNo = strInputNo ,bolAdminMode = bolAdminMode});
                 //return RedirectToAction((string)linkTable[value], value, new { intSheetYear = 2022, strEmployeeNo = strInputNo ,bolAdminMode = bolAdminMode});
-                //2023-99-99 iwai-tamura upd end -----
+                //2023-11-20 iwai-tamura upd end -----
                 //return RedirectToAction("Index", "HuyouDeclareRegister", new { intSheetYear = 2022, strEmployeeNo = "" });
             } catch(Exception ex) {
                 //エラー
@@ -131,7 +134,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             }
         }
 
-        //2023-99-99 iwai-tamura test-str ------
+        //2023-11-20 iwai-tamura test-str ------
         /// <summary>
         /// 画面遷移アクション
         /// </summary>
@@ -168,13 +171,12 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
 
         /// <summary>
-        /// TEST印刷
+        /// 基礎控除印刷
         /// </summary>
         /// <param name="value">印刷キー名</param>
-        /// <returns>テスト印刷</returns>
         [ActionName("Link")]
-        [ButtonHandler(ButtonName = "Transition2")]
-        public ActionResult TransitionReport(string value, string specifyEmployeeNo = "")
+        [ButtonHandler(ButtonName = "PrintHaiguu")]
+        public ActionResult PrintHaiguuReport(string value, string specifyEmployeeNo = "")
         {
             try
             {
@@ -255,17 +257,16 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             }
         }
 
-        //2023-99-99 iwai-tamura test-end ------
+        //2023-11-20 iwai-tamura test-end ------
 
-        //2023-99-99 iwai-terao test-str ------
+        //2023-11-20 iwai-terao test-str ------
         /// <summary>
-        /// TEST印刷 扶養控除申告書印刷
+        /// 扶養控除申告書印刷
         /// </summary>
         /// <param name="value">印刷キー名</param>
-        /// <returns>テスト印刷</returns>
         [ActionName("Link")]
-        [ButtonHandler(ButtonName = "Transition3")]
-        public ActionResult TransitionReport2(string value, string specifyEmployeeNo = "")
+        [ButtonHandler(ButtonName = "PrintHuyou")]
+        public ActionResult PrintHuyouReport(string value, string specifyEmployeeNo = "")
         {
             try
             {
@@ -322,18 +323,17 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
         }
 
 
-        //2023-99-99 iwai-terao test-end ------
+        //2023-11-20 iwai-terao test-end ------
 
 
-        //2023-99-99 iwai-terao test-str ------
+        //2023-11-20 iwai-terao test-str ------
         /// <summary>
-        /// TEST印刷 保険料控除申告書印刷
+        /// 保険料控除申告書印刷
         /// </summary>
         /// <param name="value">印刷キー名</param>
-        /// <returns>テスト印刷</returns>
         [ActionName("Link")]
-        [ButtonHandler(ButtonName = "Transition4")]
-        public ActionResult TransitionReport3(string value, string specifyEmployeeNo = "")
+        [ButtonHandler(ButtonName = "PrintHoken")]
+        public ActionResult PrintHokenReport(string value, string specifyEmployeeNo = "")
         {
             try
             {
@@ -390,6 +390,6 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
         }
 
 
-        //2023-99-99 iwai-terao test-end ------
+        //2023-11-20 iwai-terao test-end ------
     }
 }

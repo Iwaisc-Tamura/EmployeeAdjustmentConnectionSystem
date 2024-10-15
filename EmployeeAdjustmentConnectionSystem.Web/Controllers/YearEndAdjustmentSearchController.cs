@@ -51,6 +51,14 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 if (!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
                 //2016-04-14 iwai-tamura upd end -----
 
+                //2023-12-15 iwai-tamura upd str -----
+                //ログイン情報取得
+                var lu = (LoginUser)Session["LoginUser"];
+                ViewBag.ServerStatus = lu.IsServerStatus;
+                //2023-12-15 iwai-tamura upd end -----
+
+
+
                 //初期化
                 YearEndAdjustmentSearchViewModels model = new YearEndAdjustmentSearchViewModels {
                     Search = new YearEndAdjustmentSearchModel(),

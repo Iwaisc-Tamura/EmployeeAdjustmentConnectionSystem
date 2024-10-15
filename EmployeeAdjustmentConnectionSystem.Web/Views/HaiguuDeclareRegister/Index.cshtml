@@ -62,7 +62,7 @@
     <br><br>
 
 
-    @*2023-99-99 iwai-tamura add-str ------*@
+    @*2023-11-20 iwai-tamura add-str ------*@
     <div class="row">
         <div class="col-xs-4">
             <h3 class="text-left">
@@ -78,7 +78,7 @@
     @*<h3 class="text-left">
         @Html.DisplayFor(m => m.Head.SheetYear) 年度　基礎控除申告書 @strTitle
     </h3>*@
-    @*2023-99-99 iwai-tamura add-end ------*@
+    @*2023-11-20 iwai-tamura add-end ------*@
 
     @Html.HiddenFor(m => m.Head.SheetYear)
     @Html.HiddenFor(m => m.Head.EmployeeNo)
@@ -90,12 +90,12 @@
     @Html.HiddenFor(m => m.Head.CancelButton)
     @Html.HiddenFor(m => m.Head.AdminMode)
 
-    @*2023-99-99 iwai-tamura add-str ------*@
+    @*2023-11-20 iwai-tamura add-str ------*@
     //扶養控除データ
     @Html.HiddenFor(m => m.Head.SpouseDeduction_Huyou_Earnings)
     @Html.HiddenFor(m => m.Head.SpouseDeduction_Huyou_Income)
     @Html.HiddenFor(m => m.Head.SpouseDeduction_Huyou_OtherIncome)
-    @*2023-99-99 iwai-tamura add-end ------*@
+    @*2023-11-20 iwai-tamura add-end ------*@
 
 
     @*データ日時取得*@
@@ -110,8 +110,17 @@
                 <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">提出</button>
             }
             @if (Model.Head.InputMode == ajustMode.adminInput) {
-                <button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
-                <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">確定</button>
+                //2023-12-15 iwai-tamura add str -----
+                if (Model.Head.DecisionType == "7" || Model.Head.DecisionType == "8") {
+                    //システム連携後は修正のみ
+                    <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">修正</button>
+                } else {
+                    <button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
+                    <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">確定</button>
+                }    
+                @*<button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
+                <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">確定</button>*@
+	            //2023-12-15 iwai-tamura add end -----
             }
             @if (Model.Head.InputMode == ajustMode.SelfRegist) {
                 <button type="button" name="DmySignCancel" value="保存取消" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmySignCancel">提出取消</button>
@@ -362,12 +371,12 @@
     var attrRadio1_1 = new Dictionary<string, object>() { { "name", "attrRadio1" }, { "id", "select_radio1" } };
     var attrRadio1_2 = new Dictionary<string, object>() { { "name", "attrRadio1" }, { "id", "select_radio2" } };
 
-    @*2023-99-99 iwai-tamura add-str ------*@
+    @*2023-11-20 iwai-tamura add-str ------*@
     var BasicDeduction_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney(this,99999999)" } };
     var BasicDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
     var SpouseDeduction_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney(this,99999999)" } };
     var SpouseDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
-    @*2023-99-99 iwai-tamura add-end ------*@
+    @*2023-11-20 iwai-tamura add-end ------*@
 
 
     <div class="row">
@@ -535,7 +544,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr class="content-label-h1">
-                        @*2023-99-99 iwai-tamura upd-str ------*@
+                        @*2023-11-20 iwai-tamura upd-str ------*@
                         <td colspan="7" style="border-right: none !important;">
                             給与所得者の配偶者控除等申告書
                         </td>
@@ -545,7 +554,7 @@
                         @*<td colspan="8">
                             給与所得者の配偶者控除等申告書
                         </td>*@
-                        @*2023-99-99 iwai-tamura upd-end ------*@
+                        @*2023-11-20 iwai-tamura upd-end ------*@
                     </tr>
                 </thead>
             </table>
@@ -558,10 +567,10 @@
     @*定義*@
     <div class="row">
         <div class="col-xs-8">
-            @*2023-99-99 iwai-tamura upd-str ------*@
+            @*2023-11-20 iwai-tamura upd-str ------*@
             <table class="table table-bordered spouseDeductionTable">
             @*<table class="table table-bordered">*@
-            @*2023-99-99 iwai-tamura upd-end ------*@
+            @*2023-11-20 iwai-tamura upd-end ------*@
                 <colgroup>
                     <col style="width:10%;" />
                     <col style="width:20%;" />
@@ -609,7 +618,7 @@
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">配偶者の給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
-                        @*2023-99-99 iwai-tamura upd-str ------*@
+                        @*2023-11-20 iwai-tamura upd-str ------*@
                         <td colspan="4" class="form-inline" style="border-right: none !important;">
                             @Html.TextBoxFor(m => m.Head.SpouseDeduction_Earnings, SpouseDeduction_TextMoney2) 円<div id="Head_SpouseDeduction_TotalEarnings_mes" class="check-comment"></div>
                         </td>
@@ -619,7 +628,7 @@
                         @*<td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.SpouseDeduction_Earnings, TextMoney1) 円<div id="Head_SpouseDeduction_TotalEarnings_mes" class="check-comment"></div>
                         </td>*@
-                        @*2023-99-99 iwai-tamura upd-end ------*@
+                        @*2023-11-20 iwai-tamura upd-end ------*@
 
 
                     </tr>

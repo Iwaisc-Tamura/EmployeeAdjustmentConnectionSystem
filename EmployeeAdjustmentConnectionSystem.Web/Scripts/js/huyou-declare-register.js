@@ -118,7 +118,7 @@ $('input:radio[name="Head.TaxWithholding_ResidentType"]').change(function () {
 
 
 
-//2023-99-99 iwai-tamura upd str -----
+//2023-11-20 iwai-tamura upd str -----
 // 収入金額の変更時に所得金額を自動計算
 // 共通フィールド更新
 function updateIncomeFields(earningsId, incomeId, otherIncomeId, estimateId) {
@@ -270,7 +270,7 @@ document.getElementById('Head_DependentsUnder16_4_OtherIncome').addEventListener
     checkMoney('#Head_DependentsUnder16_4_Income', 480000)
 });
 
-//2023-99-99 iwai-tamura upd end -----
+//2023-11-20 iwai-tamura upd end -----
 
 
 
@@ -284,7 +284,7 @@ document.getElementById('Head_DependentsUnder16_4_OtherIncome').addEventListener
 
 
 
-//2023-99-99 iwai-tamura upd str -----
+//2023-11-20 iwai-tamura upd str -----
 //老人扶養チェック
 function checkDependentsOver16(id) {
     var birthdayYearID = "#Head_" + id + "_BirthdayYear";
@@ -429,7 +429,7 @@ function checkDependentsOver16(id) {
 
 
 
-//2023-99-99 iwai-tamura upd end -----
+//2023-11-20 iwai-tamura upd end -----
 
 
 
@@ -813,10 +813,10 @@ $('.checkKana').change(function () {
 
     var reg = new RegExp(/^[ｦ-ﾟ]*$/);   //使用可能文字指定(半角カナのみ)
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     var convertedValue = zenkana2Hankana(hira2Kana($(this).val()));
     $(this).val(convertedValue);
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
     
     //Kana_1とKana_2に半角カナ以外が入力されていないかチェック
     if (reg.test($(strId + "1").val()) && reg.test($(strId + "2").val())) {
@@ -1044,15 +1044,22 @@ $('#dmysave').click(function () {
     }
 
     //ボタンクリック
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     var isAdminMode = $('#Head_AdminMode').val().toLowerCase() === 'true';
     if (isAdminMode) {
-        showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
+	    //2023-12-15 iwai-tamura upd str -----
+        if ($('#Head_DecisionType').val() <= '5') {
+            showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
+        } else {
+            showMessageEx('修正確認', '修正しますか？ <br><br> ※既に連携済みデータの為、連携先システムの修正も同様に行ってください。', 'savebutton', true);
+        }
+        //showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
+	    //2023-12-15 iwai-tamura upd end -----
     } else {
         showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
     }
     //showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
 });
 
 /*
@@ -1060,7 +1067,7 @@ $('#dmysave').click(function () {
  */
 $('#dmySignCancel').click(function () {
     //ボタンクリック
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     var isAdminMode = $('#Head_AdminMode').val().toLowerCase() === 'true';
     if (isAdminMode) {
         showMessageEx('取消確認', '確定状態を取消しますか？', 'signcancel', true);
@@ -1068,7 +1075,7 @@ $('#dmySignCancel').click(function () {
         showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
     }
     //showMessageEx('取消確認', '提出状態を取消しますか？', 'signcancel', true);
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
 });
 
 /*

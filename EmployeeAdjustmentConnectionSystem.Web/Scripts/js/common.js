@@ -244,7 +244,7 @@ $(function(){
 //  });
 //});
 
-//2023-99-99 iwai-tamura upd str -----
+//2023-11-20 iwai-tamura upd str -----
 function hira2Kana(str) {
     return str.replace(/[\u3041-\u3096]/g, function (match) {
         var chr = match.charCodeAt(0) + 0x60;
@@ -282,7 +282,7 @@ function zenkana2Hankana(str) {
         .replace(/゜/g, 'ﾟ');
 };
 
-//2023-99-99 iwai-tamura upd end -----
+//2023-11-20 iwai-tamura upd end -----
 
 
 

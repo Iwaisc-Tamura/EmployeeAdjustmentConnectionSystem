@@ -10,3 +10,21 @@
     padding-left: 5px;
     padding-right: 5px;
 }
+
+/*2023-12-15 iwai-tamura add str -----*/
+.btn-default:disabled {
+    background-color: #ccc; /* 使用不可の背景色 */
+    color: #999; /* 使用不可のテキストの色 */
+    border: 1px solid #ccc; /* 使用不可のボーダー色 */
+}
+.btn-default:hover:disabled {
+    /* 通常のマウスオーバースタイルを設定（disabledでない場合のみ適用） */
+    background-color: #ccc; /* 使用不可の背景色 */
+    color: #999; /* 使用不可のテキストの色 */
+    border: 1px solid #ccc; /* 使用不可のボーダー色 */
+}
+/*2023-12-15 iwai-tamura add end -----*/
+
+
+
+

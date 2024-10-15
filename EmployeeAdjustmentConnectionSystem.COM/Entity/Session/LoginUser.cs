@@ -49,7 +49,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Entity.Session {
         /// </summary>
         public bool IsRootUser { get; set; }
 
-        //2023-99-99 iwai-tamura add str -----
+        //2023-11-20 iwai-tamura add str -----
         /// <summary>
         /// 管理区分
         /// </summary>
@@ -59,7 +59,16 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Entity.Session {
         /// システム管理年度
         /// </summary>
         public int IsYear { get; set; }
-        //2023-99-99 iwai-tamura add end -----
+        //2023-11-20 iwai-tamura add end -----
+
+        //2023-12-15 iwai-tamura add str -----
+        /// <summary>
+        /// サーバステータス
+        /// </summary>
+        public string IsServerStatus { get; set; }
+        //2023-12-15 iwai-tamura add end -----
+
+
 
 
         //2016-01-21 iwai-tamura add str -----

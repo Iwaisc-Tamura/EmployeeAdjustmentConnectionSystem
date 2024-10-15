@@ -15,10 +15,10 @@ $('.checkKana').change(function () {
 
     var reg = new RegExp(/^[ｦ-ﾟ]*$/);   //使用可能文字指定(半角カナのみ)
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     var convertedValue = zenkana2Hankana(hira2Kana($(this).val()));
     $(this).val(convertedValue);
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
 
     //Kana_1とKana_2に半角カナ以外が入力されていないかチェック
     if (reg.test($(strId + "1").val()) && reg.test($(strId + "2").val())) {

@@ -61,7 +61,7 @@
         }
     }
     <br><br>
-    @*2023-99-99 iwai-tamura add-str ------*@
+    @*2023-11-20 iwai-tamura add-str ------*@
     <div class="row">
         <div class="col-xs-4">
             <h3 class="text-left">
@@ -77,7 +77,7 @@
     @*<h3 class="text-left">
         @Html.DisplayFor(m => m.Head.SheetYear) 年度　扶養控除等申告書 @strTitle
     </h3>*@
-    @*2023-99-99 iwai-tamura add-end ------*@
+    @*2023-11-20 iwai-tamura add-end ------*@
 
 
 
@@ -102,8 +102,17 @@
                 <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">提出</button>
             }
             @if (Model.Head.InputMode == ajustMode.adminInput) {
-                <button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
-                <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">確定</button>
+                //2023-12-15 iwai-tamura add str -----
+                if (Model.Head.DecisionType == "7" || Model.Head.DecisionType == "8") {
+                    //システム連携後は修正のみ
+                    <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">修正</button>
+                } else {
+                    <button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
+                    <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">確定</button>
+                }    
+                @*<button type="button" name="DmyKeep" value="途中保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmykeep">途中保存</button>
+                <button type="button" name="DmySave" value="保存" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmysave">確定</button>*@
+	            //2023-12-15 iwai-tamura add end -----
             }
             @if (Model.Head.InputMode == ajustMode.SelfRegist) {
                 <button type="button" name="DmySignCancel" value="保存取消" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmySignCancel">提出取消</button>
@@ -189,7 +198,7 @@
                             new SelectListItem() { Value="93", Text="93:*" }
             };
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     //続柄リスト 源泉控除対象配偶者
     var familyItemsA = new SelectListItem[] {
                             new SelectListItem() { Value="11", Text="11:夫" },
@@ -283,7 +292,7 @@
                             new SelectListItem() { Value="92", Text="92:*" },
                             new SelectListItem() { Value="93", Text="93:*" }
             };
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
 
     //年月日
     var yearItems = new SelectListItem[] {
@@ -444,7 +453,7 @@
         }
     }
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     @helper setYearDdlDependentsOver16(bool isRead, string name, string dateType, string value, SelectListItem[] selItems, string addClass) {
         {
             var id = string.Format("Head.{0}_Birthday{1}", name, dateType);
@@ -456,7 +465,7 @@
             }
         }
     }
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
 
 
     <!-- 本人情報 -->
@@ -584,11 +593,11 @@
     var TaxWithholding_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana TaxWithholding_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
     var TaxWithholding_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "20" } };
     var TaxWithholding_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead TaxWithholdingAddress_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
-    @*2023-99-99 iwai-tamura add-str ------*@
+    @*2023-11-20 iwai-tamura add-str ------*@
     var TaxWithholding_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_TaxWithholding_Income',950000)" } };
     var TaxWithholding_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
     //var TaxWithholding_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_TaxWithholding_Income',950000)" } };
-    @*2023-99-99 iwai-tamura add-end ------*@
+    @*2023-11-20 iwai-tamura add-end ------*@
     var attrRadioA_1_1 = new Dictionary<string, object>() { { "name", "attrRadioA_1" }, { "id", "select_radioA_1_1" } };
     var attrRadioA_1_2 = new Dictionary<string, object>() { { "name", "attrRadioA_1" }, { "id", "select_radioA_1_2" } };
     var attrRadioA_1_3 = new Dictionary<string, object>() { { "name", "attrRadioA_1" }, { "id", "select_radioA_1_3" } };
@@ -639,7 +648,7 @@
                             <div id="Head_TaxWithholding_Birthday_mes" class="check-comment"></div>
                         </td>
                     </tr>
-                    @*2023-99-99 iwai-tamura add-str ------*@
+                    @*2023-11-20 iwai-tamura add-str ------*@
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
@@ -674,7 +683,7 @@
                         <td colspan="2" class="content-label-b1">所得の見積額</td>
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.TaxWithholding_Income, TaxWithholding_TextMoney1) 円<div id="Head_TaxWithholding_Income_mes" class="check-comment"></div></td>
                     </tr>*@
-                    @*2023-99-99 iwai-tamura add-end ------*@
+                    @*2023-11-20 iwai-tamura add-end ------*@
                     <tr>
                         <td colspan="2" class="content-label-b1">(非)居住者区分</td>
                         <td colspan="6" class="form-inline">
@@ -718,14 +727,14 @@
     var DependentsOver16_1_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "20" } };
     var DependentsOver16_1_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead DependentsOver16_1Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
 
-    @*2023-99-99 iwai-tamura add-str ------*@
+    @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsOver16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_1_Income',480000)" } };
     var DependentsOver16_1_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
     //var DependentsOver16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_1_Income',480000)" } };
-    @*2023-99-99 iwai-tamura add-end ------*@
+    @*2023-11-20 iwai-tamura add-end ------*@
 
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     var attrRadioB1_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_1')" } };
     var attrRadioB1_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_1')" } };
     var attrRadioB1_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB1_1" }, { "id", "select_radioB1_1_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_1')" } };
@@ -742,7 +751,7 @@
     //var attrRadioB1_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB1_3" }, { "id", "select_radioB1_3_1" } };
     //var attrRadioB1_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB1_3" }, { "id", "select_radioB1_3_2" } };
     //var attrRadioB1_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB1_3" }, { "id", "select_radioB1_3_3" } };
-    //2023-99-99 iwai-tamura upd end -----
+    //2023-11-20 iwai-tamura upd end -----
 
 
     <div class="row">
@@ -800,7 +809,7 @@
                     <tr>
                         <td colspan="2" class="content-label-b1">生年月日</td>
                         <td colspan="6" class="form-inline">
-                            @*2023-99-99 iwai-tamura upd-str ------*@
+                            @*2023-11-20 iwai-tamura upd-str ------*@
                             @setYearDdlDependentsOver16(false, "DependentsOver16_1", "Year", Model.Head.DependentsOver16_1_BirthdayYear, yearItems, "DependentsOver16_1_isRead") 年
                             @setYearDdlDependentsOver16(false, "DependentsOver16_1", "Month", Model.Head.DependentsOver16_1_BirthdayMonth, monthItems, "DependentsOver16_1_isRead") 月
                             @setYearDdlDependentsOver16(false, "DependentsOver16_1", "Day", Model.Head.DependentsOver16_1_BirthdayDay, dayItems, "DependentsOver16_1_isRead") 日
@@ -808,7 +817,7 @@
                             @*@setYearDdl2(false, "DependentsOver16_1_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_1_BirthdayYear, yearItems, "DependentsOver16_1_isRead") 年
                             @setYearDdl2(false, "DependentsOver16_1_Birthday", "1", calcSheetYear, "Month", Model.Head.DependentsOver16_1_BirthdayMonth, monthItems, "DependentsOver16_1_isRead") 月
                             @setYearDdl2(false, "DependentsOver16_1_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_1_BirthdayDay, dayItems, "DependentsOver16_1_isRead") 日*@
-                            @*2023-99-99 iwai-tamura upd-end ------*@
+                            @*2023-11-20 iwai-tamura upd-end ------*@
                             <div id="Head_DependentsOver16_1_Birthday_mes" class="check-comment"></div>
                         </td>
                     </tr>
@@ -822,9 +831,9 @@
                             <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_1_2">同居老親等</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_OldmanType, "2", attrRadioB1_1_3)
                             <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_1_3">その他</label>
-                            @*2023-99-99 iwai-tamura add-str ------*@
+                            @*2023-11-20 iwai-tamura add-str ------*@
                             <div id="Head_DependentsOver16_1_OldmanType_mes" class="check-comment"></div>
-                            @*2023-99-99 iwai-tamura add-end ------*@
+                            @*2023-11-20 iwai-tamura add-end ------*@
                         </td>                    
                     </tr>
                     <tr>
@@ -834,12 +843,12 @@
                             <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_2_1">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_SpecificType, "1", attrRadioB1_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_2_2">特定扶養親族</label>
-                            @*2023-99-99 iwai-tamura add-str ------*@
+                            @*2023-11-20 iwai-tamura add-str ------*@
                             <div id="Head_DependentsOver16_1_SpecificType_mes" class="check-comment"></div>
-                            @*2023-99-99 iwai-tamura add-end ------*@
+                            @*2023-11-20 iwai-tamura add-end ------*@
                         </td>                    
                     </tr>
-                    @*2023-99-99 iwai-tamura add-str ------*@
+                    @*2023-11-20 iwai-tamura add-str ------*@
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
@@ -874,7 +883,7 @@
                         <td colspan="2" class="content-label-b1">所得の見積額</td>
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsOver16_1_Income, DependentsOver16_1_TextMoney1)<span> 円</span><div id="Head_DependentsOver16_1_Income_mes" class="check-comment"></div></td>
                     </tr>*@
-                    @*2023-99-99 iwai-tamura add-end ------*@
+                    @*2023-11-20 iwai-tamura add-end ------*@
                     <tr>
                         <td colspan="2" class="content-label-b1">(非)居住者区分</td>
                         <td colspan="6" class="form-inline">
@@ -884,9 +893,9 @@
                             <label class="radio-label-3 input-control DependentsOver16_1_isRead" for="select_radioB1_3_2">非居住者(国外居住者)</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_ResidentType, "2", attrRadioB1_3_3)
                             <label class="radio-label-3 input-control DependentsOver16_1_isRead" for="select_radioB1_3_3">別居者(国内居住者)</label>
-                            @*2023-99-99 iwai-tamura add-str ------*@
+                            @*2023-11-20 iwai-tamura add-str ------*@
                             <div id="Head_DependentsOver16_1_ResidentType_mes" class="check-comment"></div>
-                            @*2023-99-99 iwai-tamura add-end ------*@
+                            @*2023-11-20 iwai-tamura add-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -918,14 +927,14 @@
     var DependentsOver16_2_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana DependentsOver16_2_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
     var DependentsOver16_2_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "20" } };
     var DependentsOver16_2_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead DependentsOver16_2Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
-    @*2023-99-99 iwai-tamura add-str ------*@
+    @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsOver16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_2_Income',480000)" } };
     var DependentsOver16_2_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
     //var DependentsOver16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_2_Income',480000)" } };
-    @*2023-99-99 iwai-tamura add-end ------*@
+    @*2023-11-20 iwai-tamura add-end ------*@
 
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     var attrRadioB2_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
     var attrRadioB2_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
     var attrRadioB2_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
@@ -936,10 +945,16 @@
     //var attrRadioB2_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_3" } };
     //var attrRadioB2_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_RadioB2_2_1" } };
     //var attrRadioB2_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_RadioB2_2_2" } };
-    //2023-99-99 iwai-tamura upd end -----
-    var attrRadioB2_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_1" } };
-    var attrRadioB2_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_2" } };
-    var attrRadioB2_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_3" } };
+    //2023-11-20 iwai-tamura upd end -----
+
+    //2023-12-15 iwai-tamura upd str -----
+    var attrRadioB2_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
+    var attrRadioB2_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
+    var attrRadioB2_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
+    //var attrRadioB2_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_1" } };
+    //var attrRadioB2_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_2" } };
+    //var attrRadioB2_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_3" }, { "id", "select_RadioB2_3_3" } };
+    //2023-12-15 iwai-tamura upd end -----
 
 
     <div class="row">
@@ -982,14 +997,14 @@
                     <tr>
                         <td colspan="2" class="content-label-b1">生年月日</td>
                         <td colspan="6" class="form-inline">
-                            @*2023-99-99 iwai-tamura upd-str ------*@
+                            @*2023-11-20 iwai-tamura upd-str ------*@
                             @setYearDdlDependentsOver16(false, "DependentsOver16_2", "Year", Model.Head.DependentsOver16_2_BirthdayYear, yearItems, "DependentsOver16_2_isRead") 年
                             @setYearDdlDependentsOver16(false, "DependentsOver16_2", "Month", Model.Head.DependentsOver16_2_BirthdayMonth, monthItems, "DependentsOver16_2_isRead") 月
                             @setYearDdlDependentsOver16(false, "DependentsOver16_2", "Day", Model.Head.DependentsOver16_2_BirthdayDay, dayItems, "DependentsOver16_2_isRead") 日
                             @*@setYearDdl2(false, "DependentsOver16_2_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_2_BirthdayYear, yearItems, "DependentsOver16_2_isRead") 年
                             @setYearDdl2(false, "DependentsOver16_2_Birthday", "1", calcSheetYear, "Month", Model.Head.DependentsOver16_2_BirthdayMonth, monthItems, "DependentsOver16_2_isRead") 月
                             @setYearDdl2(false, "DependentsOver16_2_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_2_BirthdayDay, dayItems, "DependentsOver16_2_isRead") 日*@
-                            @*2023-99-99 iwai-tamura upd-end ------*@
+                            @*2023-11-20 iwai-tamura upd-end ------*@
 
                             <div id="Head_DependentsOver16_2_Birthday_mes" class="check-comment"></div>
                         </td>
@@ -1004,9 +1019,9 @@
                             <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_1_2">同居老親等</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_OldmanType, "2", attrRadioB2_1_3)
                             <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_1_3">その他</label>
-                            @*2023-99-99 iwai-tamura add-str ------*@
+                            @*2023-11-20 iwai-tamura add-str ------*@
                             <div id="Head_DependentsOver16_2_OldmanType_mes" class="check-comment"></div>
-                            @*2023-99-99 iwai-tamura add-end ------*@
+                            @*2023-11-20 iwai-tamura add-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -1016,12 +1031,12 @@
                             <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_2_1">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_SpecificType, "1", attrRadioB2_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_2_2">特定扶養親族</label>
-                            @*2023-99-99 iwai-tamura add-str ------*@
+                            @*2023-11-20 iwai-tamura add-str ------*@
                             <div id="Head_DependentsOver16_2_SpecificType_mes" class="check-comment"></div>
-                            @*2023-99-99 iwai-tamura add-end ------*@
+                            @*2023-11-20 iwai-tamura add-end ------*@
                         </td>
                     </tr>
-                    @*2023-99-99 iwai-tamura add-str ------*@
+                    @*2023-11-20 iwai-tamura add-str ------*@
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
@@ -1056,7 +1071,7 @@
                         <td colspan="2" class="content-label-b1">所得の見積額</td>
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsOver16_2_Income, DependentsOver16_2_TextMoney1)<span> 円</span><div id="Head_DependentsOver16_2_Income_mes" class="check-comment"></div></td>
                     </tr>*@
-                    @*2023-99-99 iwai-tamura add-end ------*@
+                    @*2023-11-20 iwai-tamura add-end ------*@
                     <tr>
                         <td colspan="2" class="content-label-b1">(非)居住者区分</td>
                         <td colspan="6" class="form-inline">
@@ -1066,6 +1081,10 @@
                             <label class="radio-label-3 input-control DependentsOver16_2_isRead" for="select_RadioB2_3_2">非居住者(国外居住者)</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_ResidentType, "2", attrRadioB2_3_3)
                             <label class="radio-label-3 input-control DependentsOver16_2_isRead" for="select_RadioB2_3_3">別居者(国内居住者)</label>
+                            @*2023-12-15 iwai-tamura add-str ------*@
+                            <div id="Head_DependentsOver16_2_ResidentType_mes" class="check-comment"></div>
+                            @*2023-12-15 iwai-tamura add-end ------*@
+
                         </td>
                     </tr>
                     <tr>
@@ -1097,14 +1116,14 @@
     var DependentsOver16_3_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana DependentsOver16_3_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
     var DependentsOver16_3_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "20" } };
     var DependentsOver16_3_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead DependentsOver16_3Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
-    @*2023-99-99 iwai-tamura add-str ------*@
+    @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsOver16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_3_Income',480000)" } };
     var DependentsOver16_3_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
     //var DependentsOver16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_3_Income',480000)" } };
-    @*2023-99-99 iwai-tamura add-end ------*@
+    @*2023-11-20 iwai-tamura add-end ------*@
 
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     var attrRadioB3_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
     var attrRadioB3_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
     var attrRadioB3_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
@@ -1115,10 +1134,16 @@
     //var attrRadioB3_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_3" } };
     //var attrRadioB3_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_RadioB3_2_1" } };
     //var attrRadioB3_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_RadioB3_2_2" } };
-    //2023-99-99 iwai-tamura upd end -----
-    var attrRadioB3_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_1" } };
-    var attrRadioB3_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_2" } };
-    var attrRadioB3_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_3" } };
+    //2023-11-20 iwai-tamura upd end -----
+
+    //2023-12-15 iwai-tamura upd str -----
+    var attrRadioB3_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
+    var attrRadioB3_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
+    var attrRadioB3_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
+    //var attrRadioB3_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_1" } };
+    //var attrRadioB3_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_2" } };
+    //var attrRadioB3_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_3" }, { "id", "select_RadioB3_3_3" } };
+    //2023-12-15 iwai-tamura upd end -----
 
     <div class="row">
         <div class="col-xs-8">
@@ -1160,14 +1185,14 @@
                     <tr>
                         <td colspan="2" class="content-label-b1">生年月日</td>
                         <td colspan="6" class="form-inline">
-                            @*2023-99-99 iwai-tamura upd-str ------*@
+                            @*2023-11-20 iwai-tamura upd-str ------*@
                             @setYearDdlDependentsOver16(false, "DependentsOver16_3", "Year", Model.Head.DependentsOver16_3_BirthdayYear, yearItems, "DependentsOver16_3_isRead") 年
                             @setYearDdlDependentsOver16(false, "DependentsOver16_3", "Month", Model.Head.DependentsOver16_3_BirthdayMonth, monthItems, "DependentsOver16_3_isRead") 月
                             @setYearDdlDependentsOver16(false, "DependentsOver16_3", "Day", Model.Head.DependentsOver16_3_BirthdayDay, dayItems, "DependentsOver16_3_isRead") 日
                             @*@setYearDdl2(false, "DependentsOver16_3_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_3_BirthdayYear, yearItems, "DependentsOver16_3_isRead") 年
                             @setYearDdl2(false, "DependentsOver16_3_Birthday", "1", calcSheetYear, "Month", Model.Head.DependentsOver16_3_BirthdayMonth, monthItems, "DependentsOver16_3_isRead") 月
                             @setYearDdl2(false, "DependentsOver16_3_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_3_BirthdayDay, dayItems, "DependentsOver16_3_isRead") 日*@
-                            @*2023-99-99 iwai-tamura upd-end ------*@
+                            @*2023-11-20 iwai-tamura upd-end ------*@
 
                             <div id="Head_DependentsOver16_3_Birthday_mes" class="check-comment"></div>
                         </td>
@@ -1182,9 +1207,9 @@
                             <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_1_2">同居老親等</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_OldmanType, "2", attrRadioB3_1_3)
                             <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_1_3">その他</label>
-                            @*2023-99-99 iwai-tamura add-str ------*@
+                            @*2023-11-20 iwai-tamura add-str ------*@
                             <div id="Head_DependentsOver16_3_OldmanType_mes" class="check-comment"></div>
-                            @*2023-99-99 iwai-tamura add-end ------*@
+                            @*2023-11-20 iwai-tamura add-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -1194,13 +1219,13 @@
                             <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_2_1">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_SpecificType, "1", attrRadioB3_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_2_2">特定扶養親族</label>
-                            @*2023-99-99 iwai-tamura add-str ------*@
+                            @*2023-11-20 iwai-tamura add-str ------*@
                             <div id="Head_DependentsOver16_3_SpecificType_mes" class="check-comment"></div>
-                            @*2023-99-99 iwai-tamura add-end ------*@
+                            @*2023-11-20 iwai-tamura add-end ------*@
                         </td>
                     </tr>
 
-                    @*2023-99-99 iwai-tamura add-str ------*@
+                    @*2023-11-20 iwai-tamura add-str ------*@
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
@@ -1235,7 +1260,7 @@
                         <td colspan="2" class="content-label-b1">所得の見積額</td>
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsOver16_3_Income, DependentsOver16_3_TextMoney1)<span> 円</span><div id="Head_DependentsOver16_3_Income_mes" class="check-comment"></div></td>
                     </tr>*@
-                    @*2023-99-99 iwai-tamura add-end ------*@
+                    @*2023-11-20 iwai-tamura add-end ------*@
                     <tr>
                         <td colspan="2" class="content-label-b1">(非)居住者区分</td>
                         <td colspan="6" class="form-inline">
@@ -1245,6 +1270,9 @@
                             <label class="radio-label-3 input-control DependentsOver16_3_isRead" for="select_RadioB3_3_2">非居住者(国外居住者)</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_ResidentType, "2", attrRadioB3_3_3)
                             <label class="radio-label-3 input-control DependentsOver16_3_isRead" for="select_RadioB3_3_3">別居者(国内居住者)</label>
+                            @*2023-12-15 iwai-tamura add-str ------*@
+                            <div id="Head_DependentsOver16_3_ResidentType_mes" class="check-comment"></div>
+                            @*2023-12-15 iwai-tamura add-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -1276,15 +1304,15 @@
     var DependentsOver16_4_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana DependentsOver16_4_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
     var DependentsOver16_4_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "20" } };
     var DependentsOver16_4_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead DependentsOver16_4Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
-    @*2023-99-99 iwai-tamura add-str ------*@
+    @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsOver16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_4_Income',480000)" } };
     var DependentsOver16_4_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
     //var DependentsOver16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_4_Income',480000)" } };
-    @*2023-99-99 iwai-tamura add-end ------*@
+    @*2023-11-20 iwai-tamura add-end ------*@
 
 
 
-    //2023-99-99 iwai-tamura upd str -----
+    //2023-11-20 iwai-tamura upd str -----
     var attrRadioB4_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
     var attrRadioB4_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
     var attrRadioB4_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
@@ -1295,10 +1323,17 @@
     //var attrRadioB4_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_3" } };
     //var attrRadioB4_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_RadioB4_2_1" } };
     //var attrRadioB4_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_RadioB4_2_2" } };
-    //2023-99-99 iwai-tamura upd end -----
-    var attrRadioB4_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_1" } };
-    var attrRadioB4_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_2" } };
-    var attrRadioB4_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_3" } };
+    //2023-11-20 iwai-tamura upd end -----
+
+
+    //2023-12-15 iwai-tamura upd str -----
+    var attrRadioB4_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
+    var attrRadioB4_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
+    var attrRadioB4_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
+    //var attrRadioB4_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_1" } };
+    //var attrRadioB4_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_2" } };
+    //var attrRadioB4_3_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_3" }, { "id", "select_RadioB4_3_3" } };
+    //2023-12-15 iwai-tamura upd end -----
 
 
     <div class="row">
@@ -1341,14 +1376,14 @@
                     <tr>
                         <td colspan="2" class="content-label-b1">生年月日</td>
                         <td colspan="6" class="form-inline">
-                            @*2023-99-99 iwai-tamura upd-str ------*@
+                            @*2023-11-20 iwai-tamura upd-str ------*@
                             @setYearDdlDependentsOver16(false, "DependentsOver16_4", "Year", Model.Head.DependentsOver16_4_BirthdayYear, yearItems, "DependentsOver16_4_isRead") 年
                             @setYearDdlDependentsOver16(false, "DependentsOver16_4", "Month", Model.Head.DependentsOver16_4_BirthdayMonth, monthItems, "DependentsOver16_4_isRead") 月
                             @setYearDdlDependentsOver16(false, "DependentsOver16_4", "Day", Model.Head.DependentsOver16_4_BirthdayDay, dayItems, "DependentsOver16_4_isRead") 日
                             @*@setYearDdl2(false, "DependentsOver16_4_Birthday", "1", calcSheetYear, "Year", Model.Head.DependentsOver16_4_BirthdayYear, yearItems, "DependentsOver16_4_isRead") 年
                             @setYearDdl2(false, "DependentsOver16_4_Birthday", "1", calcSheetYear, "Month", Model.Head.DependentsOver16_4_BirthdayMonth, monthItems, "DependentsOver16_4_isRead") 月
                             @setYearDdl2(false, "DependentsOver16_4_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_4_BirthdayDay, dayItems, "DependentsOver16_4_isRead") 日*@
-                            @*2023-99-99 iwai-tamura upd-end ------*@
+                            @*2023-11-20 iwai-tamura upd-end ------*@
 
                             <div id="Head_DependentsOver16_4_Birthday_mes" class="check-comment"></div>
                         </td>
@@ -1363,9 +1398,9 @@
                             <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_1_2">同居老親等</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_OldmanType, "2", attrRadioB4_1_3)
                             <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_1_3">その他</label>
-                            @*2023-99-99 iwai-tamura add-str ------*@
+                            @*2023-11-20 iwai-tamura add-str ------*@
                             <div id="Head_DependentsOver16_4_OldmanType_mes" class="check-comment"></div>
-                            @*2023-99-99 iwai-tamura add-end ------*@
+                            @*2023-11-20 iwai-tamura add-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -1375,12 +1410,12 @@
                             <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_2_1">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_SpecificType, "1", attrRadioB4_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_2_2">特定扶養親族</label>
-                            @*2023-99-99 iwai-tamura add-str ------*@
+                            @*2023-11-20 iwai-tamura add-str ------*@
                             <div id="Head_DependentsOver16_4_SpecificType_mes" class="check-comment"></div>
-                            @*2023-99-99 iwai-tamura add-end ------*@
+                            @*2023-11-20 iwai-tamura add-end ------*@
                         </td>
                     </tr>
-                    @*2023-99-99 iwai-tamura add-str ------*@
+                    @*2023-11-20 iwai-tamura add-str ------*@
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
@@ -1415,7 +1450,7 @@
                         <td colspan="2" class="content-label-b1">所得の見積額</td>
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsOver16_4_Income, DependentsOver16_4_TextMoney1)<span> 円</span><div id="Head_DependentsOver16_4_Income_mes" class="check-comment"></div></td>
                     </tr>*@
-                    @*2023-99-99 iwai-tamura add-end ------*@
+                    @*2023-11-20 iwai-tamura add-end ------*@
 
                     <tr>
                         <td colspan="2" class="content-label-b1">(非)居住者区分</td>
@@ -1426,6 +1461,9 @@
                             <label class="radio-label-3 input-control DependentsOver16_4_isRead" for="select_RadioB4_3_2">非居住者(国外居住者)</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_ResidentType, "2", attrRadioB4_3_3)
                             <label class="radio-label-3 input-control DependentsOver16_4_isRead" for="select_RadioB4_3_3">別居者(国内居住者)</label>
+                            @*2023-12-15 iwai-tamura add-str ------*@
+                            <div id="Head_DependentsOver16_4_ResidentType_mes" class="check-comment"></div>
+                            @*2023-12-15 iwai-tamura add-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -1558,11 +1596,11 @@
     var DependentsUnder16_1_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana DependentsUnder16_1_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
     var DependentsUnder16_1_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead" }, { "maxlength", "20" } };
     var DependentsUnder16_1_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead DependentsUnder16_1Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
-    @*2023-99-99 iwai-tamura add-str ------*@
+    @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsUnder16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_1_Income',480000)" } };
     var DependentsUnder16_1_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
     //var DependentsUnder16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_1_Income',480000)" } };
-    @*2023-99-99 iwai-tamura add-end ------*@
+    @*2023-11-20 iwai-tamura add-end ------*@
 
     <div class="row">
         <div class="col-xs-8">
@@ -1637,7 +1675,7 @@
                         <td colspan="2" class="content-label-b1">控除対象外国外扶養親族</td>
                         <td colspan="6" class="form-inline">@setCheck2(false, "DependentsUnder16_1_AbroadCheck", Model.Head.DependentsUnder16_1_AbroadCheck, "DependentsUnder16_1_isRead")　国外扶養親族</td>
                     </tr>
-                    @*2023-99-99 iwai-tamura add-str ------*@
+                    @*2023-11-20 iwai-tamura add-str ------*@
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
@@ -1672,7 +1710,7 @@
                         <td colspan="2" class="content-label-b1">所得の見積額</td>
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Income, DependentsUnder16_1_TextMoney1)<span> 円</span><div id="Head_DependentsUnder16_1_Income_mes" class="check-comment"></div></td>
                     </tr>*@
-                    @*2023-99-99 iwai-tamura add-end ------*@
+                    @*2023-11-20 iwai-tamura add-end ------*@
 
                     <tr>
                         <td colspan="2" class="content-label-b1">異動月日及び事由</td>
@@ -1696,11 +1734,11 @@
     var DependentsUnder16_2_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana DependentsUnder16_2_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
     var DependentsUnder16_2_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead" }, { "maxlength", "20" } };
     var DependentsUnder16_2_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead DependentsUnder16_2Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
-    @*2023-99-99 iwai-tamura add-str ------*@
+    @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsUnder16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_2_Income',480000)" } };
     var DependentsUnder16_2_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
     //var DependentsUnder16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_2_Income',480000)" } };
-    @*2023-99-99 iwai-tamura add-end ------*@
+    @*2023-11-20 iwai-tamura add-end ------*@
 
     <div class="row">
         <div class="col-xs-8">
@@ -1761,7 +1799,7 @@
                     </tr>
 
 
-                    @*2023-99-99 iwai-tamura add-str ------*@
+                    @*2023-11-20 iwai-tamura add-str ------*@
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
@@ -1796,7 +1834,7 @@
                         <td colspan="2" class="content-label-b1">所得の見積額</td>
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Income, DependentsUnder16_2_TextMoney1)<span> 円</span><div id="Head_DependentsUnder16_2_Income_mes" class="check-comment"></div></td>
                     </tr>*@
-                    @*2023-99-99 iwai-tamura add-end ------*@
+                    @*2023-11-20 iwai-tamura add-end ------*@
 
 
                     <tr>
@@ -1823,11 +1861,11 @@
     var DependentsUnder16_3_TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana DependentsUnder16_3_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
     var DependentsUnder16_3_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead" }, { "maxlength", "20" } };
     var DependentsUnder16_3_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead DependentsUnder16_3Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
-    @*2023-99-99 iwai-tamura add-str ------*@
+    @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsUnder16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_3_Income',480000)" } };
     var DependentsUnder16_3_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
     //var DependentsUnder16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_3_Income',480000)" } };
-    @*2023-99-99 iwai-tamura add-end ------*@
+    @*2023-11-20 iwai-tamura add-end ------*@
 
     <div class="row">
         <div class="col-xs-8">
@@ -1887,7 +1925,7 @@
                         <td colspan="6" class="form-inline">@setCheck2(false, "DependentsUnder16_3_AbroadCheck", Model.Head.DependentsUnder16_3_AbroadCheck, "DependentsUnder16_3_isRead")　国外扶養親族</td>
                     </tr>
 
-                    @*2023-99-99 iwai-tamura add-str ------*@
+                    @*2023-11-20 iwai-tamura add-str ------*@
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
@@ -1922,7 +1960,7 @@
                         <td colspan="2" class="content-label-b1">所得の見積額</td>
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Income, DependentsUnder16_3_TextMoney1)<span> 円</span><div id="Head_DependentsUnder16_3_Income_mes" class="check-comment"></div></td>
                     </tr>*@
-                    @*2023-99-99 iwai-tamura add-end ------*@
+                    @*2023-11-20 iwai-tamura add-end ------*@
 
                     <tr>
                         <td colspan="2" class="content-label-b1">異動月日及び事由</td>
@@ -1950,11 +1988,11 @@
     var DependentsUnder16_4_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead" }, { "maxlength", "20" } };
     var DependentsUnder16_4_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead DependentsUnder16_4Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
 
-    @*2023-99-99 iwai-tamura add-str ------*@
+    @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsUnder16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_4_Income',480000)" } };
     var DependentsUnder16_4_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
     //var DependentsUnder16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_4_Income',480000)" } };
-    @*2023-99-99 iwai-tamura add-end ------*@
+    @*2023-11-20 iwai-tamura add-end ------*@
 
 
 
@@ -2017,7 +2055,7 @@
                     </tr>
 
 
-                    @*2023-99-99 iwai-tamura add-str ------*@
+                    @*2023-11-20 iwai-tamura add-str ------*@
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
@@ -2052,7 +2090,7 @@
                         <td colspan="2" class="content-label-b1">所得の見積額</td>
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Income, DependentsUnder16_4_TextMoney1)<span> 円</span><div id="Head_DependentsUnder16_4_Income_mes" class="check-comment"></div></td>
                     </tr>*@
-                    @*2023-99-99 iwai-tamura add-end ------*@
+                    @*2023-11-20 iwai-tamura add-end ------*@
 
                     <tr>
                         <td colspan="2" class="content-label-b1">異動月日及び事由</td>
