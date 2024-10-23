@@ -312,6 +312,9 @@
     <Compile Include="SystemManagement\TakeOverMove.cs" />
     <Compile Include="SystemManagement\UploadBL.cs" />
     <Compile Include="Top\TopBL.cs" />
+    <Compile Include="YearEndAdjustmentReports\HaiguuDeclareDataSet.cs">
+      <DependentUpon>HaiguuDeclareDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="YearEndAdjustmentReports\HaiguuDeclareDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
