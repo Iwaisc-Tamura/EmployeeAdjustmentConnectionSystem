@@ -313,6 +313,8 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             private global::System.Data.DataColumn column基礎控除申告書_基礎控除額;
             
+            private global::System.Data.DataColumn column基礎控除申告書_本人定額減税対象;
+            
             private global::System.Data.DataColumn column配偶者控除申告書_氏名;
             
             private global::System.Data.DataColumn column配偶者控除申告書_Kana;
@@ -350,6 +352,8 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             private global::System.Data.DataColumn column配偶者控除申告書_配偶者控除額;
             
             private global::System.Data.DataColumn column配偶者控除申告書_配偶者特別控除額;
+            
+            private global::System.Data.DataColumn column配偶者控除申告書_配偶者定額減税対象;
             
             private global::System.Data.DataColumn column所得金額調整控除申告書_要件区分;
             
@@ -582,6 +586,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 基礎控除申告書_本人定額減税対象Column {
+                get {
+                    return this.column基礎控除申告書_本人定額減税対象;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn 配偶者控除申告書_氏名Column {
                 get {
                     return this.column配偶者控除申告書_氏名;
@@ -729,6 +741,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             public global::System.Data.DataColumn 配偶者控除申告書_配偶者特別控除額Column {
                 get {
                     return this.column配偶者控除申告書_配偶者特別控除額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 配偶者控除申告書_配偶者定額減税対象Column {
+                get {
+                    return this.column配偶者控除申告書_配偶者定額減税対象;
                 }
             }
             
@@ -1027,6 +1047,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 基礎控除申告書_控除額計算判定, 
                         string 基礎控除申告書_控除額計算区分, 
                         decimal 基礎控除申告書_基礎控除額, 
+                        string 基礎控除申告書_本人定額減税対象, 
                         string 配偶者控除申告書_氏名, 
                         string 配偶者控除申告書_Kana, 
                         string 配偶者控除申告書_続柄名称, 
@@ -1046,6 +1067,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 配偶者控除申告書_控除額計算区分, 
                         decimal 配偶者控除申告書_配偶者控除額, 
                         decimal 配偶者控除申告書_配偶者特別控除額, 
+                        string 配偶者控除申告書_配偶者定額減税対象, 
                         string 所得金額調整控除申告書_要件区分, 
                         string 所得金額調整控除申告書_扶養親族等氏名, 
                         string 所得金額調整控除申告書_扶養親族等Kana, 
@@ -1095,6 +1117,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         基礎控除申告書_控除額計算判定,
                         基礎控除申告書_控除額計算区分,
                         基礎控除申告書_基礎控除額,
+                        基礎控除申告書_本人定額減税対象,
                         配偶者控除申告書_氏名,
                         配偶者控除申告書_Kana,
                         配偶者控除申告書_続柄名称,
@@ -1114,6 +1137,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         配偶者控除申告書_控除額計算区分,
                         配偶者控除申告書_配偶者控除額,
                         配偶者控除申告書_配偶者特別控除額,
+                        配偶者控除申告書_配偶者定額減税対象,
                         所得金額調整控除申告書_要件区分,
                         所得金額調整控除申告書_扶養親族等氏名,
                         所得金額調整控除申告書_扶養親族等Kana,
@@ -1183,6 +1207,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 this.column基礎控除申告書_控除額計算判定 = base.Columns["基礎控除申告書_控除額計算判定"];
                 this.column基礎控除申告書_控除額計算区分 = base.Columns["基礎控除申告書_控除額計算区分"];
                 this.column基礎控除申告書_基礎控除額 = base.Columns["基礎控除申告書_基礎控除額"];
+                this.column基礎控除申告書_本人定額減税対象 = base.Columns["基礎控除申告書_本人定額減税対象"];
                 this.column配偶者控除申告書_氏名 = base.Columns["配偶者控除申告書_氏名"];
                 this.column配偶者控除申告書_Kana = base.Columns["配偶者控除申告書_Kana"];
                 this.column配偶者控除申告書_続柄名称 = base.Columns["配偶者控除申告書_続柄名称"];
@@ -1202,6 +1227,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 this.column配偶者控除申告書_控除額計算区分 = base.Columns["配偶者控除申告書_控除額計算区分"];
                 this.column配偶者控除申告書_配偶者控除額 = base.Columns["配偶者控除申告書_配偶者控除額"];
                 this.column配偶者控除申告書_配偶者特別控除額 = base.Columns["配偶者控除申告書_配偶者特別控除額"];
+                this.column配偶者控除申告書_配偶者定額減税対象 = base.Columns["配偶者控除申告書_配偶者定額減税対象"];
                 this.column所得金額調整控除申告書_要件区分 = base.Columns["所得金額調整控除申告書_要件区分"];
                 this.column所得金額調整控除申告書_扶養親族等氏名 = base.Columns["所得金額調整控除申告書_扶養親族等氏名"];
                 this.column所得金額調整控除申告書_扶養親族等Kana = base.Columns["所得金額調整控除申告書_扶養親族等Kana"];
@@ -1271,6 +1297,8 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column基礎控除申告書_控除額計算区分);
                 this.column基礎控除申告書_基礎控除額 = new global::System.Data.DataColumn("基礎控除申告書_基礎控除額", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column基礎控除申告書_基礎控除額);
+                this.column基礎控除申告書_本人定額減税対象 = new global::System.Data.DataColumn("基礎控除申告書_本人定額減税対象", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column基礎控除申告書_本人定額減税対象);
                 this.column配偶者控除申告書_氏名 = new global::System.Data.DataColumn("配偶者控除申告書_氏名", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_氏名);
                 this.column配偶者控除申告書_Kana = new global::System.Data.DataColumn("配偶者控除申告書_Kana", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1309,6 +1337,8 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column配偶者控除申告書_配偶者控除額);
                 this.column配偶者控除申告書_配偶者特別控除額 = new global::System.Data.DataColumn("配偶者控除申告書_配偶者特別控除額", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_配偶者特別控除額);
+                this.column配偶者控除申告書_配偶者定額減税対象 = new global::System.Data.DataColumn("配偶者控除申告書_配偶者定額減税対象", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column配偶者控除申告書_配偶者定額減税対象);
                 this.column所得金額調整控除申告書_要件区分 = new global::System.Data.DataColumn("所得金額調整控除申告書_要件区分", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column所得金額調整控除申告書_要件区分);
                 this.column所得金額調整控除申告書_扶養親族等氏名 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等氏名", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1369,6 +1399,8 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column給与支払者名称);
                 this.column給与支払者所在地 = new global::System.Data.DataColumn("給与支払者所在地", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column給与支払者所在地);
+                this.column基礎控除申告書_本人定額減税対象.Caption = "個人番号相違確認区分";
+                this.column配偶者控除申告書_配偶者定額減税対象.Caption = "個人番号相違確認区分";
                 this.column法人個人番号02.Caption = "法人個人番号01";
             }
             
@@ -1784,6 +1816,22 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 基礎控除申告書_本人定額減税対象 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.基礎控除申告書_本人定額減税対象Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'基礎控除申告書_本人定額減税対象\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.基礎控除申告書_本人定額減税対象Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string 配偶者控除申告書_氏名 {
                 get {
                     try {
@@ -2083,6 +2131,22 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 }
                 set {
                     this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_配偶者特別控除額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 配偶者控除申告書_配偶者定額減税対象 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_配偶者定額減税対象Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'配偶者控除申告書_配偶者定額減税対象\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_配偶者定額減税対象Column] = value;
                 }
             }
             
@@ -2772,6 +2836,18 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is基礎控除申告書_本人定額減税対象Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.基礎控除申告書_本人定額減税対象Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set基礎控除申告書_本人定額減税対象Null() {
+                this[this.tableHaiguuDeclareDataTable.基礎控除申告書_本人定額減税対象Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Is配偶者控除申告書_氏名Null() {
                 return this.IsNull(this.tableHaiguuDeclareDataTable.配偶者控除申告書_氏名Column);
             }
@@ -2996,6 +3072,18 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Set配偶者控除申告書_配偶者特別控除額Null() {
                 this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_配偶者特別控除額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is配偶者控除申告書_配偶者定額減税対象Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.配偶者控除申告書_配偶者定額減税対象Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set配偶者控除申告書_配偶者定額減税対象Null() {
+                this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_配偶者定額減税対象Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
