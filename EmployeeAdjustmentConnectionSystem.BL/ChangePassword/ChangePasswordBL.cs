@@ -38,14 +38,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.ChangePassword {
                 using(var scope = new TransactionScope()) {
                     using(DbManager dm = new DbManager()) {
                         //詳細
-                        var sql = "update SD_Mシステムユーザー"
+                        var sql = "update TEM900LoginPassword"
                             + " set "
-                            + " パスワード = @NewPassword"
+                            + " Password = @NewPassword"
                             // 2017-06-16 iwai-tamura upd str パスワード有効期限追加
                             + " ,PS更新年月日 = @NowDate"
                             // 2017-06-16 iwai-tamura upd end パスワード有効期限追加
                             + " where 社員番号 = @Id"
-                            + "   and パスワード = @OldPassword";
+                            + "   and Password = @OldPassword";
                         //SQL文の型を指定
                         var cmd = dm.CreateCommand(sql);
                         DbHelper.AddDbParameter(cmd, "@NewPassword", DbType.String);

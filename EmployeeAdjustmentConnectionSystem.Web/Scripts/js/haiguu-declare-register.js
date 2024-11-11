@@ -23,8 +23,25 @@ $(function () {
     var obj = $('#BasicDeduction_CalcType_' + $('#Head_BasicDeduction_EarningsType').val());
     obj.prop("checked", true);
 
+    //2024-11-19 iwai-tamura upd-str ------
+    //本人定額減税対象
+    if ($('#Head_BasicDeduction_EarningsType').val() <= 4 && $('#Head_BasicDeduction_EarningsType').val()!='') {
+        $('#BasicDeduction_TaxReductionTargetView').prop("checked", true);
+    } else {
+        $('#BasicDeduction_TaxReductionTargetView').prop("checked", false);
+    }
+    //2024-11-19 iwai-tamura upd-end ------
+
     obj = $('#SpouseDeduction_EarningsType_' + $('#Head_SpouseDeduction_EarningsType').val());
     obj.prop("checked", true);
+    //2024-11-19 iwai-tamura upd-str ------
+    //配偶者定額減税対象
+    if ($('#Head_SpouseDeduction_EarningsType').val() <= 2 && $('#Head_SpouseDeduction_EarningsType').val() != '') {
+        $('#SpouseDeduction_TaxReductionTargetView').prop("checked", true);
+    } else {
+        $('#SpouseDeduction_TaxReductionTargetView').prop("checked", false);
+    }
+    //2024-11-19 iwai-tamura upd-end ------
 
     obj = $('#AdjustmentDeduction_ConditionType_' + $('#Head_AdjustmentDeduction_ConditionType').val());
     obj.prop("checked", true);
@@ -204,23 +221,52 @@ function calcBasicDeduction() {
         strEarningsType = "3"
         strCalcType = "C"
         intDeductionAmount = "480000"
-    } else if (intTotalAmount <= 24000000) {
+    //2024-11-19 iwai-tamura upd-str ------
+    } else if (intTotalAmount <= 18050000) {
         strEarningsType = "4"
+        strCalcType = "D"
+        intDeductionAmount = "480000"
+    } else if (intTotalAmount <= 24000000) {
+        strEarningsType = "5"
         intDeductionAmount = "480000"
     } else if (intTotalAmount <= 24500000) {
-        strEarningsType = "5"
+        strEarningsType = "6"
         intDeductionAmount = "320000"
     } else if (intTotalAmount <= 25000000) {
-        strEarningsType = "6"
+        strEarningsType = "7"
         intDeductionAmount = "160000"
     } else {
     }
+    //} else if (intTotalAmount <= 24000000) {
+    //    strEarningsType = "4"
+    //    intDeductionAmount = "480000"
+    //} else if (intTotalAmount <= 24500000) {
+    //    strEarningsType = "5"
+    //    intDeductionAmount = "320000"
+    //} else if (intTotalAmount <= 25000000) {
+    //    strEarningsType = "6"
+    //    intDeductionAmount = "160000"
+    //} else {
+    //}
+    //2024-11-19 iwai-tamura upd-end ------
+
 
     $("#Head_BasicDeduction_TotalEarnings").val(intTotalAmount);
     $("#Head_BasicDeduction_EarningsType").val(strEarningsType);
     $("#Head_BasicDeduction_CalcType").val(strCalcType);
     $("#Head_BasicDeduction_DeductionAmount").val(intDeductionAmount);
     $("#BasicDeduction_CalcType_" + strEarningsType).prop("checked", true);
+
+    //2024-11-19 iwai-tamura upd-str ------
+    //本人定額減税対象
+    if (strEarningsType <= 4 && strEarningsType != '') {
+        $("#Head_BasicDeduction_TaxReductionTarget").val("1");
+        $('#BasicDeduction_TaxReductionTargetView').prop("checked", true);
+    } else {
+        $("#Head_BasicDeduction_TaxReductionTarget").val("");
+        $('#BasicDeduction_TaxReductionTargetView').prop("checked", false);
+    }
+    //2024-11-19 iwai-tamura upd-end ------
 
     bolReturn = true;
     return bolReturn;
@@ -271,7 +317,10 @@ function calcSpouseDeduction(varArt) {
     ]
 
     //基礎控除チェック
-    if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "4") {
+    //2024-11-19 iwai-tamura upd-str ------
+    if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "5") {
+    //if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "4") {
+    //2024-11-19 iwai-tamura upd-end ------
         strMessage = "基礎控除の計算がされていない。もしくは適用外なので計算できません。";
         if (varArt) { alert(strMessage) };
         return true
@@ -347,17 +396,42 @@ function calcSpouseDeduction(varArt) {
         strCalcType = "11"
     } else {
     }
+
+    //2024-11-19 iwai-tamura upd-str ------
+    $("#Head_SpouseDeduction_TotalEarnings").val(intTotalAmount);
+    $("#Head_SpouseDeduction_EarningsType").val(strEarningsType);
+    $("#SpouseDeduction_EarningsType_" + strEarningsType).prop("checked", true);
+
+    //基礎控除申告書　区分IがDの時
+    if (strEarningsType <= 2 && strEarningsType != '') {
+        $("#Head_SpouseDeduction_TaxReductionTarget").val("1");
+        $('#SpouseDeduction_TaxReductionTargetView').prop("checked", true);
+    } else {
+        $("#Head_SpouseDeduction_TaxReductionTarget").val("");
+        $('#SpouseDeduction_TaxReductionTargetView').prop("checked", false);
+    }
+
+    //基礎控除申告書　区分IがDの時判定のみ行う
+    if (strBasicDeductionEarningsType >= "4") {
+        bolReturn = true;
+        return bolReturn;
+    }
+    //2024-11-19 iwai-tamura upd-end ------
+
     if (strEarningsType == "1" || strEarningsType == "2") {
         intDeductionAmount = aryCalcTable[strBasicDeductionEarningsType][strCalcType] * 10000;
     } else if (strEarningsType == "3" || strEarningsType == "4") {
         intSpDeductionAmount = aryCalcTable[strBasicDeductionEarningsType][strCalcType] * 10000;
     }
-    $("#Head_SpouseDeduction_TotalEarnings").val(intTotalAmount);
+
     $("#Head_SpouseDeduction_EarningsType").val(strEarningsType);
     $("#Head_SpouseDeduction_CalcType").val(strCalcType);
     $("#Head_SpouseDeduction_DeductionAmount").val(intDeductionAmount);
     $("#Head_SpouseDeduction_SpecialDeductionAmount").val(intSpDeductionAmount);
     $("#SpouseDeduction_EarningsType_" + strEarningsType).prop("checked", true);
+
+
+
     bolReturn = true;
     return bolReturn;
 }

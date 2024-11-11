@@ -1381,7 +1381,12 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public string DependentsUnder16_4_TransferComment { get; set; }
 
-
+		//2024-11-19 iwai-tamura upd-str ------
+		/// <summary>
+		/// 扶養親族合計人数
+		/// </summary>
+		public int? FamilyCount { get; set; }
+		//2024-11-19 iwai-tamura upd-end ------
 
 
     }

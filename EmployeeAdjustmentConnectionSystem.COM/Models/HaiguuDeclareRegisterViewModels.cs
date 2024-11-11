@@ -165,6 +165,12 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public string BasicDeduction_EarningsType { get; set; }
 
+        //2024-11-19 iwai-tamura upd-str ------
+		/// <summary>
+		/// 基礎控除申告書_本人定額減税対象
+		/// </summary>
+		public string BasicDeduction_TaxReductionTarget { get; set; }
+        //2024-11-19 iwai-tamura upd-end ------
 
 		/// <summary>
 		/// 基礎控除申告書_控除額計算区分
@@ -312,6 +318,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 配偶者控除申告書_配偶者特別控除額
 		/// </summary>
 		public int? SpouseDeduction_SpecialDeductionAmount { get; set; }
+
+
+        //2024-11-19 iwai-tamura upd-str ------
+		/// <summary>
+		/// 配偶者控除申告書_配偶者定額減税対象
+		/// </summary>
+		public string SpouseDeduction_TaxReductionTarget { get; set; }
+        //2024-11-19 iwai-tamura upd-end ------
 
 
 		/// <summary>
