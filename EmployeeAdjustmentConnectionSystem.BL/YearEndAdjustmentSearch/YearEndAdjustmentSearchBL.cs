@@ -235,11 +235,19 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
 
                     case "2":  //東京支社管理者
                     case "3":  //関東支社管理者
+                        //2024-11-19 iwai-tamura upd-str ------
+                        //支社確定時は照会のみ可能に変更
                         sqlc += " and ( ";
-                        sqlc += "     (T扶養控除.管理者確定区分 < '5' ) ";
-                        sqlc += "     or (T保険控除.管理者確定区分 < '5' ) ";
-                        sqlc += "     or (T基礎控除.管理者確定区分 < '5' ) ";
+                        sqlc += "     (T扶養控除.管理者確定区分 <= '5' ) ";
+                        sqlc += "     or (T保険控除.管理者確定区分 <= '5' ) ";
+                        sqlc += "     or (T基礎控除.管理者確定区分 <= '5' ) ";
                         sqlc += " ) ";
+                        //sqlc += " and ( ";
+                        //sqlc += "     (T扶養控除.管理者確定区分 < '5' ) ";
+                        //sqlc += "     or (T保険控除.管理者確定区分 < '5' ) ";
+                        //sqlc += "     or (T基礎控除.管理者確定区分 < '5' ) ";
+                        //sqlc += " ) ";
+                        //2024-11-19 iwai-tamura upd-end ------
                         break;
                     default: break;
                 }

@@ -115,7 +115,10 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     strInputNo = lu.UserCode;
                 } else {
                     strInputNo = specifyEmployeeNo;
-                    bolAdminMode = true;
+                    //2024-11-19 iwai-tamura upd-str ------
+                    bolAdminMode = false;
+                    //bolAdminMode = true;
+                    //2024-11-19 iwai-tamura upd-end ------
                 }
 
                 //2023-11-20 iwai-tamura upd str -----

@@ -354,6 +354,74 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 
 
                             };
+
+
+							//2024-11-19 iwai-tamura upd-str ------
+							// 家族の人数を計算する
+							int countFamilyNames = 0;
+							int countFamilyNotSubjects = 0;
+
+							// 氏名が入っているか確認
+							if (!string.IsNullOrEmpty(row["源泉控除対象配偶者氏名_姓"].ToString())){
+								countFamilyNames++;
+							}
+							if (!string.IsNullOrEmpty(row["控除対象扶養親族01_氏名_姓"].ToString())){
+								countFamilyNames++;
+							}
+							if (!string.IsNullOrEmpty(row["控除対象扶養親族02_氏名_姓"].ToString())){
+								countFamilyNames++;
+							}
+							if (!string.IsNullOrEmpty(row["控除対象扶養親族03_氏名_姓"].ToString())){
+								countFamilyNames++;
+							}
+							if (!string.IsNullOrEmpty(row["控除対象扶養親族04_氏名_姓"].ToString())){
+								countFamilyNames++;
+							}
+							if (!string.IsNullOrEmpty(row["扶養親族16未満01_氏名_姓"].ToString())){
+								countFamilyNames++;
+							}
+							if (!string.IsNullOrEmpty(row["扶養親族16未満02_氏名_姓"].ToString())){
+								countFamilyNames++;
+							}
+							if (!string.IsNullOrEmpty(row["扶養親族16未満03_氏名_姓"].ToString())){
+								countFamilyNames++;
+							}
+							if (!string.IsNullOrEmpty(row["扶養親族16未満04_氏名_姓"].ToString())){
+								countFamilyNames++;
+							}
+
+							// 対象外区分が入っているか確認
+							if (row["源泉控除対象配偶者対象外区分"].ToString() == "1"){
+								countFamilyNotSubjects++;
+							}
+							if (row["控除対象扶養親族01_対象外区分"].ToString() == "1"){
+								countFamilyNotSubjects++;
+							}
+							if (row["控除対象扶養親族02_対象外区分"].ToString() == "1"){
+								countFamilyNotSubjects++;
+							}
+							if (row["控除対象扶養親族03_対象外区分"].ToString() == "1"){
+								countFamilyNotSubjects++;
+							}
+							if (row["控除対象扶養親族04_対象外区分"].ToString() == "1"){
+								countFamilyNotSubjects++;
+							}
+							if (row["扶養親族16未満01_対象外区分"].ToString() == "1"){
+								countFamilyNotSubjects++;
+							}
+							if (row["扶養親族16未満02_対象外区分"].ToString() == "1"){
+								countFamilyNotSubjects++;
+							}
+							if (row["扶養親族16未満03_対象外区分"].ToString() == "1"){
+								countFamilyNotSubjects++;
+							}
+							if (row["扶養親族16未満04_対象外区分"].ToString() == "1"){
+								countFamilyNotSubjects++;
+							}
+							// 家族の人数を計算
+							model.Head.FamilyCount = countFamilyNames - countFamilyNotSubjects;
+							//2024-11-19 iwai-tamura upd-end ------
+
                             model.Head.InputMode = ajustMode.SelfInput;
                             model.Head.AdminMode = bolAdminMode;
                             

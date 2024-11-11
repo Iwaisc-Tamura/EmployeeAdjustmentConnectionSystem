@@ -27,6 +27,13 @@
 <!--メニューボタン-->
 @using(Html.BeginForm("Link", "Top", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
     <div class="col-xs-6" style="margin-left: 25%;margin-top:10pt">
+
+        @*2024-11-19 iwai-tamura upd-str ------*@
+        @if (((LoginUser)Session["LoginUser"]).IsRoot) {
+            <div class="row form-inline">
+                <label style="font-size:14px;vertical-align: middle;">　[管理者用]　代理社員番号：</label><input class="form-control" type="text" name="specifyEmployeeNo" /><br /><br />
+            </div>
+        }
         @*2023-11-20 iwai-tamura upd-str ------*@
         @*@if (((LoginUser)Session["LoginUser"]).IsRoot) {
             <div class="row form-inline">
@@ -34,6 +41,7 @@
             </div>
         }*@
         @*2023-11-20 iwai-tamura upd-end ------*@
+        @*2024-11-19 iwai-tamura upd-end ------*@
 
 	    <div class="well-ex-header"  style="background-color: #DEF5E5;">
             @*2023-11-20 iwai-tamura upd-str ------*@
@@ -106,7 +114,26 @@
                         <button class="btn-default btn-lg btn-block" name="ManagementTransition" value="YearEndAdjustmentSearch">一括処理関連</button>
                     </div>
                 </div>
+
+                @*2024-11-19 iwai-tamura upd-str ------*@
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2 top10">
+                        <button  type="button" class="btn-default btn-lg btn-block" name="openCodeInputModalButton" id="openCodeInputModalButton">コード読取</button>
+                    </div>
+                </div>
+                <!-- オーバーレイ -->
+                <div id="modal-overlay"></div>
+
+                <!-- モーダルコンテンツ -->
+                <div class="modal-content" id="barcodeModal">
+                    <h2>バーコードスキャン</h2>
+                    <p id="status">スキャン待機中...</p>
+                    <input type="text" id="barcodeInput" style="position:absolute;left:-9999px;" inputmode="latin" lang="en" placeholder="スキャン結果" autofocus>
+                    <button  type="button" class="btn-close" id="closeModalButton">キャンセル</button>
+                </div>
+                @*2024-11-19 iwai-tamura upd-end ------*@
             </div>
+
 		}
         @*2023-11-20 iwai-tamura add-end ------*@
     </div>

@@ -488,6 +488,10 @@ document.querySelectorAll('.QuakeInsurance_4_isRead').forEach(function (input) {
 //2023-11-20 iwai-tamura upd end -----
 
 
+//2024-11-19 iwai-tamura upd str -----
+
+
+//2024-11-19 iwai-tamura upd end -----
 
 
 //計算ボタン
@@ -518,7 +522,7 @@ function calcLifeInsurance() {
         }
     }
     if (strMessage != "") {
-        alert(strMessage);
+        showAlert('確認', strMessage);
         return bolReturn;
     }
 
@@ -584,6 +588,501 @@ function calcLifeInsurance() {
     bolReturn = true;
     return bolReturn;
 }
+//2024-11-19 iwai-tamura upd-str ------
+//一般の生命保険料クリア処理
+function clearLifeInsuranceValue(index) {
+    if ($('#Head_LifeInsurance_' + index + '_HostDataFlg').is(':checked')) {
+        alert("クリアする場合は、給与天引き団体保険料のチェックを外してください。");
+    } else {
+        $('#Head_LifeInsurance_' + index + '_InsuranceFee').val('');
+        $('#Head_LifeInsurance_' + index + '_OldAndNewType').val('');
+        $('#Head_LifeInsurance_' + index + '_InsuranceCompanyName').val('');
+        $('#Head_LifeInsurance_' + index + '_InsuranceTypeName').val('');
+        $('#Head_LifeInsurance_' + index + '_InsurancePeriod').val('');
+        $('#Head_LifeInsurance_' + index + '_ContractorName1').val('');
+        $('#Head_LifeInsurance_' + index + '_ContractorName2').val('');
+        $('#Head_LifeInsurance_' + index + '_ReceiverName1').val('');
+        $('#Head_LifeInsurance_' + index + '_ReceiverName2').val('');
+        $('#Head_LifeInsurance_' + index + '_RelationshipType').val('');
+    }
+}
+
+// 介護医療保険のデータをクリア
+function clearMedicalInsuranceValue(index) {
+    if ($('#Head_MedicalInsurance_' + index + '_HostDataFlg').is(':checked')) {
+        alert("クリアする場合は、給与天引き団体保険料のチェックを外してください。");
+    } else {
+        $('#Head_MedicalInsurance_' + index + '_InsuranceCompanyName').val('');
+        $('#Head_MedicalInsurance_' + index + '_InsuranceTypeName').val('');
+        $('#Head_MedicalInsurance_' + index + '_InsurancePeriod').val('');
+        $('#Head_MedicalInsurance_' + index + '_ContractorName1').val('');
+        $('#Head_MedicalInsurance_' + index + '_ContractorName2').val('');
+        $('#Head_MedicalInsurance_' + index + '_ReceiverName1').val('');
+        $('#Head_MedicalInsurance_' + index + '_ReceiverName2').val('');
+        $('#Head_MedicalInsurance_' + index + '_RelationshipType').val('');
+        $('#Head_MedicalInsurance_' + index + '_InsuranceFee').val('');
+    }
+}
+
+// 個人年金保険のデータをクリア
+function clearPensionInsuranceValue(index) {
+    if ($('#Head_PensionInsurance_' + index + '_HostDataFlg').is(':checked')) {
+        alert("クリアする場合は、給与天引き団体保険料のチェックを外してください。");
+    } else {
+        $('#Head_PensionInsurance_' + index + '_InsuranceCompanyName').val('');
+        $('#Head_PensionInsurance_' + index + '_InsuranceTypeName').val('');
+        $('#Head_PensionInsurance_' + index + '_InsurancePeriod').val('');
+        $('#Head_PensionInsurance_' + index + '_ContractorName1').val('');
+        $('#Head_PensionInsurance_' + index + '_ContractorName2').val('');
+        $('#Head_PensionInsurance_' + index + '_ReceiverName1').val('');
+        $('#Head_PensionInsurance_' + index + '_ReceiverName2').val('');
+        $('#Head_PensionInsurance_' + index + '_RelationshipType').val('');
+        $('#Head_PensionInsurance_' + index + '_StartPaymentYear').val('');
+        $('#Head_PensionInsurance_' + index + '_StartPaymentMonth').val('');
+        $('#Head_PensionInsurance_' + index + '_StartPaymentDay').val('');
+        $('#Head_PensionInsurance_' + index + '_OldAndNewType').val('');
+        $('#Head_PensionInsurance_' + index + '_InsuranceFee').val('');
+    }
+}
+
+// 地震保険のデータをクリア
+function clearQuakeInsuranceValue(index) {
+    if ($('#Head_QuakeInsurance_' + index + '_HostDataFlg').is(':checked')) {
+        alert("クリアする場合は、給与天引き団体保険料のチェックを外してください。");
+    } else {
+        $('#Head_QuakeInsurance_' + index + '_InsuranceCompanyName').val('');
+        $('#Head_QuakeInsurance_' + index + '_InsuranceTypeName').val('');
+        $('#Head_QuakeInsurance_' + index + '_InsurancePeriod').val('');
+        $('#Head_QuakeInsurance_' + index + '_ContractorName1').val('');
+        $('#Head_QuakeInsurance_' + index + '_ContractorName2').val('');
+        $('#Head_QuakeInsurance_' + index + '_ReceiverName1').val('');
+        $('#Head_QuakeInsurance_' + index + '_ReceiverName2').val('');
+        $('#Head_QuakeInsurance_' + index + '_RelationshipType').val('');
+        $('#Head_QuakeInsurance_' + index + '_QuakeAndDamageType').val('');
+        $('#Head_QuakeInsurance_' + index + '_InsuranceFee').val('');
+    }
+}
+
+// 社会保険のデータをクリア
+function clearSocialInsuranceValue(index) {
+    $('#Head_SocialInsurance_' + index + '_InsuranceTypeName').val('');
+    $('#Head_SocialInsurance_' + index + '_InsuranceCompanyName').val('');
+    $('#Head_SocialInsurance_' + index + '_ContractorName1').val('');
+    $('#Head_SocialInsurance_' + index + '_ContractorName2').val('');
+    $('#Head_SocialInsurance_' + index + '_RelationshipType').val('');
+    $('#Head_SocialInsurance_' + index + '_InsuranceFee').val('');
+}
+
+//発火イベント設定
+$(document).ready(function () {
+    //一般の生命保険料イベント設定
+    for (let i = 1; i <= 8; i++) {
+        //新旧区分
+        $('#Head_LifeInsurance_' + i + '_OldAndNewType').on('change', function () {
+            checkAndCalcLifeInsurance(i);
+        });
+        //保険料
+        $('#Head_LifeInsurance_' + i + '_InsuranceFee').on('change', function () {
+            checkAndCalcLifeInsurance(i);
+        });
+
+        //クリアボタンのクリックイベント
+        $('#btn-LifeInsurance-clear_' + i).on('click', function () {
+            clearLifeInsuranceValue(i);
+        });
+    }
+
+    //介護医療保険料イベント設定
+    for (let i = 1; i <= 6; i++) {
+        //保険料
+        $('#Head_MedicalInsurance_' + i + '_InsuranceFee').on('change', function () {
+            calcMedicalInsuranceCheck();
+        });
+
+        //クリアボタンのクリックイベント
+        $('#btn-MedicalInsurance-clear_' + i).on('click', function () {
+            clearMedicalInsuranceValue(i);
+        });
+    }
+
+    //個人年金保険料イベント設定
+    for (let i = 1; i <= 4; i++) {
+        //新旧区分
+        $('#Head_PensionInsurance_' + i + '_OldAndNewType').on('change', function () {
+            checkAndCalcPensionInsurance(i);
+        });
+        //保険料
+        $('#Head_PensionInsurance_' + i + '_InsuranceFee').on('change', function () {
+            checkAndCalcPensionInsurance(i);
+        });
+
+        //クリアボタンのクリックイベント
+        $('#btn-PensionInsurance-clear_' + i).on('click', function () {
+            clearPensionInsuranceValue(i);
+        });
+    }
+
+    //地震保険料イベント設定
+    for (let i = 1; i <= 4; i++) {
+        //地震旧長期区分
+        $('#Head_QuakeInsurance_' + i + '_QuakeAndDamageType').on('change', function () {
+            checkAndCalcQuakeInsurance(i);
+        });
+        //保険料
+        $('#Head_QuakeInsurance_' + i + '_InsuranceFee').on('change', function () {
+            checkAndCalcQuakeInsurance(i);
+        });
+
+        //クリアボタンのクリックイベント
+        $('#btn-QuakeInsurance-clear_' + i).on('click', function () {
+            clearQuakeInsuranceValue(i);
+        });
+    }
+
+    //社会保険料イベント設定
+    for (let i = 1; i <= 3; i++) {
+        //クリアボタンのクリックイベント
+        $('#btn-SocialInsurance-clear_' + i).on('click', function () {
+            clearSocialInsuranceValue(i);
+        });
+    }
+});
+
+//一般生命保険 新旧区分と金額の入力チェック　チェック後上限チェックを行う。
+function checkAndCalcLifeInsurance(index) {
+    let insuranceFee = $('#Head_LifeInsurance_' + index + '_InsuranceFee').val();
+    let oldAndNewType = $('#Head_LifeInsurance_' + index + '_OldAndNewType').val();
+
+    if (insuranceFee && oldAndNewType) {
+        calcLifeInsuranceCheck();
+    }
+}
+
+//個人年金保険 新旧区分と金額の入力チェック　チェック後上限チェックを行う。
+function checkAndCalcPensionInsurance(index) {
+    let insuranceFee = $('#Head_PensionInsurance_' + index + '_InsuranceFee').val();
+    let oldAndNewType = $('#Head_PensionInsurance_' + index + '_OldAndNewType').val();
+
+    if (insuranceFee && oldAndNewType) {
+        calcPensionInsuranceCheck();
+    }
+}
+
+//地震保険 地震旧長期区分と金額の入力チェック　チェック後上限チェックを行う。
+function checkAndCalcQuakeInsurance(index) {
+    let insuranceFee = $('#Head_QuakeInsurance_' + index + '_InsuranceFee').val();
+    let oldAndNewType = $('#Head_QuakeInsurance_' + index + '_QuakeAndDamageType').val();
+
+    if (insuranceFee && oldAndNewType) {
+        calcQuakeInsuranceCheck();
+    }
+}
+
+
+
+
+//一般生命保険料上限チェック
+function calcLifeInsuranceCheck() {
+    var strMessage = ""
+    var bolReturn = false
+    var id1 = ""
+    var id2 = ""
+
+    $("#Head_LifeInsurance_NewTotalAmount").val(null);
+    $("#Head_LifeInsurance_OldTotalAmount").val(null);
+    $("#Head_LifeInsurance_Calc1").val(null);
+    $("#Head_LifeInsurance_Calc2").val(null);
+    $("#Head_LifeInsurance_TotalAmount").val(null);
+    $("#Head_LifeInsurance_DeductionAmount").val(null);
+
+    //新旧区分チェック
+    for (var i = 1; i < 9; i++) {
+        id1 = "Head_LifeInsurance_" + i + "_OldAndNewType"
+        id2 = "Head_LifeInsurance_" + i + "_InsuranceFee"
+        if (document.getElementById(id2).value != "") {
+            if (document.getElementById(id1).value == "") {
+                strMessage = "新旧区分が正しく入力されていない箇所があります。";
+            }
+        }
+    }
+    if (strMessage != "") {
+        showAlert('確認', strMessage);
+        return bolReturn;
+    }
+
+    //金額計算処理
+    var intNewTotalAmount = 0;
+    var intOldTotalAmount = 0;
+    var intCalc1 = 0;
+    var intCalc2 = 0;
+
+    for (var i = 1; i < 9; i++) {
+        id1 = "Head_LifeInsurance_" + i + "_OldAndNewType"
+        id2 = "Head_LifeInsurance_" + i + "_InsuranceFee"
+        if (document.getElementById(id1).value == "1") {
+            intNewTotalAmount += Number(document.getElementById(id2).value);
+        }
+        if (document.getElementById(id1).value == "2") {
+            intOldTotalAmount += Number(document.getElementById(id2).value);
+        }
+    }
+
+    if (intNewTotalAmount <= 20000) {
+        intCalc1 = intNewTotalAmount
+    } else if (intNewTotalAmount <= 40000) {
+        intCalc1 = Math.ceil(intNewTotalAmount / 2) + 10000
+
+    } else if (intNewTotalAmount <= 80000) {
+        intCalc1 = Math.ceil(intNewTotalAmount / 4) + 20000
+    } else {
+        intCalc1 = 40000
+    }
+
+    if (intOldTotalAmount <= 25000) {
+        intCalc2 = intOldTotalAmount
+    } else if (intOldTotalAmount <= 50000) {
+        intCalc2 = Math.ceil(intOldTotalAmount / 2) + 12500
+
+    } else if (intOldTotalAmount <= 100000) {
+        intCalc2 = Math.ceil(intOldTotalAmount / 4) + 25000
+    } else {
+        intCalc2 = 50000
+    }
+
+    strMessage = "";
+    if (intCalc2>=50000){
+        strMessage = "※生命保険料の合計額が上限に達しました。<br/>生命保険料はこれ以上入力する必要はありません。";
+    } else if(intCalc1 + intCalc2>=40000){
+        strMessage = "※新制度の生命保険料の合計額が上限に達しました。<br/>新制度の生命保険料はこれ以上入力する必要はありません。";
+    }
+    if (strMessage != "") {
+        showAlert('確認', strMessage);
+        return bolReturn;
+    } else {
+        bolReturn = true;
+    }
+    return bolReturn;
+}
+
+//介護医療保険料上限チェック
+function calcMedicalInsuranceCheck() {
+    var strMessage = ""
+    var bolReturn = false
+    var id1 = ""
+
+
+    $("#Head_MedicalInsurance_TotalAmount").val(null);
+    $("#Head_MedicalInsurance_DeductionAmount").val(null);
+
+    //金額計算処理
+    var intTotalAmount = 0;
+    var intDeductionAmount = 0;
+
+    for (var i = 1; i < 7; i++) {
+        id1 = "Head_MedicalInsurance_" + i + "_InsuranceFee"
+        intTotalAmount += Number(document.getElementById(id1).value);
+    }
+
+    if (intTotalAmount <= 20000) {
+        intCalc1 = intTotalAmount
+    } else if (intTotalAmount <= 40000) {
+        intCalc1 = Math.ceil(intTotalAmount / 2) + 10000
+
+    } else if (intTotalAmount <= 80000) {
+        intCalc1 = Math.ceil(intTotalAmount / 4) + 20000
+    } else {
+        intCalc1 = 40000
+    }
+    strMessage = "";
+    if (intCalc1 >= 40000) {
+        strMessage = "※介護保険料の合計額が上限に達しました。<br/>介護保険料はこれ以上入力する必要はありません。";
+    }
+    if (strMessage != "") {
+        showAlert('確認', strMessage);
+        return bolReturn;
+    } else {
+        bolReturn = true;
+    }
+    return bolReturn;
+}
+
+
+//個人年金保険料上限チェック
+function calcPensionInsuranceCheck() {
+    var strMessage = ""
+    var bolReturn = false
+    var id1 = ""
+    var id2 = ""
+
+
+    $("#Head_PensionInsurance_NewTotalAmount").val(null);
+    $("#Head_PensionInsurance_OldTotalAmount").val(null);
+    $("#Head_PensionInsurance_Calc1").val(null);
+    $("#Head_PensionInsurance_Calc2").val(null);
+    $("#Head_PensionInsurance_TotalAmount").val(null);
+    $("#Head_PensionInsurance_DeductionAmount").val(null);
+
+
+    //新旧区分チェック
+    for (var i = 1; i < 5; i++) {
+        id1 = "Head_PensionInsurance_" + i + "_OldAndNewType"
+        id2 = "Head_PensionInsurance_" + i + "_InsuranceFee"
+        if (document.getElementById(id2).value != "") {
+            if (document.getElementById(id1).value == "") {
+                strMessage = "新旧区分が正しく入力されていない箇所があります。";
+            }
+        }
+    }
+    if (strMessage != "") {
+        showAlert('確認', strMessage);
+        return bolReturn;
+    }
+
+    //金額計算処理
+    var intNewTotalAmount = 0;
+    var intOldTotalAmount = 0;
+    var intCalc1 = 0;
+    var intCalc2 = 0;
+    var intTotalAmount = 0;
+    var intDeductionAmount = 0;
+
+    for (var i = 1; i < 5; i++) {
+        id1 = "Head_PensionInsurance_" + i + "_OldAndNewType"
+        id2 = "Head_PensionInsurance_" + i + "_InsuranceFee"
+        if (document.getElementById(id1).value == "1") {
+            intNewTotalAmount += Number(document.getElementById(id2).value);
+        }
+        if (document.getElementById(id1).value == "2") {
+            intOldTotalAmount += Number(document.getElementById(id2).value);
+        }
+    }
+
+    if (intNewTotalAmount <= 20000) {
+        intCalc1 = intNewTotalAmount
+    } else if (intNewTotalAmount <= 40000) {
+        intCalc1 = Math.ceil(intNewTotalAmount / 2) + 10000
+
+    } else if (intNewTotalAmount <= 80000) {
+        intCalc1 = Math.ceil(intNewTotalAmount / 4) + 20000
+    } else {
+        intCalc1 = 40000
+    }
+
+    if (intOldTotalAmount <= 25000) {
+        intCalc2 = intOldTotalAmount
+    } else if (intOldTotalAmount <= 50000) {
+        intCalc2 = Math.ceil(intOldTotalAmount / 2) + 12500
+
+    } else if (intOldTotalAmount <= 100000) {
+        intCalc2 = Math.ceil(intOldTotalAmount / 4) + 25000
+    } else {
+        intCalc2 = 50000
+    }
+
+    strMessage = "";
+    if (intCalc2 >= 50000) {
+        strMessage = "※個人年金保険料の合計額が上限に達しました。<br/>個人年金保険料はこれ以上入力する必要はありません。";
+    } else if (intCalc1 + intCalc2 >= 40000) {
+        strMessage = "※新制度の個人年金保険料の合計額が上限に達しました。<br/>新制度の個人年金保険料はこれ以上入力する必要はありません。";
+    }
+    if (strMessage != "") {
+        showAlert('確認', strMessage);
+        return bolReturn;
+    } else {
+        bolReturn = true;
+    }
+    return bolReturn;
+}
+
+//地震保険料上限チェック
+function calcQuakeInsuranceCheck() {
+    var strMessage = ""
+    var bolReturn = false
+    var id1 = ""
+    var id2 = ""
+
+
+    $("#Head_QuakeInsurance_QuakeAmount").val(null);
+    $("#Head_QuakeInsurance_DamageTotalAmount").val(null);
+    $("#Head_QuakeInsurance_Calc1").val(null);
+    $("#Head_QuakeInsurance_Calc2").val(null);
+    $("#Head_QuakeInsurance_DeductionAmount").val(null);
+
+
+    //新旧区分チェック
+    for (var i = 1; i < 5; i++) {
+        id1 = "Head_QuakeInsurance_" + i + "_QuakeAndDamageType"
+        id2 = "Head_QuakeInsurance_" + i + "_InsuranceFee"
+        if (document.getElementById(id2).value != "") {
+            if (document.getElementById(id1).value == "") {
+                strMessage = "地震または旧長期区分が正しく入力されていない箇所があります。";
+            }
+        }
+    }
+    if (strMessage != "") {
+        showAlert('確認', strMessage);
+        return bolReturn;
+    }
+
+    //金額計算処理
+    var intQuakeTotalAmount = 0;
+    var intDamageTotalAmount = 0;
+    var intCalc1 = 0;
+    var intCalc2 = 0;
+    var intTotalAmount = 0;
+    var intDeductionAmount = 0;
+
+    for (var i = 1; i < 5; i++) {
+        id1 = "Head_QuakeInsurance_" + i + "_QuakeAndDamageType"
+        id2 = "Head_QuakeInsurance_" + i + "_InsuranceFee"
+        if (document.getElementById(id1).value == "1") {
+            intQuakeTotalAmount += Number(document.getElementById(id2).value);
+        }
+        if (document.getElementById(id1).value == "2") {
+            intDamageTotalAmount += Number(document.getElementById(id2).value);
+        }
+    }
+
+    intCalc1 = intQuakeTotalAmount;
+    if (intQuakeTotalAmount > 50000) {
+        intCalc1 = 50000;
+    }
+
+    if (intDamageTotalAmount >= 10000) {
+        intCalc2 = Math.ceil(intDamageTotalAmount / 2) + 5000
+    } else {
+        intCalc2 = intDamageTotalAmount;
+    }
+    if (intDamageTotalAmount > 15000) {
+        intCalc2 = 15000;
+    }
+
+    intDeductionAmount = intCalc1 + intCalc2;
+    if (intDeductionAmount > 50000) {
+        intDeductionAmount = 50000;
+    }
+
+    strMessage = "";
+    if (intCalc1 + intCalc2 >= 50000) {
+        strMessage = "※地震保険料保険料の合計額が上限に達しました。<br/>地震保険料保険料はこれ以上入力する必要はありません。";
+    } else if (intCalc2 >= 15000) {
+        strMessage = "※旧長期損害保険料の合計額が上限に達しました。<br/>旧長期損害保険料はこれ以上入力する必要はありません。";
+    }
+    if (strMessage != "") {
+        showAlert('確認', strMessage);
+        return bolReturn;
+    } else {
+        bolReturn = true;
+    }
+    return bolReturn;
+
+
+
+    bolReturn = true;
+    return bolReturn;
+}
+//2024-11-19 iwai-tamura upd-end ------
+
 
 $('#btn-lifeInsurance-calc').click(function () {
     calcLifeInsurance();
@@ -670,7 +1169,7 @@ function calcPensionInsurance() {
         }
     }
     if (strMessage != "") {
-        alert(strMessage);
+        showAlert('確認', strMessage);
         return bolReturn;
     }
 
@@ -804,7 +1303,7 @@ function calcQuakeInsurance() {
         }
     }
     if (strMessage != "") {
-        alert(strMessage);
+        showAlert('確認', strMessage);
         return bolReturn;
     }
 
