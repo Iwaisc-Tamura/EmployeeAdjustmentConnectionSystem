@@ -83,6 +83,21 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// </summary>
         public string HaiguuDeclareButtonView { get; set; }
 
+        /// <summary>
+        /// 扶養控除ボタン表示フラグ
+        /// </summary>
+        public bool HuyouDeclareButtonViewFlg { get; set; }
+
+        /// <summary>
+        /// 保険料控除ボタン表示フラグ
+        /// </summary>
+        public bool HokenDeclareButtonViewFlg { get; set; }
+
+        /// <summary>
+        /// 基礎控除ボタン表示フラグ
+        /// </summary>
+        public bool HaiguuDeclareButtonViewFlg { get; set; }
+
 
 
         /// <summary>

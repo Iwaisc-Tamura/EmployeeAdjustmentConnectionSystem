@@ -18,6 +18,7 @@ using System.IO;
 using EmployeeAdjustmentConnectionSystem.COM.Util.File;
 using System.Configuration;
 using EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports;
+using System.Web.Services.Description;
 
 namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
@@ -137,6 +138,69 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             }
         }
 
+        //2024-11-19 iwai-tamura upd-str ------
+        /// <summary>
+        /// 画面遷移アクション
+        /// </summary>
+        /// <param name="value">遷移先キー名</param>
+        /// <returns>画面遷移</returns>
+        [ActionName("Link")]
+        [ButtonHandler(ButtonName = "BarCodeTransition")]
+        public ActionResult BarCodeTransitionAll(string value) {
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+                
+                //ログイン判定
+                if(!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
+
+                //セッション全削除判定 ログアウトボタンのみセッション削除
+                if("Login".Equals(value)) Session.RemoveAll();
+
+                //遷移
+                LoginUser lu = (LoginUser)Session["LoginUser"];
+
+                //帳票区分、年度、社員番号に分割
+                var strReportType = value.Substring(0, 1);
+                var intYear = value.Substring(1, 2);
+                var strInputNo = value.Substring(3, 5);
+
+                // 年度の補完 (例: "24" -> "2024")
+                if (int.TryParse(intYear, out int parsedYear)) {
+                    intYear = (2000 + parsedYear).ToString();
+                }
+
+                // 帳票区分に基づく帳票名の設定
+                string strReportName;
+                switch (strReportType) {
+                    case "1":
+                        strReportName = "HuyouDeclareRegister";
+                        break;
+                    case "2":
+                        strReportName = "HokenDeclareRegister";
+                        break;
+                    case "3":
+                        strReportName = "HaiguuDeclareRegister";
+                        break;
+                    default:
+                        TempData["Error"] = "無効なコードです。";
+                        return View("Error");
+                }
+
+                Session["ReturnTopStatus"] = "1";
+                return RedirectToAction((string)linkTable[strReportName], strReportName, new { intSheetYear = intYear, strEmployeeNo = strInputNo ,bolAdminMode = true});
+            } catch(Exception ex) {
+                //エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            } finally {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        //2024-11-19 iwai-tamura upd-end ------
+
         //2023-11-20 iwai-tamura test-str ------
         /// <summary>
         /// 画面遷移アクション
@@ -158,6 +222,12 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
                 //遷移
                 LoginUser lu = (LoginUser)Session["LoginUser"];
+
+                //2024-11-19 iwai-tamura upd-str ------
+                //戻り先を検索画面に
+                Session["ReturnTopStatus"] = "0";
+                //2024-11-19 iwai-tamura upd-end ------
+
 
                 return RedirectToAction((string)linkTable[value], value);
             } catch(Exception ex) {

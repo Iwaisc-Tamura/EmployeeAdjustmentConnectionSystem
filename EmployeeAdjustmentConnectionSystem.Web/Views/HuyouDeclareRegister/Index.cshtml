@@ -91,6 +91,7 @@
     @Html.HiddenFor(m => m.Head.AdminMode)
 
     @*2024-11-19 iwai-tamura upd-str ------*@
+    @Html.HiddenFor(m => m.Head.AddressBefore)  @*比較用変更前住所*@
     @Html.HiddenFor(m => m.Head.FamilyCount)
     @*2024-11-19 iwai-tamura upd-end ------*@
 
@@ -610,7 +611,13 @@
     var TaxWithholding_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead TaxWithholdingAddress_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     @*2023-11-20 iwai-tamura add-str ------*@
     var TaxWithholding_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_TaxWithholding_Income',950000)" } };
-    var TaxWithholding_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+
+    //var TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "20" }, { "type", "number" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var TaxWithholding_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var TaxWithholding_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var TaxWithholding_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_TaxWithholding_Income',950000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
     var attrRadioA_1_1 = new Dictionary<string, object>() { { "name", "attrRadioA_1" }, { "id", "select_radioA_1_1" } };
@@ -770,7 +777,11 @@
 
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsOver16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_1_Income',480000)" } };
-    var DependentsOver16_1_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsOver16_1_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsOver16_1_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
+
     //var DependentsOver16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_1_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -1005,7 +1016,10 @@
     var DependentsOver16_2_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead DependentsOver16_2Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsOver16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_2_Income',480000)" } };
-    var DependentsOver16_2_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsOver16_2_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsOver16_2_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var DependentsOver16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_2_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -1229,7 +1243,10 @@
     var DependentsOver16_3_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead DependentsOver16_3Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsOver16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_3_Income',480000)" } };
-    var DependentsOver16_3_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsOver16_3_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsOver16_3_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var DependentsOver16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_3_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -1452,7 +1469,10 @@
     var DependentsOver16_4_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead DependentsOver16_4Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsOver16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_4_Income',480000)" } };
-    var DependentsOver16_4_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsOver16_4_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsOver16_4_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var DependentsOver16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_4_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -1779,7 +1799,10 @@
     var DependentsUnder16_1_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead DependentsUnder16_1Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsUnder16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_1_Income',480000)" } };
-    var DependentsUnder16_1_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsUnder16_1_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsUnder16_1_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var DependentsUnder16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_1_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -1943,7 +1966,10 @@
     var DependentsUnder16_2_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead DependentsUnder16_2Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsUnder16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_2_Income',480000)" } };
-    var DependentsUnder16_2_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsUnder16_2_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsUnder16_2_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var DependentsUnder16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_2_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -2096,7 +2122,10 @@
     var DependentsUnder16_3_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead DependentsUnder16_3Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsUnder16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_3_Income',480000)" } };
-    var DependentsUnder16_3_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsUnder16_3_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsUnder16_3_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var DependentsUnder16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_3_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -2249,7 +2278,10 @@
 
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsUnder16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_4_Income',480000)" } };
-    var DependentsUnder16_4_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsUnder16_4_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsUnder16_4_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var DependentsUnder16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_4_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 

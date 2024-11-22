@@ -137,6 +137,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 								PostalCode_1 = row["郵便番号_前"].ToString(),
 								PostalCode_2 = row["郵便番号_後"].ToString(),
 								Address = row["住所01"].ToString(),
+								//2024-11-19 iwai-tamura upd-str ------
+								AddressBefore = row["住所01"].ToString(),
+								//2024-11-19 iwai-tamura upd-end ------
 								SpouseCheck = row["配偶者有無"].ToString(),
 								TaxWithholding_notSubject = row["源泉控除対象配偶者対象外区分"].ToString(),
 								TaxWithholding_Name1 = row["源泉控除対象配偶者氏名_姓"].ToString(),

@@ -63,13 +63,20 @@ $(function () {
             $(".form-control").attr('disabled', true);
             $(".input-control").attr('disabled', true);
             $(".btn-calc").attr('disabled', true);
+            //2024-11-19 iwai-tamura upd str -----
+            $(".btn-clear").attr('disabled', true);
+            //2024-11-19 iwai-tamura upd end -----
             $("button.input-control").remove();
+
             break;
 
         default:
             $(".form-control").attr('disabled', true);
             $(".input-control").attr('disabled', true);
             $(".btn-calc").attr('disabled', true);
+            //2024-11-19 iwai-tamura upd str -----
+            $(".btn-clear").attr('disabled', true);
+            //2024-11-19 iwai-tamura upd end -----
             $("button.input-control").remove();
 
             break;
@@ -1053,7 +1060,7 @@ function calcQuakeInsuranceCheck() {
     } else {
         intCalc2 = intDamageTotalAmount;
     }
-    if (intDamageTotalAmount > 15000) {
+    if (intCalc2 > 15000) {
         intCalc2 = 15000;
     }
 
@@ -1339,9 +1346,14 @@ function calcQuakeInsurance() {
     } else {
         intCalc2 = intDamageTotalAmount;
     }
-    if (intDamageTotalAmount > 15000) {
+    //2024-11-19 iwai-tamura upd-str ------
+    if (intCalc2 > 15000) {
         intCalc2 = 15000;
     }
+    //if (intDamageTotalAmount > 15000) {
+    //    intCalc2 = 15000;
+    //}
+    //2024-11-19 iwai-tamura upd-end ------
 
     intDeductionAmount = intCalc1 + intCalc2;
     if (intDeductionAmount > 50000) {

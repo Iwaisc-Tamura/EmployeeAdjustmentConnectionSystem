@@ -286,6 +286,78 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                     }
                 };
 
+
+                //2024-11-19 iwai-tamura upd-str ------
+                //ボタン表示制御ルールを定義
+                var buttonViewRules = new Dictionary<(string isAdminNo, string userConfirmed, string adminConfirmed), bool>
+                {
+                    // 管理者
+                    { ("K", "0", "0"), true },  //本人未提出
+                    { ("K", "1", "0"), true },  //本人提出済
+                    { ("K", "9", "1"), true },  //支社確定済
+                    { ("K", "9", "5"), true },  //管理者確定済
+                    { ("K", "9", "7"), true },  //システム連携済
+                    { ("K", "9", "8"), true },  //システム連携後修正
+                    { ("K", "9", "9"), true },  //確定済
+        
+                    // 本社
+                    { ("1", "0", "0"), true },  //本人未提出
+                    { ("1", "1", "0"), true },  //本人提出済
+                    { ("1", "9", "1"), true },  //支社確定済
+                    { ("1", "9", "5"), true },  //管理者確定済
+                    { ("1", "9", "7"), true },  //システム連携済
+                    { ("1", "9", "8"), true },  //システム連携後修正
+                    { ("1", "9", "9"), true },  //確定済
+        
+                    // 東京
+                    { ("2", "0", "0"), true },  //本人未提出
+                    { ("2", "1", "0"), true },  //本人提出済
+                    { ("2", "9", "1"), true },  //支社確定済
+                    { ("2", "9", "5"), true },  //管理者確定済
+                    { ("2", "9", "7"), false }, //システム連携済
+                    { ("2", "9", "8"), false }, //システム連携後修正
+                    { ("2", "9", "9"), false }, //確定済
+        
+                    // 関東
+                    { ("3", "0", "0"), true },  //本人未提出
+                    { ("3", "1", "0"), true },  //本人提出済
+                    { ("3", "9", "1"), true },  //支社確定済
+                    { ("3", "9", "5"), true },  //管理者確定済
+                    { ("3", "9", "7"), false }, //システム連携済
+                    { ("3", "9", "8"), false }, //システム連携後修正
+                    { ("3", "9", "9"), false }, //確定済
+
+                    // 大阪
+                    { ("7", "0", "0"), true },  //本人未提出
+                    { ("7", "1", "0"), true },  //本人提出済
+                    { ("7", "9", "1"), false }, //支社確定済
+                    { ("7", "9", "5"), true },  //管理者確定済
+                    { ("7", "9", "7"), false }, //システム連携済
+                    { ("7", "9", "8"), true },  //システム連携後修正
+                    { ("7", "9", "9"), false }, //確定済
+
+                    // 名古屋
+                    { ("8", "0", "0"), true },  //本人未提出
+                    { ("8", "1", "0"), true },  //本人提出済
+                    { ("8", "9", "1"), false }, //支社確定済
+                    { ("8", "9", "5"), true },  //管理者確定済
+                    { ("8", "9", "7"), false }, //システム連携済
+                    { ("8", "9", "8"), true },  //システム連携後修正
+                    { ("8", "9", "9"), false }, //確定済
+
+                    // 福岡
+                    { ("9", "0", "0"), true },  //本人未提出
+                    { ("9", "1", "0"), true },  //本人提出済
+                    { ("9", "9", "1"), false }, //支社確定済
+                    { ("9", "9", "5"), true },  //管理者確定済
+                    { ("9", "9", "7"), false }, //システム連携済
+                    { ("9", "9", "8"), true },  //システム連携後修正
+                    { ("9", "9", "9"), false }  //確定済
+                };
+                //2024-11-19 iwai-tamura upd-end ------
+
+
+
                 using(DbManager dm = new DbManager())
                 using(IDbCommand cmd = dm.CreateCommand(sql))
                 using(DataSet ds = new DataSet()) {
@@ -307,6 +379,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                             HaiguuDeclareStatus =StatusDecision(row["基礎控除_本人確定区分"].ToString(),row["基礎控除_管理者確定区分"].ToString()),
 
                         };
+
+                        //2024-11-19 iwai-tamura upd-str ------
+                        //ボタン表示制御
+                        result.HuyouDeclareButtonViewFlg = buttonViewRules.TryGetValue((lu.IsAdminNo,row["扶養控除_本人確定区分"].ToString(),row["扶養控除_管理者確定区分"].ToString()),out bool shouldDisplay) ? shouldDisplay : false;;
+                        result.HokenDeclareButtonViewFlg = buttonViewRules.TryGetValue((lu.IsAdminNo,row["保険控除_本人確定区分"].ToString(),row["保険控除_管理者確定区分"].ToString()),out shouldDisplay) ? shouldDisplay : false;;
+                        result.HaiguuDeclareButtonViewFlg = buttonViewRules.TryGetValue((lu.IsAdminNo,row["基礎控除_本人確定区分"].ToString(),row["基礎控除_管理者確定区分"].ToString()),out shouldDisplay) ? shouldDisplay : false;;
+                        //2024-11-19 iwai-tamura upd-end ------
+
                         resultList.Add(result);
                     }
                     model.SearchResult = resultList;

@@ -852,11 +852,19 @@ function checkMoney(id, maxMoney) {
 }
 
 //2024-11-19 iwai-tamura upd-str ------
-//扶養人数の増減チェック
 function checkFamilyCount() {
     message = '';
-    var aryCheckHuyou = "";
+    var bolCheckAddress = false;
+    var bolCheckFamily = false;
 
+
+    //本人住所変更チェック
+    if (document.getElementById("Head_AddressBefore").value != document.getElementById("Head_Address").value) {
+        bolCheckAddress = true;
+    }
+
+    //扶養人数の増減チェック
+    var aryCheckHuyou = "";
     aryCheckHuyou = [
         { id: "TaxWithholding", name: "源泉控除対象配偶者" }
         , { id: "DependentsOver16_1", name: "控除対象扶養親族(16歳以上) 1" }
@@ -883,7 +891,16 @@ function checkFamilyCount() {
     //開いた時の扶養人数と比較
     let originalFamilyCount = parseInt(document.getElementById('Head_FamilyCount').value);
     if (familyCount !== originalFamilyCount) {
-        message = '※扶養人数の変更がありました。<br/>　社会保険システムへも変更を行ってください。';
+        bolCheckFamily = true;
+    }
+
+
+    if (bolCheckFamily && bolCheckAddress) {
+        message = '※本人情報の住所と扶養人数に変更がありました。<br/>　グループウェアにおいて人事関係申請の提出も<br/>　お願いします。';
+    } else if (bolCheckFamily) {
+        message = '※扶養人数の変更がありました。<br/>　グループウェアにおいて人事関係申請の提出も<br/>　お願いします。';
+    } else if (bolCheckAddress) {
+        message = '※本人情報の住所に変更がありました。<br/>　グループウェアにおいて人事関係申請の提出も<br/>　お願いします。';
     }
 
     return message;
@@ -929,6 +946,10 @@ function checkAll() {
 
     $.each(aryCheckInput, function (index, item) {
         if (document.getElementById(item.id).value.trim() == "") {
+            missingFields.push(item.name);
+        }else if (item.id === "Head_PostalCode_1" && document.getElementById(item.id).value.length !== 3) {
+            missingFields.push(item.name);
+        }else if (item.id === "Head_PostalCode_2" && document.getElementById(item.id).value.length !== 4) {
             missingFields.push(item.name);
         }
     });
@@ -1001,6 +1022,8 @@ function checkAll() {
                 { type: "txt", id: "BirthdayYear", name: "生年月日_年" },
                 { type: "txt", id: "BirthdayMonth", name: "生年月日_月" },
                 { type: "txt", id: "BirthdayDay", name: "生年月日_日" },
+                { type: "txt", id: "Earnings", name: "収入金額" },
+                { type: "txt", id: "Earnings2Income", name: "所得金額" },
                 { type: "chk", id: "ResidentType", name: "居住者区分" },
                 { type: "Address", id: "Address", name: "住所又は居所" }
             ];

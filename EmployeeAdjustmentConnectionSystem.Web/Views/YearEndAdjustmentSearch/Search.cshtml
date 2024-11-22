@@ -245,25 +245,56 @@
                         @if (Model != null && Model.SearchResult != null) {
                             foreach (YearEndAdjustmentSearchListModel row in Model.SearchResult) {
                                 <tr>
-                                    <td style="width:32px;"><input type="checkbox" name="selPrint" value="@row.Year,@row.EmployeeNumber" /></td>
+                                    @*2024-11-19 iwai-tamura upd-str ------*@
+                                    @*ボタン表示フラグを追加(年度,社員番号,扶養控除FLG,保険控除FLG,基礎控除FLG) *@
+                                    <td style="width:32px;"><input type="checkbox" name="selPrint" value="@row.Year,@row.EmployeeNumber,@(row.HuyouDeclareButtonViewFlg ? '1' : '0'),@(row.HokenDeclareButtonViewFlg ? '1' : '0'),@(row.HaiguuDeclareButtonViewFlg ? '1' : '0')" /></td>
+                                    @*<td style="width:32px;"><input type="checkbox" name="selPrint" value="@row.Year,@row.EmployeeNumber" /></td>*@
+                                    @*2024-11-19 iwai-tamura upd-end ------*@
                                     <td style="width:50px;">@Html.DisplayTextFor(m => row.Year)</td>
                                     <td style="width:60px;">@Html.DisplayTextFor(m => row.EmployeeNumber)</td>
                                     <td style="width:120px;">@Html.DisplayTextFor(m => row.EmployeeName)</td>
                                     <td style="width:140px;">@Html.DisplayTextFor(m => row.EmployeeNameKana)</td>
                                     <td style="width:60px;">@Html.DisplayTextFor(m => row.Department)</td>
-
-                                    <td style="width:50px;"><button type="submit" name="View" value="HuyouDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
-                                    <td style="width:50px;"><button type="submit" name="Print" value="HuyouDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+                                    @*2024-11-19 iwai-tamura upd-str ------*@
+                                    @if (row.HuyouDeclareButtonViewFlg) {
+                                        <td style="width:50px;"><button type="submit" name="View" value="HuyouDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                        <td style="width:50px;"><button type="submit" name="Print" value="HuyouDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+                                    } else {
+                                        <td style="width:50px;"></td>
+                                        <td style="width:50px;"></td>
+                                    }
+                                    @*<td style="width:50px;"><button type="submit" name="View" value="HuyouDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                    <td style="width:50px;"><button type="submit" name="Print" value="HuyouDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>*@
+                                    @*2024-11-19 iwai-tamura upd-end ------*@
                                     <td style="width:100px;">@Html.DisplayTextFor(m => row.HuyouDeclareStatus)</td>
 
                                     @*2023-12-15 iwai-tamura upd-str ------*@
                                     @if(((LoginUser)Session["LoginUser"]).IsServerStatus == "1") {
-                                        <td style="width:50px;"><button type="submit" name="View" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
-                                        <td style="width:50px;"><button type="submit" name="Print" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+
+                                        @*2024-11-19 iwai-tamura upd-str ------*@
+                                        if (row.HokenDeclareButtonViewFlg) {
+                                            <td style="width:50px;"><button type="submit" name="View" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                            <td style="width:50px;"><button type="submit" name="Print" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+                                        } else {
+                                            <td style="width:50px;"></td>
+                                            <td style="width:50px;"></td>
+                                        }
+                                        @*<td style="width:50px;"><button type="submit" name="View" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                        <td style="width:50px;"><button type="submit" name="Print" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>*@
+                                        @*2024-11-19 iwai-tamura upd-end ------*@
                                         <td style="width:100px;">@Html.DisplayTextFor(m => row.HokenDeclareStatus)</td>
 
-                                        <td style="width:50px;"><button type="submit" name="View" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
-                                        <td style="width:50px;"><button type="submit" name="Print" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+                                        @*2024-11-19 iwai-tamura upd-str ------*@
+                                        if (row.HaiguuDeclareButtonViewFlg) {
+                                            <td style="width:50px;"><button type="submit" name="View" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                            <td style="width:50px;"><button type="submit" name="Print" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+                                        } else {
+                                            <td style="width:50px;"></td>
+                                            <td style="width:50px;"></td>
+                                        }
+                                        @*<td style="width:50px;"><button type="submit" name="View" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                        <td style="width:50px;"><button type="submit" name="Print" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>*@
+                                        @*2024-11-19 iwai-tamura upd-end ------*@
                                         <td style="width:100px;">@Html.DisplayTextFor(m => row.HaiguuDeclareStatus)</td>
                                     }else{
                                         <td style="width:50px;"></td>

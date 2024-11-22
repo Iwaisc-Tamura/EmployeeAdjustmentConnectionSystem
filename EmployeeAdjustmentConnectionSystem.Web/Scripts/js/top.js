@@ -63,7 +63,7 @@ const barcodeModal = document.getElementById('barcodeModal');
 const modalOverlay = document.getElementById('modal-overlay');
 const barcodeInput = document.getElementById('barcodeInput');
 const specifyEmployeeNoInput = document.querySelector('input[name="specifyEmployeeNo"]');
-const transitionButton = document.querySelector('button[name="Transition"]');
+const BarCodeTransitionButton = document.querySelector('button[name="BarCodeTransition"]');
 const status = document.getElementById('status');
 
 // 常に`input`にフォーカスが戻るようにする
@@ -103,21 +103,16 @@ barcodeInput.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {  // Enterキーで処理を実行
         event.preventDefault(); // デフォルトのsubmitイベントを無効化
 
-        const employeeNumber = barcodeInput.value.trim();
-        //employeeNumber = convertToHalfWidth(employeeNumber); // 全角を半角に変換
+        const inputNumber = barcodeInput.value.trim();
+        //inputNumber = convertToHalfWidth(inputNumber); // 全角を半角に変換
 
-        if (employeeNumber) {
-            status.textContent = `社員番号: ${employeeNumber} 確認中...`;
-
-
-            // ここに必要な処理を追加（例：ページ遷移）
-           // 代理社員番号のインプットにバーコードの値を設定
-           specifyEmployeeNoInput.value = employeeNumber;
+        if (inputNumber) {
            // ステータスメッセージを更新
-           status.textContent = `社員番号: ${employeeNumber} 確認中...`;
+            status.textContent = `社員番号: ${inputNumber.substring(inputNumber.length - 5) } 確認中...`;
 
            // 扶養控除等申告書ボタンのクリックイベントを発火
-           transitionButton.click();
+            BarCodeTransitionButton.value = inputNumber;
+            BarCodeTransitionButton.click();
 
         }
     }
