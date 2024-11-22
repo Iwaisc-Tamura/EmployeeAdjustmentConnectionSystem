@@ -641,6 +641,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
 
+                //2024-11-19 iwai-tamura upd-str ------
+                //扶養控除ボタン表示のみに絞る
+                selPrint = selPrint.Where(item => item.Split(',')[2] == "1").ToArray();
+                //2024-11-19 iwai-tamura upd-end ------
+
                 //対象選択エラーチェック
                 if (selPrint == null) {
                     //エラー判定
@@ -691,6 +696,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             try {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //2024-11-19 iwai-tamura upd-str ------
+                //保険料控除ボタン表示のみに絞る
+                selPrint = selPrint.Where(item => item.Split(',')[3] == "1").ToArray();
+                //2024-11-19 iwai-tamura upd-end ------
 
                 //対象選択エラーチェック
                 if (selPrint == null) {
@@ -744,6 +754,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
 
+                //2024-11-19 iwai-tamura upd-str ------
+                //基礎控除ボタン表示のみに絞る
+                selPrint = selPrint.Where(item => item.Split(',')[4] == "1").ToArray();
+                //2024-11-19 iwai-tamura upd-end ------
+
                 //対象選択エラーチェック
                 if (selPrint == null) {
                     //エラー判定
@@ -795,6 +810,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             try {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //2024-11-19 iwai-tamura upd-str ------
+                //扶養控除ボタン表示のみに絞る
+                selPrint = selPrint.Where(item => item.Split(',')[2] == "1").ToArray();
+                //2024-11-19 iwai-tamura upd-end ------
 
                 //対象選択エラーチェック
                 if (selPrint == null) {
@@ -857,6 +877,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
 
+                //2024-11-19 iwai-tamura upd-str ------
+                //保険料控除ボタン表示のみに絞る
+                selPrint = selPrint.Where(item => item.Split(',')[3] == "1").ToArray();
+                //2024-11-19 iwai-tamura upd-end ------
+
                 //対象選択エラーチェック
                 if (selPrint == null) {
                     //エラー判定
@@ -917,6 +942,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             try {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //2024-11-19 iwai-tamura upd-str ------
+                //基礎控除ボタン表示のみに絞る
+                selPrint = selPrint.Where(item => item.Split(',')[4] == "1").ToArray();
+                //2024-11-19 iwai-tamura upd-end ------
 
                 //対象選択エラーチェック
                 if (selPrint == null) {

@@ -116,11 +116,13 @@
                 </div>
 
                 @*2024-11-19 iwai-tamura upd-str ------*@
-                <div class="row">
-                    <div class="col-xs-8 col-xs-offset-2 top10">
-                        <button  type="button" class="btn-default btn-lg btn-block" name="openCodeInputModalButton" id="openCodeInputModalButton">コード読取</button>
+                @if (((LoginUser)Session["LoginUser"]).IsRoot) {
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2 top10">
+                            <button  type="button" class="btn-default btn-lg btn-block" name="openCodeInputModalButton" id="openCodeInputModalButton">コード読取</button>
+                        </div>
                     </div>
-                </div>
+                }
                 <!-- オーバーレイ -->
                 <div id="modal-overlay"></div>
 
@@ -129,6 +131,7 @@
                     <h2>バーコードスキャン</h2>
                     <p id="status">スキャン待機中...</p>
                     <input type="text" id="barcodeInput" style="position:absolute;left:-9999px;" inputmode="latin" lang="en" placeholder="スキャン結果" autofocus>
+                    <button class="btn-default btn-lg btn-block btn_pdf" name="BarCodeTransition" value="HaiguuDeclareReport" style="display: none;"></button>
                     <button  type="button" class="btn-close" id="closeModalButton">キャンセル</button>
                 </div>
                 @*2024-11-19 iwai-tamura upd-end ------*@

@@ -207,6 +207,12 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public string Address { get; set; }
 
+		//2024-11-19 iwai-tamura upd-str ------
+		/// <summary>
+		/// 比較用変更前住所
+		/// </summary>
+		public string AddressBefore { get; set; }
+		//2024-11-19 iwai-tamura upd-end ------
 
 		/// <summary>
 		/// 配偶者有無

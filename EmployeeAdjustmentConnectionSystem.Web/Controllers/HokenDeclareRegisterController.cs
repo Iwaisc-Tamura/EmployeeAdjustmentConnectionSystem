@@ -254,6 +254,15 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             try {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //2024-11-19 iwai-tamura upd-str ------
+                //バーコード読取の場合トップ画面に戻る
+                if ((string)Session["ReturnTopStatus"] == "1") {
+                    return RedirectToAction("Index", "Top");
+                }
+                //2024-11-19 iwai-tamura upd-end ------
+
+
                 //トップへ
                 //2023-11-20 iwai-tamura upd str -----
                 if (model.Head.AdminMode){

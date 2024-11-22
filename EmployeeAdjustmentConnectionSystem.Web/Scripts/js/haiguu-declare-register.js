@@ -48,6 +48,14 @@ $(function () {
     AdjustmentDeduction_ConditionControl();
 
 
+    //2024-11-20 iwai-tamura upd-str ------
+    //配偶者控除　老人控除対象配偶者に該当年
+    var sheetYear = parseInt(document.getElementById("Head_SheetYear").value);
+    var showaYear = sheetYear - 1994;
+    showaYearLabel.textContent = "(昭" + showaYear + ".1.1以前生)";
+    //2024-11-20 iwai-tamura upd-end ------
+
+
 
 
     //datepicker設定
@@ -74,6 +82,9 @@ $(function () {
             //2023-11-20 iwai-tamura upd str -----
             $(".btn-clear").attr('disabled', true);
             //2023-11-20 iwai-tamura upd end -----
+            //2024-11-19 iwai-tamura upd str -----
+            $(".btn-get").attr('disabled', true);
+            //2024-11-19 iwai-tamura upd end -----
             break;
 
         default:
@@ -84,6 +95,9 @@ $(function () {
             //2023-11-20 iwai-tamura upd str -----
             $(".btn-clear").attr('disabled', true);
             //2023-11-20 iwai-tamura upd end -----
+            //2024-11-19 iwai-tamura upd str -----
+            $(".btn-get").attr('disabled', true);
+            //2024-11-19 iwai-tamura upd end -----
 
             break;
     }
@@ -194,6 +208,9 @@ function calcBasicDeduction() {
     $("#BasicDeduction_CalcType_4").prop("checked", false);
     $("#BasicDeduction_CalcType_5").prop("checked", false);
     $("#BasicDeduction_CalcType_6").prop("checked", false);
+    //2024-11-19 iwai-tamura upd-str ------
+    $("#BasicDeduction_CalcType_7").prop("checked", false);
+    //2024-11-19 iwai-tamura upd-end ------
 
 
     //金額計算処理

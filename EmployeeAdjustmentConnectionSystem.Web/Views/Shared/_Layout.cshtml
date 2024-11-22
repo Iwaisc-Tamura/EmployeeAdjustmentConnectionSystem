@@ -105,9 +105,6 @@
                         {
                             @Html.AntiForgeryToken()
                             <ul class="nav navbar-nav navbar-right">
-                                @*2024-11-19 iwai-tamura upd-str ------*@
-                                <li>@Html.ActionLink("パスワード変更", "ChangePassword", "ChangePassword")</li>
-                                @*2024-11-19 iwai-tamura upd-end ------*@
                                 <li><a href="javascript:logoutMessage();">ログアウト</a></li>
                                 <li class="nav navbar-text" style="color:#000; ">User：@lu.UserName (@lu.UserCode)</li>
                             </ul>
