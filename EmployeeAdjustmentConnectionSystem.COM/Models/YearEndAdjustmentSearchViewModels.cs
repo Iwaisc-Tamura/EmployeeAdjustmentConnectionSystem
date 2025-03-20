@@ -30,6 +30,13 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
     /// 検索条件
     /// </summary>
     public class YearEndAdjustmentSearchModel : SearchModel {
+        //2025-03-99 iwai-tamura add-str ---
+        /// <summary>
+        /// 当年度
+        /// </summary>
+        public string CurrentYear { get; set; }
+        //2025-03-99 iwai-tamura add-end ---
+
         /// <summary>
         /// 扶養控除ステータス
         /// </summary>
