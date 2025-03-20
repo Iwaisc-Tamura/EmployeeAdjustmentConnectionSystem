@@ -20,6 +20,8 @@ using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.Drawing;
 using EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch.Reports;
+using System.Web.UI.WebControls;
+using CrystalDecisions.Web;
 //using EmployeeAdjustmentConnectionSystem.BL.SelfDeclareRegister;
 
 namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
@@ -135,47 +137,149 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     }
 
                     //帳票を出力
-                    //職掌番号により自己申告書の分岐を行う
-                    var HaiguuDeclareReport = new HaiguuDeclareReport();
 
-                    try
-                    {
-                        //ファイル名作成
-                        //2017-05-18 iwai-tamura upd str -----
-                        string fileName = row["対象年度"].ToString()
-                            + "_" + row["所属番号"].ToString()
-                            + "_" + row["社員番号"].ToString()
-                            + "_" + nowDate.ToString("yyyyMMddHHmmss")
-                            + ".pdf";
-                        //string fileName = row["社員番号"].ToString()
-                        //    + "_" + row["年度"].ToString() + "_"  + row["所属番号"].ToString() + "_" + nowDate.ToString("yyyyMMddHHmmss") + ".pdf";
-                        //2017-05-18 iwai-tamura upd end -----
+                    //2025-03-21 iwai-tamura upd-str ---
+                    //年度ごとにレポートを変更する
+                    //ファイル名作成
+                    string fileName = row["対象年度"].ToString()
+                        + "_" + row["所属番号"].ToString()
+                        + "_" + row["社員番号"].ToString()
+                        + "_" + nowDate.ToString("yyyyMMddHHmmss")
+                        + ".pdf";
 
-                        HaiguuDeclareReport.SetDataSource(dt);       //目標管理詳細をセット
-                        HaiguuDeclareReport.Refresh();
+                    switch (year) {
+                        case "2023":
+                            var HaiguuDeclareReport_2023 = new HaiguuDeclareReport_2023();
+                            try
+                            {
+                                HaiguuDeclareReport_2023.SetDataSource(dt);
+                                HaiguuDeclareReport_2023.Refresh();
 
-                        //目標管理基本パラメーターを設定
-                        HaiguuDeclareBaseSetting(ref HaiguuDeclareReport, row);
+                                //パラメーターを設定
 
-                        ////目標管理承認パラメーターを設定
-                        //SelfDeclareDApprovalSetting(ref crystalReportD, dataSet.Tables[0]);
+                                HaiguuDeclareBaseSetting_2023(ref HaiguuDeclareReport_2023, row);
+                                HaiguuDeclareReport_2023.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
 
-                        HaiguuDeclareReport.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+                                //pdf出力
+                                HaiguuDeclareReport_2023.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
 
-                        //pdf出力
-                        HaiguuDeclareReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+                            }
+                            catch (Exception ex)
+                            {
+                                //　TODO:エラー処理検討中
+                                throw ex;
+                                //throw;
+                            }
+                            finally
+                            {
+                                HaiguuDeclareReport_2023.Dispose();
+                            };
+                            break;
 
+                        case "2022":
+                        case "2024":
+                            var HaiguuDeclareReport_2024 = new HaiguuDeclareReport_2024();
+                            try
+                            {
+                                HaiguuDeclareReport_2024.SetDataSource(dt);
+                                HaiguuDeclareReport_2024.Refresh();
+
+                                //パラメーターを設定
+
+                                HaiguuDeclareBaseSetting_2024(ref HaiguuDeclareReport_2024, row);
+                                HaiguuDeclareReport_2024.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+                                //pdf出力
+                                HaiguuDeclareReport_2024.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                //　TODO:エラー処理検討中
+                                throw ex;
+                                //throw;
+                            }
+                            finally
+                            {
+                                HaiguuDeclareReport_2024.Dispose();
+                            };
+                            break;
+
+                        case "2025":
+                            var HaiguuDeclareReport_2025 = new HaiguuDeclareReport_2025();
+                            try
+                            {
+                                HaiguuDeclareReport_2025.SetDataSource(dt);
+                                HaiguuDeclareReport_2025.Refresh();
+
+                                //パラメーターを設定
+
+                                HaiguuDeclareBaseSetting_2025(ref HaiguuDeclareReport_2025, row);
+                                HaiguuDeclareReport_2025.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+                                //pdf出力
+                                HaiguuDeclareReport_2025.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                //　TODO:エラー処理検討中
+                                throw ex;
+                                //throw;
+                            }
+                            finally
+                            {
+                                HaiguuDeclareReport_2025.Dispose();
+                            };
+                            break;
                     }
-                    catch (Exception ex)
-                    {
-                        //　TODO:エラー処理検討中
-                        throw ex;
-                        //throw;
-                    }
-                    finally
-                    {
-                        HaiguuDeclareReport.Dispose();
-                    };
+
+                    //var HaiguuDeclareReport = new HaiguuDeclareReport();
+
+                    //try
+                    //{
+                    //    //ファイル名作成
+                    //    //2017-05-18 iwai-tamura upd str -----
+                    //    string fileName = row["対象年度"].ToString()
+                    //        + "_" + row["所属番号"].ToString()
+                    //        + "_" + row["社員番号"].ToString()
+                    //        + "_" + nowDate.ToString("yyyyMMddHHmmss")
+                    //        + ".pdf";
+                    //    //string fileName = row["社員番号"].ToString()
+                    //    //    + "_" + row["年度"].ToString() + "_"  + row["所属番号"].ToString() + "_" + nowDate.ToString("yyyyMMddHHmmss") + ".pdf";
+                    //    //2017-05-18 iwai-tamura upd end -----
+
+                    //    HaiguuDeclareReport.SetDataSource(dt);       //目標管理詳細をセット
+                    //    HaiguuDeclareReport.Refresh();
+
+                    //    //目標管理基本パラメーターを設定
+                    //    HaiguuDeclareBaseSetting(ref HaiguuDeclareReport, row);
+
+                    //    ////目標管理承認パラメーターを設定
+                    //    //SelfDeclareDApprovalSetting(ref crystalReportD, dataSet.Tables[0]);
+
+                    //    HaiguuDeclareReport.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+                    //    //pdf出力
+                    //    HaiguuDeclareReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    //　TODO:エラー処理検討中
+                    //    throw ex;
+                    //    //throw;
+                    //}
+                    //finally
+                    //{
+                    //    HaiguuDeclareReport.Dispose();
+                    //};
+
+
+                    //2025-03-21 iwai-tamura upd-end ---
+
+
+
                 }
 
                 // TODO:pdf複数出力で、どれか１つにエラーがあってもダウンロードできる状況
@@ -383,10 +487,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         }
 
         /// <summary>
-        /// 目標基本を帳票にセット
+        /// 基礎控除を帳票にセット
         /// </summary>
         /// <param name="cr">クリスタルレポート</param>
-        /// <param name="dr">目標管理基本DataRow</param>
+        /// <param name="dr">基礎控除DataRow</param>
         /// <returns>セット後のクリスタルレポート</returns>
         private void HaiguuDeclareBaseSetting(ref HaiguuDeclareReport cr, DataRow dr)
         {
@@ -450,6 +554,174 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             }
         }
         //2023-11-20 iwai-tamura test-end ------
+
+        //2025-03-21 iwai-tamura add-str ---
+        /// <summary>
+        /// 基礎控除申告書2023を帳票にセット
+        /// </summary>
+        /// <param name="cr">クリスタルレポート</param>
+        /// <param name="dr">基礎控除申告書DataRow</param>
+        /// <returns>セット後のクリスタルレポート</returns>
+        private void HaiguuDeclareBaseSetting_2023(ref HaiguuDeclareReport_2023 cr, DataRow dr)
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //datetimeに変換できたら和暦、だめだったら空をreturn
+                Func<string, string, string> wareki = delegate (string val, string format) {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? DataConv.Date2Jcal(dt, format) : "";
+                };
+
+                Func<string, string, string> nengappi = delegate (string val, string format) {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? dt.ToString(format) : "";
+                };
+
+                //年齢表示用
+                Func<string, string> ageView = (val1) => {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return val1 + "歳";
+                    }
+                    return null;
+                };
+
+                //チェックボックス表示用
+                Func<string, string> checkView = (val1) => {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return (val1 == "1") ? "☑" : "□";
+                    }
+                    return "□";
+                };
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
+        /// 基礎控除申告書2024を帳票にセット
+        /// </summary>
+        /// <param name="cr">クリスタルレポート</param>
+        /// <param name="dr">基礎控除申告書DataRow</param>
+        /// <returns>セット後のクリスタルレポート</returns>
+        private void HaiguuDeclareBaseSetting_2024(ref HaiguuDeclareReport_2024 cr, DataRow dr)
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //datetimeに変換できたら和暦、だめだったら空をreturn
+                Func<string, string, string> wareki = delegate (string val, string format) {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? DataConv.Date2Jcal(dt, format) : "";
+                };
+
+                Func<string, string, string> nengappi = delegate (string val, string format) {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? dt.ToString(format) : "";
+                };
+
+                //年齢表示用
+                Func<string, string> ageView = (val1) => {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return val1 + "歳";
+                    }
+                    return null;
+                };
+
+                //チェックボックス表示用
+                Func<string, string> checkView = (val1) => {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return (val1 == "1") ? "☑" : "□";
+                    }
+                    return "□";
+                };
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        
+        /// <summary>
+        /// 基礎控除申告書2025を帳票にセット
+        /// </summary>
+        /// <param name="cr">クリスタルレポート</param>
+        /// <param name="dr">基礎控除申告書DataRow</param>
+        /// <returns>セット後のクリスタルレポート</returns>
+        private void HaiguuDeclareBaseSetting_2025(ref HaiguuDeclareReport_2025 cr, DataRow dr)
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //datetimeに変換できたら和暦、だめだったら空をreturn
+                Func<string, string, string> wareki = delegate (string val, string format) {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? DataConv.Date2Jcal(dt, format) : "";
+                };
+
+                Func<string, string, string> nengappi = delegate (string val, string format) {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? dt.ToString(format) : "";
+                };
+
+                //年齢表示用
+                Func<string, string> ageView = (val1) => {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return val1 + "歳";
+                    }
+                    return null;
+                };
+
+                //チェックボックス表示用
+                Func<string, string> checkView = (val1) => {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return (val1 == "1") ? "☑" : "□";
+                    }
+                    return "□";
+                };
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }        
+        //2025-03-21 iwai-tamura add-end ---
+
 
         //2023-11-20 iwai-terao test-str 扶養控除ボタン------
         /// <summary>
@@ -516,43 +788,140 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     }
 
                     //帳票を出力
-                    //職掌番号により自己申告書の分岐を行う
-                    var HuyouDeclareReport = new HuyouDeclareReport();
+                    //2025-03-21 iwai-tamura upd-str ---
+                    //年度ごとにレポートを変更する
+                    //ファイル名作成
+                    string fileName = row["対象年度"].ToString()
+                        + "_" + row["所属番号"].ToString()
+                        + "_" + row["社員番号"].ToString()
+                        + "_" + nowDate.ToString("yyyyMMddHHmmss")
+                        + ".pdf";
 
-                    try
-                    {
-                        //ファイル名作成
-                        string fileName = row["対象年度"].ToString()
-                            + "_" + row["所属番号"].ToString()
-                            + "_" + row["社員番号"].ToString()
-                            + "_" + nowDate.ToString("yyyyMMddHHmmss")
-                            + ".pdf";
+                    switch (year) {
+                        case "2023":
+                            var HuyouDeclareReport_2023 = new HuyouDeclareReport_2023();
+                            try
+                            {
+                                HuyouDeclareReport_2023.SetDataSource(dt);
+                                HuyouDeclareReport_2023.Refresh();
 
-                        HuyouDeclareReport.SetDataSource(dt);       //目標管理詳細をセット
-                        HuyouDeclareReport.Refresh();
+                                //パラメーターを設定
 
-                        //目標管理基本パラメーターを設定
-                        HuyouDeclareBaseSetting(ref HuyouDeclareReport, row);
+                                HuyouDeclareBaseSetting_2023(ref HuyouDeclareReport_2023, row);
+                                HuyouDeclareReport_2023.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
 
-                        ////目標管理承認パラメーターを設定
-                        //SelfDeclareDApprovalSetting(ref crystalReportD, dataSet.Tables[0]);
+                                //pdf出力
+                                HuyouDeclareReport_2023.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
 
-                        HuyouDeclareReport.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+                            }
+                            catch (Exception ex)
+                            {
+                                //　TODO:エラー処理検討中
+                                throw ex;
+                                //throw;
+                            }
+                            finally
+                            {
+                                HuyouDeclareReport_2023.Dispose();
+                            };
+                            break;
 
-                        //pdf出力
-                        HuyouDeclareReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+                        case "2022":
+                        case "2024":
+                            var HuyouDeclareReport_2024 = new HuyouDeclareReport_2024();
+                            try
+                            {
+                                HuyouDeclareReport_2024.SetDataSource(dt);
+                                HuyouDeclareReport_2024.Refresh();
 
+                                //パラメーターを設定
+
+                                HuyouDeclareBaseSetting_2024(ref HuyouDeclareReport_2024, row);
+                                HuyouDeclareReport_2024.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+                                //pdf出力
+                                HuyouDeclareReport_2024.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                //　TODO:エラー処理検討中
+                                throw ex;
+                                //throw;
+                            }
+                            finally
+                            {
+                                HuyouDeclareReport_2024.Dispose();
+                            };
+                            break;
+
+                        case "2025":
+                            var HuyouDeclareReport_2025 = new HuyouDeclareReport_2025();
+                            try
+                            {
+                                HuyouDeclareReport_2025.SetDataSource(dt);
+                                HuyouDeclareReport_2025.Refresh();
+
+                                //パラメーターを設定
+
+                                HuyouDeclareBaseSetting_2025(ref HuyouDeclareReport_2025, row);
+                                HuyouDeclareReport_2025.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+                                //pdf出力
+                                HuyouDeclareReport_2025.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                //　TODO:エラー処理検討中
+                                throw ex;
+                                //throw;
+                            }
+                            finally
+                            {
+                                HuyouDeclareReport_2025.Dispose();
+                            };
+                            break;
                     }
-                    catch (Exception ex)
-                    {
-                        //　TODO:エラー処理検討中
-                        throw ex;
-                        //throw;
-                    }
-                    finally
-                    {
-                        HuyouDeclareReport.Dispose();
-                    };
+
+
+                    //var HuyouDeclareReport = new HuyouDeclareReport();
+                    //try
+                    //{
+                    //    //ファイル名作成
+                    //    string fileName = row["対象年度"].ToString()
+                    //        + "_" + row["所属番号"].ToString()
+                    //        + "_" + row["社員番号"].ToString()
+                    //        + "_" + nowDate.ToString("yyyyMMddHHmmss")
+                    //        + ".pdf";
+
+                    //    HuyouDeclareReport.SetDataSource(dt);       //目標管理詳細をセット
+                    //    HuyouDeclareReport.Refresh();
+
+                    //    //目標管理基本パラメーターを設定
+
+                    //    HuyouDeclareBaseSetting(ref HuyouDeclareReport_2025, row);
+
+                    //    ////目標管理承認パラメーターを設定
+                    //    //SelfDeclareDApprovalSetting(ref crystalReportD, dataSet.Tables[0]);
+
+                    //    HuyouDeclareReport.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+                    //    //pdf出力
+                    //    HuyouDeclareReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    //　TODO:エラー処理検討中
+                    //    throw ex;
+                    //    //throw;
+                    //}
+                    //finally
+                    //{
+                    //    HuyouDeclareReport.Dispose();
+                    //};
+                    //2025-03-21 iwai-tamura upd-end ---
                 }
 
                 // TODO:pdf複数出力で、どれか１つにエラーがあってもダウンロードできる状況
@@ -920,12 +1289,15 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         }
 
         /// <summary>
-        /// 目標基本を帳票にセット
+        /// 扶養控除を帳票にセット
         /// </summary>
         /// <param name="cr">クリスタルレポート</param>
-        /// <param name="dr">目標管理基本DataRow</param>
+        /// <param name="dr">扶養控除DataRow</param>
         /// <returns>セット後のクリスタルレポート</returns>
+        //2025-03-21 iwai-tamura upd-str ---
         private void HuyouDeclareBaseSetting(ref HuyouDeclareReport cr, DataRow dr)
+        //private void HuyouDeclareBaseSetting(ref HuyouDeclareReport cr, DataRow dr)
+        //2025-03-21 iwai-tamura upd-str ---
         {
             try
             {
@@ -992,6 +1364,184 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         }
         //2023-11-20 iwai-terao test-end ------
 
+        //2025-03-21 iwai-tamura upd-str ---
+        /// <summary>
+        /// 扶養控除申告書2023を帳票にセット
+        /// </summary>
+        /// <param name="cr">クリスタルレポート</param>
+        /// <param name="dr">扶養控除申告書DataRow</param>
+        /// <returns>セット後のクリスタルレポート</returns>
+        private void HuyouDeclareBaseSetting_2023(ref HuyouDeclareReport_2023 cr, DataRow dr)
+        {
+            try
+            {
+                //開始
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+                //datetimeに変換できたら和暦、だめだったら空をreturn
+                Func<string, string, string> wareki = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? DataConv.Date2Jcal(dt, format) : "";
+                };
+
+                Func<string, string, string> nengappi = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? dt.ToString(format) : "";
+                };
+
+                //年齢表示用
+                Func<string, string> ageView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return val1 + "歳";
+                    }
+                    return null;
+                };
+
+                //チェックボックス表示用
+                Func<string, string> checkView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return (val1 == "1") ? "☑" : "□";
+                    }
+                    return "□";
+                };
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        /// <summary>
+        /// 扶養控除申告書2024を帳票にセット
+        /// </summary>
+        /// <param name="cr">クリスタルレポート</param>
+        /// <param name="dr">扶養控除申告書DataRow</param>
+        /// <returns>セット後のクリスタルレポート</returns>
+        private void HuyouDeclareBaseSetting_2024(ref HuyouDeclareReport_2024 cr, DataRow dr)
+        {
+            try
+            {
+                //開始
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+                //datetimeに変換できたら和暦、だめだったら空をreturn
+                Func<string, string, string> wareki = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? DataConv.Date2Jcal(dt, format) : "";
+                };
+
+                Func<string, string, string> nengappi = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? dt.ToString(format) : "";
+                };
+
+                //年齢表示用
+                Func<string, string> ageView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return val1 + "歳";
+                    }
+                    return null;
+                };
+
+                //チェックボックス表示用
+                Func<string, string> checkView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return (val1 == "1") ? "☑" : "□";
+                    }
+                    return "□";
+                };
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        /// <summary>
+        /// 扶養控除申告書2025を帳票にセット
+        /// </summary>
+        /// <param name="cr">クリスタルレポート</param>
+        /// <param name="dr">扶養控除申告書DataRow</param>
+        /// <returns>セット後のクリスタルレポート</returns>
+        private void HuyouDeclareBaseSetting_2025(ref HuyouDeclareReport_2025 cr, DataRow dr)
+        {
+            try
+            {
+                //開始
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+                //datetimeに変換できたら和暦、だめだったら空をreturn
+                Func<string, string, string> wareki = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? DataConv.Date2Jcal(dt, format) : "";
+                };
+
+                Func<string, string, string> nengappi = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? dt.ToString(format) : "";
+                };
+
+                //年齢表示用
+                Func<string, string> ageView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return val1 + "歳";
+                    }
+                    return null;
+                };
+
+                //チェックボックス表示用
+                Func<string, string> checkView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return (val1 == "1") ? "☑" : "□";
+                    }
+                    return "□";
+                };
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        //2025-03-21 iwai-tamura upd-end ---
+
+
 
         //2023-11-20 iwai-terao test-str 保険料控除ボタン------
         /// <summary>
@@ -1055,39 +1605,141 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     }
 
                     //帳票を出力
-                    var HokenDeclareReport = new HokenDeclareReport();
+                    //2025-03-21 iwai-tamura upd-str ---
+                    //年度ごとにレポートを変更する
+                    //ファイル名作成
+                    string fileName = row["対象年度"].ToString()
+                        + "_" + row["所属番号"].ToString()
+                        + "_" + row["社員番号"].ToString()
+                        + "_" + nowDate.ToString("yyyyMMddHHmmss")
+                        + ".pdf";
 
-                    try
-                    {
-                        //ファイル名作成
-                        string fileName = row["対象年度"].ToString()
-                            + "_" + row["所属番号"].ToString()
-                            + "_" + row["社員番号"].ToString()
-                            + "_" + nowDate.ToString("yyyyMMddHHmmss")
-                            + ".pdf";
+                    switch (year) {
+                        case "2023":
+                            var HokenDeclareReport_2023 = new HokenDeclareReport_2023();
+                            try
+                            {
+                                HokenDeclareReport_2023.SetDataSource(dt);
+                                HokenDeclareReport_2023.Refresh();
 
-                        HokenDeclareReport.SetDataSource(dt);       //データをセット
-                        HokenDeclareReport.Refresh();
+                                //パラメーターを設定
 
-                        //パラメーターを設定
-                        HokenDeclareBaseSetting(ref HokenDeclareReport, row);
+                                HokenDeclareBaseSetting_2023(ref HokenDeclareReport_2023, row);
+                                HokenDeclareReport_2023.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
 
-                        HokenDeclareReport.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+                                //pdf出力
+                                HokenDeclareReport_2023.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
 
-                        //pdf出力
-                        HokenDeclareReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+                            }
+                            catch (Exception ex)
+                            {
+                                //　TODO:エラー処理検討中
+                                throw ex;
+                                //throw;
+                            }
+                            finally
+                            {
+                                HokenDeclareReport_2023.Dispose();
+                            };
+                            break;
 
+                        case "2022":
+                        case "2024":
+                            var HokenDeclareReport_2024 = new HokenDeclareReport_2024();
+                            try
+                            {
+                                HokenDeclareReport_2024.SetDataSource(dt);
+                                HokenDeclareReport_2024.Refresh();
+
+                                //パラメーターを設定
+
+                                HokenDeclareBaseSetting_2024(ref HokenDeclareReport_2024, row);
+                                HokenDeclareReport_2024.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+                                //pdf出力
+                                HokenDeclareReport_2024.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                //　TODO:エラー処理検討中
+                                throw ex;
+                                //throw;
+                            }
+                            finally
+                            {
+                                HokenDeclareReport_2024.Dispose();
+                            };
+                            break;
+
+                        case "2025":
+                            var HokenDeclareReport_2025 = new HokenDeclareReport_2025();
+                            try
+                            {
+                                HokenDeclareReport_2025.SetDataSource(dt);
+                                HokenDeclareReport_2025.Refresh();
+
+                                //パラメーターを設定
+
+                                HokenDeclareBaseSetting_2025(ref HokenDeclareReport_2025, row);
+                                HokenDeclareReport_2025.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+                                //pdf出力
+                                HokenDeclareReport_2025.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                //　TODO:エラー処理検討中
+                                throw ex;
+                                //throw;
+                            }
+                            finally
+                            {
+                                HokenDeclareReport_2025.Dispose();
+                            };
+                            break;
                     }
-                    catch (Exception ex)
-                    {
-                        //　TODO:エラー処理検討中
-                        throw ex;
-                        //throw;
-                    }
-                    finally
-                    {
-                        HokenDeclareReport.Dispose();
-                    };
+
+
+                    //var HokenDeclareReport = new HokenDeclareReport();
+
+                    //try
+                    //{
+                    //    //ファイル名作成
+                    //    string fileName = row["対象年度"].ToString()
+                    //        + "_" + row["所属番号"].ToString()
+                    //        + "_" + row["社員番号"].ToString()
+                    //        + "_" + nowDate.ToString("yyyyMMddHHmmss")
+                    //        + ".pdf";
+
+                    //    HokenDeclareReport.SetDataSource(dt);       //データをセット
+                    //    HokenDeclareReport.Refresh();
+
+                    //    //パラメーターを設定
+                    //    HokenDeclareBaseSetting(ref HokenDeclareReport, row);
+
+                    //    HokenDeclareReport.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+                    //    //pdf出力
+                    //    HokenDeclareReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    //　TODO:エラー処理検討中
+                    //    throw ex;
+                    //    //throw;
+                    //}
+                    //finally
+                    //{
+                    //    HokenDeclareReport.Dispose();
+                    //};
+                    //2025-03-21 iwai-tamura upd-end ---
+
+
+
+
                 }
 
                 // TODO:pdf複数出力で、どれか１つにエラーがあってもダウンロードできる状況
@@ -1507,10 +2159,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         }
 
         /// <summary>
-        /// 目標基本を帳票にセット
+        /// 保険料控除申告書を帳票にセット
         /// </summary>
         /// <param name="cr">クリスタルレポート</param>
-        /// <param name="dr">目標管理基本DataRow</param>
+        /// <param name="dr">保険料控除申告書DataRow</param>
         /// <returns>セット後のクリスタルレポート</returns>
         private void HokenDeclareBaseSetting(ref HokenDeclareReport cr, DataRow dr)
         {
@@ -1578,6 +2230,186 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             }
         }
         //2023-11-20 iwai-terao test-end ------
+
+        //2025-03-21 iwai-tamura add-str ---
+        /// <summary>
+        /// 保険料控除申告書2023を帳票にセット
+        /// </summary>
+        /// <param name="cr">クリスタルレポート</param>
+        /// <param name="dr">保険料控除申告書DataRow</param>
+        /// <returns>セット後のクリスタルレポート</returns>
+        private void HokenDeclareBaseSetting_2023(ref HokenDeclareReport_2023 cr, DataRow dr)
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+                //datetimeに変換できたら和暦、だめだったら空をreturn
+                Func<string, string, string> wareki = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? DataConv.Date2Jcal(dt, format) : "";
+                };
+
+                Func<string, string, string> nengappi = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? dt.ToString(format) : "";
+                };
+
+                //年齢表示用
+                Func<string, string> ageView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return val1 + "歳";
+                    }
+                    return null;
+                };
+
+                //チェックボックス表示用
+                Func<string, string> checkView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return (val1 == "1") ? "☑" : "□";
+                    }
+                    return "□";
+                };
+
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
+        /// 保険料控除申告書2024を帳票にセット
+        /// </summary>
+        /// <param name="cr">クリスタルレポート</param>
+        /// <param name="dr">保険料控除申告書DataRow</param>
+        /// <returns>セット後のクリスタルレポート</returns>
+        private void HokenDeclareBaseSetting_2024(ref HokenDeclareReport_2024 cr, DataRow dr)
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+                //datetimeに変換できたら和暦、だめだったら空をreturn
+                Func<string, string, string> wareki = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? DataConv.Date2Jcal(dt, format) : "";
+                };
+
+                Func<string, string, string> nengappi = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? dt.ToString(format) : "";
+                };
+
+                //年齢表示用
+                Func<string, string> ageView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return val1 + "歳";
+                    }
+                    return null;
+                };
+
+                //チェックボックス表示用
+                Func<string, string> checkView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return (val1 == "1") ? "☑" : "□";
+                    }
+                    return "□";
+                };
+
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
+        /// 保険料控除申告書2025を帳票にセット
+        /// </summary>
+        /// <param name="cr">クリスタルレポート</param>
+        /// <param name="dr">保険料控除申告書DataRow</param>
+        /// <returns>セット後のクリスタルレポート</returns>
+        private void HokenDeclareBaseSetting_2025(ref HokenDeclareReport_2025 cr, DataRow dr)
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+                //datetimeに変換できたら和暦、だめだったら空をreturn
+                Func<string, string, string> wareki = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? DataConv.Date2Jcal(dt, format) : "";
+                };
+
+                Func<string, string, string> nengappi = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? dt.ToString(format) : "";
+                };
+
+                //年齢表示用
+                Func<string, string> ageView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return val1 + "歳";
+                    }
+                    return null;
+                };
+
+                //チェックボックス表示用
+                Func<string, string> checkView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return (val1 == "1") ? "☑" : "□";
+                    }
+                    return "□";
+                };
+
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        //2025-03-21 iwai-tamura add-end ---
 
 
 
