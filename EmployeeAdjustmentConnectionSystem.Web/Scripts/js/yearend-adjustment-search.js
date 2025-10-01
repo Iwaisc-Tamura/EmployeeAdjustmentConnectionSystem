@@ -43,8 +43,6 @@ $('#Search_DepartmentFrom').change(function () {
 });
 
 
-
-
 /*
  * 全選択・全解除をクリック時
  */
@@ -61,10 +59,17 @@ $('.allCheck input').click(function () {
  * 検索ボタンクリック時
  */
 $('#dmysearch').click(function () {
-  //ローディングパネル表示
-  showLoading();
-  //ボタンクリック
-  $('#searchbutton').trigger('click');
+    //2025-03-21 iwai-tamura add-str ---
+    if (document.getElementById('Search_Year').value == '') {
+        showMessage('警告', '対象となる年度が入力されていません。');
+        return false;
+    }
+    //2025-03-21 iwai-tamura add-end ---
+
+    //ローディングパネル表示
+    showLoading();
+    //ボタンクリック
+    $('#searchbutton').trigger('click');
 });
 
 /*
@@ -92,12 +97,47 @@ $('#dmyselfinput').click(function () {
  * 一括確定ボタンクリック時
  */
 $('#dmysignbatch_huyou').click(function () {
+
+    //2025-03-21 iwai-tamura add-str ---
+    // チェックボックスの情報取得
+    const checkboxes = document.querySelectorAll('input[name="selPrint"]:checked');
+
+    // チェックが付いている数を取得
+    const checkedCount = checkboxes.length;
+    if (checkedCount == 0) {
+        showMessage('選択', '対象者が１件も選択されていません。<br>対象者を選択してください。');
+        return false;
+    }
+    //2025-03-21 iwai-tamura add-end ---
+
     showMessage('一括確定', '確定しますか？', 'signbatch_huyou_button', false);
 });
 $('#dmysignbatch_hoken').click(function () {
+    //2025-03-21 iwai-tamura add-str ---
+    // チェックボックスの情報取得
+    const checkboxes = document.querySelectorAll('input[name="selPrint"]:checked');
+
+    // チェックが付いている数を取得
+    const checkedCount = checkboxes.length;
+    if (checkedCount == 0) {
+        showMessage('選択', '対象者が１件も選択されていません。<br>対象者を選択してください。');
+        return false;
+    }
+    //2025-03-21 iwai-tamura add-end ---
     showMessage('一括確定', '確定しますか？', 'signbatch_hoken_button', false);
 });
 $('#dmysignbatch_haiguu').click(function () {
+    //2025-03-21 iwai-tamura add-str ---
+    // チェックボックスの情報取得
+    const checkboxes = document.querySelectorAll('input[name="selPrint"]:checked');
+
+    // チェックが付いている数を取得
+    const checkedCount = checkboxes.length;
+    if (checkedCount == 0) {
+        showMessage('選択', '対象者が１件も選択されていません。<br>対象者を選択してください。');
+        return false;
+    }
+    //2025-03-21 iwai-tamura add-end ---
     showMessage('一括確定', '確定しますか？', 'signbatch_haiguu_button', false);
 });
 
@@ -105,12 +145,45 @@ $('#dmysignbatch_haiguu').click(function () {
  * 一括帳票出力ボタンクリック時
  */
 $('#dmyprintbatch_huyou').click(function () {
+    //2025-03-21 iwai-tamura add-str ---
+    // チェックボックスの情報取得
+    const checkboxes = document.querySelectorAll('input[name="selPrint"]:checked');
+
+    // チェックが付いている数を取得
+    const checkedCount = checkboxes.length;
+    if (checkedCount == 0) {
+        showMessage('選択', '対象者が１件も選択されていません。<br>対象者を選択してください。');
+        return false;
+    }
+    //2025-03-21 iwai-tamura add-end ---
     showMessage('帳票出力', '出力しますか？', 'printbatch_huyou_button', false);
 });
 $('#dmyprintbatch_hoken').click(function () {
+    //2025-03-21 iwai-tamura add-str ---
+    // チェックボックスの情報取得
+    const checkboxes = document.querySelectorAll('input[name="selPrint"]:checked');
+
+    // チェックが付いている数を取得
+    const checkedCount = checkboxes.length;
+    if (checkedCount == 0) {
+        showMessage('選択', '対象者が１件も選択されていません。<br>対象者を選択してください。');
+        return false;
+    }
+    //2025-03-21 iwai-tamura add-end ---
     showMessage('帳票出力', '出力しますか？', 'printbatch_hoken_button', false);
 });
 $('#dmyprintbatch_haiguu').click(function () {
+    //2025-03-21 iwai-tamura add-str ---
+    // チェックボックスの情報取得
+    const checkboxes = document.querySelectorAll('input[name="selPrint"]:checked');
+
+    // チェックが付いている数を取得
+    const checkedCount = checkboxes.length;
+    if (checkedCount == 0) {
+        showMessage('選択', '対象者が１件も選択されていません。<br>対象者を選択してください。');
+        return false;
+    }
+    //2025-03-21 iwai-tamura add-end ---
     showMessage('帳票出力', '出力しますか？', 'printbatch_haiguu_button', false);
 });
 
@@ -143,6 +216,35 @@ $('#dmysign').click(function () {
   //ボタンクリック
   showMessage('一括承認', '承認しますか？', 'signbutton', true);
 });
+
+
+//2024-12-24 iwai-tamura add-str ---
+/*
+ * メール配信ボタンクリック時
+ */
+$('#dmysendmailbutton').click(function () {
+    // チェックボックスの情報取得
+    const checkboxes = document.querySelectorAll('input[name="selPrint"]:checked');
+
+    // チェックが付いている数を取得
+    const checkedCount = checkboxes.length;
+
+    //2025-03-21 iwai-tamura add-str ---
+    if (checkedCount == 0) {
+        showMessage('選択', '対象者が１件も選択されていません。<br>対象者を選択してください。');
+        return false;
+    }
+    //2025-03-21 iwai-tamura add-end ---
+
+    if (checkedCount > 10) {
+        showMessage('メール配信', '同時に配信できるのは10件までです。<br>選択を減らしてください。');
+        return false;
+    }
+
+    //ボタンクリック
+    showMessage('メール配信', '選択された対象者に催促メールを配信します。<br>よろしいですか？', 'sendmailbutton', true);
+});
+//2024-12-24 iwai-tamura add-end ---
 
 //2017-03-31 sbc-sagara add str 一括Excel出力ボタン追加
 // 

@@ -90,6 +90,13 @@
     @Html.HiddenFor(m => m.Head.CancelButton)
     @Html.HiddenFor(m => m.Head.AdminMode)
 
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    @Html.HiddenFor(m => m.Head.AddressBefore)  @*比較用変更前住所*@
+    @Html.HiddenFor(m => m.Head.FamilyCount)
+    @*2024-11-19 iwai-tamura upd-end ------*@
+
+
+
     @*データ日時取得*@
     <!--ボタンエリア-->
     <div class="row">
@@ -514,7 +521,10 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">所属番号</td>
-                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DepartmentNo, DepartmentNo)<span class="required"></span><span class="required">※必須</span><div id="Head_DepartmentNo_mes" class="check-comment"></div></td>
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DepartmentNo, DepartmentNo)<span class="required"></span><span class="required">※必須</span><div id="Head_DepartmentNo_mes" class="check-comment" data-fieldname="本人情報:所属番号"></div></td>
+                        @*<td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.DepartmentNo, DepartmentNo)<span class="required"></span><span class="required">※必須</span><div id="Head_DepartmentNo_mes" class="check-comment" ></div></td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">氏名</td>
@@ -522,7 +532,10 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
-                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.Kana2, TextKana)<span class="required">※必須</span><div id="Head_Kana_mes" class="check-comment"></div></td>
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.Kana2, TextKana)<span class="required">※必須</span><div id="Head_Kana_mes" class="check-comment" data-fieldname="本人情報:フリガナ"></div></td>
+                        @*<td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.Kana2, TextKana)<span class="required">※必須</span><div id="Head_Kana_mes" class="check-comment" ></div></td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">生年月日</td>
@@ -530,7 +543,10 @@
                             @setYearDdl(false, "Birthday", "Year", Model.Head.BirthdayYear, yearItems) 年
                             @setYearDdl(false, "Birthday", "Month", Model.Head.BirthdayMonth, monthItems) 月
                             @setYearDdl(false, "Birthday", "Day", Model.Head.BirthdayDay, dayItems) 日
-                            <span class="required">※必須</span><div id="Head_Birthday_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <span class="required">※必須</span><div id="Head_Birthday_mes" class="check-comment" data-fieldname="本人情報:生年月日"></div>
+                            @*<span class="required">※必須</span><div id="Head_Birthday_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -595,7 +611,13 @@
     var TaxWithholding_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead TaxWithholdingAddress_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     @*2023-11-20 iwai-tamura add-str ------*@
     var TaxWithholding_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_TaxWithholding_Income',950000)" } };
-    var TaxWithholding_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+
+    //var TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "20" }, { "type", "number" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var TaxWithholding_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var TaxWithholding_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var TaxWithholding_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other TaxWithholding_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_TaxWithholding_Income',950000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
     var attrRadioA_1_1 = new Dictionary<string, object>() { { "name", "attrRadioA_1" }, { "id", "select_radioA_1_1" } };
@@ -618,9 +640,17 @@
 
                 <thead>
                     <tr class="content-label-h2">
-                        <td colspan="8">
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="2" style="border: none;">
                             Ａ 源泉控除対象配偶者
                         </td>
+                        <td colspan="6" style="color: red; font-size: 10px; border: none;">
+                            ※会社で保有している情報が記載されています。<br>　対象外とする場合はバックスペースで消さず[対象外区分]にチェックを入れてください。
+                        </td>
+                        @*<td colspan="8">
+                            Ａ 源泉控除対象配偶者
+                        </td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                 </thead>
                 <tbody>
@@ -633,7 +663,10 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
-                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.TaxWithholding_Kana1, TaxWithholding_TextKana)　名 @Html.TextBoxFor(m => m.Head.TaxWithholding_Kana2, TaxWithholding_TextKana)<div id="Head_TaxWithholding_Kana_mes" class="check-comment"></div></td>
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.TaxWithholding_Kana1, TaxWithholding_TextKana)　名 @Html.TextBoxFor(m => m.Head.TaxWithholding_Kana2, TaxWithholding_TextKana)<div id="Head_TaxWithholding_Kana_mes" class="check-comment" data-fieldname="源泉控除対象配偶者:フリガナ"></div></td>
+                        @*<td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.TaxWithholding_Kana1, TaxWithholding_TextKana)　名 @Html.TextBoxFor(m => m.Head.TaxWithholding_Kana2, TaxWithholding_TextKana)<div id="Head_TaxWithholding_Kana_mes" class="check-comment"></div></td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -645,7 +678,10 @@
                             @setYearDdl2(false, "TaxWithholding_Birthday", "0", calcSheetYear, "Year", Model.Head.TaxWithholding_BirthdayYear, yearItems, "TaxWithholding_isRead") 年
                             @setYearDdl2(false, "TaxWithholding_Birthday", "0", calcSheetYear, "Month", Model.Head.TaxWithholding_BirthdayMonth, monthItems, "TaxWithholding_isRead") 月
                             @setYearDdl2(false, "TaxWithholding_Birthday", "0", calcSheetYear, "Day", Model.Head.TaxWithholding_BirthdayDay, dayItems, "TaxWithholding_isRead") 日
-                            <div id="Head_TaxWithholding_Birthday_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_TaxWithholding_Birthday_mes" class="check-comment" data-fieldname="源泉控除対象配偶者:生年月日"></div>
+                            @*<div id="Head_TaxWithholding_Birthday_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     @*2023-11-20 iwai-tamura add-str ------*@
@@ -654,21 +690,30 @@
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.TaxWithholding_Earnings, TaxWithholding_TextMoney2) 円
-                            <div id="Head_TaxWithholding_Earnings_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_TaxWithholding_Earnings_mes" class="check-comment" data-fieldname="源泉控除対象配偶者:収入金額"></div>
+                            @*<div id="Head_TaxWithholding_Earnings_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.TaxWithholding_Earnings2Income, TaxWithholding_TextMoney1) 円
-                            <div id="Head_TaxWithholding_Earnings2Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_TaxWithholding_Earnings2Income_mes" class="check-comment" data-fieldname="源泉控除対象配偶者:所得金額"></div>
+                            @*<div id="Head_TaxWithholding_Earnings2Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.TaxWithholding_OtherIncome, TaxWithholding_TextMoney2) 円
-                            <div id="Head_TaxWithholding_OtherIncome_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_TaxWithholding_OtherIncome_mes" class="check-comment" data-fieldname="源泉控除対象配偶者:合計額"></div>
+                            @*<div id="Head_TaxWithholding_OtherIncome_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
 
@@ -676,7 +721,10 @@
                         <td colspan="2" class="content-label-b1">合計額所得金額の見積額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.TaxWithholding_Income, TaxWithholding_TextMoney1) 円
-                            <div id="Head_TaxWithholding_Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_TaxWithholding_Income_mes" class="check-comment" data-fieldname="源泉控除対象配偶者:見積額"></div>
+                            @*<div id="Head_TaxWithholding_Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     @*<tr>
@@ -729,7 +777,11 @@
 
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsOver16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_1_Income',480000)" } };
-    var DependentsOver16_1_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsOver16_1_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsOver16_1_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
+
     //var DependentsOver16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_1_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_1_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -785,9 +837,17 @@
 
                 <thead>
                     <tr class="content-label-h3">
-                        <td colspan="8">
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="3" style="border: none;">
                             １ 控除対象扶養親族(16歳以上)
                         </td>
+                        <td colspan="5" style="color: red; font-size: 10px; border: none;">
+                            ※会社で保有している情報が記載されています。<br>　対象外とする場合はバックスペースで消さず[対象外区分]にチェックを入れてください。
+                        </td>
+                        @*<td colspan="8">
+                            １ 控除対象扶養親族(16歳以上)
+                        </td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                 </thead>
                 <tbody>
@@ -800,7 +860,10 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
-                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Kana1, DependentsOver16_1_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Kana2, DependentsOver16_1_TextKana)<div id="Head_DependentsOver16_1_Kana_mes" class="check-comment"></div></td>
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Kana1, DependentsOver16_1_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Kana2, DependentsOver16_1_TextKana)<div id="Head_DependentsOver16_1_Kana_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 1:フリガナ"></div></td>
+                        @*<td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Kana1, DependentsOver16_1_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Kana2, DependentsOver16_1_TextKana)<div id="Head_DependentsOver16_1_Kana_mes" class="check-comment"></div></td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -818,7 +881,10 @@
                             @setYearDdl2(false, "DependentsOver16_1_Birthday", "1", calcSheetYear, "Month", Model.Head.DependentsOver16_1_BirthdayMonth, monthItems, "DependentsOver16_1_isRead") 月
                             @setYearDdl2(false, "DependentsOver16_1_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_1_BirthdayDay, dayItems, "DependentsOver16_1_isRead") 日*@
                             @*2023-11-20 iwai-tamura upd-end ------*@
-                            <div id="Head_DependentsOver16_1_Birthday_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_1_Birthday_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 1:生年月日"></div>
+                            @*<div id="Head_DependentsOver16_1_Birthday_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
 
@@ -832,7 +898,10 @@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_OldmanType, "2", attrRadioB1_1_3)
                             <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_1_3">その他</label>
                             @*2023-11-20 iwai-tamura add-str ------*@
-                            <div id="Head_DependentsOver16_1_OldmanType_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_1_OldmanType_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 1:老人扶養"></div>
+                            @*<div id="Head_DependentsOver16_1_OldmanType_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                             @*2023-11-20 iwai-tamura add-end ------*@
                         </td>                    
                     </tr>
@@ -844,7 +913,10 @@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_SpecificType, "1", attrRadioB1_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_2_2">特定扶養親族</label>
                             @*2023-11-20 iwai-tamura add-str ------*@
-                            <div id="Head_DependentsOver16_1_SpecificType_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_1_SpecificType_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 1:特定扶養親族"></div>
+                            @*<div id="Head_DependentsOver16_1_SpecificType_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                             @*2023-11-20 iwai-tamura add-end ------*@
                         </td>                    
                     </tr>
@@ -854,21 +926,30 @@
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Earnings, DependentsOver16_1_TextMoney2) 円
-                            <div id="Head_DependentsOver16_1_Earnings_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_1_Earnings_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 1:収入金額"></div>
+                            @*<div id="Head_DependentsOver16_1_Earnings_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Earnings2Income, DependentsOver16_1_TextMoney1) 円
-                            <div id="Head_DependentsOver16_1_Earnings2Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_1_Earnings2Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 1:所得金額"></div>
+                            @*<div id="Head_DependentsOver16_1_Earnings2Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_1_OtherIncome, DependentsOver16_1_TextMoney2) 円
-                            <div id="Head_DependentsOver16_1_OtherIncome_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_1_OtherIncome_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 1:合計額"></div>
+                            @*<div id="Head_DependentsOver16_1_OtherIncome_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
 
@@ -876,7 +957,10 @@
                         <td colspan="2" class="content-label-b1">合計額所得金額の見積額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_1_Income, DependentsOver16_1_TextMoney1) 円
-                            <div id="Head_DependentsOver16_1_Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_1_Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 1:見積額"></div>
+                            @*<div id="Head_DependentsOver16_1_Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     @*<tr>
@@ -894,7 +978,10 @@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_ResidentType, "2", attrRadioB1_3_3)
                             <label class="radio-label-3 input-control DependentsOver16_1_isRead" for="select_radioB1_3_3">別居者(国内居住者)</label>
                             @*2023-11-20 iwai-tamura add-str ------*@
-                            <div id="Head_DependentsOver16_1_ResidentType_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_1_ResidentType_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 1:居住者区分"></div>
+                            @*<div id="Head_DependentsOver16_1_ResidentType_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                             @*2023-11-20 iwai-tamura add-end ------*@
                         </td>
                     </tr>
@@ -929,7 +1016,10 @@
     var DependentsOver16_2_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead DependentsOver16_2Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsOver16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_2_Income',480000)" } };
-    var DependentsOver16_2_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsOver16_2_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsOver16_2_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var DependentsOver16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_2_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_2_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -973,9 +1063,17 @@
 
                 <thead>
                     <tr class="content-label-h3">
-                        <td colspan="8">
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="3" style="border: none;">
                             ２ 控除対象扶養親族(16歳以上)
                         </td>
+                        <td colspan="5" style="color: red; font-size: 10px; border: none;">
+                            ※会社で保有している情報が記載されています。<br>　対象外とする場合はバックスペースで消さず[対象外区分]にチェックを入れてください。
+                        </td>
+                        @*<td colspan="8">
+                            ２ 控除対象扶養親族(16歳以上)
+                        </td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                 </thead>
                 <tbody>
@@ -988,7 +1086,10 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
-                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Kana1, DependentsOver16_2_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Kana2, DependentsOver16_2_TextKana)<div id="Head_DependentsOver16_2_Kana_mes" class="check-comment"></div></td>
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Kana1, DependentsOver16_2_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Kana2, DependentsOver16_2_TextKana)<div id="Head_DependentsOver16_2_Kana_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 2:フリガナ"></div></td>
+                        @*<td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Kana1, DependentsOver16_2_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Kana2, DependentsOver16_2_TextKana)<div id="Head_DependentsOver16_2_Kana_mes" class="check-comment"></div></td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -1006,7 +1107,10 @@
                             @setYearDdl2(false, "DependentsOver16_2_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_2_BirthdayDay, dayItems, "DependentsOver16_2_isRead") 日*@
                             @*2023-11-20 iwai-tamura upd-end ------*@
 
-                            <div id="Head_DependentsOver16_2_Birthday_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_2_Birthday_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 2:生年月日"></div>
+                            @*<div id="Head_DependentsOver16_2_Birthday_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
 
@@ -1020,7 +1124,10 @@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_OldmanType, "2", attrRadioB2_1_3)
                             <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_1_3">その他</label>
                             @*2023-11-20 iwai-tamura add-str ------*@
-                            <div id="Head_DependentsOver16_2_OldmanType_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_2_OldmanType_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 2:老人扶養"></div>
+                            @*<div id="Head_DependentsOver16_2_OldmanType_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                             @*2023-11-20 iwai-tamura add-end ------*@
                         </td>
                     </tr>
@@ -1032,7 +1139,10 @@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_SpecificType, "1", attrRadioB2_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_2_2">特定扶養親族</label>
                             @*2023-11-20 iwai-tamura add-str ------*@
-                            <div id="Head_DependentsOver16_2_SpecificType_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_2_SpecificType_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 2:特定扶養親族"></div>
+                            @*<div id="Head_DependentsOver16_2_SpecificType_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                             @*2023-11-20 iwai-tamura add-end ------*@
                         </td>
                     </tr>
@@ -1042,21 +1152,30 @@
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Earnings, DependentsOver16_2_TextMoney2) 円
-                            <div id="Head_DependentsOver16_2_Earnings_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_2_Earnings_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 2:収入金額"></div>
+                            @*<div id="Head_DependentsOver16_2_Earnings_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Earnings2Income, DependentsOver16_2_TextMoney1) 円
-                            <div id="Head_DependentsOver16_2_Earnings2Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_2_Earnings2Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 2:所得金額"></div>
+                            @*<div id="Head_DependentsOver16_2_Earnings2Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_2_OtherIncome, DependentsOver16_2_TextMoney2) 円
-                            <div id="Head_DependentsOver16_2_OtherIncome_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_2_OtherIncome_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 2:合計額"></div>
+                            @*<div id="Head_DependentsOver16_2_OtherIncome_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
 
@@ -1064,7 +1183,10 @@
                         <td colspan="2" class="content-label-b1">合計額所得金額の見積額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_2_Income, DependentsOver16_2_TextMoney1) 円
-                            <div id="Head_DependentsOver16_2_Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_2_Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 2:見積額"></div>
+                            @*<div id="Head_DependentsOver16_2_Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     @*<tr>
@@ -1082,7 +1204,10 @@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_ResidentType, "2", attrRadioB2_3_3)
                             <label class="radio-label-3 input-control DependentsOver16_2_isRead" for="select_RadioB2_3_3">別居者(国内居住者)</label>
                             @*2023-12-15 iwai-tamura add-str ------*@
-                            <div id="Head_DependentsOver16_2_ResidentType_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_2_ResidentType_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 2:居住者区分"></div>
+                            @*<div id="Head_DependentsOver16_2_ResidentType_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                             @*2023-12-15 iwai-tamura add-end ------*@
 
                         </td>
@@ -1118,7 +1243,10 @@
     var DependentsOver16_3_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead DependentsOver16_3Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsOver16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_3_Income',480000)" } };
-    var DependentsOver16_3_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsOver16_3_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsOver16_3_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var DependentsOver16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_3_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_3_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -1161,9 +1289,17 @@
 
                 <thead>
                     <tr class="content-label-h3">
-                        <td colspan="8">
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="3" style="border: none;">
                             ３ 控除対象扶養親族(16歳以上)
                         </td>
+                        <td colspan="5" style="color: red; font-size: 10px; border: none;">
+                            ※会社で保有している情報が記載されています。<br>　対象外とする場合はバックスペースで消さず[対象外区分]にチェックを入れてください。
+                        </td>
+                        @*<td colspan="8">
+                            ３ 控除対象扶養親族(16歳以上)
+                        </td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                 </thead>
                 <tbody>
@@ -1176,7 +1312,10 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
-                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Kana1, DependentsOver16_3_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Kana2, DependentsOver16_3_TextKana)<div id="Head_DependentsOver16_3_Kana_mes" class="check-comment"></div></td>
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Kana1, DependentsOver16_3_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Kana2, DependentsOver16_3_TextKana)<div id="Head_DependentsOver16_3_Kana_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 3:フリガナ"></div></td>
+                        @*<td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Kana1, DependentsOver16_3_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Kana2, DependentsOver16_3_TextKana)<div id="Head_DependentsOver16_3_Kana_mes" class="check-comment"></div></td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -1194,7 +1333,10 @@
                             @setYearDdl2(false, "DependentsOver16_3_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_3_BirthdayDay, dayItems, "DependentsOver16_3_isRead") 日*@
                             @*2023-11-20 iwai-tamura upd-end ------*@
 
-                            <div id="Head_DependentsOver16_3_Birthday_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_3_Birthday_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 3:生年月日"></div>
+                            @*<div id="Head_DependentsOver16_3_Birthday_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
 
@@ -1208,7 +1350,10 @@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_OldmanType, "2", attrRadioB3_1_3)
                             <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_1_3">その他</label>
                             @*2023-11-20 iwai-tamura add-str ------*@
-                            <div id="Head_DependentsOver16_3_OldmanType_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_3_OldmanType_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 3:老人扶養"></div>
+                            @*<div id="Head_DependentsOver16_3_OldmanType_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                             @*2023-11-20 iwai-tamura add-end ------*@
                         </td>
                     </tr>
@@ -1220,7 +1365,10 @@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_SpecificType, "1", attrRadioB3_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_2_2">特定扶養親族</label>
                             @*2023-11-20 iwai-tamura add-str ------*@
-                            <div id="Head_DependentsOver16_3_SpecificType_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_3_SpecificType_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 3:特定扶養親族"></div>
+                            @*<div id="Head_DependentsOver16_3_SpecificType_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                             @*2023-11-20 iwai-tamura add-end ------*@
                         </td>
                     </tr>
@@ -1231,21 +1379,30 @@
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Earnings, DependentsOver16_3_TextMoney2) 円
-                            <div id="Head_DependentsOver16_3_Earnings_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_3_Earnings_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 3:収入金額"></div>
+                            @*<div id="Head_DependentsOver16_3_Earnings_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Earnings2Income, DependentsOver16_3_TextMoney1) 円
-                            <div id="Head_DependentsOver16_3_Earnings2Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_3_Earnings2Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 3:所得金額"></div>
+                            @*<div id="Head_DependentsOver16_3_Earnings2Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_3_OtherIncome, DependentsOver16_3_TextMoney2) 円
-                            <div id="Head_DependentsOver16_3_OtherIncome_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_3_OtherIncome_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 3:合計額"></div>
+                            @*<div id="Head_DependentsOver16_3_OtherIncome_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
 
@@ -1253,7 +1410,10 @@
                         <td colspan="2" class="content-label-b1">合計額所得金額の見積額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_3_Income, DependentsOver16_3_TextMoney1) 円
-                            <div id="Head_DependentsOver16_3_Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_3_Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 3:見積額"></div>
+                            @*<div id="Head_DependentsOver16_3_Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     @*<tr>
@@ -1271,7 +1431,10 @@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_ResidentType, "2", attrRadioB3_3_3)
                             <label class="radio-label-3 input-control DependentsOver16_3_isRead" for="select_RadioB3_3_3">別居者(国内居住者)</label>
                             @*2023-12-15 iwai-tamura add-str ------*@
-                            <div id="Head_DependentsOver16_3_ResidentType_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_3_ResidentType_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 3:居住者区分"></div>
+                            @*<div id="Head_DependentsOver16_3_ResidentType_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                             @*2023-12-15 iwai-tamura add-end ------*@
                         </td>
                     </tr>
@@ -1306,7 +1469,10 @@
     var DependentsOver16_4_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead DependentsOver16_4Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsOver16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_4_Income',480000)" } };
-    var DependentsOver16_4_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsOver16_4_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsOver16_4_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var DependentsOver16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsOver16_4_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsOver16_4_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -1352,9 +1518,17 @@
 
                 <thead>
                     <tr class="content-label-h3">
-                        <td colspan="8">
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="3" style="border: none;">
                             ４ 控除対象扶養親族(16歳以上)
                         </td>
+                        <td colspan="5" style="color: red; font-size: 10px; border: none;">
+                            ※会社で保有している情報が記載されています。<br>　対象外とする場合はバックスペースで消さず[対象外区分]にチェックを入れてください。
+                        </td>
+                        @*<td colspan="8">
+                            ４ 控除対象扶養親族(16歳以上)
+                        </td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                 </thead>
                 <tbody>
@@ -1367,7 +1541,10 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
-                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Kana1, DependentsOver16_4_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Kana2, DependentsOver16_4_TextKana)<div id="Head_DependentsOver16_4_Kana_mes" class="check-comment"></div></td>
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Kana1, DependentsOver16_4_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Kana2, DependentsOver16_4_TextKana)<div id="Head_DependentsOver16_4_Kana_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 4:フリガナ"></div></td>
+                        @*<td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Kana1, DependentsOver16_4_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Kana2, DependentsOver16_4_TextKana)<div id="Head_DependentsOver16_4_Kana_mes" class="check-comment"></div></td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -1385,7 +1562,10 @@
                             @setYearDdl2(false, "DependentsOver16_4_Birthday", "1", calcSheetYear, "Day", Model.Head.DependentsOver16_4_BirthdayDay, dayItems, "DependentsOver16_4_isRead") 日*@
                             @*2023-11-20 iwai-tamura upd-end ------*@
 
-                            <div id="Head_DependentsOver16_4_Birthday_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_4_Birthday_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 4:生年月日"></div>
+                            @*<div id="Head_DependentsOver16_4_Birthday_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
 
@@ -1399,7 +1579,10 @@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_OldmanType, "2", attrRadioB4_1_3)
                             <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_1_3">その他</label>
                             @*2023-11-20 iwai-tamura add-str ------*@
-                            <div id="Head_DependentsOver16_4_OldmanType_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_4_OldmanType_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 4:老人扶養"></div>
+                            @*<div id="Head_DependentsOver16_4_OldmanType_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                             @*2023-11-20 iwai-tamura add-end ------*@
                         </td>
                     </tr>
@@ -1411,7 +1594,10 @@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_SpecificType, "1", attrRadioB4_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_2_2">特定扶養親族</label>
                             @*2023-11-20 iwai-tamura add-str ------*@
-                            <div id="Head_DependentsOver16_4_SpecificType_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_4_SpecificType_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 4:特定扶養親族"></div>
+                            @*<div id="Head_DependentsOver16_4_SpecificType_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                             @*2023-11-20 iwai-tamura add-end ------*@
                         </td>
                     </tr>
@@ -1421,21 +1607,30 @@
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Earnings, DependentsOver16_4_TextMoney2) 円
-                            <div id="Head_DependentsOver16_4_Earnings_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_4_Earnings_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 4:収入金額"></div>
+                            @*<div id="Head_DependentsOver16_4_Earnings_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Earnings2Income, DependentsOver16_4_TextMoney1) 円
-                            <div id="Head_DependentsOver16_4_Earnings2Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_4_Earnings2Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 4:所得金額"></div>
+                            @*<div id="Head_DependentsOver16_4_Earnings2Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_4_OtherIncome, DependentsOver16_4_TextMoney2) 円
-                            <div id="Head_DependentsOver16_4_OtherIncome_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_4_OtherIncome_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 4:合計額"></div>
+                            @*<div id="Head_DependentsOver16_4_OtherIncome_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
 
@@ -1443,7 +1638,10 @@
                         <td colspan="2" class="content-label-b1">合計額所得金額の見積額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsOver16_4_Income, DependentsOver16_4_TextMoney1) 円
-                            <div id="Head_DependentsOver16_4_Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_4_Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 4:見積額"></div>
+                            @*<div id="Head_DependentsOver16_4_Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     @*<tr>
@@ -1462,7 +1660,10 @@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_ResidentType, "2", attrRadioB4_3_3)
                             <label class="radio-label-3 input-control DependentsOver16_4_isRead" for="select_RadioB4_3_3">別居者(国内居住者)</label>
                             @*2023-12-15 iwai-tamura add-str ------*@
-                            <div id="Head_DependentsOver16_4_ResidentType_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsOver16_4_ResidentType_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳以上) 4:居住者区分"></div>
+                            @*<div id="Head_DependentsOver16_4_ResidentType_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                             @*2023-12-15 iwai-tamura add-end ------*@
                         </td>
                     </tr>
@@ -1598,7 +1799,10 @@
     var DependentsUnder16_1_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead DependentsUnder16_1Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsUnder16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_1_Income',480000)" } };
-    var DependentsUnder16_1_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsUnder16_1_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsUnder16_1_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var DependentsUnder16_1_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_1_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_1_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -1634,9 +1838,17 @@
 
                 <thead>
                     <tr class="content-label-h3">
-                        <td colspan="8">
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="3" style="border: none;">
                             １ 16歳未満の扶養親族
                         </td>
+                        <td colspan="5" style="color: red; font-size: 10px; border: none;">
+                            ※会社で保有している情報が記載されています。<br>　対象外とする場合はバックスペースで消さず[対象外区分]にチェックを入れてください。
+                        </td>
+                        @*<td colspan="8">
+                            １ 16歳未満の扶養親族
+                        </td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                 </thead>
                 <tbody>
@@ -1649,7 +1861,10 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
-                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Kana1, DependentsUnder16_1_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Kana2, DependentsUnder16_1_TextKana)<div id="Head_DependentsUnder16_1_Kana_mes" class="check-comment"></div></td>
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Kana1, DependentsUnder16_1_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Kana2, DependentsUnder16_1_TextKana)<div id="Head_DependentsUnder16_1_Kana_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 1:フリガナ"></div></td>
+                        @*<td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Kana1, DependentsUnder16_1_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Kana2, DependentsUnder16_1_TextKana)<div id="Head_DependentsUnder16_1_Kana_mes" class="check-comment"></div></td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -1661,7 +1876,10 @@
                             @setYearDdl2(false, "DependentsUnder16_1_Birthday", "2", calcSheetYear, "Year", Model.Head.DependentsUnder16_1_BirthdayYear, yearItems, "DependentsUnder16_1_isRead") 年
                             @setYearDdl2(false, "DependentsUnder16_1_Birthday", "2", calcSheetYear, "Month", Model.Head.DependentsUnder16_1_BirthdayMonth, monthItems, "DependentsUnder16_1_isRead") 月
                             @setYearDdl2(false, "DependentsUnder16_1_Birthday", "2", calcSheetYear, "Day", Model.Head.DependentsUnder16_1_BirthdayDay, dayItems, "DependentsUnder16_1_isRead") 日
-                            <div id="Head_DependentsUnder16_1_Birthday_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_1_Birthday_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 1:生年月日"></div>
+                            @*<div id="Head_DependentsUnder16_1_Birthday_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -1681,21 +1899,30 @@
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Earnings, DependentsUnder16_1_TextMoney2) 円
-                            <div id="Head_DependentsUnder16_1_Earnings_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_1_Earnings_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 1:収入金額"></div>
+                            @*<div id="Head_DependentsUnder16_1_Earnings_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Earnings2Income, DependentsUnder16_1_TextMoney1) 円
-                            <div id="Head_DependentsUnder16_1_Earnings2Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_1_Earnings2Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 1:所得金額"></div>
+                            @*<div id="Head_DependentsUnder16_1_Earnings2Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_OtherIncome, DependentsUnder16_1_TextMoney2) 円
-                            <div id="Head_DependentsUnder16_1_OtherIncome_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_1_OtherIncome_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 1:合計額"></div>
+                            @*<div id="Head_DependentsUnder16_1_OtherIncome_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
 
@@ -1703,7 +1930,10 @@
                         <td colspan="2" class="content-label-b1">合計額所得金額の見積額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_1_Income, DependentsUnder16_1_TextMoney1) 円
-                            <div id="Head_DependentsUnder16_1_Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_1_Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 1:見積額"></div>
+                            @*<div id="Head_DependentsUnder16_1_Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     @*<tr>
@@ -1736,7 +1966,10 @@
     var DependentsUnder16_2_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead DependentsUnder16_2Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsUnder16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_2_Income',480000)" } };
-    var DependentsUnder16_2_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsUnder16_2_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsUnder16_2_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var DependentsUnder16_2_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_2_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_2_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -1756,9 +1989,17 @@
 
                 <thead>
                     <tr class="content-label-h3">
-                        <td colspan="8">
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="3" style="border: none;">
                             ２ 16歳未満の扶養親族
                         </td>
+                        <td colspan="5" style="color: red; font-size: 10px; border: none;">
+                            ※会社で保有している情報が記載されています。<br>　対象外とする場合はバックスペースで消さず[対象外区分]にチェックを入れてください。
+                        </td>
+                        @*<td colspan="8">
+                            ２ 16歳未満の扶養親族
+                        </td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                 </thead>
                 <tbody>
@@ -1771,7 +2012,10 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
-                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Kana1, DependentsUnder16_2_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Kana2, DependentsUnder16_2_TextKana)<div id="Head_DependentsUnder16_2_Kana_mes" class="check-comment"></div></td>
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Kana1, DependentsUnder16_2_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Kana2, DependentsUnder16_2_TextKana)<div id="Head_DependentsUnder16_2_Kana_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 2:フリガナ"></div></td>
+                        @*<td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Kana1, DependentsUnder16_2_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Kana2, DependentsUnder16_2_TextKana)<div id="Head_DependentsUnder16_2_Kana_mes" class="check-comment"></div></td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -1783,7 +2027,10 @@
                             @setYearDdl2(false, "DependentsUnder16_2_Birthday", "2", calcSheetYear, "Year", Model.Head.DependentsUnder16_2_BirthdayYear, yearItems, "DependentsUnder16_2_isRead") 年
                             @setYearDdl2(false, "DependentsUnder16_2_Birthday", "2", calcSheetYear, "Month", Model.Head.DependentsUnder16_2_BirthdayMonth, monthItems, "DependentsUnder16_2_isRead") 月
                             @setYearDdl2(false, "DependentsUnder16_2_Birthday", "2", calcSheetYear, "Day", Model.Head.DependentsUnder16_2_BirthdayDay, dayItems, "DependentsUnder16_2_isRead") 日
-                            <div id="Head_DependentsUnder16_2_Birthday_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_2_Birthday_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 2:生年月日"></div>
+                            @*<div id="Head_DependentsUnder16_2_Birthday_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -1805,21 +2052,30 @@
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Earnings, DependentsUnder16_2_TextMoney2) 円
-                            <div id="Head_DependentsUnder16_2_Earnings_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_2_Earnings_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 2:収入金額"></div>
+                            @*<div id="Head_DependentsUnder16_2_Earnings_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Earnings2Income, DependentsUnder16_2_TextMoney1) 円
-                            <div id="Head_DependentsUnder16_2_Earnings2Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_2_Earnings2Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 2:所得金額"></div>
+                            @*<div id="Head_DependentsUnder16_2_Earnings2Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_OtherIncome, DependentsUnder16_2_TextMoney2) 円
-                            <div id="Head_DependentsUnder16_2_OtherIncome_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_2_OtherIncome_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 2:合計額"></div>
+                            @*<div id="Head_DependentsUnder16_2_OtherIncome_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
 
@@ -1827,7 +2083,10 @@
                         <td colspan="2" class="content-label-b1">合計額所得金額の見積額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_2_Income, DependentsUnder16_2_TextMoney1) 円
-                            <div id="Head_DependentsUnder16_2_Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_2_Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 2:見積額"></div>
+                            @*<div id="Head_DependentsUnder16_2_Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     @*<tr>
@@ -1863,7 +2122,10 @@
     var DependentsUnder16_3_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead DependentsUnder16_3Address_isRead" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsUnder16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_3_Income',480000)" } };
-    var DependentsUnder16_3_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsUnder16_3_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsUnder16_3_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var DependentsUnder16_3_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_3_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_3_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -1883,9 +2145,17 @@
 
                 <thead>
                     <tr class="content-label-h3">
-                        <td colspan="8">
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="3" style="border: none;">
                             ３ 16歳未満の扶養親族
                         </td>
+                        <td colspan="5" style="color: red; font-size: 10px; border: none;">
+                            ※会社で保有している情報が記載されています。<br>　対象外とする場合はバックスペースで消さず[対象外区分]にチェックを入れてください。
+                        </td>
+                        @*<td colspan="8">
+                            ３ 16歳未満の扶養親族
+                        </td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                 </thead>
                 <tbody>
@@ -1898,7 +2168,10 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
-                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Kana1, DependentsUnder16_3_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Kana2, DependentsUnder16_3_TextKana)<div id="Head_DependentsUnder16_3_Kana_mes" class="check-comment"></div></td>
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Kana1, DependentsUnder16_3_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Kana2, DependentsUnder16_3_TextKana)<div id="Head_DependentsUnder16_3_Kana_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 3:フリガナ"></div></td>
+                        @*<td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Kana1, DependentsUnder16_3_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Kana2, DependentsUnder16_3_TextKana)<div id="Head_DependentsUnder16_3_Kana_mes" class="check-comment"></div></td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -1910,7 +2183,10 @@
                             @setYearDdl2(false, "DependentsUnder16_3_Birthday", "2", calcSheetYear, "Year", Model.Head.DependentsUnder16_3_BirthdayYear, yearItems, "DependentsUnder16_3_isRead") 年
                             @setYearDdl2(false, "DependentsUnder16_3_Birthday", "2", calcSheetYear, "Month", Model.Head.DependentsUnder16_3_BirthdayMonth, monthItems, "DependentsUnder16_3_isRead") 月
                             @setYearDdl2(false, "DependentsUnder16_3_Birthday", "2", calcSheetYear, "Day", Model.Head.DependentsUnder16_3_BirthdayDay, dayItems, "DependentsUnder16_3_isRead") 日
-                            <div id="Head_DependentsUnder16_3_Birthday_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_3_Birthday_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 3:生年月日"></div>
+                            @*<div id="Head_DependentsUnder16_3_Birthday_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -1931,21 +2207,30 @@
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Earnings, DependentsUnder16_3_TextMoney2) 円
-                            <div id="Head_DependentsUnder16_3_Earnings_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_3_Earnings_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 3:収入金額"></div>
+                            @*<div id="Head_DependentsUnder16_3_Earnings_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Earnings2Income, DependentsUnder16_3_TextMoney1) 円
-                            <div id="Head_DependentsUnder16_3_Earnings2Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_3_Earnings2Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 3:所得金額"></div>
+                            @*<div id="Head_DependentsUnder16_3_Earnings2Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_OtherIncome, DependentsUnder16_3_TextMoney2) 円
-                            <div id="Head_DependentsUnder16_3_OtherIncome_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_3_OtherIncome_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 3:合計額"></div>
+                            @*<div id="Head_DependentsUnder16_3_OtherIncome_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
 
@@ -1953,7 +2238,10 @@
                         <td colspan="2" class="content-label-b1">合計額所得金額の見積額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_3_Income, DependentsUnder16_3_TextMoney1) 円
-                            <div id="Head_DependentsUnder16_3_Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_3_Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 3:見積額"></div>
+                            @*<div id="Head_DependentsUnder16_3_Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     @*<tr>
@@ -1990,7 +2278,10 @@
 
     @*2023-11-20 iwai-tamura add-str ------*@
     var DependentsUnder16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_4_Income',480000)" } };
-    var DependentsUnder16_4_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var DependentsUnder16_4_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var DependentsUnder16_4_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     //var DependentsUnder16_4_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder16_4_isRead" }, { "maxlength", "6" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_DependentsUnder16_4_Income',480000)" } };
     @*2023-11-20 iwai-tamura add-end ------*@
 
@@ -2012,9 +2303,17 @@
 
                 <thead>
                     <tr class="content-label-h3">
-                        <td colspan="8">
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="3" style="border: none;">
                             ４ 16歳未満の扶養親族
                         </td>
+                        <td colspan="5" style="color: red; font-size: 10px; border: none;">
+                            ※会社で保有している情報が記載されています。<br>　対象外とする場合はバックスペースで消さず[対象外区分]にチェックを入れてください。
+                        </td>
+                        @*<td colspan="8">
+                            ４ 16歳未満の扶養親族
+                        </td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                 </thead>
                 <tbody>
@@ -2027,7 +2326,10 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">ﾌﾘｶﾞﾅ</td>
-                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Kana1, DependentsUnder16_4_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Kana2, DependentsUnder16_4_TextKana)<div id="Head_DependentsUnder16_4_Kana_mes" class="check-comment"></div></td>
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Kana1, DependentsUnder16_4_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Kana2, DependentsUnder16_4_TextKana)<div id="Head_DependentsUnder16_4_Kana_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 4:フリガナ"></div></td>
+                        @*<td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Kana1, DependentsUnder16_4_TextKana)　名 @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Kana2, DependentsUnder16_4_TextKana)<div id="Head_DependentsUnder16_4_Kana_mes" class="check-comment"></div></td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
@@ -2039,7 +2341,10 @@
                             @setYearDdl2(false, "DependentsUnder16_4_Birthday", "2", calcSheetYear, "Year", Model.Head.DependentsUnder16_4_BirthdayYear, yearItems, "DependentsUnder16_4_isRead") 年
                             @setYearDdl2(false, "DependentsUnder16_4_Birthday", "2", calcSheetYear, "Month", Model.Head.DependentsUnder16_4_BirthdayMonth, monthItems, "DependentsUnder16_4_isRead") 月
                             @setYearDdl2(false, "DependentsUnder16_4_Birthday", "2", calcSheetYear, "Day", Model.Head.DependentsUnder16_4_BirthdayDay, dayItems, "DependentsUnder16_4_isRead") 日
-                            <div id="Head_DependentsUnder16_4_Birthday_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_4_Birthday_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 4:生年月日"></div>
+                            @*<div id="Head_DependentsUnder16_4_Birthday_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -2061,21 +2366,30 @@
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Earnings, DependentsUnder16_4_TextMoney2) 円
-                            <div id="Head_DependentsUnder16_4_Earnings_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_4_Earnings_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 4:収入金額"></div>
+                            @*<div id="Head_DependentsUnder16_4_Earnings_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Earnings2Income, DependentsUnder16_4_TextMoney1) 円
-                            <div id="Head_DependentsUnder16_4_Earnings2Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_4_Earnings2Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 4:所得金額"></div>
+                            @*<div id="Head_DependentsUnder16_4_Earnings2Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_OtherIncome, DependentsUnder16_4_TextMoney2) 円
-                            <div id="Head_DependentsUnder16_4_OtherIncome_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_4_OtherIncome_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 4:合計額"></div>
+                            @*<div id="Head_DependentsUnder16_4_OtherIncome_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
 
@@ -2083,7 +2397,10 @@
                         <td colspan="2" class="content-label-b1">合計額所得金額の見積額</td>
                         <td colspan="6" class="form-inline">
                             @Html.TextBoxFor(m => m.Head.DependentsUnder16_4_Income, DependentsUnder16_4_TextMoney1) 円
-                            <div id="Head_DependentsUnder16_4_Income_mes" class="check-comment"></div>
+                            @*2024-11-19 iwai-tamura upd-str ------*@
+                            <div id="Head_DependentsUnder16_4_Income_mes" class="check-comment" data-fieldname="控除対象扶養親族(16歳未満) 4:見積額"></div>
+                            @*<div id="Head_DependentsUnder16_4_Income_mes" class="check-comment"></div>*@
+                            @*2024-11-19 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     @*<tr>

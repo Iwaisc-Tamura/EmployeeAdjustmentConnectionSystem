@@ -149,7 +149,7 @@
     var ymdBtn1 = "hidden";
     ymdBtn1 = "";
     var CalcMoney = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "10" }, { "style", "width:90px;" }, { "type", "number" }, { "readonly", "readonly" } };
-    var CalcWord = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "10" }, { "readonly", "readonly" } };
+    var CalcWord = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "10" }, { "style", "width:40px;" }, { "readonly", "readonly" } };
 
     
     //続柄リスト
@@ -373,9 +373,15 @@
 
     @*2023-11-20 iwai-tamura add-str ------*@
     var BasicDeduction_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney(this,99999999)" } };
-    var BasicDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var BasicDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var BasicDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     var SpouseDeduction_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney(this,99999999)" } };
-    var SpouseDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-str ------*@
+    var SpouseDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    //var SpouseDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
+    @*2024-11-19 iwai-tamura upd-end ------*@
     @*2023-11-20 iwai-tamura add-end ------*@
 
 
@@ -502,27 +508,52 @@
                     </tr>
 
                     <tr>
-                        <td rowspan="6" colspan="2" class="content-label-b2">判定 @Html.HiddenFor(m => m.Head.BasicDeduction_EarningsType)</td>
-                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_1"> 900万円以下　(A)</td>
-                        <td rowspan="4" colspan="2" class="form-inline content-label-b3">　48万円</td>
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td rowspan="7" colspan="2" class="content-label-b2">判定 @Html.HiddenFor(m => m.Head.BasicDeduction_EarningsType)@Html.HiddenFor(m => m.Head.BasicDeduction_TaxReductionTarget)</td>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_1"> 　900万円以下<span class="pull-right">(A)</span></td>
+                        <td rowspan="4" colspan="1" class="form-inline content-label-b3">　48万円</td>
+                        <td rowspan="4" colspan="1" class="form-inline content-label-b3" style="text-align: center; vertical-align: middle;">定額減税対象<div><input type="checkbox" disabled="disabled" id="BasicDeduction_TaxReductionTargetView"></div></td>
+                        @*<td rowspan="6" colspan="2" class="content-label-b2">判定 @Html.HiddenFor(m => m.Head.BasicDeduction_EarningsType)</td>*@
+                        @*<td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_1"> 900万円以下　(A)</td>*@
+                        @*<td rowspan="4" colspan="2" class="form-inline content-label-b3">　48万円</td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
+
                     </tr>
                     <tr>
-                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_2"> 900万円超・950万円以下 (B)</td>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_2"> 　900万円超　　　950万円以下<span class="pull-right">(B)</span></td>
                     </tr>
                     <tr>
-                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_3"> 950万円超　 1,000万円以下 (C)</td>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_3"> 　950万円超　　1,000万円以下<span class="pull-right">(C)</span></td>
+                    </tr>
+                    @*2024-11-19 iwai-tamura upd-str ------*@
+                    <tr>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_4"> 1,000万円超　　1,805万円以下<span class="pull-right">(D)</span></td>
                     </tr>
                     <tr>
-                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_4"> 1,000万円超　2,400万円以下</td>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_5"> 1,805万円超　　2,400万円以下</td>
+                        <td rowspan="1" colspan="2" class="content-label-b3">　48万円</td>
                     </tr>
                     <tr>
-                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_5"> 2,400万円超　2,450万円以下</td>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_6"> 2,400万円超　　2,450万円以下</td>
                         <td rowspan="1" colspan="2" class="content-label-b3">　32万円</td>
                     </tr>
                     <tr>
-                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_6"> 2,450万円超　2,500万円以下</td>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_7"> 2,450万円超　　2,500万円以下</td>
                         <td rowspan="1" colspan="2" class="content-label-b3">　16万円</td>
                     </tr>
+                    @*<tr>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_4"> 1,000万円超　2,400万円以下</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_5"> 2,400万円超　　2,450万円以下</td>
+                        <td rowspan="1" colspan="2" class="content-label-b3">　32万円</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_6"> 2,450万円超　　2,500万円以下</td>
+                        <td rowspan="1" colspan="2" class="content-label-b3">　16万円</td>
+                    </tr>*@
+                    @*2024-11-19 iwai-tamura upd-end ------*@
+
                     <tr>
                         <td colspan="2" class="content-label-b2">区分Ⅰ</td>
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_CalcType, CalcWord)</td>
@@ -652,8 +683,15 @@
 
                     <tr>
                         <td rowspan="4" colspan="2" class="content-label-b2">判定 </td>
-                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_1"> 48万円以下かつ年齢70歳以上<br />　　(昭28.1.1以前生)<span class="pull-right">(①)</span><br />　《老人控除対象配偶者に該当》　</td>
-                        <td rowspan="2" colspan="2" class="form-inline content-label-b3">　配偶者控除</td>
+                        @*2024-11-20 iwai-tamura upd-str ------*@
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_1"> 48万円以下かつ年齢70歳以上<br />　　<span id="showaYearLabel">(昭○○.1.1以前生)</span><span class="pull-right">(①)</span><br />　《老人控除対象配偶者に該当》　</td>
+                        @*<td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_1"> 48万円以下かつ年齢70歳以上<br />　　(昭28.1.1以前生)<span class="pull-right">(①)</span><br />　《老人控除対象配偶者に該当》　</td>*@
+                        @*2024-11-20 iwai-tamura upd-end ------*@
+                        @*2024-11-19 iwai-tamura upd-str ------*@
+                        <td rowspan="2" colspan="1" class="form-inline content-label-b3">　配偶者<br />　控除</td>
+                        <td rowspan="2" colspan="1" class="form-inline content-label-b3" style="text-align: center; vertical-align: middle;">定額減税対象 @Html.HiddenFor(m => m.Head.SpouseDeduction_TaxReductionTarget)<div><input type="checkbox" disabled="disabled" id="SpouseDeduction_TaxReductionTargetView"></div></td>
+                        @*<td rowspan="2" colspan="2" class="form-inline content-label-b3">　配偶者控除</td>*@
+                        @*2024-11-19 iwai-tamura upd-end ------*@
                     </tr>
                     <tr>
                         <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_2"> 48万円以下かつ年齢70歳未満<span class="pull-right">(②)</span></td>
@@ -710,6 +748,7 @@
     var AdjustmentDeduction_TextComment = new Dictionary<string, object>() { { "class", "form-control select-other AdjustmentDeduction_isRead1" }, { "maxlength", "20" } };
     var AdjustmentDeduction_TextAddress = new Dictionary<string, object>() { { "class", "form-control select-other AdjustmentDeduction_isRead1 AdjustmentDeductionAddress_isRead" }, { "maxlength", "100" }, { "style", "width:100%;" } };
     var AdjustmentDeduction_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other AdjustmentDeduction_isRead1" }, { "maxlength", "8" }, { "style", "width:100px;" }, { "type", "text" }, { "oninput", "checkMoney('#Head_AdjustmentDeduction_TotalEarnings',99999999)" } };
+
 
     <div class="row">
         <div class="col-xs-8">

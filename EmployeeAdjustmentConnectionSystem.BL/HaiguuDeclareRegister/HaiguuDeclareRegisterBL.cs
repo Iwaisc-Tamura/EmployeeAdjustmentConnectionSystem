@@ -143,6 +143,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 								BasicDeduction_OtherIncome = setMoney(row["基礎控除申告書_他_所得金額"].ToString()),
 								BasicDeduction_TotalEarnings = setMoney(row["基礎控除申告書_合計所得金額見積額"].ToString()),
 								BasicDeduction_EarningsType = row["基礎控除申告書_控除額計算判定"].ToString(),
+
+                                //2024-11-19 iwai-tamura upd-str ------
+								BasicDeduction_TaxReductionTarget = row["基礎控除申告書_本人定額減税対象"].ToString(),
+                                //2024-11-19 iwai-tamura upd-end ------
+
 								BasicDeduction_CalcType = row["基礎控除申告書_控除額計算区分"].ToString(),
 								BasicDeduction_DeductionAmount = setMoney(row["基礎控除申告書_基礎控除額"].ToString()),
 								SpouseDeduction_Name1 = row["配偶者控除申告書_氏名_姓"].ToString(),
@@ -172,6 +177,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 								SpouseDeduction_CalcType = row["配偶者控除申告書_控除額計算区分"].ToString(),
 								SpouseDeduction_DeductionAmount = setMoney(row["配偶者控除申告書_配偶者控除額"].ToString()),
 								SpouseDeduction_SpecialDeductionAmount = setMoney(row["配偶者控除申告書_配偶者特別控除額"].ToString()),
+
+                                //2024-11-19 iwai-tamura upd-str ------
+								SpouseDeduction_TaxReductionTarget = row["配偶者控除申告書_配偶者定額減税対象"].ToString(),
+                                //2024-11-19 iwai-tamura upd-end ------
+
 								AdjustmentDeduction_ConditionType = row["所得金額調整控除申告書_要件区分"].ToString(),
 								AdjustmentDeduction_Name1 = row["所得金額調整控除申告書_扶養親族等氏名_姓"].ToString(),
 								AdjustmentDeduction_Name2 = row["所得金額調整控除申告書_扶養親族等氏名_名"].ToString(),
@@ -480,6 +490,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 							+ " ,基礎控除申告書_他_所得金額 = @BasicDeduction_OtherIncome"
 							+ " ,基礎控除申告書_合計所得金額見積額 = @BasicDeduction_TotalEarnings"
 							+ " ,基礎控除申告書_控除額計算判定 = @BasicDeduction_EarningsType"
+                            //2024-11-19 iwai-tamura upd-str ------
+							+ " ,基礎控除申告書_本人定額減税対象 = @BasicDeduction_TaxReductionTarget"
+                            //2024-11-19 iwai-tamura upd-end ------
 							+ " ,基礎控除申告書_控除額計算区分 = @BasicDeduction_CalcType"
 							+ " ,基礎控除申告書_基礎控除額 = @BasicDeduction_DeductionAmount"
 							+ " ,配偶者控除申告書_氏名_姓 = @SpouseDeduction_Name1"
@@ -498,6 +511,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 							+ " ,配偶者控除申告書_控除額計算区分 = @SpouseDeduction_CalcType"
 							+ " ,配偶者控除申告書_配偶者控除額 = @SpouseDeduction_DeductionAmount"
 							+ " ,配偶者控除申告書_配偶者特別控除額 = @SpouseDeduction_SpecialDeductionAmount"
+                            //2024-11-19 iwai-tamura upd-str ------
+							+ " ,配偶者控除申告書_配偶者定額減税対象 = @SpouseDeduction_TaxReductionTarget"
+                            //2024-11-19 iwai-tamura upd-end ------
 							+ " ,所得金額調整控除申告書_要件区分 = @AdjustmentDeduction_ConditionType"
 							+ " ,所得金額調整控除申告書_扶養親族等氏名_姓 = @AdjustmentDeduction_Name1"
 							+ " ,所得金額調整控除申告書_扶養親族等氏名_名 = @AdjustmentDeduction_Name2"
@@ -565,6 +581,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 						DbHelper.AddDbParameter(cmd, "@AdjustmentDeduction_ReportType", DbType.String);
                         DbHelper.AddDbParameter(cmd, "@SheetYear", DbType.Int32);
 						DbHelper.AddDbParameter(cmd, "@EmployeeNo", DbType.String);
+                        //2024-11-19 iwai-tamura upd-str ------
+						DbHelper.AddDbParameter(cmd, "@BasicDeduction_TaxReductionTarget", DbType.String);
+						DbHelper.AddDbParameter(cmd, "@SpouseDeduction_TaxReductionTarget", DbType.String);
+                        //2024-11-19 iwai-tamura upd-end ------
 
 
                         //パラメータ設定
@@ -614,6 +634,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 						parameters[42].Value = DataConv.IfNull(checkValue(model.Head.AdjustmentDeduction_ReportType));
                         parameters[43].Value = DataConv.IfNull(model.Head.SheetYear.ToString());
                         parameters[44].Value = DataConv.IfNull(model.Head.EmployeeNo);
+                        //2024-11-19 iwai-tamura upd-str ------
+						parameters[45].Value = DataConv.IfNull(checkValue(model.Head.BasicDeduction_TaxReductionTarget));
+						parameters[46].Value = DataConv.IfNull(checkValue(model.Head.SpouseDeduction_TaxReductionTarget));
+                        //2024-11-19 iwai-tamura upd-end ------
 
                         cmd.ExecuteNonQuery();
                     

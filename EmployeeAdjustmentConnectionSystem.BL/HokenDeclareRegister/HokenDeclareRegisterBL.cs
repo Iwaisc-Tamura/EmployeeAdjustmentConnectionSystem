@@ -40,6 +40,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
         /// </summary>
         /// <param name="id">管理番号</param>
         /// <returns>扶養控除申告書モデル</returns>
+
         public HokenDeclareRegisterViewModels Select(int? intSheetYear,string strEmployeeNo,bool bolAdminMode) {
             try {
                 //開始

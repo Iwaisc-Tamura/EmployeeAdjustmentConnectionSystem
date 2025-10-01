@@ -18,6 +18,7 @@ using EmployeeAdjustmentConnectionSystem.COM.Entity.Session;
 using EmployeeAdjustmentConnectionSystem.COM.Util.File;
 using EmployeeAdjustmentConnectionSystem.Log.Common;
 using EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports;
+using EmployeeAdjustmentConnectionSystem.BL.Common;
 
 namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
     /// <summary>
@@ -72,6 +73,10 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 using(IDataReader reader = cmd.ExecuteReader()) {
                     while(reader.Read()) {
                         model.Search.Year = reader["対象年度"].ToString();
+                        //2025-03-21 iwai-tamura upd-str ------
+                        //最新年度固定用
+                        model.Search.CurrentYear = reader["対象年度"].ToString();
+                        //2025-03-21 iwai-tamura upd-str ------
                     }
                 }
 
@@ -641,6 +646,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
 
+                //2024-11-19 iwai-tamura upd-str ------
+                //扶養控除ボタン表示のみに絞る
+                selPrint = selPrint.Where(item => item.Split(',')[2] == "1").ToArray();
+                //2024-11-19 iwai-tamura upd-end ------
+
                 //対象選択エラーチェック
                 if (selPrint == null) {
                     //エラー判定
@@ -691,6 +701,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             try {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //2024-11-19 iwai-tamura upd-str ------
+                //保険料控除ボタン表示のみに絞る
+                selPrint = selPrint.Where(item => item.Split(',')[3] == "1").ToArray();
+                //2024-11-19 iwai-tamura upd-end ------
 
                 //対象選択エラーチェック
                 if (selPrint == null) {
@@ -744,6 +759,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
 
+                //2024-11-19 iwai-tamura upd-str ------
+                //基礎控除ボタン表示のみに絞る
+                selPrint = selPrint.Where(item => item.Split(',')[4] == "1").ToArray();
+                //2024-11-19 iwai-tamura upd-end ------
+
                 //対象選択エラーチェック
                 if (selPrint == null) {
                     //エラー判定
@@ -795,6 +815,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             try {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //2024-11-19 iwai-tamura upd-str ------
+                //扶養控除ボタン表示のみに絞る
+                selPrint = selPrint.Where(item => item.Split(',')[2] == "1").ToArray();
+                //2024-11-19 iwai-tamura upd-end ------
 
                 //対象選択エラーチェック
                 if (selPrint == null) {
@@ -857,6 +882,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
 
+                //2024-11-19 iwai-tamura upd-str ------
+                //保険料控除ボタン表示のみに絞る
+                selPrint = selPrint.Where(item => item.Split(',')[3] == "1").ToArray();
+                //2024-11-19 iwai-tamura upd-end ------
+
                 //対象選択エラーチェック
                 if (selPrint == null) {
                     //エラー判定
@@ -918,6 +948,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
 
+                //2024-11-19 iwai-tamura upd-str ------
+                //基礎控除ボタン表示のみに絞る
+                selPrint = selPrint.Where(item => item.Split(',')[4] == "1").ToArray();
+                //2024-11-19 iwai-tamura upd-end ------
+
                 //対象選択エラーチェック
                 if (selPrint == null) {
                     //エラー判定
@@ -967,6 +1002,67 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
 
 
+
+
+        //2024-12-24 iwai-tamura upd-str ------
+        /// <summary>
+        /// 催促メール送信
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [ActionName("Search")]
+        [AcceptButton(ButtonName = "SendMail")]
+        public ActionResult SendMail(YearEndAdjustmentSearchViewModels model, string[] selPrint) {
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //対象選択エラーチェック
+                if (selPrint == null) {
+                    //エラー判定
+                    ModelState.AddModelError("", "出力対象を選択してください。");
+                    if ((string)Session["SearchType"] == "Main") {
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                    } else if ((string)Session["SearchType"] == "Sub") {
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                    }
+                    return View("Search", model);
+                }
+
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode), "催促メール送信開始", "Hoyuu");
+
+
+                YearEndAdjustmentSearchBL bl = new YearEndAdjustmentSearchBL();
+
+                int cntTaget = selPrint.Length;                                         //選択した件数
+                int result = bl.FollowUpSendMail(selPrint, (LoginUser)Session["LoginUser"]);
+
+                //送信結果を表示
+                TempData["Success"] = string.Format("{0}名中{1}名送信しました", cntTaget, result);
+
+                //表示
+                if ((string)Session["SearchType"] == "Sub") {
+                    //「部下表示」ボタンにて検索した場合
+                    return View(bl.SubSearch(model, (LoginUser)Session["LoginUser"]));
+                } else {
+                    //「検索」ボタンにて検索した場合
+                    return View(bl.Search(model, (LoginUser)Session["LoginUser"]));
+                }
+            }
+            catch (Exception ex) {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            }
+            finally {
+                //終了
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode), "PDF一括出力終了", "Hoyuu");
+
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        //2024-12-24 iwai-tamura upd-end ------
 
         ///////////// <summary>
         ///////////// 帳票作成

@@ -30,6 +30,13 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
     /// 検索条件
     /// </summary>
     public class YearEndAdjustmentSearchModel : SearchModel {
+        //2025-03-99 iwai-tamura add-str ---
+        /// <summary>
+        /// 当年度
+        /// </summary>
+        public string CurrentYear { get; set; }
+        //2025-03-99 iwai-tamura add-end ---
+
         /// <summary>
         /// 扶養控除ステータス
         /// </summary>
@@ -82,6 +89,21 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// 基礎控除ボタン表示
         /// </summary>
         public string HaiguuDeclareButtonView { get; set; }
+
+        /// <summary>
+        /// 扶養控除ボタン表示フラグ
+        /// </summary>
+        public bool HuyouDeclareButtonViewFlg { get; set; }
+
+        /// <summary>
+        /// 保険料控除ボタン表示フラグ
+        /// </summary>
+        public bool HokenDeclareButtonViewFlg { get; set; }
+
+        /// <summary>
+        /// 基礎控除ボタン表示フラグ
+        /// </summary>
+        public bool HaiguuDeclareButtonViewFlg { get; set; }
 
 
 

@@ -207,6 +207,12 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public string Address { get; set; }
 
+		//2024-11-19 iwai-tamura upd-str ------
+		/// <summary>
+		/// 比較用変更前住所
+		/// </summary>
+		public string AddressBefore { get; set; }
+		//2024-11-19 iwai-tamura upd-end ------
 
 		/// <summary>
 		/// 配偶者有無
@@ -1381,7 +1387,12 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public string DependentsUnder16_4_TransferComment { get; set; }
 
-
+		//2024-11-19 iwai-tamura upd-str ------
+		/// <summary>
+		/// 扶養親族合計人数
+		/// </summary>
+		public int? FamilyCount { get; set; }
+		//2024-11-19 iwai-tamura upd-end ------
 
 
     }

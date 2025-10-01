@@ -86,7 +86,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                 //氏名カナ
                 sqlc += condition(" and (T基本.戸籍名字Kana + T基本.戸籍名前Kana) like '%{0}%'", KanaEx.ToHankakuKana(model.Search.EmployeeNameKana));
 
-
                 //ステータス
                 //扶養控除
                 switch (model.Search.HuyouDeclareStatus) {
@@ -199,6 +198,17 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                     default: break;
                 }
 
+                //2024-12-24 iwai-tamura add-str ---
+                if (model.Search.MailTargetFlag) {
+                    sqlc += " and (";
+                    sqlc += "   (T扶養控除.本人確定区分 = '0' and T扶養控除.管理者確定区分 = '0') ";
+                    sqlc += "   Or (T保険控除.本人確定区分 = '0' and T保険控除.管理者確定区分 = '0') ";
+                    sqlc += "   Or (T基礎控除.本人確定区分 = '0' and T基礎控除.管理者確定区分 = '0') ";
+                    sqlc += " ) ";
+                }
+                //2024-12-24 iwai-tamura add-end ---
+
+
                 //ログインユーザー抽出可能範囲
                 sqlc += " And (";
 
@@ -235,11 +245,19 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
 
                     case "2":  //東京支社管理者
                     case "3":  //関東支社管理者
+                        //2024-11-19 iwai-tamura upd-str ------
+                        //支社確定時は照会のみ可能に変更
                         sqlc += " and ( ";
-                        sqlc += "     (T扶養控除.管理者確定区分 < '5' ) ";
-                        sqlc += "     or (T保険控除.管理者確定区分 < '5' ) ";
-                        sqlc += "     or (T基礎控除.管理者確定区分 < '5' ) ";
+                        sqlc += "     (T扶養控除.管理者確定区分 <= '5' ) ";
+                        sqlc += "     or (T保険控除.管理者確定区分 <= '5' ) ";
+                        sqlc += "     or (T基礎控除.管理者確定区分 <= '5' ) ";
                         sqlc += " ) ";
+                        //sqlc += " and ( ";
+                        //sqlc += "     (T扶養控除.管理者確定区分 < '5' ) ";
+                        //sqlc += "     or (T保険控除.管理者確定区分 < '5' ) ";
+                        //sqlc += "     or (T基礎控除.管理者確定区分 < '5' ) ";
+                        //sqlc += " ) ";
+                        //2024-11-19 iwai-tamura upd-end ------
                         break;
                     default: break;
                 }
@@ -278,6 +296,99 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                     }
                 };
 
+
+                //2024-11-19 iwai-tamura upd-str ------
+                //ボタン表示制御ルールを定義
+                var buttonViewRules = new Dictionary<(string isAdminNo, string userConfirmed, string adminConfirmed), bool>
+                {
+                    // 管理者
+                    { ("K", "0", "0"), true },  //本人未提出
+                    { ("K", "1", "0"), true },  //本人提出済
+                    //2024-11-28 iwai-tamura upd-str ------
+                    { ("K", "9", "0"), true },  //本人提出済
+                    //2024-11-28 iwai-tamura upd-end ------
+                    { ("K", "9", "1"), true },  //支社確定済
+                    { ("K", "9", "5"), true },  //管理者確定済
+                    { ("K", "9", "7"), true },  //システム連携済
+                    { ("K", "9", "8"), true },  //システム連携後修正
+                    { ("K", "9", "9"), true },  //確定済
+        
+                    // 本社
+                    { ("1", "0", "0"), true },  //本人未提出
+                    { ("1", "1", "0"), true },  //本人提出済
+                    //2024-11-28 iwai-tamura upd-str ------
+                    { ("1", "9", "0"), true },  //本人提出済
+                    //2024-11-28 iwai-tamura upd-end ------
+                    { ("1", "9", "1"), true },  //支社確定済
+                    { ("1", "9", "5"), true },  //管理者確定済
+                    { ("1", "9", "7"), true },  //システム連携済
+                    { ("1", "9", "8"), true },  //システム連携後修正
+                    { ("1", "9", "9"), true },  //確定済
+        
+                    // 東京
+                    { ("2", "0", "0"), true },  //本人未提出
+                    { ("2", "1", "0"), true },  //本人提出済
+                    //2024-11-28 iwai-tamura upd-str ------
+                    { ("2", "9", "0"), true },  //本人提出済
+                    //2024-11-28 iwai-tamura upd-end ------
+                    { ("2", "9", "1"), true },  //支社確定済
+                    { ("2", "9", "5"), true },  //管理者確定済
+                    { ("2", "9", "7"), false }, //システム連携済
+                    { ("2", "9", "8"), false }, //システム連携後修正
+                    { ("2", "9", "9"), false }, //確定済
+        
+                    // 関東
+                    { ("3", "0", "0"), true },  //本人未提出
+                    { ("3", "1", "0"), true },  //本人提出済
+                    //2024-11-28 iwai-tamura upd-str ------
+                    { ("3", "9", "0"), true },  //本人提出済
+                    //2024-11-28 iwai-tamura upd-end ------
+                    { ("3", "9", "1"), true },  //支社確定済
+                    { ("3", "9", "5"), true },  //管理者確定済
+                    { ("3", "9", "7"), false }, //システム連携済
+                    { ("3", "9", "8"), false }, //システム連携後修正
+                    { ("3", "9", "9"), false }, //確定済
+
+                    // 大阪
+                    { ("7", "0", "0"), true },  //本人未提出
+                    { ("7", "1", "0"), true },  //本人提出済
+                    //2024-11-28 iwai-tamura upd-str ------
+                    { ("7", "9", "0"), true },  //本人提出済
+                    //2024-11-28 iwai-tamura upd-end ------
+                    { ("7", "9", "1"), false }, //支社確定済
+                    { ("7", "9", "5"), true },  //管理者確定済
+                    { ("7", "9", "7"), false }, //システム連携済
+                    { ("7", "9", "8"), true },  //システム連携後修正
+                    { ("7", "9", "9"), false }, //確定済
+
+                    // 名古屋
+                    { ("8", "0", "0"), true },  //本人未提出
+                    { ("8", "1", "0"), true },  //本人提出済
+                    //2024-11-28 iwai-tamura upd-str ------
+                    { ("8", "9", "0"), true },  //本人提出済
+                    //2024-11-28 iwai-tamura upd-end ------
+                    { ("8", "9", "1"), false }, //支社確定済
+                    { ("8", "9", "5"), true },  //管理者確定済
+                    { ("8", "9", "7"), false }, //システム連携済
+                    { ("8", "9", "8"), true },  //システム連携後修正
+                    { ("8", "9", "9"), false }, //確定済
+
+                    // 福岡
+                    { ("9", "0", "0"), true },  //本人未提出
+                    { ("9", "1", "0"), true },  //本人提出済
+                    //2024-11-28 iwai-tamura upd-str ------
+                    { ("9", "9", "0"), true },  //本人提出済
+                    //2024-11-28 iwai-tamura upd-end ------
+                    { ("9", "9", "1"), false }, //支社確定済
+                    { ("9", "9", "5"), true },  //管理者確定済
+                    { ("9", "9", "7"), false }, //システム連携済
+                    { ("9", "9", "8"), true },  //システム連携後修正
+                    { ("9", "9", "9"), false }  //確定済
+                };
+                //2024-11-19 iwai-tamura upd-end ------
+
+
+
                 using(DbManager dm = new DbManager())
                 using(IDbCommand cmd = dm.CreateCommand(sql))
                 using(DataSet ds = new DataSet()) {
@@ -299,6 +410,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                             HaiguuDeclareStatus =StatusDecision(row["基礎控除_本人確定区分"].ToString(),row["基礎控除_管理者確定区分"].ToString()),
 
                         };
+
+                        //2024-11-19 iwai-tamura upd-str ------
+                        //ボタン表示制御
+                        result.HuyouDeclareButtonViewFlg = buttonViewRules.TryGetValue((lu.IsAdminNo,row["扶養控除_本人確定区分"].ToString(),row["扶養控除_管理者確定区分"].ToString()),out bool shouldDisplay) ? shouldDisplay : false;;
+                        result.HokenDeclareButtonViewFlg = buttonViewRules.TryGetValue((lu.IsAdminNo,row["保険控除_本人確定区分"].ToString(),row["保険控除_管理者確定区分"].ToString()),out shouldDisplay) ? shouldDisplay : false;;
+                        result.HaiguuDeclareButtonViewFlg = buttonViewRules.TryGetValue((lu.IsAdminNo,row["基礎控除_本人確定区分"].ToString(),row["基礎控除_管理者確定区分"].ToString()),out shouldDisplay) ? shouldDisplay : false;;
+                        //2024-11-19 iwai-tamura upd-end ------
+
                         resultList.Add(result);
                     }
                     model.SearchResult = resultList;
@@ -901,6 +1020,103 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
+
+
+        //2024-12-24 iwai-tamura upd-str ------
+        /// <summary>
+        /// 催促メール送信
+        /// </summary>
+        /// <param name="manageNos">管理番号配列</param>
+        /// <param name="lu">ログインユーザー</param>
+        /// <returns>送信件数</returns>
+        public int FollowUpSendMail(string[] selTarget, LoginUser lu) {
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //対象データ抽出
+                var targetData = selTarget.Select(mno => {
+                    var parts = mno.Split(',');
+                    return new {
+                        Year = parts[0],
+                        EmployeeNo = parts[1]
+                    };
+                }).ToList();
+
+                DateTime dt = DateTime.Now;
+                string logDate = string.Format("{0:d} {1:g}", dt.Date, dt.TimeOfDay);
+
+                var emailSender = new SendMailCommonBL();
+                var emailData = new SendMailCommonBL.EmailData();
+                int retCount = 0;   //送信した件数カウント用
+
+                //メール設定情報取得
+                using(DbManager dm = new DbManager()) {
+                    using(IDbCommand cmd = dm.CreateCommand("SELECT * FROM TEM920SendMailSetting"))
+                    using(IDataReader reader = cmd.ExecuteReader()) {
+                        while(reader.Read()) {
+                            //メール送信
+                            emailData.From = reader["FromAddress"].ToString();
+                            emailData.BCC = reader["BCCAddress"].ToString();
+                            emailData.Subject = reader["SubjectMessage"].ToString();
+                            emailData.Body = reader["BodyMessage"].ToString();
+                        }
+                    }
+
+                    //対象者メールアドレス取得
+                    var sql = "SELECT * FROM TEM800MailAddress WHERE 社員番号 = @employeeNo";
+
+                    //SQL文の型を指定
+                    IDbCommand ucmd = dm.CreateCommand(sql);
+                    DbHelper.AddDbParameter(ucmd, "@employeeNo", DbType.String);
+
+                    foreach (var item in targetData) {
+                        // パラメータの値を設定
+                        var parameters = ucmd.Parameters.Cast<IDbDataParameter>().ToArray<IDbDataParameter>();
+                        parameters[0].Value = DataConv.IfNull(item.EmployeeNo);
+
+                        using(IDataReader reader = ucmd.ExecuteReader()) {
+                            while(reader.Read()) {
+                                //メール送信
+                                emailData.To = reader["MailAddress"].ToString();
+                            }
+                        }
+                        //メール送信
+                        bool result = emailSender.SendEmail(emailData);
+
+                        //送信履歴保存
+                        var strInsertSql = "";
+                        strInsertSql += "INSERT INTO TEM809Mail送信履歴Data";
+                        strInsertSql += " VALUES(@employeeNo,@Date,'1',@MailAddress,@SignEmployeeNo,@SignEmployeeNo,@Date,@Date,0)";
+                        IDbCommand icmd = dm.CreateCommand(strInsertSql);
+                        DbHelper.AddDbParameter(icmd, "@employeeNo", DbType.String);
+                        DbHelper.AddDbParameter(icmd, "@Date", DbType.DateTime);
+                        DbHelper.AddDbParameter(icmd, "@MailAddress", DbType.String);
+                        DbHelper.AddDbParameter(icmd, "@SignEmployeeNo", DbType.String);
+                        parameters = icmd.Parameters.Cast<IDbDataParameter>().ToArray<IDbDataParameter>();
+                        parameters[0].Value = DataConv.IfNull(item.EmployeeNo);
+                        parameters[1].Value = DataConv.IfNull(DateTime.Now.ToString());
+                        parameters[2].Value = DataConv.IfNull(emailData.To);
+                        parameters[3].Value = DataConv.IfNull(lu.UserCode);
+                        int affectedRows = icmd.ExecuteNonQuery();
+                        if (affectedRows > 0) {
+                            // 1行以上更新された場合、カウントを増やす
+                            retCount++;
+                        }
+                    }
+                }
+
+                return retCount;
+            } catch(Exception ex) {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            } finally {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        //2024-12-24 iwai-tamura upd-end ------
 
         /// <summary>
         /// 管理番号取得

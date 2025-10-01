@@ -851,6 +851,62 @@ function checkMoney(id, maxMoney) {
     return bolReturn;
 }
 
+//2024-11-19 iwai-tamura upd-str ------
+function checkFamilyCount() {
+    message = '';
+    var bolCheckAddress = false;
+    var bolCheckFamily = false;
+
+
+    //本人住所変更チェック
+    if (document.getElementById("Head_AddressBefore").value != document.getElementById("Head_Address").value) {
+        bolCheckAddress = true;
+    }
+
+    //扶養人数の増減チェック
+    var aryCheckHuyou = "";
+    aryCheckHuyou = [
+        { id: "TaxWithholding", name: "源泉控除対象配偶者" }
+        , { id: "DependentsOver16_1", name: "控除対象扶養親族(16歳以上) 1" }
+        , { id: "DependentsOver16_2", name: "控除対象扶養親族(16歳以上) 2" }
+        , { id: "DependentsOver16_3", name: "控除対象扶養親族(16歳以上) 3" }
+        , { id: "DependentsOver16_4", name: "控除対象扶養親族(16歳以上) 4" }
+        , { id: "DependentsUnder16_1", name: "控除対象扶養親族(16歳未満) 1" }
+        , { id: "DependentsUnder16_2", name: "控除対象扶養親族(16歳未満) 2" }
+        , { id: "DependentsUnder16_3", name: "控除対象扶養親族(16歳未満) 3" }
+        , { id: "DependentsUnder16_4", name: "控除対象扶養親族(16歳未満) 4" }
+    ];
+    let familyCount = 0;
+
+    $.each(aryCheckHuyou, function (index, value) {
+        // 氏名が入力されている場合、扶養人数を増やす
+        if (document.getElementById("Head_" + value.id + "_Name1").value != "") {
+            familyCount++;
+        }
+        // 対象外区分がチェックされている場合、扶養人数を減らす
+        if (document.getElementById("Head_" + value.id + "_notSubject").checked == true) {
+            familyCount--;
+        }
+    });
+    //開いた時の扶養人数と比較
+    let originalFamilyCount = parseInt(document.getElementById('Head_FamilyCount').value);
+    if (familyCount !== originalFamilyCount) {
+        bolCheckFamily = true;
+    }
+
+
+    if (bolCheckFamily && bolCheckAddress) {
+        message = '※本人情報の住所と扶養人数に変更がありました。<br/>　グループウェアにおいて人事関係申請の提出も<br/>　お願いします。';
+    } else if (bolCheckFamily) {
+        message = '※扶養人数の変更がありました。<br/>　グループウェアにおいて人事関係申請の提出も<br/>　お願いします。';
+    } else if (bolCheckAddress) {
+        message = '※本人情報の住所に変更がありました。<br/>　グループウェアにおいて人事関係申請の提出も<br/>　お願いします。';
+    }
+
+    return message;
+}
+//2024-11-19 iwai-tamura upd-end ------
+
 
 //一括チェック
 function checkAll() {
@@ -859,146 +915,437 @@ function checkAll() {
     var aryCheckSelect = "";
     var aryCheckHuyou = "";
 
+
+    //2024-11-19 iwai-tamura upd-str ------
     ///本人情報チェック
-    //チェック項目チェック
+    let missingFields = [];
+
+    //個人番号相違チェック
     if (document.getElementById("Head_MyNumberCheck").checked == false) {
-        message = '必須項目が入力されていません。<br/>確認してください。';
+        missingFields.push("本人情報:提出済み相違チェック");
     }
+
     //入力項目チェック
-    aryCheckInput = ["Head_DepartmentNo"
-                    , "Head_Name1"
-                    , "Head_Name2"
-                    , "Head_BirthdayYear"
-                    , "Head_BirthdayMonth"
-                    , "Head_BirthdayDay"
-                    , "Head_HouseholdName1"
-                    , "Head_HouseholdName2"
-                    , "Head_RelationshipType"
-                    , "Head_PostalCode_1"
-                    , "Head_PostalCode_2"
-                    , "Head_Address"
+    aryCheckInput = [
+        { id: "Head_DepartmentNo", name: "本人情報：所属番号" },
+        { id: "Head_Name1", name: "本人情報：氏名_氏" },
+        { id: "Head_Name2", name: "本人情報：氏名_名" },
+        { id: "Head_Kana1", name: "本人情報：ﾌﾘｶﾞﾅ_氏" },
+        { id: "Head_Kana2", name: "本人情報：ﾌﾘｶﾞﾅ_名" },
+        { id: "Head_BirthdayYear", name: "本人情報：生年月日_年" },
+        { id: "Head_BirthdayMonth", name: "本人情報：生年月日_月" },
+        { id: "Head_BirthdayDay", name: "本人情報：生年月日_日" },
+        { id: "Head_HouseholdName1", name: "本人情報：世帯主_氏" },
+        { id: "Head_HouseholdName2", name: "本人情報：世帯主_名" },
+        { id: "Head_RelationshipType", name: "本人情報：世帯主_続柄" },
+        { id: "Head_PostalCode_1", name: "本人情報：郵便番号1" },
+        { id: "Head_PostalCode_2", name: "本人情報：郵便番号2" },
+        { id: "Head_Address", name: "本人情報：住所又は居所" }
     ];
-    $.each(aryCheckInput, function (index, value) {
-        if (document.getElementById(value).value == "") {
-            message = '必須項目が入力されていません。<br/>確認してください。';
-        }
-
-    })
-
-    //選択項目チェック
-    aryCheckSelect = ["Head.SpouseCheck"
-                    , "Head.SpouseCheck"
-    ];
-    $.each(aryCheckSelect, function (index, value) {
-        if ($("input[name='" + value + "']:checked").length === 0) {
-            message = '必須項目が入力されていません。<br/>確認してください。';
-        }
-    })
-
-    //源泉控除対象配偶者データチェック
-    aryCheckHuyou = ["TaxWithholding"];
-    $.each(aryCheckHuyou, function (index, value) {
-        if (document.getElementById("Head_" + value + "_notSubject").checked == false) {
-            if (document.getElementById("Head_" + value + "_Name1").value != "" || document.getElementById("Head_" + value + "_Name2").value != "") {
-                if (document.getElementById("Head_" + value + "_RelationshipType").value == ""
-                    || document.getElementById("Head_" + value + "_Name1").value == ""
-                    || document.getElementById("Head_" + value + "_Name2").value == ""
-                    || document.getElementById("Head_" + value + "_Kana1").value == ""
-                    || document.getElementById("Head_" + value + "_Kana2").value == ""
-                    || document.getElementById("Head_" + value + "_BirthdayYear").value == ""
-                    || document.getElementById("Head_" + value + "_Earnings").value == ""
-                    || document.getElementById("Head_" + value + "_Earnings2Income").value == ""
-                    || $('input:radio[name="Head.' + value + '_ResidentType"]:checked').val() == ""
-                    || (document.getElementById("Head_" + value + "_Address").value == "" && $('input:radio[name="Head.' + value + '_ResidentType"]:checked').val() != "0")
-                ) {
-                    message = '扶養者を入力する際の必須項目が入力されていません。<br/>確認してください。';
-                }
-            }
-        } else {
-            if (document.getElementById("Head_" + value + "_TransferDate").value == ""
-                || document.getElementById("Head_" + value + "_TransferComment").value == ""
-            ) {
-                message = '扶養者を入力する際の必須項目が入力されていません。<br/>確認してください。';
-            }
-        }
-    })
-
-    //控除対象扶養親族(16歳以上)データチェック
-    aryCheckHuyou = ["DependentsOver16_1"
-        , "DependentsOver16_2"
-        , "DependentsOver16_3"
-        , "DependentsOver16_4"
-    ];
-    $.each(aryCheckHuyou, function (index, value) {
-        if (document.getElementById("Head_" + value + "_notSubject").checked == false) {
-            if (document.getElementById("Head_" + value + "_Name1").value != "" || document.getElementById("Head_" + value + "_Name2").value != "") {
-                if (document.getElementById("Head_" + value + "_RelationshipType").value == ""
-                    || document.getElementById("Head_" + value + "_Name1").value == ""
-                    || document.getElementById("Head_" + value + "_Name2").value == ""
-                    || document.getElementById("Head_" + value + "_Kana1").value == ""
-                    || document.getElementById("Head_" + value + "_Kana2").value == ""
-                    || document.getElementById("Head_" + value + "_BirthdayYear").value == ""
-                    || $('input:radio[name="Head.' + value + '_OldmanType"]:checked').val() == ""
-                    || $('input:radio[name="Head.' + value + '_SpecificType"]:checked').val() == ""
-                    || document.getElementById("Head_" + value + "_Earnings").value == ""
-                    || document.getElementById("Head_" + value + "_Earnings2Income").value == ""
-                    || $('input:radio[name="Head.' + value + '_ResidentType"]:checked').val() == ""
-                    || (document.getElementById("Head_" + value + "_Address").value == "" && $('input:radio[name="Head.' + value + '_ResidentType"]:checked').val() != "0")
-                ) {
-                    message = '扶養者を入力する際の必須項目が入力されていません。<br/>確認してください。';
-                }
-            }
-        } else {
-            if (document.getElementById("Head_" + value + "_TransferDate").value == ""
-                || document.getElementById("Head_" + value + "_TransferComment").value == ""
-            ) {
-                message = '扶養者を入力する際の必須項目が入力されていません。<br/>確認してください。';
-            }
-        }
-    })
-
-    //16歳未満の扶養親族データチェック
-    aryCheckHuyou = ["DependentsUnder16_1"
-        , "DependentsUnder16_2"
-        , "DependentsUnder16_3"
-        , "DependentsUnder16_4"
-    ];
-    $.each(aryCheckHuyou, function (index, value) {
-        if (document.getElementById("Head_" + value + "_notSubject").checked == false) {
-            if (document.getElementById("Head_" + value + "_Name1").value != "" || document.getElementById("Head_" + value + "_Name2").value != "") {
-                if (document.getElementById("Head_" + value + "_RelationshipType").value == ""
-                    || document.getElementById("Head_" + value + "_BirthdayYear").value == ""
-                    || document.getElementById("Head_" + value + "_Name1").value == ""
-                    || document.getElementById("Head_" + value + "_Name2").value == ""
-                    || document.getElementById("Head_" + value + "_Kana1").value == ""
-                    || document.getElementById("Head_" + value + "_Kana2").value == ""
-                    || document.getElementById("Head_" + value + "_Earnings").value == ""
-                    || document.getElementById("Head_" + value + "_Earnings2Income").value == ""
-                    || (document.getElementById("Head_" + value + "_Address").value == "" && document.getElementById("Head_" + value + "_AddressSameCheck").checked == true)
-                ) {
-                    message = '扶養者を入力する際の必須項目が入力されていません。<br/>確認してください。';
-                }
-            }
-        } else {
-            if (document.getElementById("Head_" + value + "_TransferDate").value == ""
-                || document.getElementById("Head_" + value + "_TransferComment").value == ""
-            ) {
-                message = '扶養者を入力する際の必須項目が入力されていません。<br/>確認してください。';
-            }
-        }
-    })
 
 
-
-    //画面のエラー項目全チェック
-    $(".check-comment").each(function (i, e) {
-        if ($(e).text().length > 1) {
-            message = '入力に誤りがあります。<br/>確認してください。';
+    $.each(aryCheckInput, function (index, item) {
+        if (document.getElementById(item.id).value.trim() == "") {
+            missingFields.push(item.name);
+        }else if (item.id === "Head_PostalCode_1" && document.getElementById(item.id).value.length !== 3) {
+            missingFields.push(item.name);
+        }else if (item.id === "Head_PostalCode_2" && document.getElementById(item.id).value.length !== 4) {
+            missingFields.push(item.name);
         }
     });
 
 
-    return message
+    //選択項目チェック
+    aryCheckSelect = [{ id: "Head.SpouseCheck", name: "本人情報：配偶者の有無" }];
+    $.each(aryCheckSelect, function (index, item) {
+        if ($("input[name='" + item.id + "']:checked").length === 0) {
+            missingFields.push(item.name);
+        }
+    })
+
+    if (missingFields.length > 0) {
+        message = '以下の必須項目が入力されていません。<br/>' + missingFields.join('<br/>');
+    }
+
+
+
+    /////本人情報チェック
+    ////チェック項目チェック
+    //if (document.getElementById("Head_MyNumberCheck").checked == false) {
+    //    message = '必須項目が入力されていません。<br/>確認してください。';
+    //}
+    //aryCheckInput = ["Head_DepartmentNo"
+    //                , "Head_Name1"
+    //                , "Head_Name2"
+    //                , "Head_BirthdayYear"
+    //                , "Head_BirthdayMonth"
+    //                , "Head_BirthdayDay"
+    //                , "Head_HouseholdName1"
+    //                , "Head_HouseholdName2"
+    //                , "Head_RelationshipType"
+    //                , "Head_PostalCode_1"
+    //                , "Head_PostalCode_2"
+    //                , "Head_Address"
+    //];
+    //$.each(aryCheckInput, function (index, value) {
+    //    if (document.getElementById(value).value == "") {
+    //        message = '必須項目が入力されていません。<br/>確認してください。';
+    //    }
+
+    //})
+
+    ////選択項目チェック
+    //aryCheckSelect = ["Head.SpouseCheck"
+    //                , "Head.SpouseCheck"
+    //];
+    //$.each(aryCheckSelect, function (index, value) {
+    //    if ($("input[name='" + value + "']:checked").length === 0) {
+    //    message = '必須項目が入力されていません。<br/>確認してください。';
+    //    }
+    //})
+    //2024-11-19 iwai-tamura upd-end ------
+
+
+    //2024-11-19 iwai-tamura upd-str ------
+    //源泉控除対象配偶者データチェック
+    aryCheckHuyou = [
+        { id: "TaxWithholding", name: "源泉控除対象配偶者" }
+    ];
+    $.each(aryCheckHuyou, function (index, value) {
+        if (document.getElementById("Head_" + value.id + "_notSubject").checked == false) {
+            aryCheckInput = [
+                { type: "txt", id: "RelationshipType", name: "続柄" },
+                { type: "txt", id: "Name1", name: "氏名_氏" },
+                { type: "txt", id: "Name2", name: "氏名_名" },
+                { type: "txt", id: "Kana1", name: "ﾌﾘｶﾞﾅ_氏" },
+                { type: "txt", id: "Kana2", name: "ﾌﾘｶﾞﾅ_名" },
+                { type: "txt", id: "BirthdayYear", name: "生年月日_年" },
+                { type: "txt", id: "BirthdayMonth", name: "生年月日_月" },
+                { type: "txt", id: "BirthdayDay", name: "生年月日_日" },
+                { type: "txt", id: "Earnings", name: "収入金額" },
+                { type: "txt", id: "Earnings2Income", name: "所得金額" },
+                { type: "chk", id: "ResidentType", name: "居住者区分" },
+                { type: "Address", id: "Address", name: "住所又は居所" }
+            ];
+            if (document.getElementById("Head_" + value.id + "_Name1").value != "" || document.getElementById("Head_" + value.id + "_Name2").value != "") {
+                $.each(aryCheckInput, function (index, item) {
+                    switch (item.type) {
+                        case "txt": 
+                            if (document.getElementById("Head_" + value.id + "_" + item.id).value.trim() == "") {
+                                missingFields.push(value.name + "：" + item.name);
+                            }
+                            break;
+
+                        case "chk":
+                            if ($('input:radio[name="Head.' + value.id + '_' + item.id + '"]:checked').length === 0) {
+                                missingFields.push(value.name + "：" + item.name);
+                            }
+                            break;
+                        case "Address": //住所または居所 居住者区分が該当しない場合はチェック不要
+                            if ($('input:radio[name="Head.' + value.id + '_ResidentType"]:checked').val() != "0") {
+                                if (document.getElementById("Head_" + value.id + "_" + item.id).value.trim() == "") {
+                                    if (document.getElementById("Head_" + value.id + "_" + item.id).value.trim() == "") {
+                                        missingFields.push(value.name + "：" + item.name);
+                                    }
+                                }
+                            }
+                            break;
+                    } 
+                })
+                if (missingFields.length > 0) {
+                    message = '以下の必須項目が入力されていません。<br/>' + missingFields.join('<br/>');
+                }
+            }
+        } else {
+            aryCheckInput = [
+                { type: "txt", id: "TransferDate", name: "異動年月日" },
+                { type: "txt", id: "TransferComment", name: "事由" }
+            ];
+            $.each(aryCheckInput, function (index, item) {
+                switch (item.type) {
+                    case "txt":
+                        if (document.getElementById("Head_" + value.id + "_" + item.id).value.trim() == "") {
+                            missingFields.push(value.name + "：" + item.name);
+                        }
+                        break;
+                }
+            })
+            if (missingFields.length > 0) {
+                message = '以下の必須項目が入力されていません。<br/>' + missingFields.join('<br/>');
+            }
+        }
+    })
+
+
+    //控除対象扶養親族(16歳以上)データチェック
+    aryCheckHuyou = [
+        { id: "DependentsOver16_1", name: "控除対象扶養親族(16歳以上) 1" }
+        , { id: "DependentsOver16_2", name: "控除対象扶養親族(16歳以上) 2" }
+        , { id: "DependentsOver16_3", name: "控除対象扶養親族(16歳以上) 3" }
+        , { id: "DependentsOver16_4", name: "控除対象扶養親族(16歳以上) 4" }
+    ];
+
+    $.each(aryCheckHuyou, function (index, value) {
+        if (document.getElementById("Head_" + value.id + "_notSubject").checked == false) {
+            aryCheckInput = [
+                { type: "txt", id: "RelationshipType", name: "続柄" }
+                , { type: "txt", id: "Name1", name: "氏名_氏" }
+                , { type: "txt", id: "Name2", name: "氏名_名" }
+                , { type: "txt", id: "Kana1", name: "ﾌﾘｶﾞﾅ_氏" }
+                , { type: "txt", id: "Kana2", name: "ﾌﾘｶﾞﾅ_名" }
+                , { type: "txt", id: "BirthdayYear", name: "生年月日" }
+                , { type: "chk", id: "OldmanType", name: "老人扶養親族" }
+                , { type: "chk", id: "SpecificType", name: "特定扶養親族" }
+                , { type: "txt", id: "Earnings", name: "収入金額" }
+                , { type: "txt", id: "Earnings2Income", name: "所得金額" }
+                , { type: "chk", id: "ResidentType", name: "居住者区分" }
+                , { type: "Address", id: "Address", name: "住所又は居所" }
+            ];
+            if (document.getElementById("Head_" + value.id + "_Name1").value != "" || document.getElementById("Head_" + value.id + "_Name2").value != "") {
+                $.each(aryCheckInput, function (index, item) {
+                    switch (item.type) {
+                        case "txt":
+                            if (document.getElementById("Head_" + value.id + "_" + item.id).value.trim() == "") {
+                                missingFields.push(value.name + "：" + item.name);
+                            }
+                            break;
+
+                        case "chk":
+                            if ($('input:radio[name="Head.' + value.id + '_' + item.id + '"]:checked').length === 0) {
+                                missingFields.push(value.name + "：" + item.name);
+                            }
+                            break;
+                        case "Address": //住所または居所 居住者区分が該当しない場合はチェック不要
+                            if ($('input:radio[name="Head.' + value.id + '_ResidentType"]:checked').val() != "0") {
+                                if (document.getElementById("Head_" + value.id + "_" + item.id).value.trim() == "") {
+                                    if (document.getElementById("Head_" + value.id + "_" + item.id).value.trim() == "") {
+                                        missingFields.push(value.name + "：" + item.name);
+                                    }
+                                }
+                            }
+                            break;
+                    }
+                })
+                if (missingFields.length > 0) {
+                    message = '以下の必須項目が入力されていません。<br/>' + missingFields.join('<br/>');
+                }
+            }
+        } else {
+            aryCheckInput = [
+                { type: "txt", id: "TransferDate", name: "異動年月日" },
+                { type: "txt", id: "TransferComment", name: "事由" }
+            ];
+            $.each(aryCheckInput, function (index, item) {
+                switch (item.type) {
+                    case "txt":
+                        if (document.getElementById("Head_" + value.id + "_" + item.id).value.trim() == "") {
+                            missingFields.push(value.name + "：" + item.name);
+                        }
+                        break;
+                }
+            })
+            if (missingFields.length > 0) {
+                message = '以下の必須項目が入力されていません。<br/>' + missingFields.join('<br/>');
+            }
+        }
+    })
+
+
+    //16歳未満の扶養親族データチェック
+    aryCheckHuyou = [
+        { id: "DependentsUnder16_1", name: "控除対象扶養親族(16歳未満) 1" }
+        , { id: "DependentsUnder16_2", name: "控除対象扶養親族(16歳未満) 2" }
+        , { id: "DependentsUnder16_3", name: "控除対象扶養親族(16歳未満) 3" }
+        , { id: "DependentsUnder16_4", name: "控除対象扶養親族(16歳未満) 4" }
+    ];
+
+    $.each(aryCheckHuyou, function (index, value) {
+        if (document.getElementById("Head_" + value.id + "_notSubject").checked == false) {
+            aryCheckInput = [
+                { type: "txt", id: "RelationshipType", name: "続柄" }
+                , { type: "txt", id: "Name1", name: "氏名_氏" }
+                , { type: "txt", id: "Name2", name: "氏名_名" }
+                , { type: "txt", id: "Kana1", name: "ﾌﾘｶﾞﾅ_氏" }
+                , { type: "txt", id: "Kana2", name: "ﾌﾘｶﾞﾅ_名" }
+                , { type: "txt", id: "BirthdayYear", name: "生年月日" }
+                , { type: "txt", id: "Earnings", name: "収入金額" }
+                , { type: "txt", id: "Earnings2Income", name: "所得金額" }
+                , { type: "Address", id: "Address", name: "住所又は居所" }
+            ];
+            if (document.getElementById("Head_" + value.id + "_Name1").value != "" || document.getElementById("Head_" + value.id + "_Name2").value != "") {
+                $.each(aryCheckInput, function (index, item) {
+                    switch (item.type) {
+                        case "txt":
+                            if (document.getElementById("Head_" + value.id + "_" + item.id).value.trim() == "") {
+                                missingFields.push(value.name + "：" + item.name);
+                            }
+                            break;
+
+                        case "chk":
+                            if ($('input:radio[name="Head.' + value.id + '_' + item.id + '"]:checked').length === 0) {
+                                missingFields.push(value.name + "：" + item.name);
+                            }
+                            break;
+                        case "Address": //住所または居所 居住者区分が該当しない場合はチェック不要
+                            if ($('input:radio[name="Head.' + value.id + '_AddressSameCheck"]:checked').val() == true) {
+                                if (document.getElementById("Head_" + value.id + "_" + item.id).value.trim() == "") {
+                                    missingFields.push(value.name + "：" + item.name);
+                                }
+                            }
+                            break;
+                    }
+                })
+                if (missingFields.length > 0) {
+                    message = '以下の必須項目が入力されていません。<br/>' + missingFields.join('<br/>');
+                }
+            }
+        } else {
+            aryCheckInput = [
+                { type: "txt", id: "TransferDate", name: "異動年月日" },
+                { type: "txt", id: "TransferComment", name: "事由" }
+            ];
+            $.each(aryCheckInput, function (index, item) {
+                switch (item.type) {
+                    case "txt":
+                        if (document.getElementById("Head_" + value.id + "_" + item.id).value.trim() == "") {
+                            missingFields.push(value.name + "：" + item.name);
+                        }
+                        break;
+                }
+            })
+            if (missingFields.length > 0) {
+                message = '以下の必須項目が入力されていません。<br/>' + missingFields.join('<br/>');
+            }
+        }
+    })
+
+    ////源泉控除対象配偶者データチェック
+    //aryCheckHuyou = ["TaxWithholding"];
+    //$.each(aryCheckHuyou, function (index, value) {
+    //    if (document.getElementById("Head_" + value + "_notSubject").checked == false) {
+    //        if (document.getElementById("Head_" + value + "_Name1").value != "" || document.getElementById("Head_" + value + "_Name2").value != "") {
+    //            if (document.getElementById("Head_" + value + "_RelationshipType").value == ""
+    //                || document.getElementById("Head_" + value + "_Name1").value == ""
+    //                || document.getElementById("Head_" + value + "_Name2").value == ""
+    //                || document.getElementById("Head_" + value + "_Kana1").value == ""
+    //                || document.getElementById("Head_" + value + "_Kana2").value == ""
+    //                || document.getElementById("Head_" + value + "_BirthdayYear").value == ""
+    //                || document.getElementById("Head_" + value + "_Earnings").value == ""
+    //                || document.getElementById("Head_" + value + "_Earnings2Income").value == ""
+    //                || $('input:radio[name="Head.' + value + '_ResidentType"]:checked').val() == ""
+    //                || (document.getElementById("Head_" + value + "_Address").value == "" && $('input:radio[name="Head.' + value + '_ResidentType"]:checked').val() != "0")
+    //            ) {
+    //                message = '扶養者を入力する際の必須項目が入力されていません。<br/>確認してください。';
+    //            }
+    //        }
+    //    } else {
+    //        if (document.getElementById("Head_" + value + "_TransferDate").value == ""
+    //            || document.getElementById("Head_" + value + "_TransferComment").value == ""
+    //        ) {
+    //            message = '扶養者を入力する際の必須項目が入力されていません。<br/>確認してください。';
+    //        }
+    //    }
+    //})
+    ////控除対象扶養親族(16歳以上)データチェック
+    //aryCheckHuyou = ["DependentsOver16_1"
+    //    , "DependentsOver16_2"
+    //    , "DependentsOver16_3"
+    //    , "DependentsOver16_4"
+    //];
+    //$.each(aryCheckHuyou, function (index, value) {
+    //    if (document.getElementById("Head_" + value + "_notSubject").checked == false) {
+    //        if (document.getElementById("Head_" + value + "_Name1").value != "" || document.getElementById("Head_" + value + "_Name2").value != "") {
+    //            if (document.getElementById("Head_" + value + "_RelationshipType").value == ""
+    //                || document.getElementById("Head_" + value + "_Name1").value == ""
+    //                || document.getElementById("Head_" + value + "_Name2").value == ""
+    //                || document.getElementById("Head_" + value + "_Kana1").value == ""
+    //                || document.getElementById("Head_" + value + "_Kana2").value == ""
+    //                || document.getElementById("Head_" + value + "_BirthdayYear").value == ""
+    //                || $('input:radio[name="Head.' + value + '_OldmanType"]:checked').val() == ""
+    //                || $('input:radio[name="Head.' + value + '_SpecificType"]:checked').val() == ""
+    //                || document.getElementById("Head_" + value + "_Earnings").value == ""
+    //                || document.getElementById("Head_" + value + "_Earnings2Income").value == ""
+    //                || $('input:radio[name="Head.' + value + '_ResidentType"]:checked').val() == ""
+    //                || (document.getElementById("Head_" + value + "_Address").value == "" && $('input:radio[name="Head.' + value + '_ResidentType"]:checked').val() != "0")
+    //            ) {
+    //                message = '扶養者を入力する際の必須項目が入力されていません。<br/>確認してください。';
+    //            }
+    //        }
+    //    } else {
+    //        if (document.getElementById("Head_" + value + "_TransferDate").value == ""
+    //            || document.getElementById("Head_" + value + "_TransferComment").value == ""
+    //        ) {
+    //            message = '扶養者を入力する際の必須項目が入力されていません。<br/>確認してください。';
+    //        }
+    //    }
+    //})
+
+    ////16歳未満の扶養親族データチェック
+    //aryCheckHuyou = ["DependentsUnder16_1"
+    //    , "DependentsUnder16_2"
+    //    , "DependentsUnder16_3"
+    //    , "DependentsUnder16_4"
+    //];
+    //$.each(aryCheckHuyou, function (index, value) {
+    //    if (document.getElementById("Head_" + value + "_notSubject").checked == false) {
+    //        if (document.getElementById("Head_" + value + "_Name1").value != "" || document.getElementById("Head_" + value + "_Name2").value != "") {
+    //            if (document.getElementById("Head_" + value + "_RelationshipType").value == ""
+    //                || document.getElementById("Head_" + value + "_BirthdayYear").value == ""
+    //                || document.getElementById("Head_" + value + "_Name1").value == ""
+    //                || document.getElementById("Head_" + value + "_Name2").value == ""
+    //                || document.getElementById("Head_" + value + "_Kana1").value == ""
+    //                || document.getElementById("Head_" + value + "_Kana2").value == ""
+    //                || document.getElementById("Head_" + value + "_Earnings").value == ""
+    //                || document.getElementById("Head_" + value + "_Earnings2Income").value == ""
+    //                || (document.getElementById("Head_" + value + "_Address").value == "" && document.getElementById("Head_" + value + "_AddressSameCheck").checked == true)
+    //            ) {
+    //                message = '扶養者を入力する際の必須項目が入力されていません。<br/>確認してください。';
+    //            }
+    //        }
+    //    } else {
+    //        if (document.getElementById("Head_" + value + "_TransferDate").value == ""
+    //            || document.getElementById("Head_" + value + "_TransferComment").value == ""
+    //        ) {
+    //            message = '扶養者を入力する際の必須項目が入力されていません。<br/>確認してください。';
+    //        }
+    //    }
+    //})
+
+    //2024-11-19 iwai-tamura upd-end ------
+
+
+
+    //画面のエラー項目全チェック
+    //2024-11-19 iwai-tamura upd-str ------
+    let errorMessages = [];
+
+    $(".check-comment").each(function (i, e) {
+        let errorText = $(e).text().trim();
+
+        if (errorText.length > 0) {
+            // エラーメッセージが存在する場合
+            let fieldName = $(e).data("fieldname"); // data-fieldname属性から項目名を取得
+
+            if (fieldName) {
+                errorMessages.push(`${fieldName}`);
+            } else {
+                errorMessages.push(errorText);
+            }
+        }
+    });
+
+    if (errorMessages.length > 0) {
+        message = '以下の入力項目に誤りがあります。<br/>' + errorMessages.join('<br/>');
+    }
+
+    //$(".check-comment").each(function (i, e) {
+    //    if ($(e).text().length > 1) {
+    //        message = '入力に誤りがあります。<br/>確認してください。';
+    //    }
+    //});
+    //2024-11-19 iwai-tamura upd-end ------
+
+    return message;
 }
 
 
@@ -1025,8 +1372,19 @@ $('#dmykeep').click(function () {
         showAlert('確認',message)
         return;
     }
-  //ボタンクリック
-  showMessageEx('途中保存確認', '保存しますか？', 'keepbutton', true);
+
+    //2024-11-19 iwai-tamura upd-str ------
+    //扶養人数チェック
+    message = '';
+    message = checkFamilyCount();
+    let additionalMessage = message ? '<br><br>' + message : '';
+    //2024-11-19 iwai-tamura upd-end ------
+
+    //ボタンクリック
+    //2024-11-19 iwai-tamura upd-str ------
+    showMessageEx('途中保存確認', '保存しますか？' + additionalMessage, 'keepbutton', true);
+    //showMessageEx('途中保存確認', '保存しますか？', 'keepbutton', true);
+    //2024-11-19 iwai-tamura upd-end ------
 });
 
 /*
@@ -1043,20 +1401,36 @@ $('#dmysave').click(function () {
         return;
     }
 
+    //2024-11-19 iwai-tamura upd-str ------
+    //扶養人数チェック
+    message = '';
+    message = checkFamilyCount();
+    let additionalMessage = message ? '<br><br>' + message : '';
+    //2024-11-19 iwai-tamura upd-end ------
+
     //ボタンクリック
     //2023-11-20 iwai-tamura upd str -----
     var isAdminMode = $('#Head_AdminMode').val().toLowerCase() === 'true';
     if (isAdminMode) {
 	    //2023-12-15 iwai-tamura upd str -----
         if ($('#Head_DecisionType').val() <= '5') {
-            showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
+            //2024-11-19 iwai-tamura upd-str ------
+            showMessageEx('確定確認', '確定しますか？' + additionalMessage, 'savebutton', true);
+            //showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
+            //2024-11-19 iwai-tamura upd-end ------
         } else {
-            showMessageEx('修正確認', '修正しますか？ <br><br> ※既に連携済みデータの為、連携先システムの修正も同様に行ってください。', 'savebutton', true);
+            //2024-11-19 iwai-tamura upd-str ------
+            showMessageEx('修正確認', '修正しますか？ <br><br> ※既に連携済みデータの為、連携先システムの修正も同様に行ってください。' + additionalMessage, 'savebutton', true);
+            //showMessageEx('修正確認', '修正しますか？ <br><br> ※既に連携済みデータの為、連携先システムの修正も同様に行ってください。', 'savebutton', true);
+            //2024-11-19 iwai-tamura upd-end ------
         }
         //showMessageEx('確定確認', '確定しますか？', 'savebutton', true);
 	    //2023-12-15 iwai-tamura upd end -----
     } else {
-        showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
+        //2024-11-19 iwai-tamura upd-str ------
+        showMessageEx('提出確認', '提出しますか？' + additionalMessage, 'savebutton', true);
+        //showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
+        //2024-11-19 iwai-tamura upd-end ------
     }
     //showMessageEx('提出確認', '提出しますか？', 'savebutton', true);
     //2023-11-20 iwai-tamura upd end -----

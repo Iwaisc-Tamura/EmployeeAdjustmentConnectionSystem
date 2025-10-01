@@ -43,6 +43,14 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// </summary>
         [RegularExpression(@"[ァ-ヶ]+", ErrorMessage = "全角カタカナのみ入力できます。")]
         public string EmployeeNameKana { get; set; }
+
+        //2024-12-24 iwai-tamura add-str ---
+        /// <summary>
+        /// メール配信対象者フラグ
+        /// </summary>
+        public bool MailTargetFlag { get; set; }
+        //2024-12-24 iwai-tamura add-end ---
+
     }
 
     /// <summary>
