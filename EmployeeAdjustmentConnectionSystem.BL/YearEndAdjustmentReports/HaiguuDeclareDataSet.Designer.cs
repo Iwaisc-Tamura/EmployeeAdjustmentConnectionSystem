@@ -355,6 +355,102 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             private global::System.Data.DataColumn column配偶者控除申告書_配偶者定額減税対象;
             
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_氏名;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_Kana;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_続柄名称;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_生年月日;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_生年月日年;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_生年月日月;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_生年月日日;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_住所;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_非居住者;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_給与所得_収入金額;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_給与所得_所得金額;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_他_所得金額;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_合計所得金額見積額;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_控除額計算判定;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_控除額計算区分;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書01_特定親族特別控除額;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_氏名;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_Kana;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_続柄名称;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_生年月日;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_生年月日年;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_生年月日月;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_生年月日日;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_住所;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_非居住者;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_給与所得_収入金額;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_給与所得_所得金額;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_他_所得金額;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_合計所得金額見積額;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_控除額計算判定;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_控除額計算区分;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書02_特定親族特別控除額;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_氏名;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_Kana;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_続柄名称;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_生年月日;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_生年月日年;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_生年月日月;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_生年月日日;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_住所;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_非居住者;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_給与所得_収入金額;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_給与所得_所得金額;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_他_所得金額;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_合計所得金額見積額;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_控除額計算判定;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_控除額計算区分;
+            
+            private global::System.Data.DataColumn column特定親族特別控除申告書03_特定親族特別控除額;
+            
             private global::System.Data.DataColumn column所得金額調整控除申告書_要件区分;
             
             private global::System.Data.DataColumn column所得金額調整控除申告書_扶養親族等氏名;
@@ -754,6 +850,390 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_氏名Column {
+                get {
+                    return this.column特定親族特別控除申告書01_氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_KanaColumn {
+                get {
+                    return this.column特定親族特別控除申告書01_Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_続柄名称Column {
+                get {
+                    return this.column特定親族特別控除申告書01_続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_生年月日Column {
+                get {
+                    return this.column特定親族特別控除申告書01_生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_生年月日年Column {
+                get {
+                    return this.column特定親族特別控除申告書01_生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_生年月日月Column {
+                get {
+                    return this.column特定親族特別控除申告書01_生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_生年月日日Column {
+                get {
+                    return this.column特定親族特別控除申告書01_生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_住所Column {
+                get {
+                    return this.column特定親族特別控除申告書01_住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_非居住者Column {
+                get {
+                    return this.column特定親族特別控除申告書01_非居住者;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_給与所得_収入金額Column {
+                get {
+                    return this.column特定親族特別控除申告書01_給与所得_収入金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_給与所得_所得金額Column {
+                get {
+                    return this.column特定親族特別控除申告書01_給与所得_所得金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_他_所得金額Column {
+                get {
+                    return this.column特定親族特別控除申告書01_他_所得金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_合計所得金額見積額Column {
+                get {
+                    return this.column特定親族特別控除申告書01_合計所得金額見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_控除額計算判定Column {
+                get {
+                    return this.column特定親族特別控除申告書01_控除額計算判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_控除額計算区分Column {
+                get {
+                    return this.column特定親族特別控除申告書01_控除額計算区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書01_特定親族特別控除額Column {
+                get {
+                    return this.column特定親族特別控除申告書01_特定親族特別控除額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_氏名Column {
+                get {
+                    return this.column特定親族特別控除申告書02_氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_KanaColumn {
+                get {
+                    return this.column特定親族特別控除申告書02_Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_続柄名称Column {
+                get {
+                    return this.column特定親族特別控除申告書02_続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_生年月日Column {
+                get {
+                    return this.column特定親族特別控除申告書02_生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_生年月日年Column {
+                get {
+                    return this.column特定親族特別控除申告書02_生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_生年月日月Column {
+                get {
+                    return this.column特定親族特別控除申告書02_生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_生年月日日Column {
+                get {
+                    return this.column特定親族特別控除申告書02_生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_住所Column {
+                get {
+                    return this.column特定親族特別控除申告書02_住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_非居住者Column {
+                get {
+                    return this.column特定親族特別控除申告書02_非居住者;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_給与所得_収入金額Column {
+                get {
+                    return this.column特定親族特別控除申告書02_給与所得_収入金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_給与所得_所得金額Column {
+                get {
+                    return this.column特定親族特別控除申告書02_給与所得_所得金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_他_所得金額Column {
+                get {
+                    return this.column特定親族特別控除申告書02_他_所得金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_合計所得金額見積額Column {
+                get {
+                    return this.column特定親族特別控除申告書02_合計所得金額見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_控除額計算判定Column {
+                get {
+                    return this.column特定親族特別控除申告書02_控除額計算判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_控除額計算区分Column {
+                get {
+                    return this.column特定親族特別控除申告書02_控除額計算区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書02_特定親族特別控除額Column {
+                get {
+                    return this.column特定親族特別控除申告書02_特定親族特別控除額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_氏名Column {
+                get {
+                    return this.column特定親族特別控除申告書03_氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_KanaColumn {
+                get {
+                    return this.column特定親族特別控除申告書03_Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_続柄名称Column {
+                get {
+                    return this.column特定親族特別控除申告書03_続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_生年月日Column {
+                get {
+                    return this.column特定親族特別控除申告書03_生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_生年月日年Column {
+                get {
+                    return this.column特定親族特別控除申告書03_生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_生年月日月Column {
+                get {
+                    return this.column特定親族特別控除申告書03_生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_生年月日日Column {
+                get {
+                    return this.column特定親族特別控除申告書03_生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_住所Column {
+                get {
+                    return this.column特定親族特別控除申告書03_住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_非居住者Column {
+                get {
+                    return this.column特定親族特別控除申告書03_非居住者;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_給与所得_収入金額Column {
+                get {
+                    return this.column特定親族特別控除申告書03_給与所得_収入金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_給与所得_所得金額Column {
+                get {
+                    return this.column特定親族特別控除申告書03_給与所得_所得金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_他_所得金額Column {
+                get {
+                    return this.column特定親族特別控除申告書03_他_所得金額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_合計所得金額見積額Column {
+                get {
+                    return this.column特定親族特別控除申告書03_合計所得金額見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_控除額計算判定Column {
+                get {
+                    return this.column特定親族特別控除申告書03_控除額計算判定;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_控除額計算区分Column {
+                get {
+                    return this.column特定親族特別控除申告書03_控除額計算区分;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 特定親族特別控除申告書03_特定親族特別控除額Column {
+                get {
+                    return this.column特定親族特別控除申告書03_特定親族特別控除額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn 所得金額調整控除申告書_要件区分Column {
                 get {
                     return this.column所得金額調整控除申告書_要件区分;
@@ -1068,6 +1548,54 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         decimal 配偶者控除申告書_配偶者控除額, 
                         decimal 配偶者控除申告書_配偶者特別控除額, 
                         string 配偶者控除申告書_配偶者定額減税対象, 
+                        string 特定親族特別控除申告書01_氏名, 
+                        string 特定親族特別控除申告書01_Kana, 
+                        string 特定親族特別控除申告書01_続柄名称, 
+                        System.DateTime 特定親族特別控除申告書01_生年月日, 
+                        string 特定親族特別控除申告書01_生年月日年, 
+                        string 特定親族特別控除申告書01_生年月日月, 
+                        string 特定親族特別控除申告書01_生年月日日, 
+                        string 特定親族特別控除申告書01_住所, 
+                        string 特定親族特別控除申告書01_非居住者, 
+                        decimal 特定親族特別控除申告書01_給与所得_収入金額, 
+                        decimal 特定親族特別控除申告書01_給与所得_所得金額, 
+                        decimal 特定親族特別控除申告書01_他_所得金額, 
+                        decimal 特定親族特別控除申告書01_合計所得金額見積額, 
+                        string 特定親族特別控除申告書01_控除額計算判定, 
+                        string 特定親族特別控除申告書01_控除額計算区分, 
+                        decimal 特定親族特別控除申告書01_特定親族特別控除額, 
+                        string 特定親族特別控除申告書02_氏名, 
+                        string 特定親族特別控除申告書02_Kana, 
+                        string 特定親族特別控除申告書02_続柄名称, 
+                        System.DateTime 特定親族特別控除申告書02_生年月日, 
+                        string 特定親族特別控除申告書02_生年月日年, 
+                        string 特定親族特別控除申告書02_生年月日月, 
+                        string 特定親族特別控除申告書02_生年月日日, 
+                        string 特定親族特別控除申告書02_住所, 
+                        string 特定親族特別控除申告書02_非居住者, 
+                        decimal 特定親族特別控除申告書02_給与所得_収入金額, 
+                        decimal 特定親族特別控除申告書02_給与所得_所得金額, 
+                        decimal 特定親族特別控除申告書02_他_所得金額, 
+                        decimal 特定親族特別控除申告書02_合計所得金額見積額, 
+                        string 特定親族特別控除申告書02_控除額計算判定, 
+                        string 特定親族特別控除申告書02_控除額計算区分, 
+                        decimal 特定親族特別控除申告書02_特定親族特別控除額, 
+                        string 特定親族特別控除申告書03_氏名, 
+                        string 特定親族特別控除申告書03_Kana, 
+                        string 特定親族特別控除申告書03_続柄名称, 
+                        System.DateTime 特定親族特別控除申告書03_生年月日, 
+                        string 特定親族特別控除申告書03_生年月日年, 
+                        string 特定親族特別控除申告書03_生年月日月, 
+                        string 特定親族特別控除申告書03_生年月日日, 
+                        string 特定親族特別控除申告書03_住所, 
+                        string 特定親族特別控除申告書03_非居住者, 
+                        decimal 特定親族特別控除申告書03_給与所得_収入金額, 
+                        decimal 特定親族特別控除申告書03_給与所得_所得金額, 
+                        decimal 特定親族特別控除申告書03_他_所得金額, 
+                        decimal 特定親族特別控除申告書03_合計所得金額見積額, 
+                        string 特定親族特別控除申告書03_控除額計算判定, 
+                        string 特定親族特別控除申告書03_控除額計算区分, 
+                        decimal 特定親族特別控除申告書03_特定親族特別控除額, 
                         string 所得金額調整控除申告書_要件区分, 
                         string 所得金額調整控除申告書_扶養親族等氏名, 
                         string 所得金額調整控除申告書_扶養親族等Kana, 
@@ -1138,6 +1666,54 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         配偶者控除申告書_配偶者控除額,
                         配偶者控除申告書_配偶者特別控除額,
                         配偶者控除申告書_配偶者定額減税対象,
+                        特定親族特別控除申告書01_氏名,
+                        特定親族特別控除申告書01_Kana,
+                        特定親族特別控除申告書01_続柄名称,
+                        特定親族特別控除申告書01_生年月日,
+                        特定親族特別控除申告書01_生年月日年,
+                        特定親族特別控除申告書01_生年月日月,
+                        特定親族特別控除申告書01_生年月日日,
+                        特定親族特別控除申告書01_住所,
+                        特定親族特別控除申告書01_非居住者,
+                        特定親族特別控除申告書01_給与所得_収入金額,
+                        特定親族特別控除申告書01_給与所得_所得金額,
+                        特定親族特別控除申告書01_他_所得金額,
+                        特定親族特別控除申告書01_合計所得金額見積額,
+                        特定親族特別控除申告書01_控除額計算判定,
+                        特定親族特別控除申告書01_控除額計算区分,
+                        特定親族特別控除申告書01_特定親族特別控除額,
+                        特定親族特別控除申告書02_氏名,
+                        特定親族特別控除申告書02_Kana,
+                        特定親族特別控除申告書02_続柄名称,
+                        特定親族特別控除申告書02_生年月日,
+                        特定親族特別控除申告書02_生年月日年,
+                        特定親族特別控除申告書02_生年月日月,
+                        特定親族特別控除申告書02_生年月日日,
+                        特定親族特別控除申告書02_住所,
+                        特定親族特別控除申告書02_非居住者,
+                        特定親族特別控除申告書02_給与所得_収入金額,
+                        特定親族特別控除申告書02_給与所得_所得金額,
+                        特定親族特別控除申告書02_他_所得金額,
+                        特定親族特別控除申告書02_合計所得金額見積額,
+                        特定親族特別控除申告書02_控除額計算判定,
+                        特定親族特別控除申告書02_控除額計算区分,
+                        特定親族特別控除申告書02_特定親族特別控除額,
+                        特定親族特別控除申告書03_氏名,
+                        特定親族特別控除申告書03_Kana,
+                        特定親族特別控除申告書03_続柄名称,
+                        特定親族特別控除申告書03_生年月日,
+                        特定親族特別控除申告書03_生年月日年,
+                        特定親族特別控除申告書03_生年月日月,
+                        特定親族特別控除申告書03_生年月日日,
+                        特定親族特別控除申告書03_住所,
+                        特定親族特別控除申告書03_非居住者,
+                        特定親族特別控除申告書03_給与所得_収入金額,
+                        特定親族特別控除申告書03_給与所得_所得金額,
+                        特定親族特別控除申告書03_他_所得金額,
+                        特定親族特別控除申告書03_合計所得金額見積額,
+                        特定親族特別控除申告書03_控除額計算判定,
+                        特定親族特別控除申告書03_控除額計算区分,
+                        特定親族特別控除申告書03_特定親族特別控除額,
                         所得金額調整控除申告書_要件区分,
                         所得金額調整控除申告書_扶養親族等氏名,
                         所得金額調整控除申告書_扶養親族等Kana,
@@ -1228,6 +1804,54 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 this.column配偶者控除申告書_配偶者控除額 = base.Columns["配偶者控除申告書_配偶者控除額"];
                 this.column配偶者控除申告書_配偶者特別控除額 = base.Columns["配偶者控除申告書_配偶者特別控除額"];
                 this.column配偶者控除申告書_配偶者定額減税対象 = base.Columns["配偶者控除申告書_配偶者定額減税対象"];
+                this.column特定親族特別控除申告書01_氏名 = base.Columns["特定親族特別控除申告書01_氏名"];
+                this.column特定親族特別控除申告書01_Kana = base.Columns["特定親族特別控除申告書01_Kana"];
+                this.column特定親族特別控除申告書01_続柄名称 = base.Columns["特定親族特別控除申告書01_続柄名称"];
+                this.column特定親族特別控除申告書01_生年月日 = base.Columns["特定親族特別控除申告書01_生年月日"];
+                this.column特定親族特別控除申告書01_生年月日年 = base.Columns["特定親族特別控除申告書01_生年月日年"];
+                this.column特定親族特別控除申告書01_生年月日月 = base.Columns["特定親族特別控除申告書01_生年月日月"];
+                this.column特定親族特別控除申告書01_生年月日日 = base.Columns["特定親族特別控除申告書01_生年月日日"];
+                this.column特定親族特別控除申告書01_住所 = base.Columns["特定親族特別控除申告書01_住所"];
+                this.column特定親族特別控除申告書01_非居住者 = base.Columns["特定親族特別控除申告書01_非居住者"];
+                this.column特定親族特別控除申告書01_給与所得_収入金額 = base.Columns["特定親族特別控除申告書01_給与所得_収入金額"];
+                this.column特定親族特別控除申告書01_給与所得_所得金額 = base.Columns["特定親族特別控除申告書01_給与所得_所得金額"];
+                this.column特定親族特別控除申告書01_他_所得金額 = base.Columns["特定親族特別控除申告書01_他_所得金額"];
+                this.column特定親族特別控除申告書01_合計所得金額見積額 = base.Columns["特定親族特別控除申告書01_合計所得金額見積額"];
+                this.column特定親族特別控除申告書01_控除額計算判定 = base.Columns["特定親族特別控除申告書01_控除額計算判定"];
+                this.column特定親族特別控除申告書01_控除額計算区分 = base.Columns["特定親族特別控除申告書01_控除額計算区分"];
+                this.column特定親族特別控除申告書01_特定親族特別控除額 = base.Columns["特定親族特別控除申告書01_特定親族特別控除額"];
+                this.column特定親族特別控除申告書02_氏名 = base.Columns["特定親族特別控除申告書02_氏名"];
+                this.column特定親族特別控除申告書02_Kana = base.Columns["特定親族特別控除申告書02_Kana"];
+                this.column特定親族特別控除申告書02_続柄名称 = base.Columns["特定親族特別控除申告書02_続柄名称"];
+                this.column特定親族特別控除申告書02_生年月日 = base.Columns["特定親族特別控除申告書02_生年月日"];
+                this.column特定親族特別控除申告書02_生年月日年 = base.Columns["特定親族特別控除申告書02_生年月日年"];
+                this.column特定親族特別控除申告書02_生年月日月 = base.Columns["特定親族特別控除申告書02_生年月日月"];
+                this.column特定親族特別控除申告書02_生年月日日 = base.Columns["特定親族特別控除申告書02_生年月日日"];
+                this.column特定親族特別控除申告書02_住所 = base.Columns["特定親族特別控除申告書02_住所"];
+                this.column特定親族特別控除申告書02_非居住者 = base.Columns["特定親族特別控除申告書02_非居住者"];
+                this.column特定親族特別控除申告書02_給与所得_収入金額 = base.Columns["特定親族特別控除申告書02_給与所得_収入金額"];
+                this.column特定親族特別控除申告書02_給与所得_所得金額 = base.Columns["特定親族特別控除申告書02_給与所得_所得金額"];
+                this.column特定親族特別控除申告書02_他_所得金額 = base.Columns["特定親族特別控除申告書02_他_所得金額"];
+                this.column特定親族特別控除申告書02_合計所得金額見積額 = base.Columns["特定親族特別控除申告書02_合計所得金額見積額"];
+                this.column特定親族特別控除申告書02_控除額計算判定 = base.Columns["特定親族特別控除申告書02_控除額計算判定"];
+                this.column特定親族特別控除申告書02_控除額計算区分 = base.Columns["特定親族特別控除申告書02_控除額計算区分"];
+                this.column特定親族特別控除申告書02_特定親族特別控除額 = base.Columns["特定親族特別控除申告書02_特定親族特別控除額"];
+                this.column特定親族特別控除申告書03_氏名 = base.Columns["特定親族特別控除申告書03_氏名"];
+                this.column特定親族特別控除申告書03_Kana = base.Columns["特定親族特別控除申告書03_Kana"];
+                this.column特定親族特別控除申告書03_続柄名称 = base.Columns["特定親族特別控除申告書03_続柄名称"];
+                this.column特定親族特別控除申告書03_生年月日 = base.Columns["特定親族特別控除申告書03_生年月日"];
+                this.column特定親族特別控除申告書03_生年月日年 = base.Columns["特定親族特別控除申告書03_生年月日年"];
+                this.column特定親族特別控除申告書03_生年月日月 = base.Columns["特定親族特別控除申告書03_生年月日月"];
+                this.column特定親族特別控除申告書03_生年月日日 = base.Columns["特定親族特別控除申告書03_生年月日日"];
+                this.column特定親族特別控除申告書03_住所 = base.Columns["特定親族特別控除申告書03_住所"];
+                this.column特定親族特別控除申告書03_非居住者 = base.Columns["特定親族特別控除申告書03_非居住者"];
+                this.column特定親族特別控除申告書03_給与所得_収入金額 = base.Columns["特定親族特別控除申告書03_給与所得_収入金額"];
+                this.column特定親族特別控除申告書03_給与所得_所得金額 = base.Columns["特定親族特別控除申告書03_給与所得_所得金額"];
+                this.column特定親族特別控除申告書03_他_所得金額 = base.Columns["特定親族特別控除申告書03_他_所得金額"];
+                this.column特定親族特別控除申告書03_合計所得金額見積額 = base.Columns["特定親族特別控除申告書03_合計所得金額見積額"];
+                this.column特定親族特別控除申告書03_控除額計算判定 = base.Columns["特定親族特別控除申告書03_控除額計算判定"];
+                this.column特定親族特別控除申告書03_控除額計算区分 = base.Columns["特定親族特別控除申告書03_控除額計算区分"];
+                this.column特定親族特別控除申告書03_特定親族特別控除額 = base.Columns["特定親族特別控除申告書03_特定親族特別控除額"];
                 this.column所得金額調整控除申告書_要件区分 = base.Columns["所得金額調整控除申告書_要件区分"];
                 this.column所得金額調整控除申告書_扶養親族等氏名 = base.Columns["所得金額調整控除申告書_扶養親族等氏名"];
                 this.column所得金額調整控除申告書_扶養親族等Kana = base.Columns["所得金額調整控除申告書_扶養親族等Kana"];
@@ -1339,6 +1963,102 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column配偶者控除申告書_配偶者特別控除額);
                 this.column配偶者控除申告書_配偶者定額減税対象 = new global::System.Data.DataColumn("配偶者控除申告書_配偶者定額減税対象", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者控除申告書_配偶者定額減税対象);
+                this.column特定親族特別控除申告書01_氏名 = new global::System.Data.DataColumn("特定親族特別控除申告書01_氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_氏名);
+                this.column特定親族特別控除申告書01_Kana = new global::System.Data.DataColumn("特定親族特別控除申告書01_Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_Kana);
+                this.column特定親族特別控除申告書01_続柄名称 = new global::System.Data.DataColumn("特定親族特別控除申告書01_続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_続柄名称);
+                this.column特定親族特別控除申告書01_生年月日 = new global::System.Data.DataColumn("特定親族特別控除申告書01_生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_生年月日);
+                this.column特定親族特別控除申告書01_生年月日年 = new global::System.Data.DataColumn("特定親族特別控除申告書01_生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_生年月日年);
+                this.column特定親族特別控除申告書01_生年月日月 = new global::System.Data.DataColumn("特定親族特別控除申告書01_生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_生年月日月);
+                this.column特定親族特別控除申告書01_生年月日日 = new global::System.Data.DataColumn("特定親族特別控除申告書01_生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_生年月日日);
+                this.column特定親族特別控除申告書01_住所 = new global::System.Data.DataColumn("特定親族特別控除申告書01_住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_住所);
+                this.column特定親族特別控除申告書01_非居住者 = new global::System.Data.DataColumn("特定親族特別控除申告書01_非居住者", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_非居住者);
+                this.column特定親族特別控除申告書01_給与所得_収入金額 = new global::System.Data.DataColumn("特定親族特別控除申告書01_給与所得_収入金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_給与所得_収入金額);
+                this.column特定親族特別控除申告書01_給与所得_所得金額 = new global::System.Data.DataColumn("特定親族特別控除申告書01_給与所得_所得金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_給与所得_所得金額);
+                this.column特定親族特別控除申告書01_他_所得金額 = new global::System.Data.DataColumn("特定親族特別控除申告書01_他_所得金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_他_所得金額);
+                this.column特定親族特別控除申告書01_合計所得金額見積額 = new global::System.Data.DataColumn("特定親族特別控除申告書01_合計所得金額見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_合計所得金額見積額);
+                this.column特定親族特別控除申告書01_控除額計算判定 = new global::System.Data.DataColumn("特定親族特別控除申告書01_控除額計算判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_控除額計算判定);
+                this.column特定親族特別控除申告書01_控除額計算区分 = new global::System.Data.DataColumn("特定親族特別控除申告書01_控除額計算区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_控除額計算区分);
+                this.column特定親族特別控除申告書01_特定親族特別控除額 = new global::System.Data.DataColumn("特定親族特別控除申告書01_特定親族特別控除額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書01_特定親族特別控除額);
+                this.column特定親族特別控除申告書02_氏名 = new global::System.Data.DataColumn("特定親族特別控除申告書02_氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_氏名);
+                this.column特定親族特別控除申告書02_Kana = new global::System.Data.DataColumn("特定親族特別控除申告書02_Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_Kana);
+                this.column特定親族特別控除申告書02_続柄名称 = new global::System.Data.DataColumn("特定親族特別控除申告書02_続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_続柄名称);
+                this.column特定親族特別控除申告書02_生年月日 = new global::System.Data.DataColumn("特定親族特別控除申告書02_生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_生年月日);
+                this.column特定親族特別控除申告書02_生年月日年 = new global::System.Data.DataColumn("特定親族特別控除申告書02_生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_生年月日年);
+                this.column特定親族特別控除申告書02_生年月日月 = new global::System.Data.DataColumn("特定親族特別控除申告書02_生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_生年月日月);
+                this.column特定親族特別控除申告書02_生年月日日 = new global::System.Data.DataColumn("特定親族特別控除申告書02_生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_生年月日日);
+                this.column特定親族特別控除申告書02_住所 = new global::System.Data.DataColumn("特定親族特別控除申告書02_住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_住所);
+                this.column特定親族特別控除申告書02_非居住者 = new global::System.Data.DataColumn("特定親族特別控除申告書02_非居住者", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_非居住者);
+                this.column特定親族特別控除申告書02_給与所得_収入金額 = new global::System.Data.DataColumn("特定親族特別控除申告書02_給与所得_収入金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_給与所得_収入金額);
+                this.column特定親族特別控除申告書02_給与所得_所得金額 = new global::System.Data.DataColumn("特定親族特別控除申告書02_給与所得_所得金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_給与所得_所得金額);
+                this.column特定親族特別控除申告書02_他_所得金額 = new global::System.Data.DataColumn("特定親族特別控除申告書02_他_所得金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_他_所得金額);
+                this.column特定親族特別控除申告書02_合計所得金額見積額 = new global::System.Data.DataColumn("特定親族特別控除申告書02_合計所得金額見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_合計所得金額見積額);
+                this.column特定親族特別控除申告書02_控除額計算判定 = new global::System.Data.DataColumn("特定親族特別控除申告書02_控除額計算判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_控除額計算判定);
+                this.column特定親族特別控除申告書02_控除額計算区分 = new global::System.Data.DataColumn("特定親族特別控除申告書02_控除額計算区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_控除額計算区分);
+                this.column特定親族特別控除申告書02_特定親族特別控除額 = new global::System.Data.DataColumn("特定親族特別控除申告書02_特定親族特別控除額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書02_特定親族特別控除額);
+                this.column特定親族特別控除申告書03_氏名 = new global::System.Data.DataColumn("特定親族特別控除申告書03_氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_氏名);
+                this.column特定親族特別控除申告書03_Kana = new global::System.Data.DataColumn("特定親族特別控除申告書03_Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_Kana);
+                this.column特定親族特別控除申告書03_続柄名称 = new global::System.Data.DataColumn("特定親族特別控除申告書03_続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_続柄名称);
+                this.column特定親族特別控除申告書03_生年月日 = new global::System.Data.DataColumn("特定親族特別控除申告書03_生年月日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_生年月日);
+                this.column特定親族特別控除申告書03_生年月日年 = new global::System.Data.DataColumn("特定親族特別控除申告書03_生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_生年月日年);
+                this.column特定親族特別控除申告書03_生年月日月 = new global::System.Data.DataColumn("特定親族特別控除申告書03_生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_生年月日月);
+                this.column特定親族特別控除申告書03_生年月日日 = new global::System.Data.DataColumn("特定親族特別控除申告書03_生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_生年月日日);
+                this.column特定親族特別控除申告書03_住所 = new global::System.Data.DataColumn("特定親族特別控除申告書03_住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_住所);
+                this.column特定親族特別控除申告書03_非居住者 = new global::System.Data.DataColumn("特定親族特別控除申告書03_非居住者", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_非居住者);
+                this.column特定親族特別控除申告書03_給与所得_収入金額 = new global::System.Data.DataColumn("特定親族特別控除申告書03_給与所得_収入金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_給与所得_収入金額);
+                this.column特定親族特別控除申告書03_給与所得_所得金額 = new global::System.Data.DataColumn("特定親族特別控除申告書03_給与所得_所得金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_給与所得_所得金額);
+                this.column特定親族特別控除申告書03_他_所得金額 = new global::System.Data.DataColumn("特定親族特別控除申告書03_他_所得金額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_他_所得金額);
+                this.column特定親族特別控除申告書03_合計所得金額見積額 = new global::System.Data.DataColumn("特定親族特別控除申告書03_合計所得金額見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_合計所得金額見積額);
+                this.column特定親族特別控除申告書03_控除額計算判定 = new global::System.Data.DataColumn("特定親族特別控除申告書03_控除額計算判定", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_控除額計算判定);
+                this.column特定親族特別控除申告書03_控除額計算区分 = new global::System.Data.DataColumn("特定親族特別控除申告書03_控除額計算区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_控除額計算区分);
+                this.column特定親族特別控除申告書03_特定親族特別控除額 = new global::System.Data.DataColumn("特定親族特別控除申告書03_特定親族特別控除額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column特定親族特別控除申告書03_特定親族特別控除額);
                 this.column所得金額調整控除申告書_要件区分 = new global::System.Data.DataColumn("所得金額調整控除申告書_要件区分", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column所得金額調整控除申告書_要件区分);
                 this.column所得金額調整控除申告書_扶養親族等氏名 = new global::System.Data.DataColumn("所得金額調整控除申告書_扶養親族等氏名", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1401,6 +2121,41 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column給与支払者所在地);
                 this.column基礎控除申告書_本人定額減税対象.Caption = "個人番号相違確認区分";
                 this.column配偶者控除申告書_配偶者定額減税対象.Caption = "個人番号相違確認区分";
+                this.column特定親族特別控除申告書01_生年月日年.Caption = "配偶者控除申告書_生年月日年";
+                this.column特定親族特別控除申告書01_生年月日月.Caption = "配偶者控除申告書_生年月日月";
+                this.column特定親族特別控除申告書01_生年月日日.Caption = "配偶者控除申告書_生年月日日";
+                this.column特定親族特別控除申告書02_氏名.Caption = "特定親族特別控除申告書01_氏名";
+                this.column特定親族特別控除申告書02_Kana.Caption = "特定親族特別控除申告書01_Kana";
+                this.column特定親族特別控除申告書02_続柄名称.Caption = "特定親族特別控除申告書01_続柄";
+                this.column特定親族特別控除申告書02_生年月日.Caption = "特定親族特別控除申告書01_生年月日";
+                this.column特定親族特別控除申告書02_生年月日年.Caption = "配偶者控除申告書_生年月日年";
+                this.column特定親族特別控除申告書02_生年月日月.Caption = "配偶者控除申告書_生年月日月";
+                this.column特定親族特別控除申告書02_生年月日日.Caption = "配偶者控除申告書_生年月日日";
+                this.column特定親族特別控除申告書02_住所.Caption = "特定親族特別控除申告書01_住所";
+                this.column特定親族特別控除申告書02_非居住者.Caption = "特定親族特別控除申告書01_非居住者";
+                this.column特定親族特別控除申告書02_給与所得_収入金額.Caption = "特定親族特別控除申告書01_給与所得_収入金額";
+                this.column特定親族特別控除申告書02_給与所得_所得金額.Caption = "特定親族特別控除申告書01_給与所得_所得金額";
+                this.column特定親族特別控除申告書02_他_所得金額.Caption = "特定親族特別控除申告書01_他_所得金額";
+                this.column特定親族特別控除申告書02_合計所得金額見積額.Caption = "特定親族特別控除申告書01_合計所得金額見積額";
+                this.column特定親族特別控除申告書02_控除額計算判定.Caption = "特定親族特別控除申告書01_控除額計算判定";
+                this.column特定親族特別控除申告書02_控除額計算区分.Caption = "特定親族特別控除申告書01_控除額計算区分";
+                this.column特定親族特別控除申告書02_特定親族特別控除額.Caption = "特定親族特別控除申告書01_特定親族特別控除額";
+                this.column特定親族特別控除申告書03_氏名.Caption = "特定親族特別控除申告書01_氏名";
+                this.column特定親族特別控除申告書03_Kana.Caption = "特定親族特別控除申告書01_Kana";
+                this.column特定親族特別控除申告書03_続柄名称.Caption = "特定親族特別控除申告書01_続柄";
+                this.column特定親族特別控除申告書03_生年月日.Caption = "特定親族特別控除申告書01_生年月日";
+                this.column特定親族特別控除申告書03_生年月日年.Caption = "配偶者控除申告書_生年月日年";
+                this.column特定親族特別控除申告書03_生年月日月.Caption = "配偶者控除申告書_生年月日月";
+                this.column特定親族特別控除申告書03_生年月日日.Caption = "配偶者控除申告書_生年月日日";
+                this.column特定親族特別控除申告書03_住所.Caption = "特定親族特別控除申告書01_住所";
+                this.column特定親族特別控除申告書03_非居住者.Caption = "特定親族特別控除申告書01_非居住者";
+                this.column特定親族特別控除申告書03_給与所得_収入金額.Caption = "特定親族特別控除申告書01_給与所得_収入金額";
+                this.column特定親族特別控除申告書03_給与所得_所得金額.Caption = "特定親族特別控除申告書01_給与所得_所得金額";
+                this.column特定親族特別控除申告書03_他_所得金額.Caption = "特定親族特別控除申告書01_他_所得金額";
+                this.column特定親族特別控除申告書03_合計所得金額見積額.Caption = "特定親族特別控除申告書01_合計所得金額見積額";
+                this.column特定親族特別控除申告書03_控除額計算判定.Caption = "特定親族特別控除申告書01_控除額計算判定";
+                this.column特定親族特別控除申告書03_控除額計算区分.Caption = "特定親族特別控除申告書01_控除額計算区分";
+                this.column特定親族特別控除申告書03_特定親族特別控除額.Caption = "特定親族特別控除申告書01_特定親族特別控除額";
                 this.column法人個人番号02.Caption = "法人個人番号01";
             }
             
@@ -2147,6 +2902,774 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 }
                 set {
                     this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_配偶者定額減税対象Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書01_氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書01_Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書01_続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 特定親族特別控除申告書01_生年月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書01_生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書01_生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書01_生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書01_住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書01_非居住者 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_非居住者Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_非居住者\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_非居住者Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書01_給与所得_収入金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_給与所得_収入金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_給与所得_収入金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_給与所得_収入金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書01_給与所得_所得金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_給与所得_所得金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_給与所得_所得金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_給与所得_所得金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書01_他_所得金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_他_所得金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_他_所得金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_他_所得金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書01_合計所得金額見積額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_合計所得金額見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_合計所得金額見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_合計所得金額見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書01_控除額計算判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_控除額計算判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_控除額計算判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_控除額計算判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書01_控除額計算区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_控除額計算区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_控除額計算区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_控除額計算区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書01_特定親族特別控除額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_特定親族特別控除額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書01_特定親族特別控除額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_特定親族特別控除額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書02_氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書02_Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書02_続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 特定親族特別控除申告書02_生年月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書02_生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書02_生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書02_生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書02_住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書02_非居住者 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_非居住者Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_非居住者\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_非居住者Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書02_給与所得_収入金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_給与所得_収入金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_給与所得_収入金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_給与所得_収入金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書02_給与所得_所得金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_給与所得_所得金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_給与所得_所得金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_給与所得_所得金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書02_他_所得金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_他_所得金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_他_所得金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_他_所得金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書02_合計所得金額見積額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_合計所得金額見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_合計所得金額見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_合計所得金額見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書02_控除額計算判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_控除額計算判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_控除額計算判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_控除額計算判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書02_控除額計算区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_控除額計算区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_控除額計算区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_控除額計算区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書02_特定親族特別控除額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_特定親族特別控除額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書02_特定親族特別控除額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_特定親族特別控除額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書03_氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書03_Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書03_続柄名称 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_続柄名称Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_続柄名称\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime 特定親族特別控除申告書03_生年月日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書03_生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書03_生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書03_生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書03_住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書03_非居住者 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_非居住者Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_非居住者\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_非居住者Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書03_給与所得_収入金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_給与所得_収入金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_給与所得_収入金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_給与所得_収入金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書03_給与所得_所得金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_給与所得_所得金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_給与所得_所得金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_給与所得_所得金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書03_他_所得金額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_他_所得金額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_他_所得金額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_他_所得金額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書03_合計所得金額見積額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_合計所得金額見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_合計所得金額見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_合計所得金額見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書03_控除額計算判定 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_控除額計算判定Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_控除額計算判定\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_控除額計算判定Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 特定親族特別控除申告書03_控除額計算区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_控除額計算区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_控除額計算区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_控除額計算区分Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 特定親族特別控除申告書03_特定親族特別控除額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_特定親族特別控除額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HaiguuDeclareDataTable\' にある列 \'特定親族特別控除申告書03_特定親族特別控除額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_特定親族特別控除額Column] = value;
                 }
             }
             
@@ -3084,6 +4607,582 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Set配偶者控除申告書_配偶者定額減税対象Null() {
                 this[this.tableHaiguuDeclareDataTable.配偶者控除申告書_配偶者定額減税対象Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_氏名Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_氏名Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_KanaNull() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_KanaNull() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_続柄名称Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_続柄名称Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_生年月日Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_生年月日Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_生年月日年Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_生年月日年Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_生年月日月Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_生年月日月Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_生年月日日Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_生年月日日Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_住所Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_住所Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_非居住者Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_非居住者Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_非居住者Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_非居住者Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_給与所得_収入金額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_給与所得_収入金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_給与所得_収入金額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_給与所得_収入金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_給与所得_所得金額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_給与所得_所得金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_給与所得_所得金額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_給与所得_所得金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_他_所得金額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_他_所得金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_他_所得金額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_他_所得金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_合計所得金額見積額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_合計所得金額見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_合計所得金額見積額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_合計所得金額見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_控除額計算判定Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_控除額計算判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_控除額計算判定Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_控除額計算判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_控除額計算区分Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_控除額計算区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_控除額計算区分Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_控除額計算区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書01_特定親族特別控除額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_特定親族特別控除額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書01_特定親族特別控除額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書01_特定親族特別控除額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_氏名Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_氏名Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_KanaNull() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_KanaNull() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_続柄名称Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_続柄名称Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_生年月日Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_生年月日Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_生年月日年Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_生年月日年Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_生年月日月Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_生年月日月Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_生年月日日Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_生年月日日Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_住所Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_住所Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_非居住者Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_非居住者Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_非居住者Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_非居住者Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_給与所得_収入金額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_給与所得_収入金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_給与所得_収入金額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_給与所得_収入金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_給与所得_所得金額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_給与所得_所得金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_給与所得_所得金額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_給与所得_所得金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_他_所得金額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_他_所得金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_他_所得金額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_他_所得金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_合計所得金額見積額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_合計所得金額見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_合計所得金額見積額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_合計所得金額見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_控除額計算判定Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_控除額計算判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_控除額計算判定Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_控除額計算判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_控除額計算区分Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_控除額計算区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_控除額計算区分Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_控除額計算区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書02_特定親族特別控除額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_特定親族特別控除額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書02_特定親族特別控除額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書02_特定親族特別控除額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_氏名Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_氏名Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_KanaNull() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_KanaNull() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_続柄名称Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_続柄名称Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_続柄名称Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_生年月日Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_生年月日Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_生年月日年Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_生年月日年Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_生年月日月Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_生年月日月Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_生年月日日Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_生年月日日Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_住所Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_住所Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_非居住者Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_非居住者Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_非居住者Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_非居住者Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_給与所得_収入金額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_給与所得_収入金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_給与所得_収入金額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_給与所得_収入金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_給与所得_所得金額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_給与所得_所得金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_給与所得_所得金額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_給与所得_所得金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_他_所得金額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_他_所得金額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_他_所得金額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_他_所得金額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_合計所得金額見積額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_合計所得金額見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_合計所得金額見積額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_合計所得金額見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_控除額計算判定Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_控除額計算判定Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_控除額計算判定Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_控除額計算判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_控除額計算区分Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_控除額計算区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_控除額計算区分Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_控除額計算区分Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is特定親族特別控除申告書03_特定親族特別控除額Null() {
+                return this.IsNull(this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_特定親族特別控除額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set特定親族特別控除申告書03_特定親族特別控除額Null() {
+                this[this.tableHaiguuDeclareDataTable.特定親族特別控除申告書03_特定親族特別控除額Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
