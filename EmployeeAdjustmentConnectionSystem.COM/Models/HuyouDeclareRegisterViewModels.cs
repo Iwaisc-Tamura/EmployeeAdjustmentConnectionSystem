@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using EmployeeAdjustmentConnectionSystem.COM.Enum;
 
 namespace EmployeeAdjustmentConnectionSystem.COM.Models {
@@ -22,6 +23,19 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         public HuyouDeclareRegisterBodyModel Body { get; set; }
 
     }
+
+    //2025-99-99 iwai-tamura upd-str ------
+	/// <summary>
+    /// 住所区分一覧取得用
+    /// </summary>
+	public sealed class AddressEntry
+	{
+		public string Code { get; set; }         // 住所区分Code（= テキストボックスに表示したい値）
+		public string Prefecture { get; set; }   // 都道府県
+		public string City { get; set; }         // 市区町村
+		public string JichitaiNo { get; set; }   // 自治体番号（使うなら）
+	}
+    //2025-99-99 iwai-tamura upd-end ------
 
     /// <summary>
     /// ヘッダ
@@ -87,6 +101,13 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public string StatusName { get; set; }
         //2023-11-20 iwai-tamura upd end -----
+
+        //2025-99-99 iwai-tamura upd-str ------
+        /// <summary>
+        /// 住所区分ドロップダウン用アイテム
+        /// </summary>
+        public IList<AddressEntry> AddressMaster  { get; set; }
+        //2025-99-99 iwai-tamura upd-end ------
 
 		/// <summary>
 		/// 個人番号相違確認区分
@@ -213,6 +234,23 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public string AddressBefore { get; set; }
 		//2024-11-19 iwai-tamura upd-end ------
+
+        //2025-99-99 iwai-tamura upd-str ------
+		/// <summary>
+		/// 住所02
+		/// </summary>
+		public string Address02 { get; set; }
+
+		/// <summary>
+		/// 比較用変更前住所02
+		/// </summary>
+		public string Address02Before { get; set; }
+
+		/// <summary>
+		/// 住所区分
+		/// </summary>
+        public string AddressType  { get; set; }
+        //2025-99-99 iwai-tamura upd-end ------
 
 		/// <summary>
 		/// 配偶者有無

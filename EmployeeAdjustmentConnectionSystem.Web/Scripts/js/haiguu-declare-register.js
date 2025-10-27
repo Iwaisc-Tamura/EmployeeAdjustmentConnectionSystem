@@ -211,7 +211,12 @@ function calcBasicDeduction() {
     //2024-11-19 iwai-tamura upd-str ------
     $("#BasicDeduction_CalcType_7").prop("checked", false);
     //2024-11-19 iwai-tamura upd-end ------
-
+    //2025-99-99 iwai-tamura upd-str ------
+    $("#BasicDeduction_CalcType_8").prop("checked", false);
+    $("#BasicDeduction_CalcType_9").prop("checked", false);
+    $("#BasicDeduction_CalcType_10").prop("checked", false);
+    $("#BasicDeduction_CalcType_11").prop("checked", false);
+    //2025-99-99 iwai-tamura upd-end ------
 
     //金額計算処理
     var intTotalAmount = null;
@@ -226,47 +231,90 @@ function calcBasicDeduction() {
 
     intTotalAmount = Number($("#Head_BasicDeduction_Income").val()) + Number($("#Head_BasicDeduction_OtherIncome").val());
 
-    if (intTotalAmount <= 9000000) {
+    //2025-99-99 iwai-tamura upd-str ------
+    if (intTotalAmount <= 1320000) {
         strEarningsType = "1"
         strCalcType = "A"
-        intDeductionAmount = "480000"
-    } else if (intTotalAmount <= 9500000) {
+        intDeductionAmount = "950000"
+    } else if (intTotalAmount <= 3360000) {
         strEarningsType = "2"
-        strCalcType = "B"
-        intDeductionAmount = "480000"
-    } else if (intTotalAmount <= 10000000) {
+        strCalcType = "A"
+        intDeductionAmount = "880000"
+    } else if (intTotalAmount <= 4890000) {
         strEarningsType = "3"
-        strCalcType = "C"
-        intDeductionAmount = "480000"
-    //2024-11-19 iwai-tamura upd-str ------
-    } else if (intTotalAmount <= 18050000) {
+        strCalcType = "A"
+        intDeductionAmount = "680000"
+    } else if (intTotalAmount <= 6550000) {
         strEarningsType = "4"
-        strCalcType = "D"
-        intDeductionAmount = "480000"
-    } else if (intTotalAmount <= 24000000) {
+        strCalcType = "A"
+        intDeductionAmount = "630000"
+    } else if (intTotalAmount <= 9000000) {
         strEarningsType = "5"
+        strCalcType = "A"
+        intDeductionAmount = "580000"
+    } else if (intTotalAmount <= 9500000) {
+        strEarningsType = "6"
+        strCalcType = "B"
+        intDeductionAmount = "580000"
+    } else if (intTotalAmount <= 10000000) {
+        strEarningsType = "7"
+        strCalcType = "C"
+        intDeductionAmount = "580000"
+    } else if (intTotalAmount <= 23500000) {
+        strEarningsType = "8"
+        intDeductionAmount = "580000"
+    } else if (intTotalAmount <= 24000000) {
+        strEarningsType = "9"
         intDeductionAmount = "480000"
     } else if (intTotalAmount <= 24500000) {
-        strEarningsType = "6"
+        strEarningsType = "10"
         intDeductionAmount = "320000"
     } else if (intTotalAmount <= 25000000) {
-        strEarningsType = "7"
+        strEarningsType = "11"
         intDeductionAmount = "160000"
     } else {
     }
-    //} else if (intTotalAmount <= 24000000) {
+    //if (intTotalAmount <= 9000000) {
+    //    strEarningsType = "1"
+    //    strCalcType = "A"
+    //    intDeductionAmount = "480000"
+    //} else if (intTotalAmount <= 9500000) {
+    //    strEarningsType = "2"
+    //    strCalcType = "B"
+    //    intDeductionAmount = "480000"
+    //} else if (intTotalAmount <= 10000000) {
+    //    strEarningsType = "3"
+    //    strCalcType = "C"
+    //    intDeductionAmount = "480000"
+    //    //2024-11-19 iwai-tamura upd-str ------
+    //} else if (intTotalAmount <= 18050000) {
     //    strEarningsType = "4"
+    //    strCalcType = "D"
+    //    intDeductionAmount = "480000"
+    //} else if (intTotalAmount <= 24000000) {
+    //    strEarningsType = "5"
     //    intDeductionAmount = "480000"
     //} else if (intTotalAmount <= 24500000) {
-    //    strEarningsType = "5"
+    //    strEarningsType = "6"
     //    intDeductionAmount = "320000"
     //} else if (intTotalAmount <= 25000000) {
-    //    strEarningsType = "6"
+    //    strEarningsType = "7"
     //    intDeductionAmount = "160000"
     //} else {
     //}
-    //2024-11-19 iwai-tamura upd-end ------
-
+    ////} else if (intTotalAmount <= 24000000) {
+    ////    strEarningsType = "4"
+    ////    intDeductionAmount = "480000"
+    ////} else if (intTotalAmount <= 24500000) {
+    ////    strEarningsType = "5"
+    ////    intDeductionAmount = "320000"
+    ////} else if (intTotalAmount <= 25000000) {
+    ////    strEarningsType = "6"
+    ////    intDeductionAmount = "160000"
+    ////} else {
+    ////}
+    ////2024-11-19 iwai-tamura upd-end ------
+    //2025-99-99 iwai-tamura upd-end ------
 
     $("#Head_BasicDeduction_TotalEarnings").val(intTotalAmount);
     $("#Head_BasicDeduction_EarningsType").val(strEarningsType);
@@ -373,8 +421,10 @@ function calcSpouseDeduction(varArt) {
 
     var cDate = String(Number($('#Head_SheetYear').val()) - 69) + '01' + '01';
 
-
-    if (intTotalAmount <= 480000) {
+    //2025-99-99 iwai-tamura upd-str ------
+    if (intTotalAmount <= 580000) {
+    //if (intTotalAmount <= 480000) {
+    //2025-99-99 iwai-tamura upd-end ------
         if (strDate <= cDate) {
             //70歳以上
             strEarningsType = "1"
@@ -553,6 +603,330 @@ document.getElementById('btn-spouseDeduction-get').addEventListener('click', fun
 //////////    input.addEventListener('change', checkAllInputs);
 //////////});
 //2023-11-20 iwai-tamura upd end -----
+
+
+//2025-99-99 iwai-tamura upd-str ------
+//特定扶養関連
+//扶養控除申告書 所得額取得 共通処理
+function getSpecificRelativeSpecialDeduction(id, varArt) {
+    var strMessage = ""
+    var bolReturn = false
+    if (typeof varArt === 'undefined') varArt = true;
+
+    var relationshipTypeID = "#Head_SpecificRelativeSpecialDeduction" + id + "_RelationshipType";
+    var earningsID = "#Head_SpecificRelativeSpecialDeduction" + id + "_Earnings";
+    var incomeID = "#Head_SpecificRelativeSpecialDeduction" + id + "_Income";
+    var otherIncomeID = "#Head_SpecificRelativeSpecialDeduction" + id + "_OtherIncome";
+    var strRelationshipType = $(relationshipTypeID).val();
+    var intEarnings;
+    var intIncome;
+    var intOtherIncome;
+
+    //続柄チェック
+    if (strRelationshipType == "") {
+        strMessage = "続柄が選択されていないので取得できません。";
+        if (varArt) { alert(strMessage) };
+        return true
+    }
+
+    if ($("#Head_RefSpecificDependent01_RelationshipType").val() == strRelationshipType) {
+        intEarnings = $("#Head_RefSpecificDependent01_Earnings").val();
+        intOtherIncome = $("#Head_RefSpecificDependent01_OtherIncome").val();
+
+    } else if ($("#Head_RefSpecificDependent02_RelationshipType").val() == strRelationshipType) {
+        intEarnings = $("#Head_RefSpecificDependent02_Earnings").val();
+        intOtherIncome = $("#Head_RefSpecificDependent02_OtherIncome").val();
+
+    } else if ($("#Head_RefSpecificDependent03_RelationshipType").val() == strRelationshipType) {
+        intEarnings = $("#Head_RefSpecificDependent03_Earnings").val();
+        intOtherIncome = $("#Head_RefSpecificDependent03_OtherIncome").val();
+
+    } else if ($("#Head_RefSpecificDependent04_RelationshipType").val() == strRelationshipType) {
+        intEarnings = $("#Head_RefSpecificDependent04_Earnings").val();
+        intOtherIncome = $("#Head_RefSpecificDependent04_OtherIncome").val();
+
+    } else {
+        strMessage = "取得できる扶養控除申告書の入力がありません。";
+        if (varArt) { alert(strMessage) };
+        return true
+    }
+    $(earningsID).val(intEarnings);
+    $(otherIncomeID).val(intOtherIncome);
+    $(earningsID).trigger('change');
+
+    bolReturn = true;
+    return bolReturn;
+}
+
+//特定扶養控除 共通計算
+function calcSpecificRelativeSpecialDeduction(id, varArt) {
+    var strMessage = ""
+    var bolReturn = false
+    if (typeof varArt === 'undefined') varArt = true;
+
+    var totalEarningsID = "#Head_SpecificRelativeSpecialDeduction" + id + "_TotalEarnings";
+    var specialDeductionAmountID = "#Head_SpecificRelativeSpecialDeduction" + id + "_SpecialDeductionAmount";
+    var incomeID = "#Head_SpecificRelativeSpecialDeduction" + id + "_Income";
+    var otherIncomeID = "#Head_SpecificRelativeSpecialDeduction" + id + "_OtherIncome";
+    var birthdayID = "#Head_SpecificRelativeSpecialDeduction" + id + "_Birthday";
+    var birthdayYearID = "#Head_SpecificRelativeSpecialDeduction" + id + "_BirthdayYear";
+    var birthdayMonthID = "#Head_SpecificRelativeSpecialDeduction" + id + "_BirthdayMonth";
+    var birthdayDayID = "#Head_SpecificRelativeSpecialDeduction" + id + "_BirthdayDay";
+
+
+    $(totalEarningsID).val(null);
+    $(specialDeductionAmountID).val(null);
+
+    //年齢チェック
+    var cYear = $("#Head_SheetYear").val();
+    var cDate19 = String(cYear - 18) + "0101";
+    var cDate23 = String(cYear - 22) + "0101";
+    var strYear = $(birthdayYearID).val();
+    var strMonth = $(birthdayMonthID).val();
+    var strDay = $(birthdayDayID).val();
+    if (strMonth.length < 2) {
+        strMonth = "0" + strMonth;
+    }
+    if (strDay.length < 2) {
+        strDay = "0" + strDay;
+    }
+    if (!checkDate(birthdayID, '0', '')) {
+        strMessage = "特定親族の生年月日が不正です。確認してください。";
+        alert(strMessage);
+
+        return true;
+    }
+    var strDate = strYear + strMonth + strDay;
+    if ((strDate > cDate19) || (strDate <= cDate23)) {
+        strMessage = "特定親族の生年月日が不正です。確認してください。";
+        alert(strMessage);
+        return true;
+    }
+
+    //金額チェック
+    var intTotalAmount = null;
+    var intSpDeductionAmount = null;
+    if ($(incomeID).val() == '') { $(incomeID).val(0) }
+    if ($(otherIncomeID).val() == '') { $(otherIncomeID).val(0) }
+    intTotalAmount = Number($(incomeID).val()) + Number($(otherIncomeID).val());
+    if (intTotalAmount != 0) {
+        if ((intTotalAmount <= 580000) || (intTotalAmount > 1230000)) {
+            //58万円超123万円以下の場合のみ、特定親族
+            strMessage = "所得金額の計算がされていない。もしくは適用外なので計算できません。";
+            if (varArt) { alert(strMessage) };
+            return true
+        }
+    } else {
+        strMessage = "所得金額の計算がされていない。もしくは適用外なので計算できません。";
+        if (varArt) { alert(strMessage) };
+        return true
+    }
+
+    //特別控除額の計算
+    if ((intTotalAmount > 580000) && (intTotalAmount <= 850000)) {
+        intSpDeductionAmount = 630000
+    } else if ((intTotalAmount > 850000) && (intTotalAmount <= 850000)) {
+        intSpDeductionAmount = 610000
+    } else if ((intTotalAmount > 900000) && (intTotalAmount <= 850000)) {
+        intSpDeductionAmount = 510000
+    } else if ((intTotalAmount > 950000) && (intTotalAmount <= 1000000)) {
+        intSpDeductionAmount = 410000
+    } else if ((intTotalAmount > 1000000) && (intTotalAmount <= 1050000)) {
+        intSpDeductionAmount = 310000
+    } else if ((intTotalAmount > 1050000) && (intTotalAmount <= 1100000)) {
+        intSpDeductionAmount = 210000
+    } else if ((intTotalAmount > 1100000) && (intTotalAmount <= 1150000)) {
+        intSpDeductionAmount = 110000
+    } else if ((intTotalAmount > 1150000) && (intTotalAmount <= 1200000)) {
+        intSpDeductionAmount = 60000
+    } else if ((intTotalAmount > 1200000) && (intTotalAmount <= 1230000)) {
+        intSpDeductionAmount = 30000
+    } else {
+    }
+
+    $(totalEarningsID).val(intTotalAmount);
+    $(specialDeductionAmountID).val(intSpDeductionAmount);
+
+    bolReturn = true;
+    return bolReturn;
+}
+
+//------ 特定扶養控除01 ------
+//クリア
+$('#btn-specificRelativeSpecialDeduction01-clear').click(function () {
+    // 給与所得者の配偶者控除等申告書のテーブル内の全ての入力要素を取得
+    var inputs = document.querySelectorAll('.specificRelativeSpecialDeduction01 input, .specificRelativeSpecialDeduction01 select, .specificRelativeSpecialDeduction01 textarea');
+
+    // それぞれの入力要素の値をクリアする
+    inputs.forEach(function (input) {
+        if (input.type == 'checkbox' || input.type == 'radio') {
+            input.checked = false;
+        } else {
+            input.value = '';
+        }
+    });
+    $('#Head_SpecificRelativeSpecialDeduction01_ResidentCheck').change()
+    checkAllInputs();
+});
+
+//非居住区分
+$('#Head_SpecificRelativeSpecialDeduction01_ResidentCheck').change(function () {
+    if (document.getElementById("Head_SpecificRelativeSpecialDeduction01_ResidentCheck").checked == true) {
+        $("#Head_SpecificRelativeSpecialDeduction01_Address").removeAttr("disabled");
+    } else {
+        $("#Head_SpecificRelativeSpecialDeduction01_Address").attr('disabled', true);
+        $("#Head_SpecificRelativeSpecialDeduction01_Address").val(null);
+    }
+});
+
+//扶養控除申告書_配偶者データ取得ボタン
+$('#btn-specificRelativeSpecialDeduction01-get').click(function () {
+    getSpecificRelativeSpecialDeduction('01');
+});
+
+//所得
+$('#Head_SpecificRelativeSpecialDeduction01_Earnings').change(function () {
+    updateIncomeFields('Head_SpecificRelativeSpecialDeduction01_Earnings', 'Head_SpecificRelativeSpecialDeduction01_Income', 'Head_SpecificRelativeSpecialDeduction01_OtherIncome', 'Head_TaxWithholding_Income');
+});
+
+//特定親族特別控除額 計算
+$('#btn-specificRelativeSpecialDeduction01-calc').click(function () {
+    calcSpecificRelativeSpecialDeduction('01');
+});
+
+
+//------ 特定扶養控除02 ------
+//クリア
+$('#btn-specificRelativeSpecialDeduction02-clear').click(function () {
+    // 給与所得者の配偶者控除等申告書のテーブル内の全ての入力要素を取得
+    var inputs = document.querySelectorAll('.specificRelativeSpecialDeduction02 input, .specificRelativeSpecialDeduction02 select, .specificRelativeSpecialDeduction02 textarea');
+
+    // それぞれの入力要素の値をクリアする
+    inputs.forEach(function (input) {
+        if (input.type == 'checkbox' || input.type == 'radio') {
+            input.checked = false;
+        } else {
+            input.value = '';
+        }
+    });
+    $('#Head_SpecificRelativeSpecialDeduction02_ResidentCheck').change()
+    checkAllInputs();
+});
+
+//非居住区分
+$('#Head_SpecificRelativeSpecialDeduction02_ResidentCheck').change(function () {
+    if (document.getElementById("Head_SpecificRelativeSpecialDeduction02_ResidentCheck").checked == true) {
+        $("#Head_SpecificRelativeSpecialDeduction02_Address").removeAttr("disabled");
+    } else {
+        $("#Head_SpecificRelativeSpecialDeduction02_Address").attr('disabled', true);
+        $("#Head_SpecificRelativeSpecialDeduction02_Address").val(null);
+    }
+});
+
+//扶養控除申告書_配偶者データ取得ボタン
+$('#btn-specificRelativeSpecialDeduction02-get').click(function () {
+    getSpecificRelativeSpecialDeduction('02');
+});
+
+//所得
+$('#Head_SpecificRelativeSpecialDeduction02_Earnings').change(function () {
+    updateIncomeFields('Head_SpecificRelativeSpecialDeduction02_Earnings', 'Head_SpecificRelativeSpecialDeduction02_Income', 'Head_SpecificRelativeSpecialDeduction02_OtherIncome', 'Head_TaxWithholding_Income');
+});
+
+//特定親族特別控除額 計算
+$('#btn-specificRelativeSpecialDeduction02-calc').click(function () {
+    calcSpecificRelativeSpecialDeduction('02');
+});
+
+
+//------ 特定扶養控除03 ------
+//クリア
+$('#btn-specificRelativeSpecialDeduction03-clear').click(function () {
+    // 給与所得者の配偶者控除等申告書のテーブル内の全ての入力要素を取得
+    var inputs = document.querySelectorAll('.specificRelativeSpecialDeduction03 input, .specificRelativeSpecialDeduction03 select, .specificRelativeSpecialDeduction03 textarea');
+
+    // それぞれの入力要素の値をクリアする
+    inputs.forEach(function (input) {
+        if (input.type == 'checkbox' || input.type == 'radio') {
+            input.checked = false;
+        } else {
+            input.value = '';
+        }
+    });
+    $('#Head_SpecificRelativeSpecialDeduction03_ResidentCheck').change()
+    checkAllInputs();
+});
+
+//非居住区分
+$('#Head_SpecificRelativeSpecialDeduction03_ResidentCheck').change(function () {
+    if (document.getElementById("Head_SpecificRelativeSpecialDeduction03_ResidentCheck").checked == true) {
+        $("#Head_SpecificRelativeSpecialDeduction03_Address").removeAttr("disabled");
+    } else {
+        $("#Head_SpecificRelativeSpecialDeduction03_Address").attr('disabled', true);
+        $("#Head_SpecificRelativeSpecialDeduction03_Address").val(null);
+    }
+});
+
+//扶養控除申告書_配偶者データ取得ボタン
+$('#btn-specificRelativeSpecialDeduction03-get').click(function () {
+    getSpecificRelativeSpecialDeduction('03');
+});
+
+//所得
+$('#Head_SpecificRelativeSpecialDeduction03_Earnings').change(function () {
+    updateIncomeFields('Head_SpecificRelativeSpecialDeduction03_Earnings', 'Head_SpecificRelativeSpecialDeduction03_Income', 'Head_SpecificRelativeSpecialDeduction03_OtherIncome', 'Head_TaxWithholding_Income');
+});
+
+//特定親族特別控除額 計算
+$('#btn-specificRelativeSpecialDeduction03-calc').click(function () {
+    calcSpecificRelativeSpecialDeduction('03');
+});
+
+
+//------ 特定扶養控除04 ------
+//クリア
+$('#btn-specificRelativeSpecialDeduction04-clear').click(function () {
+    // 給与所得者の配偶者控除等申告書のテーブル内の全ての入力要素を取得
+    var inputs = document.querySelectorAll('.specificRelativeSpecialDeduction04 input, .specificRelativeSpecialDeduction04 select, .specificRelativeSpecialDeduction04 textarea');
+
+    // それぞれの入力要素の値をクリアする
+    inputs.forEach(function (input) {
+        if (input.type == 'checkbox' || input.type == 'radio') {
+            input.checked = false;
+        } else {
+            input.value = '';
+        }
+    });
+    $('#Head_SpecificRelativeSpecialDeduction04_ResidentCheck').change()
+    checkAllInputs();
+});
+
+//非居住区分
+$('#Head_SpecificRelativeSpecialDeduction04_ResidentCheck').change(function () {
+    if (document.getElementById("Head_SpecificRelativeSpecialDeduction04_ResidentCheck").checked == true) {
+        $("#Head_SpecificRelativeSpecialDeduction04_Address").removeAttr("disabled");
+    } else {
+        $("#Head_SpecificRelativeSpecialDeduction04_Address").attr('disabled', true);
+        $("#Head_SpecificRelativeSpecialDeduction04_Address").val(null);
+    }
+});
+
+//扶養控除申告書_配偶者データ取得ボタン
+$('#btn-specificRelativeSpecialDeduction04-get').click(function () {
+    getSpecificRelativeSpecialDeduction('04');
+});
+
+//所得
+$('#Head_SpecificRelativeSpecialDeduction04_Earnings').change(function () {
+    updateIncomeFields('Head_SpecificRelativeSpecialDeduction04_Earnings', 'Head_SpecificRelativeSpecialDeduction04_Income', 'Head_SpecificRelativeSpecialDeduction04_OtherIncome', 'Head_TaxWithholding_Income');
+});
+
+//特定親族特別控除額 計算
+$('#btn-specificRelativeSpecialDeduction04-calc').click(function () {
+    calcSpecificRelativeSpecialDeduction('04');
+});
+
+//2025-99-99 iwai-tamura upd-end ------
 
 
 //所得金額調整控除 要件選択制御

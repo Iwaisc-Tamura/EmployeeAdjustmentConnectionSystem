@@ -51,9 +51,88 @@ $(function () {
         btnHokenPdf.disabled = true;
         btnHaiguuPdf.disabled = true;
     }
+});
 
+//2025-99-99 iwai-tamura upd-str ------
+// 要素の取得
+const openHuyouAttachmentFileModalButton = document.getElementById('openHuyouAttachmentFileModalButton');
+const closeHuyouAttachmentFileModalButton = document.getElementById('closeHuyouAttachmentFileModalButton');
+const huyouAttachmentFileModal = document.getElementById('huyouAttachmentFileModal');
+const huyouAttachmentFileModalOverlay = document.getElementById('huyouAttachmentFileModal-overlay');
+const huyouAttachmentFilePath = document.getElementById('HuyouAttachmentFilePath');
+
+// モーダルを開く処理
+openHuyouAttachmentFileModalButton.addEventListener('click', () => {
+    huyouAttachmentFileModalOverlay.style.display = 'block'; // オーバーレイを表示
+    huyouAttachmentFileModal.style.display = 'block'; // モーダルを表示
+});
+
+// モーダルを閉じる処理
+closeHuyouAttachmentFileModalButton.addEventListener('click', closeHuyouAttachmentFileModal);
+
+// オーバーレイとモーダルを閉じる処理
+function closeHuyouAttachmentFileModal() {
+    huyouAttachmentFileModalOverlay.style.display = 'none'; // オーバーレイを非表示
+    huyouAttachmentFileModal.style.display = 'none'; // モーダルを非表示
+}
+
+
+/*
+ * アップロードボタンクリック時
+ */
+$('#DmyHuyouAttachmentFileUpload').click(function () {
+
+    var comment = "";
+    //値を取得
+    var strUploadFile = $('#HuyouAttachmentUploadFile').val();
+
+    //対象処理入力チェック
+    if (!strUploadFile) {
+        showAlert("エラー", "ファイルが選択されていません。")
+        return;
+    }
+
+    //確認メッセージ本文作成
+    comment = 'ファイルのアップロードを実行しますか？'
+    showMessage('確認', comment, 'HuyouAttachmentFileUpload', true);
 
 });
+
+/*
+ * ダウンロードボタンクリック時
+ */
+$('#DmyHuyouAttachmentFileDownload').click(function () {
+
+    var comment = "";
+    //値を取得
+    var strFilePath = $('#HuyouAttachmentFilePath').val();
+
+    //確認メッセージ本文作成
+    comment = 'ファイルのダウンロードを実行しますか？'
+    showMessage('確認', comment, 'HuyouAttachmentFileDownload', false);
+});
+
+/*
+ * 削除ボタンクリック時
+ */
+$('#DmyHuyouAttachmentFileDelete').click(function () {
+
+    var comment = "";
+    //値を取得
+    var strFilePath = $('#HuyouAttachmentFilePath').val();
+
+    //対象処理入力チェック
+    if (!strFilePath) {
+        showAlert("エラー", "ファイルがありません")
+        return;
+    }
+
+    //確認メッセージ本文作成
+    comment = 'ファイルの削除を実行しますか？'
+    showMessage('確認', comment, 'HuyouAttachmentFileDelete', true);
+
+});
+//2025-99-99 iwai-tamura upd-end ------
 
 //2024-11-19 iwai-tamura upd-str ------
 // 要素の取得

@@ -17,6 +17,7 @@ $('input:radio').dblclick(function () {
 
 
 $(function () {
+
     //初回 入力制御
     $('#Head_HouseholdSelfCheck').change()
     $('#Head_TaxWithholding_notSubject').change();
@@ -63,6 +64,13 @@ $(function () {
 
             break;
     }
+
+    //2025-99-99 iwai-tamura upd-str ------
+    // ★ 初期住所コードがあればここで逆引きして選択
+    initFromAddressCode(); 
+    document.getElementById('Pref').addEventListener('change', fillCity);
+    document.getElementById('City').addEventListener('change', updateAddressCode);
+    //2025-99-99 iwai-tamura upd-end ------
 });
 
 //日付削除ボタン
@@ -89,6 +97,86 @@ $('#Head_HouseholdSelfCheck').change(function () {
 
 
 
+//2025-99-99 iwai-tamura upd-str ------
+
+//function fillPref() {
+//    const prefSel = document.getElementById('Pref');
+
+//    // 先頭(placeholder)以外を消す
+//    prefSel.length = 1;
+
+//    const prefs = [...new Set(addressMaster.map(x => x.Prefecture))];
+//    prefs.forEach(p => prefSel.add(new Option(p, p)));
+
+//    // 既存選択があれば復元、なければ未選択のまま（placeholder表示）
+//    const selectedPref = '@(Model.SelectedPref ?? "")';
+//    if (selectedPref) {
+//        prefSel.value = selectedPref;
+//    } else {
+//        prefSel.value = ""; // 未選択＝:invalid で薄表示
+//    }
+//}
+// 都道府県の重複を排除してDDLに投入
+function fillPref() {
+    const prefSel = document.getElementById('Pref');
+    prefSel.innerHTML = '';
+    const prefs = [...new Set(addressMaster.map(x => x.Prefecture))];
+    prefSel.add(new Option('都道府県', ''));
+    prefs.forEach(p => prefSel.add(new Option(p, p)));
+}
+
+// 都道府県に応じて市区町村DDLを更新
+function fillCity() {
+    const pref = document.getElementById('Pref').value;
+    const citySel = document.getElementById('City');
+    citySel.innerHTML = '';
+    const cities = addressMaster.filter(x => x.Prefecture === pref)
+        .map(x => x.City);
+    const uniq = [...new Set(cities)];
+    citySel.add(new Option('市区町村', ''));
+    uniq.forEach(c => citySel.add(new Option(c, c)));
+    ////if ('@Model.SelectedCity') citySel.value = '@Model.SelectedCity';
+    updateAddressCode(); // 初期反映
+}
+
+// 市区町村選択に応じて住所区分コードを表示
+function updateAddressCode() {
+    const pref = document.getElementById('Pref').value;
+    const city = document.getElementById('City').value;
+    const match = addressMaster.find(x => x.Prefecture === pref && x.City === city);
+    document.getElementById('Head_AddressType').value = match ? match.Code : '';
+}
+
+// 住所区分コードから都道府県/市区町村を逆引きして選択する
+function initFromAddressCode() {
+    var initCode = $("#Head_AddressType").val();
+    fillPref();
+    fillCity();                 // これで City の候補が Pref に合わせて並ぶ
+    if (!initCode) return;
+
+    // マスタから該当1件を探す
+    const hit = addressMaster.find(x => x.Code === initCode);
+    if (!hit) return;
+
+    const prefSel = document.getElementById('Pref');
+    const citySel = document.getElementById('City');
+
+    // 1) 都道府県リストを構築 → 都道府県を選択
+    prefSel.value = hit.Prefecture;
+
+    // 2) 市区町村リストを構築（選ばれた都道府県で絞り込み）→ 市区町村を選択
+    fillCity();                 // これで City の候補が Pref に合わせて並ぶ
+    citySel.value = hit.City;
+
+    // 3) テキストボックスへコードを反映
+    updateAddressCode();
+}
+
+// イベント
+document.addEventListener('DOMContentLoaded', function () {
+
+});
+//2025-99-99 iwai-tamura upd-end ------
 
 /*源泉控除対象配偶者 対象者入力制御*/
 $('#Head_TaxWithholding_notSubject').change(function () {
@@ -178,48 +266,80 @@ document.getElementById('Head_TaxWithholding_OtherIncome').addEventListener('cha
 //  所得
 document.getElementById('Head_DependentsOver16_1_Earnings').addEventListener('change', function () {
     updateIncomeFields('Head_DependentsOver16_1_Earnings', 'Head_DependentsOver16_1_Earnings2Income', 'Head_DependentsOver16_1_OtherIncome', 'Head_DependentsOver16_1_Income');
-    checkMoney('#Head_DependentsOver16_1_Income', 480000)
+    //2025-99-99 iwai-tamura upd-str ------
+    //checkMoney('#Head_DependentsOver16_1_Income', 1230000)
+    checkDependentsOver16('DependentsOver16_1')
+    //checkMoney('#Head_DependentsOver16_1_Income', 480000)
+    //2025-99-99 iwai-tamura upd-end ------
 });
 //  その他所得
 document.getElementById('Head_DependentsOver16_1_OtherIncome').addEventListener('change', function () {
     updateIncomeFields('Head_DependentsOver16_1_Earnings', 'Head_DependentsOver16_1_Earnings2Income', 'Head_DependentsOver16_1_OtherIncome', 'Head_DependentsOver16_1_Income');
-    checkMoney('#Head_DependentsOver16_1_Income', 480000)
+    //2025-99-99 iwai-tamura upd-str ------
+    //checkMoney('#Head_DependentsOver16_1_Income', 1230000)
+    checkDependentsOver16('DependentsOver16_1')
+    //checkMoney('#Head_DependentsOver16_1_Income', 480000)
+    //2025-99-99 iwai-tamura upd-end ------
 });
 
 //控除対象扶養親族給与2
 //  所得
 document.getElementById('Head_DependentsOver16_2_Earnings').addEventListener('change', function () {
     updateIncomeFields('Head_DependentsOver16_2_Earnings', 'Head_DependentsOver16_2_Earnings2Income', 'Head_DependentsOver16_2_OtherIncome', 'Head_DependentsOver16_2_Income');
-    checkMoney('#Head_DependentsOver16_2_Income', 480000)
+    //2025-99-99 iwai-tamura upd-str ------
+    checkMoney('#Head_DependentsOver16_2_Income', 1230000)
+    checkDependentsOver16('DependentsOver16_2')
+    //checkMoney('#Head_DependentsOver16_2_Income', 480000)
+    //2025-99-99 iwai-tamura upd-end ------
 });
 //  その他所得
 document.getElementById('Head_DependentsOver16_2_OtherIncome').addEventListener('change', function () {
     updateIncomeFields('Head_DependentsOver16_2_Earnings', 'Head_DependentsOver16_2_Earnings2Income', 'Head_DependentsOver16_2_OtherIncome', 'Head_DependentsOver16_2_Income');
-    checkMoney('#Head_DependentsOver16_2_Income', 480000)
+    //2025-99-99 iwai-tamura upd-str ------
+    checkMoney('#Head_DependentsOver16_2_Income', 1230000)
+    checkDependentsOver16('DependentsOver16_2')
+    //checkMoney('#Head_DependentsOver16_2_Income', 480000)
+    //2025-99-99 iwai-tamura upd-end ------
 });
 
 //控除対象扶養親族給与3
 //  所得
 document.getElementById('Head_DependentsOver16_3_Earnings').addEventListener('change', function () {
     updateIncomeFields('Head_DependentsOver16_3_Earnings', 'Head_DependentsOver16_3_Earnings2Income', 'Head_DependentsOver16_3_OtherIncome', 'Head_DependentsOver16_3_Income');
-    checkMoney('#Head_DependentsOver16_3_Income', 480000)
+    //2025-99-99 iwai-tamura upd-str ------
+    checkMoney('#Head_DependentsOver16_3_Income', 1230000)
+    checkDependentsOver16('DependentsOver16_3')
+    //checkMoney('#Head_DependentsOver16_3_Income', 480000)
+    //2025-99-99 iwai-tamura upd-end ------
 });
 //  その他所得
 document.getElementById('Head_DependentsOver16_3_OtherIncome').addEventListener('change', function () {
     updateIncomeFields('Head_DependentsOver16_3_Earnings', 'Head_DependentsOver16_3_Earnings2Income', 'Head_DependentsOver16_3_OtherIncome', 'Head_DependentsOver16_3_Income');
-    checkMoney('#Head_DependentsOver16_3_Income', 480000)
+    //2025-99-99 iwai-tamura upd-str ------
+    checkMoney('#Head_DependentsOver16_3_Income', 1230000)
+    checkDependentsOver16('DependentsOver16_3')
+    //checkMoney('#Head_DependentsOver16_3_Income', 480000)
+    //2025-99-99 iwai-tamura upd-end ------
 });
 
 //控除対象扶養親族給与4
 //  所得
 document.getElementById('Head_DependentsOver16_4_Earnings').addEventListener('change', function () {
     updateIncomeFields('Head_DependentsOver16_4_Earnings', 'Head_DependentsOver16_4_Earnings2Income', 'Head_DependentsOver16_4_OtherIncome', 'Head_DependentsOver16_4_Income');
-    checkMoney('#Head_DependentsOver16_4_Income', 480000)
+    //2025-99-99 iwai-tamura upd-str ------
+    checkMoney('#Head_DependentsOver16_4_Income', 1230000)
+    checkDependentsOver16('DependentsOver16_4')
+    //checkMoney('#Head_DependentsOver16_4_Income', 480000)
+    //2025-99-99 iwai-tamura upd-end ------
 });
 //  その他所得
 document.getElementById('Head_DependentsOver16_4_OtherIncome').addEventListener('change', function () {
     updateIncomeFields('Head_DependentsOver16_4_Earnings', 'Head_DependentsOver16_4_Earnings2Income', 'Head_DependentsOver16_4_OtherIncome', 'Head_DependentsOver16_4_Income');
-    checkMoney('#Head_DependentsOver16_4_Income', 480000)
+    //2025-99-99 iwai-tamura upd-str ------
+    checkMoney('#Head_DependentsOver16_4_Income', 1230000)
+    checkDependentsOver16('DependentsOver16_4')
+    //checkMoney('#Head_DependentsOver16_4_Income', 480000)
+    //2025-99-99 iwai-tamura upd-end ------
 });
 
 //16歳未満の扶養親族給与1
@@ -299,6 +419,10 @@ function checkDependentsOver16(id) {
     var residentTypeName = "Head." + id + "_ResidentType";
     var residentTypeMesID = "#Head_" + id + "_ResidentType_mes";
 
+    //2025-99-99 iwai-tamura upd-str ------
+    var incomeID = "#Head_" + id + "_Income";
+    var incomeMesID = "#Head_" + id + "_Income_mes";
+    //2025-99-99 iwai-tamura upd-end ------
 
     var strYear = $(birthdayYearID).val();
     var strMonth = $(birthdayMonthID).val();
@@ -308,6 +432,9 @@ function checkDependentsOver16(id) {
     var cDate19 = String(cYear - 18) + "0101";
     var cDate23 = String(cYear - 22) + "0101";
     var cDate70 = String(cYear - 69) + "0101";
+    //2025-99-99 iwai-tamura upd-str ------
+    var cIncome = $(incomeID).val();
+    //2025-99-99 iwai-tamura upd-end ------
 
     var strMessage = "";
     var bolReturn = false;
@@ -315,6 +442,13 @@ function checkDependentsOver16(id) {
     $(birthdayMesID).text("");
     $(oldmanTypeMesID).text("");
     $(specificTypeMesID).text("");
+
+
+    //2025-99-99 iwai-tamura upd-str ------
+    //特定扶養親族区分は自動選択に変更
+    $('input:radio[name="' + specificTypeName + '"]').prop("checked", false);
+    //2025-99-99 iwai-tamura upd-end ------
+
 
     if (strYear == "" && strMonth == "" && strDay == "") return true;
     if (!strYear || !strMonth || !strDay) {
@@ -368,17 +502,45 @@ function checkDependentsOver16(id) {
     $(oldmanTypeMesID).text(strMessage);
 
     //特定扶養親族区分チェック
+    //2025-99-99 iwai-tamura upd-str ------
+    //特定扶養親族区分は自動選択に変更
+    //金額と年齢にて判別
     strMessage = "";
-    if ((strDate <= cDate19) && (strDate > cDate23)) {
-        if ($('input:radio[name="' + specificTypeName + '"]:checked').val() == "0") {
-            strMessage = "19歳～23歳は特定扶養親族を選択してください。";
+    if (cIncome != "") {
+        if (cIncome > 580000) {
+            //所得の見積額が58万円超の場合、対象外
+            strMessage = "58万円超は対象外です。";
         }
-    } else {
-        if ($('input:radio[name="' + specificTypeName + '"]:checked').val() != "0") {
-            strMessage = "19歳～23歳以外は選択できません。";
+        $('input:radio[name="' + specificTypeName + '"][value="0"]').prop("checked", true);
+        if ((strDate <= cDate19) && (strDate > cDate23)) {
+            strMessage = "";    //特定親族の場合は上限が代わる。
+            if (cIncome > 1000000) {
+                //所得の見積額が100万円超の場合、対象外
+                strMessage = "100万円超は対象外です。";
+                $(incomeMesID).text(strMessage);
+            }
+            if (cIncome <= 580000) {
+                //58万円以下の場合、特定扶養親族
+                $('input:radio[name="' + specificTypeName + '"][value="1"]').prop("checked", true);
+            } else if ((cIncome > 580000) && (cIncome <= 1230000)) {
+                //58万円超123万円以下の場合、特定親族
+                $('input:radio[name="' + specificTypeName + '"][value="2"]').prop("checked", true);
+            }
         }
     }
-    $(specificTypeMesID).text(strMessage);
+    $(incomeMesID).text(strMessage);
+    //strMessage = "";
+    //if ((strDate <= cDate19) && (strDate > cDate23)) {
+    //    if ($('input:radio[name="' + specificTypeName + '"]:checked').val() == "0") {
+    //        strMessage = "19歳～23歳は特定扶養親族を選択してください。";
+    //    }
+    //} else {
+    //    if ($('input:radio[name="' + specificTypeName + '"]:checked').val() != "0") {
+    //        strMessage = "19歳～23歳以外は選択できません。";
+    //    }
+    //}
+    //$(specificTypeMesID).text(strMessage);
+    //2025-99-99 iwai-tamura upd-end ------
 
     strMessage = "";
     if ($('input:radio[name="' + oldmanTypeName + '"]:checked').val() == "1") {
@@ -423,12 +585,6 @@ function checkDependentsOver16(id) {
 
 //// 初期ロード時にチェック
 //checkRequiredFields();
-
-
-
-
-
-
 //2023-11-20 iwai-tamura upd end -----
 
 
@@ -851,6 +1007,7 @@ function checkMoney(id, maxMoney) {
     return bolReturn;
 }
 
+
 //2024-11-19 iwai-tamura upd-str ------
 function checkFamilyCount() {
     message = '';
@@ -938,11 +1095,13 @@ function checkAll() {
         { id: "Head_HouseholdName1", name: "本人情報：世帯主_氏" },
         { id: "Head_HouseholdName2", name: "本人情報：世帯主_名" },
         { id: "Head_RelationshipType", name: "本人情報：世帯主_続柄" },
+        //2025-99-99 iwai-tamura upd-str ------
+        { id: "Head_AddressType", name: "本人情報：住所区分" },
+        //2025-99-99 iwai-tamura upd-end ------
         { id: "Head_PostalCode_1", name: "本人情報：郵便番号1" },
         { id: "Head_PostalCode_2", name: "本人情報：郵便番号2" },
         { id: "Head_Address", name: "本人情報：住所又は居所" }
     ];
-
 
     $.each(aryCheckInput, function (index, item) {
         if (document.getElementById(item.id).value.trim() == "") {

@@ -76,6 +76,7 @@
     <Compile Include="Common\SelfDeclareCommonBL.cs" />
     <Compile Include="HokenDeclareRegister\HokenDeclareRegisterBL.cs" />
     <Compile Include="HaiguuDeclareRegister\HaiguuDeclareRegisterBL.cs" />
+    <Compile Include="JutakuDeclareRegister\JutakuDeclareRegisterBL.cs" />
     <Compile Include="Login\LoginBL.cs" />
     <Compile Include="HuyouDeclareRegister\HuyouDeclareRegisterBL.cs" />
     <Compile Include="SelfDeclareRegister\HaiguuDeclareReport.cs">
@@ -411,6 +412,7 @@
     </Compile>
     <Compile Include="YearEndAdjustmentReports\YearEndAdjustmentPrintBL.cs" />
     <Compile Include="YearEndAdjustmentSearch\YearEndAdjustmentSearchBL.cs" />
+    <Compile Include="ZenshokuDeclareRegister\ZenshokuDeclareRegisterBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

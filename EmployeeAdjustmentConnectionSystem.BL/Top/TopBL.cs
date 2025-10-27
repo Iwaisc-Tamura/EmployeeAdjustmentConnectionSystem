@@ -9,7 +9,8 @@ using EmployeeAdjustmentConnectionSystem.COM.Util.Database;
 using System.Web;   //2017-08-31 iwai-tamura add
 using EmployeeAdjustmentConnectionSystem.Log.Common;    //2019-10-02 iwai-tamura add
 using System.Reflection;    //2019-10-02 iwai-tamura add
-
+using Microsoft.Office.Interop.Excel;
+using EmployeeAdjustmentConnectionSystem.COM.Entity.Session;
 
 namespace EmployeeAdjustmentConnectionSystem.Bl.Top {
     /// <summary>
@@ -41,6 +42,10 @@ namespace EmployeeAdjustmentConnectionSystem.Bl.Top {
                         top.Announcement = reader["Message"].ToString();
                     }
                 }
+                //ログイン情報取得
+                var lu = (LoginUser)HttpContext.Current.Session["LoginUser"];
+                top.HuyouAttachmentFilePath = GetHuyouAttachmentFilePath(lu.IsYear,lu.UserCode);
+
                 //2017-08-31 iwai-tamura upd-str ------
                 //未承認データ確認
                 //string UserCode = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
@@ -74,5 +79,85 @@ namespace EmployeeAdjustmentConnectionSystem.Bl.Top {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
+
+        //2025-99-99 iwai-tamura upd-str ------
+        /// <summary>
+        /// 扶養控除申告書 添付ファイルデータ取得
+        /// </summary>
+        public string GetHuyouAttachmentFilePath(int? intSheetYear,string strEmployeeNo,bool bolAdminMode = false) {
+            //開始
+            nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+            try {
+                var strPath = "";
+
+			    //添付ファイルデータを取得
+			    var sql = "";
+			    sql = " SELECT 添付FileName "
+				    + " FROM TE100扶養控除申告書Data "
+				    + " WHERE 1 = 1"
+				    + "   AND 対象年度 = " + intSheetYear
+				    + "   AND 社員番号 = '" + strEmployeeNo +"'";
+                using(DbManager dm = new DbManager())
+                using(IDbCommand cmd = dm.CreateCommand(sql))
+                using(IDataReader reader = cmd.ExecuteReader()) {
+                    while(reader.Read()) {
+                        strPath = reader["添付FileName"].ToString();
+                    }
+                }
+                return strPath;
+            } catch(Exception ex) {
+                //エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                return "";
+            } finally {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+
+        }
+
+        /// <summary>
+        /// 扶養控除申告書 添付ファイルデータ更新
+        /// </summary>
+        public bool UploadHuyouAttachmentFilePath(int? intSheetYear,string strEmployeeNo,string strFileName, bool bolAdminMode = false) {
+            //開始
+            nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+            try {
+                // 添付ファイルデータを更新
+			    var sql = "";
+			    sql = " UPDATE TE100扶養控除申告書Data "
+				    + " SET 添付FileName = @FileName "
+				    + " WHERE 1 = 1"
+				    + "   AND 対象年度 = @SheetYear"
+				    + "   AND 社員番号 = @EmployeeNo";
+
+                using (DbManager dm = new DbManager())
+                using (IDbCommand cmd = dm.CreateCommand(sql))
+                {
+                    DbHelper.AddDbParameter(cmd, "@FileName", DbType.String);
+                    DbHelper.AddDbParameter(cmd, "@SheetYear", DbType.Int32);
+                    DbHelper.AddDbParameter(cmd, "@EmployeeNo", DbType.String);
+                    ((IDbDataParameter)cmd.Parameters[0]).Value = strFileName;
+                    ((IDbDataParameter)cmd.Parameters[1]).Value = intSheetYear;
+                    ((IDbDataParameter)cmd.Parameters[2]).Value = strEmployeeNo;
+
+                    // UPDATE実行
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            } catch(Exception ex) {
+                //エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                return false;
+            } finally {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+
+        }
+        //2025-99-99 iwai-tamura upd-end ------
+
     }
 }

@@ -25,24 +25,96 @@ span{
     float: right;
 }
 
-select:invalid {
-    color: #999;
-}
-/* プレースホルダー option 自体も薄く */
-option[disabled][value=""] {
-    color: #999;
+
+.label-with-note {
+    position: relative; /* 子要素(.note)の位置基準をこのセルにする */
 }
 
-/*=== チェックコメント ===*/
-.check-comment{
+.cautionary {
+    position: absolute;
     font-size: 12px;
-    color:#f00;
+    color: #f00;
+}
+
+.cautionary-note {
+    display: inline-block;
+    line-height: 1;
+    font-size: 12px;
+}
+.cautionary-note-mark {
+    display: inline-block;
+    line-height: 1;
+    font-size: 12px;
+    color: #f00;
+}
+
+.btn-info{
+    background: #7030A0;
+    border-color: #7030A0;
+}
+.btn-info:hover {
+    background: #C47AFF;
+    border-color: #8D72E1;
+}
+
+
+
+button.btn-calc{
+    border-radius: 20px;
+    padding: 7px 7px;
+    width: 130px;
+    background: #EAEAEA;
+    border: 3px solid #666;
+}
+button.btn-calc:hover {
+    background: #FAFAFA;
+}
+
+/*2023-11-20 iwai-tamura add-str ------*/
+button.btn-clear {
+    border-radius: 20px;
+    padding: 3px 3px;
+    height: 30px;
+    width: 80px;
+    background: #F2F2F2;
+    border: 3px solid #B0B0B0;
+    color: #555;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+button.btn-clear:hover {
+    background: #E0E0E0;
+}
+
+/*扶養控除申告書データ取得ボタン*/
+button.btn-get {
+    font-size:13px;
+    border-radius: 20px;
+    padding: 3px 3px;
+    height: 30px;
+    width: 200px;
+    background: #F2F2F2;
+    border: 3px solid #B0B0B0;
+    color: #555;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-get:hover {
+    background: #E0E0E0;
+}
+/*2023-11-20 iwai-tamura add-end ------*/
+
+/*=== チェックコメント ===*/
+.check-comment {
+    font-size: 12px;
+    color: #f00;
 }
 
 /* === 各項目の書式 === */
 /*ヘッダー項目*/
 .table > thead > tr.content-label-h1{
-  font-weight:bold; color:#fff;background-color: #0091c4;
+  font-weight:bold; color:#fff;background-color: #8D72E1;
 }
 .table > thead > tr.content-label-h2{
   font-weight:bold; color:#fff;background-color: #2dc8ff;
@@ -55,15 +127,15 @@ option[disabled][value=""] {
 }
 /*フッター項目*/
 .table > tbody > tr> td.content-label-b1{
-  font-weight:bold; color:#000;background-color: #e1f7ff;
+  font-weight:bold; color:#000;background-color: #DAC1ED;
 }
-.table > tbody > td.content-label-b2{
-  font-weight:bold; color:#000;background-color: #e1f7ff;
+.table > tbody > tr>  td.content-label-b2{
+  font-weight:bold; color:#000;background-color: #CBA8E6;
 }
-.table > tbody > td.content-label-b3{
-  font-weight:bold; color:#000;background-color: #e1f7ff;
+.table > tbody > tr>  td.content-label-b3{
+  font-weight:bold; color:#000;background-color: #eee;
 }
-.table > tbody > td.content-label-b4{
+.table > tbody > tr>  td.content-label-b4{
   font-weight:bold; color:#000;background-color: #e1f7ff;
 }
 
@@ -87,13 +159,6 @@ input[type=radio] {
   border: 1px solid #006DD9;/* ラベルの境界線を実線で指定する */
   font-weight:normal;
   width:120px;
-  text-align:  center;
-}
-.radio-label-3 {
-  margin: 0px; /* ラベル外側の余白を指定する */
-  border: 1px solid #006DD9;/* ラベルの境界線を実線で指定する */
-  font-weight:normal;
-  width:200px;
   text-align:  center;
 }
 input[type="radio"]:checked + label {
