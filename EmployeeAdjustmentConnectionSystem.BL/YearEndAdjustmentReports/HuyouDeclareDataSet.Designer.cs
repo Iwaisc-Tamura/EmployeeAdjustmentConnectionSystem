@@ -313,6 +313,8 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             private global::System.Data.DataColumn column世帯主続柄名称;
             
+            private global::System.Data.DataColumn column住所区分;
+            
             private global::System.Data.DataColumn column郵便番号_前;
             
             private global::System.Data.DataColumn column郵便番号_後;
@@ -833,6 +835,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             public global::System.Data.DataColumn 世帯主続柄名称Column {
                 get {
                     return this.column世帯主続柄名称;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 住所区分Column {
+                get {
+                    return this.column住所区分;
                 }
             }
             
@@ -2307,6 +2317,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 生年月日日, 
                         string 世帯主氏名, 
                         string 世帯主続柄名称, 
+                        string 住所区分, 
                         string 郵便番号_前, 
                         string 郵便番号_後, 
                         string 住所01, 
@@ -2503,6 +2514,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         生年月日日,
                         世帯主氏名,
                         世帯主続柄名称,
+                        住所区分,
                         郵便番号_前,
                         郵便番号_後,
                         住所01,
@@ -2719,6 +2731,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 this.column生年月日日 = base.Columns["生年月日日"];
                 this.column世帯主氏名 = base.Columns["世帯主氏名"];
                 this.column世帯主続柄名称 = base.Columns["世帯主続柄名称"];
+                this.column住所区分 = base.Columns["住所区分"];
                 this.column郵便番号_前 = base.Columns["郵便番号_前"];
                 this.column郵便番号_後 = base.Columns["郵便番号_後"];
                 this.column住所01 = base.Columns["住所01"];
@@ -2935,6 +2948,8 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column世帯主氏名);
                 this.column世帯主続柄名称 = new global::System.Data.DataColumn("世帯主続柄名称", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column世帯主続柄名称);
+                this.column住所区分 = new global::System.Data.DataColumn("住所区分", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column住所区分);
                 this.column郵便番号_前 = new global::System.Data.DataColumn("郵便番号_前", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column郵便番号_前);
                 this.column郵便番号_後 = new global::System.Data.DataColumn("郵便番号_後", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3289,6 +3304,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column給与支払者名称);
                 this.column給与支払者所在地 = new global::System.Data.DataColumn("給与支払者所在地", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column給与支払者所在地);
+                this.column住所区分.Caption = "DataColumn1";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3698,6 +3714,22 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 }
                 set {
                     this[this.tableHuyouDeclareDataTable.世帯主続柄名称Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 住所区分 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.住所区分Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'住所区分\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.住所区分Column] = value;
                 }
             }
             
@@ -6735,6 +6767,18 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Set世帯主続柄名称Null() {
                 this[this.tableHuyouDeclareDataTable.世帯主続柄名称Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is住所区分Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.住所区分Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set住所区分Null() {
+                this[this.tableHuyouDeclareDataTable.住所区分Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

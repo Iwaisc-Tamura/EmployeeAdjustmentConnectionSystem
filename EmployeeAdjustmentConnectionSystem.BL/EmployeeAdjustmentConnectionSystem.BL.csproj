@@ -322,6 +322,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HaiguuDeclareDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="YearEndAdjustmentReports\HaiguuDeclareReport_2025.cs">
+      <DependentUpon>HaiguuDeclareReport_2025.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="YearEndAdjustmentReports\HaiguuDeclareReport.cs">
       <DependentUpon>HaiguuDeclareReport.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -338,12 +344,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HaiguuDeclareReport_2024.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="YearEndAdjustmentReports\HaiguuDeclareReport_2025.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HaiguuDeclareReport_2025.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="YearEndAdjustmentReports\HokenDeclareDataSet.cs">
@@ -386,6 +386,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HuyouDeclareDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="YearEndAdjustmentReports\HuyouDeclareReport_2025.cs">
+      <DependentUpon>HuyouDeclareReport_2025.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="YearEndAdjustmentReports\HuyouDeclareReport.cs">
       <DependentUpon>HuyouDeclareReport.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -404,10 +410,10 @@
       <DependentUpon>HuyouDeclareReport_2024.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="YearEndAdjustmentReports\HuyouDeclareReport_2025.cs">
+    <Compile Include="YearEndAdjustmentReports\HuyouDeclareReport_2025_before.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HuyouDeclareReport_2025.rpt</DependentUpon>
+      <DependentUpon>HuyouDeclareReport_2025_before.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="YearEndAdjustmentReports\YearEndAdjustmentPrintBL.cs" />
@@ -669,6 +675,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SelfDeclareReport1.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="YearEndAdjustmentReports\HaiguuDeclareReport_2025.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>HaiguuDeclareReport_2025.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="YearEndAdjustmentReports\HaiguuDeclareReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>HaiguuDeclareReport.cs</LastGenOutput>
@@ -680,10 +690,6 @@
     <EmbeddedResource Include="YearEndAdjustmentReports\HaiguuDeclareReport_2024.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>HaiguuDeclareReport_2024.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="YearEndAdjustmentReports\HaiguuDeclareReport_2025.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>HaiguuDeclareReport_2025.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="YearEndAdjustmentReports\HokenDeclareReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -701,6 +707,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>HokenDeclareReport_2025.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="YearEndAdjustmentReports\HuyouDeclareReport_2025.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>HuyouDeclareReport_2025.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="YearEndAdjustmentReports\HuyouDeclareReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>HuyouDeclareReport.cs</LastGenOutput>
@@ -713,9 +723,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>HuyouDeclareReport_2024.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="YearEndAdjustmentReports\HuyouDeclareReport_2025.rpt">
+    <EmbeddedResource Include="YearEndAdjustmentReports\HuyouDeclareReport_2025_before.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>HuyouDeclareReport_2025.cs</LastGenOutput>
+      <LastGenOutput>HuyouDeclareReport_2025_before.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
