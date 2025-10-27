@@ -19,6 +19,7 @@ using EmployeeAdjustmentConnectionSystem.COM.Util.File;
 using System.Configuration;
 using EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports;
 using System.Web.Services.Description;
+using EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister;
 
 namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
@@ -49,6 +50,10 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                                                     //2023-11-20 iwai-tamura add str -----
                                                       , { "YearEndAdjustmentSearch", "Search"}
                                                     //2023-11-20 iwai-tamura add end -----                                                        
+                                                    //2025-99-99 iwai-tamura upd-str ------
+                                                      , { "JutakuDeclareRegister", "Index"}
+                                                      , { "ZenshokuDeclareRegister", "Index"}
+                                                    //2025-99-99 iwai-tamura upd-end ------
             };
         #endregion
 
@@ -461,8 +466,210 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-
-
         //2023-11-20 iwai-terao test-end ------
+
+        //2025-99-99 iwai-tamura upd-str ------
+        /// <summary>
+        /// 扶養控除申告書添付ファイルアップロード
+        /// </summary>
+        /// <param name="model"></param>
+        [ActionName("Link")]
+        [ButtonHandler(ButtonName = "HuyouAttachmentFileUpload")]
+        public ActionResult HuyouAttachmentFileUpload(TopViewModel model, string specifyEmployeeNo = "")
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //ログイン判定
+                if (!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
+
+                LoginUser lu = (LoginUser)Session["LoginUser"];
+                var strFileName = "";
+                var strInputNo = "";
+                var bolAdminMode = false;
+                if (specifyEmployeeNo == "") {
+                    strInputNo = lu.UserCode;
+                } else {
+                    strInputNo = specifyEmployeeNo;
+                    bolAdminMode = true;
+                }
+
+                // サーバーにファイル保存
+                strFileName += lu.IsYear + "年度扶養控除申告書_添付資料_" + strInputNo + 
+                                  Path.GetFileName(model.HuyouAttachmentUploadFile.FileName);
+                string saveDir = ConfigurationManager.AppSettings["HUYOU_ATTACHMENT_FILE_DIR"];
+                saveDir += strFileName;
+                model.HuyouAttachmentUploadFile.SaveAs(saveDir);
+
+                TopBL bl = new TopBL();
+                bool isSuccess = bl.UploadHuyouAttachmentFilePath(lu.IsYear,strInputNo,strFileName,bolAdminMode);
+
+                model.HuyouAttachmentFilePath = bl.GetHuyouAttachmentFilePath(lu.IsYear,strInputNo,bolAdminMode);
+
+                TempData["Confirmation"] = string.Format("ファイルをアップロードしました。");
+
+                ViewBag.ServerStatus = lu.IsServerStatus;
+                return View("Index", model);
+
+            }
+            catch (Exception ex)
+            {
+                //エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        /// <summary>
+        /// 扶養控除申告書添付ファイルダウンロード
+        /// </summary>
+        /// <param name="model"></param>
+        [HttpPost]
+        [ActionName("Link")]
+        [ButtonHandler(ButtonName = "HuyouAttachmentFileDownload")]
+        public ActionResult HuyouAttachmentFileDownload(TopViewModel model, string specifyEmployeeNo = "")
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+
+                // ログイン判定
+                if (!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
+                LoginUser lu = (LoginUser)Session["LoginUser"];
+                var strInputNo = "";
+                var bolAdminMode = false;
+
+                if (specifyEmployeeNo == "")
+                {
+                    strInputNo = lu.UserCode;
+                }
+                else
+                {
+                    strInputNo = specifyEmployeeNo;
+                    bolAdminMode = true;
+                }
+
+                // 設定から保存ディレクトリを取得
+                string saveDir = ConfigurationManager.AppSettings["HUYOU_ATTACHMENT_FILE_DIR"];
+                if (string.IsNullOrEmpty(saveDir))
+                {
+                    TempData["Error"] = "保存ディレクトリが設定されていません。管理者に確認してください。";
+                    return View("Error");
+                }
+
+                // ファイルパスを構築
+                string filePath = Path.Combine(saveDir, model.HuyouAttachmentFilePath);
+                // ファイルが存在するか確認
+                if (!System.IO.File.Exists(filePath))
+                {
+                    TempData["Error"] = "指定されたファイルが見つかりません。管理者に確認してください。";
+                    return View("Error");
+                }
+
+                // ファイルをダウンロード
+                string fileName = Path.GetFileName(filePath);
+
+                return File(filePath, "application/pdf", fileName);
+            }
+            catch (Exception ex)
+            {
+                //エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        /// <summary>
+        /// 扶養控除申告書添付ファイル削除
+        /// </summary>
+        /// <param name="model"></param>
+        [ActionName("Link")]
+        [ButtonHandler(ButtonName = "HuyouAttachmentFileDelete")]
+        public ActionResult HuyouAttachmentFileDelete(TopViewModel model, string specifyEmployeeNo = "")
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //ログイン判定
+                if (!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
+
+                LoginUser lu = (LoginUser)Session["LoginUser"];
+                var strInputNo = "";
+                var bolAdminMode = false;
+                if (specifyEmployeeNo == "") {
+                    strInputNo = lu.UserCode;
+                } else {
+                    strInputNo = specifyEmployeeNo;
+                    bolAdminMode = true;
+                }
+
+                // 設定から保存ディレクトリを取得
+                string saveDir = ConfigurationManager.AppSettings["HUYOU_ATTACHMENT_FILE_DIR"];
+                if (string.IsNullOrEmpty(saveDir))
+                {
+                    TempData["Error"] = "保存ディレクトリが設定されていません。管理者に確認してください。";
+                    return View("Error");
+                }
+
+                // ファイルパスを構築
+                string filePath = Path.Combine(saveDir, model.HuyouAttachmentFilePath);
+                // ファイルが存在するか確認
+                if (!System.IO.File.Exists(filePath))
+                {
+                    TempData["Error"] = "指定されたファイルが見つかりません。管理者に確認してください。";
+                    return View("Error");
+                }
+
+                // ファイルを削除
+                System.IO.File.Delete(filePath);
+
+                // データベースからも削除
+                TopBL bl = new TopBL();
+                bool isSuccess = bl.UploadHuyouAttachmentFilePath(lu.IsYear,strInputNo,"",bolAdminMode);// ファイル名を空に設定
+                if (!isSuccess)
+                {
+                    TempData["Error"] = "データベースの更新に失敗しました。";
+                    return View("Error");
+                }
+
+                // 成功メッセージ
+                model.HuyouAttachmentFilePath = bl.GetHuyouAttachmentFilePath(lu.IsYear,strInputNo,bolAdminMode);
+
+                TempData["Confirmation"] = "ファイルを削除しました。";
+
+                ViewBag.ServerStatus = lu.IsServerStatus;
+                return View("Index", model);
+            }
+            catch (Exception ex)
+            {
+                //エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        //2025-99-99 iwai-tamura upd-end ------
+
     }
 }

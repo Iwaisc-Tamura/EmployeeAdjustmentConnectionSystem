@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using System.Web;
 
 namespace EmployeeAdjustmentConnectionSystem.COM.Models {
     /// <summary>
@@ -19,5 +20,15 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         public int ObjectivesWaitingApprover { get; set; }
         public int SkillWaitingApprover { get; set; }
         //2017-08-31 iwai-tamura upd-end ------
+
+        //2025-99-99 iwai-tamura add-str ------
+        /// <summary>
+        /// 扶養控除申告書添付ファイルアップロード用
+        /// </summary>
+        /// 
+        public string HuyouAttachmentFilePath { get; set; }
+        public HttpPostedFileWrapper HuyouAttachmentUploadFile { get; set; }
+
+        //2025-99-99 iwai-tamura add-end ------
     }
 }

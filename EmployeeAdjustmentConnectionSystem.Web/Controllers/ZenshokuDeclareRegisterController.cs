@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Transactions;
 using EmployeeAdjustmentConnectionSystem.BL.Common;
-using EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister;
+using EmployeeAdjustmentConnectionSystem.BL.ZenshokuDeclareRegister;
 using EmployeeAdjustmentConnectionSystem.COM.Enum;
 using EmployeeAdjustmentConnectionSystem.COM.Models;
 using EmployeeAdjustmentConnectionSystem.COM.Util.Controll;
@@ -19,13 +19,13 @@ using EmployeeAdjustmentConnectionSystem.BL.SelfDeclareSearch;
 using EmployeeAdjustmentConnectionSystem.COM.Util.File;
 using EmployeeAdjustmentConnectionSystem.COM.Util.Config;
 using System.IO;
-using EmployeeAdjustmentConnectionSystem.Log.Common;    //2019-10-02 iwai-tamura add
+using EmployeeAdjustmentConnectionSystem.Log.Common;
 
 namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
     /// <summary>
-    /// 扶養控除申告書入力コントローラー
+    /// 住宅借入金等特別控除申告書入力コントローラー
     /// </summary>
-    public class HuyouDeclareRegisterController : Controller {
+    public class ZenshokuDeclareRegisterController : Controller {
         #region メンバ変数
         /// <summary>
         /// ロガー
@@ -49,15 +49,11 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 if(!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
 
                 //ビジネスロジックから取得
-                //return View((new HuyouDeclareRegisterBL(tableType)).Select(id));
-                var bl = new HuyouDeclareRegisterBL();
+                //return View((new ZenshokuDeclareRegisterBL(tableType)).Select(id));
+                var bl = new ZenshokuDeclareRegisterBL();
                 var model = bl.Select(intSheetYear,strEmployeeNo,bolAdminMode);
                 var lu = (LoginUser)Session["LoginUser"];
                 bl.SetMode(model, lu);
-
-                //2025-99-99 iwai-tamura upd-str ------
-                model.Head.AddressMaster = bl.GetAddressMaster();
-                //2025-99-99 iwai-tamura upd-end ------
                 
                 return View(model);
             } catch(Exception ex) {
@@ -72,16 +68,16 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
         }
 
         /// <summary>
-        /// 承認登録キャンセル
+        /// 提出登録キャンセル
         /// </summary>
-        /// <param name="model">扶養控除申告書入力モデル</param>
+        /// <param name="model">住宅借入金等特別控除申告書入力モデル</param>
         /// <param name="value">ボタンのValue</param>
         /// <returns>ビュー</returns>
         [HttpPost]
         [ActionName("Index")]
         [ButtonHandler(ButtonName = "SignCancel")]
         //[AcceptButton(ButtonName = "SignCancel")]
-        public ActionResult SignCancel(HuyouDeclareRegisterViewModels model, string value) {
+        public ActionResult SignCancel(ZenshokuDeclareRegisterViewModels model, string value) {
             try {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
@@ -95,9 +91,9 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 LoginUser lu = (LoginUser)Session["LoginUser"];
 
                 //ビジネスロジックから
-                HuyouDeclareRegisterBL bl = new HuyouDeclareRegisterBL();
+                ZenshokuDeclareRegisterBL bl = new ZenshokuDeclareRegisterBL();
 
-                //承認キャンセル
+                //提出キャンセル
                 bl.Sign(model, value, lu, false);
 
                 var intSheetYear = model.Head.SheetYear;
@@ -105,23 +101,14 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 var bolAdminMode = model.Head.AdminMode;
                 ModelState.Clear();
                 //再表示
-                bl = new HuyouDeclareRegisterBL();
-                //2025-99-99 iwai-tamura upd-str ------
-                model.Head.AddressMaster = bl.GetAddressMaster();
-                //2025-99-99 iwai-tamura upd-end ------
+                bl = new ZenshokuDeclareRegisterBL();
                 model = bl.Select(intSheetYear,strEmployeeNo,bolAdminMode);
                 bl.SetMode(model, lu);
-
-                //2023-11-20 iwai-tamura upd str -----
                 if (bolAdminMode){
                     TempData["Success"] = "確定をキャンセルしました";
                 } else{
                     TempData["Success"] = "提出をキャンセルしました";
                 }
-                //TempData["Success"] = "提出をキャンセルしました";
-                //2023-11-20 iwai-tamura upd end -----
-
-
                 return View(model);
             } catch(Exception ex) {
                 // エラー
@@ -139,13 +126,13 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
         /// <summary>
         /// 提出保存
         /// </summary>
-        /// <param name="model">扶養控除申告書入力モデル</param>
+        /// <param name="model">住宅借入金等特別控除申告書入力モデル</param>
         /// <returns>ビュー</returns>
         [HttpPost]
         [ActionName("Index")]
         //[ButtonHandler(ButtonName = "Save")]
         [AcceptButton(ButtonName = "Save")]
-        public ActionResult Save(HuyouDeclareRegisterViewModels model) {
+        public ActionResult Save(ZenshokuDeclareRegisterViewModels model) {
             try {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
@@ -159,10 +146,10 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 LoginUser lu = (LoginUser)Session["LoginUser"];
 
                 //ビジネスロジック
-                HuyouDeclareRegisterBL bl = new HuyouDeclareRegisterBL();
+                ZenshokuDeclareRegisterBL bl = new ZenshokuDeclareRegisterBL();
 
                 //保存
-                bl.Save(model,lu,"2");
+                bl.Save(model, lu,"2");
 
                 var intSheetYear = model.Head.SheetYear;
                 var strEmployeeNo = model.Head.EmployeeNo;
@@ -170,21 +157,15 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
                 ModelState.Clear();
                 //再表示
-                bl = new HuyouDeclareRegisterBL();
+                bl = new ZenshokuDeclareRegisterBL();
                 model = bl.Select(intSheetYear,strEmployeeNo,bolAdminMode);
-                //2025-99-99 iwai-tamura upd-str ------
-                model.Head.AddressMaster = bl.GetAddressMaster();
-                //2025-99-99 iwai-tamura upd-end ------
                 bl.SetMode(model, lu);
 
-                //2023-11-20 iwai-tamura upd str -----
                 if (bolAdminMode){
                     TempData["Success"] = "確定しました";
                 } else{
                     TempData["Success"] = "提出しました";
                 }
-                //TempData["Success"] = "提出しました";
-                //2023-11-20 iwai-tamura upd end -----
 
                 return View(model);
             } catch(Exception ex) {
@@ -194,9 +175,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 return View("Error");
             } finally {
                 //終了
-                //2019-10-02 iwai-tamura add-str ------
                 CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"提出終了","");
-                //2019-10-02 iwai-tamura add-end ------
 
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
@@ -205,13 +184,13 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
         /// <summary>
         /// 途中保存
         /// </summary>
-        /// <param name="model">扶養控除申告書入力モデル</param>
+        /// <param name="model">住宅借入金等特別控除申告書入力モデル</param>
         /// <returns>ビュー</returns>
         [HttpPost]
         [ActionName("Index")]
         //[ButtonHandler(ButtonName = "Keep")]
         [AcceptButton(ButtonName = "Keep")]
-        public ActionResult Keep(HuyouDeclareRegisterViewModels model) {
+        public ActionResult Keep(ZenshokuDeclareRegisterViewModels model) {
             try {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
@@ -225,10 +204,10 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 LoginUser lu = (LoginUser)Session["LoginUser"];
 
                 //ビジネスロジック
-                HuyouDeclareRegisterBL bl = new HuyouDeclareRegisterBL();
+                ZenshokuDeclareRegisterBL bl = new ZenshokuDeclareRegisterBL();
 
                 //保存
-                bl.Save(model,lu,"1");
+                bl.Save(model, lu,"1");
 
                 var intSheetYear = model.Head.SheetYear;
                 var strEmployeeNo = model.Head.EmployeeNo;
@@ -236,12 +215,8 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
                 ModelState.Clear();
                 //再表示
-                bl = new HuyouDeclareRegisterBL();
+                bl = new ZenshokuDeclareRegisterBL();
                 model = bl.Select(intSheetYear,strEmployeeNo,bolAdminMode);
-                //2025-99-99 iwai-tamura upd-str ------
-                model.Head.AddressMaster = bl.GetAddressMaster();
-                //2025-99-99 iwai-tamura upd-end ------
-
                 bl.SetMode(model, lu);
                 TempData["Success"] = "途中保存しました";
                 return View(model);
@@ -252,9 +227,63 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 return View("Error");
             } finally {
                 //終了
-                //2019-10-02 iwai-tamura add-str ------
                 CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"保存終了","");
-                //2019-10-02 iwai-tamura add-end ------
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+
+        /// <summary>
+        /// データ削除（申告書を未作成状態にする）
+        /// </summary>
+        /// <param name="model">住宅借入金等特別控除申告書入力モデル</param>
+        /// <param name="value">ボタンのValue</param>
+        /// <returns>ビュー</returns>
+        [HttpPost]
+        [ActionName("Index")]
+        [ButtonHandler(ButtonName = "DataDelete")]
+        //[AcceptButton(ButtonName = "SignCDataDeleteancel")]
+        public ActionResult DataDelete(ZenshokuDeclareRegisterViewModels model, string value) {
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"データ削除開始","");
+
+                //ログイン判定
+                if(!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
+
+                //セッションからログイン情報取得
+                LoginUser lu = (LoginUser)Session["LoginUser"];
+
+                //ビジネスロジックから
+                ZenshokuDeclareRegisterBL bl = new ZenshokuDeclareRegisterBL();
+
+                //データ削除
+                bl.Delete(model, value, lu);
+
+                var intSheetYear = model.Head.SheetYear;
+                var strEmployeeNo = model.Head.EmployeeNo;
+                var bolAdminMode = model.Head.AdminMode;
+                ModelState.Clear();
+                //再表示
+                bl = new ZenshokuDeclareRegisterBL();
+                model = bl.Select(intSheetYear,strEmployeeNo,bolAdminMode);
+                bl.SetMode(model, lu);
+                if (bolAdminMode){
+                    TempData["Success"] = "データを削除しました";
+                } else{
+                    TempData["Success"] = "データを削除しました";
+                }
+                return View(model);
+            } catch(Exception ex) {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            } finally {
+                //終了
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"データ削除終了","");
 
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
@@ -267,28 +296,23 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
         [HttpPost]
         [ActionName("Index")]
         [AcceptButton(ButtonName = "Back")]
-        public ActionResult Back(HuyouDeclareRegisterViewModels model, string value) {
+        public ActionResult Back(ZenshokuDeclareRegisterViewModels model, string value) {
             try {
                 //開始
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
 
-                //2024-11-19 iwai-tamura upd-str ------
+
                 //バーコード読取の場合トップ画面に戻る
                 if ((string)Session["ReturnTopStatus"] == "1") {
                     return RedirectToAction("Index", "Top");
                 }
-                //2024-11-19 iwai-tamura upd-end ------
-
 
                 //トップへ
-                //2023-11-20 iwai-tamura upd str -----
                 if (model.Head.AdminMode){
                     return RedirectToAction("Search", "YearEndAdjustmentSearch");
                 } else{
                     return RedirectToAction("Index", "Top");
                 }
-                //return RedirectToAction("Index", "Top");
-                //2023-11-20 iwai-tamura upd end -----
             } catch(Exception ex) {
                 //エラー
                 nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());

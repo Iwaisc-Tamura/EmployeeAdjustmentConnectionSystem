@@ -14,18 +14,27 @@
 @*2023-12-15 iwai-tamura add end -----*@
 
 
+
 <!--お知らせ-->
 <div class="col-xs-12 top10">
   <div class="well-ex">
     <div class="well-ex-header">
       <h4>お知らせ</h4>
     </div>
-    <div class="well-ex-content min-ht-200" style =" font-size: 12px;color:red;">@Html.Raw(Html.Encode(Html.DisplayFor(m => m.Announcement)).Replace("\n", "<br />"))</div>
+    @*2025-99-99 iwai-tamura upd-str ------*@
+    <div class="well-ex-content min-ht-50" style =" font-size: 12px;color:red;">@Html.Raw(Html.Encode(Html.DisplayFor(m => m.Announcement)).Replace("\n", "<br />"))</div>
+    @*<div class="well-ex-content min-ht-200" style =" font-size: 12px;color:red;">@Html.Raw(Html.Encode(Html.DisplayFor(m => m.Announcement)).Replace("\n", "<br />"))</div>*@
+    @*2025-99-99 iwai-tamura upd-end ------*@
   </div>
 </div>
 
 <!--メニューボタン-->
-@using(Html.BeginForm("Link", "Top", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
+@*2025-99-99 iwai-tamura upd-str ------*@
+@using(Html.BeginForm("Link", "Top", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" })) {
+    @Html.HiddenFor(m => m.HuyouAttachmentFilePath)
+
+@*@using(Html.BeginForm("Link", "Top", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" })) {*@
+@*2025-99-99 iwai-tamura upd-end ------*@
     <div class="col-xs-6" style="margin-left: 25%;margin-top:10pt">
 
         @*2024-11-19 iwai-tamura upd-str ------*@
@@ -59,6 +68,38 @@
                 <div class="col-xs-2 top10 col_btn_pdf">
                     <button class="btn-default btn-lg btn-block btn_pdf" name="PrintHuyou" value="HuyouDeclareReport">PDF出力</button>
                 </div>
+                @*2025-99-99 iwai-tamura upd-str ------*@
+                <div class="col-xs-2 top10 col-icon-upload">
+                    <button type="button" id="openHuyouAttachmentFileModalButton" class="btn-default btn-lg btn-block btn-icon">
+                        <img src="~/Content/img/Attachment.png" alt="" />
+                    </button>
+                </div>
+                <!-- オーバーレイ -->
+                <div id="huyouAttachmentFileModal-overlay"></div>
+
+                <!-- モーダルコンテンツ -->
+                <div class="modal-content-Upload" id="huyouAttachmentFileModal">
+                    <h2>【扶養控除等申告書】アップロードファイル（PDF）選択</h2>
+                    @if (string.IsNullOrEmpty(Model.HuyouAttachmentFilePath)){
+                        <div class="upload-row">
+                            @Html.TextBoxFor(m => m.HuyouAttachmentUploadFile, new { @type = "file", accept = "application/pdf" })
+                            <div>
+                                <button type="button" name="DmyHuyouAttachmentFileUpload" value="DoHuyouAttachmentFileUpload" class="btn-default top10" id="DmyHuyouAttachmentFileUpload">アップロード</button>
+                            </div>
+                        </div>
+                    }else{
+                        <div class="upload-row">
+                            <p>@Model.HuyouAttachmentFilePath</p>
+                            <div>
+                                <button type="button" name="DmyHuyouAttachmentFileDownload" value="DoHuyouAttachmentFileDownload" class="btn-default top10" id="DmyHuyouAttachmentFileDownload">ダウンロード</button>
+                                <button type="button" name="DmyHuyouAttachmentFileDelete" value="DoHuyouAttachmentFileDelete" class="btn-default top10" id="DmyHuyouAttachmentFileDelete">削除</button>
+                            </div>
+                        </div>
+                    }
+                    <button  type="button" class="btn-close pull-right" id="closeHuyouAttachmentFileModalButton">キャンセル</button>
+                </div>
+                @*2025-99-99 iwai-tamura upd-end ------*@
+
             </div>
 
             @*保険料控除申告書*@
@@ -98,13 +139,46 @@
                 </div>
             </div>*@
             @*2023-11-20 iwai-tamura upd-end ------*@
+
+            @*2025-99-99 iwai-tamura add-str ------*@
+            @*2025年度は初年度の為管理者専用メニュー*@
+		    @if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0" && ViewBag.ServerStatus != "3") {
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2 top10 ">
+                        <button class="btn-default btn-lg btn-block" name="Transition" value="JutakuDeclareRegister">住宅借入金等特別控除申告書</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2 top10 ">
+                        <button class="btn-default btn-lg btn-block" name="Transition" value="ZenshokuDeclareRegister">前職源泉徴収票</button>
+                    </div>
+                </div>
+            }
+            @*2025-99-99 iwai-tamura add-end ------*@
         </div>
+
+
+
 
         @*2023-11-20 iwai-tamura add-str ------*@
         @*2023-12-15 iwai-tamura upd-str ------*@
 		@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0" && ViewBag.ServerStatus != "3") {
 		@*@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0") {*@
         @*2023-12-15 iwai-tamura upd-end ------*@
+
+            @*2025-99-99 iwai-tamura upd-str ------*@
+	        <div class="well-ex-header"  style="background-color: #0094ffb6; margin-top: 10pt;">
+	            <h4 align="center" style="font-weight: bold;">過去分出力処理</h4>
+	        </div>
+            <div class="well-ex-content" style="border-color: #DEF5E5; padding-bottom: 20px; ">
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2 top10">
+                        <button class="btn-default btn-lg btn-block" name="ManagementTransition" value="YearEndAdjustmentSearch">過去PDF出力</button>
+                    </div>
+                </div>
+            </div>
+            @*2025-99-99 iwai-tamura upd-end ------*@
+
 	        <div class="well-ex-header"  style="background-color: #0094ffb6; margin-top: 10pt;">
 	            <h4 align="center" style="font-weight: bold;">管理者メニュー</h4>
 	        </div>
@@ -142,33 +216,18 @@
     </div>
 
 
-    @*<div class="col-xs-6" style="margin-left: 25%;margin-top:10pt">
-        <div class="well-ex-content">
-        	<div style="margin-bottom: 15px;">
-		    	@if(((LoginUser)Session["LoginUser"]).SYS管理MENU == "1") {
-	              <div class="row">
-		        	<div class="col-xs-8 col-xs-offset-2 top10">
-	             	    <button class="btn-default btn-lg btn-block" name="Transition" value="SystemManagement">システム管理</button>
-	            	</div>
-	              </div>
-		        }
-		        	<div class="row">
-		                	<div class="col-xs-8 col-xs-offset-2 top10">
-		                 	<button class="btn-default btn-lg btn-block" name="Transition" value="ChangePassword">パスワード変更</button>
-		                	</div>
-		        	</div>
-	          <div class="row">
-	        	<div class="col-xs-8 col-xs-offset-2 top10">
-	         	    <button type="button" class="btn-default btn-lg btn-block" name="DmyTransition" value="Login" id="dmylogin">ログアウト</button>
-	        	</div>
-	          </div>
-	        </div>
-        </div>
-    </div>*@
-
+    @*隠しボタンエリア*@
     <div style="height:0px;">
         <button type="submit" name="Transition" id="loginbutton" value="Login" class="btn invisible">ログアウト</button>
+        @*2025-99-99 iwai-tamura upd-str ------*@
+        <button type="submit" name="HuyouAttachmentFileUpload" value="HuyouAttachmentFileUpload" class="btn  btn-primary pull-right top10" id="HuyouAttachmentFileUpload" style="visibility:hidden;">アップロード</button>
+        <button type="submit" name="HuyouAttachmentFileDownload" value="HuyouAttachmentFileDownload" class="btn  btn-primary pull-right top10" id="HuyouAttachmentFileDownload" style="visibility:hidden;">ダウンロード</button>
+        <button type="submit" name="HuyouAttachmentFileDelete" value="HuyouAttachmentFileDelete" class="btn  btn-primary pull-right top10" id="HuyouAttachmentFileDelete" style="visibility:hidden;">削除</button>
+        @*2025-99-99 iwai-tamura upd-end ------*@
     </div>
+
+
+
 
   @Scripts.Render("~/Scripts/js/top")
 
