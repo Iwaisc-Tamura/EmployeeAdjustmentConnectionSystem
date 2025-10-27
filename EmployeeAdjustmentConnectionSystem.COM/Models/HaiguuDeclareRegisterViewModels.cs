@@ -417,6 +417,379 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public string AdjustmentDeduction_ReportType { get; set; }
 
+        //2025-99-99 iwai-tamura upd-str ------
+        /// <summary>
+        /// 特定親族特別控除申告書01_氏名_姓
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction01_Name1 { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_氏名_名
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction01_Name2 { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_Kana_姓
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction01_Kana1 { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_Kana_名
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction01_Kana2 { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_続柄
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction01_RelationshipType { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_生年月日
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction01_Birthday { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_生年月日_年
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction01_BirthdayYear { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_生年月日_月
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction01_BirthdayMonth { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_生年月日_日
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction01_BirthdayDay { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_住所
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction01_Address { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_非居住者
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction01_ResidentCheck { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_給与所得_収入金額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction01_Earnings { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_給与所得_所得金額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction01_Income { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_他_所得金額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction01_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_合計所得金額見積額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction01_TotalEarnings { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_控除額計算判定
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction01_EarningsType { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_控除額計算区分
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction01_CalcType { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書01_特定親族特別控除額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction01_SpecialDeductionAmount { get; set; }
+
+
+
+        // -------------------------------------------------------------
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_氏名_姓
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction02_Name1 { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_氏名_名
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction02_Name2 { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_Kana_姓
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction02_Kana1 { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_Kana_名
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction02_Kana2 { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_続柄
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction02_RelationshipType { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_生年月日
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction02_Birthday { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_生年月日_年
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction02_BirthdayYear { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_生年月日_月
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction02_BirthdayMonth { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_生年月日_日
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction02_BirthdayDay { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_住所
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction02_Address { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_非居住者
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction02_ResidentCheck { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_給与所得_収入金額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction02_Earnings { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_給与所得_所得金額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction02_Income { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_他_所得金額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction02_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_合計所得金額見積額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction02_TotalEarnings { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_控除額計算判定
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction02_EarningsType { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_控除額計算区分
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction02_CalcType { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書02_特定親族特別控除額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction02_SpecialDeductionAmount { get; set; }
+
+
+
+        // -------------------------------------------------------------
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_氏名_姓
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction03_Name1 { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_氏名_名
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction03_Name2 { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_Kana_姓
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction03_Kana1 { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_Kana_名
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction03_Kana2 { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_続柄
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction03_RelationshipType { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_生年月日
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction03_Birthday { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_生年月日_年
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction03_BirthdayYear { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_生年月日_月
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction03_BirthdayMonth { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_生年月日_日
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction03_BirthdayDay { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_住所
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction03_Address { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_非居住者
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction03_ResidentCheck { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_給与所得_収入金額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction03_Earnings { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_給与所得_所得金額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction03_Income { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_他_所得金額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction03_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_合計所得金額見積額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction03_TotalEarnings { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_控除額計算判定
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction03_EarningsType { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_控除額計算区分
+        /// </summary>
+        public string SpecificRelativeSpecialDeduction03_CalcType { get; set; }
+
+        /// <summary>
+        /// 特定親族特別控除申告書03_特定親族特別控除額
+        /// </summary>
+        public int? SpecificRelativeSpecialDeduction03_SpecialDeductionAmount { get; set; }
+
+
+        //参考にするため扶養控除申告書から特定扶養のデータ取得する用
+        /// <summary>
+        /// 特定扶養01_続柄（参考表示用）
+        /// </summary>
+        public string RefSpecificDependent01_RelationshipType { get; set; }
+
+        /// <summary>
+        /// 特定扶養01_給与所得_収入金額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent01_Earnings { get; set; }
+        /// <summary>
+        /// 特定扶養01_給与所得_所得金額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent01_Income { get; set; }
+        /// <summary>
+        /// 特定扶養01_他_所得金額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent01_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 特定扶養01_所得見積額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent01_TotalEarnings { get; set; }
+
+        /// <summary>
+        /// 特定扶養02_続柄（参考表示用）
+        /// </summary>
+        public string RefSpecificDependent02_RelationshipType { get; set; }
+
+        /// <summary>
+        /// 特定扶養02_給与所得_収入金額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent02_Earnings { get; set; }
+        /// <summary>
+        /// 特定扶養02_給与所得_所得金額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent02_Income { get; set; }
+        /// <summary>
+        /// 特定扶養02_他_所得金額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent02_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 特定扶養02_所得見積額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent02_TotalEarnings { get; set; }
+
+        /// <summary>
+        /// 特定扶養03_続柄（参考表示用）
+        /// </summary>
+        public string RefSpecificDependent03_RelationshipType { get; set; }
+
+        /// <summary>
+        /// 特定扶養03_給与所得_収入金額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent03_Earnings { get; set; }
+        /// <summary>
+        /// 特定扶養03_給与所得_所得金額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent03_Income { get; set; }
+        /// <summary>
+        /// 特定扶養03_他_所得金額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent03_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 特定扶養03_所得見積額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent03_TotalEarnings { get; set; }
+
+        /// <summary>
+        /// 特定扶養04_続柄（参考表示用）
+        /// </summary>
+        public string RefSpecificDependent04_RelationshipType { get; set; }
+
+        /// <summary>
+        /// 特定扶養04_給与所得_収入金額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent04_Earnings { get; set; }
+        /// <summary>
+        /// 特定扶養04_給与所得_所得金額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent04_Income { get; set; }
+        /// <summary>
+        /// 特定扶養04_他_所得金額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent04_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 特定扶養04_所得見積額（参考表示用）
+        /// </summary>
+        public int? RefSpecificDependent04_TotalEarnings { get; set; }
+        //2025-99-99 iwai-tamura upd-end ------
     }
 
     /// <summary>

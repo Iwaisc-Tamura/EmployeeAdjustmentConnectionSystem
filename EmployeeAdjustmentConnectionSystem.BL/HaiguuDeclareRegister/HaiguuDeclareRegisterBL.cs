@@ -104,6 +104,99 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                         sql += " ,T扶養.源泉控除対象配偶者給与所得収入金額 ";
                         sql += " ,T扶養.源泉控除対象配偶者給与所得所得金額 ";
                         sql += " ,T扶養.源泉控除対象配偶者他所得金額 ";
+
+                    //2025-99-99 iwai-tamura upd-str ------
+                        // 特定扶養親族01
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族01_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族01_続柄";
+                        sql += "      ELSE ''";
+                        sql += "   END AS 特定扶養01_続柄 ";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族01_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族01_給与所得_収入金額 ";
+                        sql += "      ELSE '' ";
+                        sql += "   END AS 特定扶養01_給与所得_収入金額 ";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族01_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族01_給与所得_所得金額 ";
+                        sql += "      ELSE '' ";
+                        sql += "   END AS 特定扶養01_給与所得_所得金額 ";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族01_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族01_他_所得金額 ";
+                        sql += "      ELSE '' ";
+                        sql += "   END AS 特定扶養01_他_所得金額 ";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族01_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族01_所得見積額 ";
+                        sql += "      ELSE '' ";
+                        sql += "   END AS 特定扶養01_所得見積額 ";
+
+
+                        // 特定扶養親族02
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族02_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族02_続柄";
+                        sql += "      ELSE ''";
+                        sql += " END AS 特定扶養02_続柄";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族02_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族02_給与所得_収入金額 ";
+                        sql += "      ELSE '' ";
+                        sql += " END AS 特定扶養02_給与所得_収入金額 ";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族02_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族02_給与所得_所得金額 ";
+                        sql += "      ELSE '' ";
+                        sql += " END AS 特定扶養02_給与所得_所得金額 ";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族02_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族02_他_所得金額 ";
+                        sql += "      ELSE '' ";
+                        sql += " END AS 特定扶養02_他_所得金額 ";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族02_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族02_所得見積額 ";
+                        sql += "      ELSE '' ";
+                        sql += " END AS 特定扶養02_所得見積額 ";
+
+                        // 特定扶養親族03
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族03_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族03_続柄";
+                        sql += "      ELSE ''";
+                        sql += " END AS 特定扶養03_続柄";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族03_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族03_給与所得_収入金額 ";
+                        sql += "      ELSE '' ";
+                        sql += " END AS 特定扶養03_給与所得_収入金額 ";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族03_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族03_給与所得_所得金額 ";
+                        sql += "      ELSE '' ";
+                        sql += " END AS 特定扶養03_給与所得_所得金額 ";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族03_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族03_他_所得金額 ";
+                        sql += "      ELSE '' ";
+                        sql += " END AS 特定扶養03_他_所得金額 ";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族03_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族03_所得見積額 ";
+                        sql += "      ELSE '' ";
+                        sql += " END AS 特定扶養03_所得見積額 ";
+
+                        // 特定扶養親族04
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族04_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族04_続柄";
+                        sql += "      ELSE ''";
+                        sql += " END AS 特定扶養04_続柄";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族04_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族04_給与所得_収入金額 ";
+                        sql += "      ELSE '' ";
+                        sql += " END AS 特定扶養04_給与所得_収入金額 ";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族04_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族04_給与所得_所得金額 ";
+                        sql += "      ELSE '' ";
+                        sql += " END AS 特定扶養04_給与所得_所得金額 ";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族04_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族04_他_所得金額 ";
+                        sql += "      ELSE '' ";
+                        sql += " END AS 特定扶養04_他_所得金額 ";
+                        sql += " ,CASE WHEN T扶養.控除対象扶養親族04_特定扶養親族区分 = '2' ";
+                        sql += "      THEN T扶養.控除対象扶養親族04_所得見積額 ";
+                        sql += "      ELSE '' ";
+                        sql += " END AS 特定扶養04_所得見積額 ";
+
+                    //2025-99-99 iwai-tamura upd-end ------
+
                         sql += " FROM TE120基礎控除申告書Data As T基礎  ";
                         sql += "   LEFT JOIN TE100扶養控除申告書Data As T扶養 ";
                         sql += "     ON T基礎.対象年度 = T扶養.対象年度 AND T基礎.社員番号 = T扶養.社員番号 ";
@@ -196,7 +289,96 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 								AdjustmentDeduction_Address = row["所得金額調整控除申告書_扶養親族等住所"].ToString(),
 								AdjustmentDeduction_RelationshipType = row["所得金額調整控除申告書_扶養親族等続柄"].ToString(),
 								AdjustmentDeduction_TotalEarnings = setMoney(row["所得金額調整控除申告書_扶養親族等所得金額"].ToString()),
-								AdjustmentDeduction_ReportType = row["所得金額調整控除申告書_特別障害者該当事実"].ToString()
+								AdjustmentDeduction_ReportType = row["所得金額調整控除申告書_特別障害者該当事実"].ToString(),
+
+                                //2025-99-99 iwai-tamura upd-str ------
+                                // ===== 特定親族特別控除申告書 01 =====
+                                SpecificRelativeSpecialDeduction01_Name1 = row["特定親族特別控除申告書01_氏名_姓"].ToString(),
+                                SpecificRelativeSpecialDeduction01_Name2 = row["特定親族特別控除申告書01_氏名_名"].ToString(),
+                                SpecificRelativeSpecialDeduction01_Kana1 = row["特定親族特別控除申告書01_Kana_姓"].ToString(),
+                                SpecificRelativeSpecialDeduction01_Kana2 = row["特定親族特別控除申告書01_Kana_名"].ToString(),
+                                SpecificRelativeSpecialDeduction01_RelationshipType = row["特定親族特別控除申告書01_続柄"].ToString(),
+                                SpecificRelativeSpecialDeduction01_Birthday = row["特定親族特別控除申告書01_生年月日"].ToString(),
+                                SpecificRelativeSpecialDeduction01_BirthdayYear  = row["特定親族特別控除申告書01_生年月日"].ToString()=="" ? "" : row["特定親族特別控除申告書01_生年月日"].ToString().Substring(0,4),
+                                SpecificRelativeSpecialDeduction01_BirthdayMonth = row["特定親族特別控除申告書01_生年月日"].ToString()=="" ? "" : row["特定親族特別控除申告書01_生年月日"].ToString().Substring(4,2).TrimStart(new Char[]{'0'}),
+                                SpecificRelativeSpecialDeduction01_BirthdayDay   = row["特定親族特別控除申告書01_生年月日"].ToString()=="" ? "" : row["特定親族特別控除申告書01_生年月日"].ToString().Substring(6,2).TrimStart(new Char[]{'0'}),
+                                SpecificRelativeSpecialDeduction01_Address = row["特定親族特別控除申告書01_住所"].ToString(),
+                                SpecificRelativeSpecialDeduction01_ResidentCheck = row["特定親族特別控除申告書01_非居住者"].ToString(),
+                                SpecificRelativeSpecialDeduction01_Earnings = setMoney(row["特定親族特別控除申告書01_給与所得_収入金額"].ToString()),
+                                SpecificRelativeSpecialDeduction01_Income = setMoney(row["特定親族特別控除申告書01_給与所得_所得金額"].ToString()),
+                                SpecificRelativeSpecialDeduction01_OtherIncome = setMoney(row["特定親族特別控除申告書01_他_所得金額"].ToString()),
+                                SpecificRelativeSpecialDeduction01_TotalEarnings = setMoney(row["特定親族特別控除申告書01_合計所得金額見積額"].ToString()),
+                                SpecificRelativeSpecialDeduction01_EarningsType = row["特定親族特別控除申告書01_控除額計算判定"].ToString(),
+                                SpecificRelativeSpecialDeduction01_CalcType = row["特定親族特別控除申告書01_控除額計算区分"].ToString(),
+                                SpecificRelativeSpecialDeduction01_SpecialDeductionAmount = setMoney(row["特定親族特別控除申告書01_特定親族特別控除額"].ToString()),
+
+                                // ===== 特定親族特別控除申告書 02 =====
+                                SpecificRelativeSpecialDeduction02_Name1 = row["特定親族特別控除申告書02_氏名_姓"].ToString(),
+                                SpecificRelativeSpecialDeduction02_Name2 = row["特定親族特別控除申告書02_氏名_名"].ToString(),
+                                SpecificRelativeSpecialDeduction02_Kana1 = row["特定親族特別控除申告書02_Kana_姓"].ToString(),
+                                SpecificRelativeSpecialDeduction02_Kana2 = row["特定親族特別控除申告書02_Kana_名"].ToString(),
+                                SpecificRelativeSpecialDeduction02_RelationshipType = row["特定親族特別控除申告書02_続柄"].ToString(),
+                                SpecificRelativeSpecialDeduction02_Birthday = row["特定親族特別控除申告書02_生年月日"].ToString(),
+                                SpecificRelativeSpecialDeduction02_BirthdayYear  = row["特定親族特別控除申告書02_生年月日"].ToString()=="" ? "" : row["特定親族特別控除申告書02_生年月日"].ToString().Substring(0,4),
+                                SpecificRelativeSpecialDeduction02_BirthdayMonth = row["特定親族特別控除申告書02_生年月日"].ToString()=="" ? "" : row["特定親族特別控除申告書02_生年月日"].ToString().Substring(4,2).TrimStart(new Char[]{'0'}),
+                                SpecificRelativeSpecialDeduction02_BirthdayDay   = row["特定親族特別控除申告書02_生年月日"].ToString()=="" ? "" : row["特定親族特別控除申告書02_生年月日"].ToString().Substring(6,2).TrimStart(new Char[]{'0'}),
+                                SpecificRelativeSpecialDeduction02_Address = row["特定親族特別控除申告書02_住所"].ToString(),
+                                SpecificRelativeSpecialDeduction02_ResidentCheck = row["特定親族特別控除申告書02_非居住者"].ToString(),
+                                SpecificRelativeSpecialDeduction02_Earnings = setMoney(row["特定親族特別控除申告書02_給与所得_収入金額"].ToString()),
+                                SpecificRelativeSpecialDeduction02_Income = setMoney(row["特定親族特別控除申告書02_給与所得_所得金額"].ToString()),
+                                SpecificRelativeSpecialDeduction02_OtherIncome = setMoney(row["特定親族特別控除申告書02_他_所得金額"].ToString()),
+                                SpecificRelativeSpecialDeduction02_TotalEarnings = setMoney(row["特定親族特別控除申告書02_合計所得金額見積額"].ToString()),
+                                SpecificRelativeSpecialDeduction02_EarningsType = row["特定親族特別控除申告書02_控除額計算判定"].ToString(),
+                                SpecificRelativeSpecialDeduction02_CalcType = row["特定親族特別控除申告書02_控除額計算区分"].ToString(),
+                                SpecificRelativeSpecialDeduction02_SpecialDeductionAmount = setMoney(row["特定親族特別控除申告書02_特定親族特別控除額"].ToString()),
+
+                                // ===== 特定親族特別控除申告書 03 =====
+                                SpecificRelativeSpecialDeduction03_Name1 = row["特定親族特別控除申告書03_氏名_姓"].ToString(),
+                                SpecificRelativeSpecialDeduction03_Name2 = row["特定親族特別控除申告書03_氏名_名"].ToString(),
+                                SpecificRelativeSpecialDeduction03_Kana1 = row["特定親族特別控除申告書03_Kana_姓"].ToString(),
+                                SpecificRelativeSpecialDeduction03_Kana2 = row["特定親族特別控除申告書03_Kana_名"].ToString(),
+                                SpecificRelativeSpecialDeduction03_RelationshipType = row["特定親族特別控除申告書03_続柄"].ToString(),
+                                SpecificRelativeSpecialDeduction03_Birthday = row["特定親族特別控除申告書03_生年月日"].ToString(),
+                                SpecificRelativeSpecialDeduction03_BirthdayYear  = row["特定親族特別控除申告書03_生年月日"].ToString()=="" ? "" : row["特定親族特別控除申告書03_生年月日"].ToString().Substring(0,4),
+                                SpecificRelativeSpecialDeduction03_BirthdayMonth = row["特定親族特別控除申告書03_生年月日"].ToString()=="" ? "" : row["特定親族特別控除申告書03_生年月日"].ToString().Substring(4,2).TrimStart(new Char[]{'0'}),
+                                SpecificRelativeSpecialDeduction03_BirthdayDay   = row["特定親族特別控除申告書03_生年月日"].ToString()=="" ? "" : row["特定親族特別控除申告書03_生年月日"].ToString().Substring(6,2).TrimStart(new Char[]{'0'}),
+                                SpecificRelativeSpecialDeduction03_Address = row["特定親族特別控除申告書03_住所"].ToString(),
+                                SpecificRelativeSpecialDeduction03_ResidentCheck = row["特定親族特別控除申告書03_非居住者"].ToString(),
+                                SpecificRelativeSpecialDeduction03_Earnings = setMoney(row["特定親族特別控除申告書03_給与所得_収入金額"].ToString()),
+                                SpecificRelativeSpecialDeduction03_Income = setMoney(row["特定親族特別控除申告書03_給与所得_所得金額"].ToString()),
+                                SpecificRelativeSpecialDeduction03_OtherIncome = setMoney(row["特定親族特別控除申告書03_他_所得金額"].ToString()),
+                                SpecificRelativeSpecialDeduction03_TotalEarnings = setMoney(row["特定親族特別控除申告書03_合計所得金額見積額"].ToString()),
+                                SpecificRelativeSpecialDeduction03_EarningsType = row["特定親族特別控除申告書03_控除額計算判定"].ToString(),
+                                SpecificRelativeSpecialDeduction03_CalcType = row["特定親族特別控除申告書03_控除額計算区分"].ToString(),
+                                SpecificRelativeSpecialDeduction03_SpecialDeductionAmount = setMoney(row["特定親族特別控除申告書03_特定親族特別控除額"].ToString()),
+
+                                // ===== 参考用：扶養控除申告書データ =====
+                                // ===== 特定扶養 01 =====
+                                RefSpecificDependent01_RelationshipType = row["特定扶養01_続柄"].ToString(),
+                                RefSpecificDependent01_Earnings = setMoney(row["特定扶養01_給与所得_収入金額"].ToString()),
+                                RefSpecificDependent01_Income = setMoney(row["特定扶養01_給与所得_所得金額"].ToString()),
+                                RefSpecificDependent01_OtherIncome = setMoney(row["特定扶養01_他_所得金額"].ToString()),
+                                RefSpecificDependent01_TotalEarnings = setMoney(row["特定扶養01_所得見積額"].ToString()),
+                                // ===== 特定扶養 02 =====
+                                RefSpecificDependent02_RelationshipType = row["特定扶養02_続柄"].ToString(),
+                                RefSpecificDependent02_Earnings = setMoney(row["特定扶養02_給与所得_収入金額"].ToString()),
+                                RefSpecificDependent02_Income = setMoney(row["特定扶養02_給与所得_所得金額"].ToString()),
+                                RefSpecificDependent02_OtherIncome = setMoney(row["特定扶養02_他_所得金額"].ToString()),
+                                RefSpecificDependent02_TotalEarnings = setMoney(row["特定扶養02_所得見積額"].ToString()),
+                                // ===== 特定扶養 03 =====
+                                RefSpecificDependent03_RelationshipType = row["特定扶養03_続柄"].ToString(),
+                                RefSpecificDependent03_Earnings = setMoney(row["特定扶養03_給与所得_収入金額"].ToString()),
+                                RefSpecificDependent03_Income = setMoney(row["特定扶養03_給与所得_所得金額"].ToString()),
+                                RefSpecificDependent03_OtherIncome = setMoney(row["特定扶養03_他_所得金額"].ToString()),
+                                RefSpecificDependent03_TotalEarnings = setMoney(row["特定扶養03_所得見積額"].ToString()),
+                                // ===== 特定扶養 04 =====
+                                RefSpecificDependent04_RelationshipType = row["特定扶養04_続柄"].ToString(),
+                                RefSpecificDependent04_Earnings = setMoney(row["特定扶養04_給与所得_収入金額"].ToString()),
+                                RefSpecificDependent04_Income = setMoney(row["特定扶養04_給与所得_所得金額"].ToString()),
+                                RefSpecificDependent04_OtherIncome = setMoney(row["特定扶養04_他_所得金額"].ToString()),
+                                RefSpecificDependent04_TotalEarnings = setMoney(row["特定扶養04_所得見積額"].ToString())
+                                //2025-99-99 iwai-tamura upd-end ------
+
                             };
                             model.Head.InputMode = ajustMode.SelfInput;
                             model.Head.AdminMode = bolAdminMode;
@@ -526,6 +708,58 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 							+ " ,所得金額調整控除申告書_扶養親族等所得金額 = @AdjustmentDeduction_TotalEarnings"
 							+ " ,所得金額調整控除申告書_特別障害者該当事実 = @AdjustmentDeduction_ReportType"
 
+                            //2025-99-99 iwai-tamura upd-str ------
+                            + " ,特定親族特別控除申告書01_氏名_姓 = @SpecificRelativeSpecialDeduction01_Name1"
+                            + " ,特定親族特別控除申告書01_氏名_名 = @SpecificRelativeSpecialDeduction01_Name2"
+                            + " ,特定親族特別控除申告書01_Kana_姓 = @SpecificRelativeSpecialDeduction01_Kana1"
+                            + " ,特定親族特別控除申告書01_Kana_名 = @SpecificRelativeSpecialDeduction01_Kana2"
+                            + " ,特定親族特別控除申告書01_続柄 = @SpecificRelativeSpecialDeduction01_RelationshipType"
+                            + " ,特定親族特別控除申告書01_生年月日 = @SpecificRelativeSpecialDeduction01_Birthday"
+                            + " ,特定親族特別控除申告書01_非居住者 = @SpecificRelativeSpecialDeduction01_ResidentCheck"
+                            + " ,特定親族特別控除申告書01_住所 = @SpecificRelativeSpecialDeduction01_Address"
+                            + " ,特定親族特別控除申告書01_給与所得_収入金額 = @SpecificRelativeSpecialDeduction01_Earnings"
+                            + " ,特定親族特別控除申告書01_給与所得_所得金額 = @SpecificRelativeSpecialDeduction01_Income"
+                            + " ,特定親族特別控除申告書01_他_所得金額 = @SpecificRelativeSpecialDeduction01_OtherIncome"
+                            + " ,特定親族特別控除申告書01_合計所得金額見積額 = @SpecificRelativeSpecialDeduction01_TotalEarnings"
+                            + " ,特定親族特別控除申告書01_控除額計算判定 = @SpecificRelativeSpecialDeduction01_EarningsType"
+                            + " ,特定親族特別控除申告書01_控除額計算区分 = @SpecificRelativeSpecialDeduction01_CalcType"
+                            + " ,特定親族特別控除申告書01_特定親族特別控除額 = @SpecificRelativeSpecialDeduction01_SpecialDeductionAmount"
+
+                            + " ,特定親族特別控除申告書02_氏名_姓 = @SpecificRelativeSpecialDeduction02_Name1"
+                            + " ,特定親族特別控除申告書02_氏名_名 = @SpecificRelativeSpecialDeduction02_Name2"
+                            + " ,特定親族特別控除申告書02_Kana_姓 = @SpecificRelativeSpecialDeduction02_Kana1"
+                            + " ,特定親族特別控除申告書02_Kana_名 = @SpecificRelativeSpecialDeduction02_Kana2"
+                            + " ,特定親族特別控除申告書02_続柄 = @SpecificRelativeSpecialDeduction02_RelationshipType"
+                            + " ,特定親族特別控除申告書02_生年月日 = @SpecificRelativeSpecialDeduction02_Birthday"
+                            + " ,特定親族特別控除申告書02_非居住者 = @SpecificRelativeSpecialDeduction02_ResidentCheck"
+                            + " ,特定親族特別控除申告書02_住所 = @SpecificRelativeSpecialDeduction02_Address"
+                            + " ,特定親族特別控除申告書02_給与所得_収入金額 = @SpecificRelativeSpecialDeduction02_Earnings"
+                            + " ,特定親族特別控除申告書02_給与所得_所得金額 = @SpecificRelativeSpecialDeduction02_Income"
+                            + " ,特定親族特別控除申告書02_他_所得金額 = @SpecificRelativeSpecialDeduction02_OtherIncome"
+                            + " ,特定親族特別控除申告書02_合計所得金額見積額 = @SpecificRelativeSpecialDeduction02_TotalEarnings"
+                            + " ,特定親族特別控除申告書02_控除額計算判定 = @SpecificRelativeSpecialDeduction02_EarningsType"
+                            + " ,特定親族特別控除申告書02_控除額計算区分 = @SpecificRelativeSpecialDeduction02_CalcType"
+                            + " ,特定親族特別控除申告書02_特定親族特別控除額 = @SpecificRelativeSpecialDeduction02_SpecialDeductionAmount"
+
+                            + " ,特定親族特別控除申告書03_氏名_姓 = @SpecificRelativeSpecialDeduction03_Name1"
+                            + " ,特定親族特別控除申告書03_氏名_名 = @SpecificRelativeSpecialDeduction03_Name2"
+                            + " ,特定親族特別控除申告書03_Kana_姓 = @SpecificRelativeSpecialDeduction03_Kana1"
+                            + " ,特定親族特別控除申告書03_Kana_名 = @SpecificRelativeSpecialDeduction03_Kana2"
+                            + " ,特定親族特別控除申告書03_続柄 = @SpecificRelativeSpecialDeduction03_RelationshipType"
+                            + " ,特定親族特別控除申告書03_生年月日 = @SpecificRelativeSpecialDeduction03_Birthday"
+                            + " ,特定親族特別控除申告書03_非居住者 = @SpecificRelativeSpecialDeduction03_ResidentCheck"
+                            + " ,特定親族特別控除申告書03_住所 = @SpecificRelativeSpecialDeduction03_Address"
+                            + " ,特定親族特別控除申告書03_給与所得_収入金額 = @SpecificRelativeSpecialDeduction03_Earnings"
+                            + " ,特定親族特別控除申告書03_給与所得_所得金額 = @SpecificRelativeSpecialDeduction03_Income"
+                            + " ,特定親族特別控除申告書03_他_所得金額 = @SpecificRelativeSpecialDeduction03_OtherIncome"
+                            + " ,特定親族特別控除申告書03_合計所得金額見積額 = @SpecificRelativeSpecialDeduction03_TotalEarnings"
+                            + " ,特定親族特別控除申告書03_控除額計算判定 = @SpecificRelativeSpecialDeduction03_EarningsType"
+                            + " ,特定親族特別控除申告書03_控除額計算区分 = @SpecificRelativeSpecialDeduction03_CalcType"
+                            + " ,特定親族特別控除申告書03_特定親族特別控除額 = @SpecificRelativeSpecialDeduction03_SpecialDeductionAmount"
+
+
+                            //2025-99-99 iwai-tamura upd-end ------
+
 							+ " ,最終更新者ID = '" + lu.UserCode + "'"
 							+ " ,更新年月日 = GETDATE()"
 							+ " ,更新回数 = 更新回数 + 1"
@@ -586,6 +820,56 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 						DbHelper.AddDbParameter(cmd, "@SpouseDeduction_TaxReductionTarget", DbType.String);
                         //2024-11-19 iwai-tamura upd-end ------
 
+                        //2025-99-99 iwai-tamura upd-str ------
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_Name1", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_Name2", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_Kana1", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_Kana2", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_RelationshipType", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_Birthday", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_ResidentCheck", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_Address", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_Earnings", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_Income", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_OtherIncome", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_TotalEarnings", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_EarningsType", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_CalcType", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_SpecialDeductionAmount", DbType.Int32);
+
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_Name1", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_Name2", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_Kana1", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_Kana2", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_RelationshipType", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_Birthday", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_ResidentCheck", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_Address", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_Earnings", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_Income", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_OtherIncome", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_TotalEarnings", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_EarningsType", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_CalcType", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction02_SpecialDeductionAmount", DbType.Int32);
+
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_Name1", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_Name2", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_Kana1", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_Kana2", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_RelationshipType", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_Birthday", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_ResidentCheck", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_Address", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_Earnings", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_Income", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_OtherIncome", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_TotalEarnings", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_EarningsType", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_CalcType", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_SpecialDeductionAmount", DbType.Int32);
+                        //2025-99-99 iwai-tamura upd-end ------
+
 
                         //パラメータ設定
                         var parameters = cmd.Parameters.Cast<IDbDataParameter>().ToArray<IDbDataParameter>();
@@ -638,6 +922,59 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 						parameters[45].Value = DataConv.IfNull(checkValue(model.Head.BasicDeduction_TaxReductionTarget));
 						parameters[46].Value = DataConv.IfNull(checkValue(model.Head.SpouseDeduction_TaxReductionTarget));
                         //2024-11-19 iwai-tamura upd-end ------
+
+                        //2025-99-99 iwai-tamura upd-str ------
+                        // ----- 01 -----
+                        parameters[47].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_Name1);
+                        parameters[48].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_Name2);
+                        parameters[49].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_Kana1);
+                        parameters[50].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_Kana2);
+                        parameters[51].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_RelationshipType);
+                        parameters[52].Value = DataConv.IfNull(addYMD(model.Head.SpecificRelativeSpecialDeduction01_BirthdayYear, model.Head.SpecificRelativeSpecialDeduction01_BirthdayMonth, model.Head.SpecificRelativeSpecialDeduction01_BirthdayDay));
+                        parameters[53].Value = DataConv.IfNull(checkValue(model.Head.SpecificRelativeSpecialDeduction01_ResidentCheck));
+                        parameters[54].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_Address);
+                        parameters[55].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_Earnings.ToString());
+                        parameters[56].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_Income.ToString());
+                        parameters[57].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_OtherIncome.ToString());
+                        parameters[58].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_TotalEarnings.ToString());
+                        parameters[59].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_EarningsType);
+                        parameters[60].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_CalcType);
+                        parameters[61].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_SpecialDeductionAmount.ToString());
+
+                        // ----- 02 -----
+                        parameters[62].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction02_Name1);
+                        parameters[63].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction02_Name2);
+                        parameters[64].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction02_Kana1);
+                        parameters[65].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction02_Kana2);
+                        parameters[66].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction02_RelationshipType);
+                        parameters[67].Value = DataConv.IfNull(addYMD(model.Head.SpecificRelativeSpecialDeduction02_BirthdayYear, model.Head.SpecificRelativeSpecialDeduction02_BirthdayMonth, model.Head.SpecificRelativeSpecialDeduction02_BirthdayDay));
+                        parameters[68].Value = DataConv.IfNull(checkValue(model.Head.SpecificRelativeSpecialDeduction02_ResidentCheck));
+                        parameters[69].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction02_Address);
+                        parameters[70].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction02_Earnings.ToString());
+                        parameters[71].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction02_Income.ToString());
+                        parameters[72].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction02_OtherIncome.ToString());
+                        parameters[73].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction02_TotalEarnings.ToString());
+                        parameters[74].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction02_EarningsType);
+                        parameters[75].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction02_CalcType);
+                        parameters[76].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction02_SpecialDeductionAmount.ToString());
+
+                        // ----- 03 -----
+                        parameters[77].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_Name1);
+                        parameters[78].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_Name2);
+                        parameters[79].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_Kana1);
+                        parameters[80].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_Kana2);
+                        parameters[81].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_RelationshipType);
+                        parameters[82].Value = DataConv.IfNull(addYMD(model.Head.SpecificRelativeSpecialDeduction03_BirthdayYear, model.Head.SpecificRelativeSpecialDeduction03_BirthdayMonth, model.Head.SpecificRelativeSpecialDeduction03_BirthdayDay));
+                        parameters[83].Value = DataConv.IfNull(checkValue(model.Head.SpecificRelativeSpecialDeduction03_ResidentCheck));
+                        parameters[84].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_Address);
+                        parameters[85].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_Earnings.ToString());
+                        parameters[86].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_Income.ToString());
+                        parameters[87].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_OtherIncome.ToString());
+                        parameters[88].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_TotalEarnings.ToString());
+                        parameters[89].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_EarningsType);
+                        parameters[90].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_CalcType);
+                        parameters[91].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_SpecialDeductionAmount.ToString());
+                        //2025-99-99 iwai-tamura upd-end ------
 
                         cmd.ExecuteNonQuery();
                     
