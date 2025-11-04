@@ -52,6 +52,17 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// </summary>
         public string HaiguuDeclareStatus { get; set; }
 
+        //2025-99-99 iwai-tamura upd-str ------
+        /// <summary>
+        /// 住宅控除ステータス
+        /// </summary>
+        public string JutakuDeclareStatus { get; set; }
+
+        /// <summary>
+        /// 前職源泉ステータス
+        /// </summary>
+        public string ZenshokuDeclareStatus { get; set; }
+        //2025-99-99 iwai-tamura upd-end ------
     }
     /// <summary>
     /// 検索結果
@@ -74,6 +85,17 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// </summary>
         public string HaiguuDeclareStatus { get; set; }
 
+        //2025-99-99 iwai-tamura upd-str ------
+        /// <summary>
+        /// 住宅控除ステータス
+        /// </summary>
+        public string JutakuDeclareStatus { get; set; }
+
+        /// <summary>
+        /// 前職源泉ステータス
+        /// </summary>
+        public string ZenshokuDeclareStatus { get; set; }
+        //2025-99-99 iwai-tamura upd-end ------
 
         /// <summary>
         /// 扶養控除ボタン表示
@@ -106,6 +128,37 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         public bool HaiguuDeclareButtonViewFlg { get; set; }
 
 
+        //2025-99-99 iwai-tamura upd-str ------
+        /// <summary>
+        /// 扶養控除添付ボタン表示フラグ
+        /// </summary>
+        public bool HuyouDeclareAttachmentButtonViewFlg { get; set; }
+
+        /// <summary>
+        /// 扶養控除申告書添付ファイル
+        /// </summary>
+        public string HuyouAttachmentFilePath { get; set; }
+
+        /// <summary>
+        /// 住宅控除ボタン表示
+        /// </summary>
+        public string JutakuDeclareButtonView { get; set; }
+
+        /// <summary>
+        /// 住宅控除ボタン表示フラグ
+        /// </summary>
+        public bool JutakuDeclareButtonViewFlg { get; set; }
+
+        /// <summary>
+        /// 前職源泉ボタン表示
+        /// </summary>
+        public string ZenshokuDeclareButtonView { get; set; }
+
+        /// <summary>
+        /// 前職源泉表示フラグ
+        /// </summary>
+        public bool ZenshokuDeclareButtonViewFlg { get; set; }
+        //2025-99-99 iwai-tamura upd-end ------
 
         /// <summary>
         /// 自己申告書パターン

@@ -54,6 +54,35 @@ $(function () {
 });
 
 //2025-99-99 iwai-tamura upd-str ------
+/*
+ * 過去分PDF出力ボタンクリック時
+ */
+$('#DmyPrintHistory').click(function () {
+
+    var comment = "";
+
+    //値を取得
+    var intHistoryYear = $('#HistoryYear').val();
+    var strReportType = $('#HistoryPrintType').val();
+
+    //対象処理入力チェック
+    if (!intHistoryYear) {
+        showAlert("エラー", "対象年度を選択してください。")
+        return;
+    }
+    if (!strReportType) {
+        showAlert("エラー", "対象帳票を選択してください。")
+        return;
+    }
+
+    //確認メッセージ本文作成
+    comment = '過去帳票の出力を実行しますか？'
+    showMessage('確認', comment, 'PrintHistory', false);
+});
+
+
+
+
 // 要素の取得
 const openHuyouAttachmentFileModalButton = document.getElementById('openHuyouAttachmentFileModalButton');
 const closeHuyouAttachmentFileModalButton = document.getElementById('closeHuyouAttachmentFileModalButton');

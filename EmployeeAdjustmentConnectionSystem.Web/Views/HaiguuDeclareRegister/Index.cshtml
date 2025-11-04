@@ -40,7 +40,10 @@
     font-size:14px;">
     【ページ内移動】 <a href="#" class="btn-link">Top</a>
     <a href="#" class="btn-link">本人情報</a>
-        <span>　　<a href="#linkHaiguu1" class="btn-link">基礎控除申告書</a>　<a href="#linkHaiguu2" class="btn-link">配偶者控除等申告書</a>　<a href="#linkHaiguu3" class="btn-link">所得金額調整控除申告書</a></span>
+        @*2025-99-99 iwai-tamura upd-str ------*@
+        <span>　　<a href="#linkHaiguu1" class="btn-link">基礎控除申告書</a>　<a href="#linkHaiguu2" class="btn-link">配偶者控除等申告書</a>　<a href="#linkSpecificRelatives" class="btn-link">特定親族特別控除申告書</a>　<a href="#linkHaiguu3" class="btn-link">所得金額調整控除申告書</a></span>
+        @*<span>　　<a href="#linkHaiguu1" class="btn-link">基礎控除申告書</a>　<a href="#linkHaiguu2" class="btn-link">配偶者控除等申告書</a>　<a href="#linkHaiguu3" class="btn-link">所得金額調整控除申告書</a></span>*@
+        @*2025-99-99 iwai-tamura upd-end ------*@
 
 </div>
 
@@ -223,6 +226,44 @@
                             new SelectListItem() { Value="92", Text="92:*" },
                             new SelectListItem() { Value="93", Text="93:*" }
             };
+
+    //2025-99-99 iwai-tamura upd-str ------
+    //続柄リスト
+    var familySpecificRelativesItems = new SelectListItem[] {
+                            new SelectListItem() { Value="21", Text="21:長男" },
+                            new SelectListItem() { Value="22", Text="22:二男" },
+                            new SelectListItem() { Value="23", Text="23:三男" },
+                            new SelectListItem() { Value="24", Text="24:四男" },
+                            new SelectListItem() { Value="25", Text="25:五男" },
+                            new SelectListItem() { Value="26", Text="26:六男" },
+                            new SelectListItem() { Value="27", Text="27:七男" },
+                            new SelectListItem() { Value="28", Text="28:八男" },
+                            new SelectListItem() { Value="29", Text="29:九男" },
+                            new SelectListItem() { Value="31", Text="31:長女" },
+                            new SelectListItem() { Value="32", Text="32:二女" },
+                            new SelectListItem() { Value="33", Text="33:三女" },
+                            new SelectListItem() { Value="34", Text="34:四女" },
+                            new SelectListItem() { Value="35", Text="35:五女" },
+                            new SelectListItem() { Value="36", Text="36:六女" },
+                            new SelectListItem() { Value="37", Text="37:七女" },
+                            new SelectListItem() { Value="38", Text="38:八女" },
+                            new SelectListItem() { Value="39", Text="39:九女" },
+                            new SelectListItem() { Value="60", Text="60:孫" },
+                            new SelectListItem() { Value="61", Text="61:孫" },
+                            new SelectListItem() { Value="62", Text="62:孫" },
+                            new SelectListItem() { Value="63", Text="63:孫" },
+                            new SelectListItem() { Value="71", Text="71:兄" },
+                            new SelectListItem() { Value="72", Text="72:姉" },
+                            new SelectListItem() { Value="73", Text="73:弟" },
+                            new SelectListItem() { Value="74", Text="74:妹" },
+                            new SelectListItem() { Value="75", Text="75:義兄" },
+                            new SelectListItem() { Value="76", Text="76:義姉" },
+                            new SelectListItem() { Value="77", Text="77:義弟" },
+                            new SelectListItem() { Value="78", Text="78:義妹" },
+                            new SelectListItem() { Value="83", Text="83:甥" },
+                            new SelectListItem() { Value="84", Text="84:姪" }
+            };
+    //2025-99-99 iwai-tamura upd-end ------
 
     //年月日
     var yearItems = new SelectListItem[] {
@@ -839,7 +880,7 @@
             </table>
         </div>
     </div>
-    <div id="linkHaiguu2" style="display: block;height: 12rem;margin-top: -12rem;content: ' ';visibility:hidden;"></div>
+    <div id="linkSpecificRelatives" style="display: block;height: 12rem;margin-top: -12rem;content: ' ';visibility:hidden;"></div>
 
 
     <!-- 1 給与所得者の特定親族特別控除申告書 -->
@@ -848,8 +889,8 @@
         <div class="col-xs-8">
             <table class="table table-bordered specificRelativeSpecialDeduction01">
                 <colgroup>
-                    <col style="width:10%;" />
-                    <col style="width:20%;" />
+                    <col style="width:15%;" />
+                    <col style="width:15%;" />
                     <col style="width:10%;" />
                     <col style="width:10%;" />
                     <col style="width:10%;" />
@@ -862,7 +903,7 @@
 
                     <tr class="content-label-h2">
                         <td colspan="7" style="border-right: none !important;">
-                            1 給与所得者の特定親族特別控除申告書
+                            １ 給与所得者の特定親族特別控除申告書
                         </td>
                         <td colspan="1" style="border-left: none !important;">
                             <button type="button" name="SpecificRelativeSpecialDeduction01Clear" value="クリア" class="pull-right btn-clear" id="btn-specificRelativeSpecialDeduction01-clear">クリア</button>
@@ -880,7 +921,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">続柄</td>
-                        <td colspan="6" class="form-inline">@setDdl2(false, "SpecificRelativeSpecialDeduction01_RelationshipType", Model.Head.SpecificRelativeSpecialDeduction01_RelationshipType, familyItems, "SpecificRelativeSpecialDeduction01_RelationshipType_isRead")</td>
+                        <td colspan="6" class="form-inline">@setDdl2(false, "SpecificRelativeSpecialDeduction01_RelationshipType", Model.Head.SpecificRelativeSpecialDeduction01_RelationshipType, familySpecificRelativesItems, "SpecificRelativeSpecialDeduction01_RelationshipType_isRead")</td>
                     </tr>
 
                     <tr>
@@ -906,7 +947,7 @@
 
 
                     <tr>
-                        <td rowspan="2" colspan="1" class="content-label-b1">特定親族の給与所得</td>
+                        <td rowspan="2" colspan="1" class="content-label-b1">特定親族の<br>給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         <td colspan="4" class="form-inline" style="border-right: none !important;">
                             @Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction01_Earnings, SpecificRelativeSpecialDeduction01_TextMoney2) 円<div id="Head_SpecificRelativeSpecialDeduction01_TotalEarnings_mes" class="check-comment"></div>
@@ -940,14 +981,206 @@
             </table>
         </div>
     </div>
+
+    <!-- 2 給与所得者の特定親族特別控除申告書 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered specificRelativeSpecialDeduction02">
+                <colgroup>
+                    <col style="width:15%;" />
+                    <col style="width:15%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:20%;" />
+                </colgroup>
+
+                <thead>
+
+                    <tr class="content-label-h2">
+                        <td colspan="7" style="border-right: none !important;">
+                            ２ 給与所得者の特定親族特別控除申告書
+                        </td>
+                        <td colspan="1" style="border-left: none !important;">
+                            <button type="button" name="SpecificRelativeSpecialDeduction02Clear" value="クリア" class="pull-right btn-clear" id="btn-specificRelativeSpecialDeduction02-clear">クリア</button>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">特定親族の氏名</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction02_Name1, TextName)　名 @Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction02_Name2, TextName)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">特定親族のﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction02_Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction02_Kana2, TextKana)<div id="Head_SpecificRelativeSpecialDeduction02_Kana_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl2(false, "SpecificRelativeSpecialDeduction02_RelationshipType", Model.Head.SpecificRelativeSpecialDeduction02_RelationshipType, familySpecificRelativesItems, "SpecificRelativeSpecialDeduction02_RelationshipType_isRead")</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="content-label-b1">特定親族の生年月日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl2(false, "SpecificRelativeSpecialDeduction02_Birthday", "0", calcSheetYear, "Year", Model.Head.SpecificRelativeSpecialDeduction02_BirthdayYear, yearItems, "SpecificRelativeSpecialDeduction02_isRead") 年
+                            @setYearDdl2(false, "SpecificRelativeSpecialDeduction02_Birthday", "0", calcSheetYear, "Month", Model.Head.SpecificRelativeSpecialDeduction02_BirthdayMonth, monthItems, "SpecificRelativeSpecialDeduction02_isRead") 月
+                            @setYearDdl2(false, "SpecificRelativeSpecialDeduction02_Birthday", "0", calcSheetYear, "Day", Model.Head.SpecificRelativeSpecialDeduction02_BirthdayDay, dayItems, "SpecificRelativeSpecialDeduction02_isRead") 日
+                            <div id="Head_SpecificRelativeSpecialDeduction02_Birthday_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">非居住者区分</td>
+                        <td colspan="6" class="form-inline">@setCheck2(false, "SpecificRelativeSpecialDeduction02_ResidentCheck", Model.Head.SpecificRelativeSpecialDeduction02_ResidentCheck, "DependentsOver16_1_isRead")　非居住者</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">住所又は居所</td>
+                        <td colspan="6" class="form-inline">
+                            <p>*非居住者区分にチェックありで入力可能</p>
+                            @Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction02_Address, TextWordMax)
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td rowspan="2" colspan="1" class="content-label-b1">特定親族の<br>給与所得</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
+                        <td colspan="4" class="form-inline" style="border-right: none !important;">
+                            @Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction02_Earnings, SpecificRelativeSpecialDeduction02_TextMoney2) 円<div id="Head_SpecificRelativeSpecialDeduction02_TotalEarnings_mes" class="check-comment"></div>
+                        </td>
+                        <td colspan="2" style="border-left: none !important;">
+                            <button type="button" name="SpecificRelativeSpecialDeduction02GetHyou" value="GET" class="pull-right btn-get" id="btn-specificRelativeSpecialDeduction02-get">扶養控除申告書から取得</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction02_Income, SpecificRelativeSpecialDeduction02_TextMoney1) 円<div id="Head_SpecificRelativeSpecialDeduction02_Income_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction02_OtherIncome, SpecificRelativeSpecialDeduction02_TextMoney2) 円<div id="Head_SpecificRelativeSpecialDeduction02_OtherIncome_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            <button type="button" name="SpecificRelativeSpecialDeduction02Calc" value="計算" class="pull-left  btn-calc" id="btn-specificRelativeSpecialDeduction02-calc"> ≫　計算　≪</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b2">合計所得金額の見積額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction02_TotalEarnings, CalcMoney) 円</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b2">特定親族特別控除の額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction02_SpecialDeductionAmount, CalcMoney) 円</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- 3 給与所得者の特定親族特別控除申告書 -->
+    @*定義*@
+    <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered specificRelativeSpecialDeduction03">
+                <colgroup>
+                    <col style="width:15%;" />
+                    <col style="width:15%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:10%;" />
+                    <col style="width:20%;" />
+                </colgroup>
+
+                <thead>
+
+                    <tr class="content-label-h2">
+                        <td colspan="7" style="border-right: none !important;">
+                            ３ 給与所得者の特定親族特別控除申告書
+                        </td>
+                        <td colspan="1" style="border-left: none !important;">
+                            <button type="button" name="SpecificRelativeSpecialDeduction03Clear" value="クリア" class="pull-right btn-clear" id="btn-specificRelativeSpecialDeduction03-clear">クリア</button>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">特定親族の氏名</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction03_Name1, TextName)　名 @Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction03_Name2, TextName)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">特定親族のﾌﾘｶﾞﾅ</td>
+                        <td colspan="6" class="form-inline">氏 @Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction03_Kana1, TextKana)　名 @Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction03_Kana2, TextKana)<div id="Head_SpecificRelativeSpecialDeduction03_Kana_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">続柄</td>
+                        <td colspan="6" class="form-inline">@setDdl2(false, "SpecificRelativeSpecialDeduction03_RelationshipType", Model.Head.SpecificRelativeSpecialDeduction03_RelationshipType, familySpecificRelativesItems, "SpecificRelativeSpecialDeduction03_RelationshipType_isRead")</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="content-label-b1">特定親族の生年月日</td>
+                        <td colspan="6" class="form-inline">
+                            @setYearDdl2(false, "SpecificRelativeSpecialDeduction03_Birthday", "0", calcSheetYear, "Year", Model.Head.SpecificRelativeSpecialDeduction03_BirthdayYear, yearItems, "SpecificRelativeSpecialDeduction03_isRead") 年
+                            @setYearDdl2(false, "SpecificRelativeSpecialDeduction03_Birthday", "0", calcSheetYear, "Month", Model.Head.SpecificRelativeSpecialDeduction03_BirthdayMonth, monthItems, "SpecificRelativeSpecialDeduction03_isRead") 月
+                            @setYearDdl2(false, "SpecificRelativeSpecialDeduction03_Birthday", "0", calcSheetYear, "Day", Model.Head.SpecificRelativeSpecialDeduction03_BirthdayDay, dayItems, "SpecificRelativeSpecialDeduction03_isRead") 日
+                            <div id="Head_SpecificRelativeSpecialDeduction03_Birthday_mes" class="check-comment"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">非居住者区分</td>
+                        <td colspan="6" class="form-inline">@setCheck2(false, "SpecificRelativeSpecialDeduction03_ResidentCheck", Model.Head.SpecificRelativeSpecialDeduction03_ResidentCheck, "DependentsOver16_1_isRead")　非居住者</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">住所又は居所</td>
+                        <td colspan="6" class="form-inline">
+                            <p>*非居住者区分にチェックありで入力可能</p>
+                            @Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction03_Address, TextWordMax)
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td rowspan="2" colspan="1" class="content-label-b1">特定親族の<br>給与所得</td>
+                        <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
+                        <td colspan="4" class="form-inline" style="border-right: none !important;">
+                            @Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction03_Earnings, SpecificRelativeSpecialDeduction03_TextMoney2) 円<div id="Head_SpecificRelativeSpecialDeduction03_TotalEarnings_mes" class="check-comment"></div>
+                        </td>
+                        <td colspan="2" style="border-left: none !important;">
+                            <button type="button" name="SpecificRelativeSpecialDeduction03GetHyou" value="GET" class="pull-right btn-get" id="btn-specificRelativeSpecialDeduction03-get">扶養控除申告書から取得</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="1" class="content-label-b1">所得金額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction03_Income, SpecificRelativeSpecialDeduction03_TextMoney1) 円<div id="Head_SpecificRelativeSpecialDeduction03_Income_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction03_OtherIncome, SpecificRelativeSpecialDeduction03_TextMoney2) 円<div id="Head_SpecificRelativeSpecialDeduction03_OtherIncome_mes" class="check-comment"></div></td>
+                    </tr>
+                    <tr class="content-label-h2">
+                        <td colspan="8">
+                            <button type="button" name="SpecificRelativeSpecialDeduction03Calc" value="計算" class="pull-left  btn-calc" id="btn-specificRelativeSpecialDeduction03-calc"> ≫　計算　≪</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b2">合計所得金額の見積額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction03_TotalEarnings, CalcMoney) 円</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-label-b2">特定親族特別控除の額</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction03_SpecialDeductionAmount, CalcMoney) 円</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     @*2025-99-99 iwai-tamura upd-end ------*@
-
-
-
-
-
-
-
 
     <br />
     <!-- 所得金額調整控除申告書 -->

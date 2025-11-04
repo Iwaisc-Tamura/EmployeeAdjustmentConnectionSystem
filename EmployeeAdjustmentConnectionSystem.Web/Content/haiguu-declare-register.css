@@ -34,7 +34,12 @@ span{
     border-color: #8D72E1;
 }
 
-
+/*2025-99-99 iwai-tamura add-str ------*/
+.btn-info:focus {
+    background: #7030A0;
+    border-color: #8D72E1;
+}
+/*2025-99-99 iwai-tamura add-end ------*/
 
 button.btn-calc{
     border-radius: 20px;
@@ -94,7 +99,7 @@ button.btn-get:hover {
   font-weight:bold; color:#fff;background-color: #8D72E1;
 }
 .table > thead > tr.content-label-h2{
-  font-weight:bold; color:#fff;background-color: #2dc8ff;
+  font-weight:bold; color:#fff;background-color: #B7A3EE;
 }
 .table > thead > tr.content-label-h3{
   font-weight:bold; color:#fff;background-color: #71daff;

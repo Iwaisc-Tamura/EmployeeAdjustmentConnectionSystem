@@ -22,13 +22,30 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         //2017-08-31 iwai-tamura upd-end ------
 
         //2025-99-99 iwai-tamura add-str ------
+		/// <summary>
+		/// 扶養控除申告書管理者確定区分
+		/// </summary>
+		public string HuyouDecisionType { get; set; }
+
         /// <summary>
-        /// 扶養控除申告書添付ファイルアップロード用
+        /// 扶養控除申告書添付ファイルパス
         /// </summary>
-        /// 
         public string HuyouAttachmentFilePath { get; set; }
+
+        /// <summary>
+        /// 扶養控除申告書添付アップロードファイル
+        /// </summary>
         public HttpPostedFileWrapper HuyouAttachmentUploadFile { get; set; }
 
+        /// <summary>
+        /// 過去分出力処理用　年度
+        /// </summary>
+        public int? HistoryYear { get; set; }
+
+        /// <summary>
+        /// 過去分出力処理用　対象帳票
+        /// </summary>
+        public string HistoryPrintType { get; set; }
         //2025-99-99 iwai-tamura add-end ------
     }
 }

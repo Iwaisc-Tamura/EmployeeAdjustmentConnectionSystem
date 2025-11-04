@@ -202,10 +202,6 @@ $('input:radio[name="Head.TaxWithholding_ResidentType"]').change(function () {
     }
 });
 
-
-
-
-
 //2023-11-20 iwai-tamura upd str -----
 // 収入金額の変更時に所得金額を自動計算
 // 共通フィールド更新
@@ -391,17 +387,6 @@ document.getElementById('Head_DependentsUnder16_4_OtherIncome').addEventListener
 });
 
 //2023-11-20 iwai-tamura upd end -----
-
-
-
-
-
-
-
-
-
-
-
 
 
 //2023-11-20 iwai-tamura upd str -----

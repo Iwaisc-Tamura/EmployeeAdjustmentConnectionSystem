@@ -136,11 +136,6 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         public string HousingLoanSpecialDeduction_ApplyCount { get; set; }
 
         /// <summary>
-        /// 住宅借入金等特別控除可能額
-        /// </summary>
-        public int? HousingLoanSpecialDeduction_LimitAmount { get; set; }
-
-        /// <summary>
         /// 居住開始年月日_1回目
         /// </summary>
         public string HousingLoanSpecialDeduction_ResidenceStart1Date { get; set; }

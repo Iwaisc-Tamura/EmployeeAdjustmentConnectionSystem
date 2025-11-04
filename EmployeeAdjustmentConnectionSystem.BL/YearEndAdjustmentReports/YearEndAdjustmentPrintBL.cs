@@ -2465,6 +2465,468 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         //2025-03-21 iwai-tamura add-end ---
 
 
+        //2025-99-99 iwai-tamura upd-str ------
+        /// <summary>
+        /// 一括Excel出力処理
+        /// </summary>
+        /// <param name="selPrint"></param>
+        /// <returns></returns>
+        public string ExcelOutput(string[] selPrint,string tblType)
+        {
+            
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+                
+                DateTime nowDate = DateTime.Now;      //現在日時を取得
+                string userCode = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+                    (HttpContext.Current.Session["LoginUser"])).UserCode.ToString();
+                string departmentno = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+                    (HttpContext.Current.Session["LoginUser"])).DepartmentNo.ToString();
+
+                //帳票作成フォルダを用意
+                string workFolder = "";
+                workFolder = TempDir + nowDate.ToString("yyyyMMdd") + Path.DirectorySeparatorChar +
+                    userCode + nowDate.ToString("yyyyMMddHHmmss") + Path.DirectorySeparatorChar;
+
+                System.IO.Directory.CreateDirectory(workFolder);
+
+
+                //作成フォルダ内ファイル一覧を取得
+                System.IO.Directory.CreateDirectory(workFolder);
+                foreach (string file in System.IO.Directory.GetDirectories(TempDir, "*"))
+                {
+                    DateTime oldDirDate = new DateTime();
+                    oldDirDate = System.IO.Directory.GetCreationTime(file); //作成日時を取得
+
+                    //削除基準日より古いフォルダを削除
+                    if (oldDirDate < nowDate.AddDays(-(R_P)))
+                    {
+                        DeleteDirectory(file);
+                    }
+                }
+
+                //zip作成フォルダとzipファイル名を用意を用意
+                string strZipFolder = TempDir + nowDate.ToString("yyyyMMdd") + Path.DirectorySeparatorChar;
+                string strZipName = userCode + nowDate.ToString("yyyyMMddHHmmss") + ".zip";
+                //return用path文字列を用意
+                string zipReturnPath = nowDate.ToString("yyyyMMdd") + Path.DirectorySeparatorChar + strZipName;
+                
+
+                //excelファイルの作成
+                //ファイル名作成
+                //[対象年度]_[対象タイトル]_[出力日時].xlsx
+                string strTitleName = "";
+                string strTableName = "";
+                switch (tblType) { //出力対象
+                    case "Jutaku" : // 住宅控除
+                        strTitleName = "住宅借入金等特別控除申告書Data";
+                        strTableName = "TE150住宅借入金等特別控除申告書Data";
+                        break;
+                    case "Zenshoku" : // 前職源泉
+                        strTitleName = "前職源泉徴収票Data";
+                        strTableName = "TE160前職源泉徴収票Data";
+                        break;
+                }
+
+                string keys ="";
+                int year = 0;
+                int cnt = 1;
+                foreach (string KeyValue in selPrint){
+                    //年度と社員番号に分割
+                    string[] arrayData = KeyValue.Split(',');
+                    year = int.Parse(arrayData[0]);     //対象年度
+                    if (cnt>1) keys +=",";
+                    keys += "'" + arrayData[1] + "'";   //社員番号
+                    cnt ++;
+                }
+
+                // ---- ファイル名 ----
+                string fileName = year.ToString() + "年度_" + strTitleName + "_" + nowDate.ToString("yyyyMMddHHmmss") + ".xlsx";
+
+                string sql =
+                    "SELECT * " +
+                    "FROM " + strTableName + " " +
+                    "WHERE 対象年度 = " + year + " AND 社員番号 IN (" + keys + ") " +
+                    "ORDER BY 社員番号";
+
+                //データ取得
+                DataTable dt = new DataTable();
+                using (DbManager dm = new DbManager())
+                using (IDbCommand cmd = dm.CreateCommand(sql))
+                using (DataSet ds = new DataSet()) {
+                    IDataAdapter da = dm.CreateSqlDataAdapter(cmd);
+                    da.Fill(ds);        // データセットに設定する
+                    dt = ds.Tables[0];
+                }
+
+                // EPPlus使用版
+                var outputFile = new FileInfo(workFolder + fileName);
+                if (outputFile.Exists) {
+                    outputFile.Delete();
+                }
+                using (var excel = new ExcelPackage(outputFile))
+                {
+                    // シート追加
+                    var sheet = excel.Workbook.Worksheets.Add("Sheet1");
+
+                    int x = 1;
+                    int y = 1;
+                    foreach (DataColumn col in dt.Columns) {
+                        // セル取得
+                        // 1,1 = A1セル
+                        var cell = sheet.Cells[x, y];
+                        // セルに値設定
+                        cell.Value = col.ColumnName;
+                        // そのままだとフォントが英語圏のフォントなので調整
+                        cell.Style.Font.SetFromFont(new Font("MS Gothic", 10, FontStyle.Regular));
+                        // 次のセルへ
+                        y++;
+                    }
+
+                    //次の行頭へ
+                    x++;
+                    y = 1;
+
+                    foreach (DataRow dr in dt.Rows) {
+                        foreach (object trg in dr.ItemArray) {
+                            var cell = sheet.Cells[x, y];
+                            cell.Value = trg.ToString();
+                            cell.Style.Font.SetFromFont(new Font("MS Gothic", 10, FontStyle.Regular));
+                            y++;
+                        }
+                        x++;
+                        y = 1;
+                    }
+
+                    // 保存
+                    excel.Save();
+                }
+
+                //作成したファイルに読み取り専用プロパティを設定
+                //ネット経由でダウンロードされたファイルを保護されたビューで開くために必要
+                FileAttributes fas = File.GetAttributes(workFolder + fileName);
+                fas = fas | FileAttributes.ReadOnly;
+                File.SetAttributes(workFolder + fileName, fas);
+
+                //圧縮
+                string strZipFullPath = "";
+                var compress = new Compress();
+                strZipFullPath = compress.CreateZipFile(strZipName, strZipFolder, workFolder);
+
+                //zipファイルパスをセット
+                return zipReturnPath;
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+
+
+
+        //////////////////////public string PrintXls(string[] selPrint,string tblType)
+        //////////////////////{
+        //////////////////////    try
+        //////////////////////    {
+        //////////////////////        //開始
+        //////////////////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+        //////////////////////        string workFolder = "";
+        //////////////////////        DateTime nowDate = DateTime.Now;      //現在日時を取得
+        //////////////////////        string userCode = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+        //////////////////////            (HttpContext.Current.Session["LoginUser"])).UserCode.ToString();
+        //////////////////////        string departmentno = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+        //////////////////////            (HttpContext.Current.Session["LoginUser"])).DepartmentNo.ToString();
+
+
+        //////////////////////        //帳票作成フォルダを用意
+        //////////////////////        workFolder = TempDir + nowDate.ToString("yyyyMMdd") + Path.DirectorySeparatorChar +
+        //////////////////////            userCode + nowDate.ToString("yyyyMMddHHmmss") + Path.DirectorySeparatorChar;
+
+        //////////////////////        //作成フォルダ内ファイル一覧を取得
+        //////////////////////        System.IO.Directory.CreateDirectory(workFolder);
+        //////////////////////        foreach (string file in System.IO.Directory.GetDirectories(TempDir, "*"))
+        //////////////////////        {
+        //////////////////////            DateTime oldDirDate = new DateTime();
+        //////////////////////            oldDirDate = System.IO.Directory.GetCreationTime(file); //作成日時を取得
+
+        //////////////////////            //削除基準日より古いフォルダを削除
+        //////////////////////            if (oldDirDate < nowDate.AddDays(-(R_P)))
+        //////////////////////            {
+        //////////////////////                DeleteDirectory(file);
+        //////////////////////            }
+        //////////////////////        }
+                
+        //////////////////////        //zip作成フォルダとzipファイル名を用意を用意
+        //////////////////////        string zipFolder = TempDir + nowDate.ToString("yyyyMMdd") + Path.DirectorySeparatorChar;
+        //////////////////////        string zipName = userCode + nowDate.ToString("yyyyMMddHHmmss") + ".zip";
+        //////////////////////        //return用path文字列を用意
+        //////////////////////        string zipReturnPath = nowDate.ToString("yyyyMMdd") + Path.DirectorySeparatorChar + zipName;
+
+        //////////////////////        //excelファイルの作成
+        //////////////////////        //ファイル名作成
+        //////////////////////        string fileName = departmentno + "_" + userCode + "_" + nowDate.ToString("yyyyMMddHHmmss") + ".xlsx";
+
+        //////////////////////        // EPPlus使用版
+        //////////////////////        var outputFile = new FileInfo(workFolder + fileName);
+        //////////////////////        if (outputFile.Exists) {
+        //////////////////////            outputFile.Delete();
+        //////////////////////        }
+        //////////////////////        using (var excel = new ExcelPackage(outputFile)) {
+        //////////////////////            // シート追加
+        //////////////////////            var sheet = excel.Workbook.Worksheets.Add("Sheet1");
+
+        //////////////////////            int excel_row = 1;
+        //////////////////////            foreach (string KeyValue in selPrint)
+        //////////////////////            {
+        //////////////////////                int excel_column = 1;
+        //////////////////////                //管理番号とTBL区分に分割
+        //////////////////////                string[] arrayData = KeyValue.Split(',');
+        //////////////////////                string key = arrayData[0];                  //管理番号
+
+                        
+        //////////////////////            }
+        //////////////////////            // 保存
+        //////////////////////            excel.Save();
+        //////////////////////        }
+
+                
+        //////////////////////        //作成したファイルに読み取り専用プロパティを設定
+        //////////////////////        //ネット経由でダウンロードされたファイルを保護されたビューで開くために必要
+        //////////////////////        FileAttributes fas = File.GetAttributes(workFolder + fileName);
+        //////////////////////        fas = fas | FileAttributes.ReadOnly;
+        //////////////////////        File.SetAttributes(workFolder + fileName, fas);
+
+        //////////////////////        // TODO:pdf複数出力で、どれか１つにエラーがあってもダウンロードできる状況
+        //////////////////////        //圧縮
+        //////////////////////        var compress = new Compress();
+        //////////////////////        string zipFullPath = compress.CreateZipFile(zipName, zipFolder, workFolder);
+
+        //////////////////////        //return用zipファイルパスをセット
+        //////////////////////        return zipReturnPath;
+
+        //////////////////////    }
+        //////////////////////    catch (Exception ex)
+        //////////////////////    {
+        //////////////////////        // エラー
+        //////////////////////        nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+        //////////////////////        throw;
+        //////////////////////    }
+        //////////////////////    finally
+        //////////////////////    {
+        //////////////////////        //終了
+        //////////////////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+        //////////////////////    }
+        //////////////////////}
+
+
+
+
+
+        //////////////////////public string PrintXls(string[] selPrint,string tblType)
+        //////////////////////{
+        //////////////////////    try
+        //////////////////////    {
+        //////////////////////        //開始
+        //////////////////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+        //////////////////////        string workFolder = "";
+        //////////////////////        DateTime nowDate = DateTime.Now;      //現在日時を取得
+        //////////////////////        string userCode = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+        //////////////////////            (HttpContext.Current.Session["LoginUser"])).UserCode.ToString();
+        //////////////////////        string departmentno = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+        //////////////////////            (HttpContext.Current.Session["LoginUser"])).DepartmentNo.ToString();
+
+
+        //////////////////////        //帳票作成フォルダを用意
+        //////////////////////        workFolder = TempDir + nowDate.ToString("yyyyMMdd") + Path.DirectorySeparatorChar +
+        //////////////////////            userCode + nowDate.ToString("yyyyMMddHHmmss") + Path.DirectorySeparatorChar;
+
+        //////////////////////        //作成フォルダ内ファイル一覧を取得
+        //////////////////////        System.IO.Directory.CreateDirectory(workFolder);
+        //////////////////////        foreach (string file in System.IO.Directory.GetDirectories(TempDir, "*"))
+        //////////////////////        {
+        //////////////////////            DateTime oldDirDate = new DateTime();
+        //////////////////////            oldDirDate = System.IO.Directory.GetCreationTime(file); //作成日時を取得
+
+        //////////////////////            //削除基準日より古いフォルダを削除
+        //////////////////////            if (oldDirDate < nowDate.AddDays(-(R_P)))
+        //////////////////////            {
+        //////////////////////                DeleteDirectory(file);
+        //////////////////////            }
+        //////////////////////        }
+                
+        //////////////////////        //zip作成フォルダとzipファイル名を用意を用意
+        //////////////////////        string zipFolder = TempDir + nowDate.ToString("yyyyMMdd") + Path.DirectorySeparatorChar;
+        //////////////////////        string zipName = userCode + nowDate.ToString("yyyyMMddHHmmss") + ".zip";
+        //////////////////////        //return用path文字列を用意
+        //////////////////////        string zipReturnPath = nowDate.ToString("yyyyMMdd") + Path.DirectorySeparatorChar + zipName;
+
+        //////////////////////        //excelファイルの作成
+        //////////////////////        //ファイル名作成
+        //////////////////////        string fileName = departmentno + "_" + userCode + "_" + nowDate.ToString("yyyyMMddHHmmss") + ".xlsx";
+
+        //////////////////////        // EPPlus使用版
+        //////////////////////        var outputFile = new FileInfo(workFolder + fileName);
+        //////////////////////        if (outputFile.Exists) {
+        //////////////////////            outputFile.Delete();
+        //////////////////////        }
+        //////////////////////        using (var excel = new ExcelPackage(outputFile)) {
+        //////////////////////            // シート追加
+        //////////////////////            var sheet = excel.Workbook.Worksheets.Add("Sheet1");
+
+        //////////////////////            int excel_row = 1;
+        //////////////////////            foreach (string KeyValue in selPrint)
+        //////////////////////            {
+        //////////////////////                int excel_column = 1;
+        //////////////////////                //管理番号とTBL区分に分割
+        //////////////////////                string[] arrayData = KeyValue.Split(',');
+        //////////////////////                string key = arrayData[0];                  //管理番号
+        //////////////////////                //string tblType = arrayData[1];              //TBL区分
+        //////////////////////                if (tblType == "D01") {
+        //////////////////////                    if (arrayData[4]!="1"){
+        //////////////////////                        continue;   //D表が許可されてない場合は飛ばす
+        //////////////////////                    }
+
+        //////////////////////                    //2022-01-31 iwai-tamura upd-str ------
+        //////////////////////                    //未認証データの場合飛ばす
+        //////////////////////                    using (DbManager dm = new DbManager())
+        //////////////////////                    {
+        //////////////////////                        string sql = ""; //クエリ生成
+        //////////////////////                        sql = "select distinct "
+        //////////////////////                            + "  ms.管理番号"
+        //////////////////////                            + " ,ms.年度"
+        //////////////////////                            + " ,ms.所属番号"
+        //////////////////////                            + " ,ms.社員番号"
+        //////////////////////                            + " ,ms.大区分"
+        //////////////////////                            + " ,ms.小区分"
+        //////////////////////                            + " ,ms.承認社員番号"
+        //////////////////////                            + " ,ms.承認日時"
+        //////////////////////                            + " from SD_T自己申告書承認情報 ms"
+        //////////////////////                            + " where 管理番号= @ManageNo"
+        //////////////////////                            + " And 大区分 = 2 and 小区分 = 1 and 承認社員番号 is not null";
+        //////////////////////                        DataTable Ddt = new DataTable();
+        //////////////////////                        DataSet DdataSet = new DataSet();
+        //////////////////////                        using(IDbCommand cmd = new DbManager().CreateCommand(sql)) {
+        //////////////////////                            //パラメータ設定
+        //////////////////////                            DbHelper.AddDbParameter(cmd, "@ManageNo", DbType.String);
+        //////////////////////                            ((IDbDataParameter)cmd.Parameters[0]).Value = int.Parse(key);
+        //////////////////////                            //クエリ実行
+        //////////////////////                            IDataAdapter da = dm.CreateSqlDataAdapter(cmd);
+        //////////////////////                            da.Fill(DdataSet);
+        //////////////////////                        }
+        //////////////////////                        //実行結果確認
+        //////////////////////                        if(DdataSet.Tables[0].Rows.Count == 0) {
+        //////////////////////                            continue; 
+        //////////////////////                        }
+        //////////////////////                    }
+        //////////////////////                    //2022-01-31 iwai-tamura upd-end ------
+        //////////////////////                }
+        //////////////////////                DataRow row = new DataTable().NewRow();
+        //////////////////////                DataSet dataSet = new DataSet();
+        //////////////////////                DataTable dt = new DataTable();
+        //////////////////////                using (DbManager dm = new DbManager())
+        //////////////////////                {
+        //////////////////////                    //目標管理基本データを取得
+        //////////////////////                    row = GetBasicSelfDeclareRow(key, dm, tblType);
+        //////////////////////                    //目標管理承認データを取得
+        //////////////////////                    dataSet = SelfDeclareCommonBL.GetSignData(dm, int.Parse(key));
+        //////////////////////                    //目標管理詳細データを取得
+        //////////////////////                    dt = GetSelfDeclareTable(key, dm, tblType);
+        //////////////////////                }
+
+        //////////////////////                //目標管理詳細データを設定
+        //////////////////////                for (int i = 1; i <= dt.Rows.Count; i++) {
+        //////////////////////                    foreach (DataColumn column in dt.Columns) {
+        //////////////////////                        //if (!command.Parameters.Contains("@" + column.ColumnName)) {
+        //////////////////////                            //1行目ならヘッダ設定
+        //////////////////////                            if (excel_row == 1)
+        //////////////////////                            {
+        //////////////////////                                var cell_head = sheet.Cells[excel_row, excel_column];
+        //////////////////////                                // セルに値設定
+        //////////////////////                                cell_head.Value = column.ColumnName + i;
+        //////////////////////                                // そのままだとフォントが英語圏のフォントなので調整
+        //////////////////////                                cell_head.Style.Font.SetFromFont(new Font("MS Gothic", 10, FontStyle.Regular));
+        //////////////////////                            }
+        //////////////////////                            // セル取得
+        //////////////////////                            var cell = sheet.Cells[excel_row + 1, excel_column];
+        //////////////////////                            // セルに値設定
+        //////////////////////                            cell.Value = DataConv.IfNull(dt.Rows[i - 1][column.ColumnName].ToString(), "");
+        //////////////////////                            // そのままだとフォントが英語圏のフォントなので調整
+        //////////////////////                            cell.Style.Font.SetFromFont(new Font("MS Gothic", 10, FontStyle.Regular));
+        //////////////////////                            excel_column++;
+        //////////////////////                        //}
+        //////////////////////                    }
+
+        //////////////////////                    //目標管理承認データを設定
+        //////////////////////                    foreach (DataTable dataSettable in dataSet.Tables) {
+        //////////////////////                        string columnname = "";
+        //////////////////////                        foreach (DataRow dataSetrow in dataSettable.Rows) {
+        //////////////////////                            columnname = dataSetrow["大区分"].ToString()  + dataSetrow["小区分"].ToString() + "承認者";
+        //////////////////////                            //1行目ならヘッダ設定
+        //////////////////////                            if (excel_row == 1)
+        //////////////////////                            {
+        //////////////////////                                var cell_head = sheet.Cells[excel_row, excel_column];
+        //////////////////////                                // セルに値設定
+        //////////////////////                                cell_head.Value = columnname;
+        //////////////////////                                // そのままだとフォントが英語圏のフォントなので調整
+        //////////////////////                                cell_head.Style.Font.SetFromFont(new Font("MS Gothic", 10, FontStyle.Regular));
+        //////////////////////                            }
+        //////////////////////                            // セル取得
+        //////////////////////                            var cell = sheet.Cells[excel_row + 1, excel_column];
+        //////////////////////                            // セルに値設定
+        //////////////////////                            cell.Value = DataConv.IfNull(dataSetrow["氏名"].ToString(), "");
+        //////////////////////                            // そのままだとフォントが英語圏のフォントなので調整
+        //////////////////////                            cell.Style.Font.SetFromFont(new Font("MS Gothic", 10, FontStyle.Regular));
+        //////////////////////                            excel_column++;
+        //////////////////////                        }
+        //////////////////////                    }
+        //////////////////////                    excel_row++;
+        //////////////////////                }                          
+                        
+        //////////////////////            }
+        //////////////////////            // 保存
+        //////////////////////            excel.Save();
+        //////////////////////        }
+
+                
+        //////////////////////        //作成したファイルに読み取り専用プロパティを設定
+        //////////////////////        //ネット経由でダウンロードされたファイルを保護されたビューで開くために必要
+        //////////////////////        FileAttributes fas = File.GetAttributes(workFolder + fileName);
+        //////////////////////        fas = fas | FileAttributes.ReadOnly;
+        //////////////////////        File.SetAttributes(workFolder + fileName, fas);
+
+        //////////////////////        // TODO:pdf複数出力で、どれか１つにエラーがあってもダウンロードできる状況
+        //////////////////////        //圧縮
+        //////////////////////        var compress = new Compress();
+        //////////////////////        string zipFullPath = compress.CreateZipFile(zipName, zipFolder, workFolder);
+
+        //////////////////////        //return用zipファイルパスをセット
+        //////////////////////        return zipReturnPath;
+
+        //////////////////////    }
+        //////////////////////    catch (Exception ex)
+        //////////////////////    {
+        //////////////////////        // エラー
+        //////////////////////        nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+        //////////////////////        throw;
+        //////////////////////    }
+        //////////////////////    finally
+        //////////////////////    {
+        //////////////////////        //終了
+        //////////////////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+        //////////////////////    }
+        //////////////////////}
+        //2025-99-99 iwai-tamura upd-end ------
 
         ///////////// <summary>
         ///////////// メインの処理
