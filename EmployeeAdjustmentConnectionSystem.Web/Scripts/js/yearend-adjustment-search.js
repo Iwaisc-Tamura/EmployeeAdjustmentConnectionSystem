@@ -141,6 +141,34 @@ $('#dmysignbatch_haiguu').click(function () {
     showMessage('一括確定', '確定しますか？', 'signbatch_haiguu_button', false);
 });
 
+//2025-99-99 iwai-tamura upd-str ------
+$('#dmysignbatch_jutaku').click(function () {
+    // チェックボックスの情報取得
+    const checkboxes = document.querySelectorAll('input[name="selPrint"]:checked');
+
+    // チェックが付いている数を取得
+    const checkedCount = checkboxes.length;
+    if (checkedCount == 0) {
+        showMessage('選択', '対象者が１件も選択されていません。<br>対象者を選択してください。');
+        return false;
+    }
+    showMessage('一括確定', '確定しますか？', 'signbatch_jutaku_button', false);
+});
+$('#dmysignbatch_zenshoku').click(function () {
+    // チェックボックスの情報取得
+    const checkboxes = document.querySelectorAll('input[name="selPrint"]:checked');
+
+    // チェックが付いている数を取得
+    const checkedCount = checkboxes.length;
+    if (checkedCount == 0) {
+        showMessage('選択', '対象者が１件も選択されていません。<br>対象者を選択してください。');
+        return false;
+    }
+    showMessage('一括確定', '確定しますか？', 'signbatch_zenshoku_button', false);
+});
+//2025-99-99 iwai-tamura upd-end ------
+
+
 /*
  * 一括帳票出力ボタンクリック時
  */
@@ -187,7 +215,35 @@ $('#dmyprintbatch_haiguu').click(function () {
     showMessage('帳票出力', '出力しますか？', 'printbatch_haiguu_button', false);
 });
 
+//2025-99-99 iwai-tamura upd-str ------
+//住宅控除EXCEL出力
+$('#dmyprintxls_jutaku').click(function () {
+    // チェックボックスの情報取得
+    const checkboxes = document.querySelectorAll('input[name="selPrint"]:checked');
 
+    // チェックが付いている数を取得
+    const checkedCount = checkboxes.length;
+    if (checkedCount == 0) {
+        showMessage('選択', '対象者が１件も選択されていません。<br>対象者を選択してください。');
+        return false;
+    }
+    showMessage('一括出力', 'エクセルデータを出力しますか？', 'printxls_jutaku_button', false);
+});
+
+//前職源泉EXCEL出力
+$('#dmyprintxls_zenshoku').click(function () {
+    // チェックボックスの情報取得
+    const checkboxes = document.querySelectorAll('input[name="selPrint"]:checked');
+
+    // チェックが付いている数を取得
+    const checkedCount = checkboxes.length;
+    if (checkedCount == 0) {
+        showMessage('選択', '対象者が１件も選択されていません。<br>対象者を選択してください。');
+        return false;
+    }
+    showMessage('一括出力', 'エクセルデータをしますか？', 'printxls_zenshoku_button', false);
+});
+//2025-99-99 iwai-tamura upd-end ------
 
 $('#dmyprintatoc').click(function () {
     showMessage('帳票出力', '出力しますか？', 'printatocbutton', false);

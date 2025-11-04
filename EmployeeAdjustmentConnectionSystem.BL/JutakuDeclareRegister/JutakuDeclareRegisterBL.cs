@@ -122,9 +122,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.JutakuDeclareRegister {
 								Kana1 = row["Kana_姓"].ToString(),
 								Kana2 = row["Kana_名"].ToString(),
 
-
                                 HousingLoanSpecialDeduction_ApplyCount = row["住宅借入金等特別控除適用数"].ToString(),
-                                HousingLoanSpecialDeduction_LimitAmount = setMoney(row["住宅借入金等特別控除可能額"].ToString()),
 
                                 // 居住開始年月日(1回目)
                                 HousingLoanSpecialDeduction_ResidenceStart1Date = row["居住開始年月日_1回目"].ToString(),
@@ -418,7 +416,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.JutakuDeclareRegister {
 							+ " ,Kana_姓 = @Kana1"
 							+ " ,Kana_名 = @Kana2"
                             + " ,住宅借入金等特別控除適用数 = @HousingLoanSpecialDeduction_ApplyCount"
-                            + " ,住宅借入金等特別控除可能額 = @HousingLoanSpecialDeduction_LimitAmount"
                             + " ,居住開始年月日_1回目 = @HousingLoanSpecialDeduction_ResidenceStart1Date"
                             + " ,居住開始年月日_2回目 = @HousingLoanSpecialDeduction_ResidenceStart2Date"
                             + " ,住宅借入金等特別控除区分_1回目 = @HousingLoanSpecialDeduction_Type1"
@@ -445,7 +442,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.JutakuDeclareRegister {
 						DbHelper.AddDbParameter(cmd, "@Kana1", DbType.String);
 						DbHelper.AddDbParameter(cmd, "@Kana2", DbType.String);
                         DbHelper.AddDbParameter(cmd, "@HousingLoanSpecialDeduction_ApplyCount", DbType.String);
-                        DbHelper.AddDbParameter(cmd, "@HousingLoanSpecialDeduction_LimitAmount", DbType.Int32);
                         DbHelper.AddDbParameter(cmd, "@HousingLoanSpecialDeduction_ResidenceStart1Date", DbType.String);
                         DbHelper.AddDbParameter(cmd, "@HousingLoanSpecialDeduction_ResidenceStart2Date", DbType.String);
                         DbHelper.AddDbParameter(cmd, "@HousingLoanSpecialDeduction_Type1", DbType.String);
@@ -468,25 +464,24 @@ namespace EmployeeAdjustmentConnectionSystem.BL.JutakuDeclareRegister {
 						parameters[7].Value = DataConv.IfNull(model.Head.Kana2);
 
                         parameters[8].Value = DataConv.IfNull(model.Head.HousingLoanSpecialDeduction_ApplyCount);
-                        parameters[9].Value = DataConv.IfNull(model.Head.HousingLoanSpecialDeduction_LimitAmount.ToString());
 
-                        parameters[10].Value = DataConv.IfNull(
+                        parameters[9].Value = DataConv.IfNull(
                             addYMD(model.Head.HousingLoanSpecialDeduction_ResidenceStart1DateYear,
                                    model.Head.HousingLoanSpecialDeduction_ResidenceStart1DateMonth,
                                    model.Head.HousingLoanSpecialDeduction_ResidenceStart1DateDay));
 
-                        parameters[11].Value = DataConv.IfNull(
+                        parameters[10].Value = DataConv.IfNull(
                             addYMD(model.Head.HousingLoanSpecialDeduction_ResidenceStart2DateYear,
                                    model.Head.HousingLoanSpecialDeduction_ResidenceStart2DateMonth,
                                    model.Head.HousingLoanSpecialDeduction_ResidenceStart2DateDay));
 
-                        parameters[12].Value = DataConv.IfNull(model.Head.HousingLoanSpecialDeduction_Type1);
-                        parameters[13].Value = DataConv.IfNull(model.Head.HousingLoanSpecialDeduction_Type2);
+                        parameters[11].Value = DataConv.IfNull(model.Head.HousingLoanSpecialDeduction_Type1);
+                        parameters[12].Value = DataConv.IfNull(model.Head.HousingLoanSpecialDeduction_Type2);
 
-                        parameters[14].Value = DataConv.IfNull(model.Head.HousingLoanSpecialDeduction_YearEndBalance1.ToString());
-                        parameters[15].Value = DataConv.IfNull(model.Head.HousingLoanSpecialDeduction_YearEndBalance2.ToString());
-                        parameters[16].Value = DataConv.IfNull(model.Head.SheetYear.ToString());
-                        parameters[17].Value = DataConv.IfNull(model.Head.EmployeeNo);
+                        parameters[13].Value = DataConv.IfNull(model.Head.HousingLoanSpecialDeduction_YearEndBalance1.ToString());
+                        parameters[14].Value = DataConv.IfNull(model.Head.HousingLoanSpecialDeduction_YearEndBalance2.ToString());
+                        parameters[15].Value = DataConv.IfNull(model.Head.SheetYear.ToString());
+                        parameters[16].Value = DataConv.IfNull(model.Head.EmployeeNo);
 
                         cmd.ExecuteNonQuery();
                     

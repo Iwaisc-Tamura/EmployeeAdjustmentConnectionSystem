@@ -325,6 +325,15 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     case  "HaiguuDeclare": //基礎控除
                         return RedirectToAction("Index", "HaiguuDeclareRegister", new { intSheetYear = val[1], strEmployeeNo = val[2] ,bolAdminMode = true});
 
+                    //2025-99-99 iwai-tamura upd-str ------
+                    case  "JutakuDeclare": //住宅控除
+                        return RedirectToAction("Index", "JutakuDeclareRegister", new { intSheetYear = val[1], strEmployeeNo = val[2] ,bolAdminMode = true});
+
+                    case  "ZenshokuDeclare": //前職源泉
+                        return RedirectToAction("Index", "ZenshokuDeclareRegister", new { intSheetYear = val[1], strEmployeeNo = val[2] ,bolAdminMode = true});
+
+                    //2025-99-99 iwai-tamura upd-end ------
+
                     default:　//指定職掌以外
                         return RedirectToAction("Search");
                 }
@@ -410,197 +419,73 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             }
         }
 
-        ///////////// <summary>
-        ///////////// 単票出力
-        ///////////// </summary>
-        ///////////// <returns></returns>
-        //////////[HttpPost]
-        //////////[ActionName("Search")]
-        //////////[ButtonHandler(ButtonName = "RowPrintD")]
-        ////////////[AcceptButton(ButtonName = "View")]
-        //////////public ActionResult RowPrintD(SelfDeclareSearchViewModels model, string value) {
-        //////////    try {
-        //////////        //開始
-        //////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+        //2025-99-99 iwai-tamura upd-str ------
+        /// <summary>
+        /// 添付ファイルダウンロード
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [ActionName("Search")]
+        [ButtonHandler(ButtonName = "Attachment")]
+        public ActionResult RowAttachmentFileDownload(YearEndAdjustmentSearchViewModels model, string value)
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
 
-        //////////        //2019-10-02 iwai-tamura add-str ------
-        //////////        CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"PDF出力開始","D");
-        //////////        //2019-10-02 iwai-tamura add-end ------
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode), "PDF出力開始", "AtoC");
 
-        //////////        //ログイン判定
-        //////////        if(!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
+                //ログイン判定
+                if (!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
 
-        //////////        //帳票出力ロジックを実行
-        //////////        //帳票作成ディレクトリを取得
-        //////////        SelfDeclareSearchPrintBL bl = new SelfDeclareSearchPrintBL(Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile())));
-        //////////        //結果
-        //////////        //model.Down.DownloadPath = bl.Print(new string[] { value });
-        //////////        //model.Down.DownloadFlag = string.IsNullOrEmpty(model.Down.DownloadPath) ? false : true;
+                //詳細へ　(対象帳票,年度,社員番号)
+                var val = value.Split(',');
 
-        //////////        ////表示
-        //////////        //return View((new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
-        //////////        //DL処理変更
-        //////////        var dlpath = bl.PrintD(new string[] { value });
-        //////////        string mappath = Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile()) + dlpath);
-        //////////        string fileName = Path.GetFileName(mappath);
-        //////////        return File(mappath, "application/zip", fileName);
 
-        //////////    } catch(Exception ex) {
-        //////////        //エラー
-        //////////        nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
-        //////////        TempData["Error"] = ex.ToString();
-        //////////        return View("Error");
-        //////////    } finally {
-        //////////        //終了
-        //////////        //2019-10-02 iwai-tamura add-str ------
-        //////////        CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"PDF出力終了","D");
-        //////////        //2019-10-02 iwai-tamura add-end ------
 
-        //////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
-        //////////    }
-        //////////}
 
-        ///////////// <summary>
-        ///////////// 単票出力
-        ///////////// </summary>
-        ///////////// <returns></returns>
-        //////////[HttpPost]
-        //////////[ActionName("Search")]
-        //////////[ButtonHandler(ButtonName = "RowPrintCarrier")]
-        ////////////[AcceptButton(ButtonName = "View")]
-        //////////public ActionResult RowPrintCarrier(SelfDeclareSearchViewModels model, string value) {
-        //////////    try {
-        //////////        //開始
-        //////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
 
-        //////////        //2019-10-02 iwai-tamura add-str ------
-        //////////        CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"PDF出力開始","Career");
-        //////////        //2019-10-02 iwai-tamura add-end ------
+                // 設定から保存ディレクトリを取得
+                string saveDir = ConfigurationManager.AppSettings["HUYOU_ATTACHMENT_FILE_DIR"];
+                if (string.IsNullOrEmpty(saveDir))
+                {
+                    TempData["Error"] = "保存ディレクトリが設定されていません。管理者に確認してください。";
+                    return View("Error");
+                }
 
-        //////////        //ログイン判定
-        //////////        if(!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
+                // ファイルパスを構築
+                string filePath = Path.Combine(saveDir, val[1]);
+                // ファイルが存在するか確認
+                if (!System.IO.File.Exists(filePath))
+                {
+                    TempData["Error"] = "指定されたファイルが見つかりません。管理者に確認してください。";
+                    return View("Error");
+                }
 
-        //////////        //帳票出力ロジックを実行
-        //////////        //帳票作成ディレクトリを取得
-        //////////        SelfDeclareSearchPrintBL bl = new SelfDeclareSearchPrintBL(Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile())));
-        //////////        //結果
-        //////////        //model.Down.DownloadPath = bl.Print(new string[] { value });
-        //////////        //model.Down.DownloadFlag = string.IsNullOrEmpty(model.Down.DownloadPath) ? false : true;
+                // ファイルをダウンロード
+                string fileName = Path.GetFileName(filePath);
 
-        //////////        ////表示
-        //////////        //return View((new SelfDeclareSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
-        //////////        //DL処理変更
-        //////////        var dlpath = bl.PrintCarrier(new string[] { value });
-        //////////        string mappath = Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile()) + dlpath);
-        //////////        string fileName = Path.GetFileName(mappath);
-        //////////        return File(mappath, "application/zip", fileName);
+                return File(filePath, "application/pdf", fileName);
 
-        //////////    } catch(Exception ex) {
-        //////////        //エラー
-        //////////        nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
-        //////////        TempData["Error"] = ex.ToString();
-        //////////        return View("Error");
-        //////////    } finally {
-        //////////        //終了
-        //////////        //2019-10-02 iwai-tamura add-str ------
-        //////////        CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"PDF出力終了","Career");
-        //////////        //2019-10-02 iwai-tamura add-end ------
 
-        //////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
-        //////////    }
-        //////////}
+            }
+            catch (Exception ex)
+            {
+                //エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            }
+            finally
+            {
+                //終了
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode), "PDF出力終了", "AtoC");
 
-        ///////////// <summary>
-        ///////////// 表示
-        ///////////// </summary>
-        ///////////// <returns></returns>
-        //////////[HttpPost]
-        //////////[ActionName("Search")]
-        //////////[ButtonHandler(ButtonName = "ViewD")]
-        ////////////[AcceptButton(ButtonName = "ViewD")]
-        //////////public ActionResult ViewDRedirect(YearEndAdjustmentSearchViewModels model, string value) {
-        //////////    try {
-        //////////        //開始
-        //////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
-
-        //////////        //2019-10-02 iwai-tamura add-str ------
-        //////////        CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"表示開始","D");
-        //////////        //2019-10-02 iwai-tamura add-end ------
-
-        //////////        //ログイン判定
-        //////////        if(!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
-
-        //////////        //2016-01-21 iwai-tamura add str -----
-        //////////        //検索条件セット
-        //////////        TempData["YearEndAdjustmentSearch"] = model.Search;
-        //////////        //2016-01-21 iwai-tamura add end -----
-
-        //////////        //詳細へ
-        //////////        var val = value.Split(',');
-
-        //////////        //自己申告書　Ｄ表登録画面へ
-        //////////        return RedirectToAction("Index", "SelfDeclareRegisterD", new { id = val[0] });
-
-        //////////    } catch(Exception ex) {
-        //////////        //エラー
-        //////////        nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
-        //////////        TempData["Error"] = ex.ToString();
-        //////////        return View("Error");
-        //////////    } finally {
-        //////////        //終了
-        //////////        //2019-10-02 iwai-tamura add-str ------
-        //////////        CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"表示終了","D");
-        //////////        //2019-10-02 iwai-tamura add-end ------
-
-        //////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
-        //////////    }
-        //////////}
-
-        ///////////// <summary>
-        ///////////// キャリアシート表示
-        ///////////// </summary>
-        ///////////// <returns></returns>
-        //////////[HttpPost]
-        //////////[ActionName("Search")]
-        //////////[ButtonHandler(ButtonName = "ViewCarrier")]
-        ////////////[AcceptButton(ButtonName = "ViewD")]
-        //////////public ActionResult ViewCarrierRedirect(YearEndAdjustmentSearchViewModels model, string value) {
-        //////////    try {
-        //////////        //開始
-        //////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
-
-        //////////        //2019-10-02 iwai-tamura add-str ------
-        //////////        CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"表示開始","Career");
-        //////////        //2019-10-02 iwai-tamura add-end ------
-
-        //////////        //ログイン判定
-        //////////        if(!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
-
-        //////////        //2016-01-21 iwai-tamura add str -----
-        //////////        //検索条件セット
-        //////////        TempData["YearEndAdjustmentSearch"] = model.Search;
-        //////////        //2016-01-21 iwai-tamura add end -----
-
-        //////////        //詳細へ
-        //////////        var val = value.Split(',');
-
-        //////////        //キャリアシート登録画面へ
-        //////////        return RedirectToAction("Index", "CareerSheetRegister", new { id = val[0], tableType = val[1] });
-
-        //////////    } catch(Exception ex) {
-        //////////        //エラー
-        //////////        nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
-        //////////        TempData["Error"] = ex.ToString();
-        //////////        return View("Error");
-        //////////    } finally {
-        //////////        //終了
-        //////////        //2019-10-02 iwai-tamura add-str ------
-        //////////        CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"表示終了","Career");
-        //////////        //2019-10-02 iwai-tamura add-end ------
-
-        //////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
-        //////////    }
-        //////////}
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        //2025-99-99 iwai-tamura upd-end ------
 
 
         /// <summary>
@@ -1000,9 +885,240 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             }
         }
 
+        //2025-99-99 iwai-tamura upd-str ------
+        /// <summary>
+        /// 一括承認（住宅控除）
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [ActionName("Search")]
+        [AcceptButton(ButtonName = "SignBatchJutaku")]
+        public ActionResult SignBatchJutaku(YearEndAdjustmentSearchViewModels model, string[] selPrint) {
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //住宅控除ボタン表示のみに絞る
+                selPrint = selPrint.Where(item => item.Split(',')[4] == "1").ToArray();
+
+                //対象選択エラーチェック
+                if (selPrint == null) {
+                    //エラー判定
+                    ModelState.AddModelError("", "確定対象を選択してください。");
+                    if ((string)Session["SearchType"] == "Main") {
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                    } else if ((string)Session["SearchType"] == "Sub") {
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                    }
+                    return View("Search", model);
+                }
+
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode), "一括承認開始", "");
+
+                //承認ロジックを実行
+                YearEndAdjustmentSearchBL bl = new YearEndAdjustmentSearchBL();
+
+                int cntTaget = selPrint.Length;                                         //選択した件数
+                int cntUpdate = bl.Sign("Jutaku",selPrint, (LoginUser)Session["LoginUser"]);     //承認処理：承認した件数を取得
+
+                //結果
+                //承認結果を表示するよう変更
+                TempData["Success"] = string.Format("{0}名中{1}名承認しました", cntTaget, cntUpdate);
+
+                //表示
+                if ((string)Session["SearchType"] == "Sub") {
+                    //「部下表示」ボタンにて検索した場合
+                    return View(bl.SubSearch(model, (LoginUser)Session["LoginUser"]));
+                } else {
+                    //「検索」ボタンにて検索した場合
+                    return View(bl.Search(model, (LoginUser)Session["LoginUser"]));
+                }
+            }
+            catch (Exception ex) {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            }
+            finally {
+                //終了
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode), "一括承認終了", "");
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
+        /// 一括承認（前職源泉）
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [ActionName("Search")]
+        [AcceptButton(ButtonName = "SignBatchZenshoku")]
+        public ActionResult SignBatchZenshoku(YearEndAdjustmentSearchViewModels model, string[] selPrint) {
+            try {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //住宅控除ボタン表示のみに絞る
+                selPrint = selPrint.Where(item => item.Split(',')[4] == "1").ToArray();
+
+                //対象選択エラーチェック
+                if (selPrint == null) {
+                    //エラー判定
+                    ModelState.AddModelError("", "確定対象を選択してください。");
+                    if ((string)Session["SearchType"] == "Main") {
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                    } else if ((string)Session["SearchType"] == "Sub") {
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                    }
+                    return View("Search", model);
+                }
+
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode), "一括承認開始", "");
+
+                //承認ロジックを実行
+                YearEndAdjustmentSearchBL bl = new YearEndAdjustmentSearchBL();
+
+                int cntTaget = selPrint.Length;                                         //選択した件数
+                int cntUpdate = bl.Sign("Zenshoku",selPrint, (LoginUser)Session["LoginUser"]);     //承認処理：承認した件数を取得
+
+                //結果
+                //承認結果を表示するよう変更
+                TempData["Success"] = string.Format("{0}名中{1}名承認しました", cntTaget, cntUpdate);
+
+                //表示
+                if ((string)Session["SearchType"] == "Sub") {
+                    //「部下表示」ボタンにて検索した場合
+                    return View(bl.SubSearch(model, (LoginUser)Session["LoginUser"]));
+                } else {
+                    //「検索」ボタンにて検索した場合
+                    return View(bl.Search(model, (LoginUser)Session["LoginUser"]));
+                }
+            }
+            catch (Exception ex) {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            }
+            finally {
+                //終了
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode), "一括承認終了", "");
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
 
 
+        /// <summary>
+        /// 住宅借入金等特別控除申告書 Excel作成
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [ActionName("Search")]
+        [AcceptButton(ButtonName = "PrintXlsJutaku")]
+        public ActionResult PrintXlsJutaku(YearEndAdjustmentSearchViewModels model, string[] selPrint)
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
 
+                //対象選択エラーチェック
+                if (selPrint == null)
+                {
+                    //エラー判定
+                    ModelState.AddModelError("", "出力対象を選択してください。");
+
+                    if ((string)Session["SearchType"] == "Main") {
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                    } else if ((string)Session["SearchType"] == "Sub") {
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                    }
+                    return View("Search", model);
+                }
+
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"Excel出力開始","住宅控除");
+
+                //帳票出力ロジックを実行
+                //帳票作成ディレクトリを取得
+                YearEndAdjustmentPrintBL bl = new YearEndAdjustmentPrintBL(Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile())));
+
+                //DL処理変更
+                var dlpath = bl.ExcelOutput(selPrint,"Jutaku");
+                string mappath = Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile()) + dlpath);
+                string fileName = Path.GetFileName(mappath);
+                return File(mappath, "application/zip", fileName);
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            }
+            finally
+            {
+                //終了
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"Excel出力終了","住宅控除");
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
+        /// 前職源泉徴収票 Excel作成
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [ActionName("Search")]
+        [AcceptButton(ButtonName = "PrintXlsZenshoku")]
+        public ActionResult PrintXlsZenshoku(YearEndAdjustmentSearchViewModels model, string[] selPrint)
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //対象選択エラーチェック
+                if (selPrint == null)
+                {
+                    //エラー判定
+                    ModelState.AddModelError("", "出力対象を選択してください。");
+
+                    if ((string)Session["SearchType"] == "Main") {
+                        return View("Search", (new YearEndAdjustmentSearchBL()).Search(model, (LoginUser)Session["LoginUser"]));
+                    } else if ((string)Session["SearchType"] == "Sub") {
+                        return View("Search", (new YearEndAdjustmentSearchBL()).SubSearch(model, (LoginUser)Session["LoginUser"]));
+                    }
+                    return View("Search", model);
+                }
+
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"Excel出力開始","住宅控除");
+
+                //帳票出力ロジックを実行
+                //帳票作成ディレクトリを取得
+                YearEndAdjustmentPrintBL bl = new YearEndAdjustmentPrintBL(Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile())));
+
+                //DL処理変更
+                var dlpath = bl.ExcelOutput(selPrint,"Zenshoku");
+                string mappath = Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile()) + dlpath);
+                string fileName = Path.GetFileName(mappath);
+                return File(mappath, "application/zip", fileName);
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            }
+            finally
+            {
+                //終了
+                CommonLog.WriteOperationLog((((LoginUser)Session["LoginUser"]).UserCode),"Excel出力終了","住宅控除");
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        //2025-99-99 iwai-tamura upd-end ------
 
         //2024-12-24 iwai-tamura upd-str ------
         /// <summary>

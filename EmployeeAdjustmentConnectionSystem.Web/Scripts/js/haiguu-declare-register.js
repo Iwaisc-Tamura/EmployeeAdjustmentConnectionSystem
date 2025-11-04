@@ -19,29 +19,40 @@ $(function () {
     //初回 入力制御
     $('#Head_SpouseDeduction_ResidentCheck').change()
 
+    //2025-99-99 iwai-tamura upd-str ------
+    $('#Head_SpecificRelativeSpecialDeduction01_ResidentCheck').change()
+    $('#Head_SpecificRelativeSpecialDeduction02_ResidentCheck').change()
+    $('#Head_SpecificRelativeSpecialDeduction03_ResidentCheck').change()
+    //2025-99-99 iwai-tamura upd-end ------
+
     //選択項目初期セット
     var obj = $('#BasicDeduction_CalcType_' + $('#Head_BasicDeduction_EarningsType').val());
     obj.prop("checked", true);
 
-    //2024-11-19 iwai-tamura upd-str ------
-    //本人定額減税対象
-    if ($('#Head_BasicDeduction_EarningsType').val() <= 4 && $('#Head_BasicDeduction_EarningsType').val()!='') {
-        $('#BasicDeduction_TaxReductionTargetView').prop("checked", true);
-    } else {
-        $('#BasicDeduction_TaxReductionTargetView').prop("checked", false);
-    }
-    //2024-11-19 iwai-tamura upd-end ------
+    //2025-99-99 iwai-tamura upd-str ------
+    ////2024-11-19 iwai-tamura upd-str ------
+    ////本人定額減税対象
+    //if ($('#Head_BasicDeduction_EarningsType').val() <= 4 && $('#Head_BasicDeduction_EarningsType').val()!='') {
+    //    $('#BasicDeduction_TaxReductionTargetView').prop("checked", true);
+    //} else {
+    //    $('#BasicDeduction_TaxReductionTargetView').prop("checked", false);
+    //}
+    ////2024-11-19 iwai-tamura upd-end ------
+    //2025-99-99 iwai-tamura upd-end ------
 
     obj = $('#SpouseDeduction_EarningsType_' + $('#Head_SpouseDeduction_EarningsType').val());
     obj.prop("checked", true);
-    //2024-11-19 iwai-tamura upd-str ------
-    //配偶者定額減税対象
-    if ($('#Head_SpouseDeduction_EarningsType').val() <= 2 && $('#Head_SpouseDeduction_EarningsType').val() != '') {
-        $('#SpouseDeduction_TaxReductionTargetView').prop("checked", true);
-    } else {
-        $('#SpouseDeduction_TaxReductionTargetView').prop("checked", false);
-    }
-    //2024-11-19 iwai-tamura upd-end ------
+
+    //2025-99-99 iwai-tamura upd-str ------
+    ////2024-11-19 iwai-tamura upd-str ------
+    ////配偶者定額減税対象
+    //if ($('#Head_SpouseDeduction_EarningsType').val() <= 2 && $('#Head_SpouseDeduction_EarningsType').val() != '') {
+    //    $('#SpouseDeduction_TaxReductionTargetView').prop("checked", true);
+    //} else {
+    //    $('#SpouseDeduction_TaxReductionTargetView').prop("checked", false);
+    //}
+    ////2024-11-19 iwai-tamura upd-end ------
+    //2025-99-99 iwai-tamura upd-end ------
 
     obj = $('#AdjustmentDeduction_ConditionType_' + $('#Head_AdjustmentDeduction_ConditionType').val());
     obj.prop("checked", true);
@@ -322,17 +333,18 @@ function calcBasicDeduction() {
     $("#Head_BasicDeduction_DeductionAmount").val(intDeductionAmount);
     $("#BasicDeduction_CalcType_" + strEarningsType).prop("checked", true);
 
-    //2024-11-19 iwai-tamura upd-str ------
-    //本人定額減税対象
-    if (strEarningsType <= 4 && strEarningsType != '') {
-        $("#Head_BasicDeduction_TaxReductionTarget").val("1");
-        $('#BasicDeduction_TaxReductionTargetView').prop("checked", true);
-    } else {
-        $("#Head_BasicDeduction_TaxReductionTarget").val("");
-        $('#BasicDeduction_TaxReductionTargetView').prop("checked", false);
-    }
-    //2024-11-19 iwai-tamura upd-end ------
-
+    //2025-99-99 iwai-tamura upd-str ------
+    ////2024-11-19 iwai-tamura upd-str ------
+    ////本人定額減税対象
+    //if (strEarningsType <= 4 && strEarningsType != '') {
+    //    $("#Head_BasicDeduction_TaxReductionTarget").val("1");
+    //    $('#BasicDeduction_TaxReductionTargetView').prop("checked", true);
+    //} else {
+    //    $("#Head_BasicDeduction_TaxReductionTarget").val("");
+    //    $('#BasicDeduction_TaxReductionTargetView').prop("checked", false);
+    //}
+    ////2024-11-19 iwai-tamura upd-end ------
+    //2025-99-99 iwai-tamura upd-end ------
     bolReturn = true;
     return bolReturn;
 }
@@ -374,18 +386,33 @@ function calcSpouseDeduction(varArt) {
     var intDeductionAmount = null;
     var intSpDeductionAmount = null;
     var strBasicDeductionEarningsType = $('#Head_BasicDeduction_EarningsType').val();
+    //2025-99-99 iwai-tamura upd-str ------
     var aryCalcTable = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 48, 38, 38, 36, 31, 26, 21, 16, 11, 6, 3],
+        [0, 48, 38, 38, 36, 31, 26, 21, 16, 11, 6, 3],
+        [0, 48, 38, 38, 36, 31, 26, 21, 16, 11, 6, 3],
+        [0, 48, 38, 38, 36, 31, 26, 21, 16, 11, 6, 3],
         [0, 48, 38, 38, 36, 31, 26, 21, 16, 11, 6, 3],
         [0, 32, 26, 26, 24, 21, 18, 14, 11, 8, 4, 2],
         [0, 16, 13, 13, 12, 11, 9, 7, 6, 4, 2, 1],
     ]
+    //var aryCalcTable = [
+    //    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //    [0, 48, 38, 38, 36, 31, 26, 21, 16, 11, 6, 3],
+    //    [0, 32, 26, 26, 24, 21, 18, 14, 11, 8, 4, 2],
+    //    [0, 16, 13, 13, 12, 11, 9, 7, 6, 4, 2, 1],
+    //]
+    //2025-99-99 iwai-tamura upd-end ------
 
     //基礎控除チェック
+    //2025-99-99 iwai-tamura upd-str ------
     //2024-11-19 iwai-tamura upd-str ------
-    if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "5") {
-    //if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "4") {
+    if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "8") {
+    //if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "5") {
+    ////if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "4") {
     //2024-11-19 iwai-tamura upd-end ------
+    //2025-99-99 iwai-tamura upd-end ------
         strMessage = "基礎控除の計算がされていない。もしくは適用外なので計算できません。";
         if (varArt) { alert(strMessage) };
         return true
@@ -469,17 +496,22 @@ function calcSpouseDeduction(varArt) {
     $("#Head_SpouseDeduction_EarningsType").val(strEarningsType);
     $("#SpouseDeduction_EarningsType_" + strEarningsType).prop("checked", true);
 
+    //2025-99-99 iwai-tamura upd-str ------
     //基礎控除申告書　区分IがDの時
-    if (strEarningsType <= 2 && strEarningsType != '') {
-        $("#Head_SpouseDeduction_TaxReductionTarget").val("1");
-        $('#SpouseDeduction_TaxReductionTargetView').prop("checked", true);
-    } else {
-        $("#Head_SpouseDeduction_TaxReductionTarget").val("");
-        $('#SpouseDeduction_TaxReductionTargetView').prop("checked", false);
-    }
+    //if (strEarningsType <= 2 && strEarningsType != '') {
+    //    $("#Head_SpouseDeduction_TaxReductionTarget").val("1");
+    //    $('#SpouseDeduction_TaxReductionTargetView').prop("checked", true);
+    //} else {
+    //    $("#Head_SpouseDeduction_TaxReductionTarget").val("");
+    //    $('#SpouseDeduction_TaxReductionTargetView').prop("checked", false);
+    //}
+    //2025-99-99 iwai-tamura upd-end ------
 
-    //基礎控除申告書　区分IがDの時判定のみ行う
-    if (strBasicDeductionEarningsType >= "4") {
+    //基礎控除申告書　区分IがA～Cの時判定のみ行う
+    //2025-99-99 iwai-tamura upd-str ------
+    if (strBasicDeductionEarningsType >= "8") {
+    //if (strBasicDeductionEarningsType >= "4") {
+    //2025-99-99 iwai-tamura upd-end ------
         bolReturn = true;
         return bolReturn;
     }
@@ -694,13 +726,20 @@ function calcSpecificRelativeSpecialDeduction(id, varArt) {
         strMessage = "特定親族の生年月日が不正です。確認してください。";
         alert(strMessage);
 
+        return bolReturn;
+    }
+
+    if (strYear == "") {
+        strMessage = "特定親族の生年月日が入力されていないので計算できません。確認してください。";
+        if (varArt) { alert(strMessage) };
         return true;
     }
+
     var strDate = strYear + strMonth + strDay;
     if ((strDate > cDate19) || (strDate <= cDate23)) {
         strMessage = "特定親族の生年月日が不正です。確認してください。";
         alert(strMessage);
-        return true;
+        return bolReturn;
     }
 
     //金額チェック
@@ -714,12 +753,12 @@ function calcSpecificRelativeSpecialDeduction(id, varArt) {
             //58万円超123万円以下の場合のみ、特定親族
             strMessage = "所得金額の計算がされていない。もしくは適用外なので計算できません。";
             if (varArt) { alert(strMessage) };
-            return true
+            return bolReturn;
         }
     } else {
         strMessage = "所得金額の計算がされていない。もしくは適用外なので計算できません。";
         if (varArt) { alert(strMessage) };
-        return true
+        return bolReturn;
     }
 
     //特別控除額の計算
@@ -1211,6 +1250,11 @@ function checkAll() {
 function checkAllCalc() {
     if (!calcBasicDeduction(false)) { return false }
     if (!calcSpouseDeduction(false)) { return false }
+    //2025-99-99 iwai-tamura upd-str ------
+    if (!calcSpecificRelativeSpecialDeduction('01', false)) { return false }
+    if (!calcSpecificRelativeSpecialDeduction('02', false)) { return false }
+    if (!calcSpecificRelativeSpecialDeduction('03', false)) { return false }
+    //2025-99-99 iwai-tamura upd-end ------
     return true;
 }
 

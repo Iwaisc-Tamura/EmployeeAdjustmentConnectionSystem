@@ -96,6 +96,7 @@ input[type=radio] {
   width:200px;
   text-align:  center;
 }
+
 input[type="radio"]:checked + label {
   background: #31A9EE;/* マウス選択時の背景色を指定する */
   color: #ffffff; /* マウス選択時のフォント色を指定する */
@@ -104,7 +105,7 @@ input[type="radio"]:checked + label {
 input[type=radio] + label[disabled] {
   border: 1px solid #000;/* ラベルの境界線を実線で指定する */
   background: #fff;/* マウス選択時の背景色を指定する */
-  color: #555; /* マウス選択時のフォント色を指定する */
+  color: #aaa; /* マウス選択時のフォント色を指定する */
   pointer-events:none;
 }
 input[type="radio"]:checked + label[disabled] {

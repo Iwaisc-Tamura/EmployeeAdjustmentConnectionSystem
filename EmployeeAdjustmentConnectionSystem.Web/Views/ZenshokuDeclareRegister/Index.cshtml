@@ -129,7 +129,7 @@
     var TextWord1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "5" } };
     var TextWord9 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "50" }, { "style", "width:90%;" } };
     var TextWordMax = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "50" }, { "style", "width:100%;" } };
-    var TextArea1 = new Dictionary<string, object>() { { "class", "form-control select-other"}, { "rows", "4" }, { "maxlength", "500" }, { "style", "width:90%;height:100px;" }  };
+    var TextArea1 = new Dictionary<string, object>() { { "class", "form-control select-other"}, { "rows", "4" }, { "maxlength", "100" }, { "style", "width:90%;height:100px;" }  };
 
     var TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney(this,99999999)" } };
     var TextNumber1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "1" }, { "style", "width:30px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
@@ -328,7 +328,10 @@
     var DepartmentNo = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "5" }, { "style", "width:60px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
     var attrRadio1_1 = new Dictionary<string, object>() { { "name", "attrRadio1" }, { "id", "select_radio1" } };
     var attrRadio1_2 = new Dictionary<string, object>() { { "name", "attrRadio1" }, { "id", "select_radio2" } };
-    var BasicDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    var BasicDeduction_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    var BasicDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "7" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    var CompanyName_TextWord = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "25" }, { "style", "width:75%;" } };
+    var CompanyAddress_TextWord = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "40" }, { "style", "width:90%;" } };
 
     <div class="row">
         <div class="col-xs-8">
@@ -419,10 +422,10 @@
                 <tbody>
                     <tr>
                         <td colspan="1" class="content-label-b1">支払金額</td>
-                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.PaymentAmount, BasicDeduction_TextMoney2) 円<span class="required">※必須</span><div id="Head_PaymentAmount_mes" class="check-comment"></div></td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.PaymentAmount, BasicDeduction_TextMoney1) 円<span class="required">※必須</span><div id="Head_PaymentAmount_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
-                        <td colspan="1" class="content-label-b1">社会保険料等金額</td>
+                        <td colspan="1" class="content-label-b1">社会保険料等の金額</td>
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SocialInsuranceAmount, BasicDeduction_TextMoney2) 円<span class="required">※必須</span><div id="Head_SocialInsuranceAmount_mes" class="check-comment"></div></td>
                     </tr>
                     <tr>
@@ -432,13 +435,13 @@
                     <tr>
                         <td colspan="1" class="content-label-b1">会社名</td>
                         <td colspan="6" class="form-inline">
-                            @Html.TextBoxFor(m => m.Head.CompanyName, TextWord9)<span class="required">※必須</span>
+                            @Html.TextBoxFor(m => m.Head.CompanyName, CompanyName_TextWord)<span class="required">※必須</span>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="1" class="content-label-b1">会社住所</td>
                         <td colspan="6" class="form-inline">
-                            @Html.TextBoxFor(m => m.Head.CompanyAddress, TextWord9)<span class="required">※必須</span>
+                            @Html.TextBoxFor(m => m.Head.CompanyAddress, CompanyAddress_TextWord)<span class="required">※必須</span>
                         </td>
                     </tr>
                     <tr>
@@ -461,6 +464,18 @@
 
                 </tbody>
             </table>
+            <span class="cautionary-note">
+                　<br />
+                　<span class="cautionary-note-mark">※</span><span class="cautionary-note-title">当年中に給与の支払いを受けた前職が2社以上ある場合</span><br />
+                　 「支払金額」「社会保険料等の金額」「源泉徴収額」は全ての会社の合計額を記載してください。<br />
+                　　<br />
+                　 「会社名」「会社住所」「退職日」は直近の会社のものを記載した上で、その他の会社の情報を以下のフォーマットで<br />
+                　　備考欄に記載してください。<br />
+                　　<br />
+                　 「会社名/会社住所/退職日/その会社の支払金額/その会社の社会保険料等/その会社の源泉徴収額」<br />
+            </span>
+
+
         </div>
     </div>
 
