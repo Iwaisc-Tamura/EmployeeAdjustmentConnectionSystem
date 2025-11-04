@@ -470,6 +470,81 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
 
         //2025-99-99 iwai-tamura upd-str ------
         /// <summary>
+        /// 過去帳票印刷
+        /// </summary>
+        /// <param name="value">印刷キー名</param>
+        [ActionName("Link")]
+        [ButtonHandler(ButtonName = "PrintHistory")]
+        public ActionResult PrintHistory(TopViewModel model,string value, string specifyEmployeeNo = "")
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //ログイン判定
+                if (!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
+
+                //セッション全削除判定 ログアウトボタンのみセッション削除
+                if ("Login".Equals(value)) Session.RemoveAll();
+
+                LoginUser lu = (LoginUser)Session["LoginUser"];
+                var strInputNo = "";
+                if (specifyEmployeeNo == "")
+                {
+                    strInputNo = lu.UserCode;
+                }
+                else
+                {
+                    strInputNo = specifyEmployeeNo;
+                }
+
+
+                ViewBag.ServerStatus = lu.IsServerStatus;
+
+                //帳票出力ロジックを実行
+                //帳票作成ディレクトリを取得
+                YearEndAdjustmentPrintBL bl = new YearEndAdjustmentPrintBL(Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile())));
+
+                //DL処理変更
+                string dlpath = null;
+                switch (model.HistoryPrintType) {
+                    case "Huyou":
+                        dlpath = bl.PrintHuyouDeclare(new string[] { String.Join(",",model.HistoryYear, strInputNo ) });
+                        break;
+
+                    case "Hoken":
+                        dlpath = bl.PrintHokenDeclare(new string[] { String.Join(",",model.HistoryYear, strInputNo ) });
+                        break;
+
+                    case "Haiguu":
+                        dlpath = bl.PrintHaiguuDeclare(new string[] { String.Join(",",model.HistoryYear, strInputNo ) });
+                        break;
+                    default:
+                        TempData["Error"] = "無効なコードです。";
+                        return View("Error");
+                }
+
+                string mappath = Server.MapPath(this.GetTempDir(WebConfig.GetConfigFile()) + dlpath);
+                string fileName = Path.GetFileName(mappath);
+                return File(mappath, "application/zip", fileName);
+
+            }
+            catch (Exception ex)
+            {
+                //エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Confirmation"] = string.Format("データがありません。");
+                return View("Index", model);
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
         /// 扶養控除申告書添付ファイルアップロード
         /// </summary>
         /// <param name="model"></param>
@@ -506,12 +581,14 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 TopBL bl = new TopBL();
                 bool isSuccess = bl.UploadHuyouAttachmentFilePath(lu.IsYear,strInputNo,strFileName,bolAdminMode);
 
+                model.HuyouDecisionType = bl.GetHuyouStatus(lu.IsYear,strInputNo,bolAdminMode);
                 model.HuyouAttachmentFilePath = bl.GetHuyouAttachmentFilePath(lu.IsYear,strInputNo,bolAdminMode);
 
                 TempData["Confirmation"] = string.Format("ファイルをアップロードしました。");
 
                 ViewBag.ServerStatus = lu.IsServerStatus;
-                return View("Index", model);
+                
+                return RedirectToAction("Index");
 
             }
             catch (Exception ex)
@@ -649,12 +726,13 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 }
 
                 // 成功メッセージ
+                model.HuyouDecisionType = bl.GetHuyouStatus(lu.IsYear,strInputNo,bolAdminMode);
                 model.HuyouAttachmentFilePath = bl.GetHuyouAttachmentFilePath(lu.IsYear,strInputNo,bolAdminMode);
 
                 TempData["Confirmation"] = "ファイルを削除しました。";
 
                 ViewBag.ServerStatus = lu.IsServerStatus;
-                return View("Index", model);
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {

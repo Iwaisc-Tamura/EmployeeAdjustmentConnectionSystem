@@ -44,7 +44,11 @@ namespace EmployeeAdjustmentConnectionSystem.Bl.Top {
                 }
                 //ログイン情報取得
                 var lu = (LoginUser)HttpContext.Current.Session["LoginUser"];
+                //2025-99-99 iwai-tamura upd-str ------
+                top.HuyouDecisionType = GetHuyouStatus(lu.IsYear,lu.UserCode);
                 top.HuyouAttachmentFilePath = GetHuyouAttachmentFilePath(lu.IsYear,lu.UserCode);
+                //2025-99-99 iwai-tamura upd-end ------
+
 
                 //2017-08-31 iwai-tamura upd-str ------
                 //未承認データ確認
@@ -82,6 +86,42 @@ namespace EmployeeAdjustmentConnectionSystem.Bl.Top {
 
         //2025-99-99 iwai-tamura upd-str ------
         /// <summary>
+        /// 扶養控除申告書 管理者確定区分取得
+        /// </summary>
+        public string GetHuyouStatus(int? intSheetYear,string strEmployeeNo,bool bolAdminMode = false) {
+            //開始
+            nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+            try {
+                var strStatus = "";
+
+			    //添付ファイルデータを取得
+			    var sql = "";
+			    sql = " SELECT  "
+				    + "   管理者確定区分 "
+				    + " FROM TE100扶養控除申告書Data "
+				    + " WHERE 1 = 1"
+				    + "   AND 対象年度 = " + intSheetYear
+				    + "   AND 社員番号 = '" + strEmployeeNo +"'";
+                using(DbManager dm = new DbManager())
+                using(IDbCommand cmd = dm.CreateCommand(sql))
+                using(IDataReader reader = cmd.ExecuteReader()) {
+                    while(reader.Read()) {
+                        strStatus = reader["管理者確定区分"].ToString();
+                    }
+                }
+                return strStatus;
+            } catch(Exception ex) {
+                //エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                return "";
+            } finally {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
         /// 扶養控除申告書 添付ファイルデータ取得
         /// </summary>
         public string GetHuyouAttachmentFilePath(int? intSheetYear,string strEmployeeNo,bool bolAdminMode = false) {
@@ -93,7 +133,10 @@ namespace EmployeeAdjustmentConnectionSystem.Bl.Top {
 
 			    //添付ファイルデータを取得
 			    var sql = "";
-			    sql = " SELECT 添付FileName "
+			    sql = " SELECT  "
+				    + "   添付FileName "
+				    + "   ,本人確定区分 "
+				    + "   ,管理者確定区分 "
 				    + " FROM TE100扶養控除申告書Data "
 				    + " WHERE 1 = 1"
 				    + "   AND 対象年度 = " + intSheetYear

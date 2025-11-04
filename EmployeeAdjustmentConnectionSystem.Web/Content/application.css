@@ -267,6 +267,18 @@ textarea.form-control-ta {
   height: auto;
 }
 
+/*2025-99-99 iwai-tamura add-str ------*/
+/* table内で行毎にズレるのを防止 */
+.scrollTable.table-striped > tbody > tr:nth-child(odd) {
+	background-color: #f9f9f9 !important; /* Bootstrapのデフォルト色 */
+}
+
+.scrollTable.table-striped > tbody > tr:nth-child(even) {
+	background-color: #ffffff !important; /* 偶数行 */
+}
+/*2025-99-99 iwai-tamura add-end ------*/
+
+
 /*テーブルスクロール用*/
 table.scrollTable {
   height: 300px;
@@ -282,7 +294,11 @@ table.scrollTable {
   overflow-y: scroll;
   overflow-x: hidden;
   height: 300px;
-  width: 100%;
+
+  /*2025-99-99 iwai-tamura add-str ------*/
+  width: calc(100% - 5px);
+  /*width: 100%;*/
+  /*2025-99-99 iwai-tamura add-end ------*/
   position: absolute;
 }
 /*テーブルスクロール用幅*/
@@ -293,8 +309,8 @@ table.scrollTable {
 /*検索結果テーブルヘッダ用*/
 .sch-th{
   padding-bottom: 4px; 
-  padding-left: 4px; 
-  padding-right: 4px; 
+  padding-left: 0px; 
+  padding-right: 0px; 
   padding-top: 4px; 
   text-align: center;
 }

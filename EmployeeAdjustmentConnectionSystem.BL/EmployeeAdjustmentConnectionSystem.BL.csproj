@@ -410,12 +410,6 @@
       <DependentUpon>HuyouDeclareReport_2024.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="YearEndAdjustmentReports\HuyouDeclareReport_2025_before.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HuyouDeclareReport_2025_before.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="YearEndAdjustmentReports\YearEndAdjustmentPrintBL.cs" />
     <Compile Include="YearEndAdjustmentSearch\YearEndAdjustmentSearchBL.cs" />
     <Compile Include="ZenshokuDeclareRegister\ZenshokuDeclareRegisterBL.cs" />
@@ -722,10 +716,6 @@
     <EmbeddedResource Include="YearEndAdjustmentReports\HuyouDeclareReport_2024.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>HuyouDeclareReport_2024.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="YearEndAdjustmentReports\HuyouDeclareReport_2025_before.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>HuyouDeclareReport_2025_before.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

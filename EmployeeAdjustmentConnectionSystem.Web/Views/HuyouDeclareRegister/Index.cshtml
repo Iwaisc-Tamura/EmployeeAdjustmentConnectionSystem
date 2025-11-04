@@ -141,6 +141,10 @@
     //共通入力モード
     var TextName = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "50" }, { "style", "width:100px;" } };
     var TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana" }, { "maxlength", "50" }, { "style", "width:100px;" } };
+    //2025-99-99 iwai-tamura upd-str ------
+    var TextAddress1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "15" }, { "style", "width:45%;" } };
+    var TextAddress2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "14" }, { "style", "width:45%;" } };
+    //2025-99-99 iwai-tamura upd-end ------
     var TextWord1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "5" } };
     var TextWordMax = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     var TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "20" }, { "type", "number" } };
@@ -254,11 +258,7 @@
                             new SelectListItem() { Value="81", Text="81:叔父" },
                             new SelectListItem() { Value="82", Text="82:叔母" },
                             new SelectListItem() { Value="83", Text="83:甥" },
-                            new SelectListItem() { Value="84", Text="84:姪" },
-                            new SelectListItem() { Value="90", Text="90:*" },
-                            new SelectListItem() { Value="91", Text="91:*" },
-                            new SelectListItem() { Value="92", Text="92:*" },
-                            new SelectListItem() { Value="93", Text="93:*" }
+                            new SelectListItem() { Value="84", Text="84:姪" }
             };
     //続柄リスト　16歳未満の扶養親族
     var familyItemsC = new SelectListItem[] {
@@ -293,11 +293,7 @@
                             new SelectListItem() { Value="77", Text="77:義弟" },
                             new SelectListItem() { Value="78", Text="78:義妹" },
                             new SelectListItem() { Value="83", Text="83:甥" },
-                            new SelectListItem() { Value="84", Text="84:姪" },
-                            new SelectListItem() { Value="90", Text="90:*" },
-                            new SelectListItem() { Value="91", Text="91:*" },
-                            new SelectListItem() { Value="92", Text="92:*" },
-                            new SelectListItem() { Value="93", Text="93:*" }
+                            new SelectListItem() { Value="84", Text="84:姪" }
             };
     //2023-11-20 iwai-tamura upd end -----
 
@@ -575,13 +571,19 @@
                     </tr>
                     @*2025-99-99 iwai-tamura upd-end ------*@
                     <tr>
-                        <td colspan="2" class="content-label-b1">住所又は居所</td>
+                        @*2025-99-99 iwai-tamura upd-str ------*@
+                        <td colspan="2" class="content-label-b1">住民票上の住所</td>
+                        @*<td colspan="2" class="content-label-b1">住所又は居所</td>*@
+                        @*2025-99-99 iwai-tamura upd-end ------*@
                         <td colspan="6" class="form-inline">
                             郵便番号<span class="required">※必須</span><br/>
                             @Html.TextBoxFor(m => m.Head.PostalCode_1, TextPost1)‐@Html.TextBoxFor(m => m.Head.PostalCode_2, TextPost2)<br/>
-                            住所又は居所<br />
-                            @Html.TextBoxFor(m => m.Head.Address, TextWordMax)<br />
-                            @Html.TextBoxFor(m => m.Head.Address02, TextWordMax)<br />
+                            @*2025-99-99 iwai-tamura upd-str ------*@
+                            住所  <span style="font-size: 12px; border: none;">＊都道府県から入力</span><br />
+                            @*住所又は居所<br />*@
+                            @*2025-99-99 iwai-tamura upd-end ------*@
+                            @Html.TextBoxFor(m => m.Head.Address, TextAddress1)<br />
+                            @Html.TextBoxFor(m => m.Head.Address02, TextAddress2)<br />
                         </td>
                     </tr>
                     <tr>
@@ -984,11 +986,11 @@
                         <td colspan="6" class="form-inline">
                             @*2025-99-99 iwai-tamura upd-str ------*@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_SpecificType, "0", attrRadioB1_2_1)
-                            <label class="radio-label-2 input-control " for="select_radioB1_2_1" disabled="disabled">該当しない</label>
+                            <label class="radio-label-3 input-control " for="select_radioB1_2_1" disabled="disabled">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_SpecificType, "1", attrRadioB1_2_2)
-                            <label class="radio-label-2 input-control " for="select_radioB1_2_2" disabled="disabled">特定扶養親族</label>
+                            <label class="radio-label-3 input-control " for="select_radioB1_2_2" disabled="disabled">特定扶養親族</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_SpecificType, "2", attrRadioB1_2_3)
-                            <label class="radio-label-2 input-control " for="select_radioB1_2_3" disabled="disabled">特定親族</label>
+                            <label class="radio-label-3 input-control " for="select_radioB1_2_3" disabled="disabled">特定親族</label>
                             @*@Html.RadioButtonFor(m => m.Head.DependentsOver16_1_SpecificType, "0", attrRadioB1_2_1)
                             <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_2_1">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_SpecificType, "1", attrRadioB1_2_2)

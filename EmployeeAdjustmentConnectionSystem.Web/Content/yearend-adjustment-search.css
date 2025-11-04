@@ -83,6 +83,40 @@ button.btn-batch:hover {
     background: #E0E0E0;
 }
 
+/*2025-99-99 iwai-tamura add-str ------*/
+/* アップロードアイコン */
+.col-icon-upload {
+    padding-left: 0 !important;
+    margin-left: -0px; /* PDFボタンとの隙間を微調整（お好みで） */
+}
+/* 透明ボタン化 */
+.btn-icon {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    padding: 3px 0 0 0;
+}
+/* マウスオーバー時の変化削除 */
+.btn-icon:hover,
+.btn-icon:focus,
+.btn-icon:active {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.btn-icon img {
+    height: 15px;
+    opacity: 0.6;
+}
+
+.btn-icon:hover img {
+    opacity: 1;
+}
+/*2025-99-99 iwai-tamura add-end ------*/
 
 
 
