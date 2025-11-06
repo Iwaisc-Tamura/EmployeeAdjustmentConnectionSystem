@@ -85,7 +85,6 @@
 
     @Html.HiddenFor(m => m.Head.SheetYear)
     @Html.HiddenFor(m => m.Head.EmployeeNo)
-    @Html.HiddenFor(m => m.Head.DepartmentNo)
     @Html.HiddenFor(m => m.Head.ApprovalType)
     @Html.HiddenFor(m => m.Head.DecisionType)
     @Html.HiddenFor(m => m.Head.InputMode)
@@ -437,6 +436,9 @@
     var BasicDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
     //var BasicDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
     @*2024-11-19 iwai-tamura upd-end ------*@
+    @*2025-99-99 iwai-tamura upd-str ------*@
+    var BasicDeduction_TextMoney3 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
+    @*2025-99-99 iwai-tamura upd-end ------*@
     var SpouseDeduction_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney(this,99999999)" } };
     @*2024-11-19 iwai-tamura upd-str ------*@
     var SpouseDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
@@ -556,7 +558,10 @@
                         <td rowspan="2" colspan="1" class="content-label-b1">給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         <td colspan="6" class="form-inline">
-                            @Html.TextBoxFor(m => m.Head.BasicDeduction_Earnings, BasicDeduction_TextMoney2) 円<div id="Head_BasicDeduction_Earnings_mes" class="check-comment"></div>
+                            @*2025-99-99 iwai-tamura upd-str ------*@
+                            @Html.TextBoxFor(m => m.Head.BasicDeduction_Earnings, BasicDeduction_TextMoney3) 円<div id="Head_BasicDeduction_Earnings_mes" class="check-comment"></div>
+                            @*@Html.TextBoxFor(m => m.Head.BasicDeduction_Earnings, BasicDeduction_TextMoney2) 円<div id="Head_BasicDeduction_Earnings_mes" class="check-comment"></div>*@
+                            @*2025-99-99 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -944,7 +949,6 @@
                             @Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction01_Address, TextWordMax)
                         </td>
                     </tr>
-
 
                     <tr>
                         <td rowspan="2" colspan="1" class="content-label-b1">特定親族の<br>給与所得</td>
