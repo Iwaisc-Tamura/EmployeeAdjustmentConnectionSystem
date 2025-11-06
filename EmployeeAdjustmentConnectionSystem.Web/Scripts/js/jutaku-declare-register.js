@@ -215,7 +215,6 @@ function checkAll() {
         if (document.getElementById(value).value == "") {
             message = '必須項目が入力されていません。<br/>確認してください。';
         }
-
     })
 
     ///住宅借入金等特別控除申告書チェック

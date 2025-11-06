@@ -241,7 +241,7 @@ $('#dmyprintxls_zenshoku').click(function () {
         showMessage('選択', '対象者が１件も選択されていません。<br>対象者を選択してください。');
         return false;
     }
-    showMessage('一括出力', 'エクセルデータをしますか？', 'printxls_zenshoku_button', false);
+    showMessage('一括出力', 'エクセルデータを出力しますか？', 'printxls_zenshoku_button', false);
 });
 //2025-99-99 iwai-tamura upd-end ------
 

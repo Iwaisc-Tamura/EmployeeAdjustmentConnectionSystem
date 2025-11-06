@@ -65,6 +65,11 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         public bool AdminMode { get; set; }
 
 		/// <summary>
+		/// 管理区分
+		/// </summary>
+		public string AdminNo { get; set; }
+
+		/// <summary>
 		/// 対象年度
 		/// </summary>
 		public int? SheetYear { get; set; }

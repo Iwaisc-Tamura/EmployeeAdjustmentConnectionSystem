@@ -1,4 +1,5 @@
 ﻿@using EmployeeAdjustmentConnectionSystem.COM.Util.Convert
+@using EmployeeAdjustmentConnectionSystem.COM.Entity.Session
 @using EmployeeAdjustmentConnectionSystem.COM.Enum
 @using EmployeeAdjustmentConnectionSystem.COM.Models
 @model JutakuDeclareRegisterViewModels
@@ -77,7 +78,6 @@
 
     @Html.HiddenFor(m => m.Head.SheetYear)
     @Html.HiddenFor(m => m.Head.EmployeeNo)
-    @Html.HiddenFor(m => m.Head.DepartmentNo)
     @Html.HiddenFor(m => m.Head.CreateType)
     @Html.HiddenFor(m => m.Head.ApprovalType)
     @Html.HiddenFor(m => m.Head.DecisionType)
@@ -113,8 +113,11 @@
             @if (Model.Head.InputMode == ajustMode.adminRegist) {
                 <button type="button" name="DmySignCancel" value="保存取消" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmySignCancel">確定取消</button>
             }
-            @if (Model.Head.CreateType == "1" && Model.Head.AdminMode == true && Model.Head.ApprovalType == "0") {
-                <button type="button" name="DmyDataDelete" value="削除" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmyDataDelete">データ削除</button>
+            @if (Model.Head.CreateType == "1"
+                && Model.Head.AdminMode == true
+                && Model.Head.ApprovalType == "0"
+                && (((LoginUser)Session["LoginUser"]).IsAdminNo == "K" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "1" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "7" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "8" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "9")){
+                <button type="button" name="DmyDataDelete" value="削除" class="pull-left  btn-info" style="margin:0 5px 10px 0;" id="dmyDataDelete">削除(管理者)</button>
             }
         </div>
     </div>

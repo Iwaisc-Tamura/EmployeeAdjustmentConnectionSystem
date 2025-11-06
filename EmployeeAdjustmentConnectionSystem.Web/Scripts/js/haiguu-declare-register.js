@@ -753,12 +753,12 @@ function calcSpecificRelativeSpecialDeduction(id, varArt) {
             //58万円超123万円以下の場合のみ、特定親族
             strMessage = "所得金額の計算がされていない。もしくは適用外なので計算できません。";
             if (varArt) { alert(strMessage) };
-            return bolReturn;
+            return true;
         }
     } else {
         strMessage = "所得金額の計算がされていない。もしくは適用外なので計算できません。";
         if (varArt) { alert(strMessage) };
-        return bolReturn;
+        return true;
     }
 
     //特別控除額の計算
@@ -1208,6 +1208,11 @@ function checkAll() {
     })
 
 
+
+
+
+
+
     //2023-11-20 iwai-tamura upd-str ------
     //配偶者控除等申告書
     //入力項目チェック
@@ -1223,6 +1228,44 @@ function checkAll() {
         }
     }
     //2023-11-20 iwai-tamura upd-end ------
+
+    //2025-99-99 iwai-tamura upd-str ------
+    if (document.getElementById("Head_SpecificRelativeSpecialDeduction01_Name1").value != ""
+       || document.getElementById("Head_SpecificRelativeSpecialDeduction01_Name2").value != "") {
+        if (document.getElementById("Head_SpecificRelativeSpecialDeduction01_Name1").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction01_Name2").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction01_Kana1").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction01_Kana2").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction01_BirthdayYear").value == ""
+        ) {
+            message = '給与所得者の特定親族特別控除申告書 1<br/>を入力する際の必須項目が入力されていません。<br/>確認してください。';
+        }
+    }
+
+    if (document.getElementById("Head_SpecificRelativeSpecialDeduction02_Name1").value != ""
+        || document.getElementById("Head_SpecificRelativeSpecialDeduction02_Name2").value != "") {
+        if (document.getElementById("Head_SpecificRelativeSpecialDeduction02_Name1").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction02_Name2").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction02_Kana1").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction02_Kana2").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction02_BirthdayYear").value == ""
+        ) {
+            message = '給与所得者の特定親族特別控除申告書 2<br/>を入力する際の必須項目が入力されていません。<br/>確認してください。';
+        }
+    }
+
+    if (document.getElementById("Head_SpecificRelativeSpecialDeduction03_Name1").value != ""
+        || document.getElementById("Head_SpecificRelativeSpecialDeduction03_Name2").value != "") {
+        if (document.getElementById("Head_SpecificRelativeSpecialDeduction03_Name1").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction03_Name2").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction03_Kana1").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction03_Kana2").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction03_BirthdayYear").value == ""
+        ) {
+            message = '給与所得者の特定親族特別控除申告書 3<br/>を入力する際の必須項目が入力されていません。<br/>確認してください。';
+        }
+    }
+    //2025-99-99 iwai-tamura upd-end ------
 
 
     ////選択項目チェック
@@ -1254,11 +1297,43 @@ function checkAllCalc() {
     if (!calcSpecificRelativeSpecialDeduction('01', false)) { return false }
     if (!calcSpecificRelativeSpecialDeduction('02', false)) { return false }
     if (!calcSpecificRelativeSpecialDeduction('03', false)) { return false }
+
+    if (document.getElementById("Head_SpecificRelativeSpecialDeduction01_Name1").value != ""
+        || document.getElementById("Head_SpecificRelativeSpecialDeduction01_Name2").value != ""
+        || document.getElementById("Head_SpecificRelativeSpecialDeduction01_SpecialDeductionAmount").value != "") {
+        if (document.getElementById("Head_SpecificRelativeSpecialDeduction01_Name1").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction01_Name2").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction01_SpecialDeductionAmount").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction01_SpecialDeductionAmount").value == "0") {
+            message = '給与所得者の特定親族特別控除申告書 1<br/>の控除金額の計算がされていない。もしくは適用外なので登録できません。<br/>確認してください。';
+            return false;
+        }
+    }
+    if (document.getElementById("Head_SpecificRelativeSpecialDeduction02_Name1").value != ""
+        || document.getElementById("Head_SpecificRelativeSpecialDeduction02_Name2").value != ""
+        || document.getElementById("Head_SpecificRelativeSpecialDeduction02_SpecialDeductionAmount").value != ""){
+        if (document.getElementById("Head_SpecificRelativeSpecialDeduction02_Name1").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction02_Name2").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction02_SpecialDeductionAmount").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction02_SpecialDeductionAmount").value == "0") {
+            message = '給与所得者の特定親族特別控除申告書 2<br/>の控除金額の計算がされていない。もしくは適用外なので登録できません。<br/>確認してください。';
+            return false;
+        }
+    }
+    if (document.getElementById("Head_SpecificRelativeSpecialDeduction03_Name1").value != ""
+        || document.getElementById("Head_SpecificRelativeSpecialDeduction03_Name2").value != ""
+        || document.getElementById("Head_SpecificRelativeSpecialDeduction03_SpecialDeductionAmount").value != "") {
+        if (document.getElementById("Head_SpecificRelativeSpecialDeduction03_Name1").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction03_Name2").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction03_SpecialDeductionAmount").value == ""
+            || document.getElementById("Head_SpecificRelativeSpecialDeduction03_SpecialDeductionAmount").value == "0") {
+            message = '給与所得者の特定親族特別控除申告書 3<br/>の控除金額の計算がされていない。もしくは適用外なので登録できません。<br/>確認してください。';
+            return false;
+        }
+    }
     //2025-99-99 iwai-tamura upd-end ------
     return true;
 }
-
-
 
 /*
  * 途中保存ボタンクリック時
@@ -1272,7 +1347,10 @@ $('#dmykeep').click(function () {
         showAlert('確認',message)
         return;
     }
-    if (!checkAllCalc()) { return; }
+    if (!checkAllCalc()) {
+        showAlert('確認', message)
+        return;
+    }
 
 
   //ボタンクリック
