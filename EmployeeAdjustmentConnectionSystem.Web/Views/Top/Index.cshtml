@@ -104,7 +104,10 @@
                                 //支社以上未確定の為、変更可
                                 @Html.TextBoxFor(m => m.HuyouAttachmentUploadFile, new { @type = "file", accept = "application/pdf" })
                                 <div>
+                                    @*2025-99-99 iwai-matsuo upd-str ------*@
                                     <button type="button" name="DmyHuyouAttachmentFileUpload" value="DoHuyouAttachmentFileUpload" class="btn-default top10" id="DmyHuyouAttachmentFileUpload">アップロード</button>
+                                    @*<button type="button" name="DmyHuyouAttachmentFileUpload" value="DoHuyouAttachmentFileUpload" class="btn-default top10" id="DmyHuyouAttachmentFileUpload">アップロード</button>*@
+                                    @*2025-99-99 iwai-matsuo upd-end ------*@
                                 </div>
                             }
                         </div>
@@ -196,11 +199,18 @@
         @*2023-12-15 iwai-tamura upd-end ------*@
 
             @*2025-99-99 iwai-tamura upd-str ------*@
-	        <div class="well-ex-header"  style="background-color: #0094ffb6; margin-top: 10pt;">
+            @*2025-99-99 iwai-matsuo upd-str ------*@
+            <div class="well-ex-header header-kako-export">
+                <h4 class= "header-kako-export-h4">過去分出力処理</h4>
+            </div> 
+	        @*<div class="well-ex-header"  style="background-color: #0094ffb6; margin-top: 10pt;">
 	            <h4 align="center" style="font-weight: bold;">過去分出力処理</h4>
-	        </div>
-
-            <div class="well-ex-content" style="border-color: #DEF5E5; padding-bottom: 20px; ">
+	        </div>*@
+            @*2025-99-99 iwai-matsuo upd-end ------*@
+            @*2025-99-99 iwai-matsuo upd-str ------*@
+            <div class="well-ex-content content-kako-export">
+            @*<div class="well-ex-content" style="border-color: #DEF5E5; padding-bottom: 20px; ">*@
+            @*2025-99-99 iwai-matsuo upd-end ------*@
                 <div class="row">
                     <div class="col-xs-8 col-xs-offset-2 top10 form-inline">
                         @Html.DropDownListFor(
