@@ -764,9 +764,9 @@ function calcSpecificRelativeSpecialDeduction(id, varArt) {
     //特別控除額の計算
     if ((intTotalAmount > 580000) && (intTotalAmount <= 850000)) {
         intSpDeductionAmount = 630000
-    } else if ((intTotalAmount > 850000) && (intTotalAmount <= 850000)) {
+    } else if ((intTotalAmount > 850000) && (intTotalAmount <= 900000)) {
         intSpDeductionAmount = 610000
-    } else if ((intTotalAmount > 900000) && (intTotalAmount <= 850000)) {
+    } else if ((intTotalAmount > 900000) && (intTotalAmount <= 950000)) {
         intSpDeductionAmount = 510000
     } else if ((intTotalAmount > 950000) && (intTotalAmount <= 1000000)) {
         intSpDeductionAmount = 410000
