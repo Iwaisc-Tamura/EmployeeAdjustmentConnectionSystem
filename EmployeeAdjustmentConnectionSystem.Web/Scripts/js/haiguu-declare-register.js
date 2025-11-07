@@ -1306,6 +1306,7 @@ function checkAllCalc() {
             || document.getElementById("Head_SpecificRelativeSpecialDeduction01_SpecialDeductionAmount").value == ""
             || document.getElementById("Head_SpecificRelativeSpecialDeduction01_SpecialDeductionAmount").value == "0") {
             message = '給与所得者の特定親族特別控除申告書 1<br/>の控除金額の計算がされていない。もしくは適用外なので登録できません。<br/>確認してください。';
+            showAlert('確認', message)
             return false;
         }
     }
@@ -1317,6 +1318,7 @@ function checkAllCalc() {
             || document.getElementById("Head_SpecificRelativeSpecialDeduction02_SpecialDeductionAmount").value == ""
             || document.getElementById("Head_SpecificRelativeSpecialDeduction02_SpecialDeductionAmount").value == "0") {
             message = '給与所得者の特定親族特別控除申告書 2<br/>の控除金額の計算がされていない。もしくは適用外なので登録できません。<br/>確認してください。';
+            showAlert('確認', message)
             return false;
         }
     }
@@ -1328,6 +1330,7 @@ function checkAllCalc() {
             || document.getElementById("Head_SpecificRelativeSpecialDeduction03_SpecialDeductionAmount").value == ""
             || document.getElementById("Head_SpecificRelativeSpecialDeduction03_SpecialDeductionAmount").value == "0") {
             message = '給与所得者の特定親族特別控除申告書 3<br/>の控除金額の計算がされていない。もしくは適用外なので登録できません。<br/>確認してください。';
+            showAlert('確認', message)
             return false;
         }
     }
@@ -1348,7 +1351,6 @@ $('#dmykeep').click(function () {
         return;
     }
     if (!checkAllCalc()) {
-        showAlert('確認', message)
         return;
     }
 
