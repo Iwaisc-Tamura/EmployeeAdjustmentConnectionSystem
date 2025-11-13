@@ -8,6 +8,10 @@
     line-height: 1.6;
 }
 
+select.form-control {
+    font-size: 17px;
+}
+
 textarea {
     resize: none;
 }

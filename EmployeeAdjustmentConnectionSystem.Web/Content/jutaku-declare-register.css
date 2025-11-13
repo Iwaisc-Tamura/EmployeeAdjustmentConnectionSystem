@@ -8,13 +8,17 @@
     line-height: 1.6;
 }
 
+select.form-control {
+    font-size: 17px;
+}
+
 textarea {
     resize: none;
 }
 
-    textarea.form-control {
-        height: 28px;
-    }
+textarea.form-control {
+    height: 28px;
+}
 
 input {
     max-width: 100%;

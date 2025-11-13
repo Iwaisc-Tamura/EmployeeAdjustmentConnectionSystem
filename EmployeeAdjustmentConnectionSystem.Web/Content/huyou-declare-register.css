@@ -6,6 +6,13 @@
     font-size: 16px;
     line-height:1.6;
 }
+
+/*2025-99-99 iwai-tamura add-str ------*/
+select.form-control {
+    font-size: 17px;
+}
+/*2025-99-99 iwai-tamura add-end ------*/
+
 textarea {
   resize: none;
 }
