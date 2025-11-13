@@ -204,6 +204,12 @@
                             new SelectListItem() { Value="46", Text="46:祖母" },
                             new SelectListItem() { Value="47", Text="47:義祖父" },
                             new SelectListItem() { Value="48", Text="48:義祖母" },
+
+                            //2025-99-99 iwai-tamura upd-str ------
+                            new SelectListItem() { Value="51", Text="51:夫の子" },
+                            new SelectListItem() { Value="52", Text="52:妻の子" },
+                            //2025-99-99 iwai-tamura upd-end ------
+
                             new SelectListItem() { Value="60", Text="60:孫" },
                             new SelectListItem() { Value="61", Text="61:孫" },
                             new SelectListItem() { Value="62", Text="62:孫" },
@@ -247,6 +253,8 @@
                             new SelectListItem() { Value="37", Text="37:七女" },
                             new SelectListItem() { Value="38", Text="38:八女" },
                             new SelectListItem() { Value="39", Text="39:九女" },
+                            new SelectListItem() { Value="51", Text="51:夫の子" },
+                            new SelectListItem() { Value="52", Text="52:妻の子" },
                             new SelectListItem() { Value="60", Text="60:孫" },
                             new SelectListItem() { Value="61", Text="61:孫" },
                             new SelectListItem() { Value="62", Text="62:孫" },
@@ -574,7 +582,10 @@
                     </tr>
                     <tr class="content-label-h2">
                         <td colspan="8">
-                            <button type="button" name="BasicDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-basicDeduction-calc"> ≫　計算　≪</button>
+                            @*2025-99-99 iwai-tamura upd-str ------*@
+                            <button type="button" name="BasicDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-basicDeduction-calc" disabled="disabled"> ≫　計算　≪</button>
+                            @*<button type="button" name="BasicDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-basicDeduction-calc"> ≫　計算　≪</button>*@
+                            @*2025-99-99 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -680,7 +691,12 @@
 
                     <tr>
                         <td colspan="2" class="content-label-b2">区分Ⅰ</td>
-                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_CalcType, CalcWord)</td>
+                        @*2025-99-99 iwai-tamura upd-str ------*@
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_CalcType, CalcWord)
+                            <span>*基礎控除の判定は12月給与実績確定時に自動判定します。</span>
+                        </td>
+                        @*<td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_CalcType, CalcWord)</td>*@
+                        @*2025-99-99 iwai-tamura upd-end ------*@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b2">基礎控除の額</td>

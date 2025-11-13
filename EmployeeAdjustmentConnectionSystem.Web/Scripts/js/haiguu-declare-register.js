@@ -150,20 +150,11 @@ function updateIncomeFields(earningsId, incomeId, otherIncomeId, estimateId) {
 
 // 収入から所得金額を計算するロジック
 function updateEarnings2Income(earnings) {
-    if (earnings <= 550999) {
+    //2025-99-99 iwai-tamura upd-str ------
+    if (earnings <= 650999) {
         return 0;
-    } else if (earnings <= 1618999) {
-        return Math.floor(earnings - 550000);
-    } else if (earnings <= 1619999) {
-        return 1069000;
-    } else if (earnings <= 1621999) {
-        return 1070000;
-    } else if (earnings <= 1623999) {
-        return 1072000;
-    } else if (earnings <= 1627999) {
-        return 1074000;
-    } else if (earnings <= 1799999) {
-        return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.4 + 100000);
+    } else if (earnings <= 1899999) {
+        return Math.floor(earnings - 650000);
     } else if (earnings <= 3599999) {
         return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.8 - 80000);
     } else if (earnings <= 6599999) {
@@ -173,6 +164,32 @@ function updateEarnings2Income(earnings) {
     } else {
         return earnings - 1950000;
     }
+    //if (earnings <= 550999) {
+    //    return 0;
+    //} else if (earnings <= 1618999) {
+    //    return Math.floor(earnings - 550000);
+    //} else if (earnings <= 1619999) {
+    //    return 1069000;
+    //} else if (earnings <= 1621999) {
+    //    return 1070000;
+    //} else if (earnings <= 1623999) {
+    //    return 1072000;
+    //} else if (earnings <= 1627999) {
+    //    return 1074000;
+    //} else if (earnings <= 1799999) {
+    //    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.4 + 100000);
+    //} else if (earnings <= 3599999) {
+    //    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.8 - 80000);
+    //} else if (earnings <= 6599999) {
+    //    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 3.2 - 440000);
+    //} else if (earnings <= 8499999) {
+    //    return Math.floor(earnings * 0.9 - 1100000);
+    //} else {
+    //    return earnings - 1950000;
+    //}
+    //2025-99-99 iwai-tamura upd-end ------
+
+
 }
 
 
@@ -1291,7 +1308,10 @@ function checkAll() {
 
 //計算チェック
 function checkAllCalc() {
-    if (!calcBasicDeduction(false)) { return false }
+    //2025-99-99 iwai-tamura del-str ------
+    //運用上、ユーザ登録時の際は計算不要の為削除
+    //if (!calcBasicDeduction(false)) { return false }
+    //2025-99-99 iwai-tamura del-end ------
     if (!calcSpouseDeduction(false)) { return false }
     //2025-99-99 iwai-tamura upd-str ------
     if (!calcSpecificRelativeSpecialDeduction('01', false)) { return false }
