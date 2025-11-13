@@ -220,20 +220,13 @@ function updateIncomeFields(earningsId, incomeId, otherIncomeId, estimateId) {
 
 // 収入から所得金額を計算するロジック
 function updateEarnings2Income(earnings) {
-    if (earnings <= 550999) {
+
+
+    //2025-99-99 iwai-tamura upd-str ------
+    if (earnings <= 650999) {
         return 0;
-    } else if (earnings <= 1618999) {
-        return Math.floor(earnings - 550000);
-    } else if (earnings <= 1619999) {
-        return 1069000;
-    } else if (earnings <= 1621999) {
-        return 1070000;
-    } else if (earnings <= 1623999) {
-        return 1072000;
-    } else if (earnings <= 1627999) {
-        return 1074000;
-    } else if (earnings <= 1799999) {
-        return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.4 + 100000);
+    } else if (earnings <= 1899999) {
+        return Math.floor(earnings - 650000);
     } else if (earnings <= 3599999) {
         return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.8 - 80000);
     } else if (earnings <= 6599999) {
@@ -243,6 +236,30 @@ function updateEarnings2Income(earnings) {
     } else {
         return earnings - 1950000;
     }
+    //if (earnings <= 550999) {
+    //    return 0;
+    //} else if (earnings <= 1618999) {
+    //    return Math.floor(earnings - 550000);
+    //} else if (earnings <= 1619999) {
+    //    return 1069000;
+    //} else if (earnings <= 1621999) {
+    //    return 1070000;
+    //} else if (earnings <= 1623999) {
+    //    return 1072000;
+    //} else if (earnings <= 1627999) {
+    //    return 1074000;
+    //} else if (earnings <= 1799999) {
+    //    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.4 + 100000);
+    //} else if (earnings <= 3599999) {
+    //    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.8 - 80000);
+    //} else if (earnings <= 6599999) {
+    //    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 3.2 - 440000);
+    //} else if (earnings <= 8499999) {
+    //    return Math.floor(earnings * 0.9 - 1100000);
+    //} else {
+    //    return earnings - 1950000;
+    //}
+    //2025-99-99 iwai-tamura upd-end ------
 }
 
 
@@ -501,7 +518,13 @@ function checkDependentsOver16(id) {
             strMessage = "";    //特定親族の場合は上限が代わる。
             if (cIncome > 1000000) {
                 //所得の見積額が100万円超の場合、対象外
-                strMessage = "100万円超は対象外です。";
+                if (cIncome <= 1230000) {
+                    //100万円超123万円以下の場合
+                    strMessage = "100万円超は源泉控除の対象外です。特定親族特別控除対象のため、基礎控除申告書画面から申告してください。";
+                } else {
+                    //123万円超の場合
+                    strMessage = "123万円超は対象外です。";
+                }
                 $(incomeMesID).text(strMessage);
             }
             if (cIncome <= 580000) {
@@ -724,7 +747,10 @@ $('#Head_DependentsOther_LivingHandicappedDependentsCheck').change(function () {
 
 //寡婦、ひとり親制御
 $('input:radio[name="Head.DependentsOther_WidowType"]').change(function () {
-    if ($('input:radio[name="Head.DependentsOther_WidowType"]:checked').val() > "1") {
+    //2025-99-99 iwai-tamura upd-str ------
+    if ($('input:radio[name="Head.DependentsOther_WidowType"]:checked').val() == "1") {
+    //if ($('input:radio[name="Head.DependentsOther_WidowType"]:checked').val() > "1") {
+    //2025-99-99 iwai-tamura upd-end ------
         $(".Widow_isRead").removeAttr("disabled");
     } else {
         $(".Widow_isRead").attr('disabled', true);
