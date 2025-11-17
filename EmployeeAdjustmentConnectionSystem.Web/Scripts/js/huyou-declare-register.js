@@ -1137,7 +1137,14 @@ function checkAll() {
         message = '以下の必須項目が入力されていません。<br/>' + missingFields.join('<br/>');
     }
 
-
+    //2025-99-99 iwai-tamura upd-str ------
+    if (document.getElementById("Head_Address").value.length > 15) {
+        message = '本人住所情報(上段)の文字数は15文字以内で記載してください。';
+    }
+    if (document.getElementById("Head_Address02").value.length > 14) {
+        message = '本人住所情報(下段)の文字数は14文字以内で記載してください。';
+    }
+    //2025-99-99 iwai-tamura upd-end ------
 
     /////本人情報チェック
     ////チェック項目チェック

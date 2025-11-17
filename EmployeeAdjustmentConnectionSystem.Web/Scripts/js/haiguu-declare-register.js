@@ -1311,8 +1311,8 @@ function checkAllCalc() {
     //2025-99-99 iwai-tamura del-str ------
     //運用上、ユーザ登録時の際は計算不要の為削除
     //if (!calcBasicDeduction(false)) { return false }
+    //if (!calcSpouseDeduction(false)) { return false }
     //2025-99-99 iwai-tamura del-end ------
-    if (!calcSpouseDeduction(false)) { return false }
     //2025-99-99 iwai-tamura upd-str ------
     if (!calcSpecificRelativeSpecialDeduction('01', false)) { return false }
     if (!calcSpecificRelativeSpecialDeduction('02', false)) { return false }

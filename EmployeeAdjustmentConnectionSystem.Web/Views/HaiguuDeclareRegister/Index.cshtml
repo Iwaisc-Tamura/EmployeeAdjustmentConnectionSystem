@@ -811,7 +811,10 @@
                     </tr>
                     <tr class="content-label-h2">
                         <td colspan="8">
-                            <button type="button" name="SpouseDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-spouseDeduction-calc"> ≫　計算　≪</button>
+                            @*2025-99-99 iwai-tamura upd-str ------*@
+                            <button type="button" name="SpouseDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-spouseDeduction-calc" disabled="disabled"> ≫　計算　≪</button>
+                            @*<button type="button" name="SpouseDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-spouseDeduction-calc"> ≫　計算　≪</button>*@
+                            @*2025-99-99 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -866,7 +869,12 @@
 
                     <tr>
                         <td colspan="2" class="content-label-b2">区分Ⅱ</td>
-                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpouseDeduction_EarningsType, CalcWord) @Html.HiddenFor(m => m.Head.SpouseDeduction_CalcType)</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpouseDeduction_EarningsType, CalcWord) @Html.HiddenFor(m => m.Head.SpouseDeduction_CalcType)
+                            <span>*配偶者控除の判定は12月給与実績確定時に自動判定します。</span>
+                        </td>
+                        @*<td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpouseDeduction_EarningsType, CalcWord) @Html.HiddenFor(m => m.Head.SpouseDeduction_CalcType)</td>*@
+                        @*2025-99-99 iwai-tamura upd-end ------*@
+
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b2">配偶者控除の額</td>
