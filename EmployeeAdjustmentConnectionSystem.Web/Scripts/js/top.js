@@ -53,7 +53,7 @@ $(function () {
     }
 });
 
-//2025-99-99 iwai-tamura upd-str ------
+//2025-11-18 iwai-tamura upd-str ------
 /*
  * 過去分PDF出力ボタンクリック時
  */
@@ -161,7 +161,7 @@ $('#DmyHuyouAttachmentFileDelete').click(function () {
     showMessage('確認', comment, 'HuyouAttachmentFileDelete', true);
 
 });
-//2025-99-99 iwai-tamura upd-end ------
+//2025-11-18 iwai-tamura upd-end ------
 
 //2024-11-19 iwai-tamura upd-str ------
 // 要素の取得

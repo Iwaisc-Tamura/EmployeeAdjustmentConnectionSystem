@@ -52,7 +52,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// </summary>
         public string HaiguuDeclareStatus { get; set; }
 
-        //2025-99-99 iwai-tamura upd-str ------
+        //2025-11-18 iwai-tamura upd-str ------
         /// <summary>
         /// 住宅控除ステータス
         /// </summary>
@@ -62,7 +62,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// 前職源泉ステータス
         /// </summary>
         public string ZenshokuDeclareStatus { get; set; }
-        //2025-99-99 iwai-tamura upd-end ------
+        //2025-11-18 iwai-tamura upd-end ------
     }
     /// <summary>
     /// 検索結果
@@ -85,7 +85,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// </summary>
         public string HaiguuDeclareStatus { get; set; }
 
-        //2025-99-99 iwai-tamura upd-str ------
+        //2025-11-18 iwai-tamura upd-str ------
         /// <summary>
         /// 住宅控除ステータス
         /// </summary>
@@ -95,7 +95,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// 前職源泉ステータス
         /// </summary>
         public string ZenshokuDeclareStatus { get; set; }
-        //2025-99-99 iwai-tamura upd-end ------
+        //2025-11-18 iwai-tamura upd-end ------
 
         /// <summary>
         /// 扶養控除ボタン表示
@@ -128,7 +128,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         public bool HaiguuDeclareButtonViewFlg { get; set; }
 
 
-        //2025-99-99 iwai-tamura upd-str ------
+        //2025-11-18 iwai-tamura upd-str ------
         /// <summary>
         /// 扶養控除添付ボタン表示フラグ
         /// </summary>
@@ -158,7 +158,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// 前職源泉表示フラグ
         /// </summary>
         public bool ZenshokuDeclareButtonViewFlg { get; set; }
-        //2025-99-99 iwai-tamura upd-end ------
+        //2025-11-18 iwai-tamura upd-end ------
 
         /// <summary>
         /// 自己申告書パターン

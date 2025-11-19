@@ -44,10 +44,10 @@ namespace EmployeeAdjustmentConnectionSystem.Bl.Top {
                 }
                 //ログイン情報取得
                 var lu = (LoginUser)HttpContext.Current.Session["LoginUser"];
-                //2025-99-99 iwai-tamura upd-str ------
+                //2025-11-18 iwai-tamura upd-str ------
                 top.HuyouDecisionType = GetHuyouStatus(lu.IsYear,lu.UserCode);
                 top.HuyouAttachmentFilePath = GetHuyouAttachmentFilePath(lu.IsYear,lu.UserCode);
-                //2025-99-99 iwai-tamura upd-end ------
+                //2025-11-18 iwai-tamura upd-end ------
 
 
                 //2017-08-31 iwai-tamura upd-str ------
@@ -84,7 +84,7 @@ namespace EmployeeAdjustmentConnectionSystem.Bl.Top {
             }
         }
 
-        //2025-99-99 iwai-tamura upd-str ------
+        //2025-11-18 iwai-tamura upd-str ------
         /// <summary>
         /// 扶養控除申告書 管理者確定区分取得
         /// </summary>
@@ -200,7 +200,7 @@ namespace EmployeeAdjustmentConnectionSystem.Bl.Top {
             }
 
         }
-        //2025-99-99 iwai-tamura upd-end ------
+        //2025-11-18 iwai-tamura upd-end ------
 
     }
 }

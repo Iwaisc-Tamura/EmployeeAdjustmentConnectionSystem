@@ -50,10 +50,10 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                                                     //2023-11-20 iwai-tamura add str -----
                                                       , { "YearEndAdjustmentSearch", "Search"}
                                                     //2023-11-20 iwai-tamura add end -----                                                        
-                                                    //2025-99-99 iwai-tamura upd-str ------
+                                                    //2025-11-18 iwai-tamura upd-str ------
                                                       , { "JutakuDeclareRegister", "Index"}
                                                       , { "ZenshokuDeclareRegister", "Index"}
-                                                    //2025-99-99 iwai-tamura upd-end ------
+                                                    //2025-11-18 iwai-tamura upd-end ------
             };
         #endregion
 
@@ -468,7 +468,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
         }
         //2023-11-20 iwai-terao test-end ------
 
-        //2025-99-99 iwai-tamura upd-str ------
+        //2025-11-18 iwai-tamura upd-str ------
         /// <summary>
         /// 過去帳票印刷
         /// </summary>
@@ -747,7 +747,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2025-99-99 iwai-tamura upd-end ------
+        //2025-11-18 iwai-tamura upd-end ------
 
     }
 }

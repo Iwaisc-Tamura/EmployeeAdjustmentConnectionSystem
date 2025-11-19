@@ -141,11 +141,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 								//2024-11-19 iwai-tamura upd-str ------
 								AddressBefore = row["住所01"].ToString(),
 								//2024-11-19 iwai-tamura upd-end ------
-								//2025-99-99 iwai-tamura upd-str ------
+								//2025-11-18 iwai-tamura upd-str ------
 								Address02 = row["住所02"].ToString(),
 								Address02Before = row["住所02"].ToString(),
 								AddressType = row["住所区分"].ToString(),
-								//2025-99-99 iwai-tamura upd-end ------
+								//2025-11-18 iwai-tamura upd-end ------
 								SpouseCheck = row["配偶者有無"].ToString(),
 								TaxWithholding_notSubject = row["源泉控除対象配偶者対象外区分"].ToString(),
 								TaxWithholding_Name1 = row["源泉控除対象配偶者氏名_姓"].ToString(),
@@ -776,10 +776,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 							+ " ,郵便番号_前 = @PostalCode_1"
 							+ " ,郵便番号_後 = @PostalCode_2"
 							+ " ,住所01 = @Address"
-							//2025-99-99 iwai-tamura upd-str ------
+							//2025-11-18 iwai-tamura upd-str ------
 							+ " ,住所02 = @Address02"
 							+ " ,住所区分 = @AddressType"
-							//2025-99-99 iwai-tamura upd-end ------
+							//2025-11-18 iwai-tamura upd-end ------
 							+ " ,配偶者有無 = @SpouseCheck"
 							+ " ,源泉控除対象配偶者対象外区分 = @TaxWithholding_notSubject"
 							+ " ,源泉控除対象配偶者氏名_姓 = @TaxWithholding_Name1"
@@ -1148,10 +1148,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                         DbHelper.AddDbParameter(cmd, "@SheetYear", DbType.Int32);
 						DbHelper.AddDbParameter(cmd, "@EmployeeNo", DbType.String);
 						DbHelper.AddDbParameter(cmd, "@TaxWithholding_RelationshipType", DbType.String);
-						//2025-99-99 iwai-tamura upd-str ------
+						//2025-11-18 iwai-tamura upd-str ------
 						DbHelper.AddDbParameter(cmd, "@Address02", DbType.String);
 						DbHelper.AddDbParameter(cmd, "@AddressType", DbType.String);
-						//2025-99-99 iwai-tamura upd-end ------
+						//2025-11-18 iwai-tamura upd-end ------
                         
                         //パラメータ設定
                         var parameters = cmd.Parameters.Cast<IDbDataParameter>().ToArray<IDbDataParameter>();
@@ -1345,10 +1345,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
                         parameters[182].Value = DataConv.IfNull(model.Head.EmployeeNo);
                         parameters[183].Value = DataConv.IfNull(model.Head.TaxWithholding_RelationshipType);
                         
-						//2025-99-99 iwai-tamura upd-str ------
+						//2025-11-18 iwai-tamura upd-str ------
                         parameters[184].Value = DataConv.IfNull(model.Head.Address02);
                         parameters[185].Value = DataConv.IfNull(model.Head.AddressType);
-						//2025-99-99 iwai-tamura upd-end ------
+						//2025-11-18 iwai-tamura upd-end ------
                         
 
                         cmd.ExecuteNonQuery();
@@ -1449,7 +1449,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
             }
         }
 
-        //2025-99-99 iwai-tamura upd-str ------
+        //2025-11-18 iwai-tamura upd-str ------
         /// <summary>
         /// 住所区分一覧取得
         /// </summary>
@@ -1484,6 +1484,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HuyouDeclareRegister {
 			}
 			return list;
         }
-        //2025-99-99 iwai-tamura upd-end ------
+        //2025-11-18 iwai-tamura upd-end ------
     }
 }
