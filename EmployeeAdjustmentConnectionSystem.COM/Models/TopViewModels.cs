@@ -21,7 +21,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         public int SkillWaitingApprover { get; set; }
         //2017-08-31 iwai-tamura upd-end ------
 
-        //2025-99-99 iwai-tamura add-str ------
+        //2025-11-18 iwai-tamura add-str ------
 		/// <summary>
 		/// 扶養控除申告書管理者確定区分
 		/// </summary>
@@ -46,6 +46,6 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// 過去分出力処理用　対象帳票
         /// </summary>
         public string HistoryPrintType { get; set; }
-        //2025-99-99 iwai-tamura add-end ------
+        //2025-11-18 iwai-tamura add-end ------
     }
 }

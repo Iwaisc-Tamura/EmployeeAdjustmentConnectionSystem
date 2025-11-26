@@ -24,7 +24,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 
     }
 
-    //2025-99-99 iwai-tamura upd-str ------
+    //2025-11-18 iwai-tamura upd-str ------
 	/// <summary>
     /// 住所区分一覧取得用
     /// </summary>
@@ -35,7 +35,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public string City { get; set; }         // 市区町村
 		public string JichitaiNo { get; set; }   // 自治体番号（使うなら）
 	}
-    //2025-99-99 iwai-tamura upd-end ------
+    //2025-11-18 iwai-tamura upd-end ------
 
     /// <summary>
     /// ヘッダ
@@ -102,12 +102,12 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public string StatusName { get; set; }
         //2023-11-20 iwai-tamura upd end -----
 
-        //2025-99-99 iwai-tamura upd-str ------
+        //2025-11-18 iwai-tamura upd-str ------
         /// <summary>
         /// 住所区分ドロップダウン用アイテム
         /// </summary>
         public IList<AddressEntry> AddressMaster  { get; set; }
-        //2025-99-99 iwai-tamura upd-end ------
+        //2025-11-18 iwai-tamura upd-end ------
 
 		/// <summary>
 		/// 個人番号相違確認区分
@@ -235,7 +235,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public string AddressBefore { get; set; }
 		//2024-11-19 iwai-tamura upd-end ------
 
-        //2025-99-99 iwai-tamura upd-str ------
+        //2025-11-18 iwai-tamura upd-str ------
 		/// <summary>
 		/// 住所02
 		/// </summary>
@@ -250,7 +250,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// 住所区分
 		/// </summary>
         public string AddressType  { get; set; }
-        //2025-99-99 iwai-tamura upd-end ------
+        //2025-11-18 iwai-tamura upd-end ------
 
 		/// <summary>
 		/// 配偶者有無

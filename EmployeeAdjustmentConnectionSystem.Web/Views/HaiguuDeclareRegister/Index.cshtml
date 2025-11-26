@@ -40,10 +40,10 @@
     font-size:14px;">
     【ページ内移動】 <a href="#" class="btn-link">Top</a>
     <a href="#" class="btn-link">本人情報</a>
-        @*2025-99-99 iwai-tamura upd-str ------*@
+        @*2025-11-18 iwai-tamura upd-str ------*@
         <span>　　<a href="#linkHaiguu1" class="btn-link">基礎控除申告書</a>　<a href="#linkHaiguu2" class="btn-link">配偶者控除等申告書</a>　<a href="#linkSpecificRelatives" class="btn-link">特定親族特別控除申告書</a>　<a href="#linkHaiguu3" class="btn-link">所得金額調整控除申告書</a></span>
         @*<span>　　<a href="#linkHaiguu1" class="btn-link">基礎控除申告書</a>　<a href="#linkHaiguu2" class="btn-link">配偶者控除等申告書</a>　<a href="#linkHaiguu3" class="btn-link">所得金額調整控除申告書</a></span>*@
-        @*2025-99-99 iwai-tamura upd-end ------*@
+        @*2025-11-18 iwai-tamura upd-end ------*@
 
 </div>
 
@@ -99,7 +99,7 @@
     @Html.HiddenFor(m => m.Head.SpouseDeduction_Huyou_OtherIncome)
     @*2023-11-20 iwai-tamura add-end ------*@
 
-    @*2025-99-99 iwai-tamura upd-str ------*@
+    @*2025-11-18 iwai-tamura upd-str ------*@
     //扶養控除データ(特定親族)
     @Html.HiddenFor(m => m.Head.RefSpecificDependent01_RelationshipType)
     @Html.HiddenFor(m => m.Head.RefSpecificDependent01_Earnings)
@@ -117,7 +117,7 @@
     @Html.HiddenFor(m => m.Head.RefSpecificDependent04_Earnings)
     @Html.HiddenFor(m => m.Head.RefSpecificDependent04_Income)
     @Html.HiddenFor(m => m.Head.RefSpecificDependent04_OtherIncome)
-    @*2025-99-99 iwai-tamura upd-end ------*@
+    @*2025-11-18 iwai-tamura upd-end ------*@
 
     @*データ日時取得*@
     <!--ボタンエリア-->
@@ -205,10 +205,10 @@
                             new SelectListItem() { Value="47", Text="47:義祖父" },
                             new SelectListItem() { Value="48", Text="48:義祖母" },
 
-                            //2025-99-99 iwai-tamura upd-str ------
+                            //2025-11-18 iwai-tamura upd-str ------
                             new SelectListItem() { Value="51", Text="51:夫の子" },
                             new SelectListItem() { Value="52", Text="52:妻の子" },
-                            //2025-99-99 iwai-tamura upd-end ------
+                            //2025-11-18 iwai-tamura upd-end ------
 
                             new SelectListItem() { Value="60", Text="60:孫" },
                             new SelectListItem() { Value="61", Text="61:孫" },
@@ -232,7 +232,7 @@
                             new SelectListItem() { Value="93", Text="93:*" }
             };
 
-    //2025-99-99 iwai-tamura upd-str ------
+    //2025-11-18 iwai-tamura upd-str ------
     //続柄リスト
     var familySpecificRelativesItems = new SelectListItem[] {
                             new SelectListItem() { Value="21", Text="21:長男" },
@@ -270,7 +270,7 @@
                             new SelectListItem() { Value="83", Text="83:甥" },
                             new SelectListItem() { Value="84", Text="84:姪" }
             };
-    //2025-99-99 iwai-tamura upd-end ------
+    //2025-11-18 iwai-tamura upd-end ------
 
     //年月日
     var yearItems = new SelectListItem[] {
@@ -444,9 +444,9 @@
     var BasicDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
     //var BasicDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" } };
     @*2024-11-19 iwai-tamura upd-end ------*@
-    @*2025-99-99 iwai-tamura upd-str ------*@
+    @*2025-11-18 iwai-tamura upd-str ------*@
     var BasicDeduction_TextMoney3 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
-    @*2025-99-99 iwai-tamura upd-end ------*@
+    @*2025-11-18 iwai-tamura upd-end ------*@
     var SpouseDeduction_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney(this,99999999)" } };
     @*2024-11-19 iwai-tamura upd-str ------*@
     var SpouseDeduction_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
@@ -454,14 +454,14 @@
     @*2024-11-19 iwai-tamura upd-end ------*@
     @*2023-11-20 iwai-tamura add-end ------*@
 
-    @*2025-99-99 iwai-tamura upd-str ------*@
+    @*2025-11-18 iwai-tamura upd-str ------*@
     var SpecificRelativeSpecialDeduction01_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney(this,99999999)" } };
     var SpecificRelativeSpecialDeduction01_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
     var SpecificRelativeSpecialDeduction02_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney(this,99999999)" } };
     var SpecificRelativeSpecialDeduction02_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
     var SpecificRelativeSpecialDeduction03_TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, {"readonly", "readonly" } ,{"disabled", "true" },{ "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "checkMoney(this,99999999)" } };
     var SpecificRelativeSpecialDeduction03_TextMoney2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "8" }, { "style", "width:80px;" }, { "type", "text" }, { "oninput", "value = value.replace(/[^0-9]+/i,'');" } };
-    @*2025-99-99 iwai-tamura upd-end ------*@
+    @*2025-11-18 iwai-tamura upd-end ------*@
 
 
 
@@ -566,10 +566,10 @@
                         <td rowspan="2" colspan="1" class="content-label-b1">給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         <td colspan="6" class="form-inline">
-                            @*2025-99-99 iwai-tamura upd-str ------*@
+                            @*2025-11-18 iwai-tamura upd-str ------*@
                             @Html.TextBoxFor(m => m.Head.BasicDeduction_Earnings, BasicDeduction_TextMoney3) 円<div id="Head_BasicDeduction_Earnings_mes" class="check-comment"></div>
                             @*@Html.TextBoxFor(m => m.Head.BasicDeduction_Earnings, BasicDeduction_TextMoney2) 円<div id="Head_BasicDeduction_Earnings_mes" class="check-comment"></div>*@
-                            @*2025-99-99 iwai-tamura upd-end ------*@
+                            @*2025-11-18 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -582,10 +582,10 @@
                     </tr>
                     <tr class="content-label-h2">
                         <td colspan="8">
-                            @*2025-99-99 iwai-tamura upd-str ------*@
+                            @*2025-11-18 iwai-tamura upd-str ------*@
                             <button type="button" name="BasicDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-basicDeduction-calc" disabled="disabled"> ≫　計算　≪</button>
                             @*<button type="button" name="BasicDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-basicDeduction-calc"> ≫　計算　≪</button>*@
-                            @*2025-99-99 iwai-tamura upd-end ------*@
+                            @*2025-11-18 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -594,7 +594,7 @@
                     </tr>
 
 
-                    @*2025-99-99 iwai-tamura upd-str ------*@
+                    @*2025-11-18 iwai-tamura upd-str ------*@
                     <tr>
                         <td rowspan="11" colspan="2" class="content-label-b2">判定 @Html.HiddenFor(m => m.Head.BasicDeduction_EarningsType)@Html.HiddenFor(m => m.Head.BasicDeduction_TaxReductionTarget)</td>
                         <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_1"> 　　　　　　　　 132万円以下</td>
@@ -687,16 +687,16 @@
                         <td rowspan="1" colspan="2" class="content-label-b3">　16万円</td>
                     </tr>*@
                     @*2024-11-19 iwai-tamura upd-end ------*@
-                    @*2025-99-99 iwai-tamura upd-end ------*@
+                    @*2025-11-18 iwai-tamura upd-end ------*@
 
                     <tr>
                         <td colspan="2" class="content-label-b2">区分Ⅰ</td>
-                        @*2025-99-99 iwai-tamura upd-str ------*@
+                        @*2025-11-18 iwai-tamura upd-str ------*@
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_CalcType, CalcWord)
                             <span>*基礎控除の判定は12月給与実績確定時に自動判定します。</span>
                         </td>
                         @*<td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_CalcType, CalcWord)</td>*@
-                        @*2025-99-99 iwai-tamura upd-end ------*@
+                        @*2025-11-18 iwai-tamura upd-end ------*@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b2">基礎控除の額</td>
@@ -811,7 +811,10 @@
                     </tr>
                     <tr class="content-label-h2">
                         <td colspan="8">
-                            <button type="button" name="SpouseDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-spouseDeduction-calc"> ≫　計算　≪</button>
+                            @*2025-11-18 iwai-tamura upd-str ------*@
+                            <button type="button" name="SpouseDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-spouseDeduction-calc" disabled="disabled"> ≫　計算　≪</button>
+                            @*<button type="button" name="SpouseDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-spouseDeduction-calc"> ≫　計算　≪</button>*@
+                            @*2025-11-18 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -823,7 +826,7 @@
 
 
 
-                    @*2025-99-99 iwai-tamura upd-str ------*@
+                    @*2025-11-18 iwai-tamura upd-str ------*@
                     <tr>
                         <td rowspan="4" colspan="2" class="content-label-b2">判定 </td>
                         <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_1"> 58万円以下かつ年齢70歳以上<br />　　<span id="showaYearLabel">(昭○○.1.1以前生)</span><span class="pull-right">(①)</span><br />　《老人控除対象配偶者に該当》　</td>
@@ -862,11 +865,16 @@
                     <tr>
                         <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_4"> 95万円超 133万円以下<span class="pull-right">(④)</span></td>
                     </tr>-->
-                    @*2025-99-99 iwai-tamura upd-end ------*@
+                    @*2025-11-18 iwai-tamura upd-end ------*@
 
                     <tr>
                         <td colspan="2" class="content-label-b2">区分Ⅱ</td>
-                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpouseDeduction_EarningsType, CalcWord) @Html.HiddenFor(m => m.Head.SpouseDeduction_CalcType)</td>
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpouseDeduction_EarningsType, CalcWord) @Html.HiddenFor(m => m.Head.SpouseDeduction_CalcType)
+                            <span>*配偶者控除の判定は12月給与実績確定時に自動判定します。</span>
+                        </td>
+                        @*<td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpouseDeduction_EarningsType, CalcWord) @Html.HiddenFor(m => m.Head.SpouseDeduction_CalcType)</td>*@
+                        @*2025-11-18 iwai-tamura upd-end ------*@
+
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b2">配偶者控除の額</td>
@@ -885,7 +893,7 @@
 
 
 
-    @*2025-99-99 iwai-tamura upd-str ------*@
+    @*2025-11-18 iwai-tamura upd-str ------*@
     <br />
     <!-- 給与所得者の特定親族特別控除申告書 -->
     <div class="row">
@@ -1200,7 +1208,7 @@
             </table>
         </div>
     </div>
-    @*2025-99-99 iwai-tamura upd-end ------*@
+    @*2025-11-18 iwai-tamura upd-end ------*@
 
     <br />
     <!-- 所得金額調整控除申告書 -->

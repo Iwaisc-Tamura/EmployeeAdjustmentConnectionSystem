@@ -416,7 +416,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     //2024-10-22 iwai-terao add str ------
                     + "     ,Isnull(基礎控除.配偶者控除申告書_配偶者定額減税対象,'0') AS 配偶者控除申告書_配偶者定額減税対象 "
                     //2024-10-22 iwai-terao add end ------
-                    //2025-99-99 iwai-terao add str ------
+                    //2025-11-18 iwai-terao add str ------
                     + "     ,基礎控除.特定親族特別控除申告書01_氏名_姓 + ' ' + 基礎控除.特定親族特別控除申告書01_氏名_名 as 特定親族特別控除申告書01_氏名 "
                     + "     ,基礎控除.特定親族特別控除申告書01_Kana_姓 + ' ' + 基礎控除.特定親族特別控除申告書01_Kana_名 as 特定親族特別控除申告書01_Kana "
                     + "     ,特定親族01続柄名.続柄名称 AS 特定親族特別控除申告書01_続柄名称 "
@@ -465,7 +465,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,基礎控除.特定親族特別控除申告書03_控除額計算判定 "
                     + "     ,基礎控除.特定親族特別控除申告書03_控除額計算区分 "
                     + "     ,基礎控除.特定親族特別控除申告書03_特定親族特別控除額 "
-                    //2025-99-99 iwai-terao add end ------
+                    //2025-11-18 iwai-terao add end ------
                     + "     ,Isnull(基礎控除.所得金額調整控除申告書_要件区分,'0') AS 所得金額調整控除申告書_要件区分 "
                     + "     ,基礎控除.所得金額調整控除申告書_扶養親族等氏名_姓 + ' ' + 基礎控除.所得金額調整控除申告書_扶養親族等氏名_名 AS 所得金額調整控除申告書_扶養親族等氏名 "
                     + "     ,基礎控除.所得金額調整控除申告書_扶養親族等Kana_姓 + ' ' + 基礎控除.所得金額調整控除申告書_扶養親族等Kana_名 AS 所得金額調整控除申告書_扶養親族等Kana "
@@ -2465,7 +2465,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         //2025-03-21 iwai-tamura add-end ---
 
 
-        //2025-99-99 iwai-tamura upd-str ------
+        //2025-11-18 iwai-tamura upd-str ------
         /// <summary>
         /// 一括Excel出力処理
         /// </summary>
@@ -2926,7 +2926,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         //////////////////////        nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
         //////////////////////    }
         //////////////////////}
-        //2025-99-99 iwai-tamura upd-end ------
+        //2025-11-18 iwai-tamura upd-end ------
 
         ///////////// <summary>
         ///////////// メインの処理

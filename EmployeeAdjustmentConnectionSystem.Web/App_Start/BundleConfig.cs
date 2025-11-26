@@ -153,7 +153,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web {
                       "~/Scripts/js/haiguu-declare-register.js"));
 
 
-            //2025-99-99 iwai-tamura upd-str ------
+            //2025-11-18 iwai-tamura upd-str ------
             //住宅借入金等特別控除申告書登録
             bundles.Add(new StyleBundle("~/Scripts/js/jutaku").Include(
                       "~/Scripts/js/jutaku-declare-register.js"));
@@ -161,7 +161,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web {
             //前職源泉徴収票登録
             bundles.Add(new StyleBundle("~/Scripts/js/zenshoku").Include(
                       "~/Scripts/js/zenshoku-declare-register.js"));
-            //2025-99-99 iwai-tamura upd-end ------
+            //2025-11-18 iwai-tamura upd-end ------
 
             // 2023-11-20 iwai-tamura add str 年調検索画面
             bundles.Add(new ScriptBundle("~/Scripts/js/yearends").Include(
@@ -201,7 +201,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web {
             bundles.Add(new StyleBundle("~/Content/css/haiguu").Include(
                       "~/Content/haiguu-declare-register.css"));
 
-            //2025-99-99 iwai-tamura upd-str ------
+            //2025-11-18 iwai-tamura upd-str ------
             //住宅借入金等特別控除申告書登録
             bundles.Add(new StyleBundle("~/Content/css/jutaku").Include(
                       "~/Content/jutaku-declare-register.css"));
@@ -209,7 +209,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web {
             //前職源泉徴収票登録
             bundles.Add(new StyleBundle("~/Content/css/zenshoku").Include(
                       "~/Content/zenshoku-declare-register.css"));
-            //2025-99-99 iwai-tamura upd-end ------
+            //2025-11-18 iwai-tamura upd-end ------
 
             //目標管理
             bundles.Add(new StyleBundle("~/Content/css/objs").Include(

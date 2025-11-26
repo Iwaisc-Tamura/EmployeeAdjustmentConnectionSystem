@@ -105,7 +105,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                         sql += " ,T扶養.源泉控除対象配偶者給与所得所得金額 ";
                         sql += " ,T扶養.源泉控除対象配偶者他所得金額 ";
 
-                    //2025-99-99 iwai-tamura upd-str ------
+                    //2025-11-18 iwai-tamura upd-str ------
                         // 特定扶養親族01
                         sql += " ,CASE WHEN T扶養.控除対象扶養親族01_特定扶養親族区分 = '2' ";
                         sql += "      THEN T扶養.控除対象扶養親族01_続柄";
@@ -195,7 +195,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                         sql += "      ELSE '' ";
                         sql += " END AS 特定扶養04_所得見積額 ";
 
-                    //2025-99-99 iwai-tamura upd-end ------
+                    //2025-11-18 iwai-tamura upd-end ------
 
                         sql += " FROM TE120基礎控除申告書Data As T基礎  ";
                         sql += "   LEFT JOIN TE100扶養控除申告書Data As T扶養 ";
@@ -291,7 +291,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 								AdjustmentDeduction_TotalEarnings = setMoney(row["所得金額調整控除申告書_扶養親族等所得金額"].ToString()),
 								AdjustmentDeduction_ReportType = row["所得金額調整控除申告書_特別障害者該当事実"].ToString(),
 
-                                //2025-99-99 iwai-tamura upd-str ------
+                                //2025-11-18 iwai-tamura upd-str ------
                                 // ===== 特定親族特別控除申告書 01 =====
                                 SpecificRelativeSpecialDeduction01_Name1 = row["特定親族特別控除申告書01_氏名_姓"].ToString(),
                                 SpecificRelativeSpecialDeduction01_Name2 = row["特定親族特別控除申告書01_氏名_名"].ToString(),
@@ -377,7 +377,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                                 RefSpecificDependent04_Income = setMoney(row["特定扶養04_給与所得_所得金額"].ToString()),
                                 RefSpecificDependent04_OtherIncome = setMoney(row["特定扶養04_他_所得金額"].ToString()),
                                 RefSpecificDependent04_TotalEarnings = setMoney(row["特定扶養04_所得見積額"].ToString())
-                                //2025-99-99 iwai-tamura upd-end ------
+                                //2025-11-18 iwai-tamura upd-end ------
 
                             };
                             model.Head.InputMode = ajustMode.SelfInput;
@@ -708,7 +708,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 							+ " ,所得金額調整控除申告書_扶養親族等所得金額 = @AdjustmentDeduction_TotalEarnings"
 							+ " ,所得金額調整控除申告書_特別障害者該当事実 = @AdjustmentDeduction_ReportType"
 
-                            //2025-99-99 iwai-tamura upd-str ------
+                            //2025-11-18 iwai-tamura upd-str ------
                             + " ,特定親族特別控除申告書01_氏名_姓 = @SpecificRelativeSpecialDeduction01_Name1"
                             + " ,特定親族特別控除申告書01_氏名_名 = @SpecificRelativeSpecialDeduction01_Name2"
                             + " ,特定親族特別控除申告書01_Kana_姓 = @SpecificRelativeSpecialDeduction01_Kana1"
@@ -758,7 +758,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                             + " ,特定親族特別控除申告書03_特定親族特別控除額 = @SpecificRelativeSpecialDeduction03_SpecialDeductionAmount"
 
 
-                            //2025-99-99 iwai-tamura upd-end ------
+                            //2025-11-18 iwai-tamura upd-end ------
 
 							+ " ,最終更新者ID = '" + lu.UserCode + "'"
 							+ " ,更新年月日 = GETDATE()"
@@ -820,7 +820,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 						DbHelper.AddDbParameter(cmd, "@SpouseDeduction_TaxReductionTarget", DbType.String);
                         //2024-11-19 iwai-tamura upd-end ------
 
-                        //2025-99-99 iwai-tamura upd-str ------
+                        //2025-11-18 iwai-tamura upd-str ------
                         DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_Name1", DbType.String);
                         DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_Name2", DbType.String);
                         DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction01_Kana1", DbType.String);
@@ -868,7 +868,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                         DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_EarningsType", DbType.String);
                         DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_CalcType", DbType.String);
                         DbHelper.AddDbParameter(cmd, "@SpecificRelativeSpecialDeduction03_SpecialDeductionAmount", DbType.Int32);
-                        //2025-99-99 iwai-tamura upd-end ------
+                        //2025-11-18 iwai-tamura upd-end ------
 
 
                         //パラメータ設定
@@ -923,7 +923,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
 						parameters[46].Value = DataConv.IfNull(checkValue(model.Head.SpouseDeduction_TaxReductionTarget));
                         //2024-11-19 iwai-tamura upd-end ------
 
-                        //2025-99-99 iwai-tamura upd-str ------
+                        //2025-11-18 iwai-tamura upd-str ------
                         // ----- 01 -----
                         parameters[47].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_Name1);
                         parameters[48].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction01_Name2);
@@ -974,7 +974,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HaiguuDeclareRegister {
                         parameters[89].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_EarningsType);
                         parameters[90].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_CalcType);
                         parameters[91].Value = DataConv.IfNull(model.Head.SpecificRelativeSpecialDeduction03_SpecialDeductionAmount.ToString());
-                        //2025-99-99 iwai-tamura upd-end ------
+                        //2025-11-18 iwai-tamura upd-end ------
 
                         cmd.ExecuteNonQuery();
                     

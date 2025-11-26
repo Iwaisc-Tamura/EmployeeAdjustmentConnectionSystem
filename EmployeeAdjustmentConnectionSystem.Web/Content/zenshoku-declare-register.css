@@ -138,7 +138,7 @@ button.btn-get {
 
 /* === 各項目の書式 === */
 /*ヘッダー項目*/
-/*2025-99-99 iwai-matsuo upd-str ------*/
+/*2025-11-18 iwai-matsuo upd-str ------*/
 .table > thead > tr.content-label-h1 {
     font-weight: bold;
     color: #fff;
@@ -149,7 +149,7 @@ button.btn-get {
     color: #fff;
     background-color: #8D72E1;
 }*/
-/*2025-99-99 iwai-matsuo upd-end ------*/
+/*2025-11-18 iwai-matsuo upd-end ------*/
 
 .table > thead > tr.content-label-h2 {
     font-weight: bold;
@@ -169,7 +169,7 @@ button.btn-get {
     background-color: #0091c4;
 }
 /*フッター項目*/
-/*2025-99-99 iwai-matsuo upd-str ------*/
+/*2025-11-18 iwai-matsuo upd-str ------*/
 .table > tbody > tr > td.content-label-b1 {
     font-weight: bold;
     color: #000;
@@ -180,7 +180,7 @@ button.btn-get {
     color: #000;
     background-color: #DAC1ED;
 }*/
-/*2025-99-99 iwai-matsuo upd-end ------*/
+/*2025-11-18 iwai-matsuo upd-end ------*/
 
 .table > tbody > tr > td.content-label-b2 {
     font-weight: bold;
