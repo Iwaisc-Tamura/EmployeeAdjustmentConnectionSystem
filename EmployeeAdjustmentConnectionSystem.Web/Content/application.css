@@ -267,7 +267,7 @@ textarea.form-control-ta {
   height: auto;
 }
 
-/*2025-99-99 iwai-tamura add-str ------*/
+/*2025-11-18 iwai-tamura add-str ------*/
 /* table内で行毎にズレるのを防止 */
 .scrollTable.table-striped > tbody > tr:nth-child(odd) {
 	background-color: #f9f9f9 !important; /* Bootstrapのデフォルト色 */
@@ -276,7 +276,7 @@ textarea.form-control-ta {
 .scrollTable.table-striped > tbody > tr:nth-child(even) {
 	background-color: #ffffff !important; /* 偶数行 */
 }
-/*2025-99-99 iwai-tamura add-end ------*/
+/*2025-11-18 iwai-tamura add-end ------*/
 
 
 /*テーブルスクロール用*/
@@ -295,10 +295,10 @@ table.scrollTable {
   overflow-x: hidden;
   height: 300px;
 
-  /*2025-99-99 iwai-tamura add-str ------*/
+  /*2025-11-18 iwai-tamura add-str ------*/
   width: calc(100% - 5px);
   /*width: 100%;*/
-  /*2025-99-99 iwai-tamura add-end ------*/
+  /*2025-11-18 iwai-tamura add-end ------*/
   position: absolute;
 }
 /*テーブルスクロール用幅*/

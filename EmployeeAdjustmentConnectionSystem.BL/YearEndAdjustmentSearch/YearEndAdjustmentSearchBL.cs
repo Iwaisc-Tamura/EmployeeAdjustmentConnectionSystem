@@ -51,23 +51,23 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                 //確定区分取得
                 sql += ",T扶養控除.本人確定区分 As 扶養控除_本人確定区分 ";
                 sql += ",T扶養控除.管理者確定区分 As 扶養控除_管理者確定区分 ";
-                //2025-99-99 iwai-tamura upd-str ------
+                //2025-11-18 iwai-tamura upd-str ------
                 sql += ",T扶養控除.添付FileName As 扶養控除_添付FileName ";
                 sql += ",CASE WHEN T扶養控除.添付FileName IS NULL OR T扶養控除.添付FileName = '' ";
                 sql += "    THEN '0' ELSE '1' END AS 扶養控除添付File区分 ";
-                //2025-99-99 iwai-tamura upd-end ------
+                //2025-11-18 iwai-tamura upd-end ------
                 sql += ",T保険控除.本人確定区分 As 保険控除_本人確定区分 ";
                 sql += ",T保険控除.管理者確定区分 As 保険控除_管理者確定区分 ";
                 sql += ",T基礎控除.本人確定区分 As 基礎控除_本人確定区分 ";
                 sql += ",T基礎控除.管理者確定区分 As 基礎控除_管理者確定区分 ";
-                //2025-99-99 iwai-tamura upd-str ------
+                //2025-11-18 iwai-tamura upd-str ------
                 sql += ",T住宅控除.作成区分 As 住宅控除_作成区分 ";
                 sql += ",T住宅控除.本人確定区分 As 住宅控除_本人確定区分 ";
                 sql += ",T住宅控除.管理者確定区分 As 住宅控除_管理者確定区分 ";
                 sql += ",T前職源泉.作成区分 As 前職源泉_作成区分 ";
                 sql += ",T前職源泉.本人確定区分 As 前職源泉_本人確定区分 ";
                 sql += ",T前職源泉.管理者確定区分 As 前職源泉_管理者確定区分 ";
-                //2025-99-99 iwai-tamura upd-end ------
+                //2025-11-18 iwai-tamura upd-end ------
                          
                 sql += " FROM TEM100社員基本情報Data as T基本 ";
                 sql += "    LEFT JOIN TE100扶養控除申告書Data as T扶養控除";
@@ -76,19 +76,19 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                 sql +=  string.Format(" 	ON T基本.社員番号 = T保険控除.社員番号 And T保険控除.対象年度 = {0}", model.Search.Year);
                 sql += "    LEFT JOIN TE120基礎控除申告書Data as T基礎控除";
                 sql +=  string.Format(" 	ON T基本.社員番号 = T基礎控除.社員番号 And T基礎控除.対象年度 = {0}", model.Search.Year);
-                //2025-99-99 iwai-tamura upd-str ------
+                //2025-11-18 iwai-tamura upd-str ------
                 sql += "    LEFT JOIN TE150住宅借入金等特別控除申告書Data as T住宅控除";
                 sql +=  string.Format(" 	ON T基本.社員番号 = T住宅控除.社員番号 And T住宅控除.対象年度 = {0}", model.Search.Year);
                 sql += "    LEFT JOIN TE160前職源泉徴収票Data as T前職源泉";
                 sql +=  string.Format(" 	ON T基本.社員番号 = T前職源泉.社員番号 And T前職源泉.対象年度 = {0}", model.Search.Year);
-                //2025-99-99 iwai-tamura upd-end ------
+                //2025-11-18 iwai-tamura upd-end ------
 
                 sql += " {0} ";
 
                 var sqlc = "where 1=1";
 
                 //年調データ
-                //2025-99-99 iwai-tamura upd-str ------
+                //2025-11-18 iwai-tamura upd-str ------
                 sqlc += " and ("
                       + " (T扶養控除.社員番号 is not null)"
                       + " or (T保険控除.社員番号 is not null)"
@@ -97,7 +97,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                       + " or (T前職源泉.社員番号 is not null)"
                       + " )";
                 //sqlc += (" and ((T扶養控除.社員番号 is not null) or (T保険控除.社員番号 is not null) or (T基礎控除.社員番号 is not null))");
-                //2025-99-99 iwai-tamura upd-end ------
+                //2025-11-18 iwai-tamura upd-end ------
 
 
                 //所属
@@ -226,7 +226,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
 
                     default: break;
                 }
-                //2025-99-99 iwai-tamura upd-str ------
+                //2025-11-18 iwai-tamura upd-str ------
                 // 住宅控除
                 switch (model.Search.JutakuDeclareStatus)
                 {
@@ -300,7 +300,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                     default:
                         break;
                 }
-                //2025-99-99 iwai-tamura upd-end ------
+                //2025-11-18 iwai-tamura upd-end ------
 
 
                 //2024-12-24 iwai-tamura add-str ---
@@ -345,10 +345,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                         sqlc += "     (T扶養控除.管理者確定区分 < '9' ) ";
                         sqlc += "     or (T保険控除.管理者確定区分 < '9' ) ";
                         sqlc += "     or (T基礎控除.管理者確定区分 < '9' ) ";
-                        //2025-99-99 iwai-tamura upd-str ------
+                        //2025-11-18 iwai-tamura upd-str ------
                         sqlc += "     or (T住宅控除.管理者確定区分 < '9' ) ";
                         sqlc += "     or (T前職源泉.管理者確定区分 < '9' ) ";
-                        //2025-99-99 iwai-tamura upd-end ------
+                        //2025-11-18 iwai-tamura upd-end ------
                         sqlc += " ) ";
                         break;
 
@@ -360,10 +360,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                         sqlc += "     (T扶養控除.管理者確定区分 <= '5' ) ";
                         sqlc += "     or (T保険控除.管理者確定区分 <= '5' ) ";
                         sqlc += "     or (T基礎控除.管理者確定区分 <= '5' ) ";
-                        //2025-99-99 iwai-tamura upd-str ------
+                        //2025-11-18 iwai-tamura upd-str ------
                         sqlc += "     or (T住宅控除.管理者確定区分 < '5' ) ";
                         sqlc += "     or (T前職源泉.管理者確定区分 < '5' ) ";
-                        //2025-99-99 iwai-tamura upd-end ------
+                        //2025-11-18 iwai-tamura upd-end ------
                         sqlc += " ) ";
                         //sqlc += " and ( ";
                         //sqlc += "     (T扶養控除.管理者確定区分 < '5' ) ";
@@ -521,11 +521,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                             HuyouDeclareStatus =StatusDecision(row["扶養控除_本人確定区分"].ToString(),row["扶養控除_管理者確定区分"].ToString()),
                             HokenDeclareStatus =StatusDecision(row["保険控除_本人確定区分"].ToString(),row["保険控除_管理者確定区分"].ToString()),
                             HaiguuDeclareStatus =StatusDecision(row["基礎控除_本人確定区分"].ToString(),row["基礎控除_管理者確定区分"].ToString()),
-                            //2025-99-99 iwai-tamura upd-str ------
+                            //2025-11-18 iwai-tamura upd-str ------
                             JutakuDeclareStatus =StatusDecision(row["住宅控除_本人確定区分"].ToString(),row["住宅控除_管理者確定区分"].ToString()),
                             ZenshokuDeclareStatus =StatusDecision(row["前職源泉_本人確定区分"].ToString(),row["前職源泉_管理者確定区分"].ToString()),
                             HuyouAttachmentFilePath = row["扶養控除_添付FileName"].ToString(),
-                            //2025-99-99 iwai-tamura upd-end ------
+                            //2025-11-18 iwai-tamura upd-end ------
                         };
 
                         //2024-11-19 iwai-tamura upd-str ------
@@ -534,7 +534,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                         result.HokenDeclareButtonViewFlg = buttonViewRules.TryGetValue((lu.IsAdminNo,row["保険控除_本人確定区分"].ToString(),row["保険控除_管理者確定区分"].ToString()),out shouldDisplay) ? shouldDisplay : false;;
                         result.HaiguuDeclareButtonViewFlg = buttonViewRules.TryGetValue((lu.IsAdminNo,row["基礎控除_本人確定区分"].ToString(),row["基礎控除_管理者確定区分"].ToString()),out shouldDisplay) ? shouldDisplay : false;;
                         //2024-11-19 iwai-tamura upd-end ------
-                        //2025-99-99 iwai-tamura upd-str ------
+                        //2025-11-18 iwai-tamura upd-str ------
                         //扶養控除添付ファイルダウンロードボタン
                         if (result.HuyouDeclareButtonViewFlg && row["扶養控除添付File区分"].ToString()=="1") {
                             result.HuyouDeclareAttachmentButtonViewFlg = true;
@@ -557,7 +557,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                             result.ZenshokuDeclareButtonViewFlg = false;
                             result.ZenshokuDeclareStatus = "";
                         }
-                        //2025-99-99 iwai-tamura upd-end ------
+                        //2025-11-18 iwai-tamura upd-end ------
                         resultList.Add(result);
                     }
                     model.SearchResult = resultList;
@@ -967,7 +967,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                             case "Haiguu":  //基礎控除
                                 sql += " TE120基礎控除申告書Data";
                                 break;
-                            //2025-99-99 iwai-tamura upd-str ------
+                            //2025-11-18 iwai-tamura upd-str ------
                             case "Jutaku":  //住宅控除
                                 sql += " TE150住宅借入金等特別控除申告書Data";
                                 break;
@@ -975,7 +975,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                             case "Zenshoku"://前職源泉
                                 sql += " TE160前職源泉徴収票Data";
                                 break;
-                            //2025-99-99 iwai-tamura upd-end ------
+                            //2025-11-18 iwai-tamura upd-end ------
 
                             default:
                                 sql += " TE100扶養控除申告書Data";
@@ -1032,7 +1032,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                                 sql = "update TE120基礎控除申告書Data";
                                 break;
 
-                            //2025-99-99 iwai-tamura upd-str ------
+                            //2025-11-18 iwai-tamura upd-str ------
                             case "Jutaku":  //住宅控除
                                 sql = "update TE150住宅借入金等特別控除申告書Data";
                                 break;
@@ -1040,7 +1040,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                             case "Zenshoku"://前職源泉
                                 sql = "update TE160前職源泉徴収票Data";
                                 break;
-                            //2025-99-99 iwai-tamura upd-end ------
+                            //2025-11-18 iwai-tamura upd-end ------
 
                             default:
                                 sql = "update TE100扶養控除申告書Data";

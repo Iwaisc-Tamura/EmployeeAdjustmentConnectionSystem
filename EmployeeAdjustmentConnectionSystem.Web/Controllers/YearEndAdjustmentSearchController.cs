@@ -325,14 +325,14 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                     case  "HaiguuDeclare": //基礎控除
                         return RedirectToAction("Index", "HaiguuDeclareRegister", new { intSheetYear = val[1], strEmployeeNo = val[2] ,bolAdminMode = true});
 
-                    //2025-99-99 iwai-tamura upd-str ------
+                    //2025-11-18 iwai-tamura upd-str ------
                     case  "JutakuDeclare": //住宅控除
                         return RedirectToAction("Index", "JutakuDeclareRegister", new { intSheetYear = val[1], strEmployeeNo = val[2] ,bolAdminMode = true});
 
                     case  "ZenshokuDeclare": //前職源泉
                         return RedirectToAction("Index", "ZenshokuDeclareRegister", new { intSheetYear = val[1], strEmployeeNo = val[2] ,bolAdminMode = true});
 
-                    //2025-99-99 iwai-tamura upd-end ------
+                    //2025-11-18 iwai-tamura upd-end ------
 
                     default:　//指定職掌以外
                         return RedirectToAction("Search");
@@ -419,7 +419,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             }
         }
 
-        //2025-99-99 iwai-tamura upd-str ------
+        //2025-11-18 iwai-tamura upd-str ------
         /// <summary>
         /// 添付ファイルダウンロード
         /// </summary>
@@ -485,7 +485,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2025-99-99 iwai-tamura upd-end ------
+        //2025-11-18 iwai-tamura upd-end ------
 
 
         /// <summary>
@@ -885,7 +885,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             }
         }
 
-        //2025-99-99 iwai-tamura upd-str ------
+        //2025-11-18 iwai-tamura upd-str ------
         /// <summary>
         /// 一括承認（住宅控除）
         /// </summary>
@@ -1118,7 +1118,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2025-99-99 iwai-tamura upd-end ------
+        //2025-11-18 iwai-tamura upd-end ------
 
         //2024-12-24 iwai-tamura upd-str ------
         /// <summary>

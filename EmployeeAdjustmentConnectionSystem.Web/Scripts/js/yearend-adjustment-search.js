@@ -141,7 +141,7 @@ $('#dmysignbatch_haiguu').click(function () {
     showMessage('一括確定', '確定しますか？', 'signbatch_haiguu_button', false);
 });
 
-//2025-99-99 iwai-tamura upd-str ------
+//2025-11-18 iwai-tamura upd-str ------
 $('#dmysignbatch_jutaku').click(function () {
     // チェックボックスの情報取得
     const checkboxes = document.querySelectorAll('input[name="selPrint"]:checked');
@@ -166,7 +166,7 @@ $('#dmysignbatch_zenshoku').click(function () {
     }
     showMessage('一括確定', '確定しますか？', 'signbatch_zenshoku_button', false);
 });
-//2025-99-99 iwai-tamura upd-end ------
+//2025-11-18 iwai-tamura upd-end ------
 
 
 /*
@@ -215,7 +215,7 @@ $('#dmyprintbatch_haiguu').click(function () {
     showMessage('帳票出力', '出力しますか？', 'printbatch_haiguu_button', false);
 });
 
-//2025-99-99 iwai-tamura upd-str ------
+//2025-11-18 iwai-tamura upd-str ------
 //住宅控除EXCEL出力
 $('#dmyprintxls_jutaku').click(function () {
     // チェックボックスの情報取得
@@ -243,7 +243,7 @@ $('#dmyprintxls_zenshoku').click(function () {
     }
     showMessage('一括出力', 'エクセルデータを出力しますか？', 'printxls_zenshoku_button', false);
 });
-//2025-99-99 iwai-tamura upd-end ------
+//2025-11-18 iwai-tamura upd-end ------
 
 $('#dmyprintatoc').click(function () {
     showMessage('帳票出力', '出力しますか？', 'printatocbutton', false);

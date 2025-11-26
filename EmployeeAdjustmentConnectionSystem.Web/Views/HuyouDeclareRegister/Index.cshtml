@@ -141,10 +141,10 @@
     //共通入力モード
     var TextName = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "50" }, { "style", "width:100px;" } };
     var TextKana = new Dictionary<string, object>() { { "class", "form-control select-other checkKana" }, { "maxlength", "50" }, { "style", "width:100px;" } };
-    //2025-99-99 iwai-tamura upd-str ------
+    //2025-11-18 iwai-tamura upd-str ------
     var TextAddress1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "15" }, { "style", "width:45%;" } };
     var TextAddress2 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "14" }, { "style", "width:45%;" } };
-    //2025-99-99 iwai-tamura upd-end ------
+    //2025-11-18 iwai-tamura upd-end ------
     var TextWord1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "5" } };
     var TextWordMax = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "50" }, { "style", "width:100%;" } };
     var TextMoney1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "20" }, { "type", "number" } };
@@ -243,10 +243,10 @@
                             new SelectListItem() { Value="46", Text="46:祖母" },
                             new SelectListItem() { Value="47", Text="47:義祖父" },
                             new SelectListItem() { Value="48", Text="48:義祖母" },
-                            //2025-99-99 iwai-tamura upd-str ------
+                            //2025-11-18 iwai-tamura upd-str ------
                             new SelectListItem() { Value="51", Text="51:夫の子" },
                             new SelectListItem() { Value="52", Text="52:妻の子" },
-                            //2025-99-99 iwai-tamura upd-end ------
+                            //2025-11-18 iwai-tamura upd-end ------
                             new SelectListItem() { Value="60", Text="60:孫" },
                             new SelectListItem() { Value="61", Text="61:孫" },
                             new SelectListItem() { Value="62", Text="62:孫" },
@@ -284,10 +284,10 @@
                             new SelectListItem() { Value="37", Text="37:七女" },
                             new SelectListItem() { Value="38", Text="38:八女" },
                             new SelectListItem() { Value="39", Text="39:九女" },
-                            //2025-99-99 iwai-tamura upd-str ------
+                            //2025-11-18 iwai-tamura upd-str ------
                             new SelectListItem() { Value="51", Text="51:夫の子" },
                             new SelectListItem() { Value="52", Text="52:妻の子" },
-                            //2025-99-99 iwai-tamura upd-end ------
+                            //2025-11-18 iwai-tamura upd-end ------
                             new SelectListItem() { Value="60", Text="60:孫" },
                             new SelectListItem() { Value="61", Text="61:孫" },
                             new SelectListItem() { Value="62", Text="62:孫" },
@@ -567,7 +567,7 @@
                         <td colspan="6" class="form-inline">@setDdl(false, "RelationshipType", Model.Head.RelationshipType, familyItems)<span class="required">※必須</span></td>
                     </tr>
 
-                    @*2025-99-99 iwai-tamura upd-str ------*@
+                    @*2025-11-18 iwai-tamura upd-str ------*@
                     <tr>
                         <td colspan="2" class="content-label-b1">住民票上の住所区分</td>
                         <td colspan="6" class="form-inline">
@@ -577,19 +577,19 @@
                             <span style="font-size: 12px; border: none;">*該当の都道府県・市区町村がリストにない場合は、システム管理者にお問い合わせください。</span>
                         </td>
                     </tr>
-                    @*2025-99-99 iwai-tamura upd-end ------*@
+                    @*2025-11-18 iwai-tamura upd-end ------*@
                     <tr>
-                        @*2025-99-99 iwai-tamura upd-str ------*@
+                        @*2025-11-18 iwai-tamura upd-str ------*@
                         <td colspan="2" class="content-label-b1">住民票上の住所</td>
                         @*<td colspan="2" class="content-label-b1">住所又は居所</td>*@
-                        @*2025-99-99 iwai-tamura upd-end ------*@
+                        @*2025-11-18 iwai-tamura upd-end ------*@
                         <td colspan="6" class="form-inline">
                             郵便番号<span class="required">※必須</span><br/>
                             @Html.TextBoxFor(m => m.Head.PostalCode_1, TextPost1)‐@Html.TextBoxFor(m => m.Head.PostalCode_2, TextPost2)<br/>
-                            @*2025-99-99 iwai-tamura upd-str ------*@
+                            @*2025-11-18 iwai-tamura upd-str ------*@
                             住所  <span style="font-size: 12px; border: none;">＊都道府県から入力</span><br />
                             @*住所又は居所<br />*@
-                            @*2025-99-99 iwai-tamura upd-end ------*@
+                            @*2025-11-18 iwai-tamura upd-end ------*@
                             @Html.TextBoxFor(m => m.Head.Address, TextAddress1)<br />
                             @Html.TextBoxFor(m => m.Head.Address02, TextAddress2)<br />
                         </td>
@@ -817,9 +817,9 @@
     var attrRadioB1_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB1_2" }, { "id", "select_radioB1_2_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_1')" } };
     var attrRadioB1_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB1_2" }, { "id", "select_radioB1_2_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_1')" } };
 
-    //2025-99-99 iwai-tamura upd-str ------
+    //2025-11-18 iwai-tamura upd-str ------
     var attrRadioB1_2_3 = new Dictionary<string, object>() { { "name", "attrRadioB1_2" }, { "id", "select_radioB1_2_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_1')" } };
-    //2025-99-99 iwai-tamura upd-end ------
+    //2025-11-18 iwai-tamura upd-end ------
 
     var attrRadioB1_3_1 = new Dictionary<string, object>() { { "name", "attrRadioB1_3" }, { "id", "select_radioB1_3_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_1')" } };
     var attrRadioB1_3_2 = new Dictionary<string, object>() { { "name", "attrRadioB1_3" }, { "id", "select_radioB1_3_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_1')" } };
@@ -842,10 +842,10 @@
                 <thead>
                     <tr class="content-label-h2">
                         <td colspan="8">
-                            @*2025-99-99 iwai-tamura upd-str ------*@
+                            @*2025-11-18 iwai-tamura upd-str ------*@
                             Ｂ 源泉控除対象親族(16歳以上)
                             @*Ｂ 控除対象扶養親族(16歳以上)*@
-                            @*2025-99-99 iwai-tamura upd-end ------*@
+                            @*2025-11-18 iwai-tamura upd-end ------*@
                         </td>
                     </tr>
                 </thead>
@@ -987,12 +987,12 @@
                         </td>                    
                     </tr>
                     <tr>
-                        @*2025-99-99 iwai-tamura upd-str ------*@
+                        @*2025-11-18 iwai-tamura upd-str ------*@
                         <td colspan="2" class="content-label-b1">特定扶養親族・特定親族</td>
                         @*<td colspan="2" class="content-label-b1">特定扶養親族</td>*@
-                        @*2025-99-99 iwai-tamura upd-end ------*@
+                        @*2025-11-18 iwai-tamura upd-end ------*@
                         <td colspan="6" class="form-inline">
-                            @*2025-99-99 iwai-tamura upd-str ------*@
+                            @*2025-11-18 iwai-tamura upd-str ------*@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_SpecificType, "0", attrRadioB1_2_1)
                             <label class="radio-label-3 input-control " for="select_radioB1_2_1" disabled="disabled">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_SpecificType, "1", attrRadioB1_2_2)
@@ -1003,7 +1003,7 @@
                             <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_2_1">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_1_SpecificType, "1", attrRadioB1_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_1_isRead" for="select_radioB1_2_2">特定扶養親族</label>*@
-                            @*2025-99-99 iwai-tamura upd-end ------*@
+                            @*2025-11-18 iwai-tamura upd-end ------*@
                             @*2023-11-20 iwai-tamura add-str ------*@
                             @*2024-11-19 iwai-tamura upd-str ------*@
                             <div id="Head_DependentsOver16_1_SpecificType_mes" class="check-comment" data-fieldname="源泉控除対象親族(16歳以上) 1:特定扶養親族"></div>
@@ -1075,9 +1075,9 @@
     var attrRadioB2_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
     var attrRadioB2_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_RadioB2_2_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
     var attrRadioB2_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_RadioB2_2_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
-    //2025-99-99 iwai-tamura upd-str ------
+    //2025-11-18 iwai-tamura upd-str ------
     var attrRadioB2_2_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_2" }, { "id", "select_radioB2_2_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
-    //2025-99-99 iwai-tamura upd-end ------
+    //2025-11-18 iwai-tamura upd-end ------
     //var attrRadioB2_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_1" } };
     //var attrRadioB2_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_2" } };
     //var attrRadioB2_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB2_1" }, { "id", "select_RadioB2_1_3" } };
@@ -1229,12 +1229,12 @@
                         </td>
                     </tr>
                     <tr>
-                        @*2025-99-99 iwai-tamura upd-str ------*@
+                        @*2025-11-18 iwai-tamura upd-str ------*@
                         <td colspan="2" class="content-label-b1">特定扶養親族・特定親族</td>
                         @*<td colspan="2" class="content-label-b1">特定扶養親族</td>*@
-                        @*2025-99-99 iwai-tamura upd-end ------*@
+                        @*2025-11-18 iwai-tamura upd-end ------*@
                         <td colspan="6" class="form-inline">
-                            @*2025-99-99 iwai-tamura upd-str ------*@
+                            @*2025-11-18 iwai-tamura upd-str ------*@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_SpecificType, "0", attrRadioB2_2_1)
                             <label class="radio-label-2 input-control " for="select_radioB2_2_1" disabled="disabled">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_SpecificType, "1", attrRadioB2_2_2)
@@ -1245,7 +1245,7 @@
                             <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_2_1">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_2_SpecificType, "1", attrRadioB2_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_2_isRead" for="select_RadioB2_2_2">特定扶養親族</label>*@
-                            @*2025-99-99 iwai-tamura upd-end ------*@
+                            @*2025-11-18 iwai-tamura upd-end ------*@
 
                             @*2023-11-20 iwai-tamura add-str ------*@
                             @*2024-11-19 iwai-tamura upd-str ------*@
@@ -1318,9 +1318,9 @@
     var attrRadioB3_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
     var attrRadioB3_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_RadioB3_2_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
     var attrRadioB3_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_RadioB3_2_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_3')" } };
-    //2025-99-99 iwai-tamura upd-str ------
+    //2025-11-18 iwai-tamura upd-str ------
     var attrRadioB3_2_3 = new Dictionary<string, object>() { { "name", "attrRadioB3_2" }, { "id", "select_radioB3_2_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_2')" } };
-    //2025-99-99 iwai-tamura upd-end ------
+    //2025-11-18 iwai-tamura upd-end ------
 
     //var attrRadioB3_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_1" } };
     //var attrRadioB3_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB3_1" }, { "id", "select_RadioB3_1_2" } };
@@ -1471,12 +1471,12 @@
                         </td>
                     </tr>
                     <tr>
-                        @*2025-99-99 iwai-tamura upd-str ------*@
+                        @*2025-11-18 iwai-tamura upd-str ------*@
                         <td colspan="2" class="content-label-b1">特定扶養親族・特定親族</td>
                         @*<td colspan="2" class="content-label-b1">特定扶養親族</td>*@
-                        @*2025-99-99 iwai-tamura upd-end ------*@
+                        @*2025-11-18 iwai-tamura upd-end ------*@
                         <td colspan="6" class="form-inline">
-                            @*2025-99-99 iwai-tamura upd-str ------*@
+                            @*2025-11-18 iwai-tamura upd-str ------*@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_SpecificType, "0", attrRadioB3_2_1)
                             <label class="radio-label-2 input-control " for="select_radioB3_2_1" disabled="disabled">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_SpecificType, "1", attrRadioB3_2_2)
@@ -1487,7 +1487,7 @@
                             <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_2_1">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_3_SpecificType, "1", attrRadioB3_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_3_isRead" for="select_RadioB3_2_2">特定扶養親族</label>*@
-                            @*2025-99-99 iwai-tamura upd-end ------*@
+                            @*2025-11-18 iwai-tamura upd-end ------*@
                             @*2023-11-20 iwai-tamura add-str ------*@
                             @*2024-11-19 iwai-tamura upd-str ------*@
                             <div id="Head_DependentsOver16_3_SpecificType_mes" class="check-comment" data-fieldname="源泉控除対象親族(16歳以上) 3:特定扶養親族"></div>
@@ -1560,9 +1560,9 @@
     var attrRadioB4_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
     var attrRadioB4_2_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_RadioB4_2_1" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
     var attrRadioB4_2_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_RadioB4_2_2" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
-    //2025-99-99 iwai-tamura upd-str ------
+    //2025-11-18 iwai-tamura upd-str ------
     var attrRadioB4_2_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_2" }, { "id", "select_radioB4_2_3" } , { "oninput", "checkDependentsOver16('DependentsOver16_4')" } };
-    //2025-99-99 iwai-tamura upd-end ------
+    //2025-11-18 iwai-tamura upd-end ------
     //var attrRadioB4_1_1 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_1" } };
     //var attrRadioB4_1_2 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_2" } };
     //var attrRadioB4_1_3 = new Dictionary<string, object>() { { "name", "attrRadioB4_1" }, { "id", "select_RadioB4_1_3" } };
@@ -1712,12 +1712,12 @@
                         </td>
                     </tr>
                     <tr>
-                        @*2025-99-99 iwai-tamura upd-str ------*@
+                        @*2025-11-18 iwai-tamura upd-str ------*@
                         <td colspan="2" class="content-label-b1">特定扶養親族・特定親族</td>
                         @*<td colspan="2" class="content-label-b1">特定扶養親族</td>*@
-                        @*2025-99-99 iwai-tamura upd-end ------*@
+                        @*2025-11-18 iwai-tamura upd-end ------*@
                         <td colspan="6" class="form-inline">
-                            @*2025-99-99 iwai-tamura upd-str ------*@
+                            @*2025-11-18 iwai-tamura upd-str ------*@
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_SpecificType, "0", attrRadioB4_2_1)
                             <label class="radio-label-2 input-control " for="select_radioB4_2_1" disabled="disabled">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_SpecificType, "1", attrRadioB4_2_2)
@@ -1728,7 +1728,7 @@
                             <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_2_1">該当しない</label>
                             @Html.RadioButtonFor(m => m.Head.DependentsOver16_4_SpecificType, "1", attrRadioB4_2_2)
                             <label class="radio-label-2 input-control DependentsOver16_4_isRead" for="select_RadioB4_2_2">特定扶養親族</label>*@
-                            @*2025-99-99 iwai-tamura upd-end ------*@
+                            @*2025-11-18 iwai-tamura upd-end ------*@
 
                             @*2023-11-20 iwai-tamura add-str ------*@
                             @*2024-11-19 iwai-tamura upd-str ------*@
@@ -2524,10 +2524,10 @@
     </div>
 
     @Scripts.Render("~/Scripts/js/huyou")
-    @*2025-99-99 iwai-tamura upd-str ------*@
+    @*2025-11-18 iwai-tamura upd-str ------*@
     <script>
       // RazorでJSONを埋め込むのは .cshtml 内で
       const addressMaster = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Head.AddressMaster));
     </script>
-    @*2025-99-99 iwai-tamura upd-end ------*@
+    @*2025-11-18 iwai-tamura upd-end ------*@
 }

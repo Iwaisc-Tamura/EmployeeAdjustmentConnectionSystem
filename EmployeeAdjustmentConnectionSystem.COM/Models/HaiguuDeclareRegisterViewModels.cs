@@ -417,7 +417,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public string AdjustmentDeduction_ReportType { get; set; }
 
-        //2025-99-99 iwai-tamura upd-str ------
+        //2025-11-18 iwai-tamura upd-str ------
         /// <summary>
         /// 特定親族特別控除申告書01_氏名_姓
         /// </summary>
@@ -789,7 +789,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// 特定扶養04_所得見積額（参考表示用）
         /// </summary>
         public int? RefSpecificDependent04_TotalEarnings { get; set; }
-        //2025-99-99 iwai-tamura upd-end ------
+        //2025-11-18 iwai-tamura upd-end ------
     }
 
     /// <summary>
