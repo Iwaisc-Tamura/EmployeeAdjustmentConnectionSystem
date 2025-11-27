@@ -522,76 +522,116 @@
         <div class="row top17">
             @*2025-11-18 iwai-tamura upd-str ------*@
             <div class="col-xs-12 ">
-            @*<div class="col-xs-offset-1 col-xs-10 ">*@
-            @*2025-11-18 iwai-tamura upd-end ------*@
-                <div class="pull-right">
+                @*<div class="col-xs-offset-1 col-xs-10 ">*@
+                @*2025-11-18 iwai-tamura upd-end ------*@
+                @*2025-11-28 iwai-matsuo upd str -----*@
+                <div class="pull-right g-perform-group">
+
+                    <label class="g-r1 g-c1 g-lbl-right">一括確定登録：</label>
+                    <button type="button" name="DmySignBatchHuyou" value="帳票出力xls" class="btn-default btn-batch g-r1 g-c2 g-btn-center" id="dmysignbatch_huyou" >扶養控除</button>
+                    @if (((LoginUser)Session["LoginUser"]).IsServerStatus == "1")
+                    {
+                        <button type="button" name="DmySignBatchHoken" value="帳票出力xls" class="btn-default btn-batch g-r1 g-c3 g-btn-center" id="dmysignbatch_hoken" >保険料控除</button>
+                        <button type="button" name="DmySignBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch g-r1 g-c4 g-btn-center" id="dmysignbatch_haiguu">基礎控除</button>
+                    }
+                    @if (((LoginUser)Session["LoginUser"]).IsServerStatus == "1")
+                    {
+                        <button type="button" name="DmySignBatchJutaku" value="帳票出力xls" class="btn-default btn-batch g-r1 g-c5 g-btn-center" id="dmysignbatch_jutaku">住宅控除</button>
+                    }
+                    <button type="button" name="DmySignBatchZenshoku" value="帳票出力xls" class="btn-default btn-batch g-r1 g-c6 g-btn-center" id="dmysignbatch_zenshoku">前職源泉</button>
+
+                    
+                    <label class="g-r2 g-c1 g-lbl-right">一括帳票出力：</label>
+                    <button type="button" name="DmyPrintBatchHuyou" value="帳票出力xls" class="btn-default btn-batch g-r2 g-c2 g-btn-center" id="dmyprintbatch_huyou" >扶養控除</button>
+                    <button type="button" name="DmyPrintBatchHoken" value="帳票出力xls" class="btn-default btn-batch g-r2 g-c3 g-btn-center" id="dmyprintbatch_hoken" >保険料控除</button>
+                    <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch g-r2 g-c4 g-btn-center" id="dmyprintbatch_haiguu" >基礎控除</button>
+                     
+
+                    <label class="g-r3 g-c1 g-lbl-right">対象者Excel出力：</label>
+                    <button type="button" name="DmyPrintXlsJutaku" value="帳票出力xls" class="btn-default btn-batch g-r3 g-c5 g-btn-center" id="dmyprintxls_jutaku">住宅控除</button>
+                    <button type="button" name="DmyPrintXlsZenshoku" value="帳票出力xls" class="btn-default btn-batch g-r3 g-c6 g-btn-center" id="dmyprintxls_zenshoku">前職源泉</button>
+
+                    
+                    <label class="g-r4 g-c1 g-lbl-right">その他処理：</label>
+                    @if (((LoginUser)Session["LoginUser"]).IsRoot)
+                    {
+                        <button type="button" name="DmySendMail" value="tmp" class="btn-default btn-batch g-r4 g-c2 g-btn-center" id="dmysendmailbutton">メール配信</button>
+                    }
+                    <button type="submit" name="Back" value="戻る" class="btn-default btn-batch g-r4 g-c6 g-btn-center" id="backbutton">戻る</button>
+                    
+                </div>
+                <!--<div class="pull-right">
                     <div>
                         <label class="control-label">　一括確定登録 ：</label>
-                        <button type="button" name="DmySignBatchHuyou" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_huyou" style="margin-left:5px;">扶養控除</button>
+                        <button type="button" name="DmySignBatchHuyou" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_huyou" style="margin-left:5px;">扶養控除</button>-->
                         @*2023-12-15 iwai-tamura upd-str ------*@
-                        @if(((LoginUser)Session["LoginUser"]).IsServerStatus == "1") {
+                        <!--@if (((LoginUser)Session["LoginUser"]).IsServerStatus == "1")
+                        {
                             <button type="button" name="DmySignBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_hoken" style="margin-left:5px;">保険料控除</button>
                             <button type="button" name="DmySignBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_haiguu" style="margin-left:5px;">基礎控除</button>
-                        }
+                        }-->
                         @*<button type="button" name="DmySignBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_hoken" style="margin-left:5px;">保険料控除</button>
-                        <button type="button" name="DmySignBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_haiguu" style="margin-left:5px;">基礎控除</button>*@
+                <button type="button" name="DmySignBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_haiguu" style="margin-left:5px;">基礎控除</button>*@
                         @*2023-12-15 iwai-tamura upd-end ------*@
                         @*2025-11-18 iwai-tamura upd-str ------*@
-                        @if(((LoginUser)Session["LoginUser"]).IsServerStatus == "1") {
+                        <!--@if (((LoginUser)Session["LoginUser"]).IsServerStatus == "1")
+                        {
                             <button type="button" name="DmySignBatchJutaku" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_jutaku" style="margin-left:5px;">住宅控除</button>
                         }
-                        <button type="button" name="DmySignBatchZenshoku" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_zenshoku" style="margin-left:5px;">前職源泉</button>
+                        <button type="button" name="DmySignBatchZenshoku" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_zenshoku" style="margin-left:5px;">前職源泉</button>-->
                         @*2025-11-18 iwai-tamura upd-end ------*@
 
-                    </div>
+                    <!--</div>
                     <div>
                         <label class="control-label">　一括帳票出力 ：</label>
-                        <button type="button" name="DmyPrintBatchHuyou" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_huyou" style="margin-left:5px;">扶養控除</button>
+                        <button type="button" name="DmyPrintBatchHuyou" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_huyou" style="margin-left:5px;">扶養控除</button>-->
                         @*2025-03-21 iwai-tamura upd-str 履歴出力の為、常に表示------*@
-                        <button type="button" name="DmyPrintBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_hoken" style="margin-left:5px;">保険料控除</button>
-                        <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_haiguu" style="margin-left:5px;">基礎控除</button>
+                        <!--<button type="button" name="DmyPrintBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_hoken" style="margin-left:5px;">保険料控除</button>
+                        <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_haiguu" style="margin-left:5px;">基礎控除</button>-->
                         @*2023-12-15 iwai-tamura upd-str ------*@
                         @*@if(((LoginUser)Session["LoginUser"]).IsServerStatus == "1") {
-                            <button type="button" name="DmyPrintBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_hoken" style="margin-left:5px;">保険料控除</button>
-                            <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_haiguu" style="margin-left:5px;">基礎控除</button>
-                        }*@
+                    <button type="button" name="DmyPrintBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_hoken" style="margin-left:5px;">保険料控除</button>
+                    <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_haiguu" style="margin-left:5px;">基礎控除</button>
+                }*@
                         @*<button type="button" name="DmyPrintBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_hoken" style="margin-left:5px;">保険料控除</button>
-                        <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_haiguu" style="margin-left:5px;">基礎控除</button>*@
+                <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_haiguu" style="margin-left:5px;">基礎控除</button>*@
                         @*2023-12-15 iwai-tamura upd-str ------*@
                         @*2025-03-21 iwai-tamura upd-end ------*@
-                    </div>
+                    <!--</div>-->
                     @*2025-11-18 iwai-tamura upd-str ------*@
-                    <div>
+                    <!--<div>
                         <label class="control-label">対象者Excel出力：</label>
                         <button type="button" name="Dmybtn1" value="帳票出力xls" class="btn-default btn-batch btn invisible" id="dmybtn1" style="margin-left:5px;">空ボタン</button>
                         <button type="button" name="Dmybtn2" value="帳票出力xls" class="btn-default btn-batch btn invisible" id="dmybtn2" style="margin-left:5px;">空ボタン</button>
                         <button type="button" name="Dmybtn3" value="帳票出力xls" class="btn-default btn-batch btn invisible" id="dmybtn3" style="margin-left:5px;">空ボタン</button>
                         <button type="button" name="DmyPrintXlsZenshoku" value="帳票出力xls" class="btn-default btn-batch pull-right" id="dmyprintxls_zenshoku" style="margin-left:5px;">前職源泉</button>
                         <button type="button" name="DmyPrintXlsJutaku" value="帳票出力xls" class="btn-default btn-batch pull-right" id="dmyprintxls_jutaku" style="margin-left:5px;">住宅控除</button>
-                    </div>
+                    </div>-->
                     @*2025-11-18 iwai-tamura upd-end ------*@
 
                     @*2025-11-18 iwai-tamura upd-str ------*@
-                    <div>
+                    <!--<div>
                         <label class="control-label">　　その他処理　：</label>
-                        @if (((LoginUser)Session["LoginUser"]).IsRoot) {
+                        @if (((LoginUser)Session["LoginUser"]).IsRoot)
+                        {
                             <button type="button" name="DmySendMail" value="tmp" class="btn-default btn-batch" id="dmysendmailbutton" style="margin-left:5px;">メール配信</button>
                         }
                         <button type="submit" name="Back" value="戻る" class="btn-default btn-batch pull-right" id="backbutton" style="margin-left:5px;">戻る</button>
-                    </div>
+                    </div>-->
                     @*<div>
-                        <button type="submit" name="Back" value="戻る" class="btn-default btn-batch pull-right" id="backbutton" style="margin-left:5px;">戻る</button>
-                    </div>*@
+                <button type="submit" name="Back" value="戻る" class="btn-default btn-batch pull-right" id="backbutton" style="margin-left:5px;">戻る</button>
+            </div>*@
                     @*2024-12-24 iwai-tamura upd-str ------*@
                     @*@if (((LoginUser)Session["LoginUser"]).IsRoot) {
-                        <div>
-                            <button type="button" name="DmySendMail" value="tmp" class="btn-default btn-batch pull-right" id="dmysendmailbutton" style="margin-left:5px;">メール配信</button>
-                        </div>
-                    }*@
+                <div>
+                    <button type="button" name="DmySendMail" value="tmp" class="btn-default btn-batch pull-right" id="dmysendmailbutton" style="margin-left:5px;">メール配信</button>
+                </div>
+            }*@
                     @*2024-12-24 iwai-tamura upd-end ------*@
                     @*2025-11-18 iwai-tamura upd-end ------*@
-                </div>
-        </div>
+                <!--</div>-->
+             @*2025-11-28 iwai-matsuo upd end -----*@
+            </div>
     </div>
 
     @*隠しボタンエリア*@
