@@ -1085,6 +1085,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,扶養控除.郵便番号_前 "
                     + "     ,扶養控除.郵便番号_後 "
                     + "     ,扶養控除.住所01 "
+                    //2025-11-28 iwai-tamura upd str ------
+                    + "     ,扶養控除.住所02 "
+                    //2025-11-28 iwai-tamura upd end ------
                     + "     ,ISNULL(扶養控除.配偶者有無,'0') AS 配偶者有無 "
                     + "     ,扶養控除.Sequence番号 "
                     //2023-11-19 iwai-terao upd str ------

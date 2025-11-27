@@ -1,11 +1,8 @@
-﻿namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports
-{
+﻿namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
 
 
-    partial class HuyouDeclareDataSet
-    {
-        partial class HuyouDeclareDataTableDataTable
-        {
+    partial class HuyouDeclareDataSet {
+        partial class HuyouDeclareDataTableDataTable {
         }
     }
 }
