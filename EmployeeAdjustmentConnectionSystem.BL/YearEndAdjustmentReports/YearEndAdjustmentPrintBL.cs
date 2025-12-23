@@ -130,6 +130,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     {
                         //目標管理基本データを取得
                         row = GetBasicDataRow_Haiguu(key, dm, year);
+                        //2025-12-19 iwai-tamura add str ------
+                        if (row == null) continue;  
+                        //2025-12-19 iwai-tamura add end ------
+
                         ////目標管理承認データを取得
                         //dataSet = SelfDeclareCommonBL.GetSignData(dm, int.Parse(key));
                         //目標管理詳細データを取得
@@ -308,7 +312,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         /// 基本(ヘッダー)を取得
         /// </summary>
         /// <param name="keyVal">社員番号</param>
-        /// <returns>目標管理基本情報のDataRow</returns>
+        /// <returns>基礎控除申告書のDataRow</returns>
         private DataRow GetBasicDataRow_Haiguu(string keyVal, DbManager dm, string year)
         {
             try
@@ -320,6 +324,42 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
 
                 sql = "SELECT * FROM TE120基礎控除申告書Data WHERE 社員番号 = @key ";
                 sql += " AND 対象年度 = " + year ;
+
+                //2025-12-19 iwai-tamura upd str ------
+                string userAdminNo = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+                    (HttpContext.Current.Session["LoginUser"])).IsAdminNo.ToString();
+                string userCode = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+                    (HttpContext.Current.Session["LoginUser"])).UserCode.ToString();
+                switch (userAdminNo) {
+					case "K":
+						break;
+
+                    case "1":
+                        sql += " AND (";
+                        sql += "   (社員番号 = '" + userCode + "' )";
+                        sql += "   Or( LEFT(所属番号,1) in('1','2','3'))" ;
+                        sql += " )";
+                        break;
+
+                    case "2":
+                    case "3":
+                    case "7":
+                    case "8":
+                    case "9":
+                        sql += " AND (";
+                        sql += "   (社員番号 = '" + userCode + "' )";
+                        sql += "   Or( LEFT(所属番号,1) = '" + userAdminNo +"')" ;
+                        sql += " )";
+                            break;
+
+                    default:
+                        sql += " AND (";
+                        sql += "   (社員番号 = '" + userCode + "' )";
+                        sql += " )";
+                        break;
+                }
+                //2025-12-19 iwai-tamura upd end ------
+
                 DataTable dt = new DataTable();
                 DataSet dataSet = new DataSet();
                 using (IDbCommand cmd = dm.CreateCommand(sql))
@@ -337,6 +377,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 if (dataSet.Tables[0].Rows.Count == 0)
                 {
                     //0件字はエラー?
+                    //2025-12-19 iwai-tamura add str ------
+                    return null;
+                    //2025-12-19 iwai-tamura add end ------
                 }
                 return dataSet.Tables[0].Rows[0];
             }
@@ -836,6 +879,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     {
                         //扶養控除基本データを取得
                         row = GetBasicDataRow_Huyou(key, dm, year);
+                        //2025-12-19 iwai-tamura add str ------
+                        if (row == null) continue;  
+                        //2025-12-19 iwai-tamura add end ------
+
                         //扶養控除詳細データを取得
                         dt = GetDataTable_Huyou(key, dm, year);
                     }
@@ -1003,7 +1050,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         /// 基本(ヘッダー)を取得
         /// </summary>
         /// <param name="keyVal">社員番号</param>
-        /// <returns>目標管理基本情報のDataRow</returns>
+        /// <returns>扶養控除申告書のDataRow</returns>
         private DataRow GetBasicDataRow_Huyou(string keyVal, DbManager dm, string year)
         {
             try
@@ -1013,8 +1060,44 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
 
                 string sql = ""; //クエリ生成
 
+
                 sql = "SELECT * FROM TE100扶養控除申告書Data WHERE 社員番号 = @key ";
-                sql += " AND 対象年度 = " + year ;
+                sql += " AND 対象年度 = " + year;
+
+                //2025-12-19 iwai-tamura upd str ------
+                string userAdminNo = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+                    (HttpContext.Current.Session["LoginUser"])).IsAdminNo.ToString();
+                string userCode = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+                    (HttpContext.Current.Session["LoginUser"])).UserCode.ToString();
+                switch (userAdminNo) {
+					case "K":
+						break;
+
+                    case "1":
+                        sql += " AND (";
+                        sql += "   (社員番号 = '" + userCode + "' )";
+                        sql += "   Or( LEFT(所属番号,1) in('1','2','3'))" ;
+                        sql += " )";
+                        break;
+
+                    case "2":
+                    case "3":
+                    case "7":
+                    case "8":
+                    case "9":
+                        sql += " AND (";
+                        sql += "   (社員番号 = '" + userCode + "' )";
+                        sql += "   Or( LEFT(所属番号,1) = '" + userAdminNo +"')" ;
+                        sql += " )";
+                            break;
+
+                    default:
+                        sql += " AND (";
+                        sql += "   (社員番号 = '" + userCode + "' )";
+                        sql += " )";
+                        break;
+                }
+                //2025-12-19 iwai-tamura upd end ------
 
                 DataTable dt = new DataTable();
                 DataSet dataSet = new DataSet();
@@ -1033,6 +1116,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 if (dataSet.Tables[0].Rows.Count == 0)
                 {
                     //0件字はエラー?
+                    //2025-12-19 iwai-tamura add str ------
+                    return null;
+                    //2025-12-19 iwai-tamura add end ------
                 }
                 return dataSet.Tables[0].Rows[0];
             }
@@ -1656,6 +1742,10 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     {
                         //基本データを取得
                         row = GetBasicDataRow_Hoken(key, dm, year);
+                        //2025-12-19 iwai-tamura add str ------
+                        if (row == null) continue;  
+                        //2025-12-19 iwai-tamura add end ------
+
                         //データを取得
                         dt = GetDataTable_Hoken(key, dm, year);
                     }
@@ -1824,7 +1914,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         /// 基本(ヘッダー)を取得
         /// </summary>
         /// <param name="keyVal">社員番号</param>
-        /// <returns>目標管理基本情報のDataRow</returns>
+        /// <returns>保険料控除申告書のDataRow</returns>
         private DataRow GetBasicDataRow_Hoken(string keyVal, DbManager dm, string year)
         {
             try
@@ -1836,6 +1926,41 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
 
                 sql = "SELECT * FROM TE110保険料控除申告書Data WHERE 社員番号 = @key ";
                 sql += " AND 対象年度 = " + year ;
+
+                //2025-12-19 iwai-tamura upd str ------
+                string userAdminNo = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+                    (HttpContext.Current.Session["LoginUser"])).IsAdminNo.ToString();
+                string userCode = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+                    (HttpContext.Current.Session["LoginUser"])).UserCode.ToString();
+                switch (userAdminNo) {
+					case "K":
+						break;
+
+                    case "1":
+                        sql += " AND (";
+                        sql += "   (社員番号 = '" + userCode + "' )";
+                        sql += "   Or( LEFT(所属番号,1) in('1','2','3'))" ;
+                        sql += " )";
+                        break;
+
+                    case "2":
+                    case "3":
+                    case "7":
+                    case "8":
+                    case "9":
+                        sql += " AND (";
+                        sql += "   (社員番号 = '" + userCode + "' )";
+                        sql += "   Or( LEFT(所属番号,1) = '" + userAdminNo +"')" ;
+                        sql += " )";
+                            break;
+
+                    default:
+                        sql += " AND (";
+                        sql += "   (社員番号 = '" + userCode + "' )";
+                        sql += " )";
+                        break;
+                }
+                //2025-12-19 iwai-tamura upd end ------
 
                 DataTable dt = new DataTable();
                 DataSet dataSet = new DataSet();
@@ -1854,6 +1979,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 if (dataSet.Tables[0].Rows.Count == 0)
                 {
                     //0件字はエラー?
+                    //2025-12-19 iwai-tamura add str ------
+                    return null;
+                    //2025-12-19 iwai-tamura add end ------
                 }
                 return dataSet.Tables[0].Rows[0];
             }

@@ -36,10 +36,24 @@
     @Html.HiddenFor(m => m.HuyouAttachmentFilePath)
 
     //年度
-    var yearItems = new SelectListItem[] {
-        new SelectListItem() { Value="2023", Text="2023" }
-        ,new SelectListItem() { Value="2024", Text="2024" }
-    };
+    @*2025-12-19 iwai-tamura upd-str ------*@
+    int currentYear = ((LoginUser)Session["LoginUser"]).IsYear;           // 今日の年（2025なら2025）
+    int startYear = 2023;                 // 2年前から（例: 2023）
+    int endYear = currentYear - 1;                       // 去年まで
+
+    var yearItems = new List<SelectListItem>();
+    for (int y = startYear; y <= endYear; y++) {
+        yearItems.Add(new SelectListItem {
+            Value = y.ToString(),
+            Text = y.ToString(),   // 必要なら「年度」付け
+            Selected = (y == currentYear)   // 今年をデフォルト選択（任意）
+        });
+    }
+    //var yearItems = new SelectListItem[] {
+    //    new SelectListItem() { Value="2023", Text="2023" }
+    //    ,new SelectListItem() { Value="2024", Text="2024" }
+    //};
+    @*2025-12-19 iwai-tamura upd-end ------*@
     
     //対象帳票
     var reportTypeItems = new SelectListItem[] {
@@ -90,11 +104,21 @@
                     <button class="btn-default btn-lg btn-block btn_pdf" name="PrintHuyou" value="HuyouDeclareReport">PDF出力</button>
                 </div>
                 @*2025-11-18 iwai-tamura upd-str ------*@
-                <div class="col-xs-2 top10 col-icon-upload">
+                @*2025-12-19 iwai-matsuo upd-str ------*@
+                @if (((LoginUser)Session["LoginUser"]).IsServerStatus != "4" && ((LoginUser)Session["LoginUser"]).IsServerStatus != "9")
+                {
+                    <div class="col-xs-2 top10 col-icon-upload">
+                        <button type="button" id="openHuyouAttachmentFileModalButton" class="btn-default btn-lg btn-block btn-icon">
+                            <img src="~/Content/img/Attachment.png" alt="" />
+                        </button>
+                    </div>
+                }
+                @*<div class="col-xs-2 top10 col-icon-upload">
                     <button type="button" id="openHuyouAttachmentFileModalButton" class="btn-default btn-lg btn-block btn-icon">
                         <img src="~/Content/img/Attachment.png" alt="" />
                     </button>
-                </div>
+                </div>*@
+                @*2025-12-19 iwai-matsuo upd-end ------*@
                 <!-- オーバーレイ -->
                 <div id="huyouAttachmentFileModal-overlay"></div>
 
@@ -181,10 +205,22 @@
                 </div>
             </div>*@
             @*2023-11-20 iwai-tamura upd-end ------*@
-
+            @*2025-12-19 iwai-matsuo upd-str ------*@
+            @*住宅借入金等*@
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10 ">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="JutakuDeclareRegister">住宅借入金等特別控除申告書</button>
+                </div>
+            </div>
+            @*前職源泉*@
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10 ">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="ZenshokuDeclareRegister">前職源泉徴収票</button>
+                </div>
+            </div>
             @*2025-11-18 iwai-tamura add-str ------*@
             @*2025年度は初年度の為管理者専用メニュー*@
-		    @if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0" && ViewBag.ServerStatus != "3") {
+            @*@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0" && ViewBag.ServerStatus != "3") {
                 <div class="row">
                     <div class="col-xs-8 col-xs-offset-2 top10 ">
                         <button class="btn-default btn-lg btn-block" name="Transition" value="JutakuDeclareRegister">住宅借入金等特別控除申告書</button>
@@ -195,8 +231,9 @@
                         <button class="btn-default btn-lg btn-block" name="Transition" value="ZenshokuDeclareRegister">前職源泉徴収票</button>
                     </div>
                 </div>
-            }
+            }*@
             @*2025-11-18 iwai-tamura add-end ------*@
+            @*2025-12-19 iwai-matsuo upd-end ------*@
         </div>
 
         @*2025-11-18 iwai-tamura upd-str ------*@

@@ -2,8 +2,8 @@
  * ログアウトボタンクリック時
  */
 $('#dmylogin').click(function () {
-  //ボタンクリック
-  showLogout(false, 'loginbutton');
+    //ボタンクリック
+    showLogout(false, 'loginbutton');
 });
 
 $(function () {
@@ -16,6 +16,10 @@ $(function () {
     var btnHuyouPdf = document.querySelector('[name="PrintHuyou"][value="HuyouDeclareReport"]');
     var btnHokenPdf = document.querySelector('[name="PrintHoken"][value="HokenDeclareReport"]');
     var btnHaiguuPdf = document.querySelector('[name="PrintHaiguu"][value="HaiguuDeclareReport"]');
+    //2025-12-19 iwai-matsuo add-str ------
+    var btnJutakuReg = document.querySelector('[name="Transition"][value="JutakuDeclareRegister"]');
+    var btnZenshokuReg = document.querySelector('[name="Transition"][value="ZenshokuDeclareRegister"]');
+    //2025-12-19 iwai-matsuo add-end ------
 
     // Statusに基づいてボタンの使用可否を設定
     if (status === "1") {
@@ -24,8 +28,12 @@ $(function () {
         btnHokenReg.disabled = false;
         btnHaiguuReg.disabled = false;
         btnHuyouPdf.disabled = false;
-        btnHokenPdf.disabled = false;
+        btnJutakuReg.disabled = false;
         btnHaiguuPdf.disabled = false;
+        //2025-12-19 iwai-matsuo add-str ------
+        btnJutakuReg.disabled = false;
+        btnZenshokuReg.disabled = false;
+        //2025-12-19 iwai-matsuo add-end ------
     } else if (status === "2") {
         // [2:通常運用]扶養控除と扶養控除のPDFボタンを有効にする
         btnHuyouReg.disabled = false;
@@ -34,14 +42,37 @@ $(function () {
         btnHuyouPdf.disabled = false;
         btnHokenPdf.disabled = true;
         btnHaiguuPdf.disabled = true;
+        //2025-12-19 iwai-matsuo add-str ------
+        btnJutakuReg.disabled = true;
+        btnZenshokuReg.disabled = true;
+        //2025-12-19 iwai-matsuo add-end ------
     } else if (status === "3") {
-        // [3:通常運用]扶養控除のPDFボタンのみ有効にする
+        // [3:通常運用]扶養控除の登録、PDFボタン、前職源泉のみ有効にする
+        //2025-12-19 iwai-matsuo upd-str ------
+        btnHuyouReg.disabled = false;
+        //btnHuyouReg.disabled = true;
+        //2025-12-19 iwai-matsuo upd-end ------
+        btnHokenReg.disabled = true;
+        btnHaiguuReg.disabled = true;
+        btnHuyouPdf.disabled = false;
+        btnHokenPdf.disabled = true;
+        btnHaiguuPdf.disabled = true;
+        //2025-12-19 iwai-matsuo add-str ------
+        btnJutakuReg.disabled = true;
+        btnZenshokuReg.disabled = false;
+        //2025-12-19 iwai-matsuo add-end ------
+    //2025-12-19 iwai-matsuo add-str ------
+    } else if (status === "4") {
+        // [4:通常運用]扶養控除のPDFボタンのみ有効にする
         btnHuyouReg.disabled = true;
         btnHokenReg.disabled = true;
         btnHaiguuReg.disabled = true;
         btnHuyouPdf.disabled = false;
         btnHokenPdf.disabled = true;
         btnHaiguuPdf.disabled = true;
+        btnJutakuReg.disabled = true;
+        btnZenshokuReg.disabled = true;
+    //2025-12-19 iwai-matsuo add-end ------
     } else {
         // それ以外の場合、すべてのボタンを無効にする
         btnHuyouReg.disabled = true;
@@ -50,6 +81,10 @@ $(function () {
         btnHuyouPdf.disabled = true;
         btnHokenPdf.disabled = true;
         btnHaiguuPdf.disabled = true;
+        //2025-12-19 iwai-matsuo add-str ------
+        btnJutakuReg.disabled = true;
+        btnZenshokuReg.disabled = true;
+        //2025-12-19 iwai-matsuo add-end ------
     }
 });
 
