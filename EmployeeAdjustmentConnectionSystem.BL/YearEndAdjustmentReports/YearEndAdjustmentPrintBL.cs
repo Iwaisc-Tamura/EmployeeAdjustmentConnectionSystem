@@ -210,6 +210,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                             break;
 
                         case "2025":
+                        //2025-12-24 iwai-tamura add-str ---
+                        case "2026":    //2026年度暫定対応
+                        //2025-12-24 iwai-tamura add-end ---
                             var HaiguuDeclareReport_2025 = new HaiguuDeclareReport_2025();
                             try
                             {
@@ -956,6 +959,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                             break;
 
                         case "2025":
+                        //2025-12-24 iwai-tamura add-str ---
+                        case "2026":    //2026年度暫定対応
+                        //2025-12-24 iwai-tamura add-end ---
                             var HuyouDeclareReport_2025 = new HuyouDeclareReport_2025();
                             try
                             {
@@ -1170,10 +1176,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,世帯主続柄名.続柄名称 AS 世帯主続柄名称 "
                     + "     ,扶養控除.郵便番号_前 "
                     + "     ,扶養控除.郵便番号_後 "
-                    + "     ,扶養控除.住所01 "
-                    //2025-11-28 iwai-tamura upd str ------
-                    + "     ,扶養控除.住所02 "
-                    //2025-11-28 iwai-tamura upd end ------
+                    //2025-12-24 iwai-tamura upd str ------
+                    + "     ,Isnull(扶養控除.住所01,'') AS 住所01 "
+                    + "     ,Isnull(扶養控除.住所02,'') AS 住所02 "
+                    //+ "     ,扶養控除.住所01 "
+                    ////2025-11-28 iwai-tamura upd str ------
+                    //+ "     ,扶養控除.住所02 "
+                    ////2025-11-28 iwai-tamura upd end ------
+                    //2025-12-24 iwai-tamura upd end ------
                     + "     ,ISNULL(扶養控除.配偶者有無,'0') AS 配偶者有無 "
                     + "     ,扶養控除.Sequence番号 "
                     //2023-11-19 iwai-terao upd str ------
@@ -1819,6 +1829,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                             break;
 
                         case "2025":
+                        //2025-12-24 iwai-tamura add-str ---
+                        case "2026":    //2026年度暫定対応
+                        //2025-12-24 iwai-tamura add-end ---
                             var HokenDeclareReport_2025 = new HokenDeclareReport_2025();
                             try
                             {

@@ -257,8 +257,11 @@
 
         @*2023-11-20 iwai-tamura add-str ------*@
         @*2023-12-15 iwai-tamura upd-str ------*@
-		@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0" && ViewBag.ServerStatus != "3") {
+        @*2026-01-29 iwai-tamura upd-str ------*@
+		@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0" ) {
+		@*@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0" && ViewBag.ServerStatus != "3") {*@
 		@*@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0") {*@
+        @*2026-01-29 iwai-tamura upd-end ------*@
         @*2023-12-15 iwai-tamura upd-end ------*@
 	        <div class="well-ex-header"  style="background-color: #0094ffb6; margin-top: 10pt;">
 	            <h4 align="center" style="font-weight: bold;">管理者メニュー</h4>
