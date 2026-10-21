@@ -14,6 +14,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using EmployeeAdjustmentConnectionSystem.COM.Util.Config;
 using EmployeeAdjustmentConnectionSystem.COM.Util.Convert;
+using System.Web;
 
 namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
     /// <summary>
@@ -100,6 +101,41 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                     //2023-11-20 iwai-tamura upd end -----
 
                     var sql = "SELECT * FROM TE110保険料控除申告書Data WHERE 対象年度 = @SheetYear and 社員番号 = @EmployeeNo ";
+
+					//2025-12-19 iwai-tamura upd str ------
+					string userAdminNo = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+						(HttpContext.Current.Session["LoginUser"])).IsAdminNo.ToString();
+					string userCode = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
+						(HttpContext.Current.Session["LoginUser"])).UserCode.ToString();
+					switch (userAdminNo) {
+						case "K":
+							break;
+
+						case "1":
+							sql += " AND (";
+							sql += "   (社員番号 = '" + userCode + "' )";
+							sql += "   Or( LEFT(所属番号,1) in('1','2','3'))" ;
+							sql += " )";
+							break;
+
+						case "2":
+						case "3":
+						case "7":
+						case "8":
+						case "9":
+							sql += " AND (";
+							sql += "   (社員番号 = '" + userCode + "' )";
+							sql += "   Or( LEFT(所属番号,1) = '" + userAdminNo +"')" ;
+							sql += " )";
+								break;
+
+						default:
+							sql += " AND (";
+							sql += "   (社員番号 = '" + userCode + "' )";
+							sql += " )";
+							break;
+					}
+					//2025-12-19 iwai-tamura upd end ------
 
                     using(IDbCommand cmd = dm.CreateCommand(sql))
                     using(DataSet ds = new DataSet()) {

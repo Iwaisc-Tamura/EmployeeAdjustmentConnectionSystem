@@ -321,6 +321,8 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             private global::System.Data.DataColumn column住所01;
             
+            private global::System.Data.DataColumn column住所02;
+            
             private global::System.Data.DataColumn column配偶者有無;
             
             private global::System.Data.DataColumn columnSequence番号;
@@ -867,6 +869,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             public global::System.Data.DataColumn 住所01Column {
                 get {
                     return this.column住所01;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 住所02Column {
+                get {
+                    return this.column住所02;
                 }
             }
             
@@ -2321,6 +2331,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 郵便番号_前, 
                         string 郵便番号_後, 
                         string 住所01, 
+                        string 住所02, 
                         string 配偶者有無, 
                         short Sequence番号, 
                         string 源泉控除対象配偶者対象外区分, 
@@ -2518,6 +2529,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         郵便番号_前,
                         郵便番号_後,
                         住所01,
+                        住所02,
                         配偶者有無,
                         Sequence番号,
                         源泉控除対象配偶者対象外区分,
@@ -2735,6 +2747,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 this.column郵便番号_前 = base.Columns["郵便番号_前"];
                 this.column郵便番号_後 = base.Columns["郵便番号_後"];
                 this.column住所01 = base.Columns["住所01"];
+                this.column住所02 = base.Columns["住所02"];
                 this.column配偶者有無 = base.Columns["配偶者有無"];
                 this.columnSequence番号 = base.Columns["Sequence番号"];
                 this.column源泉控除対象配偶者対象外区分 = base.Columns["源泉控除対象配偶者対象外区分"];
@@ -2956,6 +2969,8 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column郵便番号_後);
                 this.column住所01 = new global::System.Data.DataColumn("住所01", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column住所01);
+                this.column住所02 = new global::System.Data.DataColumn("住所02", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column住所02);
                 this.column配偶者有無 = new global::System.Data.DataColumn("配偶者有無", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column配偶者有無);
                 this.columnSequence番号 = new global::System.Data.DataColumn("Sequence番号", typeof(short), null, global::System.Data.MappingType.Element);
@@ -3778,6 +3793,22 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 }
                 set {
                     this[this.tableHuyouDeclareDataTable.住所01Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 住所02 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHuyouDeclareDataTable.住所02Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HuyouDeclareDataTable\' にある列 \'住所02\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHuyouDeclareDataTable.住所02Column] = value;
                 }
             }
             
@@ -6815,6 +6846,18 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Set住所01Null() {
                 this[this.tableHuyouDeclareDataTable.住所01Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is住所02Null() {
+                return this.IsNull(this.tableHuyouDeclareDataTable.住所02Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set住所02Null() {
+                this[this.tableHuyouDeclareDataTable.住所02Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
