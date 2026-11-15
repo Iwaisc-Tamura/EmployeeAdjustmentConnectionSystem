@@ -125,6 +125,14 @@ const huyouAttachmentFileModal = document.getElementById('huyouAttachmentFileMod
 const huyouAttachmentFileModalOverlay = document.getElementById('huyouAttachmentFileModal-overlay');
 const huyouAttachmentFilePath = document.getElementById('HuyouAttachmentFilePath');
 
+//2026-99-99 iwai-tamura add-str ------
+const openZenshokuAttachmentFileModalButton = document.getElementById('openZenshokuAttachmentFileModalButton');
+const closeZenshokuAttachmentFileModalButton = document.getElementById('closeZenshokuAttachmentFileModalButton');
+const zenshokuAttachmentFileModal = document.getElementById('zenshokuAttachmentFileModal');
+const zenshokuAttachmentFileModalOverlay = document.getElementById('zenshokuAttachmentFileModal-overlay');
+const zenshokuAttachmentFilePath = document.getElementById('ZenshokuAttachmentFilePath');
+//2026-99-99 iwai-tamura add-end ------
+
 // モーダルを開く処理
 openHuyouAttachmentFileModalButton.addEventListener('click', () => {
     huyouAttachmentFileModalOverlay.style.display = 'block'; // オーバーレイを表示
@@ -139,6 +147,23 @@ function closeHuyouAttachmentFileModal() {
     huyouAttachmentFileModalOverlay.style.display = 'none'; // オーバーレイを非表示
     huyouAttachmentFileModal.style.display = 'none'; // モーダルを非表示
 }
+
+//2026-99-99 iwai-tamura add-str ------
+// モーダルを開く処理
+openZenshokuAttachmentFileModalButton.addEventListener('click', () => {
+    zenshokuAttachmentFileModalOverlay.style.display = 'block';
+    zenshokuAttachmentFileModal.style.display = 'block';
+});
+
+// モーダルを閉じる処理
+closeZenshokuAttachmentFileModalButton.addEventListener('click', closeZenshokuAttachmentFileModal);
+
+// オーバーレイとモーダルを閉じる処理
+function closeZenshokuAttachmentFileModal() {
+    zenshokuAttachmentFileModalOverlay.style.display = 'none';
+    zenshokuAttachmentFileModal.style.display = 'none';
+}
+//2026-99-99 iwai-tamura add-end ------
 
 
 /*
@@ -196,6 +221,54 @@ $('#DmyHuyouAttachmentFileDelete').click(function () {
     showMessage('確認', comment, 'HuyouAttachmentFileDelete', true);
 
 });
+
+//2026-99-99 iwai-tamura add-str ------
+/*
+ * アップロードボタンクリック時
+ */
+$('#DmyZenshokuAttachmentFileUpload').click(function () {
+
+    var comment = "";
+    var strUploadFile = $('#ZenshokuAttachmentUploadFile').val();
+
+    if (!strUploadFile) {
+        showAlert("エラー", "ファイルが選択されていません。")
+        return;
+    }
+
+    comment = 'ファイルのアップロードを実行しますか？'
+    showMessage('確認', comment, 'ZenshokuAttachmentFileUpload', true);
+
+});
+
+/*
+ * ダウンロードボタンクリック時
+ */
+$('#DmyZenshokuAttachmentFileDownload').click(function () {
+
+    var comment = "";
+    comment = 'ファイルのダウンロードを実行しますか？'
+    showMessage('確認', comment, 'ZenshokuAttachmentFileDownload', false);
+});
+
+/*
+ * 削除ボタンクリック時
+ */
+$('#DmyZenshokuAttachmentFileDelete').click(function () {
+
+    var comment = "";
+    var strFilePath = $('#ZenshokuAttachmentFilePath').val();
+
+    if (!strFilePath) {
+        showAlert("エラー", "ファイルがありません")
+        return;
+    }
+
+    comment = 'ファイルの削除を実行しますか？'
+    showMessage('確認', comment, 'ZenshokuAttachmentFileDelete', true);
+
+});
+//2026-99-99 iwai-tamura add-end ------
 //2025-11-18 iwai-tamura upd-end ------
 
 //2024-11-19 iwai-tamura upd-str ------

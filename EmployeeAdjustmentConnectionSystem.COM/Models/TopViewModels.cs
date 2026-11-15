@@ -37,6 +37,23 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// </summary>
         public HttpPostedFileWrapper HuyouAttachmentUploadFile { get; set; }
 
+		//99-99 iwai-tamura add-str ------
+		/// <summary>
+		/// 前職源泉徴収票管理者確定区分
+		/// </summary>
+		public string ZenshokuDecisionType { get; set; }
+
+        /// <summary>
+        /// 前職源泉徴収票添付ファイルパス
+        /// </summary>
+        public string ZenshokuAttachmentFilePath { get; set; }
+
+        /// <summary>
+        /// 前職源泉徴収票添付アップロードファイル
+        /// </summary>
+        public HttpPostedFileWrapper ZenshokuAttachmentUploadFile { get; set; }
+		//99-99 iwai-tamura add-end ------
+
         /// <summary>
         /// 過去分出力処理用　年度
         /// </summary>

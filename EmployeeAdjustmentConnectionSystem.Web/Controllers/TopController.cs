@@ -744,6 +744,195 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
+
+        //2026-99-99 iwai-tamura add-str ------
+        /// <summary>
+        /// 前職源泉徴収票添付ファイルアップロード
+        /// </summary>
+        /// <param name="model"></param>
+        [ActionName("Link")]
+        [ButtonHandler(ButtonName = "ZenshokuAttachmentFileUpload")]
+        public ActionResult ZenshokuAttachmentFileUpload(TopViewModel model, string specifyEmployeeNo = "")
+        {
+            try
+            {
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                if (!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
+
+                LoginUser lu = (LoginUser)Session["LoginUser"];
+                var strFileName = "";
+                var strInputNo = "";
+                var bolAdminMode = false;
+                if (specifyEmployeeNo == "")
+                {
+                    strInputNo = lu.UserCode;
+                }
+                else
+                {
+                    strInputNo = specifyEmployeeNo;
+                    bolAdminMode = true;
+                }
+
+                strFileName += lu.IsYear + "年度前職源泉徴収票_添付資料_" + strInputNo
+                                  + Path.GetFileName(model.ZenshokuAttachmentUploadFile.FileName);
+                string saveDir = ConfigurationManager.AppSettings["ZENSHOKU_ATTACHMENT_FILE_DIR"];
+                if (string.IsNullOrEmpty(saveDir))
+                {
+                    saveDir = ConfigurationManager.AppSettings["HUYOU_ATTACHMENT_FILE_DIR"];
+                }
+                saveDir += strFileName;
+                model.ZenshokuAttachmentUploadFile.SaveAs(saveDir);
+
+                TopBL bl = new TopBL();
+                bool isSuccess = bl.UploadZenshokuAttachmentFilePath(lu.IsYear, strInputNo, strFileName, bolAdminMode);
+
+                model.ZenshokuDecisionType = bl.GetZenshokuStatus(lu.IsYear, strInputNo, bolAdminMode);
+                model.ZenshokuAttachmentFilePath = bl.GetZenshokuAttachmentFilePath(lu.IsYear, strInputNo, bolAdminMode);
+
+                TempData["Confirmation"] = string.Format("ファイルをアップロードしました。");
+
+                ViewBag.ServerStatus = lu.IsServerStatus;
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            }
+            finally
+            {
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
+        /// 前職源泉徴収票添付ファイルダウンロード
+        /// </summary>
+        /// <param name="model"></param>
+        [HttpPost]
+        [ActionName("Link")]
+        [ButtonHandler(ButtonName = "ZenshokuAttachmentFileDownload")]
+        public ActionResult ZenshokuAttachmentFileDownload(TopViewModel model, string specifyEmployeeNo = "")
+        {
+            try
+            {
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                if (!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
+                LoginUser lu = (LoginUser)Session["LoginUser"];
+
+                string saveDir = ConfigurationManager.AppSettings["ZENSHOKU_ATTACHMENT_FILE_DIR"];
+                if (string.IsNullOrEmpty(saveDir))
+                {
+                    saveDir = ConfigurationManager.AppSettings["HUYOU_ATTACHMENT_FILE_DIR"];
+                }
+                if (string.IsNullOrEmpty(saveDir))
+                {
+                    TempData["Error"] = "保存ディレクトリが設定されていません。管理者に確認してください。";
+                    return View("Error");
+                }
+
+                string filePath = Path.Combine(saveDir, model.ZenshokuAttachmentFilePath);
+                if (!System.IO.File.Exists(filePath))
+                {
+                    TempData["Error"] = "指定されたファイルが見つかりません。管理者に確認してください。";
+                    return View("Error");
+                }
+
+                string fileName = Path.GetFileName(filePath);
+
+                return File(filePath, "application/pdf", fileName);
+            }
+            catch (Exception ex)
+            {
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            }
+            finally
+            {
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
+        /// 前職源泉徴収票添付ファイル削除
+        /// </summary>
+        /// <param name="model"></param>
+        [ActionName("Link")]
+        [ButtonHandler(ButtonName = "ZenshokuAttachmentFileDelete")]
+        public ActionResult ZenshokuAttachmentFileDelete(TopViewModel model, string specifyEmployeeNo = "")
+        {
+            try
+            {
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                if (!(new LoginBL()).IsLogin()) return RedirectToAction("Login", "Login");
+
+                LoginUser lu = (LoginUser)Session["LoginUser"];
+                var strInputNo = "";
+                var bolAdminMode = false;
+                if (specifyEmployeeNo == "")
+                {
+                    strInputNo = lu.UserCode;
+                }
+                else
+                {
+                    strInputNo = specifyEmployeeNo;
+                    bolAdminMode = true;
+                }
+
+                string saveDir = ConfigurationManager.AppSettings["ZENSHOKU_ATTACHMENT_FILE_DIR"];
+                if (string.IsNullOrEmpty(saveDir))
+                {
+                    saveDir = ConfigurationManager.AppSettings["HUYOU_ATTACHMENT_FILE_DIR"];
+                }
+                if (string.IsNullOrEmpty(saveDir))
+                {
+                    TempData["Error"] = "保存ディレクトリが設定されていません。管理者に確認してください。";
+                    return View("Error");
+                }
+
+                string filePath = Path.Combine(saveDir, model.ZenshokuAttachmentFilePath);
+                if (!System.IO.File.Exists(filePath))
+                {
+                    TempData["Error"] = "指定されたファイルが見つかりません。管理者に確認してください。";
+                    return View("Error");
+                }
+
+                System.IO.File.Delete(filePath);
+
+                TopBL bl = new TopBL();
+                bool isSuccess = bl.UploadZenshokuAttachmentFilePath(lu.IsYear, strInputNo, "", bolAdminMode);
+                if (!isSuccess)
+                {
+                    TempData["Error"] = "データベースの更新に失敗しました。";
+                    return View("Error");
+                }
+
+                model.ZenshokuDecisionType = bl.GetZenshokuStatus(lu.IsYear, strInputNo, bolAdminMode);
+                model.ZenshokuAttachmentFilePath = bl.GetZenshokuAttachmentFilePath(lu.IsYear, strInputNo, bolAdminMode);
+
+                TempData["Confirmation"] = "ファイルを削除しました。";
+
+                ViewBag.ServerStatus = lu.IsServerStatus;
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                TempData["Error"] = ex.ToString();
+                return View("Error");
+            }
+            finally
+            {
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        //2026-99-99 iwai-tamura add-end ------
         //2025-11-18 iwai-tamura upd-end ------
 
     }

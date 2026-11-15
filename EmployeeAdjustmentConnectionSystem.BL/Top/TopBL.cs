@@ -49,6 +49,11 @@ namespace EmployeeAdjustmentConnectionSystem.Bl.Top {
                 top.HuyouAttachmentFilePath = GetHuyouAttachmentFilePath(lu.IsYear,lu.UserCode);
                 //2025-11-18 iwai-tamura upd-end ------
 
+                //2026-99-99 iwai-tamura add-str ------
+                top.ZenshokuDecisionType = GetZenshokuStatus(lu.IsYear, lu.UserCode);
+                top.ZenshokuAttachmentFilePath = GetZenshokuAttachmentFilePath(lu.IsYear, lu.UserCode);
+                //2026-99-99 iwai-tamura add-end ------
+
 
                 //2017-08-31 iwai-tamura upd-str ------
                 //未承認データ確認
@@ -200,6 +205,136 @@ namespace EmployeeAdjustmentConnectionSystem.Bl.Top {
             }
 
         }
+
+        //2026-99-99 iwai-tamura add-str ------
+        /// <summary>
+        /// 前職源泉徴収票 管理者確定区分取得
+        /// </summary>
+        public string GetZenshokuStatus(int? intSheetYear, string strEmployeeNo, bool bolAdminMode = false)
+        {
+            //開始
+            nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+            try
+            {
+                var strStatus = "";
+
+                var sql = "";
+                sql = " SELECT  "
+                    + "   管理者確定区分 "
+                    + " FROM TE160前職源泉徴収票Data "
+                    + " WHERE 1 = 1"
+                    + "   AND 対象年度 = " + intSheetYear
+                    + "   AND 社員番号 = '" + strEmployeeNo + "'";
+                using (DbManager dm = new DbManager())
+                using (IDbCommand cmd = dm.CreateCommand(sql))
+                using (IDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        strStatus = reader["管理者確定区分"].ToString();
+                    }
+                }
+                return strStatus;
+            }
+            catch (Exception ex)
+            {
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                return "";
+            }
+            finally
+            {
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+
+        /// <summary>
+        /// 前職源泉徴収票 添付ファイルデータ取得
+        /// </summary>
+        public string GetZenshokuAttachmentFilePath(int? intSheetYear, string strEmployeeNo, bool bolAdminMode = false)
+        {
+            //開始
+            nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+            try
+            {
+                var strPath = "";
+
+                var sql = "";
+                sql = " SELECT  "
+                    + "   添付FileName "
+                    + "   ,本人確定区分 "
+                    + "   ,管理者確定区分 "
+                    + " FROM TE160前職源泉徴収票Data "
+                    + " WHERE 1 = 1"
+                    + "   AND 対象年度 = " + intSheetYear
+                    + "   AND 社員番号 = '" + strEmployeeNo + "'";
+                using (DbManager dm = new DbManager())
+                using (IDbCommand cmd = dm.CreateCommand(sql))
+                using (IDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        strPath = reader["添付FileName"].ToString();
+                    }
+                }
+                return strPath;
+            }
+            catch (Exception ex)
+            {
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                return "";
+            }
+            finally
+            {
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+
+        }
+
+        /// <summary>
+        /// 前職源泉徴収票 添付ファイルデータ更新
+        /// </summary>
+        public bool UploadZenshokuAttachmentFilePath(int? intSheetYear, string strEmployeeNo, string strFileName, bool bolAdminMode = false)
+        {
+            //開始
+            nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+            try
+            {
+                var sql = "";
+                sql = " UPDATE TE160前職源泉徴収票Data "
+                    + " SET 添付FileName = @FileName "
+                    + " WHERE 1 = 1"
+                    + "   AND 対象年度 = @SheetYear"
+                    + "   AND 社員番号 = @EmployeeNo";
+
+                using (DbManager dm = new DbManager())
+                using (IDbCommand cmd = dm.CreateCommand(sql))
+                {
+                    DbHelper.AddDbParameter(cmd, "@FileName", DbType.String);
+                    DbHelper.AddDbParameter(cmd, "@SheetYear", DbType.Int32);
+                    DbHelper.AddDbParameter(cmd, "@EmployeeNo", DbType.String);
+                    ((IDbDataParameter)cmd.Parameters[0]).Value = strFileName;
+                    ((IDbDataParameter)cmd.Parameters[1]).Value = intSheetYear;
+                    ((IDbDataParameter)cmd.Parameters[2]).Value = strEmployeeNo;
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                return false;
+            }
+            finally
+            {
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+
+        }
+        //2026-99-99 iwai-tamura add-end ------
         //2025-11-18 iwai-tamura upd-end ------
 
     }
