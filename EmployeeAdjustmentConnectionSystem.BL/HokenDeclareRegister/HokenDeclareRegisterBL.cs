@@ -98,9 +98,386 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                             return "システムエラー";
                         }
                     };
-                    //2023-11-20 iwai-tamura upd end -----
+					//2023-11-20 iwai-tamura upd end -----
 
-                    var sql = "SELECT * FROM TE110保険料控除申告書Data WHERE 対象年度 = @SheetYear and 社員番号 = @EmployeeNo ";
+
+					//2026-99-99 iwai-miki upd str ------
+					//var sql = "SELECT T保険料.* ";
+
+					//// 23歳未満の扶養親族01
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族01_続柄";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族01_続柄 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族01_氏名_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族01_氏名_姓 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族01_氏名_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族01_氏名_名 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族01_Kana_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族01_Kana_姓 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族01_Kana_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族01_Kana_名 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族01_非居住者";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族01_別居 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族01_住所";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族01_住所 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族01_給与所得_収入金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族01_給与所得_収入金額 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族01_給与所得_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族01_給与所得_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族01_他_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族01_他_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族01_所得見積額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族01_所得見積額 ";
+
+					//// 23歳未満の扶養親族02
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族02_続柄";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族02_続柄 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族02_氏名_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族02_氏名_姓 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族02_氏名_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族02_氏名_名 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族02_Kana_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族02_Kana_姓 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族02_Kana_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族02_Kana_名 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族02_非居住者";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族02_別居 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族02_住所";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族02_住所 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族02_給与所得_収入金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族02_給与所得_収入金額 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族02_給与所得_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族02_給与所得_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族02_他_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族02_他_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族02_所得見積額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族02_所得見積額 ";
+
+					//// 23歳未満の扶養親族03
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族03_続柄";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族03_続柄 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族03_氏名_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族03_氏名_姓 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族03_氏名_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族03_氏名_名 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族03_Kana_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族03_Kana_姓 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族03_Kana_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族03_Kana_名 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族03_非居住者";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族03_別居 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族03_住所";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族03_住所 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族03_給与所得_収入金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族03_給与所得_収入金額 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族03_給与所得_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族03_給与所得_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族03_他_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族03_他_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族03_所得見積額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族03_所得見積額 ";
+
+					//// 23歳未満の扶養親族04
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族04_続柄";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族04_続柄 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族04_氏名_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族04_氏名_姓 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族04_氏名_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族04_氏名_名 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族04_Kana_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族04_Kana_姓 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族04_Kana_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族04_Kana_名 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族04_非居住者";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族04_別居 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族04_住所";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族04_住所 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族04_給与所得_収入金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族04_給与所得_収入金額 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族04_給与所得_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族04_給与所得_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族04_他_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族04_他_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.控除対象扶養親族04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.控除対象扶養親族04_所得見積額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族04_所得見積額 ";
+
+					//// 23歳未満の扶養親族05
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満01_続柄";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族05_続柄 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満01_氏名_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族05_氏名_姓 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満01_氏名_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族05_氏名_名 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満01_Kana_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族05_Kana_姓 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満01_Kana_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族05_Kana_名 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満01_同上区分";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族05_別居 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満01_住所";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族05_住所 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満01_給与所得_収入金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族05_給与所得_収入金額 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満01_給与所得_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族05_給与所得_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満01_他_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族05_他_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満01_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満01_所得見積額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族05_所得見積額 ";
+
+					//// 23歳未満の扶養親族06
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満02_続柄";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族06_続柄 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満02_氏名_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族06_氏名_姓 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満02_氏名_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族06_氏名_名 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満02_Kana_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族06_Kana_姓 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満02_Kana_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族06_Kana_名 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満02_同上区分";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族06_別居 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満02_住所";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族06_住所 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満02_給与所得_収入金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族06_給与所得_収入金額 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満02_給与所得_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族06_給与所得_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満02_他_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族06_他_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満02_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満02_所得見積額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族06_所得見積額 ";
+
+					//// 23歳未満の扶養親族07
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満03_続柄";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族07_続柄 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満03_氏名_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族07_氏名_姓 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満03_氏名_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族07_氏名_名 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満03_Kana_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族07_Kana_姓 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満03_Kana_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族07_Kana_名 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満03_同上区分";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族07_別居 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満03_住所";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族07_住所 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満03_給与所得_収入金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族07_給与所得_収入金額 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満03_給与所得_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族07_給与所得_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満03_他_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族07_他_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満03_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満03_所得見積額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族07_所得見積額 ";
+
+					//// 23歳未満の扶養親族08
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満04_続柄";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族08_続柄 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満04_氏名_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族08_氏名_姓 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満04_氏名_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族08_氏名_名 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満04_Kana_姓";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族08_Kana_姓 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満04_Kana_名";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族08_Kana_名 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満04_同上区分";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族08_別居 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満04_住所";
+					//sql += "      ELSE ''";
+					//sql += "   END AS 23歳未満扶養親族08_住所 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満04_給与所得_収入金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族08_給与所得_収入金額 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満04_給与所得_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族08_給与所得_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満04_他_所得金額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族08_他_所得金額 ";
+					//sql += " ,CASE WHEN T扶養.扶養親族16未満04_対象外区分 = '0' ";
+					//sql += "      THEN T扶養.扶養親族16未満04_所得見積額 ";
+					//sql += "      ELSE '' ";
+					//sql += "   END AS 23歳未満扶養親族08_所得見積額 ";
+
+					//sql += " FROM TE110保険料控除申告書Data As T保険料  ";
+					//sql += "   LEFT JOIN TE100扶養控除申告書Data As T扶養 ";
+					//sql += "     ON T保険料.対象年度 = T扶養.対象年度 AND T保険料.社員番号 = T扶養.社員番号 ";
+					//sql += " WHERE T保険料.対象年度 = @SheetYear and T保険料.社員番号 = @EmployeeNo ";
+					var sql = "SELECT * FROM TE110保険料控除申告書Data WHERE 対象年度 = @SheetYear and 社員番号 = @EmployeeNo ";
+					//2026-99-99 iwai-miki upd end ------
 
 					//2025-12-19 iwai-tamura upd str ------
 					string userAdminNo = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
@@ -261,9 +638,29 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								LifeInsurance_8_RelationshipType = row["一般生命保険料08_保険金等受取人続柄"].ToString(),
 								LifeInsurance_8_OldAndNewType = row["一般生命保険料08_新旧"].ToString(),
 								LifeInsurance_8_InsuranceFee = setMoney(row["一般生命保険料08_支払金額"].ToString()),
-							    //2023-11-20 iwai-tamura upd end -----
+                                //2023-11-20 iwai-tamura upd end -----
 
-								MedicalInsurance_TotalAmount = setMoney(row["介護医療保険料合計"].ToString()),
+                                //2026-99-99 iwai-miki add str -----
+                                DependentsUnder23_RelationshipType = row["扶養親族23歳未満_続柄"].ToString(),
+                                DependentsUnder23_Name1 = row["扶養親族23歳未満_氏名_姓"].ToString(),
+                                DependentsUnder23_Name2 = row["扶養親族23歳未満_氏名_名"].ToString(),
+                                DependentsUnder23_Kana1 = row["扶養親族23歳未満_Kana_姓"].ToString(),
+                                DependentsUnder23_Kana2 = row["扶養親族23歳未満_Kana_名"].ToString(),
+                                DependentsUnder23_Birthday = row["扶養親族23歳未満_生年月日"].ToString(),
+                                DependentsUnder23_BirthdayYear = row["扶養親族23歳未満_生年月日"].ToString() == "" ? "" : row["扶養親族23歳未満_生年月日"].ToString().Substring(0, 4),
+                                DependentsUnder23_BirthdayMonth = row["扶養親族23歳未満_生年月日"].ToString() == "" ? "" : row["扶養親族23歳未満_生年月日"].ToString().Substring(4, 2).TrimStart(new Char[] { '0' }),
+                                DependentsUnder23_BirthdayDay = row["扶養親族23歳未満_生年月日"].ToString() == "" ? "" : row["扶養親族23歳未満_生年月日"].ToString().Substring(6, 2).TrimStart(new Char[] { '0' }),
+                                DependentsUnder23_AddressSameCheck = row["扶養親族23歳未満_同上区分"].ToString(),
+                                DependentsUnder23_Address = row["扶養親族23歳未満_住所"].ToString(),
+                                DependentsUnder23_Earnings = setMoney(row["扶養親族23歳未満_給与所得_収入金額"].ToString()),
+                                DependentsUnder23_Earnings2Income = setMoney(row["扶養親族23歳未満_給与所得_所得金額"].ToString()),
+                                DependentsUnder23_OtherIncome = setMoney(row["扶養親族23歳未満_他_所得金額"].ToString()),
+                                DependentsUnder23_Income = setMoney(row["扶養親族23歳未満_所得見積額"].ToString()),
+                                LifeInsurance_Calc3 = setMoney(row["一般生命保険料23歳未満新保険料表計算"].ToString()),
+                                LifeInsurance_TotalAmount2 = setMoney(row["一般生命保険料表23歳未満合計"].ToString()),
+                                //2026-99-99 iwai-miki add end -----
+
+                                MedicalInsurance_TotalAmount = setMoney(row["介護医療保険料合計"].ToString()),
 								MedicalInsurance_DeductionAmount = setMoney(row["介護医療保険料表計算"].ToString()),
 								MedicalInsurance_1_InsuranceCompanyName = row["介護医療保険料01_会社等名称"].ToString(),
 								MedicalInsurance_1_InsuranceTypeName = row["介護医療保険料01_保険等種類"].ToString(),
@@ -329,7 +726,6 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								MedicalInsurance_6_RelationshipType = row["介護医療保険料06_保険金等受取人続柄"].ToString(),
 								MedicalInsurance_6_InsuranceFee = setMoney(row["介護医療保険料06_支払金額"].ToString()),
 							    //2023-11-20 iwai-tamura upd end -----
-
 
 
 								PensionInsurance_NewTotalAmount = setMoney(row["個人年金保険料新保険料合計"].ToString()),
@@ -483,6 +879,145 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								SmallScaleMutualAid_PersonalPensionCost = setMoney(row["個人型年金加入者掛金"].ToString()),
 								SmallScaleMutualAid_HandicappedMutualAidCost = setMoney(row["心身障害者扶養共済制度契約掛金"].ToString()),
 								SmallScaleMutualAid_DeductionAmount = setMoney(row["小規模企業共済等掛金控除合計"].ToString()),
+
+                                //2026-99-99 iwai-miki add str -----
+                                // ===== 参考用：扶養控除申告書データ =====
+                                // ===== 23歳未満扶養親族 01 =====
+                                //RefDependentFamilyMemberUnder23YearsOld01_RelationshipType = row["23歳未満扶養親族01_続柄"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld01_Name01 = row["23歳未満扶養親族01_氏名_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld01_Name02 = row["23歳未満扶養親族01_氏名_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld01_Kana01 = row["23歳未満扶養親族01_Kana_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld01_Kana02 = row["23歳未満扶養親族01_Kana_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld01_Birthday = row["23歳未満扶養親族01_生年月日"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld01_BirthdayYear = row["23歳未満扶養親族01_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族01_生年月日"].ToString().Substring(0, 4),
+                                //RefDependentFamilyMemberUnder23YearsOld01_BirthdayMonth = row["23歳未満扶養親族01_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族01_生年月日"].ToString().Substring(4, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld01_BirthdayDay = row["23歳未満扶養親族01_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族01_生年月日"].ToString().Substring(6, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld01_AddressSameCheck = row["23歳未満扶養親族01_別居"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld01_Address = row["23歳未満扶養親族01_住所"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld01_Earnings = setMoney(row["23歳未満扶養親族01_給与所得_収入金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld01_Income = setMoney(row["23歳未満扶養親族01_給与所得_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld01_OtherIncome = setMoney(row["23歳未満扶養親族01_他_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld01_TotalEarnings = setMoney(row["23歳未満扶養親族01_所得見積額"].ToString()),
+
+                                //// ===== 23歳未満扶養親族 02 =====
+                                //RefDependentFamilyMemberUnder23YearsOld02_RelationshipType = row["23歳未満扶養親族02_続柄"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld02_Name01 = row["23歳未満扶養親族02_氏名_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld02_Name02 = row["23歳未満扶養親族02_氏名_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld02_Kana01 = row["23歳未満扶養親族02_Kana_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld02_Kana02 = row["23歳未満扶養親族02_Kana_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld02_Birthday = row["23歳未満扶養親族02_生年月日"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld02_BirthdayYear = row["23歳未満扶養親族02_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族02_生年月日"].ToString().Substring(0, 4),
+                                //RefDependentFamilyMemberUnder23YearsOld02_BirthdayMonth = row["23歳未満扶養親族02_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族02_生年月日"].ToString().Substring(4, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld02_BirthdayDay = row["23歳未満扶養親族02_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族02_生年月日"].ToString().Substring(6, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld02_AddressSameCheck = row["23歳未満扶養親族02_別居"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld02_Address = row["23歳未満扶養親族02_住所"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld02_Earnings = setMoney(row["23歳未満扶養親族02_給与所得_収入金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld02_Income = setMoney(row["23歳未満扶養親族02_給与所得_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld02_OtherIncome = setMoney(row["23歳未満扶養親族02_他_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld02_TotalEarnings = setMoney(row["23歳未満扶養親族02_所得見積額"].ToString()),
+
+                                //// ===== 23歳未満扶養親族 03 =====
+                                //RefDependentFamilyMemberUnder23YearsOld03_RelationshipType = row["23歳未満扶養親族03_続柄"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld03_Name01 = row["23歳未満扶養親族03_氏名_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld03_Name02 = row["23歳未満扶養親族03_氏名_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld03_Kana01 = row["23歳未満扶養親族03_Kana_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld03_Kana02 = row["23歳未満扶養親族03_Kana_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld03_Birthday = row["23歳未満扶養親族03_生年月日"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld03_BirthdayYear = row["23歳未満扶養親族03_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族03_生年月日"].ToString().Substring(0, 4),
+                                //RefDependentFamilyMemberUnder23YearsOld03_BirthdayMonth = row["23歳未満扶養親族03_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族03_生年月日"].ToString().Substring(4, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld03_BirthdayDay = row["23歳未満扶養親族03_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族03_生年月日"].ToString().Substring(6, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld03_AddressSameCheck = row["23歳未満扶養親族03_別居"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld03_Address = row["23歳未満扶養親族03_住所"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld03_Earnings = setMoney(row["23歳未満扶養親族03_給与所得_収入金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld03_Income = setMoney(row["23歳未満扶養親族03_給与所得_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld03_OtherIncome = setMoney(row["23歳未満扶養親族03_他_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld03_TotalEarnings = setMoney(row["23歳未満扶養親族03_所得見積額"].ToString()),
+
+                                //// ===== 23歳未満扶養親族 04 =====
+                                //RefDependentFamilyMemberUnder23YearsOld04_RelationshipType = row["23歳未満扶養親族04_続柄"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld04_Name01 = row["23歳未満扶養親族04_氏名_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld04_Name02 = row["23歳未満扶養親族04_氏名_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld04_Kana01 = row["23歳未満扶養親族04_Kana_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld04_Kana02 = row["23歳未満扶養親族04_Kana_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld04_Birthday = row["23歳未満扶養親族04_生年月日"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld04_BirthdayYear = row["23歳未満扶養親族04_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族04_生年月日"].ToString().Substring(0, 4),
+                                //RefDependentFamilyMemberUnder23YearsOld04_BirthdayMonth = row["23歳未満扶養親族04_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族04_生年月日"].ToString().Substring(4, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld04_BirthdayDay = row["23歳未満扶養親族04_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族04_生年月日"].ToString().Substring(6, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld04_AddressSameCheck = row["23歳未満扶養親族04_別居"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld04_Address = row["23歳未満扶養親族04_住所"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld04_Earnings = setMoney(row["23歳未満扶養親族04_給与所得_収入金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld04_Income = setMoney(row["23歳未満扶養親族04_給与所得_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld04_OtherIncome = setMoney(row["23歳未満扶養親族04_他_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld04_TotalEarnings = setMoney(row["23歳未満扶養親族04_所得見積額"].ToString()),
+
+                                //// ===== 23歳未満扶養親族 05 =====
+                                //RefDependentFamilyMemberUnder23YearsOld05_RelationshipType = row["23歳未満扶養親族05_続柄"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld05_Name01 = row["23歳未満扶養親族05_氏名_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld05_Name02 = row["23歳未満扶養親族05_氏名_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld05_Kana01 = row["23歳未満扶養親族05_Kana_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld05_Kana02 = row["23歳未満扶養親族05_Kana_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld05_Birthday = row["23歳未満扶養親族05_生年月日"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld05_BirthdayYear = row["23歳未満扶養親族05_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族05_生年月日"].ToString().Substring(0, 4),
+                                //RefDependentFamilyMemberUnder23YearsOld05_BirthdayMonth = row["23歳未満扶養親族05_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族05_生年月日"].ToString().Substring(4, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld05_BirthdayDay = row["23歳未満扶養親族05_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族05_生年月日"].ToString().Substring(6, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld05_AddressSameCheck = row["23歳未満扶養親族05_別居"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld05_Address = row["23歳未満扶養親族05_住所"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld05_Earnings = setMoney(row["23歳未満扶養親族05_給与所得_収入金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld05_Income = setMoney(row["23歳未満扶養親族05_給与所得_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld05_OtherIncome = setMoney(row["23歳未満扶養親族05_他_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld05_TotalEarnings = setMoney(row["23歳未満扶養親族05_所得見積額"].ToString()),
+
+                                //// ===== 23歳未満扶養親族 06 =====
+                                //RefDependentFamilyMemberUnder23YearsOld06_RelationshipType = row["23歳未満扶養親族06_続柄"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld06_Name01 = row["23歳未満扶養親族06_氏名_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld06_Name02 = row["23歳未満扶養親族06_氏名_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld06_Kana01 = row["23歳未満扶養親族06_Kana_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld06_Kana02 = row["23歳未満扶養親族06_Kana_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld06_Birthday = row["23歳未満扶養親族06_生年月日"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld06_BirthdayYear = row["23歳未満扶養親族06_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族06_生年月日"].ToString().Substring(0, 4),
+                                //RefDependentFamilyMemberUnder23YearsOld06_BirthdayMonth = row["23歳未満扶養親族06_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族06_生年月日"].ToString().Substring(4, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld06_BirthdayDay = row["23歳未満扶養親族06_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族06_生年月日"].ToString().Substring(6, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld06_AddressSameCheck = row["23歳未満扶養親族06_別居"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld06_Address = row["23歳未満扶養親族06_住所"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld06_Earnings = setMoney(row["23歳未満扶養親族06_給与所得_収入金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld06_Income = setMoney(row["23歳未満扶養親族06_給与所得_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld06_OtherIncome = setMoney(row["23歳未満扶養親族06_他_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld06_TotalEarnings = setMoney(row["23歳未満扶養親族06_所得見積額"].ToString()),
+
+                                //// ===== 23歳未満扶養親族 07 =====
+                                //RefDependentFamilyMemberUnder23YearsOld07_RelationshipType = row["23歳未満扶養親族07_続柄"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld07_Name01 = row["23歳未満扶養親族07_氏名_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld07_Name02 = row["23歳未満扶養親族07_氏名_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld07_Kana01 = row["23歳未満扶養親族07_Kana_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld07_Kana02 = row["23歳未満扶養親族07_Kana_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld07_Birthday = row["23歳未満扶養親族07_生年月日"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld07_BirthdayYear = row["23歳未満扶養親族07_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族07_生年月日"].ToString().Substring(0, 4),
+                                //RefDependentFamilyMemberUnder23YearsOld07_BirthdayMonth = row["23歳未満扶養親族07_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族07_生年月日"].ToString().Substring(4, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld07_BirthdayDay = row["23歳未満扶養親族07_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族07_生年月日"].ToString().Substring(6, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld07_AddressSameCheck = row["23歳未満扶養親族07_別居"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld07_Address = row["23歳未満扶養親族07_住所"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld07_Earnings = setMoney(row["23歳未満扶養親族07_給与所得_収入金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld07_Income = setMoney(row["23歳未満扶養親族07_給与所得_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld07_OtherIncome = setMoney(row["23歳未満扶養親族07_他_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld07_TotalEarnings = setMoney(row["23歳未満扶養親族07_所得見積額"].ToString()),
+
+                                //// ===== 23歳未満扶養親族 08 =====
+                                //RefDependentFamilyMemberUnder23YearsOld08_RelationshipType = row["23歳未満扶養親族08_続柄"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld08_Name01 = row["23歳未満扶養親族08_氏名_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld08_Name02 = row["23歳未満扶養親族08_氏名_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld08_Kana01 = row["23歳未満扶養親族08_Kana_姓"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld08_Kana02 = row["23歳未満扶養親族08_Kana_名"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld08_Birthday = row["23歳未満扶養親族08_生年月日"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld08_BirthdayYear = row["23歳未満扶養親族08_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族08_生年月日"].ToString().Substring(0, 4),
+                                //RefDependentFamilyMemberUnder23YearsOld08_BirthdayMonth = row["23歳未満扶養親族08_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族08_生年月日"].ToString().Substring(4, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld08_BirthdayDay = row["23歳未満扶養親族08_生年月日"].ToString() == "" ? "" : row["23歳未満扶養親族08_生年月日"].ToString().Substring(6, 2).TrimStart(new Char[] { '0' }),
+                                //RefDependentFamilyMemberUnder23YearsOld08_AddressSameCheck = row["23歳未満扶養親族08_別居"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld08_Address = row["23歳未満扶養親族08_住所"].ToString(),
+                                //RefDependentFamilyMemberUnder23YearsOld08_Earnings = setMoney(row["23歳未満扶養親族08_給与所得_収入金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld08_Income = setMoney(row["23歳未満扶養親族08_給与所得_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld08_OtherIncome = setMoney(row["23歳未満扶養親族08_他_所得金額"].ToString()),
+                                //RefDependentFamilyMemberUnder23YearsOld08_TotalEarnings = setMoney(row["23歳未満扶養親族08_所得見積額"].ToString()),
+                                //2026-99-99 iwai-miki add end -----
 
                             };
                             model.Head.InputMode = ajustMode.SelfInput;
@@ -1090,9 +1625,26 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 							+ " ,社会保険料控除03_負担者氏名_名 = @SocialInsurance_3_ContractorName2"
 							+ " ,社会保険料控除03_負担者続柄 = @SocialInsurance_3_RelationshipType"
 							+ " ,社会保険料控除03_支払保険料 = @SocialInsurance_3_InsuranceFee"
-							//2023-11-20 iwai-tamura upd end -----
+                            //2023-11-20 iwai-tamura upd end -----
 
-							+ " ,最終更新者ID = '" + lu.UserCode + "'"
+                            //2026-99-99 iwai-miki add end -----
+                            + " ,扶養親族23歳未満_続柄 = @DependentsUnder23_RelationshipType"
+                            + " ,扶養親族23歳未満_氏名_姓 = @DependentsUnder23_Name1"
+                            + " ,扶養親族23歳未満_氏名_名 = @DependentsUnder23_Name2"
+                            + " ,扶養親族23歳未満_Kana_姓 = @DependentsUnder23_Kana1"
+                            + " ,扶養親族23歳未満_Kana_名 = @DependentsUnder23_Kana2"
+                            + " ,扶養親族23歳未満_生年月日 = @DependentsUnder23_Birthday"
+                            + " ,扶養親族23歳未満_同上区分 = @DependentsUnder23_AddressSameCheck"
+                            + " ,扶養親族23歳未満_住所 = @DependentsUnder23_Address"
+                            + " ,扶養親族23歳未満_給与所得_収入金額 = @DependentsUnder23_Earnings"
+                            + " ,扶養親族23歳未満_給与所得_所得金額 = @DependentsUnder23_Earnings2Income"
+                            + " ,扶養親族23歳未満_他_所得金額 = @DependentsUnder23_OtherIncome"
+                            + " ,扶養親族23歳未満_所得見積額 = @DependentsUnder23_Income"
+                            + " ,一般生命保険料23歳未満新保険料表計算 = @LifeInsurance_Calc3"
+                            + " ,一般生命保険料表23歳未満合計 = @LifeInsurance_TotalAmount2"
+                            //2026-99-99 iwai-miki add end -----
+
+                            + " ,最終更新者ID = '" + lu.UserCode + "'"
 							+ " ,更新年月日 = GETDATE()"
 							+ " ,更新回数 = 更新回数 + 1"
 
@@ -1397,9 +1949,24 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 						DbHelper.AddDbParameter(cmd, "@SocialInsurance_3_ContractorName2", DbType.String);
 						DbHelper.AddDbParameter(cmd, "@SocialInsurance_3_RelationshipType", DbType.String);
 						DbHelper.AddDbParameter(cmd, "@SocialInsurance_3_InsuranceFee", DbType.Int32);
-						//2023-11-20 iwai-tamura upd end -----
+                        //2023-11-20 iwai-tamura upd end -----
 
-
+                        //2026-99-99 iwai-miki add str -----
+                        DbHelper.AddDbParameter(cmd, "@DependentsUnder23_RelationshipType", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@DependentsUnder23_Name1", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@DependentsUnder23_Name2", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@DependentsUnder23_Kana1", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@DependentsUnder23_Kana2", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@DependentsUnder23_Birthday", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@DependentsUnder23_AddressSameCheck", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@DependentsUnder23_Address", DbType.String);
+                        DbHelper.AddDbParameter(cmd, "@DependentsUnder23_Earnings", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@DependentsUnder23_Earnings2Income", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@DependentsUnder23_OtherIncome", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@DependentsUnder23_Income", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@LifeInsurance_Calc3", DbType.Int32);
+                        DbHelper.AddDbParameter(cmd, "@LifeInsurance_TotalAmount2", DbType.Int32);
+                        //2023-99-99 iwai-miki add end -----
 
                         DbHelper.AddDbParameter(cmd, "@SheetYear", DbType.Int32);
 						DbHelper.AddDbParameter(cmd, "@EmployeeNo", DbType.String);
@@ -1701,10 +2268,27 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 						parameters[289].Value = DataConv.IfNull(model.Head.SocialInsurance_3_ContractorName2);
 						parameters[290].Value = DataConv.IfNull(model.Head.SocialInsurance_3_RelationshipType);
 						parameters[291].Value = DataConv.IfNull(model.Head.SocialInsurance_3_InsuranceFee.ToString());
-						//2023-11-20 iwai-tamura upd end -----
+                        //2023-11-20 iwai-tamura upd end -----
 
-                        parameters[292].Value = DataConv.IfNull(model.Head.SheetYear.ToString());
-                        parameters[293].Value = DataConv.IfNull(model.Head.EmployeeNo);
+                        //2026-99-99 iwai-miki add str -----
+                        parameters[292].Value = DataConv.IfNull(model.Head.DependentsUnder23_RelationshipType);
+                        parameters[293].Value = DataConv.IfNull(model.Head.DependentsUnder23_Name1);
+                        parameters[294].Value = DataConv.IfNull(model.Head.DependentsUnder23_Name2);
+                        parameters[295].Value = DataConv.IfNull(model.Head.DependentsUnder23_Kana1);
+                        parameters[296].Value = DataConv.IfNull(model.Head.DependentsUnder23_Kana2);
+                        parameters[297].Value = DataConv.IfNull(addYMD(model.Head.DependentsUnder23_BirthdayYear, model.Head.DependentsUnder23_BirthdayMonth, model.Head.DependentsUnder23_BirthdayDay));
+                        parameters[298].Value = DataConv.IfNull(checkValue(model.Head.DependentsUnder23_AddressSameCheck));
+                        parameters[299].Value = DataConv.IfNull(model.Head.DependentsUnder23_Address);
+                        parameters[300].Value = DataConv.IfNull(model.Head.DependentsUnder23_Earnings.ToString());
+                        parameters[301].Value = DataConv.IfNull(model.Head.DependentsUnder23_Earnings2Income.ToString());
+                        parameters[302].Value = DataConv.IfNull(model.Head.DependentsUnder23_OtherIncome.ToString());
+                        parameters[303].Value = DataConv.IfNull(model.Head.DependentsUnder23_Income.ToString());
+                        parameters[304].Value = DataConv.IfNull(model.Head.LifeInsurance_Calc3.ToString());
+                        parameters[305].Value = DataConv.IfNull(model.Head.LifeInsurance_TotalAmount2.ToString());
+                        //2026-99-99 iwai-miki add end -----
+
+                        parameters[306].Value = DataConv.IfNull(model.Head.SheetYear.ToString());
+                        parameters[307].Value = DataConv.IfNull(model.Head.EmployeeNo);
 
 
                         cmd.ExecuteNonQuery();

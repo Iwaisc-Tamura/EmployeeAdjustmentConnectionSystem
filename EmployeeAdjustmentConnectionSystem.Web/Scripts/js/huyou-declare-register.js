@@ -220,13 +220,18 @@ function updateIncomeFields(earningsId, incomeId, otherIncomeId, estimateId) {
 
 // 収入から所得金額を計算するロジック
 function updateEarnings2Income(earnings) {
-
-
+    //2026-99-99 iwai-miki upd-str ------
     //2025-11-18 iwai-tamura upd-str ------
-    if (earnings <= 650999) {
+    if (earnings <= 740999) {
         return 0;
-    } else if (earnings <= 1899999) {
-        return Math.floor(earnings - 650000);
+    } else if (earnings <= 2190999) {
+        return Math.floor(earnings - 740000);
+    } else if (earnings <= 2192999) {
+        return 1451000;
+    } else if (earnings <= 2195999) {
+        return 1453000;
+    } else if (earnings <= 2199999) {
+        return 1456000;
     } else if (earnings <= 3599999) {
         return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.8 - 80000);
     } else if (earnings <= 6599999) {
@@ -236,20 +241,10 @@ function updateEarnings2Income(earnings) {
     } else {
         return earnings - 1950000;
     }
-    //if (earnings <= 550999) {
+    //if (earnings <= 650999) {
     //    return 0;
-    //} else if (earnings <= 1618999) {
-    //    return Math.floor(earnings - 550000);
-    //} else if (earnings <= 1619999) {
-    //    return 1069000;
-    //} else if (earnings <= 1621999) {
-    //    return 1070000;
-    //} else if (earnings <= 1623999) {
-    //    return 1072000;
-    //} else if (earnings <= 1627999) {
-    //    return 1074000;
-    //} else if (earnings <= 1799999) {
-    //    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.4 + 100000);
+    //} else if (earnings <= 1899999) {
+    //    return Math.floor(earnings - 650000);
     //} else if (earnings <= 3599999) {
     //    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.8 - 80000);
     //} else if (earnings <= 6599999) {
@@ -259,7 +254,31 @@ function updateEarnings2Income(earnings) {
     //} else {
     //    return earnings - 1950000;
     //}
+    ////if (earnings <= 550999) {
+    ////    return 0;
+    ////} else if (earnings <= 1618999) {
+    ////    return Math.floor(earnings - 550000);
+    ////} else if (earnings <= 1619999) {
+    ////    return 1069000;
+    ////} else if (earnings <= 1621999) {
+    ////    return 1070000;
+    ////} else if (earnings <= 1623999) {
+    ////    return 1072000;
+    ////} else if (earnings <= 1627999) {
+    ////    return 1074000;
+    ////} else if (earnings <= 1799999) {
+    ////    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.4 + 100000);
+    ////} else if (earnings <= 3599999) {
+    ////    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.8 - 80000);
+    ////} else if (earnings <= 6599999) {
+    ////    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 3.2 - 440000);
+    ////} else if (earnings <= 8499999) {
+    ////    return Math.floor(earnings * 0.9 - 1100000);
+    ////} else {
+    ////    return earnings - 1950000;
+    ////}
     //2025-11-18 iwai-tamura upd-end ------
+    //2026-99-99 iwai-miki upd-end ------
 }
 
 
@@ -504,14 +523,15 @@ function checkDependentsOver16(id) {
     $(oldmanTypeMesID).text(strMessage);
 
     //特定扶養親族区分チェック
+    //2026-99-99 iwai-miki upd-str ------
     //2025-11-18 iwai-tamura upd-str ------
     //特定扶養親族区分は自動選択に変更
     //金額と年齢にて判別
     strMessage = "";
     if (cIncome != "") {
-        if (cIncome > 580000) {
-            //所得の見積額が58万円超の場合、対象外
-            strMessage = "58万円超は対象外です。";
+        if (cIncome > 620000) {
+            //所得の見積額が62万円超の場合、対象外
+            strMessage = "62万円超は対象外です。";
         }
         $('input:radio[name="' + specificTypeName + '"][value="0"]').prop("checked", true);
         if ((strDate <= cDate19) && (strDate > cDate23)) {
@@ -527,28 +547,59 @@ function checkDependentsOver16(id) {
                 }
                 $(incomeMesID).text(strMessage);
             }
-            if (cIncome <= 580000) {
-                //58万円以下の場合、特定扶養親族
+            if (cIncome <= 620000) {
+                //62万円以下の場合、特定扶養親族
                 $('input:radio[name="' + specificTypeName + '"][value="1"]').prop("checked", true);
-            } else if ((cIncome > 580000) && (cIncome <= 1230000)) {
-                //58万円超123万円以下の場合、特定親族
+            } else if ((cIncome > 620000) && (cIncome <= 1230000)) {
+                //62万円超123万円以下の場合、特定親族
                 $('input:radio[name="' + specificTypeName + '"][value="2"]').prop("checked", true);
             }
         }
     }
     $(incomeMesID).text(strMessage);
     //strMessage = "";
-    //if ((strDate <= cDate19) && (strDate > cDate23)) {
-    //    if ($('input:radio[name="' + specificTypeName + '"]:checked').val() == "0") {
-    //        strMessage = "19歳～23歳は特定扶養親族を選択してください。";
+    //if (cIncome != "") {
+    //    if (cIncome > 580000) {
+    //        //所得の見積額が58万円超の場合、対象外
+    //        strMessage = "58万円超は対象外です。";
     //    }
-    //} else {
-    //    if ($('input:radio[name="' + specificTypeName + '"]:checked').val() != "0") {
-    //        strMessage = "19歳～23歳以外は選択できません。";
+    //    $('input:radio[name="' + specificTypeName + '"][value="0"]').prop("checked", true);
+    //    if ((strDate <= cDate19) && (strDate > cDate23)) {
+    //        strMessage = "";    //特定親族の場合は上限が代わる。
+    //        if (cIncome > 1000000) {
+    //            //所得の見積額が100万円超の場合、対象外
+    //            if (cIncome <= 1230000) {
+    //                //100万円超123万円以下の場合
+    //                strMessage = "100万円超は源泉控除の対象外です。特定親族特別控除対象のため、基礎控除申告書画面から申告してください。";
+    //            } else {
+    //                //123万円超の場合
+    //                strMessage = "123万円超は対象外です。";
+    //            }
+    //            $(incomeMesID).text(strMessage);
+    //        }
+    //        if (cIncome <= 580000) {
+    //            //58万円以下の場合、特定扶養親族
+    //            $('input:radio[name="' + specificTypeName + '"][value="1"]').prop("checked", true);
+    //        } else if ((cIncome > 580000) && (cIncome <= 1230000)) {
+    //            //58万円超123万円以下の場合、特定親族
+    //            $('input:radio[name="' + specificTypeName + '"][value="2"]').prop("checked", true);
+    //        }
     //    }
     //}
-    //$(specificTypeMesID).text(strMessage);
+    //$(incomeMesID).text(strMessage);
+    ////strMessage = "";
+    ////if ((strDate <= cDate19) && (strDate > cDate23)) {
+    ////    if ($('input:radio[name="' + specificTypeName + '"]:checked').val() == "0") {
+    ////        strMessage = "19歳～23歳は特定扶養親族を選択してください。";
+    ////    }
+    ////} else {
+    ////    if ($('input:radio[name="' + specificTypeName + '"]:checked').val() != "0") {
+    ////        strMessage = "19歳～23歳以外は選択できません。";
+    ////    }
+    ////}
+    ////$(specificTypeMesID).text(strMessage);
     //2025-11-18 iwai-tamura upd-end ------
+    //2026-99-99 iwai-miki upd-end ------
 
     strMessage = "";
     if ($('input:radio[name="' + oldmanTypeName + '"]:checked').val() == "1") {
@@ -689,12 +740,6 @@ $('input:radio[name="Head.DependentsOver16_4_ResidentType"]').change(function ()
         $("#Head_DependentsOver16_4_Address").val('');
     }
 });
-
-
-
-
-
-
 
 
 

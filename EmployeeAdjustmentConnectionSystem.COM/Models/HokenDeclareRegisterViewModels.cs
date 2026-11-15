@@ -165,10 +165,18 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? LifeInsurance_Calc1 { get; set; }
 
 
-		/// <summary>
-		/// 一般生命保険料旧保険料表計算
-		/// </summary>
-		public int? LifeInsurance_Calc2 { get; set; }
+        //2026-99-99 iwai-miki add str -----
+        /// <summary>
+        /// 一般生命保険料扶養親族保険料表計算
+        /// </summary>
+        public int? LifeInsurance_Calc3 { get; set; }
+        //2026-99-99 iwai-miki add end -----
+
+
+        /// <summary>
+        /// 一般生命保険料旧保険料表計算
+        /// </summary>
+        public int? LifeInsurance_Calc2 { get; set; }
 
 
 		/// <summary>
@@ -177,10 +185,18 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? LifeInsurance_TotalAmount { get; set; }
 
 
-		/// <summary>
-		/// 一般生命保険料比較
-		/// </summary>
-		public int? LifeInsurance_DeductionAmount { get; set; }
+        //2026-99-99 iwai-miki add str -----
+        /// <summary>
+        /// 一般生命保険料表扶養親族合計
+        /// </summary>
+        public int? LifeInsurance_TotalAmount2 { get; set; }
+        //2026-99-99 iwai-miki add end -----
+
+
+        /// <summary>
+        /// 一般生命保険料比較
+        /// </summary>
+        public int? LifeInsurance_DeductionAmount { get; set; }
 
         //2023-11-20 iwai-tamura upd str -----
 		/// <summary>
@@ -715,14 +731,105 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		/// </summary>
 		public int? LifeInsurance_8_InsuranceFee { get; set; }
 
-		//2023-11-20 iwai-tamura upd end -----
+        //2023-11-20 iwai-tamura upd end -----
 
 
+        //2026-99-99 iwai-miki add end -----
+        /// <summary>
+        /// 扶養親族23未満_続柄
+        /// </summary>
+        public string DependentsUnder23_RelationshipType { get; set; }
 
-		/// <summary>
-		/// 介護医療保険料合計
-		/// </summary>
-		public int? MedicalInsurance_TotalAmount { get; set; }
+
+        /// <summary>
+        /// 扶養親族23未満_氏名_姓
+        /// </summary>
+        public string DependentsUnder23_Name1 { get; set; }
+
+
+        /// <summary>
+        /// 扶養親族23未満_氏名_名
+        /// </summary>
+        public string DependentsUnder23_Name2 { get; set; }
+
+
+        /// <summary>
+        /// 扶養親族23未満_Kana_姓
+        /// </summary>
+        public string DependentsUnder23_Kana1 { get; set; }
+
+
+        /// <summary>
+        /// 扶養親族23未満_Kana_名
+        /// </summary>
+        public string DependentsUnder23_Kana2 { get; set; }
+
+
+        /// <summary>
+        /// 扶養親族23未満_生年月日
+        /// </summary>
+        public string DependentsUnder23_Birthday { get; set; }
+
+
+        /// <summary>
+        /// 扶養親族23未満_生年月日_年
+        /// </summary>
+        public string DependentsUnder23_BirthdayYear { get; set; }
+
+
+        /// <summary>
+        /// 扶養親族23未満_生年月日_月
+        /// </summary>
+        public string DependentsUnder23_BirthdayMonth { get; set; }
+
+
+        /// <summary>
+        /// 扶養親族23未満_生年月日_日
+        /// </summary>
+        public string DependentsUnder23_BirthdayDay { get; set; }
+
+
+        /// <summary>
+        /// 扶養親族23未満_同上区分
+        /// </summary>
+        public string DependentsUnder23_AddressSameCheck { get; set; }
+
+
+        /// <summary>
+        /// 扶養親族23未満_住所
+        /// </summary>
+        public string DependentsUnder23_Address { get; set; }
+
+
+        /// <summary>
+        /// 扶養親族23未満_給与所得_収入金額
+        /// </summary>
+        public int? DependentsUnder23_Earnings { get; set; }
+
+
+        /// <summary>
+        /// 扶養親族23未満_給与所得_所得金額
+        /// </summary>
+        public int? DependentsUnder23_Earnings2Income { get; set; }
+
+
+        /// <summary>
+        /// 扶養親族23未満_他_所得金額
+        /// </summary>
+        public int? DependentsUnder23_OtherIncome { get; set; }
+
+
+        /// <summary>
+        /// 扶養親族23未満_合計所得金額見積額
+        /// </summary>
+        public int? DependentsUnder23_Income { get; set; }
+        //2026-99-99 iwai-miki add end -----
+
+
+        /// <summary>
+        /// 介護医療保険料合計
+        /// </summary>
+        public int? MedicalInsurance_TotalAmount { get; set; }
 
 
 		/// <summary>
@@ -1946,16 +2053,599 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? SmallScaleMutualAid_DeductionAmount { get; set; }
 
 
+        //2026-99-99 iwai-miki add str -----
+        //参考にするため扶養控除申告書から扶養者のデータを取得する用
+        /// <summary>
+        /// 23歳未満の扶養親族01_続柄（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld01_RelationshipType { get; set; }
 
+        /// <summary>
+        /// 23歳未満の扶養親族01_氏名(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld01_Name01 { get; set; }
 
+        /// <summary>
+        /// 23歳未満の扶養親族01_氏名(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld01_Name02 { get; set; }
 
+        /// <summary>
+        /// 23歳未満の扶養親族01_カナ(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld01_Kana01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族01_カナ(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld01_Kana02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族01_生年月日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld01_Birthday { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族01_生年月日_年
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld01_BirthdayYear { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族01_生年月日_月
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld01_BirthdayMonth { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族01_生年月日_日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld01_BirthdayDay { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族01_別居
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld01_AddressSameCheck { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族01_住所
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld01_Address { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族01_給与所得_収入金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld01_Earnings { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族01_給与所得_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld01_Income { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族01_他_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld01_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族01_所得見積額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld01_TotalEarnings { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族02_続柄（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld02_RelationshipType { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族02_氏名(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld02_Name01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族02_氏名(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld02_Name02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族02_カナ(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld02_Kana01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族02_カナ(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld02_Kana02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族02_生年月日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld02_Birthday { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族02_生年月日_年
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld02_BirthdayYear { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族02_生年月日_月
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld02_BirthdayMonth { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族02_生年月日_日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld02_BirthdayDay { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族02_別居
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld02_AddressSameCheck { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族02_住所
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld02_Address { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族02_給与所得_収入金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld02_Earnings { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族02_給与所得_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld02_Income { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族02_他_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld02_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族02_所得見積額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld02_TotalEarnings { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族03_続柄（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld03_RelationshipType { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族03_氏名(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld03_Name01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族03_氏名(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld03_Name02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族03_カナ(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld03_Kana01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族03_カナ(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld03_Kana02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族03_生年月日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld03_Birthday { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族03_生年月日_年
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld03_BirthdayYear { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族03_生年月日_月
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld03_BirthdayMonth { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族03_生年月日_日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld03_BirthdayDay { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族03_別居
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld03_AddressSameCheck { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族03_住所
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld03_Address { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族03_給与所得_収入金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld03_Earnings { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族03_給与所得_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld03_Income { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族03_他_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld03_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族03_所得見積額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld03_TotalEarnings { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族04_続柄（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld04_RelationshipType { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族04_氏名(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld04_Name01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族04_氏名(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld04_Name02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族04_カナ(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld04_Kana01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族04_カナ(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld04_Kana02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族04_生年月日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld04_Birthday { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族04_生年月日_年
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld04_BirthdayYear { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族04_生年月日_月
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld04_BirthdayMonth { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族04_生年月日_日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld04_BirthdayDay { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族04_別居
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld04_AddressSameCheck { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族04_住所
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld04_Address { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族04_給与所得_収入金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld04_Earnings { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族04_給与所得_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld04_Income { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族04_他_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld04_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族04_所得見積額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld04_TotalEarnings { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族05_続柄（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld05_RelationshipType { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族05_氏名(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld05_Name01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族05_氏名(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld05_Name02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族05_カナ(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld05_Kana01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族05_カナ(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld05_Kana02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族05_生年月日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld05_Birthday { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族05_生年月日_年
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld05_BirthdayYear { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族05_生年月日_月
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld05_BirthdayMonth { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族05_生年月日_日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld05_BirthdayDay { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族05_別居
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld05_AddressSameCheck { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族05_住所
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld05_Address { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族05_給与所得_収入金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld05_Earnings { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族05_給与所得_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld05_Income { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族05_他_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld05_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族05_所得見積額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld05_TotalEarnings { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族06_続柄（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld06_RelationshipType { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族06_氏名(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld06_Name01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族06_氏名(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld06_Name02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族06_カナ(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld06_Kana01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族06_カナ(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld06_Kana02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族06_生年月日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld06_Birthday { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族06_生年月日_年
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld06_BirthdayYear { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族06_生年月日_月
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld06_BirthdayMonth { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族06_生年月日_日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld06_BirthdayDay { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族06_別居
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld06_AddressSameCheck { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族06_住所
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld06_Address { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族06_給与所得_収入金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld06_Earnings { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族06_給与所得_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld06_Income { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族06_他_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld06_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族06_所得見積額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld06_TotalEarnings { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族07_続柄（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld07_RelationshipType { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族07_氏名(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld07_Name01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族07_氏名(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld07_Name02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族07_カナ(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld07_Kana01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族07_カナ(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld07_Kana02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族07_生年月日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld07_Birthday { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族07_生年月日_年
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld07_BirthdayYear { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族07_生年月日_月
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld07_BirthdayMonth { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族07_生年月日_日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld07_BirthdayDay { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族07_別居
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld07_AddressSameCheck { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族07_住所
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld07_Address { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族07_給与所得_収入金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld07_Earnings { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族07_給与所得_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld07_Income { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族07_他_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld07_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族07_所得見積額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld07_TotalEarnings { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族08_続柄（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld08_RelationshipType { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族08_氏名(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld08_Name01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族08_氏名(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld08_Name02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族08_カナ(氏)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld08_Kana01 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族08_カナ(名)（参考表示用）
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld08_Kana02 { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族08_生年月日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld08_Birthday { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族08_生年月日_年
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld08_BirthdayYear { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族08_生年月日_月
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld08_BirthdayMonth { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族08_生年月日_日
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld08_BirthdayDay { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族08_別居
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld08_AddressSameCheck { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族08_住所
+        /// </summary>
+        public string RefDependentFamilyMemberUnder23YearsOld08_Address { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族08_給与所得_収入金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld08_Earnings { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族08_給与所得_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld08_Income { get; set; }
+        /// <summary>
+        /// 23歳未満の扶養親族08_他_所得金額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld08_OtherIncome { get; set; }
+
+        /// <summary>
+        /// 23歳未満の扶養親族08_所得見積額（参考表示用）
+        /// </summary>
+        public int? RefDependentFamilyMemberUnder23YearsOld08_TotalEarnings { get; set; }
+        //2026-99-99 iwai-miki add end -----
 
     }
 
-    /// <summary>
-    /// ボディ
-    /// </summary>
-    public class HokenDeclareRegisterBodyModel {
+	/// <summary>
+	/// ボディ
+	/// </summary>
+	public class HokenDeclareRegisterBodyModel {
 
         /// <summary>
         /// 担当職務_1
