@@ -43,6 +43,12 @@ $(function () {
     $('#Head_QuakeInsurance_4_HostDataFlg').change();
     //2023-11-20 iwai-tamura upd end -----
 
+
+    //2026-99-99 iwai-miki add str -----
+    $('#Head_DependentsUnder23_AddressSameCheck').change();
+    //2026-99-99 iwai-miki add end -----
+
+
     //datepicker設定
     $.datepicker.setDefaults($.datepicker.regional['ja']);
     $('.ymd-control').datepicker();
@@ -534,70 +540,68 @@ document.querySelectorAll('.QuakeInsurance_4_isRead').forEach(function (input) {
 
 //2026-99-99 iwai-miki add str -----
 //扶養控除申告書_配偶者データ取得ボタン
-//$('#btn-spouseDeduction-get1').click(function () {
-//    getDependentsUnder23('01');
-//});
+$('#btn-spouseDeduction-get1').click(function () {
+    getDependentsUnder23('01');
+});
 
-//function getDependentsUnder23(id, varArt) {
-//    var strMessage = ""
-//    var bolReturn = false
-//    if (typeof varArt === 'undefined') varArt = true;
+function getDependentsUnder23(id, varArt) {
+    var strMessage = "";
+    var bolReturn = false;
+    if (typeof varArt === 'undefined') varArt = true;
 
-//    var relationshipTypeID = "#Head_DependentsUnder23_RelationshipType";
-//    var Name1ID = "#Head_DependentsUnder23_Name1";
-//    var Name2ID = "#Head_DependentsUnder23_Name2";
-//    var Kana1ID = "#Head_DependentsUnder23_Kana1";
-//    var Kana2ID = "#Head_DependentsUnder23_Kana2";
-//    var BirthdayID = "#Head_DependentsUnder23_Birthday";
-//    var BirthdayYearID = "#Head_DependentsUnder23_BirthdayYear";
-//    var BirthdayMonthID = "#Head_DependentsUnder23_BirthdayMonth";
-//    var BirthdayDayID = "#Head_DependentsUnder23_BirthdayDay";
-//    var AddressSameCheckID = "#Head_DependentsUnder23_AddressSameCheck";
-//    var AddressID = "#Head_DependentsUnder23_Address";
-//    var earningsID = "#Head_DependentsUnder23_Earnings";
-//    var incomeID = "#Head_DependentsUnder23_Earnings2Income";
-//    var otherIncomeID = "#Head_DependentsUnder23_OtherIncome";
+    var relationshipTypeID = "#Head_DependentsUnder23_RelationshipType";
+    var name1ID = "#Head_DependentsUnder23_Name1";
+    var name2ID = "#Head_DependentsUnder23_Name2";
+    var kana1ID = "#Head_DependentsUnder23_Kana1";
+    var kana2ID = "#Head_DependentsUnder23_Kana2";
+    var birthdayID = "#Head_DependentsUnder23_Birthday";
+    var birthdayYearID = "#Head_DependentsUnder23_BirthdayYear";
+    var birthdayMonthID = "#Head_DependentsUnder23_BirthdayMonth";
+    var birthdayDayID = "#Head_DependentsUnder23_BirthdayDay";
+    var addressSameCheckID = "#Head_DependentsUnder23_AddressSameCheck";
+    var addressID = "#Head_DependentsUnder23_Address";
+    var earningsID = "#Head_DependentsUnder23_Earnings";
+    var earnings2IncomeID = "#Head_DependentsUnder23_Earnings2Income";
+    var otherIncomeID = "#Head_DependentsUnder23_OtherIncome";
+    var incomeID = "#Head_DependentsUnder23_Income";
 
-//    var strRelationshipType = $(relationshipTypeID).val();
-//    var intEarnings;
-//    var intIncome;
-//    var intOtherIncome;
+    // 現状は01のみ参照
+    if ($("#Head_RefDependentFamilyMemberUnder23YearsOld01_RelationshipType").val() == "") {
+        strMessage = "取得できる扶養控除申告書の入力がありません。";
+        if (varArt) { alert(strMessage); }
+        return true;
+    }
 
-//    //続柄チェック
-//    if (strRelationshipType == "") {
-//        strMessage = "続柄が選択されていないので取得できません。";
-//        if (varArt) { alert(strMessage) };
-//        return true
-//    }
+    $(relationshipTypeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_RelationshipType").val());
+    $(name1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Name01").val());
+    $(name2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Name02").val());
+    $(kana1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Kana01").val());
+    $(kana2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Kana02").val());
+    $(birthdayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Birthday").val());
+    $(birthdayYearID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_BirthdayYear").val());
+    $(birthdayMonthID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_BirthdayMonth").val());
+    $(birthdayDayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_BirthdayDay").val());
 
-//    if ($("#Head_RefDependentFamilyMemberUnder23YearsOld01_RelationshipType").val() == strRelationshipType) {
-//        intEarnings = $("#Head_RefDependentFamilyMemberUnder23YearsOld01_Earnings").val();
-//        intOtherIncome = $("#Head_RefDependentFamilyMemberUnder23YearsOld01_OtherIncome").val();
+    if ($("#Head_RefDependentFamilyMemberUnder23YearsOld01_AddressSameCheck").val() != "0") {
+        $(addressSameCheckID).prop("checked", true);
+    } else {
+        $(addressSameCheckID).prop("checked", false);
+    }
+    $(addressSameCheckID).change();
 
-//    } else if ($("#Head_RefSpecificDependent02_RelationshipType").val() == strRelationshipType) {
-//        intEarnings = $("#Head_RefSpecificDependent02_Earnings").val();
-//        intOtherIncome = $("#Head_RefSpecificDependent02_OtherIncome").val();
+    $(addressID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Address").val());
+    $(earningsID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Earnings").val());
+    $(earnings2IncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Income").val());
+    $(otherIncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_OtherIncome").val());
+    $(incomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_TotalEarnings").val());
 
-//    } else if ($("#Head_RefSpecificDependent03_RelationshipType").val() == strRelationshipType) {
-//        intEarnings = $("#Head_RefSpecificDependent03_Earnings").val();
-//        intOtherIncome = $("#Head_RefSpecificDependent03_OtherIncome").val();
+    // 自動計算・チェックを再実行
+    $(earningsID).trigger('change');
+    $(otherIncomeID).trigger('change');
 
-//    } else if ($("#Head_RefSpecificDependent04_RelationshipType").val() == strRelationshipType) {
-//        intEarnings = $("#Head_RefSpecificDependent04_Earnings").val();
-//        intOtherIncome = $("#Head_RefSpecificDependent04_OtherIncome").val();
-
-//    } else {
-//        strMessage = "取得できる扶養控除申告書の入力がありません。";
-//        if (varArt) { alert(strMessage) };
-//        return true
-//    }
-//    $(earningsID).val(intEarnings);
-//    $(otherIncomeID).val(intOtherIncome);
-//    $(earningsID).trigger('change');
-
-//    bolReturn = true;
-//    return bolReturn;
-//}
+    bolReturn = true;
+    return bolReturn;
+}
 //2026-99-99 iwai-miki add end -----
 
 
