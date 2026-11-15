@@ -210,9 +210,12 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                             break;
 
                         case "2025":
+                        //2026-99-99 iwai-miki del-str ---
                         //2025-12-24 iwai-tamura add-str ---
-                        case "2026":    //2026年度暫定対応
+                        //case "2026":    //2026年度暫定対応
                         //2025-12-24 iwai-tamura add-end ---
+                        //2026-99-99 iwai-miki del-end ---
+
                             var HaiguuDeclareReport_2025 = new HaiguuDeclareReport_2025();
                             try
                             {
@@ -239,6 +242,38 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                                 HaiguuDeclareReport_2025.Dispose();
                             };
                             break;
+
+                        //2026-99-99 iwai-miki add-str ---
+                        case "2026":
+
+                            var HaiguuDeclareReport_2026 = new HaiguuDeclareReport_2026();
+                            try
+                            {
+                                HaiguuDeclareReport_2026.SetDataSource(dt);
+                                HaiguuDeclareReport_2026.Refresh();
+
+                                //パラメーターを設定
+
+                                HaiguuDeclareBaseSetting_2026(ref HaiguuDeclareReport_2026, row);
+                                HaiguuDeclareReport_2026.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+                                //pdf出力
+                                HaiguuDeclareReport_2026.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                //　TODO:エラー処理検討中
+                                throw ex;
+                                //throw;
+                            }
+                            finally
+                            {
+                                HaiguuDeclareReport_2026.Dispose();
+                            };
+
+                            break;
+                        //2026-99-99 iwai-miki add-end ---
                     }
 
                     //var HaiguuDeclareReport = new HaiguuDeclareReport();
@@ -818,9 +853,65 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 //終了
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
-        }        
+        }
         //2025-03-21 iwai-tamura add-end ---
 
+        //2026-99-99 iwai-miki add-str ---
+        /// <summary>
+        /// 基礎控除申告書2026を帳票にセット
+        /// </summary>
+        /// <param name="cr">クリスタルレポート</param>
+        /// <param name="dr">基礎控除申告書DataRow</param>
+        /// <returns>セット後のクリスタルレポート</returns>
+        private void HaiguuDeclareBaseSetting_2026(ref HaiguuDeclareReport_2026 cr, DataRow dr)
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+
+                //datetimeに変換できたら和暦、だめだったら空をreturn
+                Func<string, string, string> wareki = delegate (string val, string format) {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? DataConv.Date2Jcal(dt, format) : "";
+                };
+
+                Func<string, string, string> nengappi = delegate (string val, string format) {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? dt.ToString(format) : "";
+                };
+
+                //年齢表示用
+                Func<string, string> ageView = (val1) => {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return val1 + "歳";
+                    }
+                    return null;
+                };
+
+                //チェックボックス表示用
+                Func<string, string> checkView = (val1) => {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return (val1 == "1") ? "☑" : "□";
+                    }
+                    return "□";
+                };
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        //2026-99-99 iwai-miki add-end ---
 
         //2023-11-20 iwai-terao test-str 扶養控除ボタン------
         /// <summary>
@@ -959,9 +1050,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                             break;
 
                         case "2025":
+                        //2026-99-99 iwai-miki del-str ---
                         //2025-12-24 iwai-tamura add-str ---
-                        case "2026":    //2026年度暫定対応
+                        //case "2026":    //2026年度暫定対応
                         //2025-12-24 iwai-tamura add-end ---
+                        //2026-99-99 iwai-miki del-end ---
                             var HuyouDeclareReport_2025 = new HuyouDeclareReport_2025();
                             try
                             {
@@ -988,6 +1081,36 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                                 HuyouDeclareReport_2025.Dispose();
                             };
                             break;
+
+                        //2026-99-99 iwai-miki add-str ---
+                        case "2026":
+                            var HuyouDeclareReport_2026 = new HuyouDeclareReport_2026();
+                            try
+                            {
+                                HuyouDeclareReport_2026.SetDataSource(dt);
+                                HuyouDeclareReport_2026.Refresh();
+
+                                //パラメーターを設定
+
+                                HuyouDeclareBaseSetting_2026(ref HuyouDeclareReport_2026, row);
+                                HuyouDeclareReport_2026.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+                                //pdf出力
+                                HuyouDeclareReport_2026.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                //　TODO:エラー処理検討中
+                                throw ex;
+                                //throw;
+                            }
+                            finally
+                            {
+                                HuyouDeclareReport_2026.Dispose();
+                            };
+                            break;
+                        //2026-99-99 iwai-miki add-end ---
                     }
 
 
@@ -1693,7 +1816,66 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         }
         //2025-03-21 iwai-tamura upd-end ---
 
+        //2026-99-99 iwai-miki add-str ---
+        /// <summary>
+        /// 扶養控除申告書2026を帳票にセット
+        /// </summary>
+        /// <param name="cr">クリスタルレポート</param>
+        /// <param name="dr">扶養控除申告書DataRow</param>
+        /// <returns>セット後のクリスタルレポート</returns>
+        private void HuyouDeclareBaseSetting_2026(ref HuyouDeclareReport_2026 cr, DataRow dr)
+        {
+            try
+            {
+                //開始
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+                //datetimeに変換できたら和暦、だめだったら空をreturn
+                Func<string, string, string> wareki = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? DataConv.Date2Jcal(dt, format) : "";
+                };
 
+                Func<string, string, string> nengappi = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? dt.ToString(format) : "";
+                };
+
+                //年齢表示用
+                Func<string, string> ageView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return val1 + "歳";
+                    }
+                    return null;
+                };
+
+                //チェックボックス表示用
+                Func<string, string> checkView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return (val1 == "1") ? "☑" : "□";
+                    }
+                    return "□";
+                };
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        //2026-99-99 iwai-miki add-end ---
 
         //2023-11-20 iwai-terao test-str 保険料控除ボタン------
         /// <summary>
@@ -1829,9 +2011,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                             break;
 
                         case "2025":
+                        //2026-99-99 iwai-miki del-str ---
                         //2025-12-24 iwai-tamura add-str ---
-                        case "2026":    //2026年度暫定対応
+                        //case "2026":    //2026年度暫定対応
                         //2025-12-24 iwai-tamura add-end ---
+                        //2026-99-99 iwai-miki del-end ---
                             var HokenDeclareReport_2025 = new HokenDeclareReport_2025();
                             try
                             {
@@ -1858,6 +2042,36 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                                 HokenDeclareReport_2025.Dispose();
                             };
                             break;
+
+                        //2026-99-99 iwai-miki add-str ---
+                        case "2026":
+                            var HokenDeclareReport_2026 = new HokenDeclareReport_2026();
+                            try
+                            {
+                                HokenDeclareReport_2026.SetDataSource(dt);
+                                HokenDeclareReport_2026.Refresh();
+
+                                //パラメーターを設定
+
+                                HokenDeclareBaseSetting_2026(ref HokenDeclareReport_2026, row);
+                                HokenDeclareReport_2026.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+
+                                //pdf出力
+                                HokenDeclareReport_2026.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, workFolder + fileName);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                //　TODO:エラー処理検討中
+                                throw ex;
+                                //throw;
+                            }
+                            finally
+                            {
+                                HokenDeclareReport_2026.Dispose();
+                            };
+                            break;
+                        //2026-99-99 iwai-miki add-end ---
                     }
 
 
@@ -2294,6 +2508,19 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,'7' AS 法人個人番号12 "
                     + "     ,'5' AS 法人個人番号13 "
                     //2023-11-16 iwai-terao upd end ------
+                    //2026-99-99 iwai-miki add str ------
+                    + "     ,保険料控除.扶養親族23歳未満_氏名_姓 + ' ' + 保険料控除.扶養親族23歳未満_氏名_名 AS 扶養親族23歳未満_氏名 "
+                    + "     ,保険料控除.扶養親族23歳未満_Kana_姓 + ' ' + 保険料控除.扶養親族23歳未満_Kana_名 AS 扶養親族23歳未満_Kana "
+                    + "     ,保険料控除.扶養親族23歳未満_生年月日 "
+                    + "     ,LEFT(保険料控除.扶養親族23歳未満_生年月日,4) AS 扶養親族23歳未満_生年月日年 "
+                    + "     ,SUBSTRING(保険料控除.扶養親族23歳未満_生年月日,5,2) AS 扶養親族23歳未満_生年月日月 "
+                    + "     ,SUBSTRING(保険料控除.扶養親族23歳未満_生年月日,7,2) AS 扶養親族23歳未満_生年月日日 "
+                    + "     ,保険料控除.扶養親族23歳未満_住所 "
+                    + "     ,扶養親族23歳未満続柄名.続柄名称 AS 扶養親族23歳未満_続柄名 "
+                    + "     ,保険料控除.扶養親族23歳未満_所得見積額 "
+                    + "     ,保険料控除.一般生命保険料23歳未満新保険料表計算 "
+                    + "     ,保険料控除.一般生命保険料表23歳未満合計 "
+                    //2026-99-99 iwai-miki add end ------
                     + " FROM TE110保険料控除申告書Data AS 保険料控除 "
                     + "  LEFT JOIN TM912事業所名Master AS 事業所名 ON CASE WHEN LEFT(保険料控除.所属番号, 1) IN ('2', '3') THEN '1' ELSE LEFT(保険料控除.所属番号, 1) END = 事業所名.事業所番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 一般生命保険料01続柄名 ON 保険料控除.一般生命保険料01_保険金等受取人続柄 = 一般生命保険料01続柄名.続柄番号 "
@@ -2323,6 +2550,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "  LEFT JOIN TM911続柄名Master AS 地震保険料控除04続柄名 ON 保険料控除.地震保険料控除04_保険等対象続柄 = 地震保険料控除04続柄名.続柄番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 社会保険料控除03続柄名 ON 保険料控除.社会保険料控除03_負担者続柄 = 社会保険料控除03続柄名.続柄番号 "
                     //2023-11-06 iwai-terao upd end ------
+                    //2026-99-99 iwai-miki add str ------
+                    + "  LEFT JOIN TM911続柄名Master AS 扶養親族23歳未満続柄名 ON 保険料控除.扶養親族23歳未満_続柄 = 扶養親族23歳未満続柄名.続柄番号 "
+                    //2026-99-99 iwai-miki add end ------
                     + " WHERE 保険料控除.社員番号 = @key "
                     + "   AND 保険料控除.対象年度 = " + year ;
 
@@ -2605,9 +2835,68 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-
         //2025-03-21 iwai-tamura add-end ---
 
+        //2026-99-99 iwai-miki add-str ---
+        /// <summary>
+        /// 保険料控除申告書2026を帳票にセット
+        /// </summary>
+        /// <param name="cr">クリスタルレポート</param>
+        /// <param name="dr">保険料控除申告書DataRow</param>
+        /// <returns>セット後のクリスタルレポート</returns>
+        private void HokenDeclareBaseSetting_2026(ref HokenDeclareReport_2026 cr, DataRow dr)
+        {
+            try
+            {
+                //開始
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " start");
+                //datetimeに変換できたら和暦、だめだったら空をreturn
+                Func<string, string, string> wareki = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? DataConv.Date2Jcal(dt, format) : "";
+                };
+
+                Func<string, string, string> nengappi = delegate (string val, string format)
+                {
+                    DateTime dt = new DateTime();
+                    return DateTime.TryParse(val, out dt) ? dt.ToString(format) : "";
+                };
+
+                //年齢表示用
+                Func<string, string> ageView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return val1 + "歳";
+                    }
+                    return null;
+                };
+
+                //チェックボックス表示用
+                Func<string, string> checkView = (val1) =>
+                {
+                    if (!string.IsNullOrEmpty(val1))
+                    {
+                        return (val1 == "1") ? "☑" : "□";
+                    }
+                    return "□";
+                };
+
+            }
+            catch (Exception ex)
+            {
+                // エラー
+                nlog.Error(System.Reflection.MethodBase.GetCurrentMethod().Name + " error " + ex.ToString());
+                throw;
+            }
+            finally
+            {
+                //終了
+                nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
+            }
+        }
+        //2026-99-99 iwai-miki add-end ---
 
         //2025-11-18 iwai-tamura upd-str ------
         /// <summary>

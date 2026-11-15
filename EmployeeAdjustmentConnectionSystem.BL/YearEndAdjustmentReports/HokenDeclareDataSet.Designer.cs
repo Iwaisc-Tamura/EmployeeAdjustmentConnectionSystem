@@ -803,6 +803,28 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             private global::System.Data.DataColumn column地震保険料控除04_HostData判定;
             
+            private global::System.Data.DataColumn column扶養親族23歳未満_氏名;
+            
+            private global::System.Data.DataColumn column扶養親族23歳未満_Kana;
+            
+            private global::System.Data.DataColumn column扶養親族23歳未満_生年月日;
+            
+            private global::System.Data.DataColumn column扶養親族23歳未満_生年月日年;
+            
+            private global::System.Data.DataColumn column扶養親族23歳未満_生年月日月;
+            
+            private global::System.Data.DataColumn column扶養親族23歳未満_生年月日日;
+            
+            private global::System.Data.DataColumn column扶養親族23歳未満_住所;
+            
+            private global::System.Data.DataColumn column扶養親族23歳未満_続柄名;
+            
+            private global::System.Data.DataColumn column扶養親族23歳未満_所得見積額;
+            
+            private global::System.Data.DataColumn column一般生命保険料23歳未満新保険料表計算;
+            
+            private global::System.Data.DataColumn column一般生命保険料表23歳未満合計;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public HokenDeclareDataTableDataTable() {
@@ -2934,6 +2956,94 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族23歳未満_氏名Column {
+                get {
+                    return this.column扶養親族23歳未満_氏名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族23歳未満_KanaColumn {
+                get {
+                    return this.column扶養親族23歳未満_Kana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族23歳未満_生年月日Column {
+                get {
+                    return this.column扶養親族23歳未満_生年月日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族23歳未満_生年月日年Column {
+                get {
+                    return this.column扶養親族23歳未満_生年月日年;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族23歳未満_生年月日月Column {
+                get {
+                    return this.column扶養親族23歳未満_生年月日月;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族23歳未満_生年月日日Column {
+                get {
+                    return this.column扶養親族23歳未満_生年月日日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族23歳未満_住所Column {
+                get {
+                    return this.column扶養親族23歳未満_住所;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族23歳未満_続柄名Column {
+                get {
+                    return this.column扶養親族23歳未満_続柄名;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 扶養親族23歳未満_所得見積額Column {
+                get {
+                    return this.column扶養親族23歳未満_所得見積額;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料23歳未満新保険料表計算Column {
+                get {
+                    return this.column一般生命保険料23歳未満新保険料表計算;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn 一般生命保険料表23歳未満合計Column {
+                get {
+                    return this.column一般生命保険料表23歳未満合計;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3231,7 +3341,18 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         string 地震保険料控除01_HostData判定, 
                         string 地震保険料控除02_HostData判定, 
                         string 地震保険料控除03_HostData判定, 
-                        string 地震保険料控除04_HostData判定) {
+                        string 地震保険料控除04_HostData判定, 
+                        string 扶養親族23歳未満_氏名, 
+                        string 扶養親族23歳未満_Kana, 
+                        string 扶養親族23歳未満_生年月日, 
+                        string 扶養親族23歳未満_生年月日年, 
+                        string 扶養親族23歳未満_生年月日月, 
+                        string 扶養親族23歳未満_生年月日日, 
+                        string 扶養親族23歳未満_住所, 
+                        string 扶養親族23歳未満_続柄名, 
+                        decimal 扶養親族23歳未満_所得見積額, 
+                        decimal 一般生命保険料23歳未満新保険料表計算, 
+                        decimal 一般生命保険料表23歳未満合計) {
                 HokenDeclareDataTableRow rowHokenDeclareDataTableRow = ((HokenDeclareDataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         対象年度,
@@ -3495,7 +3616,18 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                         地震保険料控除01_HostData判定,
                         地震保険料控除02_HostData判定,
                         地震保険料控除03_HostData判定,
-                        地震保険料控除04_HostData判定};
+                        地震保険料控除04_HostData判定,
+                        扶養親族23歳未満_氏名,
+                        扶養親族23歳未満_Kana,
+                        扶養親族23歳未満_生年月日,
+                        扶養親族23歳未満_生年月日年,
+                        扶養親族23歳未満_生年月日月,
+                        扶養親族23歳未満_生年月日日,
+                        扶養親族23歳未満_住所,
+                        扶養親族23歳未満_続柄名,
+                        扶養親族23歳未満_所得見積額,
+                        一般生命保険料23歳未満新保険料表計算,
+                        一般生命保険料表23歳未満合計};
                 rowHokenDeclareDataTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHokenDeclareDataTableRow);
                 return rowHokenDeclareDataTableRow;
@@ -3780,6 +3912,17 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 this.column地震保険料控除02_HostData判定 = base.Columns["地震保険料控除02_HostData判定"];
                 this.column地震保険料控除03_HostData判定 = base.Columns["地震保険料控除03_HostData判定"];
                 this.column地震保険料控除04_HostData判定 = base.Columns["地震保険料控除04_HostData判定"];
+                this.column扶養親族23歳未満_氏名 = base.Columns["扶養親族23歳未満_氏名"];
+                this.column扶養親族23歳未満_Kana = base.Columns["扶養親族23歳未満_Kana"];
+                this.column扶養親族23歳未満_生年月日 = base.Columns["扶養親族23歳未満_生年月日"];
+                this.column扶養親族23歳未満_生年月日年 = base.Columns["扶養親族23歳未満_生年月日年"];
+                this.column扶養親族23歳未満_生年月日月 = base.Columns["扶養親族23歳未満_生年月日月"];
+                this.column扶養親族23歳未満_生年月日日 = base.Columns["扶養親族23歳未満_生年月日日"];
+                this.column扶養親族23歳未満_住所 = base.Columns["扶養親族23歳未満_住所"];
+                this.column扶養親族23歳未満_続柄名 = base.Columns["扶養親族23歳未満_続柄名"];
+                this.column扶養親族23歳未満_所得見積額 = base.Columns["扶養親族23歳未満_所得見積額"];
+                this.column一般生命保険料23歳未満新保険料表計算 = base.Columns["一般生命保険料23歳未満新保険料表計算"];
+                this.column一般生命保険料表23歳未満合計 = base.Columns["一般生命保険料表23歳未満合計"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4309,6 +4452,28 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 base.Columns.Add(this.column地震保険料控除03_HostData判定);
                 this.column地震保険料控除04_HostData判定 = new global::System.Data.DataColumn("地震保険料控除04_HostData判定", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column地震保険料控除04_HostData判定);
+                this.column扶養親族23歳未満_氏名 = new global::System.Data.DataColumn("扶養親族23歳未満_氏名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族23歳未満_氏名);
+                this.column扶養親族23歳未満_Kana = new global::System.Data.DataColumn("扶養親族23歳未満_Kana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族23歳未満_Kana);
+                this.column扶養親族23歳未満_生年月日 = new global::System.Data.DataColumn("扶養親族23歳未満_生年月日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族23歳未満_生年月日);
+                this.column扶養親族23歳未満_生年月日年 = new global::System.Data.DataColumn("扶養親族23歳未満_生年月日年", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族23歳未満_生年月日年);
+                this.column扶養親族23歳未満_生年月日月 = new global::System.Data.DataColumn("扶養親族23歳未満_生年月日月", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族23歳未満_生年月日月);
+                this.column扶養親族23歳未満_生年月日日 = new global::System.Data.DataColumn("扶養親族23歳未満_生年月日日", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族23歳未満_生年月日日);
+                this.column扶養親族23歳未満_住所 = new global::System.Data.DataColumn("扶養親族23歳未満_住所", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族23歳未満_住所);
+                this.column扶養親族23歳未満_続柄名 = new global::System.Data.DataColumn("扶養親族23歳未満_続柄名", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族23歳未満_続柄名);
+                this.column扶養親族23歳未満_所得見積額 = new global::System.Data.DataColumn("扶養親族23歳未満_所得見積額", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column扶養親族23歳未満_所得見積額);
+                this.column一般生命保険料23歳未満新保険料表計算 = new global::System.Data.DataColumn("一般生命保険料23歳未満新保険料表計算", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料23歳未満新保険料表計算);
+                this.column一般生命保険料表23歳未満合計 = new global::System.Data.DataColumn("一般生命保険料表23歳未満合計", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column一般生命保険料表23歳未満合計);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8643,6 +8808,182 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族23歳未満_氏名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.扶養親族23歳未満_氏名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'扶養親族23歳未満_氏名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.扶養親族23歳未満_氏名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族23歳未満_Kana {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.扶養親族23歳未満_KanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'扶養親族23歳未満_Kana\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.扶養親族23歳未満_KanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族23歳未満_生年月日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'扶養親族23歳未満_生年月日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族23歳未満_生年月日年 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日年Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'扶養親族23歳未満_生年月日年\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日年Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族23歳未満_生年月日月 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日月Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'扶養親族23歳未満_生年月日月\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日月Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族23歳未満_生年月日日 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'扶養親族23歳未満_生年月日日\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族23歳未満_住所 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.扶養親族23歳未満_住所Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'扶養親族23歳未満_住所\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.扶養親族23歳未満_住所Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string 扶養親族23歳未満_続柄名 {
+                get {
+                    try {
+                        return ((string)(this[this.tableHokenDeclareDataTable.扶養親族23歳未満_続柄名Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'扶養親族23歳未満_続柄名\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.扶養親族23歳未満_続柄名Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 扶養親族23歳未満_所得見積額 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.扶養親族23歳未満_所得見積額Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'扶養親族23歳未満_所得見積額\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.扶養親族23歳未満_所得見積額Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 一般生命保険料23歳未満新保険料表計算 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.一般生命保険料23歳未満新保険料表計算Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料23歳未満新保険料表計算\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料23歳未満新保険料表計算Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal 一般生命保険料表23歳未満合計 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableHokenDeclareDataTable.一般生命保険料表23歳未満合計Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'HokenDeclareDataTable\' にある列 \'一般生命保険料表23歳未満合計\' の値は DBNull です。", e);
+                    }
+                }
+                set {
+                    this[this.tableHokenDeclareDataTable.一般生命保険料表23歳未満合計Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Is対象年度Null() {
                 return this.IsNull(this.tableHokenDeclareDataTable.対象年度Column);
             }
@@ -11783,6 +12124,138 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Set地震保険料控除04_HostData判定Null() {
                 this[this.tableHokenDeclareDataTable.地震保険料控除04_HostData判定Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族23歳未満_氏名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.扶養親族23歳未満_氏名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族23歳未満_氏名Null() {
+                this[this.tableHokenDeclareDataTable.扶養親族23歳未満_氏名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族23歳未満_KanaNull() {
+                return this.IsNull(this.tableHokenDeclareDataTable.扶養親族23歳未満_KanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族23歳未満_KanaNull() {
+                this[this.tableHokenDeclareDataTable.扶養親族23歳未満_KanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族23歳未満_生年月日Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族23歳未満_生年月日Null() {
+                this[this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族23歳未満_生年月日年Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日年Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族23歳未満_生年月日年Null() {
+                this[this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日年Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族23歳未満_生年月日月Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日月Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族23歳未満_生年月日月Null() {
+                this[this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族23歳未満_生年月日日Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族23歳未満_生年月日日Null() {
+                this[this.tableHokenDeclareDataTable.扶養親族23歳未満_生年月日日Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族23歳未満_住所Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.扶養親族23歳未満_住所Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族23歳未満_住所Null() {
+                this[this.tableHokenDeclareDataTable.扶養親族23歳未満_住所Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族23歳未満_続柄名Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.扶養親族23歳未満_続柄名Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族23歳未満_続柄名Null() {
+                this[this.tableHokenDeclareDataTable.扶養親族23歳未満_続柄名Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is扶養親族23歳未満_所得見積額Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.扶養親族23歳未満_所得見積額Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set扶養親族23歳未満_所得見積額Null() {
+                this[this.tableHokenDeclareDataTable.扶養親族23歳未満_所得見積額Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料23歳未満新保険料表計算Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料23歳未満新保険料表計算Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料23歳未満新保険料表計算Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料23歳未満新保険料表計算Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is一般生命保険料表23歳未満合計Null() {
+                return this.IsNull(this.tableHokenDeclareDataTable.一般生命保険料表23歳未満合計Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set一般生命保険料表23歳未満合計Null() {
+                this[this.tableHokenDeclareDataTable.一般生命保険料表23歳未満合計Column] = global::System.Convert.DBNull;
             }
         }
         

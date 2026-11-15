@@ -150,11 +150,18 @@ function updateIncomeFields(earningsId, incomeId, otherIncomeId, estimateId) {
 
 // 収入から所得金額を計算するロジック
 function updateEarnings2Income(earnings) {
+    //2026-99-99 iwai-miki upd-str ------
     //2025-11-18 iwai-tamura upd-str ------
-    if (earnings <= 650999) {
+    if (earnings <= 740999) {
         return 0;
-    } else if (earnings <= 1899999) {
-        return Math.floor(earnings - 650000);
+    } else if (earnings <= 2190999) {
+        return Math.floor(earnings - 740000);
+    } else if (earnings <= 2192999) {
+        return 1451000;
+    } else if (earnings <= 2195999) {
+        return 1453000;
+    } else if (earnings <= 2199999) {
+        return 1456000;
     } else if (earnings <= 3599999) {
         return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.8 - 80000);
     } else if (earnings <= 6599999) {
@@ -164,20 +171,10 @@ function updateEarnings2Income(earnings) {
     } else {
         return earnings - 1950000;
     }
-    //if (earnings <= 550999) {
+    //if (earnings <= 650999) {
     //    return 0;
-    //} else if (earnings <= 1618999) {
-    //    return Math.floor(earnings - 550000);
-    //} else if (earnings <= 1619999) {
-    //    return 1069000;
-    //} else if (earnings <= 1621999) {
-    //    return 1070000;
-    //} else if (earnings <= 1623999) {
-    //    return 1072000;
-    //} else if (earnings <= 1627999) {
-    //    return 1074000;
-    //} else if (earnings <= 1799999) {
-    //    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.4 + 100000);
+    //} else if (earnings <= 1899999) {
+    //    return Math.floor(earnings - 650000);
     //} else if (earnings <= 3599999) {
     //    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.8 - 80000);
     //} else if (earnings <= 6599999) {
@@ -187,11 +184,33 @@ function updateEarnings2Income(earnings) {
     //} else {
     //    return earnings - 1950000;
     //}
+    ////if (earnings <= 550999) {
+    ////    return 0;
+    ////} else if (earnings <= 1618999) {
+    ////    return Math.floor(earnings - 550000);
+    ////} else if (earnings <= 1619999) {
+    ////    return 1069000;
+    ////} else if (earnings <= 1621999) {
+    ////    return 1070000;
+    ////} else if (earnings <= 1623999) {
+    ////    return 1072000;
+    ////} else if (earnings <= 1627999) {
+    ////    return 1074000;
+    ////} else if (earnings <= 1799999) {
+    ////    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.4 + 100000);
+    ////} else if (earnings <= 3599999) {
+    ////    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 2.8 - 80000);
+    ////} else if (earnings <= 6599999) {
+    ////    return Math.floor(Math.floor(earnings / 4 / 1000) * 1000 * 3.2 - 440000);
+    ////} else if (earnings <= 8499999) {
+    ////    return Math.floor(earnings * 0.9 - 1100000);
+    ////} else {
+    ////    return earnings - 1950000;
+    ////}
     //2025-11-18 iwai-tamura upd-end ------
-
+    //2026-99-99 iwai-miki upd-end ------
 
 }
-
 
 //給与所得者の基礎控除申告書 所得
 document.getElementById('Head_BasicDeduction_Earnings').addEventListener('change', function () {
@@ -259,90 +278,126 @@ function calcBasicDeduction() {
 
     intTotalAmount = Number($("#Head_BasicDeduction_Income").val()) + Number($("#Head_BasicDeduction_OtherIncome").val());
 
+    //2026-99-99 iwai-miki upd-str ------
     //2025-11-18 iwai-tamura upd-str ------
-    if (intTotalAmount <= 1320000) {
+    if (intTotalAmount <= 4890000) {
         strEarningsType = "1"
         strCalcType = "A"
-        intDeductionAmount = "950000"
-    } else if (intTotalAmount <= 3360000) {
+        intDeductionAmount = "1040000"
+    } else if (intTotalAmount <= 6550000) {
         strEarningsType = "2"
         strCalcType = "A"
-        intDeductionAmount = "880000"
-    } else if (intTotalAmount <= 4890000) {
+        intDeductionAmount = "670000"
+    } else if (intTotalAmount <= 9000000) {
         strEarningsType = "3"
         strCalcType = "A"
-        intDeductionAmount = "680000"
-    } else if (intTotalAmount <= 6550000) {
-        strEarningsType = "4"
-        strCalcType = "A"
-        intDeductionAmount = "630000"
-    } else if (intTotalAmount <= 9000000) {
-        strEarningsType = "5"
-        strCalcType = "A"
-        intDeductionAmount = "580000"
+        intDeductionAmount = "620000"
     } else if (intTotalAmount <= 9500000) {
-        strEarningsType = "6"
+        strEarningsType = "4"
         strCalcType = "B"
-        intDeductionAmount = "580000"
+        intDeductionAmount = "620000"
     } else if (intTotalAmount <= 10000000) {
-        strEarningsType = "7"
+        strEarningsType = "5"
         strCalcType = "C"
-        intDeductionAmount = "580000"
+        intDeductionAmount = "620000"
     } else if (intTotalAmount <= 23500000) {
-        strEarningsType = "8"
-        intDeductionAmount = "580000"
+        strEarningsType = "6"
+        intDeductionAmount = "620000"
     } else if (intTotalAmount <= 24000000) {
-        strEarningsType = "9"
+        strEarningsType = "7"
         intDeductionAmount = "480000"
     } else if (intTotalAmount <= 24500000) {
-        strEarningsType = "10"
+        strEarningsType = "8"
         intDeductionAmount = "320000"
     } else if (intTotalAmount <= 25000000) {
-        strEarningsType = "11"
+        strEarningsType = "9"
         intDeductionAmount = "160000"
     } else {
     }
-    //if (intTotalAmount <= 9000000) {
+    //if (intTotalAmount <= 1320000) {
     //    strEarningsType = "1"
     //    strCalcType = "A"
-    //    intDeductionAmount = "480000"
-    //} else if (intTotalAmount <= 9500000) {
+    //    intDeductionAmount = "950000"
+    //} else if (intTotalAmount <= 3360000) {
     //    strEarningsType = "2"
-    //    strCalcType = "B"
-    //    intDeductionAmount = "480000"
-    //} else if (intTotalAmount <= 10000000) {
+    //    strCalcType = "A"
+    //    intDeductionAmount = "880000"
+    //} else if (intTotalAmount <= 4890000) {
     //    strEarningsType = "3"
-    //    strCalcType = "C"
-    //    intDeductionAmount = "480000"
-    //    //2024-11-19 iwai-tamura upd-str ------
-    //} else if (intTotalAmount <= 18050000) {
+    //    strCalcType = "A"
+    //    intDeductionAmount = "680000"
+    //} else if (intTotalAmount <= 6550000) {
     //    strEarningsType = "4"
-    //    strCalcType = "D"
-    //    intDeductionAmount = "480000"
-    //} else if (intTotalAmount <= 24000000) {
+    //    strCalcType = "A"
+    //    intDeductionAmount = "630000"
+    //} else if (intTotalAmount <= 9000000) {
     //    strEarningsType = "5"
+    //    strCalcType = "A"
+    //    intDeductionAmount = "580000"
+    //} else if (intTotalAmount <= 9500000) {
+    //    strEarningsType = "6"
+    //    strCalcType = "B"
+    //    intDeductionAmount = "580000"
+    //} else if (intTotalAmount <= 10000000) {
+    //    strEarningsType = "7"
+    //    strCalcType = "C"
+    //    intDeductionAmount = "580000"
+    //} else if (intTotalAmount <= 23500000) {
+    //    strEarningsType = "8"
+    //    intDeductionAmount = "580000"
+    //} else if (intTotalAmount <= 24000000) {
+    //    strEarningsType = "9"
     //    intDeductionAmount = "480000"
     //} else if (intTotalAmount <= 24500000) {
-    //    strEarningsType = "6"
+    //    strEarningsType = "10"
     //    intDeductionAmount = "320000"
     //} else if (intTotalAmount <= 25000000) {
-    //    strEarningsType = "7"
+    //    strEarningsType = "11"
     //    intDeductionAmount = "160000"
     //} else {
     //}
-    ////} else if (intTotalAmount <= 24000000) {
+    ////if (intTotalAmount <= 9000000) {
+    ////    strEarningsType = "1"
+    ////    strCalcType = "A"
+    ////    intDeductionAmount = "480000"
+    ////} else if (intTotalAmount <= 9500000) {
+    ////    strEarningsType = "2"
+    ////    strCalcType = "B"
+    ////    intDeductionAmount = "480000"
+    ////} else if (intTotalAmount <= 10000000) {
+    ////    strEarningsType = "3"
+    ////    strCalcType = "C"
+    ////    intDeductionAmount = "480000"
+    ////    //2024-11-19 iwai-tamura upd-str ------
+    ////} else if (intTotalAmount <= 18050000) {
     ////    strEarningsType = "4"
+    ////    strCalcType = "D"
+    ////    intDeductionAmount = "480000"
+    ////} else if (intTotalAmount <= 24000000) {
+    ////    strEarningsType = "5"
     ////    intDeductionAmount = "480000"
     ////} else if (intTotalAmount <= 24500000) {
-    ////    strEarningsType = "5"
+    ////    strEarningsType = "6"
     ////    intDeductionAmount = "320000"
     ////} else if (intTotalAmount <= 25000000) {
-    ////    strEarningsType = "6"
+    ////    strEarningsType = "7"
     ////    intDeductionAmount = "160000"
     ////} else {
     ////}
+    //////} else if (intTotalAmount <= 24000000) {
+    //////    strEarningsType = "4"
+    //////    intDeductionAmount = "480000"
+    //////} else if (intTotalAmount <= 24500000) {
+    //////    strEarningsType = "5"
+    //////    intDeductionAmount = "320000"
+    //////} else if (intTotalAmount <= 25000000) {
+    //////    strEarningsType = "6"
+    //////    intDeductionAmount = "160000"
+    //////} else {
+    //////}
     ////2024-11-19 iwai-tamura upd-end ------
     //2025-11-18 iwai-tamura upd-end ------
+    //2026-99-99 iwai-miki upd-end ------
 
     $("#Head_BasicDeduction_TotalEarnings").val(intTotalAmount);
     $("#Head_BasicDeduction_EarningsType").val(strEarningsType);
@@ -423,13 +478,16 @@ function calcSpouseDeduction(varArt) {
     //2025-11-18 iwai-tamura upd-end ------
 
     //基礎控除チェック
+    //2026-99-99 iwai-miki upd-str ------
     //2025-11-18 iwai-tamura upd-str ------
     //2024-11-19 iwai-tamura upd-str ------
-    if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "8") {
-    //if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "5") {
-    ////if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "4") {
+    if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "6") {
+    //if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "8") {
+    ////if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "5") {
+    //////if (strBasicDeductionEarningsType == "" || strBasicDeductionEarningsType >= "4") {
     //2024-11-19 iwai-tamura upd-end ------
     //2025-11-18 iwai-tamura upd-end ------
+    //2026-99-99 iwai-miki upd-end ------
         strMessage = "基礎控除の計算がされていない。もしくは適用外なので計算できません。";
         if (varArt) { alert(strMessage) };
         return true
@@ -465,10 +523,13 @@ function calcSpouseDeduction(varArt) {
 
     var cDate = String(Number($('#Head_SheetYear').val()) - 69) + '01' + '01';
 
+    //2026-99-99 iwai-miki upd-str ------
     //2025-11-18 iwai-tamura upd-str ------
-    if (intTotalAmount <= 580000) {
-    //if (intTotalAmount <= 480000) {
+    if (intTotalAmount <= 620000) {
+    //if (intTotalAmount <= 580000) {
+    ////if (intTotalAmount <= 480000) {
     //2025-11-18 iwai-tamura upd-end ------
+    //2026-99-99 iwai-miki upd-end ------
         if (strDate <= cDate) {
             //70歳以上
             strEarningsType = "1"
@@ -525,10 +586,14 @@ function calcSpouseDeduction(varArt) {
     //2025-11-18 iwai-tamura upd-end ------
 
     //基礎控除申告書　区分IがA～Cの時判定のみ行う
+    //2026-99-99 iwai-miki upd-str ------
     //2025-11-18 iwai-tamura upd-str ------
-    if (strBasicDeductionEarningsType >= "8") {
-    //if (strBasicDeductionEarningsType >= "4") {
+    if (strBasicDeductionEarningsType >= "6") {
+    //if (strBasicDeductionEarningsType >= "8") {
+    ////if (strBasicDeductionEarningsType >= "4") {
     //2025-11-18 iwai-tamura upd-end ------
+    //2026-99-99 iwai-miki upd-end ------
+
         bolReturn = true;
         return bolReturn;
     }
@@ -766,8 +831,11 @@ function calcSpecificRelativeSpecialDeduction(id, varArt) {
     if ($(otherIncomeID).val() == '') { $(otherIncomeID).val(0) }
     intTotalAmount = Number($(incomeID).val()) + Number($(otherIncomeID).val());
     if (intTotalAmount != 0) {
-        if ((intTotalAmount <= 580000) || (intTotalAmount > 1230000)) {
-            //58万円超123万円以下の場合のみ、特定親族
+        //2026-99-99 iwai-miki upd-str ------
+        if ((intTotalAmount <= 620000) || (intTotalAmount > 1230000)) {
+        //if ((intTotalAmount <= 580000) || (intTotalAmount > 1230000)) {
+        //2026-99-99 iwai-miki upd-end ------
+            //62万円超123万円以下の場合のみ、特定親族
             strMessage = "所得金額の計算がされていない。もしくは適用外なので計算できません。";
             if (varArt) { alert(strMessage) };
             return true;
@@ -779,7 +847,10 @@ function calcSpecificRelativeSpecialDeduction(id, varArt) {
     }
 
     //特別控除額の計算
-    if ((intTotalAmount > 580000) && (intTotalAmount <= 850000)) {
+    //2026-99-99 iwai-miki upd-str ------
+    if ((intTotalAmount > 620000) && (intTotalAmount <= 850000)) {
+    //if ((intTotalAmount > 580000) && (intTotalAmount <= 850000)) {
+    //2026-99-99 iwai-miki upd-end ------
         intSpDeductionAmount = 630000
     } else if ((intTotalAmount > 850000) && (intTotalAmount <= 900000)) {
         intSpDeductionAmount = 610000
@@ -1187,7 +1258,7 @@ function checkMoney(id, maxMoney) {
     if (strVal == "") {
         bolReturn = true;
     } else if ($.isNumeric(strVal) == false) {
-        strMessage = "数値でで入力してください。";
+        strMessage = "数値で入力してください。";
     } else if ((strVal) > maxMoney) {
         strMessage = maxMoney + "円以上は入力できません。";
     } else {
@@ -1224,12 +1295,6 @@ function checkAll() {
 
     })
 
-
-
-
-
-
-
     //2023-11-20 iwai-tamura upd-str ------
     //配偶者控除等申告書
     //入力項目チェック
@@ -1247,6 +1312,8 @@ function checkAll() {
     //2023-11-20 iwai-tamura upd-end ------
 
     //2025-11-18 iwai-tamura upd-str ------
+    //特定親族特別控除申告書
+    //入力項目チェック
     if (document.getElementById("Head_SpecificRelativeSpecialDeduction01_Name1").value != ""
        || document.getElementById("Head_SpecificRelativeSpecialDeduction01_Name2").value != "") {
         if (document.getElementById("Head_SpecificRelativeSpecialDeduction01_Name1").value == ""
@@ -1314,9 +1381,38 @@ function checkAllCalc() {
     //if (!calcSpouseDeduction(false)) { return false }
     //2025-11-18 iwai-tamura del-end ------
     //2025-11-18 iwai-tamura upd-str ------
-    if (!calcSpecificRelativeSpecialDeduction('01', false)) { return false }
-    if (!calcSpecificRelativeSpecialDeduction('02', false)) { return false }
-    if (!calcSpecificRelativeSpecialDeduction('03', false)) { return false }
+    //if (!calcSpecificRelativeSpecialDeduction('01', false)) { return false }
+    //if (!calcSpecificRelativeSpecialDeduction('02', false)) { return false }
+    //if (!calcSpecificRelativeSpecialDeduction('03', false)) { return false }
+
+    //2026-99-99 iwai-miki add-str ------
+    if (document.getElementById("Head_Name1").value != ""
+        || document.getElementById("Head_Name2").value != "") {
+        if (document.getElementById("Head_Name1").value == ""
+            || document.getElementById("Head_Name2").value == ""
+            || document.getElementById("Head_BasicDeduction_OtherIncome").value == "") {
+            message = '給与所得者の基礎控除申告書<br/>給与所得以外の所得の合計額に0円以上を入れてください。<br/>確認してください。';
+            showAlert('確認', message)
+            return false;
+        }
+    }
+
+    if (document.getElementById("Head_SpouseDeduction_Name1").value != ""
+        || document.getElementById("Head_SpouseDeduction_Name2").value != "") {
+        if (document.getElementById("Head_SpouseDeduction_Name1").value == ""
+            || document.getElementById("Head_SpouseDeduction_Name2").value == ""
+            || document.getElementById("Head_SpouseDeduction_OtherIncome").value == "") {
+            message = '給与所得者の配偶者控除等申告書<br/>給与所得以外の所得の合計額に0円以上を入れてください。<br/>確認してください。';
+            showAlert('確認', message)
+            return false;
+        }
+
+
+
+
+
+    }
+    //2026-99-99 iwai-miki add-end ------
 
     if (document.getElementById("Head_SpecificRelativeSpecialDeduction01_Name1").value != ""
         || document.getElementById("Head_SpecificRelativeSpecialDeduction01_Name2").value != ""
@@ -1329,6 +1425,13 @@ function checkAllCalc() {
             showAlert('確認', message)
             return false;
         }
+        //2026-99-99 iwai-miki add-str ------
+        if (document.getElementById("Head_SpecificRelativeSpecialDeduction01_OtherIncome").value == "") {
+            message = '給与所得者の特定親族特別控除申告書 1<br/>の控除金額の計算がされていません。<br/>確認してください。';
+            showAlert('確認', message)
+            return false;
+        }
+        //2026-99-99 iwai-miki add-end ------
     }
     if (document.getElementById("Head_SpecificRelativeSpecialDeduction02_Name1").value != ""
         || document.getElementById("Head_SpecificRelativeSpecialDeduction02_Name2").value != ""
@@ -1341,6 +1444,13 @@ function checkAllCalc() {
             showAlert('確認', message)
             return false;
         }
+        //2026-99-99 iwai-miki add-str ------
+        if (document.getElementById("Head_SpecificRelativeSpecialDeduction02_OtherIncome").value == "") {
+            message = '給与所得者の特定親族特別控除申告書 2<br/>の控除金額の計算がされていません。<br/>確認してください。';
+            showAlert('確認', message)
+            return false;
+        }
+        //2026-99-99 iwai-miki add-end ------
     }
     if (document.getElementById("Head_SpecificRelativeSpecialDeduction03_Name1").value != ""
         || document.getElementById("Head_SpecificRelativeSpecialDeduction03_Name2").value != ""
@@ -1353,6 +1463,13 @@ function checkAllCalc() {
             showAlert('確認', message)
             return false;
         }
+        //2026-99-99 iwai-miki add-str ------
+        if (document.getElementById("Head_SpecificRelativeSpecialDeduction03_OtherIncome").value == "") {
+            message = '給与所得者の特定親族特別控除申告書 3<br/>の控除金額の計算がされていません。<br/>確認してください。';
+            showAlert('確認', message)
+            return false;
+        }
+        //2026-99-99 iwai-miki add-end ------
     }
     //2025-11-18 iwai-tamura upd-end ------
     return true;

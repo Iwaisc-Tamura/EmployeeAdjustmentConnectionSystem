@@ -566,10 +566,15 @@
                         <td rowspan="2" colspan="1" class="content-label-b1">給与所得</td>
                         <td rowspan="1" colspan="1" class="content-label-b1">収入金額</td>
                         <td colspan="6" class="form-inline">
+
                             @*2025-11-18 iwai-tamura upd-str ------*@
-                            @Html.TextBoxFor(m => m.Head.BasicDeduction_Earnings, BasicDeduction_TextMoney3) 円<div id="Head_BasicDeduction_Earnings_mes" class="check-comment"></div>
+                            @*2026-99-99 iwai-miki upd-str ------*@
+                            @Html.TextBoxFor(m => m.Head.BasicDeduction_Earnings, BasicDeduction_TextMoney3) 円<span class="Caution-comment">　*再雇用前の実績や前職分を含めて12月給与計算時に計算します。</span><div id="Head_BasicDeduction_Earnings_mes" class="check-comment"></div>
+                            @*@Html.TextBoxFor(m => m.Head.BasicDeduction_Earnings, BasicDeduction_TextMoney3) 円<div id="Head_BasicDeduction_Earnings_mes" class="check-comment"></div>*@
+                            @*2026-99-99 iwai-miki upd-end ------*@
                             @*@Html.TextBoxFor(m => m.Head.BasicDeduction_Earnings, BasicDeduction_TextMoney2) 円<div id="Head_BasicDeduction_Earnings_mes" class="check-comment"></div>*@
                             @*2025-11-18 iwai-tamura upd-end ------*@
+
                         </td>
                     </tr>
                     <tr>
@@ -578,14 +583,19 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
-                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_OtherIncome, BasicDeduction_TextMoney2) 円<div id="Head_BasicDeduction_OtherIncome_mes" class="check-comment"></div></td>
+                        @*2026-99-99 iwai-miki upd-str ------*@
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_OtherIncome, BasicDeduction_TextMoney2) 円<span>　*入力必須。給与以外の所得がない場合は0を入力。</span><div id="Head_BasicDeduction_OtherIncome_mes" class="check-comment"></div></td>
+                        @*<td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_OtherIncome, BasicDeduction_TextMoney2) 円<div id="Head_BasicDeduction_OtherIncome_mes" class="check-comment"></div></td>*@
+                        @*2026-99-99 iwai-miki upd-end ------*@
                     </tr>
                     <tr class="content-label-h2">
                         <td colspan="8">
+                            @*2026-99-99 iwai-miki del-str ------*@
                             @*2025-11-18 iwai-tamura upd-str ------*@
-                            <button type="button" name="BasicDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-basicDeduction-calc" disabled="disabled"> ≫　計算　≪</button>
+                            @*<button type="button" name="BasicDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-basicDeduction-calc" disabled="disabled"> ≫　計算　≪</button>*@
                             @*<button type="button" name="BasicDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-basicDeduction-calc"> ≫　計算　≪</button>*@
                             @*2025-11-18 iwai-tamura upd-end ------*@
+                            @*2026-99-99 iwai-miki del-end ------*@
                         </td>
                     </tr>
                     <tr>
@@ -593,9 +603,47 @@
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_TotalEarnings, CalcMoney) 円</td>
                     </tr>
 
-
+                    @*2026-99-99 iwai-miki upd-str ------*@
                     @*2025-11-18 iwai-tamura upd-str ------*@
                     <tr>
+                        <td rowspan="9" colspan="2" class="content-label-b2">判定 @Html.HiddenFor(m => m.Head.BasicDeduction_EarningsType)@Html.HiddenFor(m => m.Head.BasicDeduction_TaxReductionTarget)</td>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_1"> 　　　　　　　　 489万円以下</td>
+                        <td rowspan="3" colspan="1" class="form-inline content-label-b3" style="text-align: center;">(A)</td>
+                        <td rowspan="1" colspan="1" class="form-inline content-label-b3" style="text-align: center;">104万円</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_2">　   489万円超　　　655万円以下</td>
+                        <td rowspan="1" colspan="1" class="form-inline content-label-b3" style="text-align: center;">67万円</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_3">　 655万円超　　　900万円以下</td>
+                        <td rowspan="4" colspan="1" class="form-inline content-label-b3" style="text-align: center;">62万円</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_4">　 900万円超　　　950万円以下</td>
+                        <td rowspan="1" colspan="1" class="form-inline content-label-b3" style="text-align: center;">(B)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_5">　 950万円超　　1,000万円以下</td>
+                        <td rowspan="1" colspan="1" class="form-inline content-label-b3" style="text-align: center;">(C)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_6"> 1,000万円超　　2,350万円以下</td>
+                        <td rowspan="4" colspan="1" class="content-label-b3"></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_7"> 2,350万円超　　2,400万円以下</td>
+                        <td rowspan="1" colspan="1" class="content-label-b3" style="text-align: center;">48万円</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_8"> 2,400万円超　　2,450万円以下</td>
+                        <td rowspan="1" colspan="1" class="content-label-b3" style="text-align: center;">32万円</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_9"> 2,450万円超　　2,500万円以下</td>
+                        <td rowspan="1" colspan="1" class="content-label-b3" style="text-align: center;">16万円</td>
+                    </tr>
+                    @*<tr>
                         <td rowspan="11" colspan="2" class="content-label-b2">判定 @Html.HiddenFor(m => m.Head.BasicDeduction_EarningsType)@Html.HiddenFor(m => m.Head.BasicDeduction_TaxReductionTarget)</td>
                         <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_1"> 　　　　　　　　 132万円以下</td>
                         <td rowspan="5" colspan="1" class="form-inline content-label-b3" style="text-align: center;">(A)</td>
@@ -640,17 +688,17 @@
                     <tr>
                         <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_11"> 2,450万円超　　2,500万円以下</td>
                         <td rowspan="1" colspan="1" class="content-label-b3" style="text-align: center;">16万円</td>
-                    </tr>
+                    </tr>*@
                     <!--<tr>-->
-                        @*2024-11-19 iwai-tamura upd-str ------*@
-                        <!--<td rowspan="7" colspan="2" class="content-label-b2">判定 @Html.HiddenFor(m => m.Head.BasicDeduction_EarningsType)@Html.HiddenFor(m => m.Head.BasicDeduction_TaxReductionTarget)</td>
-                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_1"> 　900万円以下<span class="pull-right">(A)</span></td>
-                        <td rowspan="4" colspan="1" class="form-inline content-label-b3">　48万円</td>
-                        <td rowspan="4" colspan="1" class="form-inline content-label-b3" style="text-align: center; vertical-align: middle;">定額減税対象<div><input type="checkbox" disabled="disabled" id="BasicDeduction_TaxReductionTargetView"></div></td>-->
-                        @*<td rowspan="6" colspan="2" class="content-label-b2">判定 @Html.HiddenFor(m => m.Head.BasicDeduction_EarningsType)</td>*@
-                        @*<td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_1"> 900万円以下　(A)</td>*@
-                        @*<td rowspan="4" colspan="2" class="form-inline content-label-b3">　48万円</td>*@
-                        @*2024-11-19 iwai-tamura upd-end ------*@
+                    @*2024-11-19 iwai-tamura upd-str ------*@
+                    <!--<td rowspan="7" colspan="2" class="content-label-b2">判定 @Html.HiddenFor(m => m.Head.BasicDeduction_EarningsType)@Html.HiddenFor(m => m.Head.BasicDeduction_TaxReductionTarget)</td>
+                    <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_1"> 　900万円以下<span class="pull-right">(A)</span></td>
+                    <td rowspan="4" colspan="1" class="form-inline content-label-b3">　48万円</td>
+                    <td rowspan="4" colspan="1" class="form-inline content-label-b3" style="text-align: center; vertical-align: middle;">定額減税対象<div><input type="checkbox" disabled="disabled" id="BasicDeduction_TaxReductionTargetView"></div></td>-->
+                    @*<td rowspan="6" colspan="2" class="content-label-b2">判定 @Html.HiddenFor(m => m.Head.BasicDeduction_EarningsType)</td>*@
+                    @*<td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="BasicDeduction_CalcType_1"> 900万円以下　(A)</td>*@
+                    @*<td rowspan="4" colspan="2" class="form-inline content-label-b3">　48万円</td>*@
+                    @*2024-11-19 iwai-tamura upd-end ------*@
 
                     <!--</tr>
                     <tr>
@@ -688,20 +736,21 @@
                     </tr>*@
                     @*2024-11-19 iwai-tamura upd-end ------*@
                     @*2025-11-18 iwai-tamura upd-end ------*@
-
+                    @*2026-99-99 iwai-miki upd-end ------*@
                     <tr>
                         <td colspan="2" class="content-label-b2">区分Ⅰ</td>
                         @*2025-11-18 iwai-tamura upd-str ------*@
-                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_CalcType, CalcWord)
-                            <span>*基礎控除の判定は12月給与実績確定時に自動判定します。</span>
-                        </td>
-                        @*<td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_CalcType, CalcWord)</td>*@
-                        @*2025-11-18 iwai-tamura upd-end ------*@
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="content-label-b2">基礎控除の額</td>
-                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_DeductionAmount, CalcMoney) 円</td>
-                    </tr>
+                        <td colspan="6" class="form-inline">
+                            @Html.TextBoxFor(m => m.Head.BasicDeduction_CalcType, CalcWord)
+                        <span>*基礎控除の判定は12月給与実績確定時に自動判定します。</span>
+                    </td>
+                    @*<td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_CalcType, CalcWord)</td>*@
+                    @*2025-11-18 iwai-tamura upd-end ------*@
+                </tr>
+                <tr>
+                    <td colspan="2" class="content-label-b2">基礎控除の額</td>
+                    <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.BasicDeduction_DeductionAmount, CalcMoney) 円</td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -807,38 +856,47 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
-                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpouseDeduction_OtherIncome, SpouseDeduction_TextMoney2) 円<div id="Head_SpouseDeduction_OtherIncome_mes" class="check-comment"></div></td>
+                        @*2025-99-99 iwai-miki upd-str ------*@
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpouseDeduction_OtherIncome, SpouseDeduction_TextMoney2) 円<span>　*入力必須。給与以外の所得がない場合は0を入力。</span><div id="Head_SpouseDeduction_OtherIncome_mes" class="check-comment"></div></td>
+                        @*<td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpouseDeduction_OtherIncome, SpouseDeduction_TextMoney2) 円<div id="Head_SpouseDeduction_OtherIncome_mes" class="check-comment"></div></td>*@
+                        @*2025-99-99 iwai-miki upd-end ------*@
                     </tr>
                     <tr class="content-label-h2">
                         <td colspan="8">
+                            @*2026-99-99 iwai-miki upd-str ------*@
                             @*2025-11-18 iwai-tamura upd-str ------*@
-                            <button type="button" name="SpouseDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-spouseDeduction-calc" disabled="disabled"> ≫　計算　≪</button>
+                            @*<button type="button" name="SpouseDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-spouseDeduction-calc" disabled="disabled"> ≫　計算　≪</button>*@
                             @*<button type="button" name="SpouseDeductionCalc" value="計算" class="pull-left  btn-calc" id="btn-spouseDeduction-calc"> ≫　計算　≪</button>*@
                             @*2025-11-18 iwai-tamura upd-end ------*@
+                            @*2026-99-99 iwai-miki upd-end ------*@
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b2">合計所得金額の見積額</td>
                         <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpouseDeduction_TotalEarnings, CalcMoney) 円</td>
                     </tr>
-
-
-
-
-
                     @*2025-11-18 iwai-tamura upd-str ------*@
-                    <tr>
-                        <td rowspan="4" colspan="2" class="content-label-b2">判定 </td>
-                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_1"> 58万円以下かつ年齢70歳以上<br />　　<span id="showaYearLabel">(昭○○.1.1以前生)</span><span class="pull-right">(①)</span><br />　《老人控除対象配偶者に該当》　</td>
-                        <td rowspan="2" colspan="2" class="form-inline content-label-b3">　配偶者控除</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_2"> 58万円以下かつ年齢70歳未満<span class="pull-right">(②)</span></td>
-                    </tr>
-                    <tr>
-                        <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_3"> 58万円超 95万円以下<span class="pull-right">(③)</span></td>
-                        <td rowspan="2" colspan="2" class="form-inline content-label-b3">　配偶者特別控除</td>
-                    </tr>
+                <tr>
+                    <td rowspan="4" colspan="2" class="content-label-b2">判定 </td>
+                    @*2026-99-99 iwai-miki upd-str ------*@
+                    <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_1"> 62万円以下かつ年齢70歳以上<br />　　<span id="showaYearLabel">(昭○○.1.1以前生)</span><span class="pull-right">(①)</span><br />　《老人控除対象配偶者に該当》　</td>
+                    @*<td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_1"> 58万円以下かつ年齢70歳以上<br />　　<span id="showaYearLabel">(昭○○.1.1以前生)</span><span class="pull-right">(①)</span><br />　《老人控除対象配偶者に該当》　</td>*@
+                    @*2026-99-99 iwai-miki upd-end ------*@
+                    <td rowspan="2" colspan="2" class="form-inline content-label-b3">　配偶者控除</td>
+                </tr>
+                <tr>
+                    @*2026-99-99 iwai-miki upd-str ------*@
+                    <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_2"> 62万円以下かつ年齢70歳未満<span class="pull-right">(②)</span></td>
+                    @*<td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_2"> 58万円以下かつ年齢70歳未満<span class="pull-right">(②)</span></td>*@
+                    @*2026-99-99 iwai-miki upd-end ------*@
+                </tr>
+                <tr>
+                    @*2026-99-99 iwai-miki upd-str ------*@
+                    <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_3"> 62万円超 95万円以下<span class="pull-right">(③)</span></td>
+                    @*<td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_3"> 58万円超 95万円以下<span class="pull-right">(③)</span></td>*@
+                    @*2026-99-99 iwai-miki upd-end ------*@
+                    <td rowspan="2" colspan="2" class="form-inline content-label-b3">　配偶者特別控除</td>
+                </tr>
                     <tr>
                         <td rowspan="1" colspan="4" class="content-label-b3"><input type="checkbox" disabled="disabled" id="SpouseDeduction_EarningsType_4"> 95万円超 133万円以下<span class="pull-right">(④)</span></td>
                     </tr>
@@ -888,9 +946,6 @@
             </table>
         </div>
     </div>
-
-
-
 
 
     @*2025-11-18 iwai-tamura upd-str ------*@
@@ -990,7 +1045,10 @@
                     </tr>
                     <tr>
                         <td colspan="2" class="content-label-b1">給与所得以外の所得の合計額</td>
-                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction01_OtherIncome, SpecificRelativeSpecialDeduction01_TextMoney2) 円<div id="Head_SpecificRelativeSpecialDeduction01_OtherIncome_mes" class="check-comment"></div></td>
+                        @*2026-99-99 iwai-miki upd-str ------*@
+                        <td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction01_OtherIncome, SpecificRelativeSpecialDeduction01_TextMoney2) 円<span>　*入力必須。給与以外の所得がない場合は0を入力。</span><div id="Head_SpecificRelativeSpecialDeduction01_OtherIncome_mes" class="check-comment"></div></td>
+                        @*<td colspan="6" class="form-inline">@Html.TextBoxFor(m => m.Head.SpecificRelativeSpecialDeduction01_OtherIncome, SpecificRelativeSpecialDeduction01_TextMoney2) 円<div id="Head_SpecificRelativeSpecialDeduction01_OtherIncome_mes" class="check-comment"></div></td>*@
+                        @*2026-99-99 iwai-miki upd-end ------*@
                     </tr>
                     <tr class="content-label-h2">
                         <td colspan="8">
