@@ -192,7 +192,8 @@ body.modal-open {
     animation: fadeIn 0.5s ease-in-out;
 }
 /*2025-11-18 iwai-matsuo add-str ------*/ /*扶養控除追加に伴い*/
-.modal-content-huyo {
+/*2026-99-99 iwai-tamura upd-str ------*/
+.attachment-file-modal {
     width: 100%;
     max-width: 1000px;
     padding: 30px;
@@ -208,11 +209,23 @@ body.modal-open {
     border: 3px solid #4E95D9;
     background-color: #E5F5FF;
 }
+
+.attachment-file-modal-huyou {
+    border: 3px solid #4E95D9;
+    background-color: #E5F5FF;
+}
+
+.attachment-file-modal-zenshoku {
+    border: 3px solid #4E95D9;
+    background-color: #FFE7E7;
+}
+/*2026-99-99 iwai-tamura upd-end ------*/
 /*2025-11-18 iwai-matsuo add-end ------*/
 
 
 /* オーバーレイのスタイル */
-#huyouAttachmentFileModal-overlay {
+/*2026-99-99 iwai-tamura upd-str ------*/
+.attachment-file-modal-overlay {
     display: none;
     position: fixed;
     top: 0;
@@ -224,6 +237,15 @@ body.modal-open {
     backdrop-filter: blur(2px); /* 背景を少しぼかす */
     pointer-events: all; /* クリックをブロック */
 }
+
+.attachment-file-modal-overlay-huyou {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.attachment-file-modal-overlay-zenshoku {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+/*2026-99-99 iwai-tamura upd-end ------*/
 
 .upload-row {
     display: flex;
@@ -256,7 +278,8 @@ body.modal-open {
 }
 /*2025-11-18 iwai-tamura upd-end ------*/
 /*2025-11-18 iwai-matsuo add-str ------*/ /*ボタン色制御の為追加*/
-.modal-content-huyo .btn-close {
+/*2026-99-99 iwai-tamura upd-str ------*/
+.attachment-file-modal-huyou .btn-close {
     font-size: 14px;
     width: 100px;
     height: 30px;
@@ -267,7 +290,18 @@ body.modal-open {
     border-radius: 0px;
 }
 
-.modal-content-huyo .h2 {
+.attachment-file-modal-zenshoku .btn-close {
+    font-size: 14px;
+    width: 100px;
+    height: 30px;
+    padding: 0;
+    margin-bottom: -15px;
+    background-color: #FF9999;
+    border: 1px solid #7F7F7F;
+    border-radius: 0px;
+}
+
+.attachment-file-modal-huyou .h2 {
     font-size: 18px;
     font-weight: bold;
     color: #333;
@@ -278,7 +312,18 @@ body.modal-open {
     top: -20px; /* テキストを10px上げる */
 }
 
-.modal-content-huyo .btn-default {
+.attachment-file-modal-zenshoku .h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    position: relative;
+    top: -20px; /* テキストを10px上げる */
+}
+
+.attachment-file-modal-huyou .btn-default {
     font-size: 14px;
     width: 130px;
     height: 30px;
@@ -288,7 +333,20 @@ body.modal-open {
     border: 1px solid #7F7F7F;
     border-radius: 5px;
 }
-.modal-content-huyo-btn-Upload {
+
+.attachment-file-modal-zenshoku .btn-default {
+    font-size: 14px;
+    width: 130px;
+    height: 30px;
+    padding: 0;
+    margin-bottom: -15px;
+    background-color: #FF5050;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.attachment-file-modal-huyou .modal-content-huyo-btn-Upload {
     font-size: 14px;
     width: 130px;
     height: 30px;
@@ -299,6 +357,19 @@ body.modal-open {
     border-radius: 5px;
     color: #ffffff;
 }
+
+.attachment-file-modal-zenshoku .modal-content-huyo-btn-Upload {
+    font-size: 14px;
+    width: 130px;
+    height: 30px;
+    padding: 0;
+    margin-bottom: -15px;
+    background-color: #FF5050;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #ffffff;
+}
+/*2026-99-99 iwai-tamura upd-end ------*/
 .header-kako-export {
     background-color: #F9DACB;
     margin-top: 10pt;

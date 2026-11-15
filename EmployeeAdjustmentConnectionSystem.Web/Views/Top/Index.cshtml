@@ -34,6 +34,9 @@
 
     @*2025-11-18 iwai-tamura upd-str ------*@
     @Html.HiddenFor(m => m.HuyouAttachmentFilePath)
+    @*99-99 iwai-tamura add-str ------*@
+    @Html.HiddenFor(m => m.ZenshokuAttachmentFilePath)
+    @*99-99 iwai-tamura add-end ------*@
 
     //年度
     @*2025-12-19 iwai-tamura upd-str ------*@
@@ -120,10 +123,10 @@
                 </div>*@
                 @*2025-12-19 iwai-matsuo upd-end ------*@
                 <!-- オーバーレイ -->
-                <div id="huyouAttachmentFileModal-overlay"></div>
+                <div id="huyouAttachmentFileModal-overlay" class="attachment-file-modal-overlay attachment-file-modal-overlay-huyou"></div>
 
                 <!-- モーダルコンテンツ -->
-                <div class="modal-content-huyo" id="huyouAttachmentFileModal">
+                <div class="modal-content-huyo attachment-file-modal attachment-file-modal-huyou" id="huyouAttachmentFileModal">
                     <h2 class= "h2">【扶養控除等申告書】アップロードファイル（PDF）選択</h2>
                     @if (string.IsNullOrEmpty(Model.HuyouAttachmentFilePath)){
                         //添付ファイル無し
@@ -217,6 +220,61 @@
                 <div class="col-xs-8 col-xs-offset-2 top10 ">
                     <button class="btn-default btn-lg btn-block" name="Transition" value="ZenshokuDeclareRegister">前職源泉徴収票</button>
                 </div>
+
+                @*2026-99-99 iwai-tamura add-str ------*@
+                @if (((LoginUser)Session["LoginUser"]).IsServerStatus != "4" && ((LoginUser)Session["LoginUser"]).IsServerStatus != "9")
+                {
+                    <div class="col-xs-2 top10 col-icon-upload">
+                        <button type="button" id="openZenshokuAttachmentFileModalButton" class="btn-default btn-lg btn-block btn-icon">
+                            <img src="~/Content/img/Attachment.png" alt="" />
+                        </button>
+                    </div>
+                }
+
+                <div id="zenshokuAttachmentFileModal-overlay" class="attachment-file-modal-overlay attachment-file-modal-overlay-zenshoku"></div>
+
+                <div class="modal-content-huyo attachment-file-modal attachment-file-modal-zenshoku" id="zenshokuAttachmentFileModal">
+                    <h2 class="h2">【前職源泉徴収票】アップロードファイル（PDF）選択</h2>
+                    @if (string.IsNullOrEmpty(Model.ZenshokuAttachmentFilePath))
+                    {
+                        <div class="upload-row">
+                            @if (Model.ZenshokuDecisionType != "0")
+                            {
+                                <span>添付しているファイルはありません。</span>
+                            }
+                            else
+                            {
+                                @Html.TextBoxFor(m => m.ZenshokuAttachmentUploadFile, new { @type = "file", accept = "application/pdf" })
+                                <div>
+                                    <button type="button" name="DmyZenshokuAttachmentFileUpload" value="DoZenshokuAttachmentFileUpload" class="modal-content-huyo-btn-Upload top10" id="DmyZenshokuAttachmentFileUpload">アップロード</button>
+                                </div>
+                            }
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="upload-row">
+                            @if (Model.ZenshokuDecisionType != "0")
+                            {
+                                <span>@Model.ZenshokuAttachmentFilePath</span>
+                                <div>
+                                    <button type="button" name="DmyZenshokuAttachmentFileDownload" value="DoZenshokuAttachmentFileDownload" class="btn-default top10" id="DmyZenshokuAttachmentFileDownload">ダウンロード</button>
+                                </div>
+                            }
+                            else
+                            {
+                                <span>@Model.ZenshokuAttachmentFilePath</span>
+                                <div>
+                                    <button type="button" name="DmyZenshokuAttachmentFileDownload" value="DoZenshokuAttachmentFileDownload" class="btn-default top10" id="DmyZenshokuAttachmentFileDownload">ダウンロード</button>
+                                    <button type="button" name="DmyZenshokuAttachmentFileDelete" value="DoZenshokuAttachmentFileDelete" class="btn-default top10" id="DmyZenshokuAttachmentFileDelete">削除</button>
+                                </div>
+                            }
+                        </div>
+                    }
+                    <button type="button" class="btn-close pull-right" id="closeZenshokuAttachmentFileModalButton">キャンセル</button>
+                </div>
+                @*2026-99-99 iwai-tamura add-end ------*@
             </div>
             @*2025-11-18 iwai-tamura add-str ------*@
             @*2025年度は初年度の為管理者専用メニュー*@
@@ -307,6 +365,11 @@
         <button type="submit" name="HuyouAttachmentFileUpload" value="HuyouAttachmentFileUpload" class="btn  btn-primary pull-right top10" id="HuyouAttachmentFileUpload" style="visibility:hidden;">アップロード</button>
         <button type="submit" name="HuyouAttachmentFileDownload" value="HuyouAttachmentFileDownload" class="btn  btn-primary pull-right top10" id="HuyouAttachmentFileDownload" style="visibility:hidden;">ダウンロード</button>
         <button type="submit" name="HuyouAttachmentFileDelete" value="HuyouAttachmentFileDelete" class="btn  btn-primary pull-right top10" id="HuyouAttachmentFileDelete" style="visibility:hidden;">削除</button>
+        @*2026-99-99 iwai-tamura add-str ------*@
+        <button type="submit" name="ZenshokuAttachmentFileUpload" value="ZenshokuAttachmentFileUpload" class="btn  btn-primary pull-right top10" id="ZenshokuAttachmentFileUpload" style="visibility:hidden;">アップロード</button>
+        <button type="submit" name="ZenshokuAttachmentFileDownload" value="ZenshokuAttachmentFileDownload" class="btn  btn-primary pull-right top10" id="ZenshokuAttachmentFileDownload" style="visibility:hidden;">ダウンロード</button>
+        <button type="submit" name="ZenshokuAttachmentFileDelete" value="ZenshokuAttachmentFileDelete" class="btn  btn-primary pull-right top10" id="ZenshokuAttachmentFileDelete" style="visibility:hidden;">削除</button>
+        @*2026-99-99 iwai-tamura add-end ------*@
         <button type="submit" name="PrintHistory" value="HistoryPrint" class="btn  btn-primary pull-right top10" id="PrintHistory" style="visibility:hidden;">PDF出力</button>
         @*2025-11-18 iwai-tamura upd-end ------*@
     </div>
