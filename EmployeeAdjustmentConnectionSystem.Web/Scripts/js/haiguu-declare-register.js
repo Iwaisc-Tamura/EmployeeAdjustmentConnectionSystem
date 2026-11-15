@@ -728,6 +728,9 @@ function getSpecificRelativeSpecialDeduction(id, varArt) {
     if (typeof varArt === 'undefined') varArt = true;
 
     var relationshipTypeID = "#Head_SpecificRelativeSpecialDeduction" + id + "_RelationshipType";
+
+
+
     var earningsID = "#Head_SpecificRelativeSpecialDeduction" + id + "_Earnings";
     var incomeID = "#Head_SpecificRelativeSpecialDeduction" + id + "_Income";
     var otherIncomeID = "#Head_SpecificRelativeSpecialDeduction" + id + "_OtherIncome";
@@ -1407,9 +1410,11 @@ function checkAllCalc() {
             return false;
         }
 
-
-
-
+        if (document.getElementById("Head_SpouseDeduction_Income").value + document.getElementById("Head_SpouseDeduction_OtherIncome").value > 1330000 ) {
+            message = '給与所得者の配偶者控除等申告書<br/>合計所得金額の見積額が133万円超の為、配偶者(特別)控除対象外です。<br/>確認してください。';
+            showAlert('確認', message)
+            return false;
+        }
 
     }
     //2026-99-99 iwai-miki add-end ------
