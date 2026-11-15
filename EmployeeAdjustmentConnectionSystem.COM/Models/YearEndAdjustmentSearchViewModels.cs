@@ -158,6 +158,18 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// 前職源泉表示フラグ
         /// </summary>
         public bool ZenshokuDeclareButtonViewFlg { get; set; }
+
+        //2026-99-99 iwai-tamura add-str ------
+        /// <summary>
+        /// 前職源泉添付ボタン表示フラグ
+        /// </summary>
+        public bool ZenshokuDeclareAttachmentButtonViewFlg { get; set; }
+
+        /// <summary>
+        /// 前職源泉徴収票添付ファイル
+        /// </summary>
+        public string ZenshokuAttachmentFilePath { get; set; }
+        //2026-99-99 iwai-tamura add-end ------
         //2025-11-18 iwai-tamura upd-end ------
 
         /// <summary>
