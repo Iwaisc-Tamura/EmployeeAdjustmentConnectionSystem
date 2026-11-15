@@ -442,12 +442,19 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 //詳細へ　(対象帳票,年度,社員番号)
                 var val = value.Split(',');
 
-
-
-
-
+                //2026-99-99 iwai-tamura upd-str ------
                 // 設定から保存ディレクトリを取得
-                string saveDir = ConfigurationManager.AppSettings["HUYOU_ATTACHMENT_FILE_DIR"];
+                string saveDir = string.Empty;
+                if (val[0] == "HuyouDeclareAttachment") {
+                    saveDir = ConfigurationManager.AppSettings["HUYOU_ATTACHMENT_FILE_DIR"];
+                } else if (val[0] == "ZenshokuDeclareAttachment") {
+                    saveDir = ConfigurationManager.AppSettings["ZENSHOKU_ATTACHMENT_FILE_DIR"];
+                    if (string.IsNullOrEmpty(saveDir)) {
+                        saveDir = ConfigurationManager.AppSettings["HUYOU_ATTACHMENT_FILE_DIR"];
+                    }
+                }
+                //saveDir = ConfigurationManager.AppSettings["HUYOU_ATTACHMENT_FILE_DIR"];
+                //2026-99-99 iwai-tamura upd-end ------
                 if (string.IsNullOrEmpty(saveDir))
                 {
                     TempData["Error"] = "保存ディレクトリが設定されていません。管理者に確認してください。";

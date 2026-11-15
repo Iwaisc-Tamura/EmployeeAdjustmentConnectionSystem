@@ -350,8 +350,13 @@
                     <col style="width:100px" />
                     <col style="width:100px" />
                     <col style="width:100px" />
-                    <col style="width:70px" />
-                    <col style="width:70px" />
+                    @*2026-99-99 iwai-tamura add-str ------*@
+                    <col style="width:50px" />
+                    <col style="width:30px" />
+                    <col style="width:100px" />
+@*                    <col style="width:70px" />
+                    <col style="width:70px" />*@
+                    @*2026-99-99 iwai-tamura add-end ------*@
                     @*<col style="width:35px" />
                     <col style="width:50px" />
                     <col style="width:60px" />
@@ -385,7 +390,10 @@
                         <th class="sch-th" colspan="3">基礎控除</th>
                         @*2025-11-18 iwai-tamura upd-str ------*@
                         <th class="sch-th" colspan="2">住宅控除</th>
-                        <th class="sch-th" colspan="2">前職源泉</th>
+                        @*2026-99-99 iwai-tamura upd-str ------*@
+                        <th class="sch-th" colspan="3">前職源泉</th>
+@*                        <th class="sch-th" colspan="2">前職源泉</th>*@
+                        @*2026-99-99 iwai-tamura upd-end ------*@
                         @*2025-11-18 iwai-tamura upd-end ------*@
                     </tr>
                 </thead>
@@ -525,6 +533,7 @@
                                     }
                                     <td style="width:100px;">@Html.DisplayTextFor(m => row.JutakuDeclareStatus)</td>
 
+                                    @*2026-99-99 iwai-tamura upd-str ------*@
                                     @*前職源泉*@
                                     @if (row.ZenshokuDeclareButtonViewFlg) {
                                         if (Model.Search.CurrentYear == row.Year) {
@@ -535,7 +544,26 @@
                                     } else {
                                         <td style="width:50px;"></td>
                                     }
+                                    <td style="width:30px;">
+                                        @if (row.ZenshokuDeclareAttachmentButtonViewFlg) {
+                                            @Html.HiddenFor(m => row.ZenshokuAttachmentFilePath)
+                                            <button type="submit" name="Attachment" value="ZenshokuDeclareAttachment,@row.ZenshokuAttachmentFilePath" id="@("rowattachment"+row.ManageNo)" class="btn-default btn-lg btn-block btn-icon">
+                                                <img src="~/Content/img/Attachment.png" alt="" />
+                                            </button>
+                                        }
+                                    </td>
                                     <td style="width:100px;">@Html.DisplayTextFor(m => row.ZenshokuDeclareStatus)</td>
+                                    @*@if (row.ZenshokuDeclareButtonViewFlg) {
+                                        if (Model.Search.CurrentYear == row.Year) {
+                                            <td style="width:50px;"><button type="submit" name="View" value="ZenshokuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                        } else { 
+                                            <td style="width:50px;"></td>
+                                        }
+                                    } else {
+                                        <td style="width:50px;"></td>
+                                    }
+                                    <td style="width:100px;">@Html.DisplayTextFor(m => row.ZenshokuDeclareStatus)</td>*@
+                                    @*2026-99-99 iwai-tamura upd-end ------*@
                                     @*2025-11-18 iwai-tamura upd-end ------*@
                                 </tr>
                             }
