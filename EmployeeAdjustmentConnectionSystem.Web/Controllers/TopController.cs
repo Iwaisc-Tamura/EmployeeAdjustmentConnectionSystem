@@ -334,7 +334,6 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-
         //2023-11-20 iwai-tamura test-end ------
 
         //2023-11-20 iwai-terao test-str ------
@@ -399,8 +398,6 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-
-
         //2023-11-20 iwai-terao test-end ------
 
 
