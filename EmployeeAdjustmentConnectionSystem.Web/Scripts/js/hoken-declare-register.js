@@ -564,6 +564,14 @@ function getDependentsUnder23(id, varArt) {
     var earnings2IncomeID = "#Head_DependentsUnder23_Earnings2Income";
     var otherIncomeID = "#Head_DependentsUnder23_OtherIncome";
     var incomeID = "#Head_DependentsUnder23_Income";
+    var strRelationshipType = $(relationshipTypeID).val();
+
+    //続柄チェック
+    if ($("#Head_DependentsUnder23_RelationshipType").val() == "") {
+        strMessage = "続柄が選択されていないので取得できません。";
+        if (varArt) { alert(strMessage) };
+        return true
+    }
 
     // 現状は01のみ参照
     if ($("#Head_RefDependentFamilyMemberUnder23YearsOld01_RelationshipType").val() == "") {
@@ -572,32 +580,243 @@ function getDependentsUnder23(id, varArt) {
         return true;
     }
 
-    $(relationshipTypeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_RelationshipType").val());
-    $(name1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Name01").val());
-    $(name2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Name02").val());
-    $(kana1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Kana01").val());
-    $(kana2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Kana02").val());
-    $(birthdayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Birthday").val());
-    $(birthdayYearID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_BirthdayYear").val());
-    $(birthdayMonthID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_BirthdayMonth").val());
-    $(birthdayDayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_BirthdayDay").val());
+    if ($("#Head_RefDependentFamilyMemberUnder23YearsOld01_RelationshipType").val() == strRelationshipType) {
 
-    if ($("#Head_RefDependentFamilyMemberUnder23YearsOld01_AddressSameCheck").val() != "0") {
-        $(addressSameCheckID).prop("checked", true);
+        $(relationshipTypeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_RelationshipType").val());
+        $(name1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Name01").val());
+        $(name2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Name02").val());
+        $(kana1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Kana01").val());
+        $(kana2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Kana02").val());
+        $(birthdayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Birthday").val());
+        $(birthdayYearID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_BirthdayYear").val());
+        $(birthdayMonthID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_BirthdayMonth").val());
+        $(birthdayDayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_BirthdayDay").val());
+
+        if ($("#Head_RefDependentFamilyMemberUnder23YearsOld01_AddressSameCheck").val() != "0") {
+            $(addressSameCheckID).prop("checked", true);
+        } else {
+            $(addressSameCheckID).prop("checked", false);
+        }
+        $(addressSameCheckID).change();
+
+        $(addressID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Address").val());
+        $(earningsID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Earnings").val());
+        $(earnings2IncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Income").val());
+        $(otherIncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_OtherIncome").val());
+        $(incomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_TotalEarnings").val());
+
+        // 自動計算・チェックを再実行
+        $(earningsID).trigger('change');
+        $(otherIncomeID).trigger('change');
+
+    } else if ($("#Head_RefDependentFamilyMemberUnder23YearsOld02_RelationshipType").val() == strRelationshipType) {
+
+        $(relationshipTypeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld02_RelationshipType").val());
+        $(name1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld02_Name01").val());
+        $(name2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld02_Name02").val());
+        $(kana1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld02_Kana01").val());
+        $(kana2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld02_Kana02").val());
+        $(birthdayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld02_Birthday").val());
+        $(birthdayYearID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld02_BirthdayYear").val());
+        $(birthdayMonthID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld02_BirthdayMonth").val());
+        $(birthdayDayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld02_BirthdayDay").val());
+
+        if ($("#Head_RefDependentFamilyMemberUnder23YearsOld02_AddressSameCheck").val() != "0") {
+            $(addressSameCheckID).prop("checked", true);
+        } else {
+            $(addressSameCheckID).prop("checked", false);
+        }
+        $(addressSameCheckID).change();
+
+        $(addressID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld02_Address").val());
+        $(earningsID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld02_Earnings").val());
+        $(earnings2IncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld02_Income").val());
+        $(otherIncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld02_OtherIncome").val());
+        $(incomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld02_TotalEarnings").val());
+
+        // 自動計算・チェックを再実行
+        $(earningsID).trigger('change');
+        $(otherIncomeID).trigger('change');
+
+    } else if ($("#Head_RefDependentFamilyMemberUnder23YearsOld03_RelationshipType").val() == strRelationshipType) {
+
+        $(relationshipTypeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld03_RelationshipType").val());
+        $(name1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld03_Name01").val());
+        $(name2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld03_Name02").val());
+        $(kana1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld03_Kana01").val());
+        $(kana2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld03_Kana02").val());
+        $(birthdayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld03_Birthday").val());
+        $(birthdayYearID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld03_BirthdayYear").val());
+        $(birthdayMonthID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld03_BirthdayMonth").val());
+        $(birthdayDayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld03_BirthdayDay").val());
+
+        if ($("#Head_RefDependentFamilyMemberUnder23YearsOld03_AddressSameCheck").val() != "0") {
+            $(addressSameCheckID).prop("checked", true);
+        } else {
+            $(addressSameCheckID).prop("checked", false);
+        }
+        $(addressSameCheckID).change();
+
+        $(addressID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld03_Address").val());
+        $(earningsID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld03_Earnings").val());
+        $(earnings2IncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld03_Income").val());
+        $(otherIncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld03_OtherIncome").val());
+        $(incomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld03_TotalEarnings").val());
+
+        // 自動計算・チェックを再実行
+        $(earningsID).trigger('change');
+        $(otherIncomeID).trigger('change');
+
+    } else if ($("#Head_RefDependentFamilyMemberUnder23YearsOld04_RelationshipType").val() == strRelationshipType) {
+
+        $(relationshipTypeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld04_RelationshipType").val());
+        $(name1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld04_Name01").val());
+        $(name2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld04_Name02").val());
+        $(kana1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld04_Kana01").val());
+        $(kana2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld04_Kana02").val());
+        $(birthdayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld04_Birthday").val());
+        $(birthdayYearID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld04_BirthdayYear").val());
+        $(birthdayMonthID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld04_BirthdayMonth").val());
+        $(birthdayDayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld04_BirthdayDay").val());
+
+        if ($("#Head_RefDependentFamilyMemberUnder23YearsOld04_AddressSameCheck").val() != "0") {
+            $(addressSameCheckID).prop("checked", true);
+        } else {
+            $(addressSameCheckID).prop("checked", false);
+        }
+        $(addressSameCheckID).change();
+
+        $(addressID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld04_Address").val());
+        $(earningsID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld04_Earnings").val());
+        $(earnings2IncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld04_Income").val());
+        $(otherIncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld04_OtherIncome").val());
+        $(incomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld04_TotalEarnings").val());
+
+        // 自動計算・チェックを再実行
+        $(earningsID).trigger('change');
+        $(otherIncomeID).trigger('change');
+
+    } else if ($("#Head_RefDependentFamilyMemberUnder23YearsOld05_RelationshipType").val() == strRelationshipType) {
+
+        $(relationshipTypeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld05_RelationshipType").val());
+        $(name1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld05_Name01").val());
+        $(name2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld05_Name02").val());
+        $(kana1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld05_Kana01").val());
+        $(kana2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld05_Kana02").val());
+        $(birthdayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld05_Birthday").val());
+        $(birthdayYearID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld05_BirthdayYear").val());
+        $(birthdayMonthID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld05_BirthdayMonth").val());
+        $(birthdayDayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld05_BirthdayDay").val());
+
+        if ($("#Head_RefDependentFamilyMemberUnder23YearsOld05_AddressSameCheck").val() != "0") {
+            $(addressSameCheckID).prop("checked", true);
+        } else {
+            $(addressSameCheckID).prop("checked", false);
+        }
+        $(addressSameCheckID).change();
+
+        $(addressID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld05_Address").val());
+        $(earningsID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld05_Earnings").val());
+        $(earnings2IncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld05_Income").val());
+        $(otherIncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld05_OtherIncome").val());
+        $(incomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld05_TotalEarnings").val());
+
+        // 自動計算・チェックを再実行
+        $(earningsID).trigger('change');
+        $(otherIncomeID).trigger('change');
+
+    } else if ($("#Head_RefDependentFamilyMemberUnder23YearsOld06_RelationshipType").val() == strRelationshipType) {
+
+        $(relationshipTypeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld06_RelationshipType").val());
+        $(name1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld06_Name01").val());
+        $(name2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld06_Name02").val());
+        $(kana1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld06_Kana01").val());
+        $(kana2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld06_Kana02").val());
+        $(birthdayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld06_Birthday").val());
+        $(birthdayYearID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld06_BirthdayYear").val());
+        $(birthdayMonthID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld06_BirthdayMonth").val());
+        $(birthdayDayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld06_BirthdayDay").val());
+
+        if ($("#Head_RefDependentFamilyMemberUnder23YearsOld06_AddressSameCheck").val() != "0") {
+            $(addressSameCheckID).prop("checked", true);
+        } else {
+            $(addressSameCheckID).prop("checked", false);
+        }
+        $(addressSameCheckID).change();
+
+        $(addressID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld06_Address").val());
+        $(earningsID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld06_Earnings").val());
+        $(earnings2IncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld06_Income").val());
+        $(otherIncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld06_OtherIncome").val());
+        $(incomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld06_TotalEarnings").val());
+
+        // 自動計算・チェックを再実行
+        $(earningsID).trigger('change');
+        $(otherIncomeID).trigger('change');
+
+    } else if ($("#Head_RefDependentFamilyMemberUnder23YearsOld07_RelationshipType").val() == strRelationshipType) {
+
+        $(relationshipTypeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld07_RelationshipType").val());
+        $(name1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld07_Name01").val());
+        $(name2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld07_Name02").val());
+        $(kana1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld07_Kana01").val());
+        $(kana2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld07_Kana02").val());
+        $(birthdayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld07_Birthday").val());
+        $(birthdayYearID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld07_BirthdayYear").val());
+        $(birthdayMonthID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld07_BirthdayMonth").val());
+        $(birthdayDayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld07_BirthdayDay").val());
+
+        if ($("#Head_RefDependentFamilyMemberUnder23YearsOld07_AddressSameCheck").val() != "0") {
+            $(addressSameCheckID).prop("checked", true);
+        } else {
+            $(addressSameCheckID).prop("checked", false);
+        }
+        $(addressSameCheckID).change();
+
+        $(addressID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld07_Address").val());
+        $(earningsID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld07_Earnings").val());
+        $(earnings2IncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld07_Income").val());
+        $(otherIncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld07_OtherIncome").val());
+        $(incomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld07_TotalEarnings").val());
+
+        // 自動計算・チェックを再実行
+        $(earningsID).trigger('change');
+        $(otherIncomeID).trigger('change');
+
+    } else if ($("#Head_RefDependentFamilyMemberUnder23YearsOld08_RelationshipType").val() == strRelationshipType) {
+
+        $(relationshipTypeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld08_RelationshipType").val());
+        $(name1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld08_Name01").val());
+        $(name2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld08_Name02").val());
+        $(kana1ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld08_Kana01").val());
+        $(kana2ID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld08_Kana02").val());
+        $(birthdayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld08_Birthday").val());
+        $(birthdayYearID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld08_BirthdayYear").val());
+        $(birthdayMonthID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld08_BirthdayMonth").val());
+        $(birthdayDayID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld08_BirthdayDay").val());
+
+        if ($("#Head_RefDependentFamilyMemberUnder23YearsOld08_AddressSameCheck").val() != "0") {
+            $(addressSameCheckID).prop("checked", true);
+        } else {
+            $(addressSameCheckID).prop("checked", false);
+        }
+        $(addressSameCheckID).change();
+
+        $(addressID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld08_Address").val());
+        $(earningsID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld08_Earnings").val());
+        $(earnings2IncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld08_Income").val());
+        $(otherIncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld08_OtherIncome").val());
+        $(incomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld08_TotalEarnings").val());
+
+        // 自動計算・チェックを再実行
+        $(earningsID).trigger('change');
+        $(otherIncomeID).trigger('change');
+
     } else {
-        $(addressSameCheckID).prop("checked", false);
+        strMessage = "取得できる扶養控除申告書の入力がありません。";
+        if (varArt) { alert(strMessage) };
+        return true
     }
-    $(addressSameCheckID).change();
-
-    $(addressID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Address").val());
-    $(earningsID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Earnings").val());
-    $(earnings2IncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_Income").val());
-    $(otherIncomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_OtherIncome").val());
-    $(incomeID).val($("#Head_RefDependentFamilyMemberUnder23YearsOld01_TotalEarnings").val());
-
-    // 自動計算・チェックを再実行
-    $(earningsID).trigger('change');
-    $(otherIncomeID).trigger('change');
 
     bolReturn = true;
     return bolReturn;
