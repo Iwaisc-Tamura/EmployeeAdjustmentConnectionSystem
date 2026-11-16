@@ -840,7 +840,25 @@ function calcLifeInsurance() {
     var Under23birthdayYearID = "#Head_DependentsUnder23_BirthdayYear";
     var Under23birthdayMonthID = "#Head_DependentsUnder23_BirthdayMonth";
     var Under23birthdayDayID = "#Head_DependentsUnder23_BirthdayDay";
+    var intUnder23AmountIncome = Number($("#Head_DependentsUnder23_Income").val());
+    //2026-99-99 iwai-miki add end -----
 
+
+
+    $("#Head_LifeInsurance_NewTotalAmount").val(null);
+    $("#Head_LifeInsurance_OldTotalAmount").val(null);
+    $("#Head_LifeInsurance_Calc1").val(null);
+    //2026-99-99 iwai-miki add str -----
+    $("#Head_LifeInsurance_Calc3").val(null);
+    //2026-99-99 iwai-miki add end -----
+    $("#Head_LifeInsurance_Calc2").val(null);
+    $("#Head_LifeInsurance_TotalAmount").val(null);
+    //2026-99-99 iwai-miki add str -----
+    $("#Head_LifeInsurance_TotalAmount2").val(null);
+    //2026-99-99 iwai-miki add end -----
+    $("#Head_LifeInsurance_DeductionAmount").val(null);
+
+    //2026-99-99 iwai-miki add str -----
     if ($(Under23Name).val() != "") {
         //年齢チェック
         var cYear = $("#Head_SheetYear").val();
@@ -854,7 +872,7 @@ function calcLifeInsurance() {
         if (strDay.length < 2) {
             strDay = "0" + strDay;
         }
-        if (!checkDate(Under23birthdayID, '0', '')) {
+        if (!checkDate(Under23birthdayID)) {
             strMessage = "年齢23歳未満の扶養親族の生年月日が不正です。確認してください。";
             alert(strMessage);
 
@@ -874,23 +892,18 @@ function calcLifeInsurance() {
             return bolReturn;
         }
 
+        //23歳未満の所得＋その他所得が62万超の場合はエラー
+        if (intUnder23AmountIncome > 620000) {
+            strMessage = "年齢23歳未満の扶養親族の合計所得金額が62万円を超えてます。";
+            alert(strMessage);
+            return bolReturn;
+        }
+
         Under23Judgment = "1";
-        
+
     }
     //2026-99-99 iwai-miki add end -----
 
-    $("#Head_LifeInsurance_NewTotalAmount").val(null);
-    $("#Head_LifeInsurance_OldTotalAmount").val(null);
-    $("#Head_LifeInsurance_Calc1").val(null);
-    //2026-99-99 iwai-miki add str -----
-    $("#Head_LifeInsurance_Calc3").val(null);
-    //2026-99-99 iwai-miki add end -----
-    $("#Head_LifeInsurance_Calc2").val(null);
-    $("#Head_LifeInsurance_TotalAmount").val(null);
-    //2026-99-99 iwai-miki add str -----
-    $("#Head_LifeInsurance_TotalAmount2").val(null);
-    //2026-99-99 iwai-miki add end -----
-    $("#Head_LifeInsurance_DeductionAmount").val(null);
 
     //新旧区分チェック
     //2023-11-20 iwai-tamura upd str -----
@@ -1895,9 +1908,10 @@ function checkDate(id) {
     var strMonth = $(id + 'Month').val();
     var strDay = $(id + 'Day').val();
     var strMessage = "";
-    var bolReturn = false;
-    //var cDate23 = String(cYear - 22) + "0101";
-
+    var bolReturn = true;
+    var cYear = $("#Head_SheetYear").val(); 
+    var cDate23 = String(cYear - 22) + "0101";
+    
     $(id + "_mes").text("");
 
     if (strYear == "" && strMonth == "" && strDay == "") return true;
@@ -1915,26 +1929,35 @@ function checkDate(id) {
             strMessage = "年月日が正しく入力されていません。";
             bolReturn = false;
         } else {
-            return true;
         }
     }
 
-    ////年齢チェック
-    //if (strMonth.length < 2) {
-    //    strMonth = "0" + strMonth;
-    //}
-    //if (strDay.length < 2) {
-    //    strDay = "0" + strDay;
-    //}
-    //var strDate = strYear + strMonth + strDay;
-    //if (strDate <= cDate23) {
-    //    strMessage = "基準日の年齢が23歳を超えてます。";
-    //    $(id + "_mes").text(strMessage);
-    //    return false;
-    //}
+    //2026-99-99 iwai-miki add str -----
+    //年齢23歳未満の扶養親族の年齢チェック
+    var cDate23 = String(cYear - 22) + "0101";
+    if (id == "#Head_DependentsUnder23_Birthday") {
+        if (strYear != "" && strMonth != "" && strDay != "") {
+            //年齢チェック
+            if (strMonth.length < 2) {
+                strMonth = "0" + strMonth;
+            }
+            if (strDay.length < 2) {
+                strDay = "0" + strDay;
+            }
 
-    //$(id + "_mes").text(strMessage);
-    //return bolReturn;
+            var strDate = strYear + strMonth + strDay;
+            if (strDate <= cDate23) {
+                strMessage = "基準日の年齢が23歳を超えています。";
+                bolReturn = false;
+            }
+        }
+    }
+    //2026-99-99 iwai-miki add end -----
+
+
+    $(id + "_mes").text(strMessage);
+    return bolReturn;
+
 }
 
 //半角カナチェック
