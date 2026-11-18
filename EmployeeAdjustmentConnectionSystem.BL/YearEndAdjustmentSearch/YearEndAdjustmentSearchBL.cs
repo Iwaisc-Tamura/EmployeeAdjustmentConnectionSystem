@@ -67,11 +67,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                 sql += ",T前職源泉.作成区分 As 前職源泉_作成区分 ";
                 sql += ",T前職源泉.本人確定区分 As 前職源泉_本人確定区分 ";
                 sql += ",T前職源泉.管理者確定区分 As 前職源泉_管理者確定区分 ";
-                //2026-99-99 iwai-tamura add-str ------
+                //2026-11-19 iwai-tamura add-str ------
                 sql += ",T前職源泉.添付FileName As 前職源泉_添付FileName ";
                 sql += ",CASE WHEN T前職源泉.添付FileName IS NULL OR T前職源泉.添付FileName = '' ";
                 sql += "    THEN '0' ELSE '1' END AS 前職源泉添付File区分 ";
-                //2026-99-99 iwai-tamura add-end ------
+                //2026-11-19 iwai-tamura add-end ------
                 //2025-11-18 iwai-tamura upd-end ------
                          
                 sql += " FROM TEM100社員基本情報Data as T基本 ";
@@ -530,9 +530,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                             JutakuDeclareStatus =StatusDecision(row["住宅控除_本人確定区分"].ToString(),row["住宅控除_管理者確定区分"].ToString()),
                             ZenshokuDeclareStatus =StatusDecision(row["前職源泉_本人確定区分"].ToString(),row["前職源泉_管理者確定区分"].ToString()),
                             HuyouAttachmentFilePath = row["扶養控除_添付FileName"].ToString(),
-                            //2026-99-99 iwai-tamura add-str ------
+                            //2026-11-19 iwai-tamura add-str ------
                             ZenshokuAttachmentFilePath = row["前職源泉_添付FileName"].ToString(),
-                            //2026-99-99 iwai-tamura add-end ------
+                            //2026-11-19 iwai-tamura add-end ------
                             //2025-11-18 iwai-tamura upd-end ------
                         };
 
@@ -567,14 +567,14 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentSearch {
                             result.ZenshokuDeclareStatus = "";
                         }
 
-                        //2026-99-99 iwai-tamura add-str ------
+                        //2026-11-19 iwai-tamura add-str ------
                         //前職源泉添付ファイルダウンロードボタン
                         if (result.ZenshokuDeclareButtonViewFlg && row["前職源泉添付File区分"].ToString() == "1") {
                             result.ZenshokuDeclareAttachmentButtonViewFlg = true;
                         } else {
                             result.ZenshokuDeclareAttachmentButtonViewFlg = false;
                         }
-                        //2026-99-99 iwai-tamura add-end ------
+                        //2026-11-19 iwai-tamura add-end ------
                         //2025-11-18 iwai-tamura upd-end ------
                         resultList.Add(result);
                     }

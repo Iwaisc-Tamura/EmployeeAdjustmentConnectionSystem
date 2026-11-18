@@ -210,11 +210,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                             break;
 
                         case "2025":
-                        //2026-99-99 iwai-miki del-str ---
+                        //2026-11-19 iwai-miki del-str ---
                         //2025-12-24 iwai-tamura add-str ---
                         //case "2026":    //2026年度暫定対応
                         //2025-12-24 iwai-tamura add-end ---
-                        //2026-99-99 iwai-miki del-end ---
+                        //2026-11-19 iwai-miki del-end ---
 
                             var HaiguuDeclareReport_2025 = new HaiguuDeclareReport_2025();
                             try
@@ -243,7 +243,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                             };
                             break;
 
-                        //2026-99-99 iwai-miki add-str ---
+                        //2026-11-19 iwai-miki add-str ---
                         case "2026":
 
                             var HaiguuDeclareReport_2026 = new HaiguuDeclareReport_2026();
@@ -273,7 +273,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                             };
 
                             break;
-                        //2026-99-99 iwai-miki add-end ---
+                        //2026-11-19 iwai-miki add-end ---
                     }
 
                     //var HaiguuDeclareReport = new HaiguuDeclareReport();
@@ -856,7 +856,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         }
         //2025-03-21 iwai-tamura add-end ---
 
-        //2026-99-99 iwai-miki add-str ---
+        //2026-11-19 iwai-miki add-str ---
         /// <summary>
         /// 基礎控除申告書2026を帳票にセット
         /// </summary>
@@ -911,7 +911,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2026-99-99 iwai-miki add-end ---
+        //2026-11-19 iwai-miki add-end ---
 
         //2023-11-20 iwai-terao test-str 扶養控除ボタン------
         /// <summary>
@@ -1050,11 +1050,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                             break;
 
                         case "2025":
-                        //2026-99-99 iwai-miki del-str ---
+                        //2026-11-19 iwai-miki del-str ---
                         //2025-12-24 iwai-tamura add-str ---
                         //case "2026":    //2026年度暫定対応
                         //2025-12-24 iwai-tamura add-end ---
-                        //2026-99-99 iwai-miki del-end ---
+                        //2026-11-19 iwai-miki del-end ---
                             var HuyouDeclareReport_2025 = new HuyouDeclareReport_2025();
                             try
                             {
@@ -1082,7 +1082,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                             };
                             break;
 
-                        //2026-99-99 iwai-miki add-str ---
+                        //2026-11-19 iwai-miki add-str ---
                         case "2026":
                             var HuyouDeclareReport_2026 = new HuyouDeclareReport_2026();
                             try
@@ -1110,7 +1110,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                                 HuyouDeclareReport_2026.Dispose();
                             };
                             break;
-                        //2026-99-99 iwai-miki add-end ---
+                        //2026-11-19 iwai-miki add-end ---
                     }
 
 
@@ -1816,7 +1816,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         }
         //2025-03-21 iwai-tamura upd-end ---
 
-        //2026-99-99 iwai-miki add-str ---
+        //2026-11-19 iwai-miki add-str ---
         /// <summary>
         /// 扶養控除申告書2026を帳票にセット
         /// </summary>
@@ -1875,7 +1875,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2026-99-99 iwai-miki add-end ---
+        //2026-11-19 iwai-miki add-end ---
 
         //2023-11-20 iwai-terao test-str 保険料控除ボタン------
         /// <summary>
@@ -2011,11 +2011,11 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                             break;
 
                         case "2025":
-                        //2026-99-99 iwai-miki del-str ---
+                        //2026-11-19 iwai-miki del-str ---
                         //2025-12-24 iwai-tamura add-str ---
                         //case "2026":    //2026年度暫定対応
                         //2025-12-24 iwai-tamura add-end ---
-                        //2026-99-99 iwai-miki del-end ---
+                        //2026-11-19 iwai-miki del-end ---
                             var HokenDeclareReport_2025 = new HokenDeclareReport_2025();
                             try
                             {
@@ -2043,7 +2043,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                             };
                             break;
 
-                        //2026-99-99 iwai-miki add-str ---
+                        //2026-11-19 iwai-miki add-str ---
                         case "2026":
                             var HokenDeclareReport_2026 = new HokenDeclareReport_2026();
                             try
@@ -2071,7 +2071,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                                 HokenDeclareReport_2026.Dispose();
                             };
                             break;
-                        //2026-99-99 iwai-miki add-end ---
+                        //2026-11-19 iwai-miki add-end ---
                     }
 
 
@@ -2508,7 +2508,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,'7' AS 法人個人番号12 "
                     + "     ,'5' AS 法人個人番号13 "
                     //2023-11-16 iwai-terao upd end ------
-                    //2026-99-99 iwai-miki add str ------
+                    //2026-11-19 iwai-miki add str ------
                     + "     ,保険料控除.扶養親族23歳未満_氏名_姓 + ' ' + 保険料控除.扶養親族23歳未満_氏名_名 AS 扶養親族23歳未満_氏名 "
                     + "     ,保険料控除.扶養親族23歳未満_Kana_姓 + ' ' + 保険料控除.扶養親族23歳未満_Kana_名 AS 扶養親族23歳未満_Kana "
                     + "     ,保険料控除.扶養親族23歳未満_生年月日 "
@@ -2520,7 +2520,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "     ,保険料控除.扶養親族23歳未満_所得見積額 "
                     + "     ,保険料控除.一般生命保険料23歳未満新保険料表計算 "
                     + "     ,保険料控除.一般生命保険料表23歳未満合計 "
-                    //2026-99-99 iwai-miki add end ------
+                    //2026-11-19 iwai-miki add end ------
                     + " FROM TE110保険料控除申告書Data AS 保険料控除 "
                     + "  LEFT JOIN TM912事業所名Master AS 事業所名 ON CASE WHEN LEFT(保険料控除.所属番号, 1) IN ('2', '3') THEN '1' ELSE LEFT(保険料控除.所属番号, 1) END = 事業所名.事業所番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 一般生命保険料01続柄名 ON 保険料控除.一般生命保険料01_保険金等受取人続柄 = 一般生命保険料01続柄名.続柄番号 "
@@ -2550,9 +2550,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                     + "  LEFT JOIN TM911続柄名Master AS 地震保険料控除04続柄名 ON 保険料控除.地震保険料控除04_保険等対象続柄 = 地震保険料控除04続柄名.続柄番号 "
                     + "  LEFT JOIN TM911続柄名Master AS 社会保険料控除03続柄名 ON 保険料控除.社会保険料控除03_負担者続柄 = 社会保険料控除03続柄名.続柄番号 "
                     //2023-11-06 iwai-terao upd end ------
-                    //2026-99-99 iwai-miki add str ------
+                    //2026-11-19 iwai-miki add str ------
                     + "  LEFT JOIN TM911続柄名Master AS 扶養親族23歳未満続柄名 ON 保険料控除.扶養親族23歳未満_続柄 = 扶養親族23歳未満続柄名.続柄番号 "
-                    //2026-99-99 iwai-miki add end ------
+                    //2026-11-19 iwai-miki add end ------
                     + " WHERE 保険料控除.社員番号 = @key "
                     + "   AND 保険料控除.対象年度 = " + year ;
 
@@ -2837,7 +2837,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
         }
         //2025-03-21 iwai-tamura add-end ---
 
-        //2026-99-99 iwai-miki add-str ---
+        //2026-11-19 iwai-miki add-str ---
         /// <summary>
         /// 保険料控除申告書2026を帳票にセット
         /// </summary>
@@ -2896,7 +2896,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2026-99-99 iwai-miki add-end ---
+        //2026-11-19 iwai-miki add-end ---
 
         //2025-11-18 iwai-tamura upd-str ------
         /// <summary>

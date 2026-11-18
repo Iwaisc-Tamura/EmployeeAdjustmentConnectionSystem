@@ -100,7 +100,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                     };
 					//2023-11-20 iwai-tamura upd end -----
 
-					//2026-99-99 iwai-miki upd str ------
+					//2026-11-19 iwai-miki upd str ------
 					var sql = "SELECT T保険料.* ";
 
 					// 23歳未満の扶養親族01
@@ -508,7 +508,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 					sql += "     ON T保険料.対象年度 = T扶養.対象年度 AND T保険料.社員番号 = T扶養.社員番号 ";
 					sql += " WHERE T保険料.対象年度 = @SheetYear and T保険料.社員番号 = @EmployeeNo ";
 					//var sql = "SELECT * FROM TE110保険料控除申告書Data WHERE 対象年度 = @SheetYear and 社員番号 = @EmployeeNo ";
-					//2026-99-99 iwai-miki upd end ------
+					//2026-11-19 iwai-miki upd end ------
 
 					//2025-12-19 iwai-tamura upd str ------
 					string userAdminNo = ((EmployeeAdjustmentConnectionSystem.COM.Entity.Session.LoginUser)
@@ -671,7 +671,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								LifeInsurance_8_InsuranceFee = setMoney(row["一般生命保険料08_支払金額"].ToString()),
                                 //2023-11-20 iwai-tamura upd end -----
 
-                                //2026-99-99 iwai-miki add str -----
+                                //2026-11-19 iwai-miki add str -----
                                 DependentsUnder23_RelationshipType = row["扶養親族23歳未満_続柄"].ToString(),
                                 DependentsUnder23_Name1 = row["扶養親族23歳未満_氏名_姓"].ToString(),
                                 DependentsUnder23_Name2 = row["扶養親族23歳未満_氏名_名"].ToString(),
@@ -689,7 +689,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                                 DependentsUnder23_Income = setMoney(row["扶養親族23歳未満_所得見積額"].ToString()),
                                 LifeInsurance_Calc3 = setMoney(row["一般生命保険料23歳未満新保険料表計算"].ToString()),
                                 LifeInsurance_TotalAmount2 = setMoney(row["一般生命保険料表23歳未満合計"].ToString()),
-                                //2026-99-99 iwai-miki add end -----
+                                //2026-11-19 iwai-miki add end -----
 
                                 MedicalInsurance_TotalAmount = setMoney(row["介護医療保険料合計"].ToString()),
 								MedicalInsurance_DeductionAmount = setMoney(row["介護医療保険料表計算"].ToString()),
@@ -911,7 +911,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								SmallScaleMutualAid_HandicappedMutualAidCost = setMoney(row["心身障害者扶養共済制度契約掛金"].ToString()),
 								SmallScaleMutualAid_DeductionAmount = setMoney(row["小規模企業共済等掛金控除合計"].ToString()),
 
-								//2026-99-99 iwai-miki add str -----
+								//2026-11-19 iwai-miki add str -----
 								// ===== 参考用：扶養控除申告書データ =====
 								// ===== 23歳未満扶養親族 01 =====
 								RefDependentFamilyMemberUnder23YearsOld01_RelationshipType = row["23歳未満扶養親族01_続柄"].ToString(),
@@ -1048,7 +1048,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 								RefDependentFamilyMemberUnder23YearsOld08_Income = setMoney(row["23歳未満扶養親族08_給与所得_所得金額"].ToString()),
 								RefDependentFamilyMemberUnder23YearsOld08_OtherIncome = setMoney(row["23歳未満扶養親族08_他_所得金額"].ToString()),
 								RefDependentFamilyMemberUnder23YearsOld08_TotalEarnings = setMoney(row["23歳未満扶養親族08_所得見積額"].ToString()),
-								//2026-99-99 iwai-miki add end -----
+								//2026-11-19 iwai-miki add end -----
 
 							};
                             model.Head.InputMode = ajustMode.SelfInput;
@@ -1658,7 +1658,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 							+ " ,社会保険料控除03_支払保険料 = @SocialInsurance_3_InsuranceFee"
                             //2023-11-20 iwai-tamura upd end -----
 
-                            //2026-99-99 iwai-miki add end -----
+                            //2026-11-19 iwai-miki add end -----
                             + " ,扶養親族23歳未満_続柄 = @DependentsUnder23_RelationshipType"
                             + " ,扶養親族23歳未満_氏名_姓 = @DependentsUnder23_Name1"
                             + " ,扶養親族23歳未満_氏名_名 = @DependentsUnder23_Name2"
@@ -1673,7 +1673,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                             + " ,扶養親族23歳未満_所得見積額 = @DependentsUnder23_Income"
                             + " ,一般生命保険料23歳未満新保険料表計算 = @LifeInsurance_Calc3"
                             + " ,一般生命保険料表23歳未満合計 = @LifeInsurance_TotalAmount2"
-                            //2026-99-99 iwai-miki add end -----
+                            //2026-11-19 iwai-miki add end -----
 
                             + " ,最終更新者ID = '" + lu.UserCode + "'"
 							+ " ,更新年月日 = GETDATE()"
@@ -1982,7 +1982,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 						DbHelper.AddDbParameter(cmd, "@SocialInsurance_3_InsuranceFee", DbType.Int32);
                         //2023-11-20 iwai-tamura upd end -----
 
-                        //2026-99-99 iwai-miki add str -----
+                        //2026-11-19 iwai-miki add str -----
                         DbHelper.AddDbParameter(cmd, "@DependentsUnder23_RelationshipType", DbType.String);
                         DbHelper.AddDbParameter(cmd, "@DependentsUnder23_Name1", DbType.String);
                         DbHelper.AddDbParameter(cmd, "@DependentsUnder23_Name2", DbType.String);
@@ -2301,7 +2301,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 						parameters[291].Value = DataConv.IfNull(model.Head.SocialInsurance_3_InsuranceFee.ToString());
                         //2023-11-20 iwai-tamura upd end -----
 
-                        //2026-99-99 iwai-miki add str -----
+                        //2026-11-19 iwai-miki add str -----
                         parameters[292].Value = DataConv.IfNull(model.Head.DependentsUnder23_RelationshipType);
                         parameters[293].Value = DataConv.IfNull(model.Head.DependentsUnder23_Name1);
                         parameters[294].Value = DataConv.IfNull(model.Head.DependentsUnder23_Name2);
@@ -2316,7 +2316,7 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
                         parameters[303].Value = DataConv.IfNull(model.Head.DependentsUnder23_Income.ToString());
                         parameters[304].Value = DataConv.IfNull(model.Head.LifeInsurance_Calc3.ToString());
                         parameters[305].Value = DataConv.IfNull(model.Head.LifeInsurance_TotalAmount2.ToString());
-                        //2026-99-99 iwai-miki add end -----
+                        //2026-11-19 iwai-miki add end -----
 
                         parameters[306].Value = DataConv.IfNull(model.Head.SheetYear.ToString());
                         parameters[307].Value = DataConv.IfNull(model.Head.EmployeeNo);
