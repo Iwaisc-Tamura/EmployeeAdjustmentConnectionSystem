@@ -192,7 +192,7 @@ body.modal-open {
     animation: fadeIn 0.5s ease-in-out;
 }
 /*2025-11-18 iwai-matsuo add-str ------*/ /*扶養控除追加に伴い*/
-/*2026-99-99 iwai-tamura upd-str ------*/
+/*2026-11-19 iwai-tamura upd-str ------*/
 .attachment-file-modal {
     width: 100%;
     max-width: 1000px;
@@ -219,12 +219,12 @@ body.modal-open {
     border: 3px solid #4E95D9;
     background-color: #FFE7E7;
 }
-/*2026-99-99 iwai-tamura upd-end ------*/
+/*2026-11-19 iwai-tamura upd-end ------*/
 /*2025-11-18 iwai-matsuo add-end ------*/
 
 
 /* オーバーレイのスタイル */
-/*2026-99-99 iwai-tamura upd-str ------*/
+/*2026-11-19 iwai-tamura upd-str ------*/
 .attachment-file-modal-overlay {
     display: none;
     position: fixed;
@@ -245,7 +245,7 @@ body.modal-open {
 .attachment-file-modal-overlay-zenshoku {
     background-color: rgba(0, 0, 0, 0.8);
 }
-/*2026-99-99 iwai-tamura upd-end ------*/
+/*2026-11-19 iwai-tamura upd-end ------*/
 
 .upload-row {
     display: flex;
@@ -278,7 +278,7 @@ body.modal-open {
 }
 /*2025-11-18 iwai-tamura upd-end ------*/
 /*2025-11-18 iwai-matsuo add-str ------*/ /*ボタン色制御の為追加*/
-/*2026-99-99 iwai-tamura upd-str ------*/
+/*2026-11-19 iwai-tamura upd-str ------*/
 .attachment-file-modal-huyou .btn-close {
     font-size: 14px;
     width: 100px;
@@ -369,7 +369,7 @@ body.modal-open {
     border-radius: 5px;
     color: #ffffff;
 }
-/*2026-99-99 iwai-tamura upd-end ------*/
+/*2026-11-19 iwai-tamura upd-end ------*/
 .header-kako-export {
     background-color: #F9DACB;
     margin-top: 10pt;

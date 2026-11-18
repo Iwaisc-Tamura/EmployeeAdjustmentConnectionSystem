@@ -76,12 +76,12 @@ button.btn-clear:hover {
     background: #E0E0E0;
 }
 
-/*2026-99-99 iwai-miki add-str ------*/
+/*2026-11-19 iwai-miki add-str ------*/
 .Caution-comment {
     font-size: 13px;
     color: #000;
 }
-/*2026-99-99 iwai-miki add-end ------*/
+/*2026-11-19 iwai-miki add-end ------*/
 
 /*扶養控除申告書データ取得ボタン*/
 button.btn-get {

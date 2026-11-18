@@ -82,11 +82,11 @@ button.btn-calc:hover {
 .table > thead > tr.content-label-h4{
   font-weight:bold; color:#fff;background-color: #0091c4;
 }
-/*2026-99-99 iwai-miki add-str ------*/
+/*2026-11-19 iwai-miki add-str ------*/
 .table > thead > tr.content-label-h5{
   font-weight:bold; color:#fff;background-color: #66CDAA;
 }
-/*2026-99-99 iwai-miki add-end ------*/
+/*2026-11-19 iwai-miki add-end ------*/
 
 
 /*フッター項目*/
@@ -102,11 +102,11 @@ button.btn-calc:hover {
 .table > tbody > td.content-label-b4{
   font-weight:bold; color:#000;background-color: #e1f7ff;
 }
-/*2026-99-99 iwai-miki add-str ------*/
+/*2026-11-19 iwai-miki add-str ------*/
 .table > tbody > tr > td.content-label-b5 {
   font-weight:bold; color:#000;background-color: #CEF9DC;
 }
-/*2026-99-99 iwai-miki add-end ------*/
+/*2026-11-19 iwai-miki add-end ------*/
 
 
 
@@ -302,7 +302,7 @@ button.btn-clear:hover {
 /*2024-11-19 iwai-tamura upd-end ------*/
 
 
-/*2026-99-99 iwai-miki add-str ------*/
+/*2026-11-19 iwai-miki add-str ------*/
 /*扶養控除申告書データ取得ボタン*/
 button.btn-get {
     font-size: 13px;
@@ -320,4 +320,4 @@ button.btn-get {
     button.btn-get:hover {
         background: #E0E0E0;
     }
-/*2026-99-99 iwai-miki add-end ------*/
+/*2026-11-19 iwai-miki add-end ------*/

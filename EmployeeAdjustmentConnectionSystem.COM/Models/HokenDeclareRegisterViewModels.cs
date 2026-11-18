@@ -165,12 +165,12 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? LifeInsurance_Calc1 { get; set; }
 
 
-        //2026-99-99 iwai-miki add str -----
+        //2026-11-19 iwai-miki add str -----
         /// <summary>
         /// 一般生命保険料扶養親族保険料表計算
         /// </summary>
         public int? LifeInsurance_Calc3 { get; set; }
-        //2026-99-99 iwai-miki add end -----
+        //2026-11-19 iwai-miki add end -----
 
 
         /// <summary>
@@ -185,12 +185,12 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? LifeInsurance_TotalAmount { get; set; }
 
 
-        //2026-99-99 iwai-miki add str -----
+        //2026-11-19 iwai-miki add str -----
         /// <summary>
         /// 一般生命保険料表扶養親族合計
         /// </summary>
         public int? LifeInsurance_TotalAmount2 { get; set; }
-        //2026-99-99 iwai-miki add end -----
+        //2026-11-19 iwai-miki add end -----
 
 
         /// <summary>
@@ -734,7 +734,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         //2023-11-20 iwai-tamura upd end -----
 
 
-        //2026-99-99 iwai-miki add end -----
+        //2026-11-19 iwai-miki add end -----
         /// <summary>
         /// 扶養親族23未満_続柄
         /// </summary>
@@ -823,7 +823,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// 扶養親族23未満_合計所得金額見積額
         /// </summary>
         public int? DependentsUnder23_Income { get; set; }
-        //2026-99-99 iwai-miki add end -----
+        //2026-11-19 iwai-miki add end -----
 
 
         /// <summary>
@@ -2053,7 +2053,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
 		public int? SmallScaleMutualAid_DeductionAmount { get; set; }
 
 
-        //2026-99-99 iwai-miki add str -----
+        //2026-11-19 iwai-miki add str -----
         //参考にするため扶養控除申告書から扶養者のデータを取得する用
         /// <summary>
         /// 23歳未満の扶養親族01_続柄（参考表示用）
@@ -2638,7 +2638,7 @@ namespace EmployeeAdjustmentConnectionSystem.COM.Models {
         /// 23歳未満の扶養親族08_所得見積額（参考表示用）
         /// </summary>
         public int? RefDependentFamilyMemberUnder23YearsOld08_TotalEarnings { get; set; }
-        //2026-99-99 iwai-miki add end -----
+        //2026-11-19 iwai-miki add end -----
 
     }
 

@@ -49,10 +49,10 @@ namespace EmployeeAdjustmentConnectionSystem.Bl.Top {
                 top.HuyouAttachmentFilePath = GetHuyouAttachmentFilePath(lu.IsYear,lu.UserCode);
                 //2025-11-18 iwai-tamura upd-end ------
 
-                //2026-99-99 iwai-tamura add-str ------
+                //2026-11-19 iwai-tamura add-str ------
                 top.ZenshokuDecisionType = GetZenshokuStatus(lu.IsYear, lu.UserCode);
                 top.ZenshokuAttachmentFilePath = GetZenshokuAttachmentFilePath(lu.IsYear, lu.UserCode);
-                //2026-99-99 iwai-tamura add-end ------
+                //2026-11-19 iwai-tamura add-end ------
 
 
                 //2017-08-31 iwai-tamura upd-str ------
@@ -206,7 +206,7 @@ namespace EmployeeAdjustmentConnectionSystem.Bl.Top {
 
         }
 
-        //2026-99-99 iwai-tamura add-str ------
+        //2026-11-19 iwai-tamura add-str ------
         /// <summary>
         /// 前職源泉徴収票 管理者確定区分取得
         /// </summary>
@@ -334,7 +334,7 @@ namespace EmployeeAdjustmentConnectionSystem.Bl.Top {
             }
 
         }
-        //2026-99-99 iwai-tamura add-end ------
+        //2026-11-19 iwai-tamura add-end ------
         //2025-11-18 iwai-tamura upd-end ------
 
     }
