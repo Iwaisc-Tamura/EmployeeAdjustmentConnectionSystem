@@ -118,7 +118,7 @@
         @Html.HiddenFor(m => m.Head.RefSpecificDependent04_OtherIncome)*@
     @*2025-11-18 iwai-tamura upd-end ------*@
 
-    @*2026-99-99 iwai-miki upd-str ------*@
+    @*2026-11-19 iwai-miki upd-str ------*@
     //年齢23歳未満の扶養親族(扶養控除申告書から取得)
     @Html.HiddenFor(m => m.Head.RefDependentFamilyMemberUnder23YearsOld01_RelationshipType)
     @Html.HiddenFor(m => m.Head.RefDependentFamilyMemberUnder23YearsOld01_Name01)
@@ -247,7 +247,7 @@
     @Html.HiddenFor(m => m.Head.RefDependentFamilyMemberUnder23YearsOld08_Income)
     @Html.HiddenFor(m => m.Head.RefDependentFamilyMemberUnder23YearsOld08_OtherIncome)
     @Html.HiddenFor(m => m.Head.RefDependentFamilyMemberUnder23YearsOld08_TotalEarnings)
-    @*2026-99-99 iwai-miki upd-str ------*@
+    @*2026-11-19 iwai-miki upd-str ------*@
 
     @*データ日時取得*@
     <!--ボタンエリア-->
@@ -290,10 +290,10 @@
     </div>
 
     <!--定義-->
-    //2026-99-99 iwai-miki add str -----
+    //2026-11-19 iwai-miki add str -----
     //共通定数
     //int? calcSheetYear = Model.Head.SheetYear;
-    //2026-99-99 iwai-miki add end -----
+    //2026-11-19 iwai-miki add end -----
 
     //共通入力モード
     var TextName = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "50" }, { "style", "width:100px;" } };
@@ -369,7 +369,7 @@
                             new SelectListItem() { Value="93", Text="93:*" }
             };
 
-    //2026-99-99 iwai-miki add-str ------
+    //2026-11-19 iwai-miki add-str ------
     //続柄リスト　23歳未満の扶養親族
     var familyItemsB = new SelectListItem[] {
                             new SelectListItem() { Value="21", Text="21:長男" },
@@ -407,7 +407,7 @@
                             new SelectListItem() { Value="83", Text="83:甥" },
                             new SelectListItem() { Value="84", Text="84:姪" }
             };
-    //2026-99-99 iwai-miki add-end ------
+    //2026-11-19 iwai-miki add-end ------
 
     //年月日
     var yearItems = new SelectListItem[] {
@@ -695,7 +695,7 @@ var attrRadio1_2 = new Dictionary<string, object>() { { "name", "attrRadio1" }, 
 <div id="linkHoken1" style="display: block;height: 12rem;margin-top: -12rem;content: ' ';visibility:hidden;"></div>
 
 
-@*2026-99-99 iwai-miki add-str ------*@
+@*2026-11-19 iwai-miki add-str ------*@
 <!-- 年齢23歳未満の扶養親族 -->
 @*定義*@
 var DependentsUnder23_TextName = new Dictionary<string, object>() { { "class", "form-control select-other DependentsUnder23_isRead" }, { "maxlength", "20" }, { "style", "width:100px;" } };
@@ -793,7 +793,7 @@ var DependentsUnder23_TextMoney2 = new Dictionary<string, object>() { { "class",
         </table>
     </div>
 </div>
-@*2026-99-99 iwai-miki add-end ------*@
+@*2026-11-19 iwai-miki add-end ------*@
 
 
 <!-- １ 一般の生命保険料 -->
@@ -1650,7 +1650,7 @@ var TaxWithholding_TextMoney1 = new Dictionary<string, object>() { { "class", "f
                 </tr>
             </thead>
             <tbody>
-                @*2026-99-99 iwai-miki upd-str ------*@
+                @*2026-11-19 iwai-miki upd-str ------*@
                 <tr>
                     <td colspan="2" class="content-label-b1">新保険料等の金額の合計</td>
                     <td colspan="6" class="form-inline">Ａ @Html.TextBoxFor(m => m.Head.LifeInsurance_NewTotalAmount, CalcMoney)</td>
@@ -1707,7 +1707,7 @@ var TaxWithholding_TextMoney1 = new Dictionary<string, object>() { { "class", "f
                         <td colspan="2" class="content-label-b1">②と③のいずれか大きい金額</td>
                         <td colspan="6" class="form-inline">&#13009; @Html.TextBoxFor(m => m.Head.LifeInsurance_DeductionAmount, CalcMoney)</td>
                     </tr>*@
-                @*2026-99-99 iwai-miki upd-end ------*@
+                @*2026-11-19 iwai-miki upd-end ------*@
             </tbody>
         </table>
     </div>
@@ -2878,33 +2878,33 @@ var PensionInsurance_4_TextWord2 = new Dictionary<string, object>() { { "class",
                 </tr>
                 <tr>
                     <td colspan="2" class="content-label-b1">Dの金額を計算式に当てはめた額</td>
-                    @*2026-99-99 iwai-miki upd-str ------*@
+                    @*2026-11-19 iwai-miki upd-str ------*@
                     <td colspan="6" class="form-inline">&#9317; @Html.TextBoxFor(m => m.Head.PensionInsurance_Calc1, CalcMoney)</td>
                     @*<td colspan="6" class="form-inline">&#9315; @Html.TextBoxFor(m => m.Head.PensionInsurance_Calc1, CalcMoney)</td>*@
-                    @*2026-99-99 iwai-miki upd-end ------*@
+                    @*2026-11-19 iwai-miki upd-end ------*@
                 </tr>
                 <tr>
                     <td colspan="2" class="content-label-b1">Eの金額を計算式に当てはめた額</td>
-                    @*2026-99-99 iwai-miki upd-str ------*@
+                    @*2026-11-19 iwai-miki upd-str ------*@
                     <td colspan="6" class="form-inline">&#9318; @Html.TextBoxFor(m => m.Head.PensionInsurance_Calc2, CalcMoney)</td>
                     @*<td colspan="6" class="form-inline">&#9316; @Html.TextBoxFor(m => m.Head.PensionInsurance_Calc2, CalcMoney)</td>*@
-                    @*2026-99-99 iwai-miki upd-end ------*@
+                    @*2026-11-19 iwai-miki upd-end ------*@
                 </tr>
                 <tr>
-                    @*2026-99-99 iwai-miki upd-str ------*@
+                    @*2026-11-19 iwai-miki upd-str ------*@
                     <td colspan="2" class="content-label-b1">計(⑥＋⑦)</td>
                     <td colspan="6" class="form-inline">&#9319; @Html.TextBoxFor(m => m.Head.PensionInsurance_TotalAmount, CalcMoney)</td>
                     @*<td colspan="2" class="content-label-b1">計(④＋⑤)</td>
                         <td colspan="6" class="form-inline">&#9317; @Html.TextBoxFor(m => m.Head.PensionInsurance_TotalAmount, CalcMoney)</td>*@
-                    @*2026-99-99 iwai-miki upd-end ------*@
+                    @*2026-11-19 iwai-miki upd-end ------*@
                 </tr>
                 <tr>
-                    @*2026-99-99 iwai-miki upd-str ------*@
+                    @*2026-11-19 iwai-miki upd-str ------*@
                     <td colspan="2" class="content-label-b1">⑦と⑧のいずれか大きい金額</td>
                     <td colspan="6" class="form-inline">&#13033; @Html.TextBoxFor(m => m.Head.PensionInsurance_DeductionAmount, CalcMoney)</td>
                     @*<td colspan="2" class="content-label-b1">⑤と⑥のいずれか大きい金額</td>
                         <td colspan="6" class="form-inline">&#13033; @Html.TextBoxFor(m => m.Head.PensionInsurance_DeductionAmount, CalcMoney)</td>*@
-                    @*2026-99-99 iwai-miki upd-end ------*@
+                    @*2026-11-19 iwai-miki upd-end ------*@
                 </tr>
             </tbody>
         </table>

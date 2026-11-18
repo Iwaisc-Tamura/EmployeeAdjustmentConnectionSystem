@@ -44,9 +44,9 @@ $(function () {
     //2023-11-20 iwai-tamura upd end -----
 
 
-    //2026-99-99 iwai-miki add str -----
+    //2026-11-19 iwai-miki add str -----
     $('#Head_DependentsUnder23_AddressSameCheck').change();
-    //2026-99-99 iwai-miki add end -----
+    //2026-11-19 iwai-miki add end -----
 
 
     //datepicker設定
@@ -98,7 +98,7 @@ $('button.input-control').click(function () {
 
 
 
-//2026-99-99 iwai-miki add str -----
+//2026-11-19 iwai-miki add str -----
 // 収入金額の変更時に所得金額を自動計算
 // 共通フィールド更新
 function updateIncomeFields(earningsId, incomeId, otherIncomeId, estimateId) {
@@ -538,7 +538,7 @@ document.querySelectorAll('.QuakeInsurance_4_isRead').forEach(function (input) {
 //2023-11-20 iwai-tamura upd end -----
 
 
-//2026-99-99 iwai-miki add str -----
+//2026-11-19 iwai-miki add str -----
 //扶養控除申告書_配偶者データ取得ボタン
 $('#btn-spouseDeduction-get1').click(function () {
     getDependentsUnder23('01');
@@ -571,13 +571,6 @@ function getDependentsUnder23(id, varArt) {
         strMessage = "続柄が選択されていないので取得できません。";
         if (varArt) { alert(strMessage) };
         return true
-    }
-
-    // 現状は01のみ参照
-    if ($("#Head_RefDependentFamilyMemberUnder23YearsOld01_RelationshipType").val() == "") {
-        strMessage = "取得できる扶養控除申告書の入力がありません。";
-        if (varArt) { alert(strMessage); }
-        return true;
     }
 
     if ($("#Head_RefDependentFamilyMemberUnder23YearsOld01_RelationshipType").val() == strRelationshipType) {
@@ -821,7 +814,7 @@ function getDependentsUnder23(id, varArt) {
     bolReturn = true;
     return bolReturn;
 }
-//2026-99-99 iwai-miki add end -----
+//2026-11-19 iwai-miki add end -----
 
 
 //計算ボタン
@@ -830,35 +823,33 @@ function calcLifeInsurance() {
     var bolReturn = false
     var id1 = ""
     var id2 = ""
-    //2026-99-99 iwai-miki add str -----
+    //2026-11-19 iwai-miki add str -----
     var Under23Judgment = "0"
-    //2026-99-99 iwai-miki add end -----
+    //2026-11-19 iwai-miki add end -----
 
-    //2026-99-99 iwai-miki add str -----
+    //2026-11-19 iwai-miki add str -----
     var Under23Name = "#Head_DependentsUnder23_Name1";
     var Under23birthdayID = "#Head_DependentsUnder23_Birthday";
     var Under23birthdayYearID = "#Head_DependentsUnder23_BirthdayYear";
     var Under23birthdayMonthID = "#Head_DependentsUnder23_BirthdayMonth";
     var Under23birthdayDayID = "#Head_DependentsUnder23_BirthdayDay";
     var intUnder23AmountIncome = Number($("#Head_DependentsUnder23_Income").val());
-    //2026-99-99 iwai-miki add end -----
-
-
+    //2026-11-19 iwai-miki add end -----
 
     $("#Head_LifeInsurance_NewTotalAmount").val(null);
     $("#Head_LifeInsurance_OldTotalAmount").val(null);
     $("#Head_LifeInsurance_Calc1").val(null);
-    //2026-99-99 iwai-miki add str -----
+    //2026-11-19 iwai-miki add str -----
     $("#Head_LifeInsurance_Calc3").val(null);
-    //2026-99-99 iwai-miki add end -----
+    //2026-11-19 iwai-miki add end -----
     $("#Head_LifeInsurance_Calc2").val(null);
     $("#Head_LifeInsurance_TotalAmount").val(null);
-    //2026-99-99 iwai-miki add str -----
+    //2026-11-19 iwai-miki add str -----
     $("#Head_LifeInsurance_TotalAmount2").val(null);
-    //2026-99-99 iwai-miki add end -----
+    //2026-11-19 iwai-miki add end -----
     $("#Head_LifeInsurance_DeductionAmount").val(null);
 
-    //2026-99-99 iwai-miki add str -----
+    //2026-11-19 iwai-miki add str -----
     if ($(Under23Name).val() != "") {
         //年齢チェック
         var cYear = $("#Head_SheetYear").val();
@@ -902,7 +893,7 @@ function calcLifeInsurance() {
         Under23Judgment = "1";
 
     }
-    //2026-99-99 iwai-miki add end -----
+    //2026-11-19 iwai-miki add end -----
 
 
     //新旧区分チェック
@@ -925,19 +916,19 @@ function calcLifeInsurance() {
 
     //金額計算処理
     var intNewTotalAmount = 0;
-    //2026-99-99 iwai-miki add str -----
+    //2026-11-19 iwai-miki add str -----
     var int23NewTotalAmount = 0;
-    //2026-99-99 iwai-miki add end -----
+    //2026-11-19 iwai-miki add end -----
     var intOldTotalAmount = 0;
     var intCalc1 = 0;
-    //2026-99-99 iwai-miki add str -----
+    //2026-11-19 iwai-miki add str -----
     var intCalc3 = 0;
-    //2026-99-99 iwai-miki add end -----
+    //2026-11-19 iwai-miki add end -----
     var intCalc2 = 0;
     var intTotalAmount = 0;
-    //2026-99-99 iwai-miki add str -----
+    //2026-11-19 iwai-miki add str -----
     var intTotalAmount2 = 0;
-    //2026-99-99 iwai-miki add end -----
+    //2026-11-19 iwai-miki add end -----
 
     var intDeductionAmount = 0;
 
@@ -948,7 +939,7 @@ function calcLifeInsurance() {
         id1 = "Head_LifeInsurance_" + i + "_OldAndNewType"
         id2 = "Head_LifeInsurance_" + i + "_InsuranceFee"
 
-        //2026-99-99 iwai-miki upd str -----
+        //2026-11-19 iwai-miki upd str -----
         if (document.getElementById(id1).value == "1") {
             if (Under23Judgment == "1") {
                 //年齢23歳未満の扶養親族有り
@@ -960,7 +951,7 @@ function calcLifeInsurance() {
         //if (document.getElementById(id1).value == "1") {
         //    intNewTotalAmount += Number(document.getElementById(id2).value);
         //}
-        //2026-99-99 iwai-miki upd end -----
+        //2026-11-19 iwai-miki upd end -----
         if (document.getElementById(id1).value == "2") {
             intOldTotalAmount += Number(document.getElementById(id2).value);
         }
@@ -977,7 +968,7 @@ function calcLifeInsurance() {
         intCalc1 = 40000
     }
 
-    //2026-99-99 iwai-miki add str -----
+    //2026-11-19 iwai-miki add str -----
     if (int23NewTotalAmount <= 30000) {
         intCalc3 = int23NewTotalAmount
     } else if (int23NewTotalAmount <= 60000) {
@@ -988,7 +979,7 @@ function calcLifeInsurance() {
     } else {
         intCalc3 = 60000
     }
-    //2026-99-99 iwai-miki add end -----
+    //2026-11-19 iwai-miki add end -----
 
     if (intOldTotalAmount <= 25000) {
         intCalc2 = intOldTotalAmount
@@ -1001,7 +992,7 @@ function calcLifeInsurance() {
         intCalc2 = 50000
     }
 
-    //2026-99-99 iwai-miki upd str -----
+    //2026-11-19 iwai-miki upd str -----
     intTotalAmount = intCalc1 + intCalc2;
     if (intTotalAmount > 40000) {
         intTotalAmount = 40000;
@@ -1020,26 +1011,26 @@ function calcLifeInsurance() {
     //} else {
     //    intDeductionAmount = intCalc2;
     //}
-    //2026-99-99 iwai-miki upd end -----
+    //2026-11-19 iwai-miki upd end -----
 
-    //2026-99-99 iwai-miki upd str -----
+    //2026-11-19 iwai-miki upd str -----
     if (Under23Judgment == "1") {
         $("#Head_LifeInsurance_NewTotalAmount").val(int23NewTotalAmount);
     } else {
         $("#Head_LifeInsurance_NewTotalAmount").val(intNewTotalAmount);
     }
     //$("#Head_LifeInsurance_NewTotalAmount").val(intNewTotalAmount);
-    //2026-99-99 iwai-miki upd end -----
+    //2026-11-19 iwai-miki upd end -----
     $("#Head_LifeInsurance_OldTotalAmount").val(intOldTotalAmount);
     $("#Head_LifeInsurance_Calc1").val(intCalc1);
-    //2026-99-99 iwai-miki add str -----
+    //2026-11-19 iwai-miki add str -----
     $("#Head_LifeInsurance_Calc3").val(intCalc3);
-    //2026-99-99 iwai-miki add end -----
+    //2026-11-19 iwai-miki add end -----
     $("#Head_LifeInsurance_Calc2").val(intCalc2);
     $("#Head_LifeInsurance_TotalAmount").val(intTotalAmount);
-    //2026-99-99 iwai-miki add str -----
+    //2026-11-19 iwai-miki add str -----
     $("#Head_LifeInsurance_TotalAmount2").val(intTotalAmount2);
-    //2026-99-99 iwai-miki add end -----
+    //2026-11-19 iwai-miki add end -----
     $("#Head_LifeInsurance_DeductionAmount").val(intDeductionAmount);
 
     bolReturn = true;
@@ -1245,6 +1236,10 @@ function calcLifeInsuranceCheck() {
     var bolReturn = false
     var id1 = ""
     var id2 = ""
+    //2026-11-19 iwai-miki add str -----
+    var Under23Name02 = "#Head_DependentsUnder23_Name1";
+    var Under23Judgment02 = "0"
+    //2026-11-19 iwai-miki add end -----
 
     $("#Head_LifeInsurance_NewTotalAmount").val(null);
     $("#Head_LifeInsurance_OldTotalAmount").val(null);
@@ -1252,6 +1247,13 @@ function calcLifeInsuranceCheck() {
     $("#Head_LifeInsurance_Calc2").val(null);
     $("#Head_LifeInsurance_TotalAmount").val(null);
     $("#Head_LifeInsurance_DeductionAmount").val(null);
+
+    //2026-11-19 iwai-miki add str -----
+    //23歳以下の扶養者判定
+    if ($(Under23Name02).val() != "") {
+        Under23Judgment02 = "1";
+    }
+    //2026-11-19 iwai-miki add end -----
 
     //新旧区分チェック
     for (var i = 1; i < 9; i++) {
@@ -1273,6 +1275,9 @@ function calcLifeInsuranceCheck() {
     var intOldTotalAmount = 0;
     var intCalc1 = 0;
     var intCalc2 = 0;
+    //2026-11-19 iwai-miki add str -----
+    var intCalc3 = 0;
+    //2026-11-19 iwai-miki add end -----
 
     for (var i = 1; i < 9; i++) {
         id1 = "Head_LifeInsurance_" + i + "_OldAndNewType"
@@ -1285,16 +1290,41 @@ function calcLifeInsuranceCheck() {
         }
     }
 
-    if (intNewTotalAmount <= 20000) {
-        intCalc1 = intNewTotalAmount
-    } else if (intNewTotalAmount <= 40000) {
-        intCalc1 = Math.ceil(intNewTotalAmount / 2) + 10000
+    //2026-11-19 iwai-miki add str -----
+    if (Under23Judgment02 == "1") {
+        if (intNewTotalAmount <= 30000) {
+            intCalc3 = intNewTotalAmount
+        } else if (intNewTotalAmount <= 60000) {
+            intCalc3 = Math.ceil(intNewTotalAmount / 2) + 15000
 
-    } else if (intNewTotalAmount <= 80000) {
-        intCalc1 = Math.ceil(intNewTotalAmount / 4) + 20000
+        } else if (intNewTotalAmount <= 120000) {
+            intCalc3 = Math.ceil(intNewTotalAmount / 4) + 30000
+        } else {
+            intCalc3 = 60000
+        }
     } else {
-        intCalc1 = 40000
+        if (intNewTotalAmount <= 20000) {
+            intCalc1 = intNewTotalAmount
+        } else if (intNewTotalAmount <= 40000) {
+            intCalc1 = Math.ceil(intNewTotalAmount / 2) + 10000
+
+        } else if (intNewTotalAmount <= 80000) {
+            intCalc1 = Math.ceil(intNewTotalAmount / 4) + 20000
+        } else {
+            intCalc1 = 40000
+        }
     }
+    //if (intNewTotalAmount <= 20000) {
+    //    intCalc1 = intNewTotalAmount
+    //} else if (intNewTotalAmount <= 40000) {
+    //    intCalc1 = Math.ceil(intNewTotalAmount / 2) + 10000
+
+    //} else if (intNewTotalAmount <= 80000) {
+    //    intCalc1 = Math.ceil(intNewTotalAmount / 4) + 20000
+    //} else {
+    //    intCalc1 = 40000
+    //}
+    //2026-11-19 iwai-miki add end -----
 
     if (intOldTotalAmount <= 25000) {
         intCalc2 = intOldTotalAmount
@@ -1308,11 +1338,20 @@ function calcLifeInsuranceCheck() {
     }
 
     strMessage = "";
-    if (intCalc2>=50000){
+
+    //2026-11-19 iwai-miki add str -----
+    if (intCalc1 + intCalc2 >= 40000) {
         strMessage = "※生命保険料の合計額が上限に達しました。<br/>生命保険料はこれ以上入力する必要はありません。";
-    } else if(intCalc1 + intCalc2>=40000){
-        strMessage = "※新制度の生命保険料の合計額が上限に達しました。<br/>新制度の生命保険料はこれ以上入力する必要はありません。";
+    } else if (intCalc2 + intCalc3 >= 60000) {
+        strMessage = "※生命保険料の合計額が上限に達しました。<br/>生命保険料はこれ以上入力する必要はありません。";
     }
+    //if (intCalc2>=50000){
+    //    strMessage = "※生命保険料の合計額が上限に達しました。<br/>生命保険料はこれ以上入力する必要はありません。";
+    //} else if(intCalc1 + intCalc2>=40000){
+    //    strMessage = "※新制度の生命保険料の合計額が上限に達しました。<br/>新制度の生命保険料はこれ以上入力する必要はありません。";
+    //}
+    //2026-11-19 iwai-miki add end -----
+
     if (strMessage != "") {
         showAlert('確認', strMessage);
         return bolReturn;
@@ -1932,7 +1971,7 @@ function checkDate(id) {
         }
     }
 
-    //2026-99-99 iwai-miki add str -----
+    //2026-11-19 iwai-miki add str -----
     //年齢23歳未満の扶養親族の年齢チェック
     var cDate23 = String(cYear - 22) + "0101";
     if (id == "#Head_DependentsUnder23_Birthday") {
@@ -1952,7 +1991,7 @@ function checkDate(id) {
             }
         }
     }
-    //2026-99-99 iwai-miki add end -----
+    //2026-11-19 iwai-miki add end -----
 
 
     $(id + "_mes").text(strMessage);
@@ -2005,7 +2044,7 @@ function checkMoney(id, maxMoney) {
     return bolReturn;
 }
 
-//2026-99-99 iwai-miki add str -----
+//2026-11-19 iwai-miki add str -----
 //年齢23歳未満の扶養親族
 //  所得
 document.getElementById('Head_DependentsUnder23_Earnings').addEventListener('change', function () {
@@ -2027,7 +2066,7 @@ $('#Head_DependentsUnder23_AddressSameCheck').change(function () {
         $("#Head_DependentsUnder23_Address").val('');
     }
 });
-//2026-99-99 iwai-miki add end -----
+//2026-11-19 iwai-miki add end -----
 
 //一括チェック
 function checkAll() {

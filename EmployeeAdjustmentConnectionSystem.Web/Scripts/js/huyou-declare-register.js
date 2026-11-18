@@ -220,7 +220,7 @@ function updateIncomeFields(earningsId, incomeId, otherIncomeId, estimateId) {
 
 // 収入から所得金額を計算するロジック
 function updateEarnings2Income(earnings) {
-    //2026-99-99 iwai-miki upd-str ------
+    //2026-11-19 iwai-miki upd-str ------
     //2025-11-18 iwai-tamura upd-str ------
     if (earnings <= 740999) {
         return 0;
@@ -278,7 +278,7 @@ function updateEarnings2Income(earnings) {
     ////    return earnings - 1950000;
     ////}
     //2025-11-18 iwai-tamura upd-end ------
-    //2026-99-99 iwai-miki upd-end ------
+    //2026-11-19 iwai-miki upd-end ------
 }
 
 
@@ -523,7 +523,7 @@ function checkDependentsOver16(id) {
     $(oldmanTypeMesID).text(strMessage);
 
     //特定扶養親族区分チェック
-    //2026-99-99 iwai-miki upd-str ------
+    //2026-11-19 iwai-miki upd-str ------
     //2025-11-18 iwai-tamura upd-str ------
     //特定扶養親族区分は自動選択に変更
     //金額と年齢にて判別
@@ -599,7 +599,7 @@ function checkDependentsOver16(id) {
     ////}
     ////$(specificTypeMesID).text(strMessage);
     //2025-11-18 iwai-tamura upd-end ------
-    //2026-99-99 iwai-miki upd-end ------
+    //2026-11-19 iwai-miki upd-end ------
 
     strMessage = "";
     if ($('input:radio[name="' + oldmanTypeName + '"]:checked').val() == "1") {

@@ -745,7 +745,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
             }
         }
 
-        //2026-99-99 iwai-tamura add-str ------
+        //2026-11-19 iwai-tamura add-str ------
         /// <summary>
         /// 前職源泉徴収票添付ファイルアップロード
         /// </summary>
@@ -932,7 +932,7 @@ namespace EmployeeAdjustmentConnectionSystem.Web.Controllers {
                 nlog.Debug(System.Reflection.MethodBase.GetCurrentMethod().Name + " end");
             }
         }
-        //2026-99-99 iwai-tamura add-end ------
+        //2026-11-19 iwai-tamura add-end ------
         //2025-11-18 iwai-tamura upd-end ------
 
     }

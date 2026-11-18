@@ -125,13 +125,13 @@ const huyouAttachmentFileModal = document.getElementById('huyouAttachmentFileMod
 const huyouAttachmentFileModalOverlay = document.getElementById('huyouAttachmentFileModal-overlay');
 const huyouAttachmentFilePath = document.getElementById('HuyouAttachmentFilePath');
 
-//2026-99-99 iwai-tamura add-str ------
+//2026-11-19 iwai-tamura add-str ------
 const openZenshokuAttachmentFileModalButton = document.getElementById('openZenshokuAttachmentFileModalButton');
 const closeZenshokuAttachmentFileModalButton = document.getElementById('closeZenshokuAttachmentFileModalButton');
 const zenshokuAttachmentFileModal = document.getElementById('zenshokuAttachmentFileModal');
 const zenshokuAttachmentFileModalOverlay = document.getElementById('zenshokuAttachmentFileModal-overlay');
 const zenshokuAttachmentFilePath = document.getElementById('ZenshokuAttachmentFilePath');
-//2026-99-99 iwai-tamura add-end ------
+//2026-11-19 iwai-tamura add-end ------
 
 // モーダルを開く処理
 openHuyouAttachmentFileModalButton.addEventListener('click', () => {
@@ -148,7 +148,7 @@ function closeHuyouAttachmentFileModal() {
     huyouAttachmentFileModal.style.display = 'none'; // モーダルを非表示
 }
 
-//2026-99-99 iwai-tamura add-str ------
+//2026-11-19 iwai-tamura add-str ------
 // モーダルを開く処理
 openZenshokuAttachmentFileModalButton.addEventListener('click', () => {
     zenshokuAttachmentFileModalOverlay.style.display = 'block';
@@ -163,7 +163,7 @@ function closeZenshokuAttachmentFileModal() {
     zenshokuAttachmentFileModalOverlay.style.display = 'none';
     zenshokuAttachmentFileModal.style.display = 'none';
 }
-//2026-99-99 iwai-tamura add-end ------
+//2026-11-19 iwai-tamura add-end ------
 
 
 /*
@@ -222,7 +222,7 @@ $('#DmyHuyouAttachmentFileDelete').click(function () {
 
 });
 
-//2026-99-99 iwai-tamura add-str ------
+//2026-11-19 iwai-tamura add-str ------
 /*
  * アップロードボタンクリック時
  */
@@ -268,7 +268,7 @@ $('#DmyZenshokuAttachmentFileDelete').click(function () {
     showMessage('確認', comment, 'ZenshokuAttachmentFileDelete', true);
 
 });
-//2026-99-99 iwai-tamura add-end ------
+//2026-11-19 iwai-tamura add-end ------
 //2025-11-18 iwai-tamura upd-end ------
 
 //2024-11-19 iwai-tamura upd-str ------
