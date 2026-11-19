@@ -1,0 +1,389 @@
+﻿.col_btn_register {
+    padding-right: 0;
+}
+
+.col_btn_pdf {
+    padding-left: 2px;
+}
+
+.btn_pdf {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/*2023-12-15 iwai-tamura add str -----*/
+.btn-default:disabled {
+    background-color: #ccc; /* 使用不可の背景色 */
+    color: #999; /* 使用不可のテキストの色 */
+    border: 1px solid #ccc; /* 使用不可のボーダー色 */
+}
+
+.btn-default:hover:disabled {
+    /* 通常のマウスオーバースタイルを設定（disabledでない場合のみ適用） */
+    background-color: #ccc; /* 使用不可の背景色 */
+    color: #999; /* 使用不可のテキストの色 */
+    border: 1px solid #ccc; /* 使用不可のボーダー色 */
+}
+/*2023-12-15 iwai-tamura add end -----*/
+/*2025-11-18 iwai-tamura add-str ------*/
+
+/* 全体インラインスタイル */
+.form-inline * {
+    vertical-align: middle;
+}
+
+/* 過去帳票用のスタイル */
+.txt-history-year {
+    font-size: 16px;
+}
+
+.list-history-year {
+    font-size: 17px;
+}
+
+.list-report-type {
+    font-size: 17px;
+}
+
+.btn-history-print {
+    font-size: 16px;
+    padding: 2px 10px;
+}
+/*2025-11-18 iwai-tamura add-end ------*/
+
+
+
+/*2024-11-19 iwai-tamura upd-str ------*/
+/* モーダルコンテンツのスタイル */
+.modal-content {
+    width: 30%;
+    max-width: 400px;
+    padding: 30px;
+    border: none;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    position: fixed;
+    display: none;
+    z-index: 2;
+    font-size: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* より深い影 */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+    .modal-content h2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+    }
+
+    .modal-content p {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+
+.btn-close {
+    width: 100%;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+    .btn-close:hover {
+        background-color: #c0392b;
+    }
+
+/* オーバーレイのスタイル */
+#modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* より暗くする */
+    z-index: 1;
+    backdrop-filter: blur(2px); /* 背景を少しぼかす */
+    pointer-events: all; /* クリックをブロック */
+}
+
+/* オーバーレイ表示中はモーダル外の操作を無効化 */
+body.modal-open {
+    overflow: hidden; /* 背景のスクロールを無効化 */
+}
+
+
+.button-link {
+    /*color: #00f ;
+	text-decoration: underline ;*/
+}
+
+    .button-link:hover {
+        cursor: pointer;
+        color: #f00;
+    }
+/*2024-11-19 iwai-tamura upd-end ------*/
+
+
+/*2025-11-18 iwai-tamura upd-str ------*/
+/* アップロードアイコン */
+.col-icon-upload {
+    padding-left: 0 !important;
+    margin-left: -15px; /* PDFボタンとの隙間を微調整（お好みで） */
+}
+/* 透明ボタン化 */
+.btn-icon {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+}
+    /* マウスオーバー時の変化削除 */
+    .btn-icon:hover,
+    .btn-icon:focus,
+    .btn-icon:active {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    .btn-icon img {
+        height: 28px;
+        opacity: 0.6;
+    }
+
+    .btn-icon:hover img {
+        opacity: 1;
+    }
+
+/* アップロード用モーダルコンテンツ */
+.modal-content-Upload {
+    width: 100%;
+    max-width: 1000px;
+    padding: 30px;
+    border: none;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    position: fixed;
+    display: none;
+    z-index: 2;
+    font-size: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* より深い影 */
+    animation: fadeIn 0.5s ease-in-out;
+}
+/*2025-11-18 iwai-matsuo add-str ------*/ /*扶養控除追加に伴い*/
+/*2026-11-19 iwai-tamura upd-str ------*/
+.attachment-file-modal {
+    width: 100%;
+    max-width: 1000px;
+    padding: 30px;
+    position: fixed;
+    display: none;
+    z-index: 2;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /*より深い影 animation: fadeIn 0.5s ease-in-out;*/
+    border: 3px solid #4E95D9;
+    background-color: #E5F5FF;
+}
+
+.attachment-file-modal-huyou {
+    border: 3px solid #4E95D9;
+    background-color: #E5F5FF;
+}
+
+.attachment-file-modal-zenshoku {
+    border: 3px solid #4E95D9;
+    background-color: #FFE7E7;
+}
+/*2026-11-19 iwai-tamura upd-end ------*/
+/*2025-11-18 iwai-matsuo add-end ------*/
+
+
+/* オーバーレイのスタイル */
+/*2026-11-19 iwai-tamura upd-str ------*/
+.attachment-file-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* より暗くする */
+    z-index: 1;
+    backdrop-filter: blur(2px); /* 背景を少しぼかす */
+    pointer-events: all; /* クリックをブロック */
+}
+
+.attachment-file-modal-overlay-huyou {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.attachment-file-modal-overlay-zenshoku {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+/*2026-11-19 iwai-tamura upd-end ------*/
+
+.upload-row {
+    display: flex;
+    align-items: center; /* 縦中央揃え */
+    justify-content: space-between; /* 両端寄せ（中央寄せにしたければ center） */
+    gap: 10px; /* ファイル選択とボタンの間隔 */
+    margin-bottom: 15px;
+    /*2025-11-18 iwai-matsuo add-str ------*/
+    border-radius: 10px;
+    /*2025-11-18 iwai-matsuo add-end ------*/
+}
+
+.upload-row input[type="file"] {
+    width: 80%;
+    max-width: none;
+}
+
+    .upload-row span {
+        padding-left: 20px;
+        flex: 1;
+        white-space: normal;
+        word-break: break-all;
+    }
+
+.modal-content-Upload .btn-close {
+    font-size: 14px;
+    width: 100px;
+    height: 30px;
+    padding: 0;
+}
+/*2025-11-18 iwai-tamura upd-end ------*/
+/*2025-11-18 iwai-matsuo add-str ------*/ /*ボタン色制御の為追加*/
+/*2026-11-19 iwai-tamura upd-str ------*/
+.attachment-file-modal-huyou .btn-close {
+    font-size: 14px;
+    width: 100px;
+    height: 30px;
+    padding: 0;
+    margin-bottom: -15px;
+    background-color: #5BC0DE;
+    border: 1px solid #7F7F7F;
+    border-radius: 0px;
+}
+
+.attachment-file-modal-zenshoku .btn-close {
+    font-size: 14px;
+    width: 100px;
+    height: 30px;
+    padding: 0;
+    margin-bottom: -15px;
+    background-color: #FF9999;
+    border: 1px solid #7F7F7F;
+    border-radius: 0px;
+}
+
+.attachment-file-modal-huyou .h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    position: relative;
+    top: -20px; /* テキストを10px上げる */
+}
+
+.attachment-file-modal-zenshoku .h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    position: relative;
+    top: -20px; /* テキストを10px上げる */
+}
+
+.attachment-file-modal-huyou .btn-default {
+    font-size: 14px;
+    width: 130px;
+    height: 30px;
+    padding: 0;
+    margin-bottom: -15px;
+    background-color: #F2F2F2;
+    border: 1px solid #7F7F7F;
+    border-radius: 5px;
+}
+
+.attachment-file-modal-zenshoku .btn-default {
+    font-size: 14px;
+    width: 130px;
+    height: 30px;
+    padding: 0;
+    margin-bottom: -15px;
+    background-color: #FF5050;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.attachment-file-modal-huyou .modal-content-huyo-btn-Upload {
+    font-size: 14px;
+    width: 130px;
+    height: 30px;
+    padding: 0;
+    margin-bottom: -15px;
+    background-color: #1D85B3;
+    border: 1px solid #215F9A;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.attachment-file-modal-zenshoku .modal-content-huyo-btn-Upload {
+    font-size: 14px;
+    width: 130px;
+    height: 30px;
+    padding: 0;
+    margin-bottom: -15px;
+    background-color: #FF5050;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #ffffff;
+}
+/*2026-11-19 iwai-tamura upd-end ------*/
+.header-kako-export {
+    background-color: #F9DACB;
+    margin-top: 10pt;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+}
+.header-kako-export-h4 {
+    font-weight: bold;
+}
+.content-kako-export {
+    border-color: #F9DACB;
+    padding-bottom: 20px;
+    border-radius: 4px;
+}
+
+/*2025-11-18 iwai-matsuo add-end ------*/

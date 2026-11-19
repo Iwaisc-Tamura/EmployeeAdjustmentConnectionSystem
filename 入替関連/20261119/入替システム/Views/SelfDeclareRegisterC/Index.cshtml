@@ -1,0 +1,1158 @@
+﻿@using EmployeeAdjustmentConnectionSystem.COM.Util.Convert
+@using EmployeeAdjustmentConnectionSystem.COM.Enum
+@using EmployeeAdjustmentConnectionSystem.COM.Models
+@model SelfDeclareRegisterCViewModels
+@{
+    ViewBag.Title = "自己申告書　(Ｃ表)";
+}
+
+
+@Styles.Render("~/Content/css/obj")
+<!--タイトル-->
+@using (Html.BeginForm("Index", "SelfDeclareRegisterC", null, FormMethod.Post, new { @class = "form-horizontal" ,@style = "zoom:120%"})) {    @*</!--1.2倍の拡大表示-->>*@
+    <h4 class="text-center">@Html.DisplayFor(m => m.Head.SheetYear) 年度　自己申告書　(Ｃ表)</h4>
+    @Html.HiddenFor(m => m.Head.ManageNo)
+    @Html.HiddenFor(m => m.Head.SheetYear)
+    @Html.HiddenFor(m => m.Head.EmployeeNo)
+    @Html.HiddenFor(m => m.Head.CompetencyNo)
+    @Html.HiddenFor(m => m.Head.InputMode)
+    @Html.HiddenFor(m => m.Head.AuthButton)
+    @Html.HiddenFor(m => m.Head.CancelButton)
+
+  <!-- ヘッダ -->
+    <div class="row">
+        <!--名前、社員番号等-->
+        <div class="col-xs-8">
+            <table class="table table-bordered ">
+                <thead>
+                    <tr class="h34">
+                        <td class="info w80">氏名</td>
+                        <td class="info w40">社員番号</td>
+                        <td class="info w160">所属</td>
+                        <td class="info w60">役職</td>
+                        <td class="info w30">資格</td>
+                        <td class="info w60">入社年月日</td>
+                        <td class="info w60">当社在籍年数</td>
+                        <td class="info w60">現職経験年月数</td>
+                        <td class="info w60">生年月日</td>
+                        <td class="info w30">年齢</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="h34">
+                        <td>@Html.DisplayFor(m => m.Head.Name)</td>
+                        <td>@Html.DisplayFor(m => m.Head.EmployeeNo)</td>
+                        <td>@Html.DisplayFor(m => m.Head.DepartmentName)</td>
+                        <td>@Html.DisplayFor(m => m.Head.PostName)</td>
+                        <td>@Html.DisplayFor(m => m.Head.CompetencyName)</td>
+                        <td>@Html.DisplayFor(m => m.Head.HireDateView)</td>
+                        <td>@Html.DisplayFor(m => m.Head.EnrollmentMonthsView)</td>
+                        <td>@Html.DisplayFor(m => m.Head.ExperienceMonthsView)</td>
+                        <td>@Html.DisplayFor(m => m.Head.BirthdayView)</td>
+                        <td>@Html.DisplayFor(m => m.Head.AgeView)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--面談の印鑑-->
+        <div class="col-xs-2">
+            <table class="table table-bordered">
+                <thead>
+                    @*承認ボタンヘルパー*@
+                    @helper setButton(SelfDeclareMode auth, SelfDeclareMode mode, string name, string value) {
+                        @Html.Raw("<td class=\"info\">")
+                        if (auth == mode) {
+                            var dmyId = "dmy" + value;
+                            <button type="button" name="Signature" id="@dmyId" value="@value" class="btn-default btn-xs">@name</button>
+                        } else {
+                            @name
+                        }
+                        @Html.Raw("</td>")
+}
+                    <tr class="h34">
+                        @setButton(Model.Head.AuthButton, SelfDeclareMode.AtoCSelfSign, "本人", "11")
+                        @setButton(Model.Head.AuthButton, SelfDeclareMode.AtoCBossSign, "上司", "12")
+                    </tr>
+                </thead>
+                <tbody>
+                    @*CancelButtonヘルパー*@
+                    @helper setCancelButton(string name, SelfDeclareMode cancel, SelfDeclareMode mode, string value) {
+                        @Html.Raw("<td>")
+                        @Html.Raw(name)
+                        if (cancel == mode) {
+                            var dmycId = "dmyc" + value;
+                            var dmycValue = "c" + value;
+                            <button type="button" class="btn btn-default btn-xs" name="SignCancel" id="@dmycId" value="@dmycValue"><i class="glyphicon glyphicon-remove"></i></button>
+                        }
+                        @Html.Raw("</td>")
+}
+                    <tr class="h34">
+                        @setCancelButton(Model.Head.AtoCSelfSign, Model.Head.CancelButton, SelfDeclareMode.AtoCSelfSign, "11")
+                        @setCancelButton(Model.Head.AtoCBossSign, Model.Head.CancelButton, SelfDeclareMode.AtoCBossSign, "12")
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--ボタンエリア-->
+    <div class="row">
+        <!--ボタン-->
+        <div class="col-xs-3">
+            <button type="button" name="DmySave" value="途中保存" class="btn-default pull-left" style="margin:0 5px 10px 0;" id="dmysave">途中保存</button>
+            <button type="submit" name="Back" value="戻る" class="btn-default pull-left" id="backbutton" style="margin:0 5px 10px 0;margin-left:5px;">戻る</button>
+
+            @if (Model.Head.InputMode == SelfDeclareMode.AtoCSelfSign) {
+                <button type="button" name="DmyPrevDataCopy" value="前回データ取得" class="btn-default pull-left" style="margin-left:5px;" id="dmyprevdatacopy">前回データ取得</button>
+            }
+
+        </div>
+        <div class="col-xs-8">
+            &#9632;@Html.DisplayFor(m => m.Head.SheetYear)年3月31日現在のデータを使用しています。<br />
+            &#9632;入力を途中で中断する際は途中保存ボタンで保存して下さい。登録・承認については該当するボタンを押下して下さい。<br />
+            &#9632;戻るボタンを押下するとTOPへ戻ります。<br />
+            @*&#9632;前回データ取得ボタンを押下すると前回の自己申告書データで上書きします。(存在しない場合は何もしません。)*@
+        </div>
+    </div>
+
+    <h4 style="margin-top:20px;">1 本人の状況</h4>
+    <!-- 住所 -->
+    <div class="row">
+        @*定義*@
+        @{
+    //入力モード
+    var PostNo1 = new Dictionary<string, object>() { { "class", " form-control " }, { "style", "width:30px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "3" }, { "readonly", "readonly" } };
+    var PostNo2 = new Dictionary<string, object>() { { "class", " form-control " }, { "style", "width:45px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "4" }, { "readonly", "readonly" } };
+    var attr1 = new Dictionary<string, object>() { { "class", "form-control" }, { "rows", "6" }, { "maxlength", "500" }, { "readonly", "readonly" } };
+    var ReadOption = true;
+    switch (Model.Head.InputMode) {
+                case SelfDeclareMode.AtoCSelfSign:
+
+            //設定本人・面談者時
+            //計画・方針入力化
+            PostNo1.Remove("readonly");
+            PostNo2.Remove("readonly");
+            attr1.Remove("readonly");
+            ReadOption = false;
+            break;
+        default:
+            //上記以外 ReadOnly
+            break;
+    }
+
+    //住所形態リスト
+    var addressItems = new SelectListItem[] {
+                    new SelectListItem() { Value="1:持家(UR)", Text="1:持家(UR)" },
+                    new SelectListItem() { Value="2:持家(その他)", Text="2:持家(その他)" },
+                    new SelectListItem() { Value="3:賃貸(UR)", Text="3:賃貸(UR)" },
+                    new SelectListItem() { Value="4:賃貸(借上社宅)", Text="4:賃貸(借上社宅)" },
+                    new SelectListItem() { Value="5:賃貸(その他)", Text="5:賃貸(その他)" },
+                    new SelectListItem() { Value="6:親の家", Text="6:親の家" }
+            };
+
+            @helper setDdl2(bool isRead, int cnt, string name, string value, SelectListItem[] selItems) {
+                <div class="form-group-custom">
+                    @{
+                        var id = string.Format("Head.{0}", name);
+                        if (isRead) {
+                            @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly" })
+                        } else {
+                            @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", "")
+                        }
+                    }
+                </div>
+}
+        }
+        <div class="col-xs-4">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td>
+                            現住所
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="h24 form-inline">
+                                〒
+                                @Html.TextBoxFor(m => m.Head.PostalCode_1, PostNo1)
+                                -
+                                @Html.TextBoxFor(m => m.Head.PostalCode_2, PostNo2)
+                            </div>
+                            @Html.TextAreaFor(m => m.Head.Address, attr1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-2">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td>
+                            住所形態
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @setDdl2(ReadOption, 1, "AddressType", Model.Head.AddressType, addressItems)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- 家族の状況 -->
+    <div class="row">
+        @*定義*@
+        <script type="text/javascript">
+            $(function () {
+                var selectarea = $("form select.familyItems-select");
+                var selectward = $("form input.family-other1");
+                $(selectarea).change(function () {
+                    switch ($(this).attr("id")) {
+                        case "Head_Relationship_1":
+                            selectward = $("form input.family-other1");
+                            break;
+                        case "Head_Relationship_2":
+                            selectward = $("form input.family-other2");
+                            break;
+                        case "Head_Relationship_3":
+                            selectward = $("form input.family-other3");
+                            break;
+                        case "Head_Relationship_4":
+                            selectward = $("form input.family-other4");
+                            break;
+                        case "Head_Relationship_5":
+                            selectward = $("form input.family-other5");
+                            break;
+                        case "Head_Relationship_6":
+                            selectward = $("form input.family-other6");
+                            break;
+                        case "Head_Relationship_7":
+                            selectward = $("form input.family-other7");
+                            break;
+                        case "Head_Relationship_8":
+                            selectward = $("form input.family-other8");
+                            break;
+                        default:
+                            selectward = "";
+                    }
+                    if ($(this).val().substr(0, 2) == "ZZ") {
+                        $(selectward).removeAttr("readonly");
+                    } else {
+                        $(selectward).attr("readonly", "readonly").val("");
+                    }
+                });
+            });
+        </script>
+
+        @{
+    //入力モード
+    //家族年齢
+    var attrFamilyAge = new Dictionary<string, object>() { { "class", " form-control" }, { "type", "text" }, { "onKeyup", "this.value=this.value.replace(/[^0-9]+/i,'')" }, { "style", "width:30px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "3" }, { "readonly", "readonly" } };
+    //家族職業・学年
+    var attrFamilyContents = new Dictionary<string, object>() { { "class", " form-control" }, { "style", "width:150px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+    //家族続柄その他
+    var familyOtherattr1 = new Dictionary<string, object>() { { "class", " form-control family-other1 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+    var familyOtherattr2 = new Dictionary<string, object>() { { "class", " form-control family-other2 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+    var familyOtherattr3 = new Dictionary<string, object>() { { "class", " form-control family-other3 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+    var familyOtherattr4 = new Dictionary<string, object>() { { "class", " form-control family-other4 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+    var familyOtherattr5 = new Dictionary<string, object>() { { "class", " form-control family-other5 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+    var familyOtherattr6 = new Dictionary<string, object>() { { "class", " form-control family-other6 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+    var familyOtherattr7 = new Dictionary<string, object>() { { "class", " form-control family-other7 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+    var familyOtherattr8 = new Dictionary<string, object>() { { "class", " form-control family-other8 " }, { "style", "width:100px;height:16px;" }, { "size", "2" }, { "rows", "1" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+
+    //var attrFamilyTypeOther = new Dictionary<int,Dictionary<string, object>>(){
+    //    {0,new Dictionary<string, object>() {  { "class", " form-control family-other1 " }, { "style", "width:100px;height:16px;" }, { "size", "2" } , { "rows", "1" },{"maxlength","20"} ,{ "readonly", "readonly" } }},
+    //    {1,new Dictionary<string, object>() {  { "class", " form-control family-other2 " }, { "style", "width:100px;height:16px;" }, { "size", "2" } , { "rows", "1" },{"maxlength","20"} ,{ "readonly", "readonly" } }},
+    //    {2,new Dictionary<string, object>() {  { "class", " form-control family-other3 " }, { "style", "width:100px;height:16px;" }, { "size", "2" } , { "rows", "1" },{"maxlength","20"} ,{ "readonly", "readonly" } }},
+    //    {3,new Dictionary<string, object>() {  { "class", " form-control family-other4 " }, { "style", "width:100px;height:16px;" }, { "size", "2" } , { "rows", "1" },{"maxlength","20"} ,{ "readonly", "readonly" } }},
+    //    {4,new Dictionary<string, object>() {  { "class", " form-control family-other5 " }, { "style", "width:100px;height:16px;" }, { "size", "2" } , { "rows", "1" },{"maxlength","20"} ,{ "readonly", "readonly" } }},
+    //    {5,new Dictionary<string, object>() {  { "class", " form-control family-other6 " }, { "style", "width:100px;height:16px;" }, { "size", "2" } , { "rows", "1" },{"maxlength","20"} ,{ "readonly", "readonly" } }},
+    //    {6,new Dictionary<string, object>() {  { "class", " form-control family-other7 " }, { "style", "width:100px;height:16px;" }, { "size", "2" } , { "rows", "1" },{"maxlength","20"} ,{ "readonly", "readonly" } }},
+    //    {7,new Dictionary<string, object>() {  { "class", " form-control family-other8 " }, { "style", "width:100px;height:16px;" }, { "size", "2" } , { "rows", "1" },{"maxlength","20"} ,{ "readonly", "readonly" } }}
+    //};
+
+    switch (Model.Head.InputMode) {
+                case SelfDeclareMode.AtoCSelfSign:
+
+            //設定本人・面談者時
+            //計画・方針入力化
+            //attr1.Remove("readonly");
+            break;
+        default:
+            //上記以外 ReadOnly
+            break;
+    }
+    switch (Model.Head.InputMode) {
+                case SelfDeclareMode.AtoCSelfSign:
+
+            //本人
+            if (Model.Head.Relationship_1.Length > 2) {
+                if (Model.Head.Relationship_1.Substring(0, 2) == "ZZ") {
+                    familyOtherattr1.Remove("readonly");
+                }
+            }
+            if (Model.Head.Relationship_2.Length > 2) {
+                if (Model.Head.Relationship_2.Substring(0, 2) == "ZZ") {
+                    familyOtherattr2.Remove("readonly");
+                }
+            }
+            if (Model.Head.Relationship_3.Length > 2) {
+                if (Model.Head.Relationship_3.Substring(0, 2) == "ZZ") {
+                    familyOtherattr3.Remove("readonly");
+                }
+            }
+            if (Model.Head.Relationship_4.Length > 2) {
+                if (Model.Head.Relationship_4.Substring(0, 2) == "ZZ") {
+                    familyOtherattr4.Remove("readonly");
+                }
+            }
+            if (Model.Head.Relationship_5.Length > 2) {
+                if (Model.Head.Relationship_5.Substring(0, 2) == "ZZ") {
+                    familyOtherattr5.Remove("readonly");
+                }
+            }
+            if (Model.Head.Relationship_6.Length > 2) {
+                if (Model.Head.Relationship_6.Substring(0, 2) == "ZZ") {
+                    familyOtherattr6.Remove("readonly");
+                }
+            }
+            if (Model.Head.Relationship_7.Length > 2) {
+                if (Model.Head.Relationship_7.Substring(0, 2) == "ZZ") {
+                    familyOtherattr7.Remove("readonly");
+                }
+            }
+            if (Model.Head.Relationship_8.Length > 2) {
+                if (Model.Head.Relationship_8.Substring(0, 2) == "ZZ") {
+                    familyOtherattr8.Remove("readonly");
+                }
+            }
+            attrFamilyAge.Remove("readonly");
+            attrFamilyContents.Remove("readonly");
+            break;
+        default:
+            //上記以外 ReadOnly
+            break;
+    }
+
+    //続柄リスト
+    var familyItems = new SelectListItem[] {
+                    new SelectListItem() { Value="11:配偶者(夫)", Text="11:配偶者(夫)" },
+                    new SelectListItem() { Value="12:配偶者(妻)", Text="12:配偶者(妻)" },
+                    new SelectListItem() { Value="21:長男", Text="21:長男" },
+                    new SelectListItem() { Value="22:次男", Text="22:次男" },
+                    new SelectListItem() { Value="23:三男", Text="23:三男" },
+                    new SelectListItem() { Value="24:四男", Text="24:四男" },
+                    new SelectListItem() { Value="25:五男", Text="25:五男" },
+                    new SelectListItem() { Value="26:六男", Text="26:六男" },
+                    new SelectListItem() { Value="27:七男", Text="27:七男" },
+                    new SelectListItem() { Value="28:八男", Text="28:八男" },
+                    new SelectListItem() { Value="29:九男", Text="29:九男" },
+                    new SelectListItem() { Value="31:長女", Text="31:長女" },
+                    new SelectListItem() { Value="32:二女", Text="32:二女" },
+                    new SelectListItem() { Value="33:三女", Text="33:三女" },
+                    new SelectListItem() { Value="34:四女", Text="34:四女" },
+                    new SelectListItem() { Value="35:五女", Text="35:五女" },
+                    new SelectListItem() { Value="36:六女", Text="36:六女" },
+                    new SelectListItem() { Value="37:七女", Text="37:七女" },
+                    new SelectListItem() { Value="38:八女", Text="38:八女" },
+                    new SelectListItem() { Value="39:九女", Text="39:九女" },
+                    new SelectListItem() { Value="41:父", Text="41:父" },
+                    new SelectListItem() { Value="42:母", Text="42:母" },
+                    new SelectListItem() { Value="43:義父", Text="43:義父" },
+                    new SelectListItem() { Value="44:義母", Text="44:義母" },
+                    new SelectListItem() { Value="45:祖父", Text="45:祖父" },
+                    new SelectListItem() { Value="46:祖母", Text="46:祖母" },
+                    new SelectListItem() { Value="47:義祖父", Text="47:義祖父" },
+                    new SelectListItem() { Value="48:義祖母", Text="48:義祖母" },
+                    new SelectListItem() { Value="60:孫", Text="60:孫" },
+                    new SelectListItem() { Value="71:兄", Text="71:兄" },
+                    new SelectListItem() { Value="72:姉", Text="72:姉" },
+                    new SelectListItem() { Value="73:弟", Text="73:弟" },
+                    new SelectListItem() { Value="74:妹", Text="74:妹" },
+                    new SelectListItem() { Value="75:義兄", Text="75:義兄" },
+                    new SelectListItem() { Value="76:義姉", Text="76:義姉" },
+                    new SelectListItem() { Value="77:義弟", Text="77:義弟" },
+                    new SelectListItem() { Value="78:義妹", Text="78:義妹" },
+                    new SelectListItem() { Value="81:叔父", Text="81:叔父" },
+                    new SelectListItem() { Value="82:叔母", Text="82:叔母" },
+                    new SelectListItem() { Value="83:甥", Text="83:甥" },
+                    new SelectListItem() { Value="84:姪", Text="84:姪" },
+                    new SelectListItem() { Value="ZZ:その他", Text="ZZ:その他" }
+            };
+
+    //同居人数リスト
+    var familyCountItems = new SelectListItem[] {
+                    new SelectListItem() { Value="0", Text="0" },
+                    new SelectListItem() { Value="1", Text="1" },
+                    new SelectListItem() { Value="2", Text="2" },
+                    new SelectListItem() { Value="3", Text="3" },
+                    new SelectListItem() { Value="4", Text="4" },
+                    new SelectListItem() { Value="5", Text="5" },
+                    new SelectListItem() { Value="6", Text="6" },
+                    new SelectListItem() { Value="7", Text="7" },
+                    new SelectListItem() { Value="8", Text="8" }
+            };
+            @helper setFamilyDdl1(bool isRead, int cnt, string name, string value, SelectListItem[] selItems) {
+                <div class="form-inline">
+                    @{
+                        var id = string.Format("Body.{0}", name);
+                        if (isRead) {
+                            @Html.TextBox(id, value, new { @class = "form-control", @style = "width:50px;height:16px;", @readonly = "readonly" })<label class="w30" style="font-weight:normal;">　名</label>
+                        } else {
+                            @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { style = "width: 50px; vertical-align:top;" })<label class="w30" style="font-weight:normal;">　名</label>
+                        }
+                    }
+                </div>
+}
+            @helper setFamilyDdl2(bool isRead, int cnt, string name, string value, SelectListItem[] selItems) {
+                <div class="h24 form-inline">
+                    @{
+                        var id = string.Format("Head.{0}", name);
+                        if (isRead) {
+                            <label class="w10" style="font-weight:normal;">@cnt</label> @Html.TextBox(id, value, new { @class = "form-control", @style = "width:90px;height:16px;", @size = "2", @rows = "1", @readonly = "readonly" })
+                        } else {
+                            <label class="w10" style="font-weight:normal;">@cnt</label> @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "familyItems-select" })
+                        }
+                    }
+                </div>
+}
+    //CheckBox出力ヘルパー
+    @helper setCheck(bool isRead, int cnt, string name, string value) {
+        if (isRead) {
+            @Html.Hidden(string.Format("Head.{0}_{1}", name, cnt), value)
+            @Html.Raw(string.Format("<span style=\"font-size: 17px;\">{0}</span>", (value == "1" ? "■" : "□")))
+        } else {
+            @Html.CheckBox(string.Format("Head.{0}_{1}", name, cnt), (value == "1" ? true : false), new { tabindex = 1, @style = "margin-top:0px;" })
+        }
+}
+        }
+
+        <div class="col-xs-5">
+            <table class="table table-bordered" vertical-align="top">
+                <colgroup>
+                    <col style="width:100px;" />
+                    <col style="width:120px;" />
+                    <col style="width:30px;" />
+                    <col style="width:130px;" />
+                    <col style="width:30px;" />
+                    <col style="width:30px;" />
+                </colgroup>
+                <thead>
+                    <tr class="info">
+                        <td colspan="6">
+                            家族の状況(本人を除く)
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <td style="border-style:none;" colspan="2">続柄</td>
+                        <td style="border-style:none;">年齢</td>
+                        <td style="border-style:none;">職業・学年</td>
+                        <td style="border-style:none;">同居</td>
+                        <td style="border-style:none;">扶養</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-style:none;">
+                        <td style="border-style:none; padding-right: 0px;">
+                            @setFamilyDdl2(ReadOption, 1, "Relationship_1", Model.Head.Relationship_1, familyItems)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;">
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.RelationshipContentOther_1, familyOtherattr1)</div>
+                        </td>
+                        <td style="border-style:none ; vertical-align:top">
+                            @Html.TextBoxFor(m => m.Head.FamilyAge_1, attrFamilyAge)
+                        </td>
+                        <td style="border-style:none; padding-right: 0px;vertical-align:top;">
+                            @Html.TextBoxFor(m => m.Head.FamilyJob_1, attrFamilyContents)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 1, "FamilyLodger", Model.Head.FamilyLodger_1)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 1, "FamilyDependent", Model.Head.FamilyDependent_1)
+                        </td>
+                    </tr>
+
+                    <tr style="border-style:none;">
+                        <td style="border-style:none; padding-right: 0px;">
+                            @setFamilyDdl2(ReadOption, 2, "Relationship_2", Model.Head.Relationship_2, familyItems)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;">
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.RelationshipContentOther_2, familyOtherattr2)</div>
+                        </td>
+                        <td style="border-style:none ; vertical-align:top">
+                            @Html.TextBoxFor(m => m.Head.FamilyAge_2, attrFamilyAge)
+                        </td>
+                        <td style="border-style:none; padding-right: 0px;vertical-align:top;">
+                            @Html.TextBoxFor(m => m.Head.FamilyJob_2, attrFamilyContents)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 2, "FamilyLodger", Model.Head.FamilyLodger_2)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 2, "FamilyDependent", Model.Head.FamilyDependent_2)
+                        </td>
+                    </tr>
+
+                    <tr style="border-style:none;">
+                        <td style="border-style:none; padding-right: 0px;">
+                            @setFamilyDdl2(ReadOption, 3, "Relationship_3", Model.Head.Relationship_3, familyItems)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;">
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.RelationshipContentOther_3, familyOtherattr3)</div>
+                        </td>
+                        <td style="border-style:none ; vertical-align:top">
+                            @Html.TextBoxFor(m => m.Head.FamilyAge_3, attrFamilyAge)
+                        </td>
+                        <td style="border-style:none; padding-right: 0px;vertical-align:top;">
+                            @Html.TextBoxFor(m => m.Head.FamilyJob_3, attrFamilyContents)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 3, "FamilyLodger", Model.Head.FamilyLodger_3)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 3, "FamilyDependent", Model.Head.FamilyDependent_3)
+                        </td>
+                    </tr>
+
+                    <tr style="border-style:none;">
+                        <td style="border-style:none; padding-right: 0px;">
+                            @setFamilyDdl2(ReadOption, 4, "Relationship_4", Model.Head.Relationship_4, familyItems)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;">
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.RelationshipContentOther_4, familyOtherattr4)</div>
+                        </td>
+                        <td style="border-style:none ; vertical-align:top">
+                            @Html.TextBoxFor(m => m.Head.FamilyAge_4, attrFamilyAge)
+                        </td>
+                        <td style="border-style:none; padding-right: 0px;vertical-align:top;">
+                            @Html.TextBoxFor(m => m.Head.FamilyJob_4, attrFamilyContents)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 4, "FamilyLodger", Model.Head.FamilyLodger_4)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 4, "FamilyDependent", Model.Head.FamilyDependent_4)
+                        </td>
+                    </tr>
+
+                    <tr style="border-style:none;">
+                        <td style="border-style:none; padding-right: 0px;">
+                            @setFamilyDdl2(ReadOption, 5, "Relationship_5", Model.Head.Relationship_5, familyItems)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;">
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.RelationshipContentOther_5, familyOtherattr5)</div>
+                        </td>
+                        <td style="border-style:none ; vertical-align:top">
+                            @Html.TextBoxFor(m => m.Head.FamilyAge_5, attrFamilyAge)
+                        </td>
+                        <td style="border-style:none; padding-right: 0px;vertical-align:top;">
+                            @Html.TextBoxFor(m => m.Head.FamilyJob_5, attrFamilyContents)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 5, "FamilyLodger", Model.Head.FamilyLodger_5)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 5, "FamilyDependent", Model.Head.FamilyDependent_5)
+                        </td>
+                    </tr>
+
+                    <tr style="border-style:none;">
+                        <td style="border-style:none; padding-right: 0px;">
+                            @setFamilyDdl2(ReadOption, 6, "Relationship_6", Model.Head.Relationship_6, familyItems)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;">
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.RelationshipContentOther_6, familyOtherattr6)</div>
+                        </td>
+                        <td style="border-style:none ; vertical-align:top">
+                            @Html.TextBoxFor(m => m.Head.FamilyAge_6, attrFamilyAge)
+                        </td>
+                        <td style="border-style:none; padding-right: 0px;vertical-align:top;">
+                            @Html.TextBoxFor(m => m.Head.FamilyJob_6, attrFamilyContents)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 6, "FamilyLodger", Model.Head.FamilyLodger_6)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 6, "FamilyDependent", Model.Head.FamilyDependent_6)
+                        </td>
+                    </tr>
+
+                    <tr style="border-style:none;">
+                        <td style="border-style:none; padding-right: 0px;">
+                            @setFamilyDdl2(ReadOption, 7, "Relationship_7", Model.Head.Relationship_7, familyItems)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;">
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.RelationshipContentOther_7, familyOtherattr7)</div>
+                        </td>
+                        <td style="border-style:none ; vertical-align:top">
+                            @Html.TextBoxFor(m => m.Head.FamilyAge_7, attrFamilyAge)
+                        </td>
+                        <td style="border-style:none; padding-right: 0px;vertical-align:top;">
+                            @Html.TextBoxFor(m => m.Head.FamilyJob_7, attrFamilyContents)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 7, "FamilyLodger", Model.Head.FamilyLodger_7)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 7, "FamilyDependent", Model.Head.FamilyDependent_7)
+                        </td>
+                    </tr>
+
+                    <tr style="border-style:none;">
+                        <td style="border-style:none; padding-right: 0px;">
+                            @setFamilyDdl2(ReadOption, 8, "Relationship_8", Model.Head.Relationship_8, familyItems)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;">
+                            <div class="h24 form-inline"><label class="w20" style="vertical-align: top;font-weight:normal;">その他</label> @Html.TextBoxFor(m => m.Head.RelationshipContentOther_8, familyOtherattr8)</div>
+                        </td>
+                        <td style="border-style:none ; vertical-align:top">
+                            @Html.TextBoxFor(m => m.Head.FamilyAge_8, attrFamilyAge)
+                        </td>
+                        <td style="border-style:none; padding-right: 0px;vertical-align:top;">
+                            @Html.TextBoxFor(m => m.Head.FamilyJob_8, attrFamilyContents)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 8, "FamilyLodger", Model.Head.FamilyLodger_8)
+                        </td>
+                        <td style="border-style:none ; padding-right: 0px;text-align:center;vertical-align:top;">
+                            @setCheck(ReadOption, 8, "FamilyDependent", Model.Head.FamilyDependent_8)
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 健康状態 -->
+    <div class="row">
+        @*定義*@
+        <script type="text/javascript">
+            $(function () {
+                var selectarea = $("form select.prefecture");
+                var selectward = $("form textarea.select-other");
+                //$(selectward).attr("readonly", "readonly");
+                $(selectarea).change(function () {
+                    var area = $(this).val().substr(0, 1);
+                    if (area == "3") {
+                        $(selectward).removeAttr("readonly");
+                    } else {
+                        $(selectward).attr("readonly", "readonly").val("");
+                    }
+                });
+            });
+        </script>
+
+        @{
+    //入力モード
+    var Healthattr1 = new Dictionary<string, object>() { { "class", "form-control select-other" }, { "maxlength", "20" }, { "readonly", "readonly" } };
+    switch (Model.Head.InputMode) {
+                case SelfDeclareMode.AtoCSelfSign:
+
+            //設定本人・面談者時
+            //計画・方針入力化
+            if (Model.Head.Health.Length > 2) {
+                if (Model.Head.Health.Substring(0, 1) == "3") {
+                    Healthattr1.Remove("readonly");
+                }
+            }
+
+            break;
+        default:
+            //上記以外 ReadOnly
+            break;
+    }
+
+    //健康状態リスト
+    var HealthItems = new SelectListItem[] {
+                    new SelectListItem() { Value="1:良好", Text="1:良好" },
+                    new SelectListItem() { Value="2:普通", Text="2:普通" },
+                    new SelectListItem() { Value="3:不順", Text="3:不順"}
+            };
+
+            @helper setHealthDdl1(bool isRead, string name, string value, SelectListItem[] selItems) {
+                <div class="h24">
+                    @{
+                        var id = string.Format("Head.{0}", name);
+                        if (isRead) {
+                            @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly" })
+                        } else {
+                            @Html.DropDownList(id, new SelectList((IEnumerable<SelectListItem>)selItems, "Value", "Text", value), "", new { @class = "prefecture", style = "width: 60px; vertical-align:top;" })
+                        }
+                    }
+                </div>
+}
+        }
+
+        <div class="col-xs-5">
+            <table class="table table-bordered" vertical-align="top">
+                <thead>
+                    <tr class="info">
+                        <td colspan="2">
+                            健康状態（心身両面）
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td>
+                            状態
+                        </td>
+                        <td>
+                            不順の状態
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="vertical-align:top">
+                            @setHealthDdl1(ReadOption, "Health", Model.Head.Health, HealthItems)
+                        </td>
+                        <td>
+                            @Html.TextAreaFor(m => m.Head.UnHealthContent, Healthattr1)
+                        </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+
+    <h4 style="margin-top:20px;">2 配置換えについて</h4>
+    <!-- 配置換えについて -->
+    <div class="row">
+	    @*定義*@
+        <script type="text/javascript">
+            $(function () {
+                $("form select.Shokumu-select1").change(function () {
+                    if ( $(this).val().substr(0,2) == "ZZ") {
+                        $("form input.Shokumu-other1").removeAttr("readonly");
+                    } else {
+                        $("form input.Shokumu-other1").attr("readonly", "readonly").val("");
+                    }
+                });
+
+                $("form select.Shokumu-select2").change(function () {
+                    if ($(this).val().substr(0, 2) == "ZZ") {
+                        $("form input.Shokumu-other2").removeAttr("readonly");
+                    } else {
+                        $("form input.Shokumu-other2").attr("readonly", "readonly").val("");
+                    }
+                });
+
+                var selectarea2 = $("form select.GyoumuBunrui-select");
+                var selectward2 = $("form textarea.Kinmuchiattr1-other");
+                $(selectarea2).change(function () {
+                    if (document.getElementById("Body_TransferDepartment_2_1").value.substr(0, 1) == "7" || document.getElementById("Body_TransferDepartment_2_2").value.substr(0, 1) == "7" || document.getElementById("Body_TransferDepartment_2_3").value.substr(0, 1) == "7") {
+                        $(selectward2).removeAttr("readonly");
+                    } else {
+                        $(selectward2).attr("readonly", "readonly").val("");
+                    }
+                });
+            });
+        </script>
+	      @{
+    //勤務地一覧表
+            var KinmuchiItems = new SelectListItem[] {
+                    new SelectListItem() { Value="1:本社", Text="1 :本社" },
+                    new SelectListItem() { Value="8:住生活事業本部", Text="8 :住生活事業本部" },
+                    new SelectListItem() { Value="2:東京支社", Text="2 :東京支社" },
+                    new SelectListItem() { Value="3:関東支社", Text="3 :関東支社" },
+                    new SelectListItem() { Value="4:大阪支社", Text="4 :大阪支社" },
+                    new SelectListItem() { Value="5:名古屋支社", Text="5 :名古屋支社" },
+                    new SelectListItem() { Value="6:福岡支社", Text="6 :福岡支社" },
+                    new SelectListItem() { Value="7:出向", Text="7 :出向" },
+            };
+
+            //入力モード
+	        var question1 = new Dictionary<string, object>() { { "class", "form-control" }, { "rows", "4" }, { "maxlength", "500" }, { "readonly", "readonly" } };
+	        switch (Model.Head.InputMode) {
+	                    case SelfDeclareMode.AtoCSelfSign:
+	    
+	                //設定本人・面談者時
+	                //計画・方針入力化
+	                question1.Remove("readonly");
+	                break;
+	            default:
+	                //上記以外 ReadOnly
+	                break;
+	        }
+            var ShokumuOtherattr1 = new Dictionary<string, object>() {  { "class", " form-control Shokumu-other1 " }, { "style", "width:300px;height:16px;" }, { "size", "2" } , { "rows", "1" },{"maxlength","20"} ,{ "readonly", "readonly" } };
+            var ShokumuOtherattr2 = new Dictionary<string, object>() {  { "class", " form-control Shokumu-other2 " }, { "style", "width:300px;height:16px;" }, { "size", "2" } , { "rows", "1" },{"maxlength","20"} ,{ "readonly", "readonly" } };
+            var Kinmuchiattr1 = new Dictionary<string, object>() {  { "class", "form-control Kinmuchiattr1-other" }, { "size", "10" } ,{"maxlength","20"} ,{ "readonly", "readonly" } };
+            switch (Model.Head.InputMode) {
+                        case SelfDeclareMode.AtoCSelfSign:
+        
+                    //設定本人・面談者時
+                    //計画・方針入力化
+
+                    if (Model.Body.TransferDepartment_2_1.Length > 2) {
+                        if ((Model.Body.TransferDepartment_2_1.Substring(0, 1) == "7")) {
+                            Kinmuchiattr1.Remove("readonly");
+                        }
+                    }
+                    if (Model.Body.TransferDepartment_2_2.Length > 2) {
+                        if ((Model.Body.TransferDepartment_2_2.Substring(0, 1) == "7")) {
+                            Kinmuchiattr1.Remove("readonly");
+                        }
+                    }
+                    if (Model.Body.TransferDepartment_2_3.Length > 2) {
+                        if ((Model.Body.TransferDepartment_2_3.Substring(0, 1) == "7")) {
+                            Kinmuchiattr1.Remove("readonly");
+                        }
+                    }
+                    
+                    break;
+                default:
+                    //上記以外 ReadOnly
+                    break;
+            }
+
+            @helper setShokumu1(bool isRead,int cnt, string label, string name, string value, SelectListItem[] selItems) {
+                <div class="h24">
+                    @{
+                        var id = string.Format("Body.{0}", name);
+                        if (isRead) {
+                            <div style="display:flex;">
+                                <label class="w20" style="font-weight:normal;">@label</label> @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly", style = "width: 250px;height:16px; vertical-align:top;" })
+                            </div>
+                        } else {
+                            <label class="w20" style="font-weight:normal;">@label</label> @Html.DropDownList(id,selItems, "", new { @class = "Shokumu-select1" , style = "width: 250px; vertical-align:top;" })
+                        }
+                    }
+                </div>
+            }
+
+            @helper setShokumu2(bool isRead,int cnt, string label, string name, string value, SelectListItem[] selItems) {
+                <div class="h24">
+                    @{
+                        var id = string.Format("Body.{0}", name);
+                        if (isRead) {
+                            <div style="display:flex;">
+                                <label class="w20" style="font-weight:normal;">@label</label> @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly", style = "width: 250px;height:16px; vertical-align:top;" })
+                            </div>
+                        } else {
+                            <label class="w20" style="font-weight:normal;">@label</label> @Html.DropDownList(id,selItems, "", new { @class = "Shokumu-select2" , style = "width: 250px; vertical-align:top;" })
+                        }
+                    }
+                </div>
+            }
+
+            @helper setKinmuchi(bool isRead,int cnt, string label, string name, string value, SelectListItem[] selItems) {
+                <div class="h24">
+                    @{
+                        var id = string.Format("Body.{0}", name);
+                        if (isRead) {
+                            <div style="display:flex;">
+                                <label class="w70" style="font-weight:normal;">@label</label> @Html.TextBox(id, value, new { @class = "form-control", @readonly = "readonly", style = "width: 250px;height:16px; vertical-align:top;" })
+                            </div>
+                        } else {
+                            <label class="w70" style="font-weight:normal;">@label</label> @Html.DropDownList(id,selItems, "", new { @class = "GyoumuBunrui-select" , style = "width: 250px; vertical-align:top;" })
+                        }
+                    }
+                </div>
+            }
+	    }
+        <div class="col-xs-7">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td colspan="2">
+                            (1) 職務変更や配置換え（広域異動含む）について、上司と共有化しておきたい意見、希望などがあれば具体的に記入してください。<br>
+                            　　特に、自分の健康上の問題、育児や家族の介護等、配置換えにおいて配慮してほしい事由がある場合は、配慮してほしい内容を含めて具体的に<br>
+                            　　記入してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border-style:none ;"  colspan="2">
+                            @Html.TextAreaFor(m => m.Body.TransferDepartment_1, question1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td colspan="2">
+                            (2) 配置換え希望の有無に関わらず、次回の配置換えにおいて希望する勤務地３箇所を選択してください。<br>
+                            　　※できるだけ第３順位まで選択すること
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="border-style:none ;">
+                            @setKinmuchi(ReadOption, 1, "希望順位1", "TransferDepartment_2_1", Model.Body.TransferDepartment_2_1, KinmuchiItems)
+                            @setKinmuchi(ReadOption, 2, "希望順位2", "TransferDepartment_2_2", Model.Body.TransferDepartment_2_2, KinmuchiItems)
+                            @setKinmuchi(ReadOption, 3, "希望順位3", "TransferDepartment_2_3", Model.Body.TransferDepartment_2_3, KinmuchiItems)
+                        </td>
+                        <td style="border-style:none ;vertical-align:top">
+                            <label style="font-weight:normal;">出向を選んだ場合に記入してください。</label>
+                        	<div style="margin-top:5px" >
+                                <label style="font-weight:normal;">出向先&nbsp;</label>@Html.TextAreaFor(m => m.Body.TransferDepartment_2_Other, Kinmuchiattr1)
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h4 style="margin-top:20px;">3 担当職務について</h4>
+    <!-- 担当職務について -->
+    <div class="row">
+	    @*定義*@
+	    @{
+	        //入力モード
+	        question1 = new Dictionary<string, object>() { { "class", "form-control" }, { "rows", "4" }, { "maxlength", "500" }, { "readonly", "readonly" } };
+	        switch (Model.Head.InputMode) {
+	                    case SelfDeclareMode.AtoCSelfSign:
+	    
+	                //設定本人・面談者時
+	                //計画・方針入力化
+	                question1.Remove("readonly");
+	                break;
+	            default:
+	                //上記以外 ReadOnly
+	                break;
+	        }
+	    }
+        <div class="col-xs-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td class="col-xs-1">
+                            (1) この１年間、特に重点目標として取り組んできたこと、または上司から重点をおいてやるように指示されたことと<br />
+                            　　その達成度合いを記入してください。なお、目標管理として取り組んだ場合は、その目標テーマを記入してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.TextAreaFor(m => m.Body.ChargeDuty_1, question1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="info">
+                            <td>
+                                (2) この１年間、あなたが遂行した業務に関して、どのような点に苦労したかを記入してください。<br/>
+                                　　（例①:会社の組織・制度等、②:会社以外の者との折衝等、③:部下指導・人間関係等、④:担当職務の質・量と要員等）
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.TextAreaFor(m => m.Body.ChargeDuty_2, question1)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+
+    <h4 style="margin-top:20px;">4 能力開発について</h4>
+    <!-- 能力開発について -->
+    <div class="row">
+	    @*定義*@
+	    @{
+	        //入力モード
+	        question1 = new Dictionary<string, object>() { { "class", "form-control" }, { "rows", "4" }, { "maxlength", "500" }, { "readonly", "readonly" } };
+	        switch (Model.Head.InputMode) {
+	                    case SelfDeclareMode.AtoCSelfSign:
+	    
+	                //設定本人・面談者時
+	                //計画・方針入力化
+	                question1.Remove("readonly");
+	                break;
+	            default:
+	                //上記以外 ReadOnly
+	                break;
+	        }
+	    }
+        <div class="col-xs-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td class="col-xs-1">
+                            　あなたの職務を遂行するにあたり、管理・監督または専門業務に関して、それぞれどのような指導・教育・研修・セミナー<br />
+                            （社内外を問わない。）を希望しますか。理由を含めて記入してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.TextAreaFor(m => m.Body.AptitudeDevelop_1, question1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h4 style="margin-top:20px;">5 その他</h4>
+    <!-- その他 -->
+    <div class="row">
+	    @*定義*@
+	    @{
+	        //入力モード
+	        question1 = new Dictionary<string, object>() { { "class", "form-control" }, { "rows", "4" }, { "maxlength", "500" }, { "readonly", "readonly" } };
+	        switch (Model.Head.InputMode) {
+	                    case SelfDeclareMode.AtoCSelfSign:
+	    
+	                //設定本人・面談者時
+	                //計画・方針入力化
+	                question1.Remove("readonly");
+	                break;
+	            default:
+	                //上記以外 ReadOnly
+	                break;
+	        }
+	    }
+        <div class="col-xs-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td class="col-xs-1">
+                            　今後３年以内に定年退職を迎える人で、退職後の生活設計について、具体的な考えがあれば記入してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.TextAreaFor(m => m.Body.OtherComment, question1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <h4 style="margin-top:20px;">6 自由意見</h4>
+    <!-- 自由意見 -->
+    <div class="row">
+	    @*定義*@
+        @{
+            var Frreattr1 = new Dictionary<string, object>() { { "class", "form-control" }, { "rows", "8" }, { "maxlength", "1000" }, { "readonly", "readonly" } };
+            switch (Model.Head.InputMode) {
+                        case SelfDeclareMode.AtoCSelfSign:
+        
+                    //設定本人・面談者時
+                    //計画・方針入力化
+                    Frreattr1.Remove("readonly");
+                    break;
+                default:
+                    //上記以外 ReadOnly
+                    break;
+            }
+	    }
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td>
+                            次の事項について、率直な意見または希望を記入してください。<br />
+                            ①人事・給与などに関する事項<br />
+                            ②従業員の人事管理上の問題で会社に対して特に要望したい事項<br />
+                            ③今後特に会社として検討を要すると考えている事項（あなたの職務に関係しないことでも結構です。）<br />
+                            ④業務遂行上、あるいは都市機構の職員、協力会社との関係等で気になる事項<br />
+                            ⑤会社に知っておいて欲しい個人情報等
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td >
+                            @Html.TextAreaFor(m => m.Body.FreeComment, Frreattr1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-xs-10">
+        <hr style="margin: 0 -20px;margin-top:20px; border:none;border-top:dashed 1px #B0B0B0;height:1px;color:#FFFFFF;">
+    </div>
+
+    <div class="col-xs-10">
+        <h4>【上司記入欄】</h4>
+    </div>
+    <!-- 上司記入欄 -->
+    <div class="row">
+	    @*定義*@
+        @{
+            var Bossattr1 = new Dictionary<string, object>() { { "class", "form-control" }, { "rows", "8" }, { "maxlength", "1000" }, { "readonly", "readonly" } };
+            switch (Model.Head.InputMode) {
+                case SelfDeclareMode.AtoCBossSign:
+        
+                    //設定本人・面談者時
+                    //計画・方針入力化
+                    Bossattr1.Remove("readonly");
+                    break;
+                default:
+                    //上記以外 ReadOnly
+                    break;
+            }
+	    }
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="info">
+                        <td>
+                            自己申告書記入者が５級の場合のみ、上司が育成面談においてアドバイスしたことについて記入してください。
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td >
+                            @Html.TextAreaFor(m => m.Body.BossComment, Bossattr1)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    @*隠しボタンエリア*@
+    <div style="height:0px;">
+        <button type="submit" name="Save" id="savebutton" value="保存" class="btn invisible">保存</button>
+        <button type="submit" name="PrevDataCopy" id="prevdatacopybutton" value="前回データ取得" class="btn invisible">前回データ取得</button>
+        <button type="submit" name="Save2Print" id="save2printbutton" value="保存PDF出力" class="btn invisible">保存PDF出力</button>
+
+        <button type="submit" name="Signature" id="11" value="1,1" class="btn invisible">本人</button>
+        <button type="submit" name="Signature" id="12" value="1,2" class="btn invisible">上司</button>
+        <button type="submit" name="SignCancel" id="c11" value="1,1" class="btn invisible">本人</button>
+        <button type="submit" name="SignCancel" id="c12" value="1,2" class="btn invisible">上司</button>
+    </div>
+
+    @Scripts.Render("~/Scripts/js/selfdec")
+
+}

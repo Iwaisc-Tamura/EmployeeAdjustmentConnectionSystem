@@ -1,0 +1,379 @@
+﻿@using EmployeeAdjustmentConnectionSystem.COM.Entity.Session
+@using EmployeeAdjustmentConnectionSystem.COM.Models
+@model TopViewModel
+@{
+    ViewBag.Title = "社員等WEB年末調整申告システム";
+}
+
+@*2023-11-20 iwai-tamura test-str ------*@
+@Styles.Render("~/Content/css/top")
+@*2023-11-20 iwai-tamura test-end ------*@
+
+@*2023-12-15 iwai-tamura add str -----*@
+<input data-val="true" data-val-required="" id="ServerStatus" name="ServerStatus" type="hidden" value="@(ViewBag.ServerStatus)" />
+@*2023-12-15 iwai-tamura add end -----*@
+
+
+
+
+<!--お知らせ-->
+<div class="col-xs-12 top10">
+  <div class="well-ex">
+    <div class="well-ex-header">
+      <h4>お知らせ</h4>
+    </div>
+    @*2025-11-18 iwai-tamura upd-str ------*@
+    <div class="well-ex-content min-ht-50" style =" font-size: 12px;color:red;">@Html.Raw(Html.Encode(Html.DisplayFor(m => m.Announcement)).Replace("\n", "<br />"))</div>
+    @*<div class="well-ex-content min-ht-200" style =" font-size: 12px;color:red;">@Html.Raw(Html.Encode(Html.DisplayFor(m => m.Announcement)).Replace("\n", "<br />"))</div>*@
+    @*2025-11-18 iwai-tamura upd-end ------*@
+  </div>
+</div>
+
+<!--メニューボタン-->
+@using(Html.BeginForm("Link", "Top", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" })) {
+
+    @*2025-11-18 iwai-tamura upd-str ------*@
+    @Html.HiddenFor(m => m.HuyouAttachmentFilePath)
+    @*99-99 iwai-tamura add-str ------*@
+    @Html.HiddenFor(m => m.ZenshokuAttachmentFilePath)
+    @*99-99 iwai-tamura add-end ------*@
+
+    //年度
+    @*2025-12-19 iwai-tamura upd-str ------*@
+    int currentYear = ((LoginUser)Session["LoginUser"]).IsYear;           // 今日の年（2025なら2025）
+    int startYear = 2023;                 // 2年前から（例: 2023）
+    int endYear = currentYear - 1;                       // 去年まで
+
+    var yearItems = new List<SelectListItem>();
+    for (int y = startYear; y <= endYear; y++) {
+        yearItems.Add(new SelectListItem {
+            Value = y.ToString(),
+            Text = y.ToString(),   // 必要なら「年度」付け
+            Selected = (y == currentYear)   // 今年をデフォルト選択（任意）
+        });
+    }
+    //var yearItems = new SelectListItem[] {
+    //    new SelectListItem() { Value="2023", Text="2023" }
+    //    ,new SelectListItem() { Value="2024", Text="2024" }
+    //};
+    @*2025-12-19 iwai-tamura upd-end ------*@
+    
+    //対象帳票
+    var reportTypeItems = new SelectListItem[] {
+         new SelectListItem() { Value="Huyou", Text="扶養控除等申告書" }
+        ,new SelectListItem() { Value="Hoken", Text="保険料控除申告書" }
+        ,new SelectListItem() { Value="Haiguu", Text="基礎控除申告書" }
+    };
+    @*2025-11-18 iwai-tamura upd-end ------*@
+
+    <div class="col-xs-6" style="margin-left: 25%;margin-top:10pt">
+
+        @*2024-11-19 iwai-tamura upd-str ------*@
+        @*2025-11-18 iwai-tamura upd-str ------*@
+        @if (((LoginUser)Session["LoginUser"]).IsAdminNo == "K" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "1" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "7" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "8" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "9"){
+            <div class="row form-inline">
+                <label style="font-size:14px;vertical-align: middle;">　[管理者用]　代理社員番号：</label><input class="form-control" type="text" name="specifyEmployeeNo" /><br /><br />
+            </div>
+        }
+        @*@if (((LoginUser)Session["LoginUser"]).IsRoot) {
+            <div class="row form-inline">
+                <label style="font-size:14px;vertical-align: middle;">　[管理者用]　代理社員番号：</label><input class="form-control" type="text" name="specifyEmployeeNo" /><br /><br />
+            </div>
+        }*@
+        @*2025-11-18 iwai-tamura upd-end ------*@
+        @*2023-11-20 iwai-tamura upd-str ------*@
+        @*@if (((LoginUser)Session["LoginUser"]).IsRoot) {
+            <div class="row form-inline">
+                <label style="font-size:14px;vertical-align: middle;">　[管理者用]　指定社員番号：</label><input class="form-control" type="text" name="specifyEmployeeNo" /><br /><br />
+            </div>
+        }*@
+        @*2023-11-20 iwai-tamura upd-end ------*@
+        @*2024-11-19 iwai-tamura upd-end ------*@
+
+	    <div class="well-ex-header"  style="background-color: #DEF5E5;">
+            @*2023-11-20 iwai-tamura upd-str ------*@
+	        <h4 align="center" style="font-weight: bold;">入力処理</h4>
+	        @*<h4 align="center">社員等WEB年末調整申告システム</h4>*@
+            @*2023-11-20 iwai-tamura upd-end ------*@
+	    </div>
+        <div class="well-ex-content" style="border-color: #DEF5E5; padding-bottom: 20px; ">
+            @*2023-11-20 iwai-tamura upd-str ------*@
+            @*扶養控除等申告書*@
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-2 top10 col_btn_register">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="HuyouDeclareRegister">扶養控除等申告書</button>
+                </div>
+                <div class="col-xs-2 top10 col_btn_pdf">
+                    <button class="btn-default btn-lg btn-block btn_pdf" name="PrintHuyou" value="HuyouDeclareReport">PDF出力</button>
+                </div>
+                @*2025-11-18 iwai-tamura upd-str ------*@
+                @*2025-12-19 iwai-matsuo upd-str ------*@
+                @if (((LoginUser)Session["LoginUser"]).IsServerStatus != "4" && ((LoginUser)Session["LoginUser"]).IsServerStatus != "9")
+                {
+                    <div class="col-xs-2 top10 col-icon-upload">
+                        <button type="button" id="openHuyouAttachmentFileModalButton" class="btn-default btn-lg btn-block btn-icon">
+                            <img src="~/Content/img/Attachment.png" alt="" />
+                        </button>
+                    </div>
+                }
+                @*<div class="col-xs-2 top10 col-icon-upload">
+                    <button type="button" id="openHuyouAttachmentFileModalButton" class="btn-default btn-lg btn-block btn-icon">
+                        <img src="~/Content/img/Attachment.png" alt="" />
+                    </button>
+                </div>*@
+                @*2025-12-19 iwai-matsuo upd-end ------*@
+                <!-- オーバーレイ -->
+                <div id="huyouAttachmentFileModal-overlay" class="attachment-file-modal-overlay attachment-file-modal-overlay-huyou"></div>
+
+                <!-- モーダルコンテンツ -->
+                <div class="modal-content-huyo attachment-file-modal attachment-file-modal-huyou" id="huyouAttachmentFileModal">
+                    <h2 class= "h2">【扶養控除等申告書】アップロードファイル（PDF）選択</h2>
+                    @if (string.IsNullOrEmpty(Model.HuyouAttachmentFilePath)){
+                        //添付ファイル無し
+                        <div class="upload-row">
+                            @if (Model.HuyouDecisionType!="0") {
+                                //支社以上確定済みの為、変更不可
+                                <span>添付しているファイルはありません。</span>
+                            } else {
+                                //支社以上未確定の為、変更可
+                                @Html.TextBoxFor(m => m.HuyouAttachmentUploadFile, new { @type = "file", accept = "application/pdf" })
+                                <div>
+                                    @*2025-11-18 iwai-matsuo upd-str ------*@
+                                    <button type="button" name="DmyHuyouAttachmentFileUpload" value="DoHuyouAttachmentFileUpload" class="modal-content-huyo-btn-Upload top10" id="DmyHuyouAttachmentFileUpload">アップロード</button>
+                                    @*<button type="button" name="DmyHuyouAttachmentFileUpload" value="DoHuyouAttachmentFileUpload" class="btn-default top10" id="DmyHuyouAttachmentFileUpload">アップロード</button>*@
+                                    @*2025-11-18 iwai-matsuo upd-end ------*@
+                                </div>
+                            }
+                        </div>
+
+                    }else{
+                        //添付ファイル有り
+                        <div class="upload-row">
+                            @if (Model.HuyouDecisionType!="0") {
+                                //支社以上確定済みの為、変更不可
+                                <span>@Model.HuyouAttachmentFilePath</span>
+                                <div>
+                                    <button type="button" name="DmyHuyouAttachmentFileDownload" value="DoHuyouAttachmentFileDownload" class="btn-default top10" id="DmyHuyouAttachmentFileDownload">ダウンロード</button>
+                                </div>
+                            } else {
+                                //支社以上未確定の為、変更可
+                                <span>@Model.HuyouAttachmentFilePath</span>
+                                <div>
+                                    <button type="button" name="DmyHuyouAttachmentFileDownload" value="DoHuyouAttachmentFileDownload" class="btn-default top10" id="DmyHuyouAttachmentFileDownload">ダウンロード</button>
+                                    <button type="button" name="DmyHuyouAttachmentFileDelete" value="DoHuyouAttachmentFileDelete" class="btn-default top10" id="DmyHuyouAttachmentFileDelete">削除</button>
+                                </div>
+                            }
+                        </div>
+                    }
+                    <button  type="button" class="btn-close pull-right" id="closeHuyouAttachmentFileModalButton">キャンセル</button>
+                </div>
+                @*2025-11-18 iwai-tamura upd-end ------*@
+
+            </div>
+
+            @*保険料控除申告書*@
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-2 top10 col_btn_register">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="HokenDeclareRegister">保険料控除申告書</button>
+                </div>
+                <div class="col-xs-2 top10 col_btn_pdf">
+                    <button class="btn-default btn-lg btn-block btn_pdf" name="PrintHoken" value="HokenDeclareReport">PDF出力</button>
+                </div>
+            </div>
+
+            @*基礎控除申告書*@
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-2 top10 col_btn_register">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="HaiguuDeclareRegister">基礎控除申告書</button>
+                </div>
+                <div class="col-xs-2 top10 col_btn_pdf">
+                    <button class="btn-default btn-lg btn-block btn_pdf" name="PrintHaiguu" value="HaiguuDeclareReport">PDF出力</button>
+                </div>
+            </div>
+            @*<div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="HuyouDeclareRegister">扶養控除等申告書</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="HokenDeclareRegister">保険料控除申告書</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="HaiguuDeclareRegister">基礎控除申告書</button>
+                </div>
+            </div>*@
+            @*2023-11-20 iwai-tamura upd-end ------*@
+            @*2025-12-19 iwai-matsuo upd-str ------*@
+            @*住宅借入金等*@
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10 ">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="JutakuDeclareRegister">住宅借入金等特別控除申告書</button>
+                </div>
+            </div>
+            @*前職源泉*@
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10 ">
+                    <button class="btn-default btn-lg btn-block" name="Transition" value="ZenshokuDeclareRegister">前職源泉徴収票</button>
+                </div>
+
+                @*2026-11-19 iwai-tamura add-str ------*@
+                @if (((LoginUser)Session["LoginUser"]).IsServerStatus != "4" && ((LoginUser)Session["LoginUser"]).IsServerStatus != "9")
+                {
+                    <div class="col-xs-2 top10 col-icon-upload">
+                        <button type="button" id="openZenshokuAttachmentFileModalButton" class="btn-default btn-lg btn-block btn-icon">
+                            <img src="~/Content/img/Attachment.png" alt="" />
+                        </button>
+                    </div>
+                }
+
+                <div id="zenshokuAttachmentFileModal-overlay" class="attachment-file-modal-overlay attachment-file-modal-overlay-zenshoku"></div>
+
+                <div class="modal-content-huyo attachment-file-modal attachment-file-modal-zenshoku" id="zenshokuAttachmentFileModal">
+                    <h2 class="h2">【前職源泉徴収票】アップロードファイル（PDF）選択</h2>
+                    @if (string.IsNullOrEmpty(Model.ZenshokuAttachmentFilePath))
+                    {
+                        <div class="upload-row">
+                            @if (Model.ZenshokuDecisionType != "0")
+                            {
+                                <span>添付しているファイルはありません。</span>
+                            }
+                            else
+                            {
+                                @Html.TextBoxFor(m => m.ZenshokuAttachmentUploadFile, new { @type = "file", accept = "application/pdf" })
+                                <div>
+                                    <button type="button" name="DmyZenshokuAttachmentFileUpload" value="DoZenshokuAttachmentFileUpload" class="modal-content-huyo-btn-Upload top10" id="DmyZenshokuAttachmentFileUpload">アップロード</button>
+                                </div>
+                            }
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="upload-row">
+                            @if (Model.ZenshokuDecisionType != "0")
+                            {
+                                <span>@Model.ZenshokuAttachmentFilePath</span>
+                                <div>
+                                    <button type="button" name="DmyZenshokuAttachmentFileDownload" value="DoZenshokuAttachmentFileDownload" class="btn-default top10" id="DmyZenshokuAttachmentFileDownload">ダウンロード</button>
+                                </div>
+                            }
+                            else
+                            {
+                                <span>@Model.ZenshokuAttachmentFilePath</span>
+                                <div>
+                                    <button type="button" name="DmyZenshokuAttachmentFileDownload" value="DoZenshokuAttachmentFileDownload" class="btn-default top10" id="DmyZenshokuAttachmentFileDownload">ダウンロード</button>
+                                    <button type="button" name="DmyZenshokuAttachmentFileDelete" value="DoZenshokuAttachmentFileDelete" class="btn-default top10" id="DmyZenshokuAttachmentFileDelete">削除</button>
+                                </div>
+                            }
+                        </div>
+                    }
+                    <button type="button" class="btn-close pull-right" id="closeZenshokuAttachmentFileModalButton">キャンセル</button>
+                </div>
+                @*2026-11-19 iwai-tamura add-end ------*@
+            </div>
+            @*2025-11-18 iwai-tamura add-str ------*@
+            @*2025年度は初年度の為管理者専用メニュー*@
+            @*@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0" && ViewBag.ServerStatus != "3") {
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2 top10 ">
+                        <button class="btn-default btn-lg btn-block" name="Transition" value="JutakuDeclareRegister">住宅借入金等特別控除申告書</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2 top10 ">
+                        <button class="btn-default btn-lg btn-block" name="Transition" value="ZenshokuDeclareRegister">前職源泉徴収票</button>
+                    </div>
+                </div>
+            }*@
+            @*2025-11-18 iwai-tamura add-end ------*@
+            @*2025-12-19 iwai-matsuo upd-end ------*@
+        </div>
+
+        @*2025-11-18 iwai-tamura upd-str ------*@
+        <div class="well-ex-header header-kako-export">
+            <h4 class= "header-kako-export-h4">過去分出力処理</h4>
+        </div> 
+        <div class="well-ex-content content-kako-export">
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2 top10 form-inline">
+                    @Html.DropDownListFor(
+                        model => model.HistoryYear,yearItems, "", new { @class = "form-control list-history-year", title = "出力したい年度を選択してください。" })
+                    <span class="txt-history-year">年度分</span>
+                    @Html.DropDownListFor(
+                        model => model.HistoryPrintType,reportTypeItems, "", new { @class = "form-control list-report-type", title = "出力したい帳票を選択してください。" })
+                    <button type="button" class="btn-default btn-lg btn-history-print" name="DmyPrintHistory" value="HistoryPrint" id="DmyPrintHistory">PDF出力</button>
+                </div>
+            </div>
+        </div>
+        @*2025-11-18 iwai-tamura upd-end ------*@
+
+
+        @*2023-11-20 iwai-tamura add-str ------*@
+        @*2023-12-15 iwai-tamura upd-str ------*@
+        @*2026-01-29 iwai-tamura upd-str ------*@
+		@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0" ) {
+		@*@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0" && ViewBag.ServerStatus != "3") {*@
+		@*@if(((LoginUser)Session["LoginUser"]).IsAdminNo != "0") {*@
+        @*2026-01-29 iwai-tamura upd-end ------*@
+        @*2023-12-15 iwai-tamura upd-end ------*@
+	        <div class="well-ex-header"  style="background-color: #0094ffb6; margin-top: 10pt;">
+	            <h4 align="center" style="font-weight: bold;">管理者メニュー</h4>
+	        </div>
+            <div class="well-ex-content" style="border-color: #DEF5E5; padding-bottom: 20px; ">
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2 top10">
+                        <button class="btn-default btn-lg btn-block" name="ManagementTransition" value="YearEndAdjustmentSearch">一括処理関連</button>
+                    </div>
+                </div>
+
+                @*2024-11-19 iwai-tamura upd-str ------*@
+                @if (((LoginUser)Session["LoginUser"]).IsRoot) {
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2 top10">
+                            <button  type="button" class="btn-default btn-lg btn-block" name="openCodeInputModalButton" id="openCodeInputModalButton">コード読取</button>
+                        </div>
+                    </div>
+                }
+                <!-- オーバーレイ -->
+                <div id="modal-overlay"></div>
+
+                <!-- モーダルコンテンツ -->
+                <div class="modal-content" id="barcodeModal">
+                    <h2>バーコードスキャン</h2>
+                    <p id="status">スキャン待機中...</p>
+                    <input type="text" id="barcodeInput" style="position:absolute;left:-9999px;" inputmode="latin" lang="en" placeholder="スキャン結果" autofocus>
+                    <button class="btn-default btn-lg btn-block btn_pdf" name="BarCodeTransition" value="HaiguuDeclareReport" style="display: none;"></button>
+                    <button  type="button" class="btn-close" id="closeModalButton">キャンセル</button>
+                </div>
+                @*2024-11-19 iwai-tamura upd-end ------*@
+            </div>
+
+		}
+        @*2023-11-20 iwai-tamura add-end ------*@
+    </div>
+
+
+    @*隠しボタンエリア*@
+    <div style="height:0px;">
+        <button type="submit" name="Transition" id="loginbutton" value="Login" class="btn invisible">ログアウト</button>
+        @*2025-11-18 iwai-tamura upd-str ------*@
+        <button type="submit" name="HuyouAttachmentFileUpload" value="HuyouAttachmentFileUpload" class="btn  btn-primary pull-right top10" id="HuyouAttachmentFileUpload" style="visibility:hidden;">アップロード</button>
+        <button type="submit" name="HuyouAttachmentFileDownload" value="HuyouAttachmentFileDownload" class="btn  btn-primary pull-right top10" id="HuyouAttachmentFileDownload" style="visibility:hidden;">ダウンロード</button>
+        <button type="submit" name="HuyouAttachmentFileDelete" value="HuyouAttachmentFileDelete" class="btn  btn-primary pull-right top10" id="HuyouAttachmentFileDelete" style="visibility:hidden;">削除</button>
+        @*2026-11-19 iwai-tamura add-str ------*@
+        <button type="submit" name="ZenshokuAttachmentFileUpload" value="ZenshokuAttachmentFileUpload" class="btn  btn-primary pull-right top10" id="ZenshokuAttachmentFileUpload" style="visibility:hidden;">アップロード</button>
+        <button type="submit" name="ZenshokuAttachmentFileDownload" value="ZenshokuAttachmentFileDownload" class="btn  btn-primary pull-right top10" id="ZenshokuAttachmentFileDownload" style="visibility:hidden;">ダウンロード</button>
+        <button type="submit" name="ZenshokuAttachmentFileDelete" value="ZenshokuAttachmentFileDelete" class="btn  btn-primary pull-right top10" id="ZenshokuAttachmentFileDelete" style="visibility:hidden;">削除</button>
+        @*2026-11-19 iwai-tamura add-end ------*@
+        <button type="submit" name="PrintHistory" value="HistoryPrint" class="btn  btn-primary pull-right top10" id="PrintHistory" style="visibility:hidden;">PDF出力</button>
+        @*2025-11-18 iwai-tamura upd-end ------*@
+    </div>
+
+  @Scripts.Render("~/Scripts/js/top")
+
+}

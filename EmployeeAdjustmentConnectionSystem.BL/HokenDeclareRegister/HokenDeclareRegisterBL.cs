@@ -520,32 +520,50 @@ namespace EmployeeAdjustmentConnectionSystem.BL.HokenDeclareRegister {
 							break;
 
 						case "1":
-							sql += " AND (";
-							sql += "   (社員番号 = '" + userCode + "' )";
-							sql += "   Or( LEFT(所属番号,1) in('1','2','3'))" ;
+                            //2026-11-19 iwai-miki upd str ------
+                            sql += " AND (";
+							sql += "   (T保険料.社員番号 = '" + userCode + "' )";
+							sql += "   Or( LEFT(T保険料.所属番号,1) in('1','2','3'))";
 							sql += " )";
 							break;
-
-						case "2":
+                            //sql += " AND (";
+                            //sql += "   (社員番号 = '" + userCode + "' )";
+                            //sql += "   Or( LEFT(所属番号,1) in('1','2','3'))";
+                            //sql += " )";
+                            //break;
+							//2026-11-19 iwai-miki upd end ------
+                        case "2":
 						case "3":
 						case "7":
 						case "8":
 						case "9":
-							sql += " AND (";
-							sql += "   (社員番号 = '" + userCode + "' )";
-							sql += "   Or( LEFT(所属番号,1) = '" + userAdminNo +"')" ;
-							sql += " )";
-								break;
-
+                            //2026-11-19 iwai-miki upd str ------
+                            sql += " AND (";
+                            sql += "   (T保険料.社員番号 = '" + userCode + "' )";
+                            sql += "   Or( LEFT(T保険料.所属番号,1) = '" + userAdminNo + "')";
+                            sql += " )";
+                            break;
+                            //sql += " AND (";
+							//sql += "   (社員番号 = '" + userCode + "' )";
+							//sql += "   Or( LEFT(所属番号,1) = '" + userAdminNo +"')" ;
+							//sql += " )";
+							//break;
+							//2026-11-19 iwai-miki upd end ------
 						default:
-							sql += " AND (";
-							sql += "   (社員番号 = '" + userCode + "' )";
-							sql += " )";
-							break;
-					}
-					//2025-12-19 iwai-tamura upd end ------
+                            //2026-11-19 iwai-miki upd str ------
+                            sql += " AND (";
+                            sql += "   (T保険料.社員番号 = '" + userCode + "' )";
+                            sql += " )";
+                            break;
+                            //sql += " AND (";
+                            //sql += "   (社員番号 = '" + userCode + "' )";
+                            //sql += " )";
+                            //break;
+                            //2026-11-19 iwai-miki upd end ------
+                    }
+                    //2025-12-19 iwai-tamura upd end ------
 
-                    using(IDbCommand cmd = dm.CreateCommand(sql))
+                    using (IDbCommand cmd = dm.CreateCommand(sql))
                     using(DataSet ds = new DataSet()) {
                         DbHelper.AddDbParameter(cmd, "@SheetYear", DbType.Int32);
                         DbHelper.AddDbParameter(cmd, "@EmployeeNo", DbType.String);

@@ -1,0 +1,242 @@
+﻿
+.search-year {
+    padding: 2px 6px;
+    font-size: 12px;
+    width: 40px;
+    border: 1px solid; /* 同じ1pxの境界線、ただし色を指定して明確にする */
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.2s;
+    box-sizing: border-box; /* パディングとボーダーが全体の幅に影響しないようにする */
+}
+
+.search-range {
+    padding: 2px 6px;
+    font-size: 12px;
+    width: 60px;
+    border: 1px solid; /* 同じ1pxの境界線、ただし色を指定して明確にする */
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.2s;
+    box-sizing: border-box; /* パディングとボーダーが全体の幅に影響しないようにする */
+}
+
+.search-name {
+    padding: 2px 6px;
+    font-size: 12px;
+    width: 120px;
+    border: 1px solid; /* 同じ1pxの境界線、ただし色を指定して明確にする */
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.2s;
+    box-sizing: border-box; /* パディングとボーダーが全体の幅に影響しないようにする */
+}
+
+.search-status {
+    padding: 6px 2px;
+    font-size: 10px;
+    width: 120px;
+    border: 1px solid;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.2s;
+}
+
+.btn-info {
+    background: #7030A0;
+    border-color: #7030A0;
+}
+
+    .btn-info:hover {
+        background: #C47AFF;
+        border-color: #8D72E1;
+    }
+button.btn-search {
+    /*border-radius: 20px;*/
+    padding: 3px 3px;
+    height: 30px;
+    width: 80px;
+    background: #F2F2F2;
+    border: 3px solid #B0B0B0;
+    color: #555;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-search:hover {
+    background: #E0E0E0;
+}
+
+button.btn-batch {
+    margin:7px 3px;
+    padding: 0px 3px;
+    height: 20px;
+    width: 80px;
+    background: #F2F2F2;
+    border: 3px solid #B0B0B0;
+    color: #555;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-batch:hover {
+    background: #E0E0E0;
+}
+
+/*2025-11-18 iwai-tamura add-str ------*/
+/* アップロードアイコン */
+.col-icon-upload {
+    padding-left: 0 !important;
+    margin-left: -0px; /* PDFボタンとの隙間を微調整（お好みで） */
+}
+/* 透明ボタン化 */
+.btn-icon {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    padding: 3px 0 0 0;
+}
+/* マウスオーバー時の変化削除 */
+.btn-icon:hover,
+.btn-icon:focus,
+.btn-icon:active {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.btn-icon img {
+    height: 15px;
+    opacity: 0.6;
+}
+
+.btn-icon:hover img {
+    opacity: 1;
+}
+/*2025-11-18 iwai-tamura add-end ------*/
+
+/*2025-11-28 iwai-matsuo add-str ------*/
+.g-perform-group {
+    display: grid;
+    column-gap: 1px;
+    row-gap: 1px;
+    grid-template-columns: 110px 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(4,1fr);
+    align-items: center;
+    width: 565px;
+    height: 150px;
+    white-space: nowrap;
+}
+
+    .g-r1 {
+        grid-row: 1/2;
+    }
+
+    .g-r2 {
+        grid-row: 2/3;
+    }
+
+    .g-r3 {
+        grid-row: 3/4;
+    }
+
+    .g-r4 {
+        grid-row: 4/5;
+    }
+
+    .g-c1 {
+        grid-column: 1/2;
+    }
+
+    .g-c2 {
+        grid-column: 2/3;
+    }
+
+    .g-c3 {
+        grid-column: 3/4;
+    }
+
+    .g-c4 {
+        grid-column: 4/5;
+    }
+
+    .g-c5 {
+        grid-column: 5/6;
+    }
+
+    .g-c6 {
+        grid-column: 6/7;
+    }
+
+    .g-lbl-right {
+        justify-self: end;
+    }
+
+    .g-btn-center {
+        justify-self: center;
+    }
+/*2025-11-28 iwai-matsuo add-end ------*/
+
+
+
+
+
+/*目標管理検索用カラム幅*/
+.tblscroll td,
+.tblscroll th {
+    width: 35px;
+}
+/*年度*/
+.tblscroll td + td,
+.tblscroll th + th {
+  width: 50px;
+}
+
+/*社員番号、所属番号*/
+.tblscroll td + td + td,
+.tblscroll th + th + th,
+.tblscroll td + td + td + td + td + td,
+.tblscroll th + th + th + th + th + th {
+  width: 60px;
+}
+/*氏名*/
+.tblscroll td + td + td + td,
+.tblscroll th + th + th + th
+{
+  width: 160px;
+}
+/*カナ氏名*/
+.tblscroll td + td + td + td + td,
+.tblscroll th + th + th + th + th {
+  width: 150px;
+}
+/*承認×2、*/
+.tblscroll td + td + td + td + td + td + td,
+.tblscroll th + th + th + th + th + th + th,
+.tblscroll td + td + td + td + td + td + td + td,
+.tblscroll th + th + th + th + th + th + th + th {
+  width: 120px;
+}
+
+/*表示、PDF*/
+.tblscroll td + td + td + td + td + td + td + td + td,
+.tblscroll th + th + th + th + th + th + th + th + th,
+.tblscroll td + td + td + td + td + td + td + td + td + td,
+.tblscroll th + th + th + th + th + th + th + th + th + th,
+.tblscroll td + td + td + td + td + td + td + td + td + td + td,
+.tblscroll th + th + th + th + th + th + th + th + th + th + th
+{
+  width: 60px;
+}
+
+/*表示、PDF*/
+.tblscroll td + td + td + td + td + td + td + td + td + td + td + td,
+.tblscroll th + th + th + th + th + th + th + th + th + th + th + th,
+.tblscroll td + td + td + td + td + td + td + td + td + td + td + td + td,
+.tblscroll th + th + th + th + th + th + th + th + th + th + th + th + th
+{
+  width: 63px;
+}
