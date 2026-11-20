@@ -1,0 +1,759 @@
+﻿﻿@using EmployeeAdjustmentConnectionSystem.COM.Entity.Session
+
+@using EmployeeAdjustmentConnectionSystem.COM.Models
+@model YearEndAdjustmentSearchViewModels
+
+@{
+    ViewBag.Title = "一括処理関連";
+}
+@Styles.Render("~/Content/css/yearends")
+
+@*2023-12-15 iwai-tamura add str -----*@
+<input data-val="true" data-val-required="" id="ServerStatus" name="ServerStatus" type="hidden" value="@(ViewBag.ServerStatus)" />
+@*2023-12-15 iwai-tamura add end -----*@
+
+<!--タイトル-->
+<h4 class="text-center">一　括　処　理　関　連</h4>
+@using (Html.BeginForm("Search", "YearEndAdjustmentSearch", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" })) {
+  <!--検索項目-->
+    @Html.HiddenFor(m => m.Down.DownloadFlag)
+    @*2025-03-21 iwai-tamura add str -----*@
+    @Html.HiddenFor(m => m.Search.CurrentYear)
+    @*2025-03-21 iwai-tamura add end -----*@
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        @*2025-11-18 iwai-tamura upd-str ------*@
+        <div class="col-xs-12">
+@*        <div class="col-xs-offset-1 col-xs-10">*@
+        @*2025-11-18 iwai-tamura upd-end ------*@
+
+            <table class="table table-no-bordered mb-zero">
+                <tbody>
+                    <tr>
+                        <td class="w30">
+                            <label class="control-label ">西暦</label>
+                            <div>
+                                @*2023-12-15 iwai-tamura upd str -----*@
+                                @*2025-03-21 iwai-tamura upd str -----*@
+                                @Html.TextBoxFor(m => m.Search.Year, new { @class = "ime-disabled search-year", size = 4, maxlength = "4" })<label>年度</label>
+@*                              @Html.TextBoxFor(m => m.Search.Year, new { @class = "ime-disabled search-year", size = 4, maxlength = "4", @readonly = "readonly" })<label>年度</label>*@
+                                @*2025-03-21 iwai-tamura upd end -----*@
+                                @*@Html.TextBoxFor(m => m.Search.Year, new { @class = "ime-disabled search-year", size = 4, maxlength = "4" })<label>年度</label>*@
+                                @*2023-12-15 iwai-tamura upd end -----*@
+                            </div>
+                        </td>
+                        <td class="w50">
+                            <label class="control-label ">社員番号</label>
+                            <div class=" form-inline">
+                                @Html.TextBoxFor(m => m.Search.EmployeeNoFrom, new { @class = "ime-disabled search-range ", size = 5, maxlength = "5" })<label>　～　</label>
+                                @Html.TextBoxFor(m => m.Search.EmployeeNoTo, new { @class = "ime-disabled search-range ", size = 5, maxlength = "5" })
+                            </div>
+                        </td>
+                        <td class="w50">
+                            <label class="control-label ">所属番号</label>
+                            <div class=" form-inline">
+                                @Html.TextBoxFor(m => m.Search.DepartmentFrom, new { @class = "ime-disabled search-range ", size = 5, maxlength = "5" })<label>　～　</label>
+                                @Html.TextBoxFor(m => m.Search.DepartmentTo, new { @class = "ime-disabled search-range ", size = 5, maxlength = "5" })
+                            </div>
+                        </td>
+
+                        @*2025-11-18 iwai-tamura upd-str ------*@
+                        <td class="w40">
+                            <div>
+                                <label class="control-label ">氏名</label>
+                                <div>
+                                    @Html.TextBoxFor(m => m.Search.EmployeeName, new { @class = "search-name", size = 20 })
+                                </div>
+                            </div>
+                        </td>
+                        <td class="w40">
+                            <div>
+                                <label class="control-label ">氏名ｶﾅ</label>
+                                <div>
+                                    @Html.TextBoxFor(m => m.Search.EmployeeNameKana, new { @class = "search-name checkKana", size = 20 })
+                                </div>
+                            </div>
+                        </td>
+                        <td class="w70">
+                        </td>
+                        @*<td class="w150">
+                        </td>*@
+                        @*2025-11-18 iwai-tamura upd-end ------*@
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        @*2025-11-18 iwai-tamura upd-str ------*@
+        <div class="col-xs-10">
+@*        <div class="col-xs-offset-1 col-xs-8">*@
+        @*2025-11-18 iwai-tamura upd-end ------*@
+            <table class="table table-no-bordered mb-zero">
+                <tbody>
+                    <tr>
+                        @*2025-11-18 iwai-tamura upd-str ------*@
+                        @*<td>
+                            <div>
+                                <label class="control-label ">氏名</label>
+                                <div>
+                                    @Html.TextBoxFor(m => m.Search.EmployeeName, new { @class = "search-name", size = 20 })
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="control-label ">氏名ｶﾅ</label>
+                                <div>
+                                    @Html.TextBoxFor(m => m.Search.EmployeeNameKana, new { @class = "search-name checkKana", size = 20 })
+                                </div>
+                            </div>
+                        </td>*@
+                        @*2025-11-18 iwai-tamura upd-end ------*@
+
+                        <td>
+                            <div>
+                                <label class="control-label ">扶養控除ステータス</label>
+                                <div>
+                                  @Html.DropDownListFor(
+                                      model => model.Search.HuyouDeclareStatus,
+                                      new SelectListItem[] {
+                                          new SelectListItem() { Value="00", Text="本人未提出" },
+                                          new SelectListItem() { Value="90", Text="本人提出済み" },
+                                          new SelectListItem() { Value="91", Text="支社確定済み" },
+                                          new SelectListItem() { Value="95", Text="管理者確定済み" },
+	                                      //2023-12-15 iwai-tamura upd str -----
+                                          new SelectListItem() { Value="97", Text="システム連携済み" },
+                                          new SelectListItem() { Value="98", Text="システム連携後修正" },
+                                          new SelectListItem() { Value="99", Text="確定済み" }
+                                          //new SelectListItem() { Value="99", Text="システム連携済み" }
+	                                      //2023-12-15 iwai-tamura upd end -----
+                                      }, "", new Dictionary<string, object> {{ "class","search-status"}, { "data-width", "50px" }, { "title", "" } }
+)
+                                </div>
+                            </div>
+                        </td>
+
+                        @*2023-12-15 iwai-tamura upd-str ------*@
+                        @if(((LoginUser)Session["LoginUser"]).IsServerStatus == "1") {
+                            <td>
+                                <div>
+                                    <label class="control-label ">保険料控除ステータス</label>
+                                    <div>
+                                      @Html.DropDownListFor(
+                                          model => model.Search.HokenDeclareStatus,
+                                          new SelectListItem[] {
+                                              new SelectListItem() { Value="00", Text="本人未提出" },
+                                              new SelectListItem() { Value="90", Text="本人提出済み" },
+                                              new SelectListItem() { Value="91", Text="支社確定済み" },
+                                              new SelectListItem() { Value="95", Text="管理者確定済み" },
+	                                          //2023-12-15 iwai-tamura upd str -----
+                                              new SelectListItem() { Value="97", Text="システム連携済み" },
+                                              new SelectListItem() { Value="98", Text="システム連携後修正" },
+                                              new SelectListItem() { Value="99", Text="確定済み" }
+                                              //new SelectListItem() { Value="99", Text="システム連携済み" }
+	                                          //2023-12-15 iwai-tamura upd end -----
+                                          }, "", new Dictionary<string, object> {{ "class","search-status"}, { "data-width", "50px" }, { "title", "" } }
+                                      )
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <label class="control-label ">基礎控除ステータス</label>
+                                    <div>
+                                      @Html.DropDownListFor(
+                                          model => model.Search.HaiguuDeclareStatus,
+                                          new SelectListItem[] {
+                                              new SelectListItem() { Value="00", Text="本人未提出" },
+                                              new SelectListItem() { Value="90", Text="本人提出済み" },
+                                              new SelectListItem() { Value="91", Text="支社確定済み" },
+                                              new SelectListItem() { Value="95", Text="管理者確定済み" },
+	                                          //2023-12-15 iwai-tamura upd str -----
+                                              new SelectListItem() { Value="97", Text="システム連携済み" },
+                                              new SelectListItem() { Value="98", Text="システム連携後修正" },
+                                              new SelectListItem() { Value="99", Text="確定済み" }
+                                              //new SelectListItem() { Value="99", Text="システム連携済み" }
+	                                          //2023-12-15 iwai-tamura upd end -----
+                                          }, "", new Dictionary<string, object> {{ "class","search-status"},{ "data-width", "50px" }, { "title", "" } }
+                                    )
+                                    </div>
+                                </div>
+                            </td>
+                            @*2025-11-18 iwai-tamura upd-str ------*@
+                            <td>
+                                <div>
+                                    <label class="control-label ">住宅控除ステータス</label>
+                                    <div>
+                                      @Html.DropDownListFor(
+                                          model => model.Search.JutakuDeclareStatus,
+                                          new SelectListItem[] {
+                                              new SelectListItem() { Value="00", Text="本人未提出" },
+                                              new SelectListItem() { Value="90", Text="本人提出済み" },
+                                              new SelectListItem() { Value="91", Text="支社確定済み" },
+                                              new SelectListItem() { Value="95", Text="管理者確定済み" },
+                                              new SelectListItem() { Value="97", Text="システム連携済み" },
+                                              new SelectListItem() { Value="98", Text="システム連携後修正" },
+                                              new SelectListItem() { Value="99", Text="確定済み" }
+                                          }, "", new Dictionary<string, object> {{ "class","search-status"},{ "data-width", "50px" }, { "title", "" } }
+                                    )
+                                    </div>
+                                </div>
+                            </td>
+                            @*2026-01-29 iwai-tamura upd-str ------*@
+                            @*<td>
+                                <div>
+                                    <label class="control-label ">前職源泉ステータス</label>
+                                    <div>
+                                      @Html.DropDownListFor(
+                                          model => model.Search.ZenshokuDeclareStatus,
+                                          new SelectListItem[] {
+                                              new SelectListItem() { Value="00", Text="本人未提出" },
+                                              new SelectListItem() { Value="90", Text="本人提出済み" },
+                                              new SelectListItem() { Value="91", Text="支社確定済み" },
+                                              new SelectListItem() { Value="95", Text="管理者確定済み" },
+                                              new SelectListItem() { Value="97", Text="システム連携済み" },
+                                              new SelectListItem() { Value="98", Text="システム連携後修正" },
+                                              new SelectListItem() { Value="99", Text="確定済み" }
+                                          }, "", new Dictionary<string, object> {{ "class","search-status"},{ "data-width", "50px" }, { "title", "" } }
+                                    )
+                                    </div>
+                                </div>
+                            </td>*@
+                            @*2026-01-29 iwai-tamura upd-end ------*@
+                            @*2025-11-18 iwai-tamura upd-end ------*@
+                        }
+                        @*2026-01-29 iwai-tamura upd-str ------*@
+                        @if((((LoginUser)Session["LoginUser"]).IsServerStatus == "1") || (((LoginUser)Session["LoginUser"]).IsServerStatus == "3")) {
+                            <td>
+                                <div>
+                                    <label class="control-label ">前職源泉ステータス</label>
+                                    <div>
+                                      @Html.DropDownListFor(
+                                          model => model.Search.ZenshokuDeclareStatus,
+                                          new SelectListItem[] {
+                                              new SelectListItem() { Value="00", Text="本人未提出" },
+                                              new SelectListItem() { Value="90", Text="本人提出済み" },
+                                              new SelectListItem() { Value="91", Text="支社確定済み" },
+                                              new SelectListItem() { Value="95", Text="管理者確定済み" },
+                                              new SelectListItem() { Value="97", Text="システム連携済み" },
+                                              new SelectListItem() { Value="98", Text="システム連携後修正" },
+                                              new SelectListItem() { Value="99", Text="確定済み" }
+                                          }, "", new Dictionary<string, object> {{ "class","search-status"},{ "data-width", "50px" }, { "title", "" } }
+                                    )
+                                    </div>
+                                </div>
+                            </td>
+                        }
+                        @*2026-01-29 iwai-tamura upd-end ------*@
+
+                        @*<td>
+                            <div>
+                                <label class="control-label ">保険料控除ステータス</label>
+                                <div>
+                                  @Html.DropDownListFor(
+                                      model => model.Search.HokenDeclareStatus,
+                                      new SelectListItem[] {
+                                          new SelectListItem() { Value="00", Text="本人未提出" },
+                                          new SelectListItem() { Value="90", Text="本人提出済み" },
+                                          new SelectListItem() { Value="91", Text="支社確定済み" },
+                                          new SelectListItem() { Value="95", Text="管理者確定済み" },
+	                                      //2023-12-15 iwai-tamura upd str -----
+                                          new SelectListItem() { Value="97", Text="システム連携済み" },
+                                          new SelectListItem() { Value="98", Text="システム連携後修正" },
+                                          new SelectListItem() { Value="99", Text="確定済み" }
+                                          //new SelectListItem() { Value="99", Text="システム連携済み" }
+	                                      //2023-12-15 iwai-tamura upd end -----
+                                      }, "", new Dictionary<string, object> {{ "class","search-status"}, { "data-width", "50px" }, { "title", "" } }
+                                  )
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="control-label ">基礎控除ステータス</label>
+                                <div>
+                                  @Html.DropDownListFor(
+                                      model => model.Search.HaiguuDeclareStatus,
+                                      new SelectListItem[] {
+                                          new SelectListItem() { Value="00", Text="本人未提出" },
+                                          new SelectListItem() { Value="90", Text="本人提出済み" },
+                                          new SelectListItem() { Value="91", Text="支社確定済み" },
+                                          new SelectListItem() { Value="95", Text="管理者確定済み" },
+	                                      //2023-12-15 iwai-tamura upd str -----
+                                          new SelectListItem() { Value="97", Text="システム連携済み" },
+                                          new SelectListItem() { Value="98", Text="システム連携後修正" },
+                                          new SelectListItem() { Value="99", Text="確定済み" }
+                                          //new SelectListItem() { Value="99", Text="システム連携済み" }
+	                                      //2023-12-15 iwai-tamura upd end -----
+                                      }, "", new Dictionary<string, object> {{ "class","search-status"},{ "data-width", "50px" }, { "title", "" } }
+)
+                                </div>
+                            </div>
+                        </td>*@
+                        @*2023-12-15 iwai-tamura upd-end ------*@
+
+                    @*2024-12-24 iwai-tamura upd-str ------*@
+                    @if (((LoginUser)Session["LoginUser"]).IsRoot) {
+                            <td>
+                                <div>
+                                    <label class="control-label ">メール配信対象者</label>
+                                    <div class=" form-inline" style="margin-left: 40px;">
+                                      @Html.CheckBoxFor(m => m.Search.MailTargetFlag, new { tabindex = 1 })
+                                    </div>
+                                </div>
+                            </td>
+                    } else {
+                        <td></td>
+                    }
+                    @*2024-12-24 iwai-tamura upd-end ------*@
+
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-2 top10">
+            <button type="button" name="DmySearchEx" value="検索" class="btn-default pull-right btn-search" id="dmysearch" style="margin-left:5px;">検索</button>
+        </div>
+    </div>
+  <!--一覧-->
+    <div class="row top17">
+        <div class="col-xs-1"></div>
+        @*2025-11-18 iwai-tamura upd-str ------*@
+        <div class="col-xs-12">
+@*        <div class="col-xs-10">*@
+        @*2025-11-18 iwai-tamura upd-end ------*@
+            <table class="table-bordered table-striped table-ecell-show mb-zero table-sch">
+                <colgroup>
+                    @*2025-11-18 iwai-tamura upd-str ------*@
+                    <col style="width:20px" />
+                    <col style="width:40px" />
+                    <col style="width:70px" />
+                    <col style="width:120px" />
+                    <col style="width:140px" />
+                    <col style="width:60px" />
+                    <col style="width:50px" />
+                    <col style="width:50px" />
+                    <col style="width:100px" />
+                    <col style="width:50px" />
+                    <col style="width:50px" />
+                    <col style="width:100px" />
+                    <col style="width:50px" />
+                    <col style="width:50px" />
+                    <col style="width:100px" />
+
+                    <col style="width:100px" />
+                    <col style="width:100px" />
+                    <col style="width:100px" />
+                    @*2026-11-19 iwai-tamura add-str ------*@
+                    <col style="width:50px" />
+                    <col style="width:30px" />
+                    <col style="width:100px" />
+@*                    <col style="width:70px" />
+                    <col style="width:70px" />*@
+                    @*2026-11-19 iwai-tamura add-end ------*@
+                    @*<col style="width:35px" />
+                    <col style="width:50px" />
+                    <col style="width:60px" />
+                    <col style="width:120px" />
+                    <col style="width:140px" />
+                    <col style="width:60px" />
+                    <col style="width:50px" />
+                    <col style="width:50px" />
+                    <col style="width:100px" />
+                    <col style="width:50px" />
+                    <col style="width:50px" />
+                    <col style="width:100px" />
+                    <col style="width:50px" />
+                    <col style="width:50px" />
+                    <col style="width:100px" />*@
+                    @*2025-11-18 iwai-tamura upd-end ------*@
+                </colgroup>
+                <thead>
+                    <tr style="background-color: #ebe2c5;" class="allCheck">
+                        <th class="sch-th-chk"><input type="checkbox" id="allCehck" name="allCehck01" /></th>
+                        <th class="sch-th">年度</th>
+                        <th class="sch-th">社員番号</th>
+                        <th class="sch-th">氏名</th>
+                        <th class="sch-th">氏名カナ</th>
+                        <th class="sch-th">所属番号</th>
+                        @*2025-11-18 iwai-tamura upd-str ------*@
+                        <th class="sch-th" colspan="4">扶養控除</th>
+@*                        <th class="sch-th" colspan="3">扶養控除</th>*@
+                        @*2025-11-18 iwai-tamura upd-end ------*@
+                        <th class="sch-th" colspan="3">保険料控除</th>
+                        <th class="sch-th" colspan="3">基礎控除</th>
+                        @*2025-11-18 iwai-tamura upd-str ------*@
+                        <th class="sch-th" colspan="2">住宅控除</th>
+                        @*2026-11-19 iwai-tamura upd-str ------*@
+                        <th class="sch-th" colspan="3">前職源泉</th>
+@*                        <th class="sch-th" colspan="2">前職源泉</th>*@
+                        @*2026-11-19 iwai-tamura upd-end ------*@
+                        @*2025-11-18 iwai-tamura upd-end ------*@
+                    </tr>
+                </thead>
+            </table>
+
+                <table class="table table-bordered table-striped table-ecell-show scrollTable">
+
+                    <tbody class="tblscroll" id="items">
+                        @if (Model != null && Model.SearchResult != null) {
+                            foreach (YearEndAdjustmentSearchListModel row in Model.SearchResult) {
+                                <tr>
+                                    @*2024-11-19 iwai-tamura upd-str ------*@
+                                    @*ボタン表示フラグを追加(年度,社員番号,扶養控除FLG,保険控除FLG,基礎控除FLG) *@
+                                    <td style="width:32px;"><input type="checkbox" name="selPrint" value="@row.Year,@row.EmployeeNumber,@(row.HuyouDeclareButtonViewFlg ? '1' : '0'),@(row.HokenDeclareButtonViewFlg ? '1' : '0'),@(row.HaiguuDeclareButtonViewFlg ? '1' : '0')" /></td>
+                                    @*<td style="width:32px;"><input type="checkbox" name="selPrint" value="@row.Year,@row.EmployeeNumber" /></td>*@
+                                    @*2024-11-19 iwai-tamura upd-end ------*@
+                                    @*2025-11-18 iwai-tamura upd-str ------*@
+                                    <td style="width:40px;">@Html.DisplayTextFor(m => row.Year)</td>
+                                    <td style="width:40px;">@Html.DisplayTextFor(m => row.EmployeeNumber)</td>
+                                    <td style="width:120px;">@Html.DisplayTextFor(m => row.EmployeeName)</td>
+                                    <td style="width:140px;">@Html.DisplayTextFor(m => row.EmployeeNameKana)</td>
+                                    <td style="width:40px;">@Html.DisplayTextFor(m => row.Department)</td>
+                                    @*<td style="width:50px;">@Html.DisplayTextFor(m => row.Year)</td>
+                                    <td style="width:60px;">@Html.DisplayTextFor(m => row.EmployeeNumber)</td>
+                                    <td style="width:120px;">@Html.DisplayTextFor(m => row.EmployeeName)</td>
+                                    <td style="width:140px;">@Html.DisplayTextFor(m => row.EmployeeNameKana)</td>
+                                    <td style="width:60px;">@Html.DisplayTextFor(m => row.Department)</td>*@
+                                    @*2025-11-18 iwai-tamura upd-end ------*@
+
+
+                                    @*2024-11-19 iwai-tamura upd-str ------*@
+                                    @if (row.HuyouDeclareButtonViewFlg) {
+                                        @*2025-03-21 iwai-tamura upd-str ------*@
+                                        if (Model.Search.CurrentYear == row.Year) {
+                                            <td style="width:50px;"><button type="submit" name="View" value="HuyouDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                        } else { 
+                                            <td style="width:50px;"></td>
+                                        }
+                                        @*<td style="width:50px;"><button type="submit" name="View" value="HuyouDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>*@
+                                        @*2025-03-21 iwai-tamura upd-end ------*@
+                                        <td style="width:50px;">
+                                            <button type="submit" name="Print" value="HuyouDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button>
+                                        </td>
+                                        @*2025-11-18 iwai-tamura upd-str ------*@
+                                        <td style="width:30px;">
+                                            @if (row.HuyouDeclareAttachmentButtonViewFlg) { 
+                                                @Html.HiddenFor(m => row.HuyouAttachmentFilePath)
+                                                <button type="submit" name="Attachment" value="HuyouDeclareAttachment,@row.HuyouAttachmentFilePath"  id="@("rowattachment"+row.ManageNo)" class="btn-default btn-lg btn-block btn-icon">
+                                                    <img src="~/Content/img/Attachment.png" alt="" />
+                                                </button>
+                                            }
+                                        </td>
+                                        @*2025-11-18 iwai-tamura upd-end ------*@
+                                    } else {
+                                        <td style="width:50px;"></td>
+                                        <td style="width:50px;"></td>
+                                    }
+                                    @*<td style="width:50px;"><button type="submit" name="View" value="HuyouDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                    <td style="width:50px;"><button type="submit" name="Print" value="HuyouDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>*@
+                                    @*2024-11-19 iwai-tamura upd-end ------*@
+                                    <td style="width:100px;">@Html.DisplayTextFor(m => row.HuyouDeclareStatus)</td>
+
+                                    @*2023-12-15 iwai-tamura upd-str ------*@
+                                    @*2025-03-21 iwai-tamura upd-str ------*@
+                                    @if((((LoginUser)Session["LoginUser"]).IsServerStatus == "1")||(Model.Search.CurrentYear != row.Year)) {
+                                    @*@if(((LoginUser)Session["LoginUser"]).IsServerStatus == "1") {*@
+                                    @*2025-03-21 iwai-tamura upd-end ------*@
+                                        @*2024-11-19 iwai-tamura upd-str ------*@
+                                        if (row.HokenDeclareButtonViewFlg) {
+                                            @*2025-03-21 iwai-tamura upd-str ------*@
+                                            if (Model.Search.CurrentYear == row.Year) {
+                                                <td style="width:50px;"><button type="submit" name="View" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                            } else { 
+                                                <td style="width:50px;"></td>
+                                            }
+                                            @*<td style="width:50px;"><button type="submit" name="View" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>*@
+                                            @*2025-03-21 iwai-tamura upd-end ------*@
+                                            <td style="width:50px;"><button type="submit" name="Print" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+                                        } else {
+                                            <td style="width:50px;"></td>
+                                            <td style="width:50px;"></td>
+                                        }
+                                        @*<td style="width:50px;"><button type="submit" name="View" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                        <td style="width:50px;"><button type="submit" name="Print" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>*@
+                                        @*2024-11-19 iwai-tamura upd-end ------*@
+                                        <td style="width:100px;">@Html.DisplayTextFor(m => row.HokenDeclareStatus)</td>
+
+                                        @*2024-11-19 iwai-tamura upd-str ------*@
+                                        if (row.HaiguuDeclareButtonViewFlg) {
+                                            @*2025-03-21 iwai-tamura upd-str ------*@
+                                            if (Model.Search.CurrentYear == row.Year) {
+                                                <td style="width:50px;"><button type="submit" name="View" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                            } else { 
+                                                <td style="width:50px;"></td>
+                                            }
+                                            @*<td style="width:50px;"><button type="submit" name="View" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>*@
+                                            @*2025-03-21 iwai-tamura upd-end ------*@
+                                            <td style="width:50px;"><button type="submit" name="Print" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+                                        } else {
+                                            <td style="width:50px;"></td>
+                                            <td style="width:50px;"></td>
+                                        }
+                                        @*<td style="width:50px;"><button type="submit" name="View" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                        <td style="width:50px;"><button type="submit" name="Print" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>*@
+                                        @*2024-11-19 iwai-tamura upd-end ------*@
+                                        <td style="width:100px;">@Html.DisplayTextFor(m => row.HaiguuDeclareStatus)</td>
+                                    }else{
+                                        <td style="width:50px;"></td>
+                                        <td style="width:50px;"></td>
+                                        <td style="width:100px;"></td>
+
+                                        <td style="width:50px;"></td>
+                                        <td style="width:50px;"></td>
+                                        <td style="width:100px;"></td>
+                                    }
+                                    @*<td style="width:50px;"><button type="submit" name="View" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                    <td style="width:50px;"><button type="submit" name="Print" value="HokenDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+                                    <td style="width:100px;">@Html.DisplayTextFor(m => row.HokenDeclareStatus)</td>
+
+                                    <td style="width:50px;"><button type="submit" name="View" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                    <td style="width:50px;"><button type="submit" name="Print" value="HaiguuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("rowprint"+row.ManageNo)" style="margin-left:5px;">PDF</button></td>
+                                    <td style="width:100px;">@Html.DisplayTextFor(m => row.HaiguuDeclareStatus)</td>*@
+                                    @*2023-12-15 iwai-tamura upd-end ------*@
+                                    @*2025-11-18 iwai-tamura upd-str ------*@
+                                    @*住宅借入金控除*@
+                                    @if((((LoginUser)Session["LoginUser"]).IsServerStatus == "1")||(Model.Search.CurrentYear != row.Year)) {
+
+                                        if (row.JutakuDeclareButtonViewFlg) {
+                                            if (Model.Search.CurrentYear == row.Year) {
+                                                <td style="width:50px;"><button type="submit" name="View" value="JutakuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                            } else { 
+                                                <td style="width:50px;"></td>
+                                            }
+                                        } else {
+                                            <td style="width:50px;"></td>
+                                        }
+                                    }
+                                    <td style="width:100px;">@Html.DisplayTextFor(m => row.JutakuDeclareStatus)</td>
+
+                                    @*2026-11-19 iwai-tamura upd-str ------*@
+                                    @*前職源泉*@
+                                    @if (row.ZenshokuDeclareButtonViewFlg) {
+                                        if (Model.Search.CurrentYear == row.Year) {
+                                            <td style="width:50px;"><button type="submit" name="View" value="ZenshokuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                        } else { 
+                                            <td style="width:50px;"></td>
+                                        }
+                                    } else {
+                                        <td style="width:50px;"></td>
+                                    }
+                                    <td style="width:30px;">
+                                        @if (row.ZenshokuDeclareAttachmentButtonViewFlg) {
+                                            @Html.HiddenFor(m => row.ZenshokuAttachmentFilePath)
+                                            <button type="submit" name="Attachment" value="ZenshokuDeclareAttachment,@row.ZenshokuAttachmentFilePath" id="@("rowattachment"+row.ManageNo)" class="btn-default btn-lg btn-block btn-icon">
+                                                <img src="~/Content/img/Attachment.png" alt="" />
+                                            </button>
+                                        }
+                                    </td>
+                                    <td style="width:100px;">@Html.DisplayTextFor(m => row.ZenshokuDeclareStatus)</td>
+                                    @*@if (row.ZenshokuDeclareButtonViewFlg) {
+                                        if (Model.Search.CurrentYear == row.Year) {
+                                            <td style="width:50px;"><button type="submit" name="View" value="ZenshokuDeclare,@row.Year,@row.EmployeeNumber" class="btn-default btn-xs" id="@("view"+row.ManageNo)" style="margin-left:5px;">登録</button></td>
+                                        } else { 
+                                            <td style="width:50px;"></td>
+                                        }
+                                    } else {
+                                        <td style="width:50px;"></td>
+                                    }
+                                    <td style="width:100px;">@Html.DisplayTextFor(m => row.ZenshokuDeclareStatus)</td>*@
+                                    @*2026-11-19 iwai-tamura upd-end ------*@
+                                    @*2025-11-18 iwai-tamura upd-end ------*@
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row top17">
+            @*2025-11-18 iwai-tamura upd-str ------*@
+            <div class="col-xs-12 ">
+                @*<div class="col-xs-offset-1 col-xs-10 ">*@
+                @*2025-11-18 iwai-tamura upd-end ------*@
+                @*2025-11-28 iwai-matsuo upd str -----*@
+                <div class="pull-right g-perform-group">
+
+                    <label class="g-r1 g-c1 g-lbl-right">一括確定登録：</label>
+                    <button type="button" name="DmySignBatchHuyou" value="帳票出力xls" class="btn-default btn-batch g-r1 g-c2 g-btn-center" id="dmysignbatch_huyou" >扶養控除</button>
+                    @if (((LoginUser)Session["LoginUser"]).IsServerStatus == "1")
+                    {
+                        <button type="button" name="DmySignBatchHoken" value="帳票出力xls" class="btn-default btn-batch g-r1 g-c3 g-btn-center" id="dmysignbatch_hoken" >保険料控除</button>
+                        <button type="button" name="DmySignBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch g-r1 g-c4 g-btn-center" id="dmysignbatch_haiguu">基礎控除</button>
+                    }
+                    @if (((LoginUser)Session["LoginUser"]).IsServerStatus == "1")
+                    {
+                        <button type="button" name="DmySignBatchJutaku" value="帳票出力xls" class="btn-default btn-batch g-r1 g-c5 g-btn-center" id="dmysignbatch_jutaku">住宅控除</button>
+                    }
+                    <button type="button" name="DmySignBatchZenshoku" value="帳票出力xls" class="btn-default btn-batch g-r1 g-c6 g-btn-center" id="dmysignbatch_zenshoku">前職源泉</button>
+
+                    
+                    <label class="g-r2 g-c1 g-lbl-right">一括帳票出力：</label>
+                    <button type="button" name="DmyPrintBatchHuyou" value="帳票出力xls" class="btn-default btn-batch g-r2 g-c2 g-btn-center" id="dmyprintbatch_huyou" >扶養控除</button>
+                    <button type="button" name="DmyPrintBatchHoken" value="帳票出力xls" class="btn-default btn-batch g-r2 g-c3 g-btn-center" id="dmyprintbatch_hoken" >保険料控除</button>
+                    <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch g-r2 g-c4 g-btn-center" id="dmyprintbatch_haiguu" >基礎控除</button>
+                     
+
+                    <label class="g-r3 g-c1 g-lbl-right">対象者Excel出力：</label>
+                    <button type="button" name="DmyPrintXlsJutaku" value="帳票出力xls" class="btn-default btn-batch g-r3 g-c5 g-btn-center" id="dmyprintxls_jutaku">住宅控除</button>
+                    <button type="button" name="DmyPrintXlsZenshoku" value="帳票出力xls" class="btn-default btn-batch g-r3 g-c6 g-btn-center" id="dmyprintxls_zenshoku">前職源泉</button>
+
+                    
+                    <label class="g-r4 g-c1 g-lbl-right">その他処理：</label>
+                    @if (((LoginUser)Session["LoginUser"]).IsRoot)
+                    {
+                        <button type="button" name="DmySendMail" value="tmp" class="btn-default btn-batch g-r4 g-c2 g-btn-center" id="dmysendmailbutton">メール配信</button>
+                    }
+                    <button type="submit" name="Back" value="戻る" class="btn-default btn-batch g-r4 g-c6 g-btn-center" id="backbutton">戻る</button>
+                    
+                </div>
+                <!--<div class="pull-right">
+                    <div>
+                        <label class="control-label">　一括確定登録 ：</label>
+                        <button type="button" name="DmySignBatchHuyou" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_huyou" style="margin-left:5px;">扶養控除</button>-->
+                        @*2023-12-15 iwai-tamura upd-str ------*@
+                        <!--@if (((LoginUser)Session["LoginUser"]).IsServerStatus == "1")
+                        {
+                            <button type="button" name="DmySignBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_hoken" style="margin-left:5px;">保険料控除</button>
+                            <button type="button" name="DmySignBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_haiguu" style="margin-left:5px;">基礎控除</button>
+                        }-->
+                        @*<button type="button" name="DmySignBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_hoken" style="margin-left:5px;">保険料控除</button>
+                <button type="button" name="DmySignBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_haiguu" style="margin-left:5px;">基礎控除</button>*@
+                        @*2023-12-15 iwai-tamura upd-end ------*@
+                        @*2025-11-18 iwai-tamura upd-str ------*@
+                        <!--@if (((LoginUser)Session["LoginUser"]).IsServerStatus == "1")
+                        {
+                            <button type="button" name="DmySignBatchJutaku" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_jutaku" style="margin-left:5px;">住宅控除</button>
+                        }
+                        <button type="button" name="DmySignBatchZenshoku" value="帳票出力xls" class="btn-default btn-batch" id="dmysignbatch_zenshoku" style="margin-left:5px;">前職源泉</button>-->
+                        @*2025-11-18 iwai-tamura upd-end ------*@
+
+                    <!--</div>
+                    <div>
+                        <label class="control-label">　一括帳票出力 ：</label>
+                        <button type="button" name="DmyPrintBatchHuyou" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_huyou" style="margin-left:5px;">扶養控除</button>-->
+                        @*2025-03-21 iwai-tamura upd-str 履歴出力の為、常に表示------*@
+                        <!--<button type="button" name="DmyPrintBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_hoken" style="margin-left:5px;">保険料控除</button>
+                        <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_haiguu" style="margin-left:5px;">基礎控除</button>-->
+                        @*2023-12-15 iwai-tamura upd-str ------*@
+                        @*@if(((LoginUser)Session["LoginUser"]).IsServerStatus == "1") {
+                    <button type="button" name="DmyPrintBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_hoken" style="margin-left:5px;">保険料控除</button>
+                    <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_haiguu" style="margin-left:5px;">基礎控除</button>
+                }*@
+                        @*<button type="button" name="DmyPrintBatchHoken" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_hoken" style="margin-left:5px;">保険料控除</button>
+                <button type="button" name="DmyPrintBatchHaiguu" value="帳票出力xls" class="btn-default btn-batch" id="dmyprintbatch_haiguu" style="margin-left:5px;">基礎控除</button>*@
+                        @*2023-12-15 iwai-tamura upd-str ------*@
+                        @*2025-03-21 iwai-tamura upd-end ------*@
+                    <!--</div>-->
+                    @*2025-11-18 iwai-tamura upd-str ------*@
+                    <!--<div>
+                        <label class="control-label">対象者Excel出力：</label>
+                        <button type="button" name="Dmybtn1" value="帳票出力xls" class="btn-default btn-batch btn invisible" id="dmybtn1" style="margin-left:5px;">空ボタン</button>
+                        <button type="button" name="Dmybtn2" value="帳票出力xls" class="btn-default btn-batch btn invisible" id="dmybtn2" style="margin-left:5px;">空ボタン</button>
+                        <button type="button" name="Dmybtn3" value="帳票出力xls" class="btn-default btn-batch btn invisible" id="dmybtn3" style="margin-left:5px;">空ボタン</button>
+                        <button type="button" name="DmyPrintXlsZenshoku" value="帳票出力xls" class="btn-default btn-batch pull-right" id="dmyprintxls_zenshoku" style="margin-left:5px;">前職源泉</button>
+                        <button type="button" name="DmyPrintXlsJutaku" value="帳票出力xls" class="btn-default btn-batch pull-right" id="dmyprintxls_jutaku" style="margin-left:5px;">住宅控除</button>
+                    </div>-->
+                    @*2025-11-18 iwai-tamura upd-end ------*@
+
+                    @*2025-11-18 iwai-tamura upd-str ------*@
+                    <!--<div>
+                        <label class="control-label">　　その他処理　：</label>
+                        @if (((LoginUser)Session["LoginUser"]).IsRoot)
+                        {
+                            <button type="button" name="DmySendMail" value="tmp" class="btn-default btn-batch" id="dmysendmailbutton" style="margin-left:5px;">メール配信</button>
+                        }
+                        <button type="submit" name="Back" value="戻る" class="btn-default btn-batch pull-right" id="backbutton" style="margin-left:5px;">戻る</button>
+                    </div>-->
+                    @*<div>
+                <button type="submit" name="Back" value="戻る" class="btn-default btn-batch pull-right" id="backbutton" style="margin-left:5px;">戻る</button>
+            </div>*@
+                    @*2024-12-24 iwai-tamura upd-str ------*@
+                    @*@if (((LoginUser)Session["LoginUser"]).IsRoot) {
+                <div>
+                    <button type="button" name="DmySendMail" value="tmp" class="btn-default btn-batch pull-right" id="dmysendmailbutton" style="margin-left:5px;">メール配信</button>
+                </div>
+            }*@
+                    @*2024-12-24 iwai-tamura upd-end ------*@
+                    @*2025-11-18 iwai-tamura upd-end ------*@
+                <!--</div>-->
+             @*2025-11-28 iwai-matsuo upd end -----*@
+            </div>
+    </div>
+
+    @*隠しボタンエリア*@
+    <div style="height:0px;">
+        <button type="submit" name="SearchEx" value="検索" class="btn invisible" id="searchbutton">検索</button>
+        <button type="submit" name="SearchD" value="検索" class="btn invisible" id="searchbuttonD">検索</button>
+        <button type="submit" name="SelfInput" value="本人入力" class="btn invisible" id="selfinputbutton">本人入力</button>
+        <button type="submit" name="SubView" value="部下表示" class="btn invisible" id="subviewbutton">部下表示</button>
+        <button type="submit" name="Sign" value="一括承認" class="btn invisible" id="signbutton">一括承認</button>
+        <button type="submit" name="Download" value="帳票保存" class="btn invisible" id="downloadbutton">帳票保存</button>
+
+        <button type="submit" name="SignBatchHuyou" value="帳票出力" class="btn invisible" id="signbatch_huyou_button">扶養一括承認</button>
+        <button type="submit" name="SignBatchHoken" value="帳票出力" class="btn invisible" id="signbatch_hoken_button">保険一括承認</button>
+        <button type="submit" name="SignBatchHaiguu" value="帳票出力" class="btn invisible" id="signbatch_haiguu_button">基礎一括承認</button>
+
+        <button type="submit" name="PrintBatchHuyou" value="帳票出力" class="btn invisible" id="printbatch_huyou_button">帳票出力</button>
+        <button type="submit" name="PrintBatchHoken" value="帳票出力" class="btn invisible" id="printbatch_hoken_button">帳票出力</button>
+        <button type="submit" name="PrintBatchHaiguu" value="帳票出力" class="btn invisible" id="printbatch_haiguu_button">帳票出力</button>
+
+        @*2025-11-18 iwai-tamura upd-str ------*@
+        <button type="submit" name="SignBatchJutaku" value="帳票出力" class="btn invisible" id="signbatch_jutaku_button">住宅一括承認</button>
+        <button type="submit" name="SignBatchZenshoku" value="帳票出力" class="btn invisible" id="signbatch_zenshoku_button">前職一括承認</button>
+        <button type="submit" name="PrintXlsJutaku" value="Jutaku" class="btn invisible" id="printxls_jutaku_button">Excel出力</button>
+        <button type="submit" name="PrintXlsZenshoku" value="Zenshoku" class="btn invisible" id="printxls_zenshoku_button">Excel出力</button>
+        @*2025-11-18 iwai-tamura upd-end ------*@
+
+
+        @*2024-12-24 iwai-tamura upd-str ------*@
+        <button type="submit" name="SendMail" value="tmp"  class="btn invisible" id="sendmailbutton">メール配信</button>
+        @*2024-12-24 iwai-tamura upd-end ------*@
+
+        @*2021-12-24 iwai-tamura upd str ------*@
+        <button type="submit" name="PrintA20Xls" value="帳票出力xls" class="btn invisible" id="printa20xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintB20Xls" value="帳票出力xls" class="btn invisible" id="printb20xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintC20Xls" value="帳票出力xls" class="btn invisible" id="printc20xlsbutton">Excel出力</button>
+        @*2021-12-24 iwai-tamura upd end ------*@
+
+        @*2020-04-10 iwai-tamura upd str ------*@
+        @*↓↓↓↓2020年度まで↓↓↓*@
+        @*<button type="submit" name="PrintA11Xls" value="帳票出力xls" class="btn invisible" id="printa11xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintA12Xls" value="帳票出力xls" class="btn invisible" id="printa12xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintA13Xls" value="帳票出力xls" class="btn invisible" id="printa13xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintB11Xls" value="帳票出力xls" class="btn invisible" id="printb11xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintB12Xls" value="帳票出力xls" class="btn invisible" id="printb12xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintC11Xls" value="帳票出力xls" class="btn invisible" id="printc11xlsbutton">Excel出力</button>
+        <button type="submit" name="PrintC12Xls" value="帳票出力xls" class="btn invisible" id="printc12xlsbutton">Excel出力</button>*@
+
+
+        <button type="submit" name="PrintD" value="帳票出力" class="btn invisible" id="printdbutton">帳票出力</button>
+        <button type="submit" name="PrintDXls" value="帳票出力xls" class="btn invisible" id="printdxlsbutton">Excel出力</button>
+
+        @*<button type="submit" name="PrintAXls" value="帳票出力xls" class="btn invisible" id="printaxlsbutton">Excel出力</button>
+        <button type="submit" name="PrintBXls" value="帳票出力xls" class="btn invisible" id="printbxlsbutton">Excel出力</button>
+        <button type="submit" name="PrintCXls" value="帳票出力xls" class="btn invisible" id="printcxlsbutton">Excel出力</button>
+        <button type="submit" name="PrintD" value="帳票出力" class="btn invisible" id="printdbutton">帳票出力</button>
+        <button type="submit" name="PrintDXls" value="帳票出力xls" class="btn invisible" id="printdxlsbutton">Excel出力</button>
+        <button type="submit" name="PrintCareer" value="帳票出力" class="btn invisible" id="printcareerbutton">帳票出力</button>
+        <button type="submit" name="PrintCareerXls" value="帳票出力xls" class="btn invisible" id="printcareerxlsbutton">Excel出力</button>*@
+        @*2020-04-10 iwai-tamura upd end ------*@
+    </div>
+
+    <div>
+        @if (Model.Down.DownloadFlag) {
+            //jsファイルで読込む形にする;
+            @Scripts.Render("~/Scripts/js/objp")
+        }
+    </div>
+
+    @Scripts.Render("~/Scripts/js/yearends")
+
+}

@@ -1,0 +1,84 @@
+﻿@using EmployeeAdjustmentConnectionSystem.COM.Enum;
+@using EmployeeAdjustmentConnectionSystem.COM.Models
+@model SkillAssessmentViewModels
+
+@{
+
+  //2016-10-06 iwai-tamura upd str -----
+  string[] comps = new string[] { "11", "12", "13", "15", "17" };
+  //string[] comps = new string[] { "11", "12", "13", "15" };
+  //2016-10-06 iwai-tamura upd end -----
+  //string[] guides = new string[] { "30", "33", "34" };
+  var itemName = comps.Contains(Model.Head.CompetencyNo) ? "業績判定" : "成績判定";
+  //var content = comps.Contains(Model.Head.CompetencyNo) ? "「チャレンジ度」と「改善・改革意欲」" : "「積極性」と「協調性」";
+  //var guide = guides.Contains(Model.Head.CompetencyNo) ? "「職能要件書」" : "「マネジメントガイド」";
+
+}
+
+
+<table class="table table-bordered">
+  <colgroup>
+    <col style="width:60px;" />
+    <col />
+    <col />
+    <col />
+  </colgroup>
+  <thead>
+    <tr class="info">
+      <th height="10">段階記号</th>
+      <th>@itemName</th>
+      <th>情意判定</th>
+    </tr>
+  </thead>
+  <tbody>
+    @*2022-04-05 iwai-tamura del str -----*@
+    @*@if(comps.Contains(Model.Head.CompetencyNo)) {
+      <tr>
+        <td class="info">S</td>
+        <td>
+          上位階級としても申し分ない結果であった。<br>
+          (上位等級としてもA)
+        </td>
+        <td>－－－</td>
+      </tr>
+    }*@
+    @*2022-04-05 iwai-tamura del end -----*@
+    <tr>
+      <td class="info">A</td>
+      <td>
+        ミスや問題はなく期待レベルを上回っており、申し分ない結果であった。
+      </td>
+      <td>
+        期待を上回る行動であり、問題点はなく、他に信頼され模範となっていた。
+      </td>
+    </tr>
+    <tr>
+      <td class="info">B</td>
+      <td>
+        ほぼ期待レベルの結果であり、業務にも支障がなかった。(多少のミスや支障があった場合においては、責任を持って対処していた。)
+      </td>
+      <td>
+        概ね期待通りの良好な行動であり、何ら指導を要せず、特に問題もなかった。
+      </td>
+    </tr>
+    <tr>
+      <td class="info">C</td>
+      <td>
+        ミスや問題があり、期待レベルを下回ったが業務は何とか遂行できた。
+      </td>
+      <td>
+        やや行動に問題があり、時折、注意が必要であった。ときどき他へ悪影響を及ぼした。
+      </td>
+    </tr>
+    <tr>
+      <td class="info">D</td>
+      <td>
+        期待レベルを大幅に下回り、ミスや問題が目立ちしばしば業務に支障をきたした。
+      </td>
+      <td>
+        期待した行動をとらずに期待をはるかに下回った。問題点が目立ちほかに重大な影響を及ぼした。
+      </td>
+    </tr>
+  </tbody>
+</table>
+

@@ -1,0 +1,197 @@
+﻿@using SkillDiscriminantSystem.COM.Entity.Session
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+@*<!--レスポンシブ用-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">*@
+  <title>@ViewBag.Title - </title>
+  @Styles.Render("~/Content/css")
+  @Scripts.Render("~/bundles/modernizr")
+@*<!--IE9以降のJquery 今回は封印-->
+  @Scripts.Render("~/bundles/jquery")*@
+  @Scripts.Render("~/bundles/jqueryold")
+  @Scripts.Render("~/bundles/bootstrap")
+@*<!--IE8以下のレスポンシブ有効化 但し今回は封印-->
+  @Scripts.Render("~/bundles/respond")*@
+  @Scripts.Render("~/bundles/html5shiv")
+  @Scripts.Render("~/bundles/jqueryui")
+  @Scripts.Render("~/bundles/jqueryuidp")
+@*<!--コンボボックス装飾 IE8では封印-->
+  @Scripts.Render("~/bundles/bootstrapsel")*@
+  @Scripts.Render("~/Scripts/js/cmn")
+  @RenderSection("scripts", required: false)
+  <script type="text/javascript">
+    //オンロードイベント
+    $(window).on('load', function () {
+        //コンボボックス装飾
+        //IE8では封印
+        //  $('.selectpicker').selectpicker({
+        //    'selectedText': 'cat'
+        //  });
+        @*    表示判定*@
+        @if(TempData["Success"] != null) {
+            //アラート表示
+            @:showAlert('完了', '@TempData["Success"]');
+                                                        }
+        //2016-04-14 iwai-tamura upd str -----
+        @*    表示判定*@
+        @if (TempData["Confirmation"] != null)
+        {
+            //確認表示
+            @*2017-03-31 sbc-sagara upd str alert内改行表示対応 *@
+            @*@:showAlert('確認', 'TempData["Confirmation"]');*@
+            @:showAlert('確認', '@Html.Raw(TempData["Confirmation"])');
+            @*2017-03-31 sbc-sagara upd end *@
+            TempData["Confirmation"] = null;
+        }
+        //2016-04-14 iwai-tamura upd end -----
+        @* 2017-04-30 sbc-sagara add str アカウント作成参照追加用 *@
+        @if (TempData["ReferenceID"] != null) {
+            //確認表示
+            @:showMessage('アカウント追加', '@Html.Raw("以下のアカウント情報を参照しアカウント追加を行います。<br /><br />" + TempData["ReferenceID"] + "<br /><br />アカウント追加を実行しますか？")', 'AddAccount_Reference', true);
+            TempData["ReferenceID"] = null;
+        }
+        @* 2017-04-30 sbc-sagara add end アカウント作成参照追加用 *@
+
+
+
+
+            });
+    //ログアウトメッセージボックス
+    function logoutMessage() {
+        //ボタンクリック
+        showLogout(true, '');
+    }
+  </script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--2016-05-23 iwai-tamura upd str ------->
+                <div class="navbar-brand">目標管理&frasl;職能判定管理システム</div>
+                @*<div class="navbar-brand">職能&frasl;職務判定管理システム</div>*@
+                <!--2016-05-23 iwai-tamura upd end ------->
+
+            </div>
+            @*<!--IE9以降のnavi 今回は封印-->
+                <div class="navbar-collapse collapse">*@
+            <div>
+                @{
+                    //ログイン判断
+                    bool isLogin = null == HttpContext.Current.Session["IsLogin"] ? false : (bool)HttpContext.Current.Session["IsLogin"];
+                    if (isLogin)
+                    {
+                        var lu = (LoginUser)HttpContext.Current.Session["LoginUser"];
+                        //ログアウト処理
+                        using (Html.BeginForm("LogOff", "Login", FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <ul class="nav navbar-nav">
+                                <li>@Html.ActionLink("目標管理", "Search", "ObjectivesSearch")</li>
+                                <li>@Html.ActionLink("職能・職務判定", "Search", "SkillSearch")</li>
+                                <li>@Html.ActionLink("決裁権限設定", "Search", "ApproverSearch")</li>
+                                @* 2017-03-31 sbc-sagara add str 支社管理機能追加 *@
+                                @if(((LoginUser)Session["LoginUser"]).SYS管理MENU == "1") {
+                                <li>@Html.ActionLink("システム管理", "Index", "SystemManagement")</li>
+                                }
+                                @* 2017-03-31 sbc-sagara add end 支社管理機能追加 *@
+                                <li>@Html.ActionLink("パスワード変更", "ChangePassword", "ChangePassword")</li>
+                                <li><a href="javascript:logoutMessage();">ログアウト</a></li>
+
+                            </ul>
+                            @*2017-03-31 sbc-sagara upd str 画面拡縮機能レイアウト調整*@
+                            @* 拡大縮小ボタン追加前 *@
+                            @*
+                            @<ul class="nav navbar-text navbar-right">
+                                <li>User：@lu.DepartmentName @lu.UserName (@lu.UserCode)</li>
+                            </ul>
+                            *@
+                            @*表示ボックス横配置 *@
+                            <div class="nav navbar-nav">
+                                <div class="nav-size">
+                                    画面サイズ
+                                    <a href="#" onclick="$('body').css('zoom', '120%');" style="padding:2px;">大</a>
+                                    <a href="#" onclick="$('body').css('zoom', '98%');" style="padding:2px;">中</a>
+                                    <a href="#" onclick="$('body').css('zoom', '80%');" style="padding:2px;">小</a>
+                                </div>
+                            </div>
+                            <ul class="nav navbar-text navbar-right">
+                                <li>User：@lu.DepartmentName @lu.UserName (@lu.UserCode)</li>
+                            </ul>
+                            @*表示ボックス縦配置*@
+                            @*
+                            <div class="nav navbar-text navbar-right navbar-2linetext">
+                                <div>User：@lu.DepartmentName @lu.UserName (@lu.UserCode)</div>
+                                <div class="nav-size">
+                                    画面サイズ
+                                    <a href="javascript:void(s=document.body.style);s.setAttribute('zoom','120%');" style="padding:2px;">大</a>
+                                    <a href="javascript:void(s=document.body.style);s.setAttribute('zoom','100%');" style="padding:2px;">中</a>
+                                    <a href="javascript:void(s=document.body.style);s.setAttribute('zoom','80%');" style="padding:2px;">小</a>
+                                </div>
+                            </div>
+                            *@
+                                    @* ボタンイメージ プラス・マイナス*@
+                                    @*
+                                        <a href="javascript:void(s=document.body.style);void(z=s.getAttribute('zoom'));if(z){s.setAttribute('zoom',(parseInt(z)+20)+'%');}else{s.setAttribute('zoom','120%');}"><img width="13" height="13" src="~/Content/img/000.gif"></a>
+                                        <a href="javascript:void(s=document.body.style);void(z=s.getAttribute('zoom'));if(z){s.setAttribute('zoom',(parseInt(z)-20)+'%');}else{s.setAttribute('zoom','80%');}"><img width="13" height="13" src="~/Content/img/111.gif"></a>
+                                    *@
+                                    @* ボタンテキスト 拡大・縮小*@
+                                    @*
+                                    <a href="javascript:void(s=document.body.style);void(z=s.getAttribute('zoom'));if(z){s.setAttribute('zoom',(parseInt(z)+20)+'%');}else{s.setAttribute('zoom','120%');}" style="padding:2px;">拡大</a>
+                                    <a href="javascript:void(s=document.body.style);void(z=s.getAttribute('zoom'));if(z){s.setAttribute('zoom',(parseInt(z)-20)+'%');}else{s.setAttribute('zoom','80%');}" style="padding:2px;">縮小</a>
+                                    *@
+                                    @* ボタンテキスト 大・中・小*@
+                                    @*
+                                    <a href="javascript:void(s=document.body.style);s.setAttribute('zoom','120%');" style="padding:2px;">大</a>
+                                    <a href="javascript:void(s=document.body.style);s.setAttribute('zoom','100%');" style="padding:2px;">中</a>
+                                    <a href="javascript:void(s=document.body.style);s.setAttribute('zoom','80%');" style="padding:2px;">小</a>
+                                    *@
+                            @*2017-03-31 sbc-sagara upd end 画面拡縮機能レイアウト調整*@
+                        }
+                    }
+
+    //@Html.Partial("_LoginPartial")
+}
+</div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer></footer>
+    </div>
+    @*ダイアログ用*@
+    <div id="show_dialog"></div>
+    @*ローディング用*@
+    <!--2016-04-14 iwai-tamura upd str   階層変更に伴い修正-->
+    @* 2017-03-31 sbc-sagara upd str アドレス修正 *@
+    @*
+    <div align="center" id="loadingPanel" class="loading-panel-off" style=" background-image: url('/SkillDiscriminantSystem/Content/img/bk.png'); background-repeat: repeat; overflow:hidden;">
+        <div id="innerLoadingPanel" class="inner-loading-panel"><img id="waitImage" src="/SkillDiscriminantSystem/Content/img/726.GIF" /><br><span id="loadingMessage">In Processing・・・</span></div>
+    </div>
+    *@
+    <div align="center" id="loadingPanel" class="loading-panel-off" style=" background-image: url('../Content/img/bk.png'); background-repeat: repeat; overflow:hidden;">
+        <div id="innerLoadingPanel" class="inner-loading-panel"><img id="waitImage" src="../Content/img/726.GIF" /><br><span id="loadingMessage">In Processing・・・</span></div>
+    </div>
+    @* 2017-03-31 sbc-sagara upd str アドレス修正 *@
+    @*<div align="center" id="loadingPanel" class="loading-panel-off" style=" background-image: url('../../Content/img/bk.png'); background-repeat: repeat; overflow:hidden;">
+          <div id="innerLoadingPanel" class="inner-loading-panel"><img id="waitImage" src="../../Content/img/726.GIF" /><br><span id="loadingMessage">In Processing・・・</span></div>
+        </div>*@
+    <!--2016-04-14 iwai-tamura upd end-->
+
+
+
+
+</body>
+
+</html>
