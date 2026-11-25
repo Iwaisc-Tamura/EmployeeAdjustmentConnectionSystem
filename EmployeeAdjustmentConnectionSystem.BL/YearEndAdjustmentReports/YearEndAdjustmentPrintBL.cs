@@ -245,6 +245,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
 
                         //2026-11-19 iwai-miki add-str ---
                         case "2026":
+                        //2026-11-27 iwai-tamura add-str ---
+                        case "2027":    //2027年度暫定対応
+                        //2026-11-27 iwai-tamura add-end ---
 
                             var HaiguuDeclareReport_2026 = new HaiguuDeclareReport_2026();
                             try
@@ -1084,6 +1087,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
 
                         //2026-11-19 iwai-miki add-str ---
                         case "2026":
+                        //2026-11-27 iwai-miki add-str ---
+                        case "2027":    //2027年度暫定対応
+                        //2026-11-27 iwai-miki add-end ---
                             var HuyouDeclareReport_2026 = new HuyouDeclareReport_2026();
                             try
                             {
@@ -2045,6 +2051,9 @@ namespace EmployeeAdjustmentConnectionSystem.BL.YearEndAdjustmentReports {
 
                         //2026-11-19 iwai-miki add-str ---
                         case "2026":
+                        //2026-11-27 iwai-miki add-str ---
+                        case "2027":    //2027年度暫定対応
+                        //2026-11-27 iwai-miki add-end ---
                             var HokenDeclareReport_2026 = new HokenDeclareReport_2026();
                             try
                             {

@@ -68,13 +68,19 @@
 
     <div class="col-xs-6" style="margin-left: 25%;margin-top:10pt">
 
+        @*2026-11-27 iwai-miki upd-str ------*@
         @*2024-11-19 iwai-tamura upd-str ------*@
         @*2025-11-18 iwai-tamura upd-str ------*@
-        @if (((LoginUser)Session["LoginUser"]).IsAdminNo == "K" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "1" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "7" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "8" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "9"){
+        @if (((LoginUser)Session["LoginUser"]).IsAdminNo == "K" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "1" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "2" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "3" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "7" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "8" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "9"){
             <div class="row form-inline">
                 <label style="font-size:14px;vertical-align: middle;">　[管理者用]　代理社員番号：</label><input class="form-control" type="text" name="specifyEmployeeNo" /><br /><br />
             </div>
         }
+        @*@if (((LoginUser)Session["LoginUser"]).IsAdminNo == "K" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "1" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "7" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "8" || ((LoginUser)Session["LoginUser"]).IsAdminNo == "9"){
+            <div class="row form-inline">
+                <label style="font-size:14px;vertical-align: middle;">　[管理者用]　代理社員番号：</label><input class="form-control" type="text" name="specifyEmployeeNo" /><br /><br />
+            </div>
+        }*@
         @*@if (((LoginUser)Session["LoginUser"]).IsRoot) {
             <div class="row form-inline">
                 <label style="font-size:14px;vertical-align: middle;">　[管理者用]　代理社員番号：</label><input class="form-control" type="text" name="specifyEmployeeNo" /><br /><br />
@@ -89,6 +95,7 @@
         }*@
         @*2023-11-20 iwai-tamura upd-end ------*@
         @*2024-11-19 iwai-tamura upd-end ------*@
+        @*2026-11-27 iwai-miki upd-end ------*@
 
 	    <div class="well-ex-header"  style="background-color: #DEF5E5;">
             @*2023-11-20 iwai-tamura upd-str ------*@
